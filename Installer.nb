@@ -53,8 +53,8 @@ Cell[BoxData[{
        RowBox[{"\"\<Toolbox\>\"", ",", 
         RowBox[{"FileNameJoin", "[", 
          RowBox[{"{", 
-          RowBox[{"path", ",", "\"\<Toolbox\>\""}], "}"}], "]"}]}], "]"}],
-       ";", "\[IndentingNewLine]", 
+          RowBox[{"path", ",", "\"\<Toolbox\>\""}], "}"}], "]"}]}], "]"}], 
+      ";", "\[IndentingNewLine]", 
       RowBox[{"CopyDirectory", "[", 
        RowBox[{"\"\<AutomaticUnits\>\"", ",", 
         RowBox[{"FileNameJoin", "[", 
@@ -91,8 +91,8 @@ installation of the Toolbox. It will not be removed.\>\""}],
     RowBox[{
      RowBox[{"FileNameSplit", "[", 
       RowBox[{"DirectoryName", "[", 
-       RowBox[{"FindFile", "[", "\"\<Toolbox`\>\"", "]"}], "]"}], "]"}], 
-     "[", 
+       RowBox[{"FindFile", "[", "\"\<Toolbox`\>\"", "]"}], "]"}], "]"}], "[", 
+     
      RowBox[{"[", 
       RowBox[{";;", 
        RowBox[{"-", "2"}]}], "]"}], "]"}], "]"}]}], 
@@ -211,8 +211,7 @@ Cell[BoxData[{
              RowBox[{
              "\"\<Year\>\"", ",", "\"\<\>\"", ",", "\"\<Month\>\"", ",", 
               "\"\<\>\"", ",", "\"\<Day\>\""}], "}"}], "]"}], "<>", 
-           "\"\<_\>\"", "<>", "\"\<Toolbox\>\"", "<>", "\"\<_\>\"", "<>", 
-           
+           "\"\<_\>\"", "<>", "\"\<MASS-Toolbox\>\"", "<>", "\"\<_\>\"", "<>", 
            RowBox[{"StringTake", "[", 
             RowBox[{"gitCommitHash", ",", 
              RowBox[{"{", 
@@ -234,7 +233,6 @@ Cell[BoxData[{
           RowBox[{"FileNameJoin", "[", 
            RowBox[{"{", 
             RowBox[{"path2", ",", "\"\<Toolbox\>\""}], "}"}], "]"}], ",", 
-          
           RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}], ",", 
         RowBox[{"{", 
          StyleBox[
@@ -257,8 +255,8 @@ Cell[BoxData[{
        RowBox[{"\"\<Toolbox\>\"", ",", 
         RowBox[{"FileNameJoin", "[", 
          RowBox[{"{", 
-          RowBox[{"path2", ",", "\"\<Toolbox\>\""}], "}"}], "]"}]}], 
-       "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"path2", ",", "\"\<Toolbox\>\""}], "}"}], "]"}]}], "]"}], 
+      ";", "\[IndentingNewLine]", 
       RowBox[{"DeleteDirectory", "[", 
        RowBox[{
         RowBox[{"FileNameJoin", "[", 
@@ -278,16 +276,16 @@ Cell[BoxData[{
         RowBox[{"FileNameJoin", "[", 
          RowBox[{"{", 
           RowBox[{
-          "path2", ",", "\"\<Toolbox\>\"", ",", "\"\<Documentation\>\""}],
-           "}"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+          "path2", ",", "\"\<Toolbox\>\"", ",", "\"\<Documentation\>\""}], 
+          "}"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
       RowBox[{"(*", 
        RowBox[{"Set", " ", "version", " ", "information", " ", "in", " ", 
         RowBox[{"Config", ".", "m"}]}], "*)"}], "\[IndentingNewLine]", 
       RowBox[{"configPath", "=", 
        RowBox[{"FileNameJoin", "[", 
         RowBox[{"{", 
-         RowBox[{"path2", ",", "\"\<Toolbox/Config.m\>\""}], "}"}], 
-        "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"path2", ",", "\"\<Toolbox/Config.m\>\""}], "}"}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
       RowBox[{"Export", "[", 
        RowBox[{"configPath", ",", "\[IndentingNewLine]", 
         RowBox[{
@@ -343,14 +341,14 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"setupString", "=", 
      RowBox[{
-     "\"\<\\n\\n(** Start Toolbox Development Setup **)\\nAppendTo[$Path,\
-\\\"\>\"", "<>", 
+     "\"\<\\n\\n(** Start Toolbox Development Setup **)\\nAppendTo[$Path,\\\"\
+\>\"", "<>", 
       RowBox[{"StringReplace", "[", 
        RowBox[{
         RowBox[{"NotebookDirectory", "[", "]"}], ",", 
         RowBox[{"\"\<\\\\\>\"", "\[Rule]", "\"\</\>\""}]}], "]"}], "<>", 
-      "\"\<\\\"]\\n(** End Toolbox Development Setup **)\\n\>\""}]}], 
-    ";"}], "\[IndentingNewLine]", 
+      "\"\<\\\"]\\n(** End Toolbox Development Setup **)\\n\>\""}]}], ";"}], 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"initFile", "=", 
      RowBox[{"Import", "[", 
@@ -361,10 +359,9 @@ Cell[BoxData[
       RowBox[{"initFile", ",", 
        RowBox[{
         RowBox[{
-        "Whitespace", "~~", 
-         "\"\<(** Start Toolbox Development Setup **)\>\"", "~~", "__", 
-         "~~", "\"\<(** End Toolbox Development Setup **)\>\""}], 
-        "\[Rule]", "\"\<\>\""}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+        "Whitespace", "~~", "\"\<(** Start Toolbox Development Setup **)\>\"",
+          "~~", "__", "~~", "\"\<(** End Toolbox Development Setup **)\>\""}],
+         "\[Rule]", "\"\<\>\""}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"Export", "[", 
      RowBox[{"initDir", ",", 
@@ -413,9 +410,8 @@ Cell[BoxData[{
     RowBox[{"initFile", ",", 
      RowBox[{
       RowBox[{
-      "Whitespace", "~~", 
-       "\"\<(** Start Toolbox Development Setup **)\>\"", "~~", "__", 
-       "~~", "\"\<(** End Toolbox Development Setup **)\>\""}], 
+      "Whitespace", "~~", "\"\<(** Start Toolbox Development Setup **)\>\"", "~~",
+        "__", "~~", "\"\<(** End Toolbox Development Setup **)\>\""}], 
       "\[Rule]", "\"\<\>\""}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Export", "[", 
