@@ -1,21 +1,2 @@
 <pre name='i_19_in' id='i_19_in' class='IFT'>model = ExampleData[{&quot;Toolbox&quot;, &quot;Glycolysis&quot;}];
-plotSimulation[simulate[model, {t, 0, 1000}][[1]]]</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0ytqdfpkmd66e4ir-15yq72</String>
-  </Function>
- </Function>
-</Expression>
+plotSimulation[simulate[model, {t, 0, 1000}][[1]]]</pre><div class='IFU'><a name='1685796544'></a>http://wolfram.com/xid/0ytqdfpkmd66e4ir-15yq72</div>

@@ -1,21 +1,2 @@
 <pre name='i_15_in' id='i_15_in' class='IFT'>model[&quot;Parameters&quot;]
-model[&quot;InitialConditions&quot;]</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0d2a9bfyum8j0j9ytv7mdji8al-lh0jly</String>
-  </Function>
- </Function>
-</Expression>
+model[&quot;InitialConditions&quot;]</pre><div class='IFU'><a name='678110388'></a>http://wolfram.com/xid/0d2a9bfyum8j0j9ytv7mdji8al-lh0jly</div>

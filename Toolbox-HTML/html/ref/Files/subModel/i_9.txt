@@ -1,23 +1,4 @@
 <pre name='i_9_in' id='i_9_in' class='IFT'>ecoliGlycolysis = 
   subModel[ecoli, {&quot;GLCpts&quot;, &quot;PGI&quot;, &quot;PFK&quot;, &quot;TPI&quot;, &quot;FBA&quot;, &quot;GAPD&quot;, 
     &quot;PGK&quot;, &quot;PGM&quot;, &quot;ENO&quot;, &quot;PYK&quot;, &quot;LDH_D&quot;}];
-ecoliGlycolysis[&quot;Reactions&quot;]</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0g3esf65josz719ont7dp-8fk5h5</String>
-  </Function>
- </Function>
-</Expression>
+ecoliGlycolysis[&quot;Reactions&quot;]</pre><div class='IFU'><a name='2064755083'></a>http://wolfram.com/xid/0g3esf65josz719ont7dp-8fk5h5</div>

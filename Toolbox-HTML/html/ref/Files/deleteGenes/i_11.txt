@@ -3,23 +3,4 @@
 mutant // Dimensions
 Complement[ecoli[&quot;Genes&quot;], mutant[&quot;Genes&quot;]]
 Complement[ecoli[&quot;Proteins&quot;], mutant[&quot;Proteins&quot;]]
-Complement[ecoli[&quot;Reactions&quot;], mutant[&quot;Reactions&quot;], SameTest -&gt; SameQ]</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0bmpebgb0k5jeqxrqpjk474-y72628</String>
-  </Function>
- </Function>
-</Expression>
+Complement[ecoli[&quot;Reactions&quot;], mutant[&quot;Reactions&quot;], SameTest -&gt; SameQ]</pre><div class='IFU'><a name='1507964434'></a>http://wolfram.com/xid/0bmpebgb0k5jeqxrqpjk474-y72628</div>

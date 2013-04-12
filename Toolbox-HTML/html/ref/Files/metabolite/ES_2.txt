@@ -1,6 +1,48 @@
 <table class="EST">
  <tr>
-  <td>Div[{class -&gt; ExampleText, id -&gt; 680755159}, {Setter functions are not provided}]<a name="1806569744" /><a name="541436620" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_7'), onmouseover -&gt; javascript:return(true);}, {In[1]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_7'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/metabolite/I_8.gif, height -&gt; 13, width -&gt; 133, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_7_out, id -&gt; i_7_out, class -&gt; IFL}, {}]}]}]}], 0, XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[1]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/metabolite/O_2.gif, height -&gt; 13, width -&gt; 58, alt -&gt; }, {}]}]}]}]}]</td>
+  <td>
+   <div class="ExampleText" id="680755159"><a name="680755159"></a>Setter functions are not provided</div>
+   <a name="1806569744" />
+   <a name="541436620" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[1]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="1806569744"></a>
+        <a href="javascript:input('i_7')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/metabolite/I_8.gif"
+             height="12"
+             width="133"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_7_out" id="i_7_out" class="IFL"><a name="1806569744"></a></div>
+      </td>
+     </tr>
+    </table>
+    <div class="Message">
+     <img src="Files/metabolite/1.gif"
+         height="15"
+         width="429" />
+    </div>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[1]=</td>
+      <td class="Output">
+       <img src="Files/metabolite/O_2.gif"
+           height="12"
+           width="58"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+  </td>
   <td class="CBG"
       width="5px"
       onclick="toggle('ES_2')" />

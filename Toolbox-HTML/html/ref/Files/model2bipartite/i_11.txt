@@ -17,23 +17,4 @@ Toolbox`metabolite[&quot;h2o&quot;, &quot;c&quot;]},
      &quot;vatp&quot; -&gt; {Toolbox`metabolite[&quot;h2o&quot;, &quot;c&quot;], Toolbox`metabolite[
        &quot;h&quot;, &quot;c&quot;], Toolbox`metabolite[&quot;phos&quot;, &quot;c&quot;]}, &quot;vnadh&quot; -&gt; {
 Toolbox`metabolite[&quot;h&quot;, &quot;c&quot;]}}];
-% // Short</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0bb00r9e08ll1trfxvwk0c5vxyjtqd6-4h2hhg</String>
-  </Function>
- </Function>
-</Expression>
+% // Short</pre><div class='IFU'><a name='1827058290'></a>http://wolfram.com/xid/0bb00r9e08ll1trfxvwk0c5vxyjtqd6-4h2hhg</div>

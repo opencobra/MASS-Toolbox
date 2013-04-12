@@ -6,23 +6,4 @@ Toolbox`metabolite[&quot;g6p&quot;, &quot;c&quot;],
 Toolbox`metabolite[&quot;h&quot;, &quot;c&quot;]}, {1, 1, 1, 1, 1}, True], 
   Toolbox`reaction[&quot;vpgi&quot;, {
 Toolbox`metabolite[&quot;g6p&quot;, &quot;c&quot;]}, {
-Toolbox`metabolite[&quot;f6p&quot;, &quot;c&quot;]}, {1, 1}, True]}]</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0doujc8pwzjm87by3nsj3-nvvf0t</String>
-  </Function>
- </Function>
-</Expression>
+Toolbox`metabolite[&quot;f6p&quot;, &quot;c&quot;]}, {1, 1}, True]}]</pre><div class='IFU'><a name='822319435'></a>http://wolfram.com/xid/0doujc8pwzjm87by3nsj3-nvvf0t</div>

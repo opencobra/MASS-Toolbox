@@ -7,23 +7,4 @@ adjustUnits[{Toolbox`rateconst[&quot;test&quot;, True] -&gt;
 adjustUnits[{Toolbox`rateconst[&quot;test&quot;, True] -&gt; 
    1 Mole^-2 Meter^6 Hour^-1}, {str2mass[&quot;test: a + b + c &lt;=&gt; d&quot;]}]
 adjustUnits[{Toolbox`rateconst[&quot;test&quot;, True] -&gt; 
-   1 Mole^-2 Liter^2 Hour^-1}, {str2mass[&quot;test: a + b + c &lt;=&gt; d&quot;]}]</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0ytqdfpkmea2149g-u625aq</String>
-  </Function>
- </Function>
-</Expression>
+   1 Mole^-2 Liter^2 Hour^-1}, {str2mass[&quot;test: a + b + c &lt;=&gt; d&quot;]}]</pre><div class='IFU'><a name='1264417792'></a>http://wolfram.com/xid/0ytqdfpkmea2149g-u625aq</div>

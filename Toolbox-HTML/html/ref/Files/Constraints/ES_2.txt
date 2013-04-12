@@ -1,6 +1,124 @@
 <table class="EST">
  <tr>
-  <td>Div[{class -&gt; ExampleText, id -&gt; 133715655}, {The initial model cannot carry a positive biomass flux.}]<a name="1091118823" /><a name="53578152" /><a name="242899110" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_21'), onmouseover -&gt; javascript:return(true);}, {In[1]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_21'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Constraints/I_22.gif, height -&gt; 34, width -&gt; 268, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_21_out, id -&gt; i_21_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[1]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Constraints/O_6.gif, height -&gt; 225, width -&gt; 495, alt -&gt; }, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[1]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Constraints/O_7.gif, height -&gt; 13, width -&gt; 14, alt -&gt; }, {}]}]}]}]}]Div[{class -&gt; ExampleText, id -&gt; 371877695}, {Change the model's constraints to simulate glucose mininmal media condtions and require a certain ATP maintainance flux:}]<table class="InCell"><tr><td class="lab"><a name="inoutlink" href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input">Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_23'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Constraints/I_24.gif, height -&gt; 35, width -&gt; 452, alt -&gt; Click for copyable input}, {}]}]}]Div[{name -&gt; i_23_out, id -&gt; i_23_out, class -&gt; IFL}, {}]</td></tr></table>Div[{class -&gt; ExampleText, id -&gt; 971007095}, {Now the biomass reaction can carry a flux}]<a name="988012112" /><a name="692352571" /><a name="1441699473" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_25'), onmouseover -&gt; javascript:return(true);}, {In[3]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_25'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Constraints/I_26.gif, height -&gt; 34, width -&gt; 268, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_25_out, id -&gt; i_25_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[3]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Constraints/O_8.gif, height -&gt; 253, width -&gt; 495, alt -&gt; }, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[3]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Constraints/O_9.gif, height -&gt; 13, width -&gt; 58, alt -&gt; }, {}]}]}]}]}]</td>
+  <td>
+   <div class="ExampleText" id="133715655"><a name="133715655"></a>The initial model cannot carry a positive biomass flux.</div>
+   <a name="1091118823" />
+   <a name="76686255" />
+   <a name="242899110" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[1]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="1091118823"></a>
+        <a href="javascript:input('i_21')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/Constraints/I_22.gif"
+             height="34"
+             width="268"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_21_out" id="i_21_out" class="IFL"><a name="1091118823"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[1]=</td>
+      <td class="Output">
+       <img src="Files/Constraints/O_6.gif"
+           height="223"
+           width="495"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[1]=</td>
+      <td class="Output">
+       <img src="Files/Constraints/O_7.gif"
+           height="12"
+           width="14"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+   <div class="ExampleText" id="371877695"><a name="371877695"></a>Change the model's constraints to simulate glucose mininmal media condtions and require a certain ATP maintainance flux:</div>
+   <table class="InCell">
+    <tr>
+     <td class="lab">
+      <a name="inoutlink" href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[2]:=</a>
+     </td>
+     <td class="Input">
+      <div>
+       <a name="1846791447"></a>
+       <a href="javascript:input('i_23')"
+           onmouseover="javascript:return(true);">
+        <img src="Files/Constraints/I_24.gif"
+            height="35"
+            width="452"
+            alt="Click for copyable input" />
+       </a>
+      </div>
+      <div name="i_23_out" id="i_23_out" class="IFL"><a name="1846791447"></a></div>
+     </td>
+    </tr>
+   </table>
+   <div class="ExampleText" id="971007095"><a name="971007095"></a>Now the biomass reaction can carry a flux</div>
+   <a name="988012112" />
+   <a name="375699585" />
+   <a name="1441699473" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_25')" onmouseover="javascript:return(true);">In[3]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="988012112"></a>
+        <a href="javascript:input('i_25')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/Constraints/I_26.gif"
+             height="34"
+             width="268"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_25_out" id="i_25_out" class="IFL"><a name="988012112"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[3]=</td>
+      <td class="Output">
+       <img src="Files/Constraints/O_8.gif"
+           height="252"
+           width="495"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[3]=</td>
+      <td class="Output">
+       <img src="Files/Constraints/O_9.gif"
+           height="12"
+           width="58"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+  </td>
   <td class="CBG"
       width="5px"
       onclick="toggle('ES_2')" />

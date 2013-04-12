@@ -17,23 +17,4 @@ updateCustomRateLaws[modelOscil, {Toolbox`v[
        &quot;Katp_2&quot;, &quot;HK&quot;]) (1 + Toolbox`species[&quot;G6P&quot;, &quot;cell&quot;][t]/
        Toolbox`parameter[&quot;Kg6p_2&quot;, &quot;HK&quot;] + 
        Toolbox`species[&quot;GLCi&quot;, &quot;cell&quot;][t]/Toolbox`parameter[
-       &quot;Kglc_2&quot;, &quot;HK&quot;]))}]</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0yhuava5fpwtkvut1t450k-wdnahe</String>
-  </Function>
- </Function>
-</Expression>
+       &quot;Kglc_2&quot;, &quot;HK&quot;]))}]</pre><div class='IFU'><a name='1335901504'></a>http://wolfram.com/xid/0yhuava5fpwtkvut1t450k-wdnahe</div>

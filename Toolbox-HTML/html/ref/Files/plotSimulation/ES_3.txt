@@ -1,6 +1,338 @@
 <table class="EST">
  <tr>
-  <td>Div[{class -&gt; ESS_Co, id -&gt; ESS_1}, {XMLElement[table, {class -&gt; ESSHT, border -&gt; 0}, {XMLElement[tr, {}, {XMLElement[td, {}, {Div[{class -&gt; ESSH}, {XMLElement[a, {href -&gt; javascript:toggle('ESS_1')}, {XMLElement[img, {src -&gt; ../images/mathematicaImages/closedGroup.gif, id -&gt; ESS_1_}, {}],  , PlotFunction, &#160;&#160;}],  , XMLElement[span, {class -&gt; excount}, {(1)}]}]}], XMLElement[td, {class -&gt; CB, valign -&gt; bottom, width -&gt; 5px, height -&gt; 100%, onclick -&gt; toggle('ESS_1')}, {}]}]}], 0}]Div[{class -&gt; ESS_Co, id -&gt; ESS_2}, {XMLElement[table, {class -&gt; ESSHT, border -&gt; 0}, {XMLElement[tr, {}, {XMLElement[td, {}, {Div[{class -&gt; ESSH}, {XMLElement[a, {href -&gt; javascript:toggle('ESS_2')}, {XMLElement[img, {src -&gt; ../images/mathematicaImages/closedGroup.gif, id -&gt; ESS_2_}, {}],  , Tooltipped, &#160;&#160;}],  , XMLElement[span, {class -&gt; excount}, {(1)}]}]}], XMLElement[td, {class -&gt; CB, valign -&gt; bottom, width -&gt; 5px, height -&gt; 100%, onclick -&gt; toggle('ESS_2')}, {}]}]}], 0}]Div[{class -&gt; ESS_Co, id -&gt; ESS_3}, {XMLElement[table, {class -&gt; ESSHT, border -&gt; 0}, {XMLElement[tr, {}, {XMLElement[td, {}, {Div[{class -&gt; ESSH}, {XMLElement[a, {href -&gt; javascript:toggle('ESS_3')}, {XMLElement[img, {src -&gt; ../images/mathematicaImages/closedGroup.gif, id -&gt; ESS_3_}, {}],  , ZeroFac, &#160;&#160;}],  , XMLElement[span, {class -&gt; excount}, {(1)}]}]}], XMLElement[td, {class -&gt; CB, valign -&gt; bottom, width -&gt; 5px, height -&gt; 100%, onclick -&gt; toggle('ESS_3')}, {}]}]}], 0}]Div[{class -&gt; ESS_Co, id -&gt; ESS_4}, {XMLElement[table, {class -&gt; ESSHT, border -&gt; 0}, {XMLElement[tr, {}, {XMLElement[td, {}, {Div[{class -&gt; ESSH}, {XMLElement[a, {href -&gt; javascript:toggle('ESS_4')}, {XMLElement[img, {src -&gt; ../images/mathematicaImages/closedGroup.gif, id -&gt; ESS_4_}, {}],  , Legend, &#160;&#160;}],  , XMLElement[span, {class -&gt; excount}, {(1)}]}]}], XMLElement[td, {class -&gt; CB, valign -&gt; bottom, width -&gt; 5px, height -&gt; 100%, onclick -&gt; toggle('ESS_4')}, {}]}]}], 0}]</td>
+  <td>
+   <div class="ESS_Co"
+       id="ESS_1">
+    <table class="ESSHT"
+        border="0">
+     <tr>
+      <td>
+       <div class="ESSH"><a href="javascript:toggle('ESS_1')"><img src="../images/mathematicaImages/closedGroup.gif" id="ESS_1_" /> PlotFunction&#160;&#160;</a> <span class="excount">(1)</span></div>
+      </td>
+      <td class="CB"
+          valign="bottom"
+          width="5px"
+          height="100%"
+          onclick="toggle('ESS_1')" />
+     </tr>
+    </table>
+    <div class="ESS">
+     <table class="ESST">
+      <tr>
+       <td>
+        <div>
+         <a name="1918380353" />
+         <a name="2046600460" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[1]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="1918380353"></a>
+              <a href="javascript:input('i_21')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/plotSimulation/I_22.gif"
+                   height="26"
+                   width="435"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_21_out" id="i_21_out" class="IFL"><a name="1918380353"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[1]=</td>
+            <td class="Output">
+             <img src="Files/plotSimulation/O_9.gif"
+                 height="209"
+                 width="350"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+         <a name="968357221" />
+         <a name="1548736381" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[2]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="968357221"></a>
+              <a href="javascript:input('i_23')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/plotSimulation/I_24.gif"
+                   height="26"
+                   width="500"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_23_out" id="i_23_out" class="IFL"><a name="968357221"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[2]=</td>
+            <td class="Output">
+             <img src="Files/plotSimulation/O_10.gif"
+                 height="233"
+                 width="350"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </td>
+       <td class="CBG"
+           width="5px"
+           height="100%"
+           onclick="toggle('ESS_1')" />
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="ESS_Co"
+       id="ESS_2">
+    <table class="ESSHT"
+        border="0">
+     <tr>
+      <td>
+       <div class="ESSH"><a href="javascript:toggle('ESS_2')"><img src="../images/mathematicaImages/closedGroup.gif" id="ESS_2_" /> Tooltipped&#160;&#160;</a> <span class="excount">(1)</span></div>
+      </td>
+      <td class="CB"
+          valign="bottom"
+          width="5px"
+          height="100%"
+          onclick="toggle('ESS_2')" />
+     </tr>
+    </table>
+    <div class="ESS">
+     <table class="ESST">
+      <tr>
+       <td>
+        <div>
+         <div class="ExampleText" id="988476883"><a name="988476883"></a>Turning off tooltips considerably speeds up the execution time of plotSimulation.</div>
+         <a name="1761948753" />
+         <a name="1420683188" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_25')" onmouseover="javascript:return(true);">In[1]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="1761948753"></a>
+              <a href="javascript:input('i_25')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/plotSimulation/I_26.gif"
+                   height="26"
+                   width="436"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_25_out" id="i_25_out" class="IFL"><a name="1761948753"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[1]=</td>
+            <td class="Output">
+             <img src="Files/plotSimulation/O_11.gif"
+                 height="237"
+                 width="433"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+         <a name="2110553827" />
+         <a name="736479930" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_27')" onmouseover="javascript:return(true);">In[2]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="2110553827"></a>
+              <a href="javascript:input('i_27')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/plotSimulation/I_28.gif"
+                   height="26"
+                   width="443"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_27_out" id="i_27_out" class="IFL"><a name="2110553827"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[2]=</td>
+            <td class="Output">
+             <img src="Files/plotSimulation/O_12.gif"
+                 height="237"
+                 width="433"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </td>
+       <td class="CBG"
+           width="5px"
+           height="100%"
+           onclick="toggle('ESS_2')" />
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="ESS_Co"
+       id="ESS_3">
+    <table class="ESSHT"
+        border="0">
+     <tr>
+      <td>
+       <div class="ESSH"><a href="javascript:toggle('ESS_3')"><img src="../images/mathematicaImages/closedGroup.gif" id="ESS_3_" /> ZeroFac&#160;&#160;</a> <span class="excount">(1)</span></div>
+      </td>
+      <td class="CB"
+          valign="bottom"
+          width="5px"
+          height="100%"
+          onclick="toggle('ESS_3')" />
+     </tr>
+    </table>
+    <div class="ESS">
+     <table class="ESST">
+      <tr>
+       <td>
+        <div>
+         <a name="1699153370" />
+         <a name="113637482" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_29')" onmouseover="javascript:return(true);">In[1]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="1699153370"></a>
+              <a href="javascript:input('i_29')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/plotSimulation/I_30.gif"
+                   height="39"
+                   width="544"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_29_out" id="i_29_out" class="IFL"><a name="1699153370"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[1]=</td>
+            <td class="Output">
+             <img src="Files/plotSimulation/O_13.gif"
+                 height="710"
+                 width="380"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </td>
+       <td class="CBG"
+           width="5px"
+           height="100%"
+           onclick="toggle('ESS_3')" />
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="ESS_Co"
+       id="ESS_4">
+    <table class="ESSHT"
+        border="0">
+     <tr>
+      <td>
+       <div class="ESSH"><a href="javascript:toggle('ESS_4')"><img src="../images/mathematicaImages/closedGroup.gif" id="ESS_4_" /> Legend&#160;&#160;</a> <span class="excount">(1)</span></div>
+      </td>
+      <td class="CB"
+          valign="bottom"
+          width="5px"
+          height="100%"
+          onclick="toggle('ESS_4')" />
+     </tr>
+    </table>
+    <div class="ESS">
+     <table class="ESST">
+      <tr>
+       <td>
+        <div>
+         <a name="32626030" />
+         <a name="737356225" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_31')" onmouseover="javascript:return(true);">In[1]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="32626030"></a>
+              <a href="javascript:input('i_31')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/plotSimulation/I_32.gif"
+                   height="45"
+                   width="398"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_31_out" id="i_31_out" class="IFL"><a name="32626030"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[1]=</td>
+            <td class="Output">
+             <img src="Files/plotSimulation/O_14.gif"
+                 height="227"
+                 width="350"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </td>
+       <td class="CBG"
+           width="5px"
+           height="100%"
+           onclick="toggle('ESS_4')" />
+      </tr>
+     </table>
+    </div>
+   </div>
+  </td>
   <td class="CBG"
       width="5px"
       onclick="toggle('ES_3')" />

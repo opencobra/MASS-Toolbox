@@ -30,37 +30,210 @@
 
     <div class="FltShdwBar">
     <div class="Flt"><img src="../images/images/body_shdwspcr.gif" width="8" height="15" alt=""/></div>
-    <div id="TutorialContentTable">0<h1 class="Title"><a name="509267359"></a>Constraint-based modeling</h1>Div[{class -&gt; Text}, {The following sections provide a very general introduction into the constraint-based modeling capabilities of the toolbox. More detailed information can be obtained from the individual documentation pages of the respective commands. A primer and a review of constraint-based modeling can be found , XMLElement[u, {}, {XMLElement[a, {href -&gt; http://www.nature.com/nbt/journal/v28/n3/full/nbt.1614.html}, {here}]}],  or , XMLElement[u, {}, {XMLElement[a, {href -&gt; http://www.nature.com/nrmicro/journal/v2/n11/abs/nrmicro1023.html}, {here}]}], .}]<table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Load the package}]<table class="InCell">
-     <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input">Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_1'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/I_2.gif, height -&gt; 13, width -&gt; 122, alt -&gt; Click for copyable input}, {}]}]}]Div[{name -&gt; i_1_out, id -&gt; i_1_out, class -&gt; IFL}, {}]</td></tr>
-    </table></td></tr>
- </table><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Load a model of Escherichia coli central metabolism}]<table class="InCell">
-     <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input">Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_3'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/I_4.gif, height -&gt; 14, width -&gt; 319, alt -&gt; Click for copyable input}, {}]}]}]Div[{name -&gt; i_3_out, id -&gt; i_3_out, class -&gt; IFL}, {}]</td></tr>
-    </table></td></tr>
- </table><h3 class="Subsection"><a name="1454774987"></a>Constraints</h3>Div[{class -&gt; Text}, {Constraint-based modeling evaluates phenotypes in the light of biological, physical, and chemical constraints. One important type of constraints are flux capacities, e.g, a reaction is irrversible under physiological conditions and can thus carry only positive net-flux. Toolbox models provide a , XMLElement[span, {class -&gt; IF}, {XMLElement[a, {href -&gt; ../ref/Constraints.html}, {Constraints}]}],  attribute where this kind of information can be included. Lower and upper bounds on reactions fluxes are encoded using rules of flux identifiers and pairs of }]Div[{class -&gt; MathTable, id -&gt; DefinitionBox}, {XMLElement[table, {class -&gt; Table, width -&gt; 100%, cellpadding -&gt; 5, style -&gt; border-collapse: collapse;}, {XMLElement[col, {width -&gt; 40%}, {}], XMLElement[col, {width -&gt; 60%}, {}], XMLElement[tr, {class -&gt; lineAbove, style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {v, XMLElement[sub, {}, {id}], RawXML[&amp;#8594;], {, lowerBound, ,,  , upperBound, }}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {Single flux constraint}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {getConstraints, [, model, ],  , or,  , model, [, &quot;Constraints&quot;, ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {access the model constraints}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {setConstraints, [, model, ,,  , constr, ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {overwrite previous constraints with new constraints (constr)}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {updateConstraints, [, model, ,,  , constr, ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {udpate existing constraints with new constraints (constr)}]}]}]}]}]<p class="Caption"><a name="1660885917"></a>Dealing with constraints</p><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Query all available constraints.}]<a name="1162454068" /><a name="417133920" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_5'), onmouseover -&gt; javascript:return(true);}, {In[6]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_5'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/I_6.gif, height -&gt; 13, width -&gt; 143, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_5_out, id -&gt; i_5_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[6]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/O_1.gif, height -&gt; 188, width -&gt; 495, alt -&gt; }, {}]}]}]}]}]</td></tr>
- </table><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Looking at the flux bounds of all availabe exchange reactions reveals that the current model can only infinitely secrete but not take up any matter.}]<a name="991588900" /><a name="1618922995" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_7'), onmouseover -&gt; javascript:return(true);}, {In[15]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_7'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/I_8.gif, height -&gt; 14, width -&gt; 529, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_7_out, id -&gt; i_7_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[15]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/O_2.gif, height -&gt; 69, width -&gt; 156, alt -&gt; }, {}]}]}]}]}]</td></tr>
- </table><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Change a few exchange reaction flux bounds to reflect an aerobic minimal glucose medium.}]<table class="InCell">
-     <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[16]:=</a></td><td class="Input">Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_9'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/I_10.gif, height -&gt; 35, width -&gt; 447, alt -&gt; Click for copyable input}, {}]}]}]Div[{name -&gt; i_9_out, id -&gt; i_9_out, class -&gt; IFL}, {}]</td></tr>
-    </table></td></tr>
- </table><h3 class="Subsection"><a name="260261454"></a>Flux-balance and flux-variability analysis</h3>Div[{class -&gt; Text}, {Flux-balance analysis (FBA) finds a steady-state flux solution that maxmizes a cellular objective, e.g., optimal growth rate. For example, FBA can be used to asses the consequence of genetic perturbations. Flux-variablity analysis (FVA) calculates effective flux bounds by minimizing and maximizing flux through individual reactions. For example, FBA solutions are rarely unique and FVA can be used to assess the space of alternativa optimal solutions.}]Div[{class -&gt; MathTable, id -&gt; DefinitionBox}, {XMLElement[table, {class -&gt; Table, width -&gt; 100%, cellpadding -&gt; 5, style -&gt; border-collapse: collapse;}, {XMLElement[col, {width -&gt; 40%}, {}], XMLElement[col, {width -&gt; 60%}, {}], XMLElement[tr, {class -&gt; lineAbove, style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {fba, [, model, ,,  , obj, ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {find a steady-state flux distribution that maximizes obj}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {fva, [, model, ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {find minimum and maximum fluxes for all reactions in model}]}]}]}]}]<p class="Caption"><a name="382185033"></a>Basic COBRA functionality</p><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Perform FBA.}]<a name="1868107804" /><a name="1383169632" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_11'), onmouseover -&gt; javascript:return(true);}, {In[17]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_11'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/I_12.gif, height -&gt; 30, width -&gt; 229, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_11_out, id -&gt; i_11_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[18]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/O_3.gif, height -&gt; 270, width -&gt; 495, alt -&gt; }, {}]}]}]}]}]</td></tr>
- </table><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Visualize the fluxes on a pathway map.}]<a name="1908733242" /><a name="415511336" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_13'), onmouseover -&gt; javascript:return(true);}, {In[62]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_13'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/I_14.gif, height -&gt; 63, width -&gt; 427, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_13_out, id -&gt; i_13_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[63]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/O_4.gif, height -&gt; 323, width -&gt; 458, alt -&gt; }, {}]}]}]}]}]</td></tr>
- </table><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Perform FVA.}]<a name="1991682856" /><a name="421526249" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_15'), onmouseover -&gt; javascript:return(true);}, {In[24]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_15'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/I_16.gif, height -&gt; 14, width -&gt; 181, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_15_out, id -&gt; i_15_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[24]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/O_5.gif, height -&gt; 345, width -&gt; 495, alt -&gt; }, {}]}]}]}]}]</td></tr>
- </table><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Visualize FVA result.}]<a name="2105782610" /><a name="1445029972" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_17'), onmouseover -&gt; javascript:return(true);}, {In[35]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_17'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/I_18.gif, height -&gt; 14, width -&gt; 108, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_17_out, id -&gt; i_17_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[35]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/O_6.gif, height -&gt; 128, width -&gt; 180, alt -&gt; }, {}]}]}]}]}]</td></tr>
- </table><h3 class="Subsection"><a name="1727903609"></a>High-throughput data integration</h3>Div[{class -&gt; Text}, {In progress ...}]Div[{class -&gt; MathTable, id -&gt; DefinitionBox}, {XMLElement[table, {class -&gt; Table, width -&gt; 100%, cellpadding -&gt; 5, style -&gt; border-collapse: collapse;}, {XMLElement[col, {width -&gt; 40%}, {}], XMLElement[col, {width -&gt; 60%}, {}], XMLElement[tr, {class -&gt; lineAbove, style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {gimme, [, ..., ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {find a steady-state flux distribution that maximizes obj and matches data}]}]}]}]}]<p class="Caption"><a name="484925090"></a>XXXX.</p><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Perform GIMME}]<table class="InCell">
-     <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input">Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_19'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/I_20.gif, height -&gt; 14, width -&gt; 129, alt -&gt; Click for copyable input}, {}]}]}]Div[{name -&gt; i_19_out, id -&gt; i_19_out, class -&gt; IFL}, {}]</td></tr>
-    </table></td></tr>
- </table><h3 class="Subsection"><a name="454598082"></a>Changing linear programming solver back-ends</h3>Div[{class -&gt; Text}, {Per default, the toolbox uses , XMLElement[i, {}, {Mathematica}], 's built-in linerar programming solver (, XMLElement[a, {href -&gt; ../ref/LinerarProgramming.html}, {LinerarProgramming}], ). Depending on the availability of other optimization tools, different solver back-ends can be used to solve constraint-based modeling problems.}]Div[{class -&gt; MathTable, id -&gt; DefinitionBox}, {XMLElement[table, {class -&gt; Table, width -&gt; 100%, cellpadding -&gt; 5, style -&gt; border-collapse: collapse;}, {XMLElement[col, {width -&gt; 40%}, {}], XMLElement[col, {width -&gt; 60%}, {}], XMLElement[tr, {class -&gt; lineAbove, style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {LinearProgramming}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {XMLElement[i, {}, {Mathematica's }], internal linear programming solver}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {GurobiSolve}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {XMLElement[i, {}, {MathLink}],  interface to Gurobi}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {GLPKStandalone}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {Interface to the GLPK standalone solver}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {CPLEXStandalone}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {Interface to the CPLEX standalone solver}]}]}]}]}]<p class="Caption"><a name="469985676"></a>Supported solver back-ends</p><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Use , XMLElement[a, {href -&gt; ../ref/GLPKStandalone.html}, {GLPKStandalone}],  instead of , XMLElement[a, {href -&gt; http://reference.wolfram.com/mathematica/ref/LinearProgramming.html}, {LinearProgramming}]}]<a name="601318552" /><a name="1901658497" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_21'), onmouseover -&gt; javascript:return(true);}, {In[60]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_21'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/I_22.gif, height -&gt; 14, width -&gt; 342, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_21_out, id -&gt; i_21_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {colspan -&gt; 2}, {XMLElement[div, {class -&gt; celllabelTableForm}, {Out[60]//Short=}]}]}], XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, { }], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Constraint-based modeling/O_7.gif, width -&gt; 393, height -&gt; 37, alt -&gt; }, {}]}]}]}]}]</td></tr>
- </table></div>
+    <div id="TutorialContentTable">
+ <div class="infoHeader">
+  <a name="1"></a>
+  <table class="infoHeaderTable">
+   <tr><td align="left" style="width:90% important!;width:77%;"><span class="contextName"><i>Toolbox</i> Tutorial</span></td><td align="right" nowrap="true" style="padding:4px;"><span class="" /></td></tr>
+  </table>
+ </div>
+ <h1 class="Title"><a name="509267359"></a>Constraint-based modeling</h1>
+ <div class="Text"><a name="1534169418"></a>The following sections provide a very general introduction into the constraint-based modeling capabilities of the toolbox. More detailed information can be obtained from the individual documentation pages of the respective commands. A primer and a review of constraint-based modeling can be found <u><a href="http://www.nature.com/nbt/journal/v28/n3/full/nbt.1614.html">here</a></u> or <u><a href="http://www.nature.com/nrmicro/journal/v2/n11/abs/nrmicro1023.html">here</a></u>.</div>
+ <div class="MCap"><a name="836781195"></a>Load the package</div>
+ <table class="InCell">
+  <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+     <a name="2058623809"></a>
+     <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/Constraint-based modeling/I_2.gif" height="12" width="122" alt="Click for copyable input" /></a>
+    </div><div name="i_1_out" id="i_1_out" class="IFL"><a name="2058623809"></a></div></td></tr>
+ </table>
+ <div class="MCap"><a name="1675938965"></a>Load a model of Escherichia coli central metabolism</div>
+ <table class="InCell">
+  <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+     <a name="1110670703"></a>
+     <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/Constraint-based modeling/I_4.gif" height="12" width="319" alt="Click for copyable input" /></a>
+    </div><div name="i_3_out" id="i_3_out" class="IFL"><a name="1110670703"></a></div></td></tr>
+ </table>
+ <h3 class="Subsection"><a name="1454774987"></a>Constraints</h3>
+ <div class="Text"><a name="1301885414"></a>Constraint-based modeling evaluates phenotypes in the light of biological, physical, and chemical constraints. One important type of constraints are flux capacities, e.g, a reaction is irrversible under physiological conditions and can thus carry only positive net-flux. Toolbox models provide a <span class="IF"><a href="../ref/Constraints.html">Constraints</a></span> attribute where this kind of information can be included. Lower and upper bounds on reactions fluxes are encoded using rules of flux identifiers and pairs of </div>
+ <div class="MathTable"
+     id="DefinitionBox">
+  <a name="77273815"></a>
+  <table class="Table"
+      width="100%"
+      cellpadding="5"
+      style="border-collapse: collapse;">
+   <col width="40%" />
+   <col width="60%" />
+   <tr class="lineAbove" style=""><td class="IconColumn">v<sub>id</sub>&#8594;{lowerBound, upperBound}</td><td><span class="TT" id="TableText">Single flux constraint</span></td></tr>
+   <tr class="" style=""><td class="IconColumn">getConstraints[model] or model[&quot;Constraints&quot;]</td><td><span class="TT" id="TableText">access the model constraints</span></td></tr>
+   <tr class="" style=""><td class="IconColumn">setConstraints[model, constr]</td><td><span class="TT" id="TableText">overwrite previous constraints with new constraints (constr)</span></td></tr>
+   <tr class="" style=""><td class="IconColumn">updateConstraints[model, constr]</td><td><span class="TT" id="TableText">udpate existing constraints with new constraints (constr)</span></td></tr>
+  </table>
+ </div>
+ <p class="Caption"><a name="1660885917"></a>Dealing with constraints</p>
+ <div class="MCap"><a name="2083282908"></a>Query all available constraints.</div>
+ <a name="1162454068" />
+ <a name="1740577385" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
+      <a name="1162454068"></a>
+      <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/Constraint-based modeling/I_6.gif" height="12" width="143" alt="Click for copyable input" /></a>
+     </div><div name="i_5_out" id="i_5_out" class="IFL"><a name="1162454068"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/Constraint-based modeling/O_1.gif" height="188" width="495" alt="" /></td></tr>
+  </table>
+ </div>
+ <div class="MCap"><a name="725069759"></a>Looking at the flux bounds of all availabe exchange reactions reveals that the current model can only infinitely secrete but not take up any matter.</div>
+ <a name="991588900" />
+ <a name="1618922995" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[15]:=</a></td><td class="Input"><div>
+      <a name="991588900"></a>
+      <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/Constraint-based modeling/I_8.gif" height="12" width="529" alt="Click for copyable input" /></a>
+     </div><div name="i_7_out" id="i_7_out" class="IFL"><a name="991588900"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[15]=</td><td class="Output"><img src="Files/Constraint-based modeling/O_2.gif" height="69" width="156" alt="" /></td></tr>
+  </table>
+ </div>
+ <div class="MCap"><a name="1410611963"></a>Change a few exchange reaction flux bounds to reflect an aerobic minimal glucose medium.</div>
+ <table class="InCell">
+  <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[16]:=</a></td><td class="Input"><div>
+     <a name="841600647"></a>
+     <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/Constraint-based modeling/I_10.gif" height="35" width="447" alt="Click for copyable input" /></a>
+    </div><div name="i_9_out" id="i_9_out" class="IFL"><a name="841600647"></a></div></td></tr>
+ </table>
+ <h3 class="Subsection"><a name="260261454"></a>Flux-balance and flux-variability analysis</h3>
+ <div class="Text"><a name="590393470"></a>Flux-balance analysis (FBA) finds a steady-state flux solution that maxmizes a cellular objective, e.g., optimal growth rate. For example, FBA can be used to asses the consequence of genetic perturbations. Flux-variablity analysis (FVA) calculates effective flux bounds by minimizing and maximizing flux through individual reactions. For example, FBA solutions are rarely unique and FVA can be used to assess the space of alternativa optimal solutions.</div>
+ <div class="MathTable"
+     id="DefinitionBox">
+  <a name="1368601150"></a>
+  <table class="Table"
+      width="100%"
+      cellpadding="5"
+      style="border-collapse: collapse;">
+   <col width="40%" />
+   <col width="60%" />
+   <tr class="lineAbove" style=""><td class="IconColumn">fba[model, obj]</td><td><span class="TT" id="TableText">find a steady-state flux distribution that maximizes obj</span></td></tr>
+   <tr class="" style=""><td class="IconColumn">fva[model]</td><td><span class="TT" id="TableText">find minimum and maximum fluxes for all reactions in model</span></td></tr>
+  </table>
+ </div>
+ <p class="Caption"><a name="382185033"></a>Basic COBRA functionality</p>
+ <div class="MCap"><a name="1937552086"></a>Perform FBA.</div>
+ <a name="1868107804" />
+ <a name="861870261" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[17]:=</a></td><td class="Input"><div>
+      <a name="1868107804"></a>
+      <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/Constraint-based modeling/I_12.gif" height="29" width="229" alt="Click for copyable input" /></a>
+     </div><div name="i_11_out" id="i_11_out" class="IFL"><a name="1868107804"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[18]=</td><td class="Output"><img src="Files/Constraint-based modeling/O_3.gif" height="300" width="495" alt="" /></td></tr>
+  </table>
+ </div>
+ <div class="MCap"><a name="344078938"></a>Visualize the fluxes on a pathway map.</div>
+ <a name="1908733242" />
+ <a name="415511336" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[62]:=</a></td><td class="Input"><div>
+      <a name="1908733242"></a>
+      <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/Constraint-based modeling/I_14.gif" height="62" width="427" alt="Click for copyable input" /></a>
+     </div><div name="i_13_out" id="i_13_out" class="IFL"><a name="1908733242"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[63]=</td><td class="Output"><img src="Files/Constraint-based modeling/O_4.gif" height="323" width="458" alt="" /></td></tr>
+  </table>
+ </div>
+ <div class="MCap"><a name="1921060322"></a>Perform FVA.</div>
+ <a name="1991682856" />
+ <a name="676277612" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[24]:=</a></td><td class="Input"><div>
+      <a name="1991682856"></a>
+      <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/Constraint-based modeling/I_16.gif" height="12" width="181" alt="Click for copyable input" /></a>
+     </div><div name="i_15_out" id="i_15_out" class="IFL"><a name="1991682856"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[24]=</td><td class="Output"><img src="Files/Constraint-based modeling/O_5.gif" height="378" width="495" alt="" /></td></tr>
+  </table>
+ </div>
+ <div class="MCap"><a name="1531231173"></a>Visualize FVA result.</div>
+ <a name="2105782610" />
+ <a name="1445029972" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[35]:=</a></td><td class="Input"><div>
+      <a name="2105782610"></a>
+      <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/Constraint-based modeling/I_18.gif" height="12" width="108" alt="Click for copyable input" /></a>
+     </div><div name="i_17_out" id="i_17_out" class="IFL"><a name="2105782610"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[35]=</td><td class="Output"><img src="Files/Constraint-based modeling/O_6.gif" height="128" width="180" alt="" /></td></tr>
+  </table>
+ </div>
+ <h3 class="Subsection"><a name="1727903609"></a>High-throughput data integration</h3>
+ <div class="Text"><a name="302860682"></a>In progress ...</div>
+ <div class="MathTable"
+     id="DefinitionBox">
+  <a name="643238984"></a>
+  <table class="Table"
+      width="100%"
+      cellpadding="5"
+      style="border-collapse: collapse;">
+   <col width="40%" />
+   <col width="60%" />
+   <tr class="lineAbove" style=""><td class="IconColumn">gimme[...]</td><td><span class="TT" id="TableText">find a steady-state flux distribution that maximizes obj and matches data</span></td></tr>
+  </table>
+ </div>
+ <p class="Caption"><a name="484925090"></a>XXXX.</p>
+ <div class="MCap"><a name="435547265"></a>Perform GIMME</div>
+ <table class="InCell">
+  <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+     <a name="1618613879"></a>
+     <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/Constraint-based modeling/I_20.gif" height="12" width="129" alt="Click for copyable input" /></a>
+    </div><div name="i_19_out" id="i_19_out" class="IFL"><a name="1618613879"></a></div></td></tr>
+ </table>
+ <h3 class="Subsection"><a name="454598082"></a>Changing linear programming solver back-ends</h3>
+ <div class="Text"><a name="1830631795"></a>Per default, the toolbox uses <i>Mathematica</i>'s built-in linerar programming solver (<a href="../ref/LinerarProgramming.html">LinerarProgramming</a>). Depending on the availability of other optimization tools, different solver back-ends can be used to solve constraint-based modeling problems.</div>
+ <div class="MathTable"
+     id="DefinitionBox">
+  <a name="430367996"></a>
+  <table class="Table"
+      width="100%"
+      cellpadding="5"
+      style="border-collapse: collapse;">
+   <col width="40%" />
+   <col width="60%" />
+   <tr class="lineAbove" style=""><td class="IconColumn">LinearProgramming</td><td><span class="TT" id="TableText"><i>Mathematica's </i>internal linear programming solver</span></td></tr>
+   <tr class="" style=""><td class="IconColumn">GurobiSolve</td><td><span class="TT" id="TableText"><i>MathLink</i> interface to Gurobi</span></td></tr>
+   <tr class="" style=""><td class="IconColumn">GLPKStandalone</td><td><span class="TT" id="TableText">Interface to the GLPK standalone solver</span></td></tr>
+   <tr class="" style=""><td class="IconColumn">CPLEXStandalone</td><td><span class="TT" id="TableText">Interface to the CPLEX standalone solver</span></td></tr>
+  </table>
+ </div>
+ <p class="Caption"><a name="469985676"></a>Supported solver back-ends</p>
+ <div class="MCap"><a name="604402866"></a>Use <a href="../ref/GLPKStandalone.html">GLPKStandalone</a> instead of <a href="http://reference.wolfram.com/mathematica/ref/LinearProgramming.html">LinearProgramming</a></div>
+ <a name="601318552" />
+ <a name="1901658497" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[60]:=</a></td><td class="Input"><div>
+      <a name="601318552"></a>
+      <a href="javascript:input('i_21')" onmouseover="javascript:return(true);"><img src="Files/Constraint-based modeling/I_22.gif" height="12" width="342" alt="Click for copyable input" /></a>
+     </div><div name="i_21_out" id="i_21_out" class="IFL"><a name="601318552"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td colspan="2"><div class="celllabelTableForm">Out[60]//Short=</div></td></tr>
+   <tr><td class="lab"> </td><td class="Output"><img src="Files/Constraint-based modeling/O_7.gif" width="393" height="37" alt="" /></td></tr>
+  </table>
+ </div>
+</div>
   </div>
 
  <img class="corner" src="../images/images/body_shadow_corner.gif" width="25" height="9" alt=" "/>

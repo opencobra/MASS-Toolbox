@@ -1,6 +1,78 @@
 <table class="EST">
  <tr>
-  <td>Div[{class -&gt; ExampleText, id -&gt; 1213656345}, {Some functions like , XMLElement[span, {class -&gt; IF}, {XMLElement[a, {href -&gt; ../ref/simulate.html}, {simulate}]}],  and , XMLElement[span, {class -&gt; IF}, {XMLElement[a, {href -&gt; ../ref/findSteadyState.html}, {findSteadyState}]}],  provde , XMLElement[span, {class -&gt; IF}, {XMLElement[a, {href -&gt; ../ref/Parameters.html}, {Parameters}]}],  as an option. }]<a name="1685796544" /><a name="1417316972" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_19'), onmouseover -&gt; javascript:return(true);}, {In[1]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_19'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Parameters/I_20.gif, height -&gt; 28, width -&gt; 348, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_19_out, id -&gt; i_19_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[1]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Parameters/O_6.gif, height -&gt; 113, width -&gt; 180, alt -&gt; }, {}]}]}]}]}]<a name="1122511209" /><a name="170294164" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_21'), onmouseover -&gt; javascript:return(true);}, {In[2]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_21'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Parameters/I_22.gif, height -&gt; 54, width -&gt; 464, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_21_out, id -&gt; i_21_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[2]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Parameters/O_7.gif, height -&gt; 116, width -&gt; 180, alt -&gt; }, {}]}]}]}]}]</td>
+  <td>
+   <div class="ExampleText" id="1213656345"><a name="1213656345"></a>Some functions like <span class="IF"><a href="../ref/simulate.html">simulate</a></span> and <span class="IF"><a href="../ref/findSteadyState.html">findSteadyState</a></span> provde <span class="IF"><a href="../ref/Parameters.html">Parameters</a></span> as an option. </div>
+   <a name="1685796544" />
+   <a name="1417316972" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[1]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="1685796544"></a>
+        <a href="javascript:input('i_19')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/Parameters/I_20.gif"
+             height="26"
+             width="348"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_19_out" id="i_19_out" class="IFL"><a name="1685796544"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[1]=</td>
+      <td class="Output">
+       <img src="Files/Parameters/O_6.gif"
+           height="112"
+           width="180"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+   <a name="1122511209" />
+   <a name="170294164" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[2]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="1122511209"></a>
+        <a href="javascript:input('i_21')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/Parameters/I_22.gif"
+             height="54"
+             width="464"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_21_out" id="i_21_out" class="IFL"><a name="1122511209"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[2]=</td>
+      <td class="Output">
+       <img src="Files/Parameters/O_7.gif"
+           height="116"
+           width="180"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+  </td>
   <td class="CBG"
       width="5px"
       onclick="toggle('ES_2')" />

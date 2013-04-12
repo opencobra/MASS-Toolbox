@@ -13,23 +13,4 @@ Toolbox`metabolite[&quot;adp&quot;, &quot;c&quot;],
 Toolbox`metabolite[&quot;fbp&quot;, &quot;c&quot;], 
 Toolbox`metabolite[&quot;h&quot;, &quot;c&quot;]}, {1, 1, 1, 1, 1}, True]];
 str2mass[&quot;atp&quot;]
-% // FullForm</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0n272124uljqfsa-vxvwmy</String>
-  </Function>
- </Function>
-</Expression>
+% // FullForm</pre><div class='IFU'><a name='1309429608'></a>http://wolfram.com/xid/0n272124uljqfsa-vxvwmy</div>

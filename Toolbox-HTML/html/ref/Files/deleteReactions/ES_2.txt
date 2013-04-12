@@ -1,6 +1,55 @@
 <table class="EST">
  <tr>
-  <td>Div[{class -&gt; ExampleText, id -&gt; 1349518687}, {Flux IDs (e.g. , XMLElement[span, {class -&gt; IF}, {XMLElement[a, {href -&gt; http://reference.wolfram.com/mathematica/Toolbox/ref/v.html}, {v}]}], [&quot;vhk&quot;]) can also be used to specify reactions}]<a name="608481233" /><a name="1778245490" /><a name="442035131" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_11'), onmouseover -&gt; javascript:return(true);}, {In[1]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_11'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/deleteReactions/I_12.gif, height -&gt; 31, width -&gt; 248, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_11_out, id -&gt; i_11_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[1]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/deleteReactions/O_3.gif, height -&gt; 13, width -&gt; 53, alt -&gt; }, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[1]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/deleteReactions/O_4.gif, height -&gt; 390, width -&gt; 318, alt -&gt; }, {}]}]}]}]}]</td>
+  <td>
+   <div class="ExampleText" id="1349518687"><a name="1349518687"></a>Flux IDs (e.g. <span class="IF"><a href="http://reference.wolfram.com/mathematica/Toolbox/ref/v.html">v</a></span>[&quot;vhk&quot;]) can also be used to specify reactions</div>
+   <a name="608481233" />
+   <a name="1778245490" />
+   <a name="442035131" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[1]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="608481233"></a>
+        <a href="javascript:input('i_11')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/deleteReactions/I_12.gif"
+             height="30"
+             width="248"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_11_out" id="i_11_out" class="IFL"><a name="608481233"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[1]=</td>
+      <td class="Output">
+       <img src="Files/deleteReactions/O_3.gif"
+           height="12"
+           width="53"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[1]=</td>
+      <td class="Output">
+       <img src="Files/deleteReactions/O_4.gif"
+           height="389"
+           width="316"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+  </td>
   <td class="CBG"
       width="5px"
       onclick="toggle('ES_2')" />

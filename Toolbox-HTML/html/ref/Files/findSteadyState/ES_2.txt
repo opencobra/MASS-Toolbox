@@ -1,6 +1,179 @@
 <table class="EST">
  <tr>
-  <td>Div[{class -&gt; ExampleText, id -&gt; 329599292}, {Perturb the original model}]<table class="InCell"><tr><td class="lab"><a name="inoutlink" href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input">Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_7'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/findSteadyState/I_8.gif, height -&gt; 33, width -&gt; 367, alt -&gt; Click for copyable input}, {}]}]}]Div[{name -&gt; i_7_out, id -&gt; i_7_out, class -&gt; IFL}, {}]</td></tr></table><table class="InCell"><tr><td class="lab"><a name="inoutlink" href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input">Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_9'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/findSteadyState/I_10.gif, height -&gt; 14, width -&gt; 484, alt -&gt; Click for copyable input}, {}]}]}]Div[{name -&gt; i_9_out, id -&gt; i_9_out, class -&gt; IFL}, {}]</td></tr></table><a name="2023801175" /><a name="32863392" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_11'), onmouseover -&gt; javascript:return(true);}, {In[3]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_11'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/findSteadyState/I_12.gif, height -&gt; 14, width -&gt; 429, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_11_out, id -&gt; i_11_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[3]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/findSteadyState/O_1.gif, height -&gt; 113, width -&gt; 180, alt -&gt; }, {}]}]}]}]}]Div[{class -&gt; ExampleText, id -&gt; 431732065}, {Find new steady-state}]<table class="InCell"><tr><td class="lab"><a name="inoutlink" href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input">Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_13'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/findSteadyState/I_14.gif, height -&gt; 14, width -&gt; 515, alt -&gt; Click for copyable input}, {}]}]}]Div[{name -&gt; i_13_out, id -&gt; i_13_out, class -&gt; IFL}, {}]</td></tr></table><a name="1921056889" /><a name="1910244278" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_15'), onmouseover -&gt; javascript:return(true);}, {In[5]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_15'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/findSteadyState/I_16.gif, height -&gt; 13, width -&gt; 43, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_15_out, id -&gt; i_15_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[5]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/findSteadyState/O_2.gif, height -&gt; 161, width -&gt; 495, alt -&gt; }, {}]}]}]}]}]<a name="163749983" /><a name="1097677532" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_17'), onmouseover -&gt; javascript:return(true);}, {In[6]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_17'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/findSteadyState/I_18.gif, height -&gt; 82, width -&gt; 548, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_17_out, id -&gt; i_17_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[6]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[a, {href -&gt; javascript:swap(this,width,height,'Files/findSteadyState/Flash_1.swf', 'Flash_1')}, {XMLElement[span, {class -&gt; playAnimation}, {Play Animation , RawXML[&amp;#9642;]}], 0}]}]}]}]}]</td>
+  <td>
+   <div class="ExampleText" id="329599292"><a name="329599292"></a>Perturb the original model</div>
+   <table class="InCell">
+    <tr>
+     <td class="lab">
+      <a name="inoutlink" href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[1]:=</a>
+     </td>
+     <td class="Input">
+      <div>
+       <a name="7874485"></a>
+       <a href="javascript:input('i_7')"
+           onmouseover="javascript:return(true);">
+        <img src="Files/findSteadyState/I_8.gif"
+            height="32"
+            width="367"
+            alt="Click for copyable input" />
+       </a>
+      </div>
+      <div name="i_7_out" id="i_7_out" class="IFL"><a name="7874485"></a></div>
+     </td>
+    </tr>
+   </table>
+   <table class="InCell">
+    <tr>
+     <td class="lab">
+      <a name="inoutlink" href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[2]:=</a>
+     </td>
+     <td class="Input">
+      <div>
+       <a name="441963151"></a>
+       <a href="javascript:input('i_9')"
+           onmouseover="javascript:return(true);">
+        <img src="Files/findSteadyState/I_10.gif"
+            height="12"
+            width="484"
+            alt="Click for copyable input" />
+       </a>
+      </div>
+      <div name="i_9_out" id="i_9_out" class="IFL"><a name="441963151"></a></div>
+     </td>
+    </tr>
+   </table>
+   <a name="2023801175" />
+   <a name="32863392" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[3]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="2023801175"></a>
+        <a href="javascript:input('i_11')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/findSteadyState/I_12.gif"
+             height="12"
+             width="429"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_11_out" id="i_11_out" class="IFL"><a name="2023801175"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[3]=</td>
+      <td class="Output">
+       <img src="Files/findSteadyState/O_1.gif"
+           height="112"
+           width="180"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+   <div class="ExampleText" id="431732065"><a name="431732065"></a>Find new steady-state</div>
+   <table class="InCell">
+    <tr>
+     <td class="lab">
+      <a name="inoutlink" href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[4]:=</a>
+     </td>
+     <td class="Input">
+      <div>
+       <a name="57610692"></a>
+       <a href="javascript:input('i_13')"
+           onmouseover="javascript:return(true);">
+        <img src="Files/findSteadyState/I_14.gif"
+            height="12"
+            width="515"
+            alt="Click for copyable input" />
+       </a>
+      </div>
+      <div name="i_13_out" id="i_13_out" class="IFL"><a name="57610692"></a></div>
+     </td>
+    </tr>
+   </table>
+   <a name="1921056889" />
+   <a name="1924299003" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[5]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="1921056889"></a>
+        <a href="javascript:input('i_15')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/findSteadyState/I_16.gif"
+             height="12"
+             width="43"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_15_out" id="i_15_out" class="IFL"><a name="1921056889"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[5]=</td>
+      <td class="Output">
+       <img src="Files/findSteadyState/O_2.gif"
+           height="161"
+           width="495"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+   <a name="163749983" />
+   <a name="1097677532" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[6]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="163749983"></a>
+        <a href="javascript:input('i_17')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/findSteadyState/I_18.gif"
+             height="81"
+             width="548"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_17_out" id="i_17_out" class="IFL"><a name="163749983"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[6]=</td>
+      <td class="Output">
+       <a href="javascript:swap(this,width,height,'Files/findSteadyState/Flash_1.swf', 'Flash_1')">
+        <span class="playAnimation">Play Animation &#9642;</span>
+        <div id="Flash_1">
+         <a name="1097677532"></a>
+         <img src="Files/findSteadyState/1.gif"
+             height="100"
+             width="635" />
+        </div>
+       </a>
+      </td>
+     </tr>
+    </table>
+   </div>
+  </td>
   <td class="CBG"
       width="5px"
       onclick="toggle('ES_2')" />

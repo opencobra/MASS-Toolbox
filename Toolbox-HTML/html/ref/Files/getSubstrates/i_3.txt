@@ -2,23 +2,4 @@
 Toolbox`reaction[&quot;id&quot;, {
 Toolbox`metabolite[&quot;a&quot;, None], 
 Toolbox`metabolite[&quot;b&quot;, None]}, {
-Toolbox`metabolite[&quot;c&quot;, None]}, {1, 1, 1}, True]]</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0vsz2sy1y36b9r4esyb22ym-89ce60</String>
-  </Function>
- </Function>
-</Expression>
+Toolbox`metabolite[&quot;c&quot;, None]}, {1, 1, 1}, True]]</pre><div class='IFU'><a name='2114736218'></a>http://wolfram.com/xid/0vsz2sy1y36b9r4esyb22ym-89ce60</div>

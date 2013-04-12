@@ -1,21 +1,2 @@
 <pre name='i_55_in' id='i_55_in' class='IFT'>spatialDimension[(0.000082` Mole)/Meter]
-volumeChooser[(0.000082` Mole)/Meter]</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0ytqdfpkmea2149g-5rc2yv</String>
-  </Function>
- </Function>
-</Expression>
+volumeChooser[(0.000082` Mole)/Meter]</pre><div class='IFU'><a name='1903135413'></a>http://wolfram.com/xid/0ytqdfpkmea2149g-5rc2yv</div>

@@ -5,23 +5,4 @@
    Toolbox`v[&quot;GAPDH&quot;], Toolbox`v[&quot;PGK&quot;], Toolbox`v[&quot;PGM&quot;], Toolbox`v[
    &quot;ENO&quot;], Toolbox`v[&quot;PYK&quot;], Toolbox`v[&quot;PDC&quot;], Toolbox`v[&quot;ADH&quot;]}], 
  PlotFunction -&gt; Plot, Tooltipped -&gt; False, Legend -&gt; True, 
- FrameLabel -&gt; {&quot;Time&quot;, &quot;Flux&quot;}]</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0yhuava5fpwtkvut1t450k-np0eo5</String>
-  </Function>
- </Function>
-</Expression>
+ FrameLabel -&gt; {&quot;Time&quot;, &quot;Flux&quot;}]</pre><div class='IFU'><a name='812473303'></a>http://wolfram.com/xid/0yhuava5fpwtkvut1t450k-np0eo5</div>

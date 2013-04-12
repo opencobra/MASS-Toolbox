@@ -2,23 +2,4 @@
  simulate[model, {t, 0, 1000}, 
    InitialConditions -&gt; {Toolbox`metabolite[&quot;glu&quot;, &quot;c&quot;] -&gt; 
       AutomaticUnits`Unit[2, &quot;Liter&quot;^(-1) &quot;Millimole&quot;]}][[1]]
- ]</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0d352h30vbpa9byaiidv-sullg7</String>
-  </Function>
- </Function>
-</Expression>
+ ]</pre><div class='IFU'><a name='1122511209'></a>http://wolfram.com/xid/0d352h30vbpa9byaiidv-sullg7</div>

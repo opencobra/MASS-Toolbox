@@ -5,23 +5,4 @@
    g -&gt; Chop[
       Toolbox`v[&quot;Biomass_Ecoli_core_N(w/GAM)_Nmet2&quot;] /. mutantFluxes]/
      wtFlux
-   , {g, genesOfInterest}];</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0c0f2mvzfmpxx6hx8-g3zm7f</String>
-  </Function>
- </Function>
-</Expression>
+   , {g, genesOfInterest}];</pre><div class='IFU'><a name='412689065'></a>http://wolfram.com/xid/0c0f2mvzfmpxx6hx8-g3zm7f</div>

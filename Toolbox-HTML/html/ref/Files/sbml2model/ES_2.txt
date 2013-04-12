@@ -1,6 +1,145 @@
 <table class="EST">
  <tr>
-  <td>Div[{class -&gt; ESS_Co, id -&gt; ESS_1}, {XMLElement[table, {class -&gt; ESSHT, border -&gt; 0}, {XMLElement[tr, {}, {XMLElement[td, {}, {Div[{class -&gt; ESSH}, {XMLElement[a, {href -&gt; javascript:toggle('ESS_1')}, {XMLElement[img, {src -&gt; ../images/mathematicaImages/closedGroup.gif, id -&gt; ESS_1_}, {}],  , Method, &#160;&#160;}],  , XMLElement[span, {class -&gt; excount}, {(1)}]}]}], XMLElement[td, {class -&gt; CB, valign -&gt; bottom, width -&gt; 5px, height -&gt; 100%, onclick -&gt; toggle('ESS_1')}, {}]}]}], 0}]</td>
+  <td>
+   <div class="ESS_Co"
+       id="ESS_1">
+    <table class="ESSHT"
+        border="0">
+     <tr>
+      <td>
+       <div class="ESSH"><a href="javascript:toggle('ESS_1')"><img src="../images/mathematicaImages/closedGroup.gif" id="ESS_1_" /> Method&#160;&#160;</a> <span class="excount">(1)</span></div>
+      </td>
+      <td class="CB"
+          valign="bottom"
+          width="5px"
+          height="100%"
+          onclick="toggle('ESS_1')" />
+     </tr>
+    </table>
+    <div class="ESS">
+     <table class="ESST">
+      <tr>
+       <td>
+        <div>
+         <div class="ExampleText" id="161607134"><a name="161607134"></a>Import only reactions from SBML model</div>
+         <table class="InCell">
+          <tr>
+           <td class="lab">
+            <a name="inoutlink" href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[1]:=</a>
+           </td>
+           <td class="Input">
+            <div>
+             <a name="681789858"></a>
+             <a href="javascript:input('i_11')"
+                 onmouseover="javascript:return(true);">
+              <img src="Files/sbml2model/I_12.gif"
+                  height="26"
+                  width="489"
+                  alt="Click for copyable input" />
+             </a>
+            </div>
+            <div name="i_11_out" id="i_11_out" class="IFL"><a name="681789858"></a></div>
+           </td>
+          </tr>
+         </table>
+         <a name="1711771330" />
+         <a name="658183183" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[2]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="1711771330"></a>
+              <a href="javascript:input('i_13')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/sbml2model/I_14.gif"
+                   height="12"
+                   width="187"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_13_out" id="i_13_out" class="IFL"><a name="1711771330"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td colspan="2">
+             <div class="celllabelTableForm">Out[2]//Short=</div>
+            </td>
+           </tr>
+           <tr>
+            <td class="lab"> </td>
+            <td class="Output">
+             <img src="Files/sbml2model/O_3.gif"
+                 width="331"
+                 height="63"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+         <a name="678110388" />
+         <a name="447834078" />
+         <a name="1964649858" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[3]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="678110388"></a>
+              <a href="javascript:input('i_15')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/sbml2model/I_16.gif"
+                   height="26"
+                   width="186"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_15_out" id="i_15_out" class="IFL"><a name="678110388"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[3]=</td>
+            <td class="Output">
+             <img src="Files/sbml2model/O_4.gif"
+                 height="26"
+                 width="81"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[3]=</td>
+            <td class="Output">
+             <img src="Files/sbml2model/O_5.gif"
+                 height="12"
+                 width="14"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </td>
+       <td class="CBG"
+           width="5px"
+           height="100%"
+           onclick="toggle('ESS_1')" />
+      </tr>
+     </table>
+    </div>
+   </div>
+  </td>
   <td class="CBG"
       width="5px"
       onclick="toggle('ES_2')" />

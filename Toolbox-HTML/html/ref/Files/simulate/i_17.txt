@@ -3,23 +3,4 @@
    Parameters -&gt; {Toolbox`rateconst[&quot;vatp&quot;, True] -&gt; 2./Hour, 
      parameter[&quot;Volume&quot;, &quot;c&quot;] -&gt; 0.001 Liter}, 
    SpeciesProfiles -&gt; &quot;Particles&quot;];
-plotSimulation[concSol, FrameLabel -&gt; {&quot;t&quot;, &quot;Concentration [mmol]&quot;}]</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0d352h30vbpbdi73fvpg-3dcnx8</String>
-  </Function>
- </Function>
-</Expression>
+plotSimulation[concSol, FrameLabel -&gt; {&quot;t&quot;, &quot;Concentration [mmol]&quot;}]</pre><div class='IFU'><a name='1758668974'></a>http://wolfram.com/xid/0d352h30vbpbdi73fvpg-3dcnx8</div>

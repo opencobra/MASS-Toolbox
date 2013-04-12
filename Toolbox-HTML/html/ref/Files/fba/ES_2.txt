@@ -1,7 +1,411 @@
 <table class="EST">
  <tr>
-  <td>Div[{class -&gt; ESS_Co, id -&gt; ESS_1}, {XMLElement[table, {class -&gt; ESSHT, border -&gt; 0}, {XMLElement[tr, {}, {XMLElement[td, {}, {Div[{class -&gt; ESSH}, {XMLElement[a, {href -&gt; javascript:toggle('ESS_1')}, {XMLElement[img, {src -&gt; ../images/mathematicaImages/closedGroup.gif, id -&gt; ESS_1_}, {}],  ,                                                , &#160;&#160;}],  , XMLElement[span, {class -&gt; excount}, {(1)}]}]}], XMLElement[td, {class -&gt; CB, valign -&gt; bottom, width -&gt; 5px, height -&gt; 100%, onclick -&gt; toggle('ESS_1')}, {}]}]}], 0}]
-                                                                                                                                                                                                                                                                                                      RowBox[{&quot;Gene&quot;, &quot; &quot;, &quot;knockout&quot;, &quot; &quot;, &quot;study&quot;}]</td>
+  <td>
+   <div class="ESS_Co"
+       id="ESS_1">
+    <table class="ESSHT"
+        border="0">
+     <tr>
+      <td>
+       <div class="ESSH"><a name="1042270292"></a><a href="javascript:toggle('ESS_1')"><img src="../images/mathematicaImages/closedGroup.gif" id="ESS_1_" /> 
+RowBox[{&quot;Gene&quot;, &quot; &quot;, &quot;knockout&quot;, &quot; &quot;, &quot;study&quot;}]&#160;&#160;</a> <span class="excount">(1)</span></div>
+      </td>
+      <td class="CB"
+          valign="bottom"
+          width="5px"
+          height="100%"
+          onclick="toggle('ESS_1')" />
+     </tr>
+    </table>
+    <div class="ESS">
+     <table class="ESST">
+      <tr>
+       <td>
+        <div>
+         <div class="ExampleText" id="1483088736"><a name="1483088736"></a>Determine active reactions using FBA</div>
+         <a name="1685447489" />
+         <a name="2132854493" />
+         <a name="1088428127" />
+         <a name="945825343" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[1]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="1685447489"></a>
+              <a href="javascript:input('i_15')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/fba/I_16.gif"
+                   height="71"
+                   width="535"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_15_out" id="i_15_out" class="IFL"><a name="1685447489"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td colspan="2">
+             <div class="celllabelTableForm">Out[1]//Short=</div>
+            </td>
+           </tr>
+           <tr>
+            <td class="lab"> </td>
+            <td class="Output">
+             <img src="Files/fba/O_7.gif"
+                 width="414"
+                 height="18"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[1]=</td>
+            <td class="Output">
+             <img src="Files/fba/O_8.gif"
+                 height="78"
+                 width="476"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[1]=</td>
+            <td class="Output">
+             <img src="Files/fba/O_9.gif"
+                 height="12"
+                 width="58"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+         <div class="ExampleText" id="429695223"><a name="429695223"></a>Determine all genes in the model that are associated with the active reactions</div>
+         <a name="1895395420" />
+         <a name="812584707" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[2]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="1895395420"></a>
+              <a href="javascript:input('i_17')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/fba/I_18.gif"
+                   height="26"
+                   width="479"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_17_out" id="i_17_out" class="IFL"><a name="1895395420"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[2]=</td>
+            <td class="Output">
+             <img src="Files/fba/O_10.gif"
+                 height="264"
+                 width="517"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+         <div class="ExampleText" id="504153393"><a name="504153393"></a>Genes not associated with any active reaction</div>
+         <a name="956008148" />
+         <a name="156296582" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[3]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="956008148"></a>
+              <a href="javascript:input('i_19')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/fba/I_20.gif"
+                   height="12"
+                   width="305"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_19_out" id="i_19_out" class="IFL"><a name="956008148"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[3]=</td>
+            <td class="Output">
+             <img src="Files/fba/O_11.gif"
+                 height="120"
+                 width="517"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+         <div class="ExampleText" id="449048654"><a name="449048654"></a>Perform single gene knockout analysis</div>
+         <a name="412689065" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[4]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="412689065"></a>
+              <a href="javascript:input('i_21')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/fba/I_22.gif"
+                   height="83"
+                   width="448"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_21_out" id="i_21_out" class="IFL"><a name="412689065"></a></div>
+            </td>
+           </tr>
+          </table>
+          <div class="Message">
+           <img src="Files/fba/1.gif"
+               height="15"
+               width="451" />
+          </div>
+          <div class="Message">
+           <img src="Files/fba/2.gif"
+               height="15"
+               width="451" />
+          </div>
+         </div>
+         <a name="1457798054" />
+         <a name="1099011187" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[5]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="1457798054"></a>
+              <a href="javascript:input('i_23')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/fba/I_24.gif"
+                   height="12"
+                   width="263"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_23_out" id="i_23_out" class="IFL"><a name="1457798054"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td colspan="2">
+             <div class="celllabelTableForm">Out[5]//Short=</div>
+            </td>
+           </tr>
+           <tr>
+            <td class="lab"> </td>
+            <td class="Output">
+             <img src="Files/fba/O_12.gif"
+                 width="428"
+                 height="48"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+         <div class="ExampleText" id="1537224544"><a name="1537224544"></a>Set Inteterminate biomass fluxes is to 0. and sort the result</div>
+         <table class="InCell">
+          <tr>
+           <td class="lab">
+            <a name="inoutlink" href="javascript:input('i_25')" onmouseover="javascript:return(true);">In[6]:=</a>
+           </td>
+           <td class="Input">
+            <div>
+             <a name="1904637598"></a>
+             <a href="javascript:input('i_25')"
+                 onmouseover="javascript:return(true);">
+              <img src="Files/fba/I_26.gif"
+                  height="12"
+                  width="482"
+                  alt="Click for copyable input" />
+             </a>
+            </div>
+            <div name="i_25_out" id="i_25_out" class="IFL"><a name="1904637598"></a></div>
+           </td>
+          </tr>
+         </table>
+         <a name="1919892553" />
+         <a name="574172062" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_27')" onmouseover="javascript:return(true);">In[7]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="1919892553"></a>
+              <a href="javascript:input('i_27')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/fba/I_28.gif"
+                   height="12"
+                   width="165"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_27_out" id="i_27_out" class="IFL"><a name="1919892553"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[7]=</td>
+            <td class="Output">
+             <img src="Files/fba/O_13.gif"
+                 height="12"
+                 width="14"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+         <a name="1920186604" />
+         <a name="1465820063" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_29')" onmouseover="javascript:return(true);">In[8]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="1920186604"></a>
+              <a href="javascript:input('i_29')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/fba/I_30.gif"
+                   height="12"
+                   width="157"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_29_out" id="i_29_out" class="IFL"><a name="1920186604"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[8]=</td>
+            <td class="Output">
+             <img src="Files/fba/O_14.gif"
+                 height="12"
+                 width="22"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+         <div class="ExampleText" id="852867404"><a name="852867404"></a>Visualize the result (show only gene deletion that had an effect on)</div>
+         <a name="105400457" />
+         <a name="1938955671" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_31')" onmouseover="javascript:return(true);">In[9]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="105400457"></a>
+              <a href="javascript:input('i_31')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/fba/I_32.gif"
+                   height="12"
+                   width="252"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_31_out" id="i_31_out" class="IFL"><a name="105400457"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[9]=</td>
+            <td class="Output">
+             <img src="Files/fba/O_15.gif"
+                 height="240"
+                 width="532"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+         <a name="1265000089" />
+         <a name="1166440387" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_33')" onmouseover="javascript:return(true);">In[10]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="1265000089"></a>
+              <a href="javascript:input('i_33')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/fba/I_34.gif"
+                   height="39"
+                   width="373"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_33_out" id="i_33_out" class="IFL"><a name="1265000089"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[10]=</td>
+            <td class="Output">
+             <img src="Files/fba/O_16.gif"
+                 height="662"
+                 width="100"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </td>
+       <td class="CBG"
+           width="5px"
+           height="100%"
+           onclick="toggle('ESS_1')" />
+      </tr>
+     </table>
+    </div>
+   </div>
+  </td>
   <td class="CBG"
       width="5px"
       onclick="toggle('ES_2')" />

@@ -5,23 +5,4 @@
 setParameters[model, {Toolbox`rateconst[&quot;1&quot;, True] -&gt; 1, 
   Toolbox`rateconst[&quot;2&quot;, True] -&gt; 0.01, 
   Toolbox`rateconst[&quot;3&quot;, True] -&gt; 0.0001, Toolbox`Keq[&quot;1&quot;] -&gt; 1, 
-  Toolbox`Keq[&quot;2&quot;] -&gt; 1}]</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0l2etquq3sacfojukpeduleeb2lehrozn2-tlsjy4</String>
-  </Function>
- </Function>
-</Expression>
+  Toolbox`Keq[&quot;2&quot;] -&gt; 1}]</pre><div class='IFU'><a name='1168185486'></a>http://wolfram.com/xid/0l2etquq3sacfojukpeduleeb2lehrozn2-tlsjy4</div>

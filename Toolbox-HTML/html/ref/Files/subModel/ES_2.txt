@@ -1,6 +1,63 @@
 <table class="EST">
  <tr>
-  <td>Div[{class -&gt; ExampleText, id -&gt; 1683998074}, {Extract the glycolytic part from , XMLElement[i, {}, {E. coli}],  central metabolism}]<table class="InCell"><tr><td class="lab"><a name="inoutlink" href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input">Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_7'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/subModel/I_8.gif, height -&gt; 14, width -&gt; 319, alt -&gt; Click for copyable input}, {}]}]}]Div[{name -&gt; i_7_out, id -&gt; i_7_out, class -&gt; IFL}, {}]</td></tr></table><a name="2064755083" /><a name="1875098861" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_9'), onmouseover -&gt; javascript:return(true);}, {In[2]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_9'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/subModel/I_10.gif, height -&gt; 42, width -&gt; 438, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_9_out, id -&gt; i_9_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[2]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/subModel/O_2.gif, height -&gt; 110, width -&gt; 495, alt -&gt; }, {}]}]}]}]}]</td>
+  <td>
+   <div class="ExampleText" id="1683998074"><a name="1683998074"></a>Extract the glycolytic part from <i>E. coli</i> central metabolism</div>
+   <table class="InCell">
+    <tr>
+     <td class="lab">
+      <a name="inoutlink" href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[1]:=</a>
+     </td>
+     <td class="Input">
+      <div>
+       <a name="1485869257"></a>
+       <a href="javascript:input('i_7')"
+           onmouseover="javascript:return(true);">
+        <img src="Files/subModel/I_8.gif"
+            height="12"
+            width="319"
+            alt="Click for copyable input" />
+       </a>
+      </div>
+      <div name="i_7_out" id="i_7_out" class="IFL"><a name="1485869257"></a></div>
+     </td>
+    </tr>
+   </table>
+   <a name="2064755083" />
+   <a name="1123257749" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[2]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="2064755083"></a>
+        <a href="javascript:input('i_9')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/subModel/I_10.gif"
+             height="39"
+             width="438"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_9_out" id="i_9_out" class="IFL"><a name="2064755083"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[2]=</td>
+      <td class="Output">
+       <img src="Files/subModel/O_2.gif"
+           height="110"
+           width="495"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+  </td>
   <td class="CBG"
       width="5px"
       onclick="toggle('ES_2')" />

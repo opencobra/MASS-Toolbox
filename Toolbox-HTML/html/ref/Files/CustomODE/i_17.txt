@@ -2,23 +2,4 @@
  FilterRules[
   fluxSol, {Toolbox`v[&quot;vgluin&quot;], Toolbox`v[&quot;vlac&quot;], Toolbox`v[&quot;vh2o&quot;],
     Toolbox`v[&quot;vampin&quot;], Toolbox`v[&quot;vamp&quot;]}], PlotFunction -&gt; Plot, 
- Legend -&gt; True, FrameLabel -&gt; {&quot;Time&quot;, &quot;Flux&quot;}]</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0yhuava5fpwtkvut1t450k-qzb3m</String>
-  </Function>
- </Function>
-</Expression>
+ Legend -&gt; True, FrameLabel -&gt; {&quot;Time&quot;, &quot;Flux&quot;}]</pre><div class='IFU'><a name='28042608'></a>http://wolfram.com/xid/0yhuava5fpwtkvut1t450k-qzb3m</div>

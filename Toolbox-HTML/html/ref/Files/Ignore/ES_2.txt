@@ -1,6 +1,90 @@
 <table class="EST">
  <tr>
-  <td>Div[{class -&gt; ExampleText, id -&gt; 710743413}, {Mass-action rate equtions of reactions with ignored species as sole substrates or products will not be affected:}]<a name="1322849552" /><a name="1160497677" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_17'), onmouseover -&gt; javascript:return(true);}, {In[1]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_17'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Ignore/I_18.gif, height -&gt; 14, width -&gt; 107, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_17_out, id -&gt; i_17_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[1]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Ignore/O_6.gif, height -&gt; 18, width -&gt; 66, alt -&gt; }, {}]}]}]}]}]<a name="249662960" /><a name="659175987" /><a name="2050162283" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_19'), onmouseover -&gt; javascript:return(true);}, {In[2]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_19'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Ignore/I_20.gif, height -&gt; 27, width -&gt; 101, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_19_out, id -&gt; i_19_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[2]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Ignore/O_7.gif, height -&gt; 47, width -&gt; 279, alt -&gt; }, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[2]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Ignore/O_8.gif, height -&gt; 47, width -&gt; 223, alt -&gt; }, {}]}]}]}]}]</td>
+  <td>
+   <div class="ExampleText" id="710743413"><a name="710743413"></a>Mass-action rate equtions of reactions with ignored species as sole substrates or products will not be affected:</div>
+   <a name="1322849552" />
+   <a name="1160497677" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[1]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="1322849552"></a>
+        <a href="javascript:input('i_17')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/Ignore/I_18.gif"
+             height="12"
+             width="107"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_17_out" id="i_17_out" class="IFL"><a name="1322849552"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[1]=</td>
+      <td class="Output">
+       <img src="Files/Ignore/O_6.gif"
+           height="18"
+           width="66"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+   <a name="249662960" />
+   <a name="1986296935" />
+   <a name="1059293930" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[2]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="249662960"></a>
+        <a href="javascript:input('i_19')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/Ignore/I_20.gif"
+             height="26"
+             width="101"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_19_out" id="i_19_out" class="IFL"><a name="249662960"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[2]=</td>
+      <td class="Output">
+       <img src="Files/Ignore/O_7.gif"
+           height="47"
+           width="279"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[2]=</td>
+      <td class="Output">
+       <img src="Files/Ignore/O_8.gif"
+           height="47"
+           width="223"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+  </td>
   <td class="CBG"
       width="5px"
       onclick="toggle('ES_2')" />

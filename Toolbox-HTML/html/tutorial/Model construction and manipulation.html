@@ -30,41 +30,353 @@
 
     <div class="FltShdwBar">
     <div class="Flt"><img src="../images/images/body_shdwspcr.gif" width="8" height="15" alt=""/></div>
-    <div id="TutorialContentTable">0<h1 class="Title"><a name="509267359"></a>Model construction and manipulation</h1>Div[{class -&gt; Text}, {The MASS Toolbox relies on a model structures}]<table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {This loads the package.}]<table class="InCell">
-     <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input">Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_1'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_2.gif, height -&gt; 13, width -&gt; 122, alt -&gt; Click for copyable input}, {}]}]}]Div[{name -&gt; i_1_out, id -&gt; i_1_out, class -&gt; IFL}, {}]</td></tr>
-    </table></td></tr>
- </table><h3 class="Subsection"><a name="1094605484"></a>Model construction</h3>Div[{class -&gt; MathTable, id -&gt; DefinitionBox}, {XMLElement[table, {class -&gt; Table, width -&gt; 100%, cellpadding -&gt; 5, style -&gt; border-collapse: collapse;}, {XMLElement[col, {width -&gt; 40%}, {}], XMLElement[col, {width -&gt; 60%}, {}], XMLElement[tr, {class -&gt; lineAbove, style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {XMLElement[a, {href -&gt; ../ref/constructModel.html}, {constructModel}], [, XMLElement[i, {}, {{, rxn, XMLElement[sub, {}, {1}], ,, rxn, XMLElement[sub, {}, {2}], ,,  , ..., }}], ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {construct a model from a list of reactions}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {XMLElement[a, {href -&gt; ../ref/constructModel.html}, {constructModel}], [, XMLElement[i, {}, {S, ,, {, XMLElement[i, {}, {m}], XMLElement[sub, {}, {1}], ,, m, XMLElement[sub, {}, {2}], ,, ..., }, ,, {, XMLElement[i, {}, {id}], XMLElement[sub, {}, {1}], ,, id, XMLElement[sub, {}, {2}], ,, ..., }}], ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {construct a model from stoichiometry matrix S, metabolites m and reaction identifiers}]}]}]}]}]<p class="Caption"><a name="1891092685"></a>Constructing models.</p><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Using a list of reactions to construct a model.}]<a name="2058623809" /><a name="528397422" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_3'), onmouseover -&gt; javascript:return(true);}, {In[9]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_3'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_4.gif, height -&gt; 28, width -&gt; 337, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_3_out, id -&gt; i_3_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[9]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/O_1.gif, height -&gt; 390, width -&gt; 311, alt -&gt; }, {}]}]}]}]}]</td></tr>
- </table><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Using a stoichiometry matrix construct a model.}]<table class="InCell">
-     <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[14]:=</a></td><td class="Input">Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_5'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_6.gif, height -&gt; 62, width -&gt; 478, alt -&gt; Click for copyable input}, {}]}]}]Div[{name -&gt; i_5_out, id -&gt; i_5_out, class -&gt; IFL}, {}]</td></tr>
-    </table></td></tr>
- </table><h3 class="Subsection"><a name="115847815"></a>Model attributes</h3>Div[{class -&gt; Text}, {Models provide a series of attributes. Some of them are mutable, e.g, InitialConditions or Parameters, others are immutable, e.g., Species or Stoichiometry. Immutable attributes usually depend on other mutable attributes and thus can be modified indirectly.}]Div[{class -&gt; MathTable, id -&gt; DefinitionBox}, {XMLElement[table, {class -&gt; Table, width -&gt; 100%, cellpadding -&gt; 5, style -&gt; border-collapse: collapse;}, {XMLElement[col, {width -&gt; 40%}, {}], XMLElement[col, {width -&gt; 60%}, {}], XMLElement[tr, {class -&gt; lineAbove, style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {XMLElement[i, {}, {model}], [, &quot;Attributes&quot;, ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {returns a list of all available attributes in model}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {get, XMLElement[i, {}, {XMLElement[b, {}, {Attribute}]}], XMLElement[i, {}, {[}], XMLElement[i, {}, {model}], ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {returns the respective attribute}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {model, [, &quot;, XMLElement[i, {}, {XMLElement[b, {}, {Attribute}]}], &quot;, ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {returns the respective attribute}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {set, XMLElement[i, {}, {XMLElement[b, {}, {Attribute}]}], [, XMLElement[i, {}, {model, ,,  , new}], ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {replaces the respective attribute enirely with , XMLElement[i, {}, {new}]}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {update, XMLElement[i, {}, {XMLElement[b, {}, {Attribute}]}], [, XMLElement[i, {}, {model, ,,  , new}], ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {adds non-existing information}]}]}]}]}]<p class="Caption"><a name="768339710"></a>Handling model attributes.</p><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Get a list of all available attributes.}]<a name="1483411372" /><a name="662091767" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_7'), onmouseover -&gt; javascript:return(true);}, {In[15]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_7'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_8.gif, height -&gt; 13, width -&gt; 136, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_7_out, id -&gt; i_7_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[15]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/O_2.gif, height -&gt; 112, width -&gt; 548, alt -&gt; }, {}]}]}]}]}]</td></tr>
- </table><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Initially, the model does not contain any initial conditions or parameters.}]<a name="809080945" /><a name="1663552862" /><a name="1243351341" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_9'), onmouseover -&gt; javascript:return(true);}, {In[16]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_9'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_10.gif, height -&gt; 27, width -&gt; 186, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_9_out, id -&gt; i_9_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[16]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/O_3.gif, height -&gt; 13, width -&gt; 14, alt -&gt; }, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[17]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/O_4.gif, height -&gt; 13, width -&gt; 14, alt -&gt; }, {}]}]}]}]}]</td></tr>
- </table><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Using , XMLElement[i, {}, {getter}],  functions to access the same attributes.}]<a name="1688161290" /><a name="1990102877" /><a name="601251714" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_11'), onmouseover -&gt; javascript:return(true);}, {In[18]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_11'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_12.gif, height -&gt; 28, width -&gt; 194, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_11_out, id -&gt; i_11_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[18]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/O_5.gif, height -&gt; 13, width -&gt; 14, alt -&gt; }, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[19]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/O_6.gif, height -&gt; 13, width -&gt; 14, alt -&gt; }, {}]}]}]}]}]</td></tr>
- </table><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Using , XMLElement[i, {}, {setter}],  functions to include parameters and initial conditions. The model is changed in place.}]<table class="InCell">
-     <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[20]:=</a></td><td class="Input">Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_13'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_14.gif, height -&gt; 39, width -&gt; 462, alt -&gt; Click for copyable input}, {}]}]}]Div[{name -&gt; i_13_out, id -&gt; i_13_out, class -&gt; IFL}, {}]</td></tr>
-    </table></td></tr>
- </table><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Initial conditions and parameters have been properly set.}]<a name="964175846" /><a name="1326998063" /><a name="1238770746" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_15'), onmouseover -&gt; javascript:return(true);}, {In[22]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_15'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_16.gif, height -&gt; 27, width -&gt; 186, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_15_out, id -&gt; i_15_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[22]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/O_7.gif, height -&gt; 13, width -&gt; 199, alt -&gt; }, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[23]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/O_8.gif, height -&gt; 26, width -&gt; 307, alt -&gt; }, {}]}]}]}]}]</td></tr>
- </table>Div[{class -&gt; Text}, {Attributes can also be provided during the model construction process.}]Div[{class -&gt; MathTable, id -&gt; DefinitionBox}, {XMLElement[table, {class -&gt; Table, width -&gt; 100%, cellpadding -&gt; 5, style -&gt; border-collapse: collapse;}, {XMLElement[col, {width -&gt; 40%}, {}], XMLElement[col, {width -&gt; 60%}, {}], XMLElement[tr, {class -&gt; lineAbove, style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {XMLElement[a, {href -&gt; ../ref/constructModel.html}, {constructModel}], [, XMLElement[i, {}, {args}], XMLElement[i, {}, {,}], XMLElement[i, {}, {Attr}], XMLElement[sub, {}, {1}], XMLElement[i, {}, { }], XMLElement[i, {}, {RawXML[&amp;#8594;]}], {, ..., }, ,,  , ..., ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {provide additional information during model construction}]}]}]}]}]<p class="Caption"><a name="1668194141"></a>Provide attribute information during model construction.</p><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Set initial conditions and parameters during model construction}]<table class="InCell">
-     <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[24]:=</a></td><td class="Input">Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_17'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_18.gif, height -&gt; 67, width -&gt; 439, alt -&gt; Click for copyable input}, {}]}]}]Div[{name -&gt; i_17_out, id -&gt; i_17_out, class -&gt; IFL}, {}]</td></tr>
-    </table><a name="846477256" /><a name="165970357" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_19'), onmouseover -&gt; javascript:return(true);}, {In[25]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_19'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_20.gif, height -&gt; 28, width -&gt; 348, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_19_out, id -&gt; i_19_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[25]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/O_9.gif, height -&gt; 119, width -&gt; 180, alt -&gt; }, {}]}]}]}]}]</td></tr>
- </table><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Using , XMLElement[i, {}, {updater}],  functions to modify attributes}]<a name="1679922516" /><a name="2030016293" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_21'), onmouseover -&gt; javascript:return(true);}, {In[26]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_21'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_22.gif, height -&gt; 57, width -&gt; 348, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_21_out, id -&gt; i_21_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[28]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/O_10.gif, height -&gt; 116, width -&gt; 180, alt -&gt; }, {}]}]}]}]}]</td></tr>
- </table><h3 class="Subsection"><a name="1242674920"></a>Add and delete reactions</h3>Div[{class -&gt; MathTable, id -&gt; DefinitionBox}, {XMLElement[table, {class -&gt; Table, width -&gt; 100%, cellpadding -&gt; 5, style -&gt; border-collapse: collapse;}, {XMLElement[col, {width -&gt; 40%}, {}], XMLElement[col, {width -&gt; 60%}, {}], XMLElement[tr, {class -&gt; lineAbove, style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {XMLElement[a, {href -&gt; ../ref/deleteReactions.html}, {deleteReactions}], [, XMLElement[i, {}, {model, ,,  , {, r, XMLElement[sub, {}, {1}], ,, r, XMLElement[sub, {}, {2, ,}], ..., }}], ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {return new model with reactions deleted}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {XMLElement[a, {href -&gt; ../ref/addReactions.html}, {addReactions}], [, XMLElement[i, {}, {model, ,,  , {, r, XMLElement[sub, {}, {2}], ,, r, XMLElement[sub, {}, {2}], ,,  , ..., }}], ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {return new model reactions added}]}]}]}]}]<p class="Caption"><a name="1307081229"></a>Change reaction content.</p><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Add a reaction.}]<a name="1838681845" /><a name="43115490" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_23'), onmouseover -&gt; javascript:return(true);}, {In[35]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_23'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_24.gif, height -&gt; 42, width -&gt; 271, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_23_out, id -&gt; i_23_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[36]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/O_11.gif, height -&gt; 28, width -&gt; 227, alt -&gt; }, {}]}]}]}]}]</td></tr>
- </table><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Delete the added reaction}]<a name="1718185416" /><a name="940051391" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_25'), onmouseover -&gt; javascript:return(true);}, {In[37]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_25'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_26.gif, height -&gt; 27, width -&gt; 276, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_25_out, id -&gt; i_25_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[38]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/O_12.gif, height -&gt; 28, width -&gt; 171, alt -&gt; }, {}]}]}]}]}]<a name="1880401145" /><a name="1532694763" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_27'), onmouseover -&gt; javascript:return(true);}, {In[42]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_27'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_28.gif, height -&gt; 13, width -&gt; 85, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_27_out, id -&gt; i_27_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[42]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/O_13.gif, height -&gt; 13, width -&gt; 7, alt -&gt; }, {}]}]}]}]}]<a name="533284269" /><a name="420488630" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_29'), onmouseover -&gt; javascript:return(true);}, {In[47]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_29'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_30.gif, height -&gt; 13, width -&gt; 167, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_29_out, id -&gt; i_29_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {colspan -&gt; 2}, {XMLElement[div, {class -&gt; celllabelTableForm}, {Out[47]//FullForm=}]}]}], XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, { }], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/O_14.gif, width -&gt; 145, height -&gt; 13, alt -&gt; }, {}]}]}]}]}]<a name="611799125" /><a name="1482675284" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_31'), onmouseover -&gt; javascript:return(true);}, {In[58]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_31'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_32.gif, height -&gt; 13, width -&gt; 135, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_31_out, id -&gt; i_31_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[58]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/O_15.gif, height -&gt; 13, width -&gt; 27, alt -&gt; }, {}]}]}]}]}]<a name="319755739" /><a name="116309985" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_33'), onmouseover -&gt; javascript:return(true);}, {In[56]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_33'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_34.gif, height -&gt; 14, width -&gt; 235, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_33_out, id -&gt; i_33_out, class -&gt; IFL}, {}]}]}]}], XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[56]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/O_16.gif, height -&gt; 13, width -&gt; 36, alt -&gt; }, {}]}]}]}]}]</td></tr>
- </table><h3 class="Subsection"><a name="743713780"></a>Set operations</h3>Div[{class -&gt; MathTable, id -&gt; DefinitionBox}, {XMLElement[table, {class -&gt; Table, width -&gt; 100%, cellpadding -&gt; 5, style -&gt; border-collapse: collapse;}, {XMLElement[col, {width -&gt; 40%}, {}], XMLElement[col, {width -&gt; 60%}, {}], XMLElement[tr, {class -&gt; lineAbove, style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {XMLElement[a, {href -&gt; http://reference.wolfram.com/mathematica/ref/Union.html}, {Union}], [, XMLElement[i, {}, {model, ,,  , model2, ,,  , ...}], ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {Unify models}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {XMLElement[a, {href -&gt; http://reference.wolfram.com/mathematica/ref/Intersection.html}, {Intersection}], [, XMLElement[i, {}, {model, ,,  , model2, ,,  , ...}], ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {Get the intersection of models}]}]}], XMLElement[tr, {class -&gt; , style -&gt; }, {XMLElement[td, {class -&gt; IconColumn}, {XMLElement[a, {href -&gt; http://reference.wolfram.com/mathematica/ref/Complement.html}, {Complement}], [, XMLElement[i, {}, {model, ,,  , model2, ,,  , ...}], ]}], XMLElement[td, {}, {XMLElement[span, {class -&gt; TT, id -&gt; TableText}, {Get the complement of models}]}]}]}]}]<p class="Caption"><a name="233268960"></a>Set operations for models.</p><table class="MCapTab">
-  <tr><td>Div[{class -&gt; MCap}, {Get the union of two model}]<a name="694287206" /><a name="887638353" /><a name="2116386809" /><a name="406537558" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_35'), onmouseover -&gt; javascript:return(true);}, {In[33]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_35'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/I_36.gif, height -&gt; 27, width -&gt; 205, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_35_out, id -&gt; i_35_out, class -&gt; IFL}, {}]}]}]}], 0, 0, XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[34]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/Model construction and manipulation/O_17.gif, height -&gt; 28, width -&gt; 171, alt -&gt; }, {}]}]}]}]}]</td></tr>
- </table></div>
+    <div id="TutorialContentTable">
+ <div class="infoHeader">
+  <a name="1"></a>
+  <table class="infoHeaderTable">
+   <tr><td align="left" style="width:90% important!;width:77%;"><span class="contextName"><i>Toolbox</i> Tutorial</span></td><td align="right" nowrap="true" style="padding:4px;"><span class=""><span class='vertBar'>|</span><span name="parent_Functions" id="parent_Functions"><div class="FunctionsMenu"
+           id="Layer_Functions"
+           onmouseover="javascript:showMenu('Layer_Functions')"
+           onmouseout="javascript:hideMenu('Layer_Functions')">
+        <div class="FunctionsRaw">
+         <a href="/mathematica/Toolbox/ref/addReactions.html">addReactions</a>
+         <a href="/mathematica/ref/Complement.html">Complement</a>
+         <a href="/mathematica/Toolbox/ref/constructModel.html">constructModel</a>
+         <a href="/mathematica/Toolbox/ref/deleteReactions.html">deleteReactions</a>
+         <a href="/mathematica/ref/Intersection.html">Intersection</a>
+         <a href="/mathematica/ref/Union.html">Union</a>
+        </div>
+       </div></span><a onmouseover="javascript:showMenu('Layer_Functions');return(true);" onmouseout="javascript:hideMenu('Layer_Functions');return(true);" id="head_Functions" href="#FunctionsSection" class="anchorLink"><span class="AnchorBarText">Functions &#187;</span></a></span></td></tr>
+  </table>
+ </div>
+ <h1 class="Title"><a name="509267359"></a>Model construction and manipulation</h1>
+ <div class="Text"><a name="1534169418"></a>The MASS Toolbox relies on a model structures</div>
+ <div class="MCap"><a name="973650309"></a>This loads the package.</div>
+ <table class="InCell">
+  <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+     <a name="315353223"></a>
+     <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_2.gif" height="12" width="122" alt="Click for copyable input" /></a>
+    </div><div name="i_1_out" id="i_1_out" class="IFL"><a name="315353223"></a></div></td></tr>
+ </table>
+ <h3 class="Subsection"><a name="1094605484"></a>Model construction</h3>
+ <div class="MathTable"
+     id="DefinitionBox">
+  <a name="2096742444"></a>
+  <table class="Table"
+      width="100%"
+      cellpadding="5"
+      style="border-collapse: collapse;">
+   <col width="40%" />
+   <col width="60%" />
+   <tr class="lineAbove" style=""><td class="IconColumn"><a href="../ref/constructModel.html">constructModel</a>[<i>{rxn<sub>1</sub>,rxn<sub>2</sub>, ...}</i>]</td><td><span class="TT" id="TableText">construct a model from a list of reactions</span></td></tr>
+   <tr class="" style=""><td class="IconColumn"><a href="../ref/constructModel.html">constructModel</a>[<i>S,{<i>m</i><sub>1</sub>,m<sub>2</sub>,...},{<i>id</i><sub>1</sub>,id<sub>2</sub>,...}</i>]</td><td><span class="TT" id="TableText">construct a model from stoichiometry matrix S, metabolites m and reaction identifiers</span></td></tr>
+  </table>
+ </div>
+ <p class="Caption"><a name="1891092685"></a>Constructing models.</p>
+ <div class="MCap"><a name="836781195"></a>Using a list of reactions to construct a model.</div>
+ <a name="2058623809" />
+ <a name="528397422" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[9]:=</a></td><td class="Input"><div>
+      <a name="2058623809"></a>
+      <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_4.gif" height="28" width="337" alt="Click for copyable input" /></a>
+     </div><div name="i_3_out" id="i_3_out" class="IFL"><a name="2058623809"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[9]=</td><td class="Output"><img src="Files/Model construction and manipulation/O_1.gif" height="389" width="309" alt="" /></td></tr>
+  </table>
+ </div>
+ <div class="MCap"><a name="2100602425"></a>Using a stoichiometry matrix construct a model.</div>
+ <table class="InCell">
+  <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[14]:=</a></td><td class="Input"><div>
+     <a name="193800295"></a>
+     <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_6.gif" height="62" width="478" alt="Click for copyable input" /></a>
+    </div><div name="i_5_out" id="i_5_out" class="IFL"><a name="193800295"></a></div></td></tr>
+ </table>
+ <h3 class="Subsection"><a name="115847815"></a>Model attributes</h3>
+ <div class="Text"><a name="666336559"></a>Models provide a series of attributes. Some of them are mutable, e.g, InitialConditions or Parameters, others are immutable, e.g., Species or Stoichiometry. Immutable attributes usually depend on other mutable attributes and thus can be modified indirectly.</div>
+ <div class="MathTable"
+     id="DefinitionBox">
+  <a name="1358913365"></a>
+  <table class="Table"
+      width="100%"
+      cellpadding="5"
+      style="border-collapse: collapse;">
+   <col width="40%" />
+   <col width="60%" />
+   <tr class="lineAbove" style=""><td class="IconColumn"><i>model</i>[&quot;Attributes&quot;]</td><td><span class="TT" id="TableText">returns a list of all available attributes in model</span></td></tr>
+   <tr class="" style=""><td class="IconColumn">get<i><b>Attribute</b></i><i>[</i><i>model</i>]</td><td><span class="TT" id="TableText">returns the respective attribute</span></td></tr>
+   <tr class="" style=""><td class="IconColumn">model[&quot;<i><b>Attribute</b></i>&quot;]</td><td><span class="TT" id="TableText">returns the respective attribute</span></td></tr>
+   <tr class="" style=""><td class="IconColumn">set<i><b>Attribute</b></i>[<i>model, new</i>]</td><td><span class="TT" id="TableText">replaces the respective attribute enirely with <i>new</i></span></td></tr>
+   <tr class="" style=""><td class="IconColumn">update<i><b>Attribute</b></i>[<i>model, new</i>]</td><td><span class="TT" id="TableText">adds non-existing information</span></td></tr>
+  </table>
+ </div>
+ <p class="Caption"><a name="768339710"></a>Handling model attributes.</p>
+ <div class="MCap"><a name="759188657"></a>Get a list of all available attributes.</div>
+ <a name="1483411372" />
+ <a name="662091767" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[15]:=</a></td><td class="Input"><div>
+      <a name="1483411372"></a>
+      <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_8.gif" height="12" width="136" alt="Click for copyable input" /></a>
+     </div><div name="i_7_out" id="i_7_out" class="IFL"><a name="1483411372"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[15]=</td><td class="Output"><img src="Files/Model construction and manipulation/O_2.gif" height="104" width="548" alt="" /></td></tr>
+  </table>
+ </div>
+ <div class="MCap"><a name="111721889"></a>Initially, the model does not contain any initial conditions or parameters.</div>
+ <a name="809080945" />
+ <a name="1663552862" />
+ <a name="1243351341" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[16]:=</a></td><td class="Input"><div>
+      <a name="809080945"></a>
+      <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_10.gif" height="26" width="186" alt="Click for copyable input" /></a>
+     </div><div name="i_9_out" id="i_9_out" class="IFL"><a name="809080945"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[16]=</td><td class="Output"><img src="Files/Model construction and manipulation/O_3.gif" height="12" width="14" alt="" /></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[17]=</td><td class="Output"><img src="Files/Model construction and manipulation/O_4.gif" height="12" width="14" alt="" /></td></tr>
+  </table>
+ </div>
+ <div class="MCap"><a name="1503990640"></a>Using <i>getter</i> functions to access the same attributes.</div>
+ <a name="1688161290" />
+ <a name="1990102877" />
+ <a name="601251714" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[18]:=</a></td><td class="Input"><div>
+      <a name="1688161290"></a>
+      <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_12.gif" height="26" width="194" alt="Click for copyable input" /></a>
+     </div><div name="i_11_out" id="i_11_out" class="IFL"><a name="1688161290"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[18]=</td><td class="Output"><img src="Files/Model construction and manipulation/O_5.gif" height="12" width="14" alt="" /></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[19]=</td><td class="Output"><img src="Files/Model construction and manipulation/O_6.gif" height="12" width="14" alt="" /></td></tr>
+  </table>
+ </div>
+ <div class="MCap"><a name="839155905"></a>Using <i>setter</i> functions to include parameters and initial conditions. The model is changed in place.</div>
+ <table class="InCell">
+  <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[20]:=</a></td><td class="Input"><div>
+     <a name="1168185486"></a>
+     <a href="javascript:input('i_13')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_14.gif" height="38" width="462" alt="Click for copyable input" /></a>
+    </div><div name="i_13_out" id="i_13_out" class="IFL"><a name="1168185486"></a></div></td></tr>
+ </table>
+ <div class="MCap"><a name="1673885878"></a>Initial conditions and parameters have been properly set.</div>
+ <a name="964175846" />
+ <a name="1326998063" />
+ <a name="1238770746" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[22]:=</a></td><td class="Input"><div>
+      <a name="964175846"></a>
+      <a href="javascript:input('i_15')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_16.gif" height="26" width="186" alt="Click for copyable input" /></a>
+     </div><div name="i_15_out" id="i_15_out" class="IFL"><a name="964175846"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[22]=</td><td class="Output"><img src="Files/Model construction and manipulation/O_7.gif" height="12" width="199" alt="" /></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[23]=</td><td class="Output"><img src="Files/Model construction and manipulation/O_8.gif" height="26" width="307" alt="" /></td></tr>
+  </table>
+ </div>
+ <div class="Text"><a name="1652485958"></a>Attributes can also be provided during the model construction process.</div>
+ <div class="MathTable"
+     id="DefinitionBox">
+  <a name="1865204200"></a>
+  <table class="Table"
+      width="100%"
+      cellpadding="5"
+      style="border-collapse: collapse;">
+   <col width="40%" />
+   <col width="60%" />
+   <tr class="lineAbove" style=""><td class="IconColumn"><a href="../ref/constructModel.html">constructModel</a>[<i>args</i><i>,</i><i>Attr</i><sub>1</sub><i> </i><i>&#8594;</i>{...}, ...]</td><td><span class="TT" id="TableText">provide additional information during model construction</span></td></tr>
+  </table>
+ </div>
+ <p class="Caption"><a name="1668194141"></a>Provide attribute information during model construction.</p>
+ <div class="MCap"><a name="1939916202"></a>Set initial conditions and parameters during model construction</div>
+ <table class="InCell">
+  <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[24]:=</a></td><td class="Input"><div>
+     <a name="1074878260"></a>
+     <a href="javascript:input('i_17')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_18.gif" height="66" width="439" alt="Click for copyable input" /></a>
+    </div><div name="i_17_out" id="i_17_out" class="IFL"><a name="1074878260"></a></div></td></tr>
+ </table>
+ <a name="846477256" />
+ <a name="165970357" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[25]:=</a></td><td class="Input"><div>
+      <a name="846477256"></a>
+      <a href="javascript:input('i_19')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_20.gif" height="26" width="348" alt="Click for copyable input" /></a>
+     </div><div name="i_19_out" id="i_19_out" class="IFL"><a name="846477256"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[25]=</td><td class="Output"><img src="Files/Model construction and manipulation/O_9.gif" height="118" width="180" alt="" /></td></tr>
+  </table>
+ </div>
+ <div class="MCap"><a name="1490219303"></a>Using <i>updater</i> functions to modify attributes</div>
+ <a name="1679922516" />
+ <a name="2030016293" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[26]:=</a></td><td class="Input"><div>
+      <a name="1679922516"></a>
+      <a href="javascript:input('i_21')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_22.gif" height="53" width="348" alt="Click for copyable input" /></a>
+     </div><div name="i_21_out" id="i_21_out" class="IFL"><a name="1679922516"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[28]=</td><td class="Output"><img src="Files/Model construction and manipulation/O_10.gif" height="115" width="180" alt="" /></td></tr>
+  </table>
+ </div>
+ <h3 class="Subsection"><a name="1242674920"></a>Add and delete reactions</h3>
+ <div class="MathTable"
+     id="DefinitionBox">
+  <a name="2072558567"></a>
+  <table class="Table"
+      width="100%"
+      cellpadding="5"
+      style="border-collapse: collapse;">
+   <col width="40%" />
+   <col width="60%" />
+   <tr class="lineAbove" style=""><td class="IconColumn"><a href="../ref/deleteReactions.html">deleteReactions</a>[<i>model, {r<sub>1</sub>,r<sub>2,</sub>...}</i>]</td><td><span class="TT" id="TableText">return new model with reactions deleted</span></td></tr>
+   <tr class="" style=""><td class="IconColumn"><a href="../ref/addReactions.html">addReactions</a>[<i>model, {r<sub>2</sub>,r<sub>2</sub>, ...}</i>]</td><td><span class="TT" id="TableText">return new model reactions added</span></td></tr>
+  </table>
+ </div>
+ <p class="Caption"><a name="1307081229"></a>Change reaction content.</p>
+ <div class="MCap"><a name="1062671071"></a>Add a reaction.</div>
+ <a name="1838681845" />
+ <a name="1714364960" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[35]:=</a></td><td class="Input"><div>
+      <a name="1838681845"></a>
+      <a href="javascript:input('i_23')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_24.gif" height="41" width="271" alt="Click for copyable input" /></a>
+     </div><div name="i_23_out" id="i_23_out" class="IFL"><a name="1838681845"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[36]=</td><td class="Output"><img src="Files/Model construction and manipulation/O_11.gif" height="28" width="227" alt="" /></td></tr>
+  </table>
+ </div>
+ <div class="MCap"><a name="1797487395"></a>Delete the added reaction</div>
+ <a name="1718185416" />
+ <a name="543790921" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_25')" onmouseover="javascript:return(true);">In[37]:=</a></td><td class="Input"><div>
+      <a name="1718185416"></a>
+      <a href="javascript:input('i_25')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_26.gif" height="26" width="276" alt="Click for copyable input" /></a>
+     </div><div name="i_25_out" id="i_25_out" class="IFL"><a name="1718185416"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[38]=</td><td class="Output"><img src="Files/Model construction and manipulation/O_12.gif" height="28" width="171" alt="" /></td></tr>
+  </table>
+ </div>
+ <a name="1880401145" />
+ <a name="1532694763" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_27')" onmouseover="javascript:return(true);">In[42]:=</a></td><td class="Input"><div>
+      <a name="1880401145"></a>
+      <a href="javascript:input('i_27')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_28.gif" height="12" width="85" alt="Click for copyable input" /></a>
+     </div><div name="i_27_out" id="i_27_out" class="IFL"><a name="1880401145"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[42]=</td><td class="Output"><img src="Files/Model construction and manipulation/O_13.gif" height="12" width="7" alt="" /></td></tr>
+  </table>
+ </div>
+ <a name="533284269" />
+ <a name="420488630" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_29')" onmouseover="javascript:return(true);">In[47]:=</a></td><td class="Input"><div>
+      <a name="533284269"></a>
+      <a href="javascript:input('i_29')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_30.gif" height="12" width="167" alt="Click for copyable input" /></a>
+     </div><div name="i_29_out" id="i_29_out" class="IFL"><a name="533284269"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td colspan="2"><div class="celllabelTableForm">Out[47]//FullForm=</div></td></tr>
+   <tr><td class="lab"> </td><td class="Output"><img src="Files/Model construction and manipulation/O_14.gif" width="145" height="12" alt="" /></td></tr>
+  </table>
+ </div>
+ <a name="611799125" />
+ <a name="1482675284" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_31')" onmouseover="javascript:return(true);">In[58]:=</a></td><td class="Input"><div>
+      <a name="611799125"></a>
+      <a href="javascript:input('i_31')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_32.gif" height="12" width="135" alt="Click for copyable input" /></a>
+     </div><div name="i_31_out" id="i_31_out" class="IFL"><a name="611799125"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[58]=</td><td class="Output"><img src="Files/Model construction and manipulation/O_15.gif" height="12" width="27" alt="" /></td></tr>
+  </table>
+ </div>
+ <a name="319755739" />
+ <a name="116309985" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_33')" onmouseover="javascript:return(true);">In[56]:=</a></td><td class="Input"><div>
+      <a name="319755739"></a>
+      <a href="javascript:input('i_33')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_34.gif" height="12" width="235" alt="Click for copyable input" /></a>
+     </div><div name="i_33_out" id="i_33_out" class="IFL"><a name="319755739"></a></div></td></tr>
+  </table>
+  <table class="OCell">
+   <tr><td class="lab">Out[56]=</td><td class="Output"><img src="Files/Model construction and manipulation/O_16.gif" height="12" width="36" alt="" /></td></tr>
+  </table>
+ </div>
+ <h3 class="Subsection"><a name="743713780"></a>Set operations</h3>
+ <div class="MathTable"
+     id="DefinitionBox">
+  <a name="1914822586"></a>
+  <table class="Table"
+      width="100%"
+      cellpadding="5"
+      style="border-collapse: collapse;">
+   <col width="40%" />
+   <col width="60%" />
+   <tr class="lineAbove" style=""><td class="IconColumn"><a href="http://reference.wolfram.com/mathematica/ref/Union.html">Union</a>[<i>model, model2, ...</i>]</td><td><span class="TT" id="TableText">Unify models</span></td></tr>
+   <tr class="" style=""><td class="IconColumn"><a href="http://reference.wolfram.com/mathematica/ref/Intersection.html">Intersection</a>[<i>model, model2, ...</i>]</td><td><span class="TT" id="TableText">Get the intersection of models</span></td></tr>
+   <tr class="" style=""><td class="IconColumn"><a href="http://reference.wolfram.com/mathematica/ref/Complement.html">Complement</a>[<i>model, model2, ...</i>]</td><td><span class="TT" id="TableText">Get the complement of models</span></td></tr>
+  </table>
+ </div>
+ <p class="Caption"><a name="233268960"></a>Set operations for models.</p>
+ <div class="MCap"><a name="1269595514"></a>Get the union of two model</div>
+ <a name="694287206" />
+ <a name="887638353" />
+ <a name="2116386809" />
+ <a name="1951091262" />
+ <div class="IO">
+  <table class="InCell">
+   <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_35')" onmouseover="javascript:return(true);">In[33]:=</a></td><td class="Input"><div>
+      <a name="694287206"></a>
+      <a href="javascript:input('i_35')" onmouseover="javascript:return(true);"><img src="Files/Model construction and manipulation/I_36.gif" height="26" width="205" alt="Click for copyable input" /></a>
+     </div><div name="i_35_out" id="i_35_out" class="IFL"><a name="694287206"></a></div></td></tr>
+  </table>
+  <div class="Print">
+   <a name="887638353"></a>
+   <img class="FlushInput"
+       src="Files/Model construction and manipulation/Image_1.gif"
+       alt=" " />
+  </div>
+  <div class="Print">
+   <a name="2116386809"></a>
+   <img class="FlushInput"
+       src="Files/Model construction and manipulation/Image_2.gif"
+       alt=" " />
+  </div>
+  <table class="OCell">
+   <tr><td class="lab">Out[34]=</td><td class="Output"><img src="Files/Model construction and manipulation/O_17.gif" height="28" width="171" alt="" /></td></tr>
+  </table>
+ </div>
+</div>
   </div>
 
  <img class="corner" src="../images/images/body_shadow_corner.gif" width="25" height="9" alt=" "/>

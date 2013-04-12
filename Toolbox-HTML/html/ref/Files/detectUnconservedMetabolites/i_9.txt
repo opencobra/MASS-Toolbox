@@ -1,21 +1,2 @@
 <pre name='i_9_in' id='i_9_in' class='IFT'>inconsistentModel = 
-  constructModel[str2mass /@ {&quot;1: x1 &lt;=&gt; x2&quot;, &quot;2: x1 -&gt; x2 + x3&quot;}];</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0c8be5fehnrt1xmi1nfrckv2ji25sugz58-id7t3d</String>
-  </Function>
- </Function>
-</Expression>
+  constructModel[str2mass /@ {&quot;1: x1 &lt;=&gt; x2&quot;, &quot;2: x1 -&gt; x2 + x3&quot;}];</pre><div class='IFU'><a name='490333575'></a>http://wolfram.com/xid/0c8be5fehnrt1xmi1nfrckv2ji25sugz58-id7t3d</div>

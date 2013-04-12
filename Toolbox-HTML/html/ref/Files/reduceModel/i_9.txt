@@ -5,23 +5,4 @@ updateConstraints[
    Toolbox`v[&quot;EX_nh4(e)&quot;] -&gt; {-\[Infinity], \[Infinity]}, 
    Toolbox`v[&quot;EX_pi(e)&quot;] -&gt; {-\[Infinity], \[Infinity]}, 
    Toolbox`v[&quot;ATPM&quot;] -&gt; {7.6, 7.6}}];
-Dimensions[ecoliGlcAerobic]</pre><?xml version='1.0'?>
-<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
-<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
-    xmlns='http://www.wolfram.com/XML/'>
- <Function>
-  <Symbol>Div</Symbol>
-  <Function>
-   <Symbol>List</Symbol>
-   <Function>
-    <Symbol>Rule</Symbol>
-    <String>class</String>
-    <String>IFU</String>
-   </Function>
-  </Function>
-  <Function>
-   <Symbol>List</Symbol>
-   <String>http://wolfram.com/xid/0e2f0mfsfsxep5nb3nwwb2jh-olnrgx</String>
-  </Function>
- </Function>
-</Expression>
+Dimensions[ecoliGlcAerobic]</pre><div class='IFU'><a name='865631039'></a>http://wolfram.com/xid/0e2f0mfsfsxep5nb3nwwb2jh-olnrgx</div>
