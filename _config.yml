@@ -1,0 +1,14 @@
+markdown: rdiscount
+permalink: /:title.html
+destination: ../../public/blog
+auto: true
+exclude:
+  - Rakefile
+  - Gemfile
+  - .gitignore
+author: Nikolaus Sonnenschein
+gravatar: 4705d980299511a15653f3c6e7f314dd
+email: niko.sonnenschein@gmail.com
+web: http://phantomas1234.github.io/MASS-Toolbox/
+twitter: phantomas1234
+github: phantomas1234
