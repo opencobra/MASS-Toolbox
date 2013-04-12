@@ -333,11 +333,11 @@ Protect[plotTiledPhasePortraits];
 
 Unprotect[plotFVA];
 (*Options[plotFVA]=updateRules[Options[Graphics],{BaseStyle->{FontFamily->"Helvetica",FontSize->Scaled[.02]},"Sort"->True}];*)
-Options[plotFVA]={BaseStyle->{FontFamily->"Helvetica",FontSize->Scaled[.02]},"Sort"->True};
+Options[plotFVA]={BaseStyle->{FontFamily->"Helvetica",FontSize->Scaled[.02]},"Sort"->True,ImageSize->650,AspectRatio->1/6};
 plotFVA[fvaresult_List,opts:OptionsPattern[{plotFVA,Graphics}]]:=Module[{fvaResult,ord,max,min},
 If[OptionValue["Sort"],
-(*ord=Ordering[fvaresult,All,EuclideanDistance[Sequence@@(#[[2]]/.{\[Infinity]->10*^12,-\[Infinity]->-10*^12})]>EuclideanDistance[Sequence@@(#2[[2]]/.{\[Infinity]->10*^12,-\[Infinity]->-10*^12})]&];,*)
-ord=Ordering[fvaresult,All,If[#[[2,2]]===#[[2,2]],(#[[2,1]]/.{\[Infinity]->10*^12,-\[Infinity]->-10*^12})>(#2[[2,1]]/.{\[Infinity]->10*^12,-\[Infinity]->-10*^12}),(#[[2,2]]/.{\[Infinity]->10*^12,-\[Infinity]->-10*^12})>(#2[[2,2]]/.{\[Infinity]->10*^12,-\[Infinity]->-10*^12})]&];,
+ord=Ordering[fvaresult,All,EuclideanDistance[Sequence@@(#[[2]]/.{\[Infinity]->10*^12,-\[Infinity]->-10*^12})]>EuclideanDistance[Sequence@@(#2[[2]]/.{\[Infinity]->10*^12,-\[Infinity]->-10*^12})]&];,
+(*ord=Ordering[fvaresult,All,If[#[[2,2]]===#[[2,2]],(#[[2,1]]/.{\[Infinity]->10*^12,-\[Infinity]->-10*^12})>(#2[[2,1]]/.{\[Infinity]->10*^12,-\[Infinity]->-10*^12}),(#[[2,2]]/.{\[Infinity]->10*^12,-\[Infinity]->-10*^12})>(#2[[2,2]]/.{\[Infinity]->10*^12,-\[Infinity]->-10*^12})]&];,*)
 ord=Range[1,Length[fvaresult]];
 ];
 fvaResult=fvaresult[[ord]];
