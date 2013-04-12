@@ -1,0 +1,23 @@
+<pre name='i_29_in' id='i_29_in' class='IFT'>GraphicsColumn@Table[
+  plotSimulation[concSol, {t, 0, 10}, 
+   FrameLabel -&gt; {&quot;t&quot;, &quot;Concentration [M]&quot;}, 
+   ZeroFac -&gt; fac], {fac, {.001, .01, .1}}]</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0yhuava5fpwuih4bk423iq-2dw1e0</String>
+  </Function>
+ </Function>
+</Expression>

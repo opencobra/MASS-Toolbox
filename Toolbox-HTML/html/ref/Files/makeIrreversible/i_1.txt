@@ -1,0 +1,25 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>makeIrreversible[
+Toolbox`reaction[&quot;1&quot;, {
+Toolbox`metabolite[&quot;x1&quot;, None], 
+Toolbox`metabolite[&quot;x2&quot;, None]}, {
+Toolbox`metabolite[&quot;x3&quot;, None]}, {1, 1, 1}, False]]
+reversibleQ[%]</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0cxtk31b6id7fvgcxud0dem3yxxyg-wfy3ko</String>
+  </Function>
+ </Function>
+</Expression>

@@ -1,0 +1,24 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>getCompartment[
+Toolbox`reaction[&quot;RxnID&quot;, {
+Toolbox`metabolite[&quot;a&quot;, &quot;c&quot;], 
+Toolbox`metabolite[&quot;b&quot;, &quot;c&quot;]}, {
+Toolbox`metabolite[&quot;c&quot;, &quot;c&quot;]}, {1, 1, 1}, True]]</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0da8acwv6gqltb8b1ocy3u-7vu0va</String>
+  </Function>
+ </Function>
+</Expression>

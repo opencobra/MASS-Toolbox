@@ -1,0 +1,8 @@
+<table class="EST">
+ <tr>
+  <td>Div[{class -&gt; ESS_Co, id -&gt; ESS_1}, {XMLElement[table, {class -&gt; ESSHT, border -&gt; 0}, {XMLElement[tr, {}, {XMLElement[td, {}, {Div[{class -&gt; ESSH}, {XMLElement[a, {href -&gt; javascript:toggle('ESS_1')}, {XMLElement[img, {src -&gt; ../images/mathematicaImages/closedGroup.gif, id -&gt; ESS_1_}, {}],  , InitialConditions, &#160;&#160;}],  , XMLElement[span, {class -&gt; excount}, {(1)}]}]}], XMLElement[td, {class -&gt; CB, valign -&gt; bottom, width -&gt; 5px, height -&gt; 100%, onclick -&gt; toggle('ESS_1')}, {}]}]}], 0}]Div[{class -&gt; ESS_Co, id -&gt; ESS_2}, {XMLElement[table, {class -&gt; ESSHT, border -&gt; 0}, {XMLElement[tr, {}, {XMLElement[td, {}, {Div[{class -&gt; ESSH}, {XMLElement[a, {href -&gt; javascript:toggle('ESS_2')}, {XMLElement[img, {src -&gt; ../images/mathematicaImages/closedGroup.gif, id -&gt; ESS_2_}, {}],  , Parameters, &#160;&#160;}],  , XMLElement[span, {class -&gt; excount}, {(1)}]}]}], XMLElement[td, {class -&gt; CB, valign -&gt; bottom, width -&gt; 5px, height -&gt; 100%, onclick -&gt; toggle('ESS_2')}, {}]}]}], 0}]Div[{class -&gt; ESS_Co, id -&gt; ESS_3}, {XMLElement[table, {class -&gt; ESSHT, border -&gt; 0}, {XMLElement[tr, {}, {XMLElement[td, {}, {Div[{class -&gt; ESSH}, {XMLElement[a, {href -&gt; javascript:toggle('ESS_3')}, {XMLElement[img, {src -&gt; ../images/mathematicaImages/closedGroup.gif, id -&gt; ESS_3_}, {}],  , SpeciesProfiles, &#160;&#160;}],  , XMLElement[span, {class -&gt; excount}, {(1)}]}]}], XMLElement[td, {class -&gt; CB, valign -&gt; bottom, width -&gt; 5px, height -&gt; 100%, onclick -&gt; toggle('ESS_3')}, {}]}]}], 0}]</td>
+  <td class="CBG"
+      width="5px"
+      onclick="toggle('ES_2')" />
+ </tr>
+</table>

@@ -1,0 +1,28 @@
+<pre name='i_19_in' id='i_19_in' class='IFT'>constructModel[({
+    {-1, 0, 0},
+    {1, -1, 0},
+    {0, 1, -1},
+    {0, 0, 1}
+   }), {Toolbox`metabolite[&quot;x1&quot;, None], Toolbox`metabolite[
+   &quot;x2&quot;, None], Toolbox`metabolite[&quot;x3&quot;, None], Toolbox`metabolite[
+   &quot;x4&quot;, None]}, {&quot;1&quot;, &quot;2&quot;, &quot;3&quot;}, 
+  Irreversible -&gt; {&quot;1&quot;}] // getReactions</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0bhbpvbntnx2d8tlwvbibdnh-i57vh8</String>
+  </Function>
+ </Function>
+</Expression>

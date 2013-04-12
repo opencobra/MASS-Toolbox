@@ -1,0 +1,25 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>rxn = reaction[
+  &quot;GAPD&quot;, {metabolite[&quot;g3p&quot;, &quot;c&quot;], metabolite[&quot;nad&quot;, &quot;c&quot;], 
+      metabolite[&quot;pi&quot;, &quot;c&quot;]}, {metabolite[&quot;13dpg&quot;, &quot;c&quot;], 
+      metabolite[&quot;h&quot;, &quot;c&quot;], metabolite[&quot;nadh&quot;, &quot;c&quot;]}, {1, 1, 1, 1, 1, 
+   1}, 
+    True]</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0hx1upxrgc4cgu4fah7m-i26pbj</String>
+  </Function>
+ </Function>
+</Expression>

@@ -1,0 +1,22 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>Complement[model[&quot;Reactions&quot;], model4[&quot;Reactions&quot;], 
+ SameTest -&gt; SameQ]
+Complement[model4[&quot;Reactions&quot;], model[&quot;Reactions&quot;], SameTest -&gt; SameQ]</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0cestzoqcqkj9b5mbcmay11as-xj4ylw</String>
+  </Function>
+ </Function>
+</Expression>

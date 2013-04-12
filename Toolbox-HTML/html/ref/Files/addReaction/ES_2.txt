@@ -1,0 +1,8 @@
+<table class="EST">
+ <tr>
+  <td>Div[{class -&gt; ExampleText, id -&gt; 861671355}, {It is not possible to add a reaction that already exists in the model}]<a name="822319435" /><a name="1346554202" />Div[{class -&gt; IO}, {XMLElement[table, {class -&gt; InCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {XMLElement[a, {name -&gt; inoutlink, href -&gt; javascript:input('i_13'), onmouseover -&gt; javascript:return(true);}, {In[1]:=}]}], XMLElement[td, {class -&gt; Input}, {Div[{}, {XMLElement[a, {href -&gt; javascript:input('i_13'), onmouseover -&gt; javascript:return(true);}, {XMLElement[img, {src -&gt; Files/addReaction/I_14.gif, height -&gt; 30, width -&gt; 321, alt -&gt; Click for copyable input}, {}]}]}], Div[{name -&gt; i_13_out, id -&gt; i_13_out, class -&gt; IFL}, {}]}]}]}], 0, XMLElement[table, {class -&gt; OCell}, {XMLElement[tr, {}, {XMLElement[td, {class -&gt; lab}, {Out[1]=}], XMLElement[td, {class -&gt; Output}, {XMLElement[img, {src -&gt; Files/addReaction/O_4.gif, height -&gt; 13, width -&gt; 58, alt -&gt; }, {}]}]}]}]}]</td>
+  <td class="CBG"
+      width="5px"
+      onclick="toggle('ES_2')" />
+ </tr>
+</table>

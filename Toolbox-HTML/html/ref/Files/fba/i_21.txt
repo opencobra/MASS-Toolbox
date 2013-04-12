@@ -1,0 +1,27 @@
+<pre name='i_21_in' id='i_21_in' class='IFT'>singleKnockouts = Table[
+   ecoliMutant = deleteGene[ecoli, g];
+   mutantFluxes = 
+    fba[ecoliMutant, Toolbox`v[&quot;Biomass_Ecoli_core_N(w/GAM)_Nmet2&quot;]];
+   g -&gt; Chop[
+      Toolbox`v[&quot;Biomass_Ecoli_core_N(w/GAM)_Nmet2&quot;] /. mutantFluxes]/
+     wtFlux
+   , {g, genesOfInterest}];</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0c0f2mvzfmpxx6hx8-g3zm7f</String>
+  </Function>
+ </Function>
+</Expression>

@@ -1,0 +1,24 @@
+<pre name='i_23_in' id='i_23_in' class='IFT'>model2 = addReactions[model, {
+Toolbox`reaction[&quot;4&quot;, {
+Toolbox`metabolite[&quot;x4&quot;, None]}, {
+Toolbox`metabolite[&quot;x1&quot;, None]}, {1, 1}, False]}];
+model2[&quot;Reactions&quot;]</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0l2etquq3sacfojukpeduleeb2lehrozn2-4ozl9z</String>
+  </Function>
+ </Function>
+</Expression>

@@ -1,0 +1,30 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>modifiedModel = addReactions[model, {
+    Toolbox`reaction[&quot;vadk&quot;, {
+Toolbox`metabolite[&quot;adp&quot;, &quot;c&quot;]}, {
+Toolbox`metabolite[&quot;atp&quot;, &quot;c&quot;], 
+Toolbox`metabolite[&quot;amp&quot;, &quot;c&quot;]}, {2, 1, 1}, True],
+    Toolbox`reaction[&quot;vg6pdh&quot;, {
+Toolbox`metabolite[&quot;g6p&quot;, &quot;c&quot;], 
+Toolbox`metabolite[&quot;nadph&quot;, &quot;c&quot;]}, {
+Toolbox`metabolite[&quot;gl6p&quot;, &quot;c&quot;], 
+Toolbox`metabolite[&quot;nadp&quot;, &quot;c&quot;]}, {1, 1, 1, 1}, True]
+    }];</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0doujc8pwzjm87by3nsj3-xj3st5</String>
+  </Function>
+ </Function>
+</Expression>

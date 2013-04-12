@@ -1,0 +1,39 @@
+<pre name='i_9_in' id='i_9_in' class='IFT'>modelOscil = model;
+updateCustomRateLaws[modelOscil, {Toolbox`v[
+   &quot;HK&quot;] -&gt; (0.9 + 0.1 Sin[t]) (
+    Toolbox`parameter[&quot;Vmax_2&quot;, &quot;HK&quot;] Toolbox`parameter[
+     &quot;Volume&quot;, 
+      &quot;cell&quot;] (-((
+        Toolbox`species[&quot;ADP&quot;, &quot;cell&quot;][t] Toolbox`species[
+          &quot;G6P&quot;, &quot;cell&quot;][t])/(
+        Toolbox`parameter[&quot;Katp_2&quot;, &quot;HK&quot;] Toolbox`parameter[
+         &quot;Keq_2&quot;, &quot;HK&quot;] Toolbox`parameter[&quot;Kglc_2&quot;, &quot;HK&quot;])) + (
+       Toolbox`species[&quot;ATP&quot;, &quot;cell&quot;][t] Toolbox`species[
+         &quot;GLCi&quot;, &quot;cell&quot;][t])/(
+       Toolbox`parameter[&quot;Katp_2&quot;, &quot;HK&quot;] Toolbox`parameter[
+        &quot;Kglc_2&quot;, &quot;HK&quot;])))/((1 + Toolbox`species[&quot;ADP&quot;, &quot;cell&quot;][t]/
+       Toolbox`parameter[&quot;Kadp_2&quot;, &quot;HK&quot;] + 
+       Toolbox`species[&quot;ATP&quot;, &quot;cell&quot;][t]/Toolbox`parameter[
+       &quot;Katp_2&quot;, &quot;HK&quot;]) (1 + Toolbox`species[&quot;G6P&quot;, &quot;cell&quot;][t]/
+       Toolbox`parameter[&quot;Kg6p_2&quot;, &quot;HK&quot;] + 
+       Toolbox`species[&quot;GLCi&quot;, &quot;cell&quot;][t]/Toolbox`parameter[
+       &quot;Kglc_2&quot;, &quot;HK&quot;]))}]</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0yhuava5fpwtkvut1t450k-wdnahe</String>
+  </Function>
+ </Function>
+</Expression>

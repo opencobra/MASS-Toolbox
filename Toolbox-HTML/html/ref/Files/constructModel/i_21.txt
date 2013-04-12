@@ -1,0 +1,28 @@
+<pre name='i_21_in' id='i_21_in' class='IFT'>constructModel[{Toolbox`reaction[&quot;1&quot;, {
+Toolbox`metabolite[&quot;x1&quot;, None]}, {
+Toolbox`metabolite[&quot;x2&quot;, None]}, {1, 1}, True], Toolbox`reaction[&quot;2&quot;, {
+Toolbox`metabolite[&quot;x2&quot;, None]}, {
+Toolbox`metabolite[&quot;x3&quot;, None]}, {1, 1}, True], Toolbox`reaction[&quot;3&quot;, {
+Toolbox`metabolite[&quot;x3&quot;, None]}, {
+Toolbox`metabolite[&quot;x4&quot;, None]}, {1, 1}, False]}, 
+  Constraints -&gt; {&quot;1&quot; -&gt; {0, 10}}] // getConstraints
+</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0bhbpvbntnx2d8tlwvbibdnh-6rqab3</String>
+  </Function>
+ </Function>
+</Expression>

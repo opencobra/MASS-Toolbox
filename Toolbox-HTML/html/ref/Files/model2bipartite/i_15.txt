@@ -1,0 +1,39 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>deletionBipNet = 
+  model2bipartite[glycolysis, 
+   DeletionRules -&gt; {&quot;vhk&quot; -&gt; {Toolbox`metabolite[&quot;atp&quot;, &quot;c&quot;], 
+       Toolbox`metabolite[&quot;adp&quot;, &quot;c&quot;], Toolbox`metabolite[&quot;h&quot;, &quot;c&quot;]}, 
+     &quot;vpfk&quot; -&gt; {Toolbox`metabolite[&quot;atp&quot;, &quot;c&quot;], Toolbox`metabolite[
+       &quot;adp&quot;, &quot;c&quot;], Toolbox`metabolite[&quot;h&quot;, &quot;c&quot;]}, 
+     &quot;vgapdh&quot; -&gt; {Toolbox`metabolite[&quot;nad&quot;, &quot;c&quot;], Toolbox`metabolite[
+       &quot;phos&quot;, &quot;c&quot;], Toolbox`metabolite[&quot;h&quot;, &quot;c&quot;], Toolbox`metabolite[
+       &quot;nadh&quot;, &quot;c&quot;]}, 
+     &quot;vpgk&quot; -&gt; {Toolbox`metabolite[&quot;adp&quot;, &quot;c&quot;], Toolbox`metabolite[
+       &quot;atp&quot;, &quot;c&quot;]}, &quot;veno&quot; -&gt; {
+Toolbox`metabolite[&quot;h2o&quot;, &quot;c&quot;]}, 
+     &quot;vpk&quot; -&gt; {Toolbox`metabolite[&quot;h&quot;, &quot;c&quot;], Toolbox`metabolite[
+       &quot;adp&quot;, &quot;c&quot;], Toolbox`metabolite[&quot;atp&quot;, &quot;c&quot;]}, 
+     &quot;vldh&quot; -&gt; {Toolbox`metabolite[&quot;h&quot;, &quot;c&quot;], Toolbox`metabolite[
+       &quot;nadh&quot;, &quot;c&quot;], Toolbox`metabolite[&quot;nad&quot;, &quot;c&quot;]}, 
+     &quot;vatp&quot; -&gt; {Toolbox`metabolite[&quot;h2o&quot;, &quot;c&quot;], Toolbox`metabolite[
+       &quot;h&quot;, &quot;c&quot;], Toolbox`metabolite[&quot;phos&quot;, &quot;c&quot;]}, &quot;vnadh&quot; -&gt; {
+Toolbox`metabolite[&quot;h&quot;, &quot;c&quot;]}}];
+% // Short</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0bb00r9e08ll1trfxvwk0c5vxyjtqd6-zimjn0</String>
+  </Function>
+ </Function>
+</Expression>

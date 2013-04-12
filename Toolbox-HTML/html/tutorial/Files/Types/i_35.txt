@@ -1,0 +1,28 @@
+<pre name='i_35_in' id='i_35_in' class='IFT'>Needs[&quot;Toolbox`&quot;];
+str2mass[&quot;atp[c]&quot;]
+% // FullForm;
+constructModel[
+ str2mass /@ {&quot;1: x1[c] &lt;=&gt; x2[c]&quot;, &quot;2: x2[c] &lt;=&gt; x3[c]&quot;, 
+   &quot;3: x3[c] --&gt; x4[c]&quot;}
+ ]
+NullSpace[%\[Transpose]].%[&quot;Species&quot;]
+</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0n272124uljqfsa-uc1lo2</String>
+  </Function>
+ </Function>
+</Expression>

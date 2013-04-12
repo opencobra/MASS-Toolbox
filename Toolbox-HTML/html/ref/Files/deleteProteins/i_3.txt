@@ -1,0 +1,21 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>ecoli = ExampleData[{&quot;Toolbox&quot;, &quot;EcoliCore&quot;}];
+ecoli // Dimensions</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0b6arsu4kgre5fx4y8cy4q2q2s-d2l8ih</String>
+  </Function>
+ </Function>
+</Expression>

@@ -1,0 +1,25 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>kFwd2keq[Toolbox`rateconst[
+  &quot;vhk&quot;, True] (-((
+     Toolbox`metabolite[&quot;adp&quot;, &quot;c&quot;][t] Toolbox`metabolite[&quot;g6p&quot;, &quot;c&quot;][
+       t])/Toolbox`Keq[&quot;vhk&quot;]) + 
+    Toolbox`metabolite[&quot;atp&quot;, &quot;c&quot;][t] Toolbox`metabolite[&quot;glu&quot;, &quot;c&quot;][
+      t])]</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0iscg3v2j3fd6jf0n6fi5dyh6-hdnd7x</String>
+  </Function>
+ </Function>
+</Expression>

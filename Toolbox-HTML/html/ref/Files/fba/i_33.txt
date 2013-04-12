@@ -1,0 +1,22 @@
+<pre name='i_33_in' id='i_33_in' class='IFT'>BarChart[singleKnockouts[[All, 2]], 
+ ChartLabels -&gt; getID /@ singleKnockouts[[All, 1]], BarOrigin -&gt; Left,
+  AspectRatio -&gt; 9/1, ImageSize -&gt; 100]</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0c0f2mvzfmpxx6hx8-u7fmln</String>
+  </Function>
+ </Function>
+</Expression>

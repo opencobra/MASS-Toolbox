@@ -1,0 +1,22 @@
+<pre name='i_17_in' id='i_17_in' class='IFT'>TableForm@
+ scatterFromDicts[model[&quot;InitialConditions&quot;], 
+  adjustUnits[model[&quot;InitialConditions&quot;], model]]</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0ytqdfpkmea2149g-gt84yv</String>
+  </Function>
+ </Function>
+</Expression>

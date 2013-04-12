@@ -1,0 +1,22 @@
+<pre name='i_21_in' id='i_21_in' class='IFT'>str2mass[&quot;GAPD: g3p[c] + nad[c] + pi[c] IRREVDELIMITER 13dpg[c] + \
+h[c] + nadh[c]&quot;, 
+ IrreversibleDelimeter -&gt; RegularExpression[&quot;IRREVDELIMITER&quot;]]</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0k1m6jmn4o8a9vtn3a4kixg-hb0evq</String>
+  </Function>
+ </Function>
+</Expression>

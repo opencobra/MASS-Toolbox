@@ -1,0 +1,21 @@
+<pre name='i_17_in' id='i_17_in' class='IFT'>str2mass[&quot;GAPD: g3p[c] + nad[c] + pi[c] &lt;~~~&gt; 13dpg[c] + h[c] + \
+nadh[c]&quot;, ReversibleDelimiter -&gt; RegularExpression[&quot;&lt;~*&gt;&quot;]]</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0k1m6jmn4o8a9vtn3a4kixg-rsajy0</String>
+  </Function>
+ </Function>
+</Expression>

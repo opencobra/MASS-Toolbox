@@ -1,0 +1,20 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>FilterRules[ecoli[&quot;Constraints&quot;], v[getID[#]] &amp; /@ ecoli[&quot;Exchanges&quot;]]</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0e2f0mfsfsxep5nb3nwwb2jh-heermf</String>
+  </Function>
+ </Function>
+</Expression>

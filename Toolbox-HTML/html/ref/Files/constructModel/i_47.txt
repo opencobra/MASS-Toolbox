@@ -1,0 +1,35 @@
+<pre name='i_47_in' id='i_47_in' class='IFT'>model = constructModel[{Toolbox`reaction[&quot;1&quot;, {
+Toolbox`metabolite[&quot;x1&quot;, None]}, {
+Toolbox`metabolite[&quot;x2&quot;, None]}, {1, 1}, True], Toolbox`reaction[&quot;2&quot;, {
+Toolbox`metabolite[&quot;x2&quot;, None]}, {
+Toolbox`metabolite[&quot;x3&quot;, None]}, {1, 1}, True], Toolbox`reaction[&quot;3&quot;, {
+Toolbox`metabolite[&quot;x3&quot;, None]}, {
+Toolbox`metabolite[&quot;x4&quot;, None]}, {1, 1}, False]}, 
+   Parameters -&gt; {Toolbox`rateconst[&quot;1&quot;, True] -&gt; 1, 
+     Toolbox`rateconst[&quot;2&quot;, True] -&gt; 0.01, 
+     Toolbox`rateconst[&quot;3&quot;, True] -&gt; 0.0001, Toolbox`Keq[&quot;1&quot;] -&gt; 1, 
+     Toolbox`Keq[&quot;2&quot;] -&gt; 1},
+   InitialConditions -&gt; {Toolbox`metabolite[&quot;x1&quot;, None] -&gt; 1, 
+     Toolbox`metabolite[&quot;x2&quot;, None] -&gt; 0, 
+     Toolbox`metabolite[&quot;x3&quot;, None] -&gt; 0, 
+     Toolbox`metabolite[&quot;x4&quot;, None] -&gt; 0}, Ignore -&gt; {
+Toolbox`metabolite[&quot;x2&quot;, None]}];</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0bhbpvbntnx2d8tlwvbibdnh-1a7rkn</String>
+  </Function>
+ </Function>
+</Expression>

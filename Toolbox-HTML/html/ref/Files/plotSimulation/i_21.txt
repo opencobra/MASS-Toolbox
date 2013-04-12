@@ -1,0 +1,21 @@
+<pre name='i_21_in' id='i_21_in' class='IFT'>plotSimulation[concSol, FrameLabel -&gt; {&quot;t&quot;, &quot;Concentration [M]&quot;}, 
+ PlotFunction -&gt; Plot]</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0yhuava5fpwuih4bk423iq-50ft1f</String>
+  </Function>
+ </Function>
+</Expression>

@@ -1,0 +1,24 @@
+<pre name='i_9_in' id='i_9_in' class='IFT'>{concSol, fluxSol} = 
+  simulate[model, {t, 0, 1000}, 
+   InitialConditions -&gt; {Toolbox`metabolite[&quot;atp&quot;, &quot;c&quot;] -&gt; 
+      10 Milli Mole Liter^-1}];
+plotSimulation[concSol, FrameLabel -&gt; {&quot;t&quot;, &quot;Concentration [mM]&quot;}]</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0d352h30vbpbdi73fvpg-rw7ubd</String>
+  </Function>
+ </Function>
+</Expression>

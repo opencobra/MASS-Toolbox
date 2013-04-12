@@ -1,0 +1,2043 @@
+/*  DEFAULT STYLES FOR V6 DOCUMENTATION PAGES */
+body, p, td, tr, blockquote, smaller {
+font-family:Verdana,Geneva,Arial,sans-serif;
+font-size:11px;
+line-height:15px;
+}
+
+.docsRedirect {display:none;}
+.docsRedirect-on {display:block;}
+.ETG {display:none; position:absolute;}
+.newInVersionLink img {display:none;}
+div.UnderDevelopment {color:red;border:solid black 1px; position:absolute; background: white; padding: 7px 436px 7px 40px; 
+margin-left:70px; margin-top:-35px; font-size:11px; font-weight:bold;}
+.guideTable div.UnderDevelopment {color:red;border:solid black 1px; position:absolute; background: white; padding: 7px 436px 7px 40px; 
+margin-left:-14px; margin-top:-15px; margin-bottom:5px; font-size:11px; font-weight:bold;}
+
+.PDFTest { 
+float:right !important; 
+float: right; }
+/* .PDFImage {margin-top:-3px; margin-left:10px;} */
+.PDFImage {margin-top:-2px; margin-left:10px; z-index:1}
+.TutorialsMenuPDF, .AnchorBarTextPDF, .TutorialsRawPDF {
+padding-top: 0px important!;
+padding: 10px;
+} 
+
+.PDFBookIcon { margin-top:-3px !important; margin-top:-5px; margin-left:-6px; position:absolute;}
+
+/* obsolescence banne added for legacy documentation  */
+.ObsBanner {color:black; width:430px;  padding-left:7px; padding-right:7px; padding-top:6px;
+padding-bottom:6px; position:absolute; left:180px; top:85px !important; top:76px; font-size:10px; font-weight:normal;
+font-family:Verdana, Arial, Helvetica, sans-serif; font-stretch:narrow; background:#fffdc8;
+border:solid 2px #ffbb33; line-height:16px; }
+
+.FutureBanner {color:white; width:678px;  padding-left:12px; padding-right:12px; padding-top:11px;
+padding-bottom:11px; position:absolute; left:60px; top:135px !important; top:126px; font-size:10px; font-weight:normal;
+font-family:Verdana, Arial, Helvetica, sans-serif; font-stretch:narrow; font-size:16px; background:#D16587;
+border:solid 2px #C25A7C; line-height:16px; }
+
+.FutureFlag {color:white; width:678px;  padding-left:12px; padding-right:12px; padding-top:11px;
+padding-bottom:11px; position:absolute; left:60px; top:135px !important; top:126px; font-size:10px; font-weight:normal;
+font-family:Verdana, Arial, Helvetica, sans-serif; font-stretch:narrow; font-size:16px; background:#D16587;
+border:solid 2px #C25A7C; line-height:16px; }
+
+.ObsBanner a:link {font-weight:bold; color:#cc6600;}
+.ObsBanner a:hover {font-weight:bold; color:#cc6600;}
+.ObsBanner a:visited {font-weight:bold; color:#cc6600;}
+/* end obsolescence banner */
+
+/**************** M A I N  P A G E ******************/
+.docFooter {font-size:11px; margin: 20px 0 50px 200px}
+.docFooterLink {font-size:10px; font-weight:normal; }
+a.docFooterLink a:link {color:#999 }
+a.docFooterLink a:visited {color:#999 }
+a.docFooterLinke a:hover {color:#CCAA11 }
+a {color:black; }
+a:hover {color:black; }
+a:active {color:black; }
+.Notes a:link, .FN a:link, .ExampleText a:link, #UT a:link {color:#2547AA; }
+
+.RootNewInLink {color: #6b6b6b;}
+.RootNewInLink a:link {color: #6b6b6b;}
+.RootNewInLink a:visited {color: #6b6b6b; }
+.RootNewInLink a:hover {color: #6b6b6b; }
+
+.blahblah {text-align:right; position: absolute; left:660px; }
+.topBorder {border-top:1px solid black;} 
+
+.DataSourceTitle {color:#993333; font-size:18px; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; margin-top:24px; margin-bottom:14px !important; margin-bottom:10px; }
+.DataSourceSection {font-weight:none;margin-top:18px; margin-bottom:12px; }
+.DataSourceSummary { color:black; font-size:11px;  margin-right:40px; line-height:18px; } 
+.DataSourceText { color:black; font-size:11px;  margin-top:10px !important; margin-bottom:6px; margin-left:12px; margin-right:40px;} 
+.DataSourceContact { color:black; font-size:11px; /*border-top: 1px solid black; */
+margin-top:20px !important; margin-bottom:6px; }
+.DataSourceContact a:link {color:#2547AA; }
+.DataSourceContact a:visited {color:#2547AA; }
+.DataSourceContact a:hover {color:#DA6525; }
+.DataSourceContact .IF a:link {color:#6b6b6b; }
+.DataSourceContact .IF a:visited {color:#6b6b6b; }
+.DataSourceContact .IF a:hover {color:#cc0000; }
+
+/*
+.DataSourceSection { color:black; font-size:11px;  font-weight:bold; border-bottom: 1px solid black; margin-top:10px !important; margin-bottom:6px; margin-left:0px;}
+*/
+div#develheader {/* margin-left:60px !important; */ margin-left:35px; padding:10px; margin-top:20px; margin-bottom:120px; display:block; 
+border:1px solid #ccc; background-color:#D6D6F3; color:black; font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif; width:685px !important; width:700px;}
+.develHeaderTable {width:650px; }
+#TutorialContentTable  .develHeaderTable {text-align:left; width:500px; }
+.develHeaderText {font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;}
+
+.HeaderTitle {font-size:30px; font-family:Verdana, Arial, Helvetica, sans-serif; color:white;}
+
+.footer {margin:12px 0px 20px 52px;  text-align:left; font-size:11px; }
+.cite {visibility:hidden; margin:10px 0px 12px 52px; /*border-bottom: 1px solid #666; */  text-align:left; }
+.vertdivide {visibility:hidden; /*margin-right:12px; margin-left:10px; border-left: 2px solid #999; margin-top:0px; margin-bottom:6px;*/}
+span.contactinfo {padding-left:53px; font-size:10px; /*display:none;*/ margin:12px 0px 0px 0px; color:#999; }
+span.contactinfo a:link, span.contactinfo a:hover, span.contactinfo a:active  {color:#999;}
+table.copyright {/* margin:40px 0 0 70px; */margin:40px 0 0 0px; padding:0px; }
+div.copyright {margin:0px; padding:0px; }
+.languagepage {padding-left:12px;}
+.languageSection {text-align:right; padding-top:12px;}
+
+div.feedbackfooter, div.funcfdbck {color:#999; margin-top:30px;margin-left:53px;margin-bottom:10px;padding:10px; /*text-align: center */}
+div.feedbackfooterroot {color:#999; margin-top:30px;margin-left:116px;margin-bottom:10px;padding:10px; /*text-align: center */}
+div.MainRoot div.feedbackfooter, div.guideTable div.feedbackfooter  { color:#999; margin-top:30px;margin-left:55px;margin-bottom:30px; padding:0px; /*text-align: center */}
+div.feedbackfooter a:link, div.feedbackfooterroot a:link  { color:#999;}
+div.feedbackfooter a:visited, div.feedbackfooterroot a:visited { color:#999;}
+div.feedbackfooter a:hover, div.feedbackfooterroot a:hover { color:#999;}
+div.javaDocIndent  { margin-left:57px;}
+ 
+/**************** F U N C T I O N   S T Y L E S ******************/
+
+ul {
+  font-size:11px; padding-right:0px;
+  list-style-type: none; 
+  list-style-image: none;
+  margin-left: 0px; 
+  padding-left: 0px;
+  text-indent: 0px;
+}
+
+/* get rid of border="0" cellspacing="0" cellpadding="0" */
+/* table { table-layout: fixed } */
+table { border-collapse:collapse;}
+#menu table { border-collapse:separate;}
+td { padding:0px; } 
+
+mainRootTable { margin:0px; padding:0px; }
+.wrapper {margin:0px; padding:0px; }
+
+/* get rid of border="0" valign="absmiddle" */
+img { border : 0px; vertical-align : absolute-middle }
+
+/* these were yoinked from newdesign.css */
+h1 {color:#000; font-size:24px; font-family:Helvetica, Verdana, Arial, sans-serif; font-weight:bold; margin-bottom:18px;}
+h2 {color:#000; font-size:18px; font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:bold} 
+h3 {color:#000; font-size:14px; font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:bold; margin-top:10px} 
+h4 {color:#000; font-size:14px; font-family:Times New Roman, Times, serif; font-weight:bold; font-style:italic;} 
+
+sub { color : #000; }
+/* removed :link, :active, :visited as they're all the same anyway */
+a { text-decoration: none}
+
+a:link                 { text-decoration: none; color: black}
+a:visited                 { text-decoration: none; color: black}
+a:active                { text-decoration: none; color: #DA6525; } 
+/* a:hover         { text-decoration: none; color: #DA6525; } */
+/* not this one */
+
+span.MenuName a:link {color:#666 }
+span.MenuName a:visited {color:#666 }
+span.MenuName a:hover {color:#666 }
+
+.GuideTutorial a:link {color:#2547AA }
+.GuideTutorial a:visited {color:#2547AA }
+.GuideTutorial a:hover {color:#DA6525 }
+
+/* How to styles */
+.HowToTitle {color:#DF6600; font-size:16px; font-family:Verdana, Arial, sans-serif; font-weight:bold; 
+margin-top:12px; margin-bottom:20px;
+	outline-style: inherit;
+	outline-color: black;
+	outline-width: 1px;
+	
+	}
+.HowToTitlePrefix {color:gray; font-size:16px; font-family:Verdana, Arial, sans-serif; font-weight:bold; }
+.HowToTitlePrefixSep {color:black; font-size:18px; font-family:Verdana, Arial, sans-serif; font-weight:normal; }
+div.HowToAbstract {
+  color:black; font-size:12px; font-family:Verdana, Arial, sans-serif; font-weight:normal; 
+  margin-top:12px; background-color:#FFFEE4; margin-bottom:40px; padding:10px;
+  border-top:1px solid #999; border-bottom:1px solid #999; }
+td.HowToAbstract {
+  color:black; font-size:12px; font-family:Verdana, Arial, sans-serif; font-weight:normal; 
+  vertical-align: top;
+}
+td.HowToAbstract span.MBookTableText {
+  color:black; font-size:12px; font-family:Verdana, Arial, sans-serif; font-weight:normal; 
+}
+td.HowToScreencastLink {
+  padding: 0; margin: 0;
+  vertical-align: top;
+}
+div.HowToScreencastLink { margin: 0; padding: 0; }
+div.HowToIconGroup  {width:120px; padding: 0 0 0 10px; }
+div.HowToIcon  {padding-right:5px;}
+div.HowToIconText {color:gray; font-size:9px; font-family:Verdana, Arial, sans-serif; font-weight:bold; padding-top:4px;}
+div.ScreencastPointerText {color:gray; font-size:11px; font-family:Verdana, Arial, sans-serif; font-style:italic; 
+margin-bottom:12px; margin-top:6px;}
+div.ScreencastPointerText a:link {font-weight:bold; color:#2547AA;}
+div.ScreencastPointerText a:hover {font-weight:bold; color:#DA6525;}
+div.ScreencastPointerText a:active {font-weight:bold; color:#DA6525;}
+div.ScreencastPointerText a:visited {font-weight:bold; color:#2547AA;}
+img.HowToPicture {margin-bottom:24px; margin-top:6px;}
+
+p.IndTex a:link, div.IndTex a:link, div.HowToText a:link {color: #14286A; }
+p.IndTex a:visited, div.IndTex a:visited, div.HowToText a:visited  {color: #14286A; }
+p.IndTex a:hover, div.IndTex a:hover, div.HowToText a:hover  {color: #DA6525; } 
+p.IndTex a:active, div.IndTex a:active, div.HowToText a:active  {color: #DA6525; } 
+
+h1#SectionHowTo {font-size:24px; color:#DF6600; font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:bold; margin-top:10px} 
+h1#SectionHowTo a {color:#2547AA;}
+h1#SectionHowTo a:link {color:#2547AA;}
+h1#SectionHowTo a:hover {color:#DA6525;}
+h1#SectionHowTo a:active {color:#DA6525;}
+h1#SectionHowTo a:visited {color:#2547AA;}
+
+h2#SubsectionHowTo {font-size:18px; color:#DF6600; font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:bold; margin-top:10px} 
+h2#SubsectionHowTo a {color:#2547AA;}
+h2#SubsectionHowTo a:link {color:#2547AA;}
+h2#SubsectionHowTo a:hover {color:#DA6525;}
+h2#SubsectionHowTo a:active {color:#DA6525;}
+h2#SubsectionHowTo a:visited {color:#2547AA;}
+
+h3#SubsubsectionHowTo {font-size:11px; color:#DF6600; font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:bold; margin-top:10px} 
+h3#SubsubsectionHowTo a {color:#2547AA;}
+h3#SubsubsectionHowTo a:link {color:#2547AA;}
+h3#SubsubsectionHowTo a:hover {color:#DA6525;}
+h3#SubsubsectionHowTo a:active {color:#DA6525;}
+h3#SubsubsectionHowTo a:visited {color:#2547AA;}
+
+.TutorialAbstract {color:black; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:normal; 
+margin-top:12px; margin-bottom:20px;  }
+.TutorialAbstract a {color:black;}
+#TutorialContentTable h1#Section {color:#993333; /* #B23600;  */}
+#TutorialContentTable  .Title {color:#993333; font-size:24px; 
+font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; margin-top:36px; 
+margin-bottom:28px !important; margin-bottom:10px; line-height:24px; margin-left:23px;} 
+#TutorialContentTable  h2.Section {color:#993333; 
+font-size:18px; 
+font-family:Verdana, Arial, Helvetica, sans-serif; 
+font-weight:bold; 
+margin-top:24px; 
+margin-bottom:14px !important; 
+margin-bottom:10px; 
+margin-left:23px;} 
+
+#TutorialContentTable  h3.Subsection {color:#993333; font-size:14 px; font-family:Verdana, Arial, Helvetica, sans-serif; 
+font-weight:normal; margin-top:16px; margin-bottom:14px !important; margin-bottom:10px; margin-left:23px;} 
+
+#TutorialContentTable  h4.Subsubsection { margin-left:23px; color:#993333; font-size:11px !important; font-size:11 px; 
+font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:normal; margin-top:16px; margin-bottom:0px !important; 
+margin-bottom:0px; padding-bottom:0px;} 
+#TutorialContentTable  h5.Subsubsubsection { margin-left:23px; color:gray; font-size:11px !important; font-size:11 px; 
+font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:normal; margin-top:12px; margin-bottom:0px !important; 
+margin-bottom:0px; padding-bottom:0px;} 
+#TutorialContentTable  h5.Subsubsubsection a { color:gray; }
+
+#TutorialContentTable  li#BulletedList,  #TutorialContentTable  li#ItemizedList{ color:black; font-size:11px; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:normal; 
+margin-left:23px; margin-bottom:15px; margin-top:0px; padding-left:2.0ex; padding-right:10px; 
+text-indent: 0px; list-style : none; background : url(../images/mathematicaImages/bullet.gif) 0px 1.3ex no-repeat;} 
+
+#TutorialContentTable  .ItemizedPicture {margin:23px; margin-left:33;}
+#TutorialContentTable  div.Graphics {margin:23px;}
+div.Graphics {margin:15px 0px 15px 21px;}
+#TutorialContentTable  div.DisplayMath {margin:23px;}
+#TutorialContentTable  div.NumberedEquation {margin:23px;}
+#TutorialContentTable  div.DisplayFormula {margin-top:10px;}
+
+/* #TutorialContentTable  h2#Subsection {color:#993333; font-size:18px; 
+font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; margin-top:24px; 
+margin-bottom:14px !important; margin-bottom:10px; margin-left:23px;}  */
+
+#TutorialContentTable .Picture {margin: 10px 0px 0px 24px; }
+#TutorialContentTable a:link {color:  #2547AA;  }
+#TutorialContentTable a:active {color:#CCAA11; }
+#TutorialContentTable a:link:hover {color:#DA6525; }
+#TutorialContentTable a:visited {color:#2547AA; }
+
+#TutorialContentTable .infoHeaderTable a:link {color:#DA6525; /* #666; */ }
+#TutorialContentTable .infoHeaderTable a:active {color:white; }
+#TutorialContentTable .infoHeaderTable a:link:hover {color:white; }
+#TutorialContentTable .infoHeaderTable a:visited {color:DA6525; }
+
+
+#TutorialContentTable #parent_Functions a:link, #TutorialContentTable #parent_Tutorials a:link, #TutorialContentTable #parent_MoreAbout a:link {color:black; }
+#TutorialContentTable #parent_Functions a:visited, #TutorialContentTable #parent_Tutorials a:visited, #TutorialContentTable #parent_MoreAbout a:visited {color:black; }
+#TutorialContentTable #parent_Functions a:active, #TutorialContentTable #parent_Tutorials a:active, #TutorialContentTable #parent_MoreAbout a:active {color:white; }
+#TutorialContentTable #parent_Functions a:link:hover, #TutorialContentTable #parent_Tutorials a:link:hover, #TutorialContentTable #parent_MoreAbout a:link:hover {color:white; }
+
+#TutorialContentTable #head_Functions a:link {color:#666; }
+#TutorialContentTable #head_Tutorials a:link {color:#666; } 
+
+#TutorialContentTable .Program pre { 
+ overflow-x: auto; /* Use horizontal scroller if needed; for Firefox 2, not needed in Firefox 3 */
+ white-space: pre-wrap; /* css-3 */
+ white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+ white-space: -pre-wrap; /* Opera 4-6 */
+ white-space: -o-pre-wrap; /* Opera 7 */
+ /* width: 99%; */
+ word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+
+div.ItemizedText { color:black; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:normal; 
+margin-left:35px; margin-bottom:15px; margin-top:0px; paddÄing-left:2.0ex; padding-right:10px; 
+text-indent: -20px;}
+
+div.ItemizedTextParagraph { color:black; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:normal; 
+margin-left:25px; margin-bottom:15px; margin-top:0px; padding-left:2.0ex; padding-right:10px;}
+
+#TutorialContentTable .IndTex { color:black; font-size:11px; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:normal; 
+margin-left:38px; margin-bottom:15px; margin-top:0px; padding-left:2.0ex; padding-right:10px;}
+ 
+
+
+.ul InlineFormula a {color:#ccaa11}
+.ul InlineFormula a:visited {color:#ccaa11}
+ul.IndentedNote a {color:#2547AA/*#7A94DE*/}
+ul.IndentedNote a:visited {color:#2547AA/*#7A94DE*/}
+
+/* hyperlink classes */
+a.ExampleButtonLink:link  {color:#CCAA11; font-style:italic; margin-left:6px; font-size:11px; /*letter-spacing: -0.25em;*/ padding-left:-20px;}
+a.ExampleButtonLink:active  {color:#CCAA11; font-style:italic; margin-left:6px; font-size:11px; /*letter-spacing: -0.25em;*/ padding-left:-20px;}
+a.ExampleButtonLink:visited  {color:#CCAA11; font-style:italic; margin-left:6px; font-size:11px; /*letter-spacing: -0.25em;*/ padding-left:-20px;}
+a.inoutlink, a.iolink { color:#4561ad }
+a.inoutlink:visited, a.iolink:visited { color:#4561ad }
+a.inoutlink:link, a.iolink:link { color:#4561ad }
+.lab a {color:#4561ad}
+.lab a:visited {color:#4561ad}
+a.LinkTrailLink { text-decoration:none; color: #7b84d3 }
+
+span.FullListing {color:#F29C22; font-size:11px; padding-left:18px; }
+span.FullListing a:visited, span.FullListing a:link {color:#F29C22; }
+
+/********** DocCenter banner *********/
+#dcbanner { background : url(../images/images/headerbarbg.jpg); border-bottom: 2px solid #999;}
+#dcbanner td { padding-top : 2px ; background:#999; }
+
+/********** main content td **********/
+/* this is still in a table for the drop shadow effect */
+
+/* #GuideContentTable { 
+    padding:20px 15px 20px 25px;
+    border-top: 5px solid #DF6600 ;
+    border-bottom: 1px solid #B9B7AE;
+    border-left: 1px solid #B9B7AE;
+    border-right: 1px solid #B9B7AE;
+    width: 702px;
+    background: #fff
+}  */
+
+
+.pacletHeaderTable tr {vertical-align: base;/* top; */ height:17px !important; height:20px; }
+.pacletHeaderTable table { padding : 0px; margin-bottom:10px; margin-top:0px; }
+.pacletHeaderTable {width:100%; margin-top:2px;   padding-bottom:50px;}
+
+.pacletBanner {
+    margin-left:60px;
+    margin-right:0px;
+    width: 662px !important;  
+    width: 702px; 
+    letter-spacing: 0.05em;
+    font-size: 10px; 
+    font-weight: bold; 
+}
+
+tr.functionPacletHeader td { 
+	border-top: 1px solid #7B84D3;
+	font-size: 18px; 
+	font-weight: bold; 
+	background-color:#99ccff;
+}
+
+#GuideContentTable { 
+   padding:20px 15px 20px 25px;
+    /*padding:0px 15px 20px 25px;*/
+    border-top: 5px solid #DF6600 /*#f90*/;
+    border-bottom: 1px solid #B9B7AE;
+    border-left: 1px solid #B9B7AE;
+    border-right: 1px solid #B9B7AE;
+ /*   width: 702px;  */
+    width: 662px !important;  
+    width: 702px; 
+    background: #fff;
+} 
+
+#ContentTableX { 
+    padding:1px 15px 1px 25px;
+    border-top: 0px solid #B9B7AE;
+    border-bottom: 0px solid #B9B7AE;
+    border-left: 1px solid #B9B7AE;
+    border-right: 1px solid #B9B7AE;
+    width: 662px !important;  
+    width: 702px; 
+    background: #fff;
+/*    background: #fff;    */
+} 
+
+
+
+#CntTabTop { 
+    padding:20px 15px 10px 25px;
+    border-top: 4px solid #7B84D3;
+    border-bottom: none;
+    border-left: 1px solid #B9B7AE;
+    border-right: 1px solid #B9B7AE;
+    width: 662px !important;  
+    width: 702px; 
+    background: #fff;
+} 
+
+
+#CntTabMid { 
+    padding:1px 15px 1px 25px;
+    border-top:none;
+    border-bottom: none;
+    border-left: 1px solid #B9B7AE;
+    border-right: 1px solid #B9B7AE;
+    width: 662px !important;  
+    width: 702px; 
+    background: #fff;
+} 
+
+
+#CntTabBtm { 
+    padding:1px 15px 20px 25px;
+    border-top:none;
+    border-bottom: 1px solid #B9B7AE;
+    border-left: 1px solid #B9B7AE;
+    border-right: 1px solid #B9B7AE;
+    width: 662px !important;  
+    width: 702px; 
+    background: #fff;
+} 
+
+
+
+#ContentTable, #FormatContentTable { 
+    padding:20px 15px 20px 25px;  
+    border-top: 4px solid #7B84D3;
+    border-bottom: 1px solid #B9B7AE;
+    border-left: 1px solid #B9B7AE;
+    border-right: 1px solid #B9B7AE;
+ /*   width: 702px;  */
+    width: 662px !important;  
+    width: 702px; 
+    background: #fff;
+} 
+
+#TutorialContentTable, #TutorialOverviewTable { 
+    padding:20px 15px 20px 25px;  
+    border-top: 4px solid #B23600;
+    border-bottom: 1px solid #B9B7AE;
+    border-left: 1px solid #B9B7AE;
+    border-right: 1px solid #B9B7AE;
+ /*   width: 702px;  */
+    width: 662px !important;  
+    width: 702px; 
+    background: #fff;
+} 
+
+div#CntTabTop, div#CntTabBtm {margin-left:60px; } 
+div#CntTabMid {margin-left:60px;  padding-bottom:6px; } 
+div#TutorialContentTable, div#ContentTable, div#GuideContentTable,  div#FormatContentTable, 
+div#TutorialOverviewTable {margin-left:30px; }
+/* div#TutorialContentTable2, div#ContentTable2{ margin-left:30px; } */
+div.FloatShdwBar { padding-left:10px; background-image: url (../images/images/body_shadow_top.gif) top left;}
+
+div.FltShdwBar { padding-left: 0px; 
+ background-image: url(../images/images/body_shadow_top2_exp.gif);
+ background-repeat: repeat-y;
+ background-position: 21px;
+}
+
+div.FlShdBar { padding-left: 0px; 
+ background-image: url(../images/images/body_shadow_top2_exp.gif);
+ background-repeat: repeat-y;
+ background-position: 51px;
+}
+/*  img.Blah {position: absolute; left: 34px; }  */
+
+
+div.BtmShdw {text-align:right; margin-left:29px; margin-top:0px; margin-bottom:1px;width:700px;  
+height:9px; background-image:url(../images/images/body_shadow_bgbottom.gif); }
+div.BmShdw {text-align:right; margin-left:59px; margin-top:0px; margin-bottom:1px;width:700px;  
+height:9px; background-image:url(../images/images/body_shadow_bgbottom.gif); }
+.cpr {margin-left:30px;  }
+.devHead {margin-left:30px;  }
+
+/* div.copyrightTest {margin:0px; padding:0px; } */
+img.cornerbottomright {position: absolute;
+top:151px !important;
+top:154px;
+left:740px;
+z-index: -1;}
+img.corner {
+float:left !important;
+padding-left:5px !important;
+padding-left:0px; 
+float:none;
+position: absolute; 
+/* left:34px; */
+left:30px !important; 
+left:35px; 
+z-index:-1;
+margin-top:-1px;} 
+img.crnr {float:left !important; 
+padding-left:5px !important;
+padding-left:0px; 
+float:none; 
+position: absolute; 
+left:30px !important; 
+left:35px; 
+z-index:-1;
+margin-top:-1px;
+}
+div.Flt {position: absolute; left:52px !important; left:51px; } 
+
+
+#GuideContentTable img {
+    vertical-align : middle
+} 
+#ContentTable img, #ContentTableX img {
+    vertical-align : middle
+}
+
+
+
+/**** Search result styles ****/
+/* .searchbar {padding-bottom:0px;margin-bottom:14px;}  */
+.searchbar {padding-top: 4px !important;  padding-top:12px; margin-left:20px;} 
+.search-reference-input {padding:0px;margin:0px;margin-bottom:10px;}
+.search-reference-label { margin-left:8px; margin-top:9px; color:#666666; font-family: Geneva, Helvetica, Arial, sans-serif; font-size: 9px;}
+.search-reference-input-border {border:1px solid #bbbbbb; background-color: rgb(255, 255, 255);margin-left:8px; padding-left:0px;}
+.search-reference-input-table-right {margin-left:42px !important; margin-left:2px;}
+/* .search-reference-input-table {width:700px;} */
+
+.siteNavigationRow { margin-left:40px; margin-top:30px; margin-bottom:25px; } 
+.siteNavigationRow .searchboxsub-on { padding:0px 5px 2px 3px; border:none 0px white; margin:0px; margin-top:1px; width:200; height:16px;}
+
+.search-reference-input-button {margin:0;padding:0}
+
+
+/**** New Doc Header Styles ****/
+
+.searchbanner {background:#F6F6F6; width: 680px; /*padding: 3 3 3 25;*/ padding:0px; margin-left:25px; margin-top:0px;margin-bottom:0px; }
+.searchbanner a {color:#F29921;}
+
+div.IntroLinkCell {visibility:hidden; font-size:1px; margin:0px; padding:0px; }
+
+/* link trail */
+/*.LinkTrailDiv { visibility:hidden; margin : 0 0 40px 0; padding-top:3px; font-size:9px; font-family:Verdana, Arial, Helvetica, sans-serif; color:#7b84d3 }*/
+.LinkTrailDiv {display:none; visibility:hidden; margin : 0 0 4px 0; /*padding-top:3px;*/ font-size:9px; font-family:Verdana, Arial, Helvetica, sans-serif; color:#7b84d3 }
+
+span.LinkTrailSeparater {color:#ccc; }
+div.LinkTrailHolder {margin:0px 0px 6px 60px; padding:0px;}
+div.LinkTrail {font-size:9px; }
+
+div.LinkTrail a:link {color:#999 }
+div.LinkTrail a:visited {color:#999 }
+div.LinkTrail a:hover {color:#DA6525 }
+
+/* previous next */
+.prevnext { float: right; clear: both; }
+
+/* function title */
+h1#ObjectName {font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold}
+.ObjectName {font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; /*font-size:24px; margin-top:2px; margin-bottom:2px;*/}
+.ObjectNameAlt {font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; color:#664D4D;font-size:20px;margin-bottom:20px;}
+
+h1#Section {font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; color:#7CAFB7;}
+.nocaps {text-transform:none; text-align:right; letter-spacing: 0.0em;}
+
+/* TutorialsSection */
+.TutorialObsolescenceNote {background-color:#eee; padding:8px 8px 8px 8px; margin-bottom: 24px; font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;}
+.TS_Co .TS { display:none; }
+
+.TutorialsSectionGroupCollapsed, .TutorialsSectionGroupC {display:none;}
+.TSH, .TutorialsSection {
+  margin-top: 20px; margin-bottom: 15px;
+  border-top: solid #7A94DE 3px;
+  padding-top:6px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size:9px; color:#999;
+  text-transform:uppercase;
+  letter-spacing: 0.05em;
+}
+
+
+#TCS {padding-top:5 px; }
+
+/* RelatedTutorialsSection */
+.RTS_Co .RTS,  .TRLS_Co .TRLS,  .TMAS_Co .TMAS, 
+.TCS_Co .TCS { display:none; }
+
+/* .TutorialsSectionGroupCollapsed, .TutorialsSectionGroupC {display:none;} */
+.RTSH, .RelatedTutorialsSection, .TRLSH, .TMASH, 
+.TCSH, .TutorialCollectionSection {
+  margin-top: 40px; margin-bottom: 13px;
+  border-top: solid #7A94DE 3px;
+  padding-top:6px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size:9px; color:#999;
+  text-transform:uppercase;
+  letter-spacing: 0.05em;
+}
+
+
+.RelatedSearchSection  {
+  margin-top: 30px; margin-bottom: 13px;
+  /* border-top: solid #7A94DE 3px; */
+  border-top: solid orange 3px;
+  padding-top:6px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size:9px; color:#999;
+  text-transform:uppercase;
+  letter-spacing: 0.05em;
+}
+
+.RelatedSearchTerms  {
+  padding-top:6px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-stretch: wide;
+  font-size:11px; 
+  text-transform:none;
+  letter-spacing: 0.05em;
+}
+
+.RelatedSearchSection a {color:/* #2547AA*/#7A94DE;} 
+.RelatedSearchSection a:link:visited {color:/*#2547AA*/gray;} 
+
+.RelatedSearchSection a:link 
+
+
+/* RelatedLinksSection */
+.RLS_Co .RLS { display:none; }
+/*
+div.RLS_Co div.RLSH a { text-decoration: none; color: #DA6525; }
+div.RLS_Co div.RLSH a:hover { text-decoration: none; color: black; }
+*/
+.RelatedLinksSectionGroupCollapsed, .RelatedLinksSectionGroupC { display:none; }
+.RLSH, .RelatedLinksSection {
+  margin-top: 20px; margin-bottom: 15px;
+  border-top: solid #7A94DE 3px;
+  padding-top: 6px; 
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 9px; color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.excount {font-size:70%; color:#aaa;  font-weight:normal; margin-left:-5px; }
+
+/* NotesSection */
+.NS_Co .NS { display: none; }
+
+.NS { padding-top:20px; }
+
+div.NSH a, div.NSH a:visited { text-decoration: none; color: #DD802C; }
+div.NSH a:hover { text-decoration: none; color:#DA6525 ; }
+
+.NotesSectionGroupCollapsed, .NotesSectionGroupC {display:none;}
+.NSSpan {
+  padding-top:0px;
+  padding-left:3px;
+  padding-right:3px;
+  padding-bottom:2px;
+  margin-bottom:2px;
+/*  margin-right:500px;*/
+  font-weight:bold;
+  background-color: #F8F8E5;
+  color: #F29C22;
+  border-color: #F29B22;
+  border-width: 1px;
+  border-style: solid;
+}
+.NSH, .NSH_MI6, .NotesSection, .ExtensionsSectionH{
+  margin-top: 0px; margin-bottom: 2px; /* 20px; */
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+/* NEW 2006-12-02 */
+
+} 
+
+.NS_Co .NSH_MI6 { background-color: #FFFDE0; /* font-color:red; */ color:green; }
+.NSHHighlight {color:red;}
+
+
+/* SeeAlsoSection */
+.SAS_Co .SAS, .ERP, .EXTS_Co .EXTS { display:none; }
+/*
+div.SAS_Co div.SASH a { text-decoration: none; color: #DA6525; }
+div.SAS_Co div.SASH a:hover { text-decoration: none; color: black; }
+*/
+.SeeAlsoSectionGroupCollapsed, .SeeAlsoSectionGroupC {display:none;}
+.SASH, .SeeAlsoSection, .ERPH, .EXTSH {
+  margin-top: 20px;  margin-bottom: 15px;
+  border-top: solid #7A94DE 3px;
+  padding-top:6px;
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-size: 9px; color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.MoreAbout a {color:#2547AA/*#7A94DE;*/} 
+.MoreAbout a:link:visited {color:#2547AA/*#7A94DE;*/} 
+.MoreAbout {
+  padding-left: 24px;
+  padding-top:0px;
+  padding-bottom:6px;
+  margin-top:0px;
+  margin-bottom:0px;
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px; color: #999;
+  font-weight:normal;
+}
+
+/* MoreAboutSection */
+.MAS_Co .MAS, .TSG_Co .TSG { display:none; }
+/*
+div.MAS_Co div.MASH a { text-decoration: none; color: #DA6525; }
+div.MAS_Co div.MASH a:hover { text-decoration: none; color: black; }
+*/
+.MoreAboutSectionGroupCollapsed, .MoreAboutSectionGroupC, .TutorialCollectionGroupCollapsed, .TutorialCollectionGroupC  {display:none;}
+.MASH, .MoreAboutSection, .TCSH, .TutorialCollectionSection {
+  margin-top: 20px;  margin-bottom: 15px;
+  border-top: solid #7A94DE 3px;
+  padding-top:6px;
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-size: 9px; color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+
+
+
+p.RD a {color:#2547AA/*#7A94DE;*/} 
+p.RD a:visited {color:#2547AA/*#7A94DE;*/} 
+.RD {
+  padding-left: 24px;
+  padding-top:0px;
+  padding-bottom:6px;
+  margin-top:0px;
+  margin-bottom:0px;
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px; color: #999;
+  font-weight:normal;
+}
+
+/* RelatedDemonstrationsSection */
+.RDS_Co .RDS { display:none; }
+/*
+div.RDS_Co div.RDSH a { text-decoration: none; color: #DA6525; }
+div.RDS_Co div.RDSH a:hover { text-decoration: none; color: black; }
+*/
+.RelatedDemonstrationsSectionGroupCollapsed, .RelatedDemonstrationsSectionGroupC {display:none;}
+.RDSH, .RelatedDemonstrationsSection {
+  margin-top: 20px;  margin-bottom: 15px;
+  border-top: solid #7A94DE 3px;
+  padding-top:6px;
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-size: 9px; color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ImportExportSection and NotebookInterfaceSection  and OptionsSection */
+.IES_Co .IES,  .NIS_Co .NIS, .OS_Co .OS,  .ELMS_Co .ELMS { display:none; }
+/*
+div.IES_Co div.IESH a { text-decoration: none; color: #DA6525; }
+div.IES_Co div.IESH a:hover { text-decoration: none; color: black; }
+*/
+.IESH, .NISH, .OSH, .ELMSH {
+  margin-top: 20px; margin-bottom: 15px;
+  border-top: solid #7A94DE 3px;
+  padding-top:6px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size:9px; color:#999;
+  text-transform:uppercase;
+  letter-spacing: 0.05em;
+}
+
+
+/* FORMATS ImportExportSection and NotebookInterfaceSection  and OptionsSection */
+table.FormatsRoot .IESH, 
+table.FormatsRoot .NISH, 
+table.FormatsRoot .OSH, 
+table.FormatsRoot .ELMSH {
+  margin-top: 20px; margin-bottom: 25px;
+  border-top: solid #7A94DE 3px;
+  padding-top:6px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size:9px; color:#999;
+  text-transform:uppercase;
+  letter-spacing: 0.05em;
+}
+
+.FilenameExtension {font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:normal; /*font-size:90%;*/ font-size:16px;}
+table.FormatsRoot tbody tr h1 {font-family:Verdana, Helvetica, Arial, sans-serif; font-size:20px; font-weight:normal;}
+
+
+
+
+
+ul.SeeAlso a {color: #2547AA; font-family:Verdana, Helvetica, Arial, sans-serif; font-size:11px; } 
+ul.SeeAlso a:visited {color: #2547AA; font-family:Verdana, Helvetica, Arial, sans-serif; } 
+.FormatsSectionC, .ElementsSectionGroupC, .ImportExportSectionGroupC, .NotebookInterfaceSectionGroupC, .ApplicationNotesSectionGroupC, .OptionsSectionGroupC {display:none;}
+.FormatsSectionE, .ElementsSectionGroupE, .ImportExportSectionGroupE, .NotebookInterfaceSectionGroupE, .ApplicationNotesSectionGroupE, .OptionsSectionGroupE {display:block}
+.FormatsSection, .ElementsSection, .ImportExportSection, .NotebookInterfaceSection, .ApplicationNotesSection, .OptionsSection { display:block; 
+    margin-top:20px;border-style:none; border-top-style:solid; border-color:#7A94DE; border-width:3px; padding-top:6px; 
+    font-family:Verdana, Arial, Helvetica, sans-serif; font-size:9px; color:#999; text-transform:uppercase;
+    letter-spacing: 0.05em; margin-bottom: 15px; }
+.ExtensionsSectionGroupCollapsed, .ExtensionsSectionGroupC {display:none;}
+.ExtensionsSectionGroupExpanded, .ExtensionsSectionGroupE {display:block;}
+.ExtensionsSection {
+    margin-top:20px;border-style:none; border-top-style:solid; border-color:#7A94DE;  border-width:3px; padding-top:6px; 
+    font-family:Verdana, Arial, Helvetica, sans-serif; font-size:9px; color:#999; text-transform:uppercase;
+    letter-spacing: 0.05em; margin-bottom: 15px; }
+
+
+
+
+/* PrimaryExampleSection */
+div.PES_Co div.PES { display: none; }
+/*
+div.PES_Co div.PESH a { text-decoration: none; color: #DA6525; }
+div.PES_Co div.PESH a:hover { text-decoration: none; color: black; }
+*/
+div.PESH {
+  display:block; 
+  margin-top: 30px; margin-bottom: 15px;
+  border-style: none; border-top: solid #7A94DE 3px;
+  padding-top:6px; 
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+/* Something somewhere is setting the text larger on IE and Safari */
+div.PESH td { font-size: 9px; }
+div.ja div.PESH a { font-size: 150%;  } 
+
+/*********** docheader ************/
+/* 
+   NOTE - #docheader currently refers to a <td> and
+   <td>'s can't have margin's in IE or some versions of 
+   safari... therefore, instead of margin-top, padding-top is used.
+ */
+/*#docheader {padding-top:40px; display:block; padding-bottom:4px; border:none; border-bottom : 1px solid #ccc; }*/
+#docheader {display:none;visibility:hidden;} 
+
+/* notes  */
+
+.DataSourceText {font-weight: normals;}
+.MainRoot  h1.Title {color:#993333; font-size:24px; 
+font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; margin-top:36px; 
+margin-bottom:28px !important; margin-bottom:10px; line-height:24px; margin-left:0px;} 
+.MainRoot  h2.Section {color:#993333; font-size:18px; 
+font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold;  margin-top:24px; 
+margin-bottom:14px !important;  margin-bottom:10px;  margin-left:0px;} 
+.MainRoot  div.Text {color:black; font-size:11px; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:normal;
+margin-left:24px; margin-bottom:15px; margin-top:15px; margin-right:30px; line-height:16px;}
+div.HowToText {color:black; font-size:11px; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:normal;
+margin-bottom:15px; margin-top:15px; margin-right:30px; line-height:16px;}
+
+/*********** usage block styles **********/
+
+.AnchorTable { }
+.AnchorBar { border-left:1px solid #66F; border-right:1px solid #66F; border-top:2px solid #66F; 
+padding:3px; margin-left:0px; margin-bottom:26px; margin-right:10px; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:9px;}
+a.anchorLink:link  {color:#666; margin-left:1px; margin-right:1px; font-size:9px; margin-top:0px; }
+a.anchorLink:active  {color:#666; margin-left:1px; margin-right:1px; font-size:9px; }
+a.anchorLink:visited  {color:#666; margin-left:1px; margin-right:1px; font-size:9px; }
+.anchorText {color:#666; font-size:9px;  letter-spacing: 0em; word-spacing:0em;}
+.AnchorBarText {
+  font-size:9px;  letter-spacing: 0em; word-spacing:0em;
+ /*  text-transform:lowercase; */
+}
+.printableLink {/* padding-left:10px; */ text-transform:lowercase;}
+.vertBar {padding-left:3px; padding-right:3px; color:#fff; padding-top:0px; margin-top:0px; }
+.inlineSeparator {padding-left:3px; padding-right:3px; line-height:3px;vertical-align: -1px; }
+
+.quote {color:#777; vertical-align: top;  font-weight: normal; }
+
+.contextName {color:black; font-size:8px; letter-spacing: 0.1em; word-spacing:0.1em; 
+text-transform:uppercase;}
+/* .contextName { color:black; display:block !important; display:none; font-size:8px; letter-spacing:0.1em; 
+text-transform:uppercase; width:455px; word-spacing:0.1em; } */
+.contextName i { letter-spacing: 0.1em; font-style:normal; }
+.infoHeader {margin-top:-19px; margin-bottom:28px; padding:0px; /* margin-right:10px; */}
+.infoHeaderTable tr {vertical-align: base;/* top; */ height:17px !important; height:20px; }
+.infoHeaderTable table { padding : 0px; margin-bottom:10px; margin-top:0px; }
+.infoHeaderTable {width:100%; margin-top:2px;   padding-bottom:50px;}
+
+.AnchorBarGrid {margin-top:-18px; margin-bottom:14px; padding:0px;  padding-bottom:12px;}
+.PacletNameCell {color:black; font-size:8px; letter-spacing: 0.1em; word-spacing:0.1em; text-transform:uppercase; }
+
+
+/*GOGOGO*/
+.CharacterUsageTable { background-color:#F8F7E6; border-bottom:1.5px solid #DCDBD0; border-top:3px solid #ff9900; padding:12px; margin-left:0px; margin-bottom:23px; margin-right:12px; }
+td.CharacterImageLeft { vertical-align:top; }
+td.CharacterImageLeft {vertical-align:top; width: 100px; }
+td.CharacterImageRight {vertical-align:top;  }
+.CharacterUsageList {margin-top:6px; }
+.CharacterUsageList ul.Notes { margin:0px; margin-left:20px; margin-bottom:-10px; padding:0px; /*border:solid 1px red*/}
+.OperatorCharacter {font-weight:normal; font-size:90%}
+
+/* usage messages inside the usage div */
+#UT Table span.MBookTableText { font-size:11px; font-family: Verdana, Arial, Helvetica, sans-serif; line-height:16px; }
+.FUM Table span.MBookTableText { font-size:10px; font-family: Verdana, Arial, Helvetica, sans-serif; line-height:20px; }
+.FUM Table { width:600px; }
+#FormatUsageTable {background-color:white; border-bottom:1.5px solid #a1a0a2; border-top:1.5px solid #a1a0a2;  padding:12px; margin-left:0px; margin-bottom:23px; margin-right:12px; }
+/* .FUM {background-color:white; border-bottom:1.5px solid #a1a0a2; border-top:1.5px solid #a1a0a2;  padding:12px; margin-left:0px; margin-bottom:23px; margin-right:12px; } */
+.FUM {background-color:white; border-bottom:1.5px solid #a1a0a2; border-top:1.5px solid #a1a0a2;  padding:6px 20px 8px 24px; margin-left:0px; margin-bottom:23px; margin-right:12px; line-height:20px;}
+#FormatUsageTable .FormatMessage { background-color:white; padding-bottom:3px; padding-top:6px; padding-left:30px; text-indent:-20px; padding-right:24px; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:11px;}
+#FormatUsageTable .usageFormatDelimiter {visibility:hidden;}
+/*#UsageTable, #UT {background-color:#F8F7E6; border-bottom:1.5px solid #DCDBD0; border-top:3px solid #ff9900; */
+#UsageTable, #UT {background-color:#FFFEE4; border-bottom:1.5px solid #DCDBD0; border-top:3px solid #ff9900; 
+padding-top:8px; padding-bottom:7px; margin-left:0px; margin-bottom:23px; margin-right:0px; }
+
+#UsageTable  .UsageMessage { background-color:#f5f1e7;  padding-bottom:9px; padding-top:6px; 
+padding-left:30px; text-indent:-20px;  padding-right:24px; font-family:Verdana, Arial, Helvetica, sans-serif; 
+font-size:11px;}
+
+#UT tr.lineAbove { border-top: solid 1px #EBE9C6; } 
+#UT tr.lineAbove td { border-top: solid 1px #EBE9C6; } 
+#UT td.UM {
+  padding: 10px 20px 13px 44px; 
+  text-indent: -20px; 
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;  
+} 
+#UsageTable  .usageDelimiter, #UT .usageDelimiter  {border-bottom:1px solid #DCDBD0; border-top:1px solid #FBFBF5; 
+margin-left:0px; margin-right:0px; margin-top:4px; margin-bottom:4px;}
+.UM_ModInfo_6 {background:#FFFAAE; padding-left: 44px; 
+text-indent:-20;padding-bottom:13px; padding-top:10px; margin-bottom:0px; }
+
+.WeakDivider  {
+    margin: 8px 15px 24px 24px;
+   border-bottom:1px solid #BFB18D; 
+}
+.StrongDivider {
+    margin: 22px 15px 30px 12px;
+   border-bottom:3px solid #f5f1e7; 
+}
+
+.ImportExportSection {color:black; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:bold; }
+.NotebookInterfaceSection {color:black; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:bold; }
+.ElementsSection {color:black; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:bold; }
+.OptionsSection {color:black; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:bold; }
+
+
+/******** function notes *********/
+u.FN1 { margin-top:10px;/* -5px */ padding-top:0; margin-bottom:18px; /* 10px */ }
+ul.FormatNotes, ul.FN { margin-top:-10px;/* -5px */ padding-top:0; margin-bottom:18px; }
+.FormatNotes, .FN, .FN1 { padding-left:13px; padding-right:26px; margin-left :0px; }
+.FN1 { padding-left:23px; padding-right:26px; margin-left :0px; }
+.FormatNotes li,  .FN li,  .FN1 li  { color:black; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:normal; 
+margin-left:0px; margin-bottom:15px; margin-top:0px; padding-left:2.0ex; padding-right:10px; 
+text-indent: 0px; list-style : none; background : url(../images/mathematicaImages/bullet.gif) 0px 1ex no-repeat;}
+.FN1 li  { color:black; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:normal; 
+margin-left:0px; margin-bottom:5px; margin-top:10px; padding-left:2.0ex; padding-right:10px; 
+text-indent: 0px; list-style : none; background : url(../images/mathematicaImages/bullet.gif) 0px 1.3ex no-repeat;}
+
+#TutorialContentTable ul.Notes  { margin-left:12px; }
+ul.Notes  { margin-top:-5px; padding-top:0; margin-bottom:20px; }
+/*.Notes { padding-left:32px; padding-right:26px; margin-left :0px; }*/
+.Notes { padding-left:13px; padding-right:26px; margin-left :0px; }
+.Notes li { color:black; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:normal; 
+margin-left:0px; margin-bottom:15px; margin-top:0px; padding-left:2.0ex; padding-right:10px; 
+text-indent: 0px; list-style : none; background : url(../images/mathematicaImages/bullet.gif) 0px 1.3ex no-repeat;}
+.BrighterFlagNotes li { color:black; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:normal; 
+margin-left:2px; margin-bottom:15px; margin-top:0px; padding-left:4.0ex; padding-right:10px; list-style : none; background : url(../images/mathematicaImages/FutureFlag.gif) -1px /* 1.3ex*/ no-repeat;}
+/*.TentativeNotes {padding-left:4px;}
+.TentativeNotes li { color:black; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:normal; border-right:3px solid red;
+margin-left:2px; margin-bottom:15px; margin-top:0px; padding-left:4.0ex; padding-right:10px; list-style : none; background : url(../images/mathematicaImages/bullet.gif) 7px 1.3ex no-repeat;}
+.TentativeNotes li.tentativeBand { color:black; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:normal; border-left:1px solid pink;border-top:1px solid pink;border-bottom:1px solid pink;border-right:3px solid red;
+margin-left:2px; margin-bottom:0px; margin-top:0px; padding-left:4.0ex; padding-right:10px; list-style : none; background : #FFCCCC;} */
+.TentativeNotesTable {margin:10px;}
+.TentativeAuthorCol {width:70px; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:normal;}
+.TentativeTextCol {width:600px; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:normal; background : #FDEEF4; padding:5px;}
+.TentativeBracketCol {width: 10px; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:normal; background : #FDEEF4; 
+border-right:3px solid red; border-top:3px solid red; border-bottom:3px solid red;}
+
+
+
+/* BulletedText style added for tutorials */
+ul li#BulletedText  { color:black; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:normal; 
+margin-left:23px; margin-bottom:15px; margin-top:0px; padding-left:2.0ex; padding-right:10px; 
+text-indent: 0px; list-style : none; background : url(../images/mathematicaImages/bullet.gif) 0px 1.3ex no-repeat;} 
+
+li#BulletedList  { color:black; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:normal; 
+margin-left:23px; margin-bottom:15px; margin-top:0px; padding-left:2.0ex; padding-right:10px; 
+text-indent: 0px; list-style : none; background : url(../images/mathematicaImages/bullet.gif) 0px 1.3ex no-repeat;} 
+
+
+.NSH_ModInfo_6  { background:#FFFAAE; margin-top:0px; padding-top:0; margin-right:0px; margin-bottom: 2px;
+font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9px; text-transform: uppercase; letter-spacing: 0.05em;} 
+
+ul.Notes_ModInfo_6  { background:#FFFAAE; margin-top:-5px; padding-top:0; margin-bottom:20px; margin-right:10px}
+.Notes_ModInfo_6 { padding-left:13px; padding-right:26px; margin-left :0px; }
+.Notes_ModInfo_6 li { color:black; font-size:11px; font-family:Verdana, Arial, sans-serif; 
+font-weight:normal; margin-left:0px; margin-bottom:15px; margin-top:0px; 
+padding-left:2.0ex; padding-right:10px; text-indent: 0px; list-style : none; 
+/*background : url(../images/mathematicaImages/bullet_ModInfo.gif) 0px 1ex no-repeat;*/
+background : url(../images/mathematicaImages/bullet.gif) 0px 1.3ex no-repeat;}
+
+.ObsoleteFlag { display:none}
+/* .FutureFlag { display:none; } */
+.InternalFlag { display:none; }
+.AwaitingFutureDesignReviewFlag { display:none; }
+.SymbolColorBar, .TutorialColorBar, .GuideColorBar { display:none; }
+
+.ObsolescenceNote, .ON, .AwaitingReviewNote, .PreviewNote  {border: 1px solid #D49EA6; background-color: #F8E1E4;/* background-color:#eeee44; */ padding:8px 8px 8px 8px; margin-bottom: 24px; font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif; }
+.TableRowIcon, .TRI {visibility:hidden; /* font-color:#aff; */}
+.CRI {}
+.FunctionTable tr.CRIO td.IconColumn {background:#FFFAAE; vertical-align:middle; 
+text-align:right; margin-right:10px; padding-top:2px; } 
+.FunctionTable tr.CRIO {background:#FFFAAE; /* #FFFDE0; */  }
+.TRIO li {background : url(../images/mathematicaImages/bullet.gif) 0px 1.3ex no-repeat;}
+
+span.ModInfo {visibility:hidden; }
+span.ModInfoOn {color:green; }
+.ModInfoButton {color:#666; font-size:9px; }
+.ModInfoLegend { visibility:hidden; /* display:block; position:relative; left:6px; bottom:0px;*/}
+.ModInfoLegendOn {display:block; position:relative; left:6px; bottom:0px;}
+
+/* .History {font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif; color:#777; 
+margin-top: 40px; padding-bottom:0px;  margin-bottom:-10px;  }  */
+
+.History {font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif; color:#777; 
+margin-top: 18px; padding-bottom:0px;  /* margin-bottom:-10px; */ position:relative; bottom:-10px; }
+
+/******** guides notes *********/
+.GuideAbstract { margin-top:0px; margin-bottom:18px;  margin-right:25px;  padding-right:100px;/*  margin-right:120px;  padding-right:0px;  */
+font-size:11px; line-height:18px; /* line-height:15px; */ color:#777; /* color:#000; */font-family:Verdana, Arial, sans-serif; 
+border-bottom:1px solid #ddd; padding-bottom:24px; }
+/*.GuideAbstract { margin-bottom:12px; font-size:1px; line-height:0px}*/
+.GuideAbstract span.IF {font-weight:normal; color:#777; /* font-family:"Courier New", Courier, monospace; */}
+.GuideAbstract span.IF a:visited:hover:link:active {font-weight:normal; color:#777; }
+.GuideAbstract span.MenuName {font-weight:normal; color:#777; }
+
+.GuideDelimiter { font-size:1px; line-height:1px; border-bottom:1px solid #fff; border-top:1px solid #ddd; margin-left:0px; margin-right:26px; margin-top:10px; margin-bottom:5px; padding-bottom:0px; padding-top:0px;}
+.GuideDelimiterSubsection { font-size:1px; line-height:1px; border-bottom:1px solid #fff; border-top:1px solid #ddd; margin-left:0px; margin-right:26px; margin-top:12px; margin-bottom:-2px; padding-bottom:0px; padding-top:0px;}
+.GuideMoreAboutDelimiter { font-size:1px; border-bottom:1px solid #fff; border-top:1px solid #ddd; margin-left:0px; margin-right:26px; margin-top:18px; margin-bottom:-4px; padding-bottom:0px; padding-top:0px;}
+
+.GuideSection {margin-top:30px; border-style:none; border-top-style:solid; border-color:#99F; border-width:3px; padding-top:4px; font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:bold; font-size:10px; margin-bottom: 15px; margin-right:20px; }
+.GuideSubsection {margin-top:20px; padding-top:4px; font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:bold; font-size:10px; margin-bottom: 15px;}
+.GuideFunctionsSection { font-size:12px; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; margin-top:10px; /*border-style:none; border-top:3px solid #66c;*/ padding-top:4px; margin-bottom: 6px; margin-right:20px; padding-left:0px; padding-bottom:0px; }
+.GuideFunctionsSubsection /* p.GuideTOCLink */{ /*color:#999;*/  /*background:url(../images/mathematicaImages/bullet-orange.gif) 0px 1ex no-repeat; text-indent:10px; */ font-size:11px; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; margin-left:0px; margin-top:12px; margin-bottom:3px; padding-bottom:0px; /*border-top:1px solid #ddd;*/ padding-top:0px; margin-right:20px; color:#B46625; }
+.GuideFunctionsSubsection a, .GuideFunctionsSubsection a:visited {color:#B46625; }
+.GuideFunctionsSubsection a:visited:hover {color: #DA6525;}
+.GuideMainTutorial {/* visibility:hidden; */ margin-top:4px; margin-bottom:0px; font-size:12px;}
+.GuideMoreAbout { margin-left:0px; margin-top:4px; margin-bottom:0px; font-size:11px; }
+.GuideMoreAbout a, .GuideMoreAboutSub a, .GuideRelatedLinks a, .GuideTutorialCollection a {color:#3E64BA}
+.GuideRelatedLinks a:visited {color:#2547AA; }
+.GuideMoreAbout a:visited, .GuideMoreAboutSub a:visited, .GuideRelatedLinks a:visited {color:#2547AA; }
+.GuideMoreAbout li { background:url(../images/mathematicaImages/bullet-orange.gif) 0px 1.3ex no-repeat; text-indent:10px; margin-left:0px; margin-bottom:3px; margin-top:3px; padding-left:0px ; padding-right:10px; /*list-style-type:none; background:none;*/ }
+.GuideTutorial li, .GuideRelatedLinks li{ background:url(../images/mathematicaImages/bullet-orange.gif) 0px 1.4ex no-repeat; text-indent:10px; margin-left:0px; margin-bottom:3px; margin-top:3px; padding-left:0px ; 
+padding-right:10px; /*text-indent: 0px; list-style-type:none; background:none;*/ }
+.GuideMoreAboutSection, .GuideRelatedLinksSection, .GuideTutorialCollectionSection {font-family:Verdana, Arial, Helvetica, sans-serif; font-size: 9px; color: #000;text-transform:uppercase; font-family:Verdana, Arial, Helvetica, sans-serif; /*font-weight:bold;*/ margin-top:30px; border-style:none; border-top:3px solid #7A94DE; border-left:0px solid #bbb; padding-top:4px; margin-bottom: 9px; margin-right:20px;  padding-left:0px; }
+.GuideMoreAboutSub li, .GuideTutorialCollection li {background:url(../images/mathematicaImages/bullet-orange.gif) 0px 1.3ex no-repeat; text-indent:10px;  margin-left:0px; margin-bottom:3px; margin-top:3px; padding-left:0px; padding-right:10px; }
+.GuideMoreAboutSub, .GuideTutorialCollection { margin-left:0px; margin-top:4px; margin-bottom:0px; /*font-size:10px;*/}
+.GuideTestDrive { visibility:hidden; /*margin-top:4px; margin-bottom:0px; font-size:11px;*/}
+.GuideText li { color:black; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:normal; 
+margin-left:0px; margin-bottom:0px; margin-top:0px; padding-left:2.0ex; padding-right:10px; text-indent: 0px; 
+list-style : none; background : url(../images/mathematicaImages/bullet.gif) 0px 1ex no-repeat; /*line-height: 16px;*/ }
+.GuideText { margin-left:0px; font-size:11px; font-family:Verdana, Arial, Helvetica, sans-serif; margin-top:3px; padding-top:0px; 
+margin-bottom:4px; padding-bottom:0px; padding-right:80px; line-height:16px;}
+span.GuideText {padding-right:0px;} 
+.GuideTitle {/*color:#FF8725;*/ color:#DF6600; font-size:24px; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold;  margin-bottom:15px; /*border-top:3px solid #FF8725;*/ padding-top:18px; margin-right:26px; /*font-style:italic;*/ line-height:28px; }
+.GuideTitleAlt {color:#FF8725; font-size:24px; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold;  margin-bottom:15px; /*border-top:3px solid #FF8725;*/ padding-top:18px; margin-right:26px; font-style:italic; line-height:22px; }
+.GuideTutorial { margin-left:0px; line-height:18px;}
+.GuideTutorialsSection {font-family:Verdana, Arial, Helvetica, sans-serif; font-size: 9px; color: #000;text-transform:uppercase; /*font-weight:bold;*/ margin-top:30px; border-style:none; border-top:3px solid #7A94DE; border-left:0px solid #bbb; padding-top:4px; margin-bottom: 9px; margin-right:20px; padding-left:0px; }
+.InlineGuideFunction {font-family:Verdana; Arial, sans-serif; font-size:100%; word-spacing: -0.25em;font-weight:bold; }
+.InlineGuideFunction a {color:#2547AA;} 
+.InlineGuideFunction a:visited {color:#2547AA; }
+
+/******** 3 column/2 column tables ********/
+div.Text Table {border: 1px solid black; }
+.TableHeader {color:black; font-style:italic; font-weight:bold;
+font-family:Verdana, Arial, sans-serif;  font-size:10px; margin-bottom:20px; margin-top:-2px; padding-top:0px;}
+
+/* actual Tables in the function pages */
+#OneColumnTableMod {margin-left: 40px; width:586px;} 
+
+.FunctionTable { width:620px; margin:-14px 10px 20px 6px; /* padding-left:0; */
+padding:2px; font-family:"Courier New", Courier, monospace; font-size:10px; }
+.FunctionTable td span.MR {padding : 2px; font-size:11px;}
+.FunctionTable tr.lineAboveSpanColumn td.IconColumn { vertical-align:top; border-bottom:0px; 
+border-top:0px; } 
+.FunctionTable tr.lineAboveSpanColumn td { vertical-align:top; border-bottom:0px; 
+border-top:1px solid #ddd; } 
+.FunctionTable tr.SpanColumn td { border-bottom:0px; } 
+.FunctionTable td.IconColumn { vertical-align:top; border-bottom:0px; border-top:0px; }
+.FunctionTable tr td { vertical-align:top; border-bottom:1px solid #ddd; } 
+.FunctionTable tr.lineAbove td.IconColumn { vertical-align:top; border-bottom:0px; 
+border-top:0px; } 
+.FunctionTable tr.lineAbove td { vertical-align:top; border-bottom:1px solid #ddd; 
+border-top:1px solid #ddd; }
+
+/* for non i.e. browsers  */
+.FunctionTable tr:first-child td { border-top:1px solid #ddd; } 
+.FunctionTable tr:first-child td:first-child { border-top:0px; } 
+.FunctionTable td:first-child { border-bottom:0px; } 
+.FunctionTable td[colspan="2"] { vertical-align:top; border-bottom:0px; } 
+
+.FunctionTable table { padding : 20px; } 
+.FunctionTable table.Table td { font-family:"Courier New", Courier, monospace;  } 
+.MBookTableText {font-size:12px; font-family:Times New Roman, Times, serif;}
+.TableText, .TT {color:black; font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif; 
+line-height:14px; /*text-indent:-2px; */} 
+
+.rowLine { width:100%; border-top:1px solid #EEE; padding:0px; margin:0px;font-size:1px} 
+div.TableRowIcon, div.TRI {margin: 0px; padding: 0px;}
+
+
+/* turn off rules in the Formats pages tables*/
+table.FormatsRoot .FunctionTable tr td { vertical-align:top; border-bottom:0px solid #ddd; 
+ padding-bottom:3px; } 
+table.FormatsRoot .FunctionTable tr.lineAbove td.IconColumn { vertical-align:top; border-bottom:0px; 
+border-top:0px;  padding-bottom:3px;  } 
+table.FormatsRoot .FunctionTable tr.lineAbove td { vertical-align:top; border-bottom:0px solid #ddd; 
+border-top:0px solid #ddd;  padding-bottom:3px; 
+ } 
+/* actual Tables in the Formats pages */
+
+
+table.FormatsRoot .WeakDivider  {
+    margin: 38px 15px 24px 24px;
+   border-bottom:0px solid #BFB18D; 
+}
+/* table.FormatsRoot .StrongDivider {
+    margin: 52px 15px 30px 12px;
+   border-bottom:0px solid #f5f1e7; 
+} */
+
+
+/********* Function Example Styles **********/
+.Code,  .Program {margin:10px 10px 10px 30px; padding:12px; background:#eee; width:592px;
+font-family:"Courier New", Courier, monospace; padding-right:20px; font-size:11px; }
+
+span.Program {margin:0; padding:2px; background:#eee; width:0;
+font-family:"Courier New", Courier, monospace; padding-right:0px; font-size:11px; }
+
+/* FunctionPage example subsections */
+.ExampleFunctionTab { margin-right:100px; margin-left:26px; margin-top:6px; padding-top:4px; font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:bold; font-size:10px }
+
+.ExampleText {font-size:10px;font-family:Verdana, Arial, Helvetica, sans-serif; 
+margin-top: 10px;
+margin-bottom:0px !important; 
+margin-bottom:8px; 
+margin-left:20px; color:black; padding-top:2px; }
+.TentativeExampleText {font-size:10px;font-family:Verdana, Arial, Helvetica, sans-serif; 
+margin-top: 10px;
+margin-bottom:0px !important; 
+margin-bottom:8px; 
+margin-left:20px; color:black; padding-top:2px; padding-left:5px; background:#E0FFFF; /* background:#BDEDFF; */ width:565px; }
+.TentativExampleTextNote {width:25px;font-size:10px;font-family:Verdana, Arial, Helvetica, sans-serif; margin-top:10px; padding: 5px; vertical-align: absmiddle;}
+
+
+
+/* ExampleSection */
+div.ES_Co div.ES { display: none; padding-top:15px; }
+div.ES_Co div.ESH a { text-decoration: none; color: #333333; }
+div.ES_Ex div.ES { display: block; margin-left:4px;/* 20px; */ margin-right:-20px; padding-top:0px; }
+.ESH {
+  color: black;
+  font-weight:bold;
+  font-size: 11px;
+  margin-left: 12px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  padding-bottom: 3px;
+}
+
+/*  table.ESHT { width: 668px; margin-right:-10px; margin-top:10px; }  */
+table.ESHT { width: 668px; margin-right:-10px; 
+margin-top:14px !important; 
+margin-top:10px; 
+margin-bottom:-6px  !important; 
+margin-bottom:0px; 
+}
+table.EST  { width: 664px; margin-right:-10px; margin-top:0px; }
+
+.ExampleSubsubsection {margin-left:20px;font-weight:bold; font-size:9px; padding-bottom:0px;  margin-bottom:-12px; margin-top:6px; }
+
+/* ExampleSubsection */
+div.ESS_Co div.ESS { display: none; }
+div.ESS_Co div.ESSH a { text-decoration: none; color: #333333; }
+div.ESS_Ex div.ESS { display: block; margin-left:14px; margin-right:-20px; }
+.ESSH {
+  color: black;
+  font-weight:bold;
+  font-size: 10px;
+  margin-left: 21px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  margin-bottom: 2px;
+  border-style: none;
+}
+table.ESSHT { width: 653px; margin-bottom:5px; margin-top:7px; }
+table.ESST  { width: 639px; margin-top:-6px; }
+
+
+
+/* Cell Brackets */
+.ES_Co .CB, .ESS_Co .CB {
+  border-right: solid #9A99FF 1px;
+  border-top: solid #9A99FF 1px;
+  background : url(../images/images/ClosedGroupTriangleY.gif) bottom no-repeat;
+  cursor: pointer;
+}
+.ES_Ex .CB, .ESS_Ex .CB {
+  border-right: solid #9A99FF 1px;
+  border-top: solid #9A99FF 1px;
+  cursor: pointer;
+}
+.ES_Ex .CBG, .ESS_Ex .CBG {
+  border-right: solid #9A99FF 1px;
+  border-bottom: solid #9A99FF 1px;
+  cursor: pointer;
+}
+
+
+/* Ex line section--- this needs to be at the end because of a Safari hack to compensate for bad
+IE box model. All styles in css after safari hack are invisible to safari, so this lies at the end.
+NEED to find a better solution */
+.HowToDelimiter {margin:24px 0px 8px 0px;   background:url(../images/images/dotted.gif) repeat-x;}
+.ExLine {
+  margin-top: 16px !important;
+  margin-top: 20px;
+  margin-right: 8px;
+  margin-left: 20px; 
+  margin-bottom: -4px !important;
+  margin-bottom: -16px;
+border-style:none;height:3px;
+  background:url(../images/images/dotted.gif) repeat-x;
+}
+.TentativeExLine {
+  margin-top: 16px !important;
+  margin-top: 20px;
+  margin-right: 0px;
+  margin-left: 20px; 
+  margin-bottom: -4px !important;
+  margin-bottom: -16px;
+border-style:none;height:13px;
+  background:#E0FFFF;
+}
+
+.ExLineI {
+    margin: 24px 10px 8px 20px;
+    border-bottom: 1px dashed black;
+} 
+
+.NotebookImage {margin:10px 10px 10px 75px; padding:10px 10px 10px 10px; background-color:#F1F5FA}
+
+.off { background-color: #9A99FF; line-height:0px;} 
+.offExSec { border-top:solid 1px #9A99FF; border-right:solid 1px #9A99FF; 
+vertical-align:bottom;} 
+.noneExSec { border-top:solid 1px #9A99FF; border-right:solid 1px #9A99FF; 
+vertical-align:bottom;} 
+.overExSec { border-top:solid 1px #9A99FF; border-right:solid 1px #9A99FF; 
+vertical-align:bottom;}  
+
+
+
+.offTriangle /* .CBO, .CBGO  */{width: 0px; height: 0px; line-height: 0px;
+  border-bottom: solid 1px #9A99FF;
+}
+.onTriangle /* .CBC, .CBGC  */{
+  width: 0px; 
+  height: 0px; 
+  line-height: 0px;
+  border-left: solid 3px white;
+  border-bottom: solid 3px white;
+  border-top: solid 3px #9A99FF;
+  border-right: solid 3px #9A99FF; }  
+
+.over { background-color: #60f; }
+
+a.blackLink:visited {color:black; }
+a.blackLink:active {color:black; }
+a.blackLink:link {color:black; }
+.ExampleSubPageHeading {margin-bottom:25px; font-size:18px; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold;}
+
+.mailText {color:gray; font-size:8px; }
+a.mailLink {color:gray; font-size:8px; }
+.popupURI {color:gray; font-size:8px; }
+
+/* example backlinks */
+.ExampleLink {font-weight:bold; /* margin-left:26px; */ margin-top:-3px; margin-bottom:2px; font-size:10.5px; font-family:Verdana, Arial, sans-serif; }
+
+
+.FurtherExampleLink  {font-family:Verdana, Arial, Helvetica, sans-serif; color:#006;font-style:italic; border-top:2px solid #ccc;margin-top:20px;padding-top:20px;}
+
+/********* Input/Output Cell Groups *********/
+
+/* celllabel divs */
+.celllabel, .lab {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-weight: normal; color: #4561ad; 
+  font-size: 9px; text-align: right;
+  width: 65px; padding-top: 1px;
+/*  vertical-align: absolute-middle;   */
+  vertical-align: middle;
+} 
+
+table.InputCell  td.celllabel {
+    font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:normal; color:#4561ad;
+    font-size:9px; text-align: right; width: 65px; padding-top:2px; vertical-align:top;
+} 
+
+
+.celllabelTableForm {
+    font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:normal; 
+   color:#4561ad; font-size:9px; text-align:left; padding-left: 25px; margin-top:3px; 
+} 
+
+div.ja  .celllabelTableForm {font-size:80%;}
+
+/* IE tries to apply block attributes to spans */
+span.celllabel, span.lab { width : 100%; text-align : left }
+
+
+/* NOTE - Both InputCell and OutputCells are <table>'s, while the Input/Output
+          styles refer to their <td>'s */
+          
+.inoutdiv {margin : 10px 0px 0px 0px;} 
+
+.InputCell, .InCell {padding:5px; margin : 10px 0px 7px 0px;}
+.InCellBracket {padding:5px; margin : 10px 0px 7px 0px; width:620px; }
+.RedCellBracket {width:9px; border-bottom:1px solid red; border-top:1px solid red; border-right:1px solid red; background : url(../images/mathematicaImages/BracketPlus.gif)  no-repeat;}
+.Deemphasis, .InputDeemphasis {font-family: "Courier New", Courier, monospace; font-weight:bold; color:#999; font-size:12px; 
+letter-spacing: 0.10ex; text-align:left; padding-left: 25px; margin : 12px 0px 10px 47px; }
+
+table.MCapTab   div.IO   table.InCell {padding:0px; margin:0px 0px 0px 0px;} 
+
+.Input { padding-left:6px; text-align : left; }  
+#TentativeExample {margin-left:-20px; background: #E0FFFF; width:100%; }  
+
+/* non-ie box-model browsers */
+html>body .InputCell { margin-top:0 }
+
+
+/* .OutputCell, .OCell {padding:5px; margin : 0 0 12px 0;} */
+.OCell {padding:5px; 
+margin-top: -1px !important; 
+margin-top: 0; 
+margin-right: 0;
+margin-bottom: 4px !important; 
+margin-bottom: 12px; 
+margin-left: 0;
+}
+
+#TutorialContentTable .InCell {padding:5px; 
+margin-top: 11px;
+margin-right: 0px; 
+margin-bottom: 7px;
+margin-left: 0px;
+} 
+#TutorialContentTable .OCell {padding:5px; 
+margin-top: 5px ;
+margin-right:0;
+margin-bottom: -5px !important;
+margin-bottom: 0px;
+margin-left: 0;}
+table.MCapTab  div.IO   table.OCell {padding:0px; margin : 0px 0px 0px 0px;} 
+#TutorialContentTable table.OCell, #TutorialContentTable table.InCell {margin-left:10px;}
+#TutorialContentTable td.Output {padding-bottom:10px !important; padding-bottom:10px;} 
+
+.DisplayFormula {
+margin-top: 5px !important;
+margin-top: -5px;
+margin-right: 0px;
+margin-bottom:15px;
+margin-left:25px;
+}
+
+.TOCDocumentTitle, h1#TOCDocumentTitle {color:black; font-size:18px; margin-bottom:20px; font-family:Verdana, Arial, Helvetica, sans-serif; 
+font-weight:bold;}
+.TOCChapter, h1#TOCChapter {font-family:Verdana, Arial, Helvetica, sans-serif; margin-bottom:6px; font-weight:bold;}
+.TOCSection, h1#TOCSection {font-family:Verdana, Arial, Helvetica, sans-serif; margin-bottom:6px; font-weight:bold; font-size:12px}
+.TOCSubsection, h1#TOCSubsection {font-family:Verdana, Arial, Helvetica, sans-serif; margin-bottom:6px; font-weight:bold; margin-left:30px; font-size:10px}
+.TOCChapter a {color:#333399; margin-bottom:6px; font-weight:bold;}
+
+/* Output td's usually don't have text within, but i presume it's for no images */
+.Output {font-size:12px; font-family:"Courier New", Courier, monospace;font-weight:normal; 
+padding-left:6px; /* margin-left:3px; */ text-align:left; padding-top:4px; padding-bottom:4px;}
+
+.Spacer { margin-bottom:22px; }
+#TutorialContentTable .Message { margin-left:72px; margin-bottom:16px; margin-top:4px;}
+.Message { margin-left:72px; margin-bottom:16px; }
+.Print {margin-left:72px; font-size:12px; font-family:"Courier New", Courier, monospace;font-weight:normal; 
+padding-left:6px; /* margin-left:3px; */ text-align:left; padding-top:4px; padding-bottom:4px;}
+
+/******** InputForm frame ********/
+
+/* form frame : inner
+   form layer : hidden outer placeholder
+*/
+/*  .ObjectNameGrid {padding-right:12px;}   */
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+.RootFootIcon {padding-right:4px; vertical-align:-25%;}
+}
+
+.SeeAlsoMenu, .TutorialsMenu, .FunctionsMenu, .ExamplesMenu, .MoreAboutMenu, .PDFMenu {
+  list-style:none; background:#fffde0; border:#dd802c 1px solid;
+  padding:5px;
+  margin-left: 1px; 
+  width:auto;/* width:130px;  */
+  text-align:left;
+  margin-top:3 px;  
+  top:7px !important; 
+  top:3px; /* left: -45px; */
+  position:absolute;
+  z-index:2;
+  visibility:visible;
+  display:none;
+}
+#head_SeeAlso, #head_Tutorials, #head_Functions, #head_Examples, #head_MoreAbout, #head_PDF  {
+  padding:0 2px 0 2px;
+  background:#fffde0;border:#dd802c 1px solid;color:#dd802c;
+}
+
+#head_PDF span.AnchorBarText {
+padding-left: 4px
+}
+
+#parent_SeeAlso, #parent_Tutorials, #parent_Functions, #parent_Examples, #parent_MoreAbout, #parent_PDF {
+  position:absolute;
+  margin-top:10px;
+  visibility:hidden;
+  height: 0px;
+  line-height: 0px;
+}
+
+/* Safari attempted hack for position of menus */
+@media screen and (-webkit-min-device-pixel-ratio:0){
+#parent_SeeAlso, #parent_Tutorials, #parent_Functions, #parent_Examples, #parent_MoreAbout {
+  position:absolute;
+  margin-top:10px;
+  visibility:hidden;
+  padding:0px;}
+}
+
+/* FIXME: I think the ul/li variants aren't used. */
+ul.SeeAlsoMenuItems {
+  list-style:none;
+  padding : 0; margin : -3px 0px 0px 0px;
+  font-size:10px; font-family:"Courier New", Courier, monospace; font-weight:normal;
+  width:120px; line-height:10px;
+  background:#fffde0;
+}
+ul.SeeAlsoMenuItems li { list-style:none;
+ text-indent:0; padding : 0;
+ font-size:10px; line-height:12px;
+ background:#fffde0; font-family:"Courier New", Courier, monospace;
+}
+ul.SeeAlsoMenuItems li.over {background:#D6D6F3;}
+ul.SeeAlsoMenuItems li:hover {background:#D6D6F3;}
+
+div.SeeAlsoMenuItems, div.MoreAboutMenuItems, div.TutorialsMenuItems,
+div.ExamplesMenuItems, div.FunctionsMenuItems, div.PDFMenuItems {
+  padding:0px; line-height:11px; background:#fffde0;
+  font-size:10px;font-family:Verdana, Arial, sans-serif; font-weight:normal;
+}
+div.SeeAlsoMenuItems div, div.MoreAboutMenuItems div, div.TutorialsMenuItems div, 
+div.ExamplesMenuItems div, div.FunctionsMenuItems div, div.PDFMenuItems div  {
+  text-indent:0; padding:0;
+  font-size:10px; line-height:11px; background:#fffde0;
+}
+div.SeeAlsoMenuItems a, div.MoreAboutMenuItems a, div.TutorialsMenuItems a,
+div.ExamplesMenuItems a, div.FunctionsMenuItems a, div.PDFMenuItems a {
+  padding:4px 5px 4px 5px;
+  display: block;
+}
+div.SeeAlsoMenuItems a:hover, div.MoreAboutMenuItems a:hover,
+div.TutorialsMenuItems a:hover, div.ExamplesMenuItems a:hover,
+div.FunctionsMenuItems a:hover,  div.PDFMenuItems a:hover {
+  background:#dd802c; color:#fff;
+}
+
+
+Div.ja  Div.SeeAlsoMenuItems a, 
+Div.ja  Div.MoreAboutMenuItems a, 
+Div.ja  Div.TutorialsMenuItems a, 
+Div.ja  Div.ExamplesMenuItems a, 
+Div.ja  Div.FunctionsMenuItems a 
+{font-size:80%; }
+
+/* .SeeAlsoTable Table {width:120px;} */
+
+.PageInfoMenu {
+  background:#f5f5ff;
+  border:#ddddf5 2px solid;
+  padding:5px; width:200px;
+  text-align:left; left:-90px; top:15px;
+  position:absolute; z-index:-2;
+  visibility:visible;
+  display:none;
+}
+ul.PageInfoMenuItems {
+  padding: 0; margin: -3px 0px 0px 0px;
+  font-size:10px; font-family:Verdana, Arial, sans-serif;
+  font-weight:normal;
+  width:190px; line-height:10px;
+}
+ul.PageInfoMenuItems li {
+  list-style : None;
+  text-indent:0;
+  margin-left:4px; padding: 0; font-size:10px;
+/*
+  background : url(../images/mathematicaImages/bullet.gif) 10px 1ex no-repeat;
+  padding-left: 20px;
+*/
+  line-height:16px;
+}
+
+
+.InputFormLayer, .IFL { position: absolute; }
+
+.InputFormText, .IFT { display: none; }
+.IFU { display: none; }
+.InputFormFrame .IFU, .IFF .IFU { display: block; color:#aaa; font-size:9px; padding-left:6px;}
+
+.InputFormFrame, .IFF { 
+    background: #f5f5ff;
+    border: #ddddf5 3px solid;
+    padding: 10px;
+    margin-top: 5px;
+    position: relative;
+    width:420px;
+    z-index: 2;
+    visibility:visible;
+  	display:none;
+}
+
+
+/* form title if it exists */
+.InputFormFrame h3, .IFF h3 { font-size : 10px }
+
+/* actual input form */
+.InputFormFrame textarea, .IFF textarea{
+    font-size:10px; font-family:Verdana,Arial,Courier, sans-serif; background:#fff; border:#ddddf5 1px solid; 
+    padding:2px; margin:2px; width:400px; /* height:40px;*/ 
+/*    position:absolute; left:7px; top:7px*/
+}
+
+/* mail link */
+.InputFormFrame a.mailLink, .IFF a.mailLink { display:block; position:relative; left:6px; bottom:0px; font-size:9px; margin-top:2px; padding-top:0px; margin-left:0px}
+
+/* X link to close */
+.InputFormFrame a, .IFF a { display:block; position:absolute; right:3px; top:0px; font-size:12px; font-weight:bold; /*border:1px solid black;*/}
+
+
+
+/* Keyword alphaindex pages */
+
+
+.keywordTitle { font-size:22px; font-family:Verdana, Helvetica, sans-serif; margin:20px 0px 4px 0px;}
+.keywordTitleWrapper {background:#eee; border-bottom:1px solid #ccc; margin:0px 0px 12px 0px; padding:30px 20px 10px 60px; }
+.keywordlabel {color:#999; }
+.keywordlabel a {color:#999; }
+table.keywordTable {margin:30px 20px 40px 60px; width:700px; padding:2px; }
+dt {font-size:10px; margin:0px; padding:0px 0px 0px 0px; line-height:13px; }
+dd {font-size:10px; margin:0px 0px 0px 12px; line-height:13px; }
+.searchWrapper {margin:20px 0px 0px -2px; padding:0px; }
+.searchsitesTable {margin:0px; padding:0px; }
+table.keywordHolder {margin:10px 0px 0px 0px; font-size:11px; color:#14286A; word-spacing: 0.25em;}
+table.keywordHolder td {padding: 0px 4px 0px 4px;}
+table.keywordSubholder tr.keywordLetters td {padding: 3px;}
+tr.keywordArrow {text-align:center; }
+
+.keywordHolder a:link, .keywordHolder a:visited {color:#14286A; }
+.keywordLetters td a:link, .keywordLetters td a:visited {color:#14286A; }
+.keywordSubholder {margin:0px 0px 4px 4px; font-size:10px; color:#14286A; word-spacing: 0.25em;}
+.keywordSubholder a:link, .keywordHolder a:visited {color:#14286A; word-spacing: 0.25em;}
+.keywordIndexLetter {margin:20px 10px 0px 60px; padding:20px 0px 10px 0px; font-size:20px; font-family:Verdana, Helvetica, sans-serif; }
+
+
+/*  Guide Overview pages  */
+ul.GuideTOCLink { padding : 0; margin : 0px 0px 16px 19px;font-size:12px;
+font-family:Verdana, Arial, sans-serif; font-weight:bold;}
+ul.GuideTOCLink li { list-style : None; text-indent:0; margin-left:0; padding : 0; 
+font-size:11px; list-style : none; background : url(../images/mathematicaImages/bullet.gif) 0px 1ex no-repeat;  
+padding-left: 12px; /*24px;*/ line-height:15px;}
+ul.GuideTOCLink li a:link {color:#CB4E21; /* #DF6600; */}
+ul.GuideTOCLink li a:visited {color:#CB4E21; /* #DF6600; */}
+ul.GuideTOCLink li a:hover {color:#B23600;/* #FF8725; */;}
+.GuideTOCTitle {color:black;/* #DF6600 */; font-size:24px; font-family:Verdana, Arial, Helvetica, sans-serif;
+font-weight:bold;  margin-bottom:15px;  /* padding-top:18px;  */margin-right:4px; margin-left:4px; 
+line-height:28px; }
+.GuideTOCAbstract {color:#777; margin-top:0px; margin-bottom:18px; margin-left:19px; font-size:11px; line-height:15px; font-family:Verdana, Arial, sans-serif; padding-bottom:0px; }
+.GuideTOCTitleBar {/* border:solid 1px #C66200; */ background:#fff url() no-repeat; margin-left:20px;
+margin-top:25px; margin-bottom:20px; padding-bottom:10px; width:600px; }
+.GuideTOCTitleTable {/* position:relative; eft: 0px; */position:relative; left: 0px;top: -3px; z-index:10; background-color:white; 
+layer-background-color: white; margin-top:0px; margin-top:-10px; margin-left:18px;border-style:none;}
+/*  End Guide Overview pages  */
+
+
+
+/*  Tutorial Overview pages  */
+#TutorialOverviewTable .TOCDocumentTitle {color:black; font-size:24px; font-family:Verdana, Arial, Helvetica, sans-serif;
+font-weight:bold;  margin-bottom:15px;  margin-right:4px; margin-left:4px; 
+line-height:28px; }
+#TutorialOverviewTable ol#TOCChapter {font-family:Verdana, Arial, Helvetica, sans-serif; 
+margin-bottom:15px; margin-left:10px;font-weight:bold;  font-size:11px; color:#CB4E21; } 
+#TutorialOverviewTable ol#TOCSection {font-family:Verdana, Arial, Helvetica, sans-serif; 
+margin-left:23px; 
+margin-bottom:15px; margin-top:15px; font-weight:bold;  font-size:11px; color:#CB4E21; }
+div#TOCSection {font-family:Verdana, Arial, Helvetica, sans-serif; margin-left:23px; margin-bottom:10px; margin-top:10px; 
+font-weight:bold;  font-size:11px; color:#777;}
+div#TOCSubsection {font-family:Verdana, Arial, Helvetica, sans-serif; margin-left:36px; margin-bottom:10px; margin-top:10px;font-weight:bold;  
+font-size:11px; color:#777; }
+div#TOCSubsubsection {font-family:Verdana, Arial, Helvetica, sans-serif; margin-left:52px; margin-top:5px; margin-top:5px; font-weight:bold;  
+font-size:11px; color:#777; }
+#TutorialOverviewTable ol#TOCSubsection {font-family:Verdana, Arial, Helvetica, sans-serif; 
+margin-left:38px; 
+margin-bottom:5px; font-weight:bold;  font-size:11px; color:#777; }
+#TutorialOverviewTable ol#TOCSubsubsection {font-family:Verdana, Arial, Helvetica, sans-serif; 
+margin-left:52px; 
+margin-bottom:5px; font-weight:bold;  font-size:9px; color:#777; }
+#TutorialOverviewTable li{ list-style : None; text-indent:0; margin-left:0; padding : 0; 
+font-size:11px; list-style : none; background : url(../images/mathematicaImages/bullet.gif) 0px 1ex no-repeat; 
+padding-left: 16px;} 
+#TutorialOverviewTable #TOCSubsection li { line-height:12px;}
+
+h2#TOCSUH {font-family:Verdana, Arial, Helvetica, sans-serif; margin-bottom:10px; margin-top:10px; font-weight:bold; margin-left:30px; font-size:10px}
+
+#TutorialOverviewTable .TOCChapter {font-family:Verdana, Arial, Helvetica, sans-serif; margin-bottom:6px; margin-top:12px; font-weight:bold;
+font-size:12px;}
+
+div.TOC_Co div.TOC { display: none; }
+h1#TOCH {
+margin-left:11px; margin-top:11px;
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-weight:bold; font-size: 12px; color: #999;
+}
+div.TOCH {padding-bottom:2px;} 
+
+div.TOCSEC_Co div.TOCSEC { display: none; }
+h2#TOCSEC, h2#TOCSECH  {
+margin-left:11px; margin-bottom:0px;
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-weight:bold; font-size: 11px; color: #999;
+}
+
+div.TOCSU_Co div.TOCSU { display: none; }
+h3#TOCSU {
+margin-left:11px; 
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-weight:bold; font-size: 12px; color: #999;
+}
+div.TOCSU {padding-bottom:2px;} 
+
+div.TOCSEC { margin-left: 0px; padding-bottom:2px;} 
+.TOCSection  {font-family:Verdana, Arial, Helvetica, sans-serif; margin-left:15px; margin-bottom:10px; margin-top:10px; 
+font-weight:bold;  font-size:11px; color:#777;}
+.TOCSubsection  {font-family:Verdana, Arial, Helvetica, sans-serif; margin-left:28px; margin-bottom:10px; margin-top:10px; 
+font-weight:bold;  font-size:11px; color:#777;}
+
+#TutorialOverviewTable   a {color:black;}
+#TutorialOverviewTable  .TutorialAbstract a:hover {color:black;}
+#TutorialOverviewTable   a:link {color:#CB4E21; /* #DF6600; */}
+#TutorialOverviewTable   a:visited {color:#CB4E21; /* #DF6600; */}
+#TutorialOverviewTable   a:hover {color:#B23600;/* #FF8725; */;}
+
+#TutorialOverviewTable div#TOCSubsection a:link {color:#2547AA; }
+#TutorialOverviewTable div#TOCSubsection a:active {color:#CCAA11; }
+#TutorialOverviewTable div#TOCSubsection a:visited {color:#2547AA; }
+#TutorialOverviewTable div#TOCSubsection a:hover {color:#DA6525; }  
+
+#TutorialOverviewTable div#TOCSection a:link {color:#2547AA; }
+#TutorialOverviewTable div#TOCSection a:active {color:#CCAA11; }
+#TutorialOverviewTable div#TOCSection a:visited {color:#2547AA; }
+#TutorialOverviewTable div#TOCSection a:hover {color:#DA6525; }  
+
+
+#TutorialOverviewTable  .TCSSpan {color:black;}
+#TutorialOverviewTable  .IndentedNote li a {color:#2547AA;}
+#TutorialOverviewTable  .IndentedNote li { list-style : None; text-indent:0; margin-left:0; padding : 0; 
+font-size:11px; list-style : none; background : url(../images/mathematicaImages/bullet-orange.gif) 0px 1ex no-repeat;  
+padding-left: 12px; /*24px;*/ line-height:15px; }
+/*  end Tutorial Overview pages  */
+
+
+
+/******** indented lists ********/
+ul.IndentedNote { padding : 0; margin : -3px 0 6px 14px;/*0px;*/ font-size:11px;
+font-family:Verdana, Arial, sans-serif; font-weight:normal; }
+ul.IndentedNote li { list-style : None; text-indent:0; margin-left:0; padding : 0; 
+font-size:11px; list-style : none; background : url(../images/mathematicaImages/bullet-orange.gif) 0px 1ex no-repeat;  
+padding-left: 12px; /*24px;*/ line-height:15px; }
+
+
+ul.SeeAlso { padding : 0; margin : -3px 6px 6px 0px; font-size:11px; font-family:Verdana, Arial, sans-serif; font-weight:normal; line-height: 22px;}
+ul.SeeAlso li { list-style : None; text-indent:0; margin-left:0; padding : 0; font-size:11px; 
+background : none/* url(../images/mathematicaImages/bullet.gif) 30px 1.3ex no-repeat */; padding-left: 24px; line-height:19px; }
+
+/******** Compatibility page styles ********/
+.UpgradeLabel { font-family:Arial, Helvetica Neue, sans-serif; font-stretch:ultra-condensed; color:#FF9900;
+ /* color:#009966; margin-left:12px; */ font-weight:bold; font-size:13px; margin-bottom:12px; padding-top:12px; }
+.UpgradeObjectName { font-family:Courier; color:black; font-weight:bold; font-size:22px; margin-bottom:20px; }
+.UpgradeSummary {font-family:Verdana, Arial, Helvetica, sans-serif; color:black; font-size:11px; margin-bottom:12px; 
+margin-left:0px; margin-right:12px; padding:12px; padding-bottom:10px; border-top:1px solid #FF6633/* #009966 */; 
+border-bottom:1px solid #FF6633/* #009966 */; background-color:#FFFFCC; /* background-color:#FFCC99; */}
+.UpgradeMessage {padding-bottom:7px;}
+.UpgradeMessage a:link {color:#14286A; }
+.UpgradeMessage a:visited  { color: #14286A;}
+.UpgradeMessage a:hover  { color: #DA6525;}
+.UpgradeDetail {font-family:Verdana, Arial, Helvetica, sans-serif; color:black; 
+font-size:11px; margin-left:12px; margin-right:12px; margin-bottom:12px; margin-top:18px;}
+.LegacyInput { margin-top:12px; margin-right:0px;  margin-bottom:12px !important; margin-bottom:24px; margin-left:26px; }
+
+.UpgradeDetailLabel {margin-left:12px; font-family:Verdana, Arial, Helvetica, sans-serif; 
+font-size:11px; margin-bottom:-12px; margin-top:18px; color:#FF6633; /* color:#009966; */font-weight:bold;}
+.UpgradePackageSection {margin-left:12px; font-family:Verdana, Arial, Helvetica, sans-serif; 
+font-size:13px; margin-bottom:12px; margin-top:24px;  color:#FF6633; /* color:#009966; */font-weight:bold; }
+
+.UpgradePackageListing {font-family:Verdana, Arial, Helvetica, sans-serif; color:black; font-size:11px; margin-bottom:12px; 
+margin-left:12px; margin-right:12px; padding:10px; padding-bottom:10px; background-color:#FFCC99;/* background-color:#CCFFCC; */}
+.UpgradePackageMessage {padding-bottom:7px;}
+
+
+/******** End compatibility page styles ********/
+
+div.MainRoot {margin-left:30px;}
+div.FormatsRoot {margin-left:30px;}
+
+.seealsoBullet {vertical-align: -10%; padding-left:8px; padding-right:8px;}
+.inlineGuideFunctionListingBullet {vertical-align: -1px; padding-left:-1px; padding-right:0px;}
+table.MainRootTable span.inlineGuideFunctionListingBullet {position:relative; line-height:15px !important;
+vertical-align: -1px !important; vertical-align: -3px; padding-left:2px; margin-top:0px; padding-right:0px;}
+
+
+span.igBul {font-family:Helvetica; Verdana, Arial, sans-serif; font-size:125%; color:#ADADAD; /*font-stretch:ultra-expanded;*/ letter-spacing: -.1em; padding-left:0px; padding-right:6px;}
+table.mainRootTable .igBul {font-family:Helvetica, Verdana, Arial, sans-serif; font-size:125%; color:#ADADAD; 
+font-stretch:ultra-expanded; letter-spacing:-1px !important; letter-spacing:-2px; }
+
+.LeadingBullet {vertical-align: -2px; padding-left:0px; padding-right:0px;}
+.InlineListing { font-family:Verdana, Arial, sans-serif; font-weight:normal; font-size:10px; }
+.inlineEllipsis {letter-spacing: 0em;}
+.ListTextGrid { width: 570px; margin-top: 4px; margin-bottom:14px; }
+.InlineListing3Col { width: 570px; margin-top: 4px; margin-bottom:14px; }
+.InlineListing4Col { width: 570px; margin-top: 4px; margin-bottom:14px; }
+
+/********** inline content styles *********/
+
+
+.playAnimation, .playSound {font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif; color:#2A3D72; border : 1px #979596 solid;  background: #CCC; padding:0px; padding-left:2px; padding-right:2px; margin-bottom:6px; }
+
+
+/********** Index and TOC styles **********/
+
+.IndexContentsTitle {font-size:18px; font-family:"Gill Sans", Verdana, Arial, Helvetica, sans-serif; color:#fff; margin-top:0px; margin-bottom:0px;}
+.IndexContentsSubtitle {font-size:16px; font-family:Verdana, Arial, Helvetica, sans-serif; color:#666; margin-bottom:10px;}
+
+.ContentsPageTitle {font-size:12px;  font-family:"Gill Sans", Verdana, Arial, Helvetica, sans-serif; color:#666666; margin-top:6px; margin-bottom:6px;}
+.ContentsPageMainTitle {font-size:16px; font-family:Verdana, Arial, Helvetica, sans-serif; color:#666666; margin-bottom:4px; margin-top:16px}
+.ContentsPageMainTitleSpan {color:black; font-weight:bold}.BookMainTitle {font-size:16px; font-family:Verdana, Arial, Helvetica, sans-serif; color:#666666; margin-bottom:6px; margin-top:16px}
+
+
+/********************** T U T O R I A L   S T Y L E S ***********************/
+
+.Caption {
+     font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif; padding-top:0px;
+     margin-top:0px;color:#996666; margin-left: 24px; margin-bottom:16px;
+ }
+
+ 
+
+/* .MCap {
+    color : #808080; font-size : 12px; font-family : Times New Roman, Times, serif;
+    margin-top:0px; margin-right:10px; padding-bottom :0px; padding-top :  1px; 
+   vertical-align:top;
+}   
+
+table.MCapTab td div.MCap {
+    color : #808080; font-size : 12px; font-family : Times New Roman, Times, serif;
+    margin-top:0px; margin-right:10px; padding-bottom :0px; padding-top :  1px; 
+   width : 160px;  vertical-align:top; 
+}  */
+
+#TutorialContentTable .TextEmphasisNote {margin-left:24px;} 
+#TutorialContentTable .IS {margin-left:24px;} 
+#TutorialContentTable .MCap {font-size:10px;font-family:Verdana, Arial, Helvetica, sans-serif; margin-top:6px; 
+margin-bottom:0px; margin-left:24px; color:#666; padding-top:2px; }
+#TutorialContentTable .MCap a  {color:#666; }
+#ContentTable .MCap, #ContentTableX .MCap  {font-size:10px;font-family:Verdana, Arial, Helvetica, sans-serif; margin-top:8px; margin-bottom:10px; margin-left:24px; 
+color:#666; padding-top:2px;}
+table.MCapTab td div.MCap {
+margin-top:0px; margin-right:10px; padding-bottom :0px; padding-top :  1px; 
+} 
+
+
+
+
+table.MCapTab td {
+vertical-align:top;   
+}  
+
+
+
+table.MCapTab  table.OCell  td.lab {
+vertical-align:middle;   
+} 
+
+
+/* non-IE boxmodel hack */
+html>body .MCap, html>body .MBookMathCaption {
+    margin-right:-10px; 
+}
+
+.MCapTab  {
+         margin-top : 5px;   
+        margin-bottom : 10px;   
+}
+
+
+
+
+
+/* make floating divs not bother p divs */
+p { clear: both }
+
+#TutorialContentTable div.MathTable {background: #F7EDD6; /* #f5f1e7; */ border-top:2px #B23600 solid; margin:25px 0px 3px 0px; 
+border-bottom:1px #DCD8D0 solid; padding-bottom:4px !important; padding-bottom:7px; padding-top:2px !important; padding-top:7px; padding-left:10px; padding-right:10px;}
+#TutorialContentTable #DefinitionBox table.Table, div.PrecedenceTable table  {background: #F7EDD6; /* #f5f1e7; */  border:0px; 
+margin:8px 0px 5px 0px; }
+#TutorialContentTable .MathTable table {border:0px; background:#F7EDD6;/* #f5f1e7; */}
+#TutorialContentTable .MathTable td { padding-top:4px; padding-bottom:4px; padding-left:15px; padding-right:10px; 
+vertical-align:top; font-family: "Courier New", Courier, monospace;} 
+#TutorialContentTable #DoubleBox td { padding-top:4px; padding-bottom:4px; padding-left:12px; padding-right:6px; } 
+
+#DefinitionBox table.Table {padding:10px; background: #F6FCFF; border-top:2px #75B2B9 solid; border-bottom:1px #DCD8D0 solid; border-left:none; border-right:none; padding-left:20px;  }
+
+.MathTable table {
+border : 1px black solid;  background : #f5f1e7; padding:5px; margin-bottom:0px; 
+margin-top:10px; 
+}  
+
+.MathTable td { padding-top:5px; padding-bottom:5px; padding-left:5px; padding-right:5px; 
+vertical-align:top; font-family: "Courier New", Courier, monospace } 
+
+
+div.Text {/* color:black;  */ font-size:13px; font-family:Times New Roman, Times, serif; line-height:20px; 
+}
+#TutorialContentTable div.Text {color:black; font-size:11px; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:normal;
+margin-left:24px; margin-bottom:15px; margin-top:15px; margin-right:30px; line-height:16px;}
+p.Text {margin-left:24px; margin-right:30px; }
+
+span.Text {font-family:Times New Roman, Times, serif; }
+/***************************************************************************/
+
+/** from inline.css **/
+.DialogElementName {font-weight:bold;}
+.KeyEvent {background:#FAFAFA; font-family:Verdana, Arial, Helvetica, sans-serif; /* font-weight:bold;*/ border: 1px solid #ccc; padding:1px; font-size:10px; padding-left:2px; padding-right:2px;}
+.KeyEventDelimiter {/*color:#D6A508;*/ font-family:Verdana, Arial, Helvetica, sans-serif; /*font-weight:bold;*/ font-size:90%}
+.PointerEvent {color:#996666; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; /*font-size:90%*/}
+.BF {color:black; font-family:Times New Roman, Times, serif; font-weight:bold;}
+.MenuName {color:#555; font-weight:bold; font-family:Verdana, Arial, Helvetica, sans-serif;  padding:2px;  padding-left:0px; 
+padding-right:3px; font-size:10px; }
+#TutorialContentTable div.Text .MenuName {font-weight:normal; font-family:Verdana, Arial, Helvetica, sans-serif;  padding:2px;  padding-left:0px; padding-right:0px; }
+table.FormatsRoot  .MenuName {color:black;font-weight:bold; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:100%}
+.MenuName a {color:#2547AA }
+.MenuName a:link {color:#2547AA }
+.MenuName a:visited {color:#2547AA }
+.MenuName a:hover {color:#DA6525 }
+#TutorialContentTable div.Text span.MenuName a:link {color:#2547AA }
+#TutorialContentTable div.Text span.MenuName a:visited {color:#2547AA }
+/*   #TutorialContentTable div.Text span.MenuName a:hover {color:#DA6525 }  */
+span.MenuNameDelimiter {font-family:Helvetica, Arial, Verdana, sans-serif; font-size:80%; color:#2547AA; padding-left:-4px; margin-left:0px;}
+span.MenuPointer {font-family:Helvetica, Arial, Verdana, sans-serif; font-size:70%; /*color:#2547AA;*/ padding-left:-4px; margin-left:0px;}
+.ObjectName span.MenuPointer {font-family:Helvetica, Arial, Verdana, sans-serif; font-size:100%;}
+.IT {color:black; font-style:italic;} 
+.MB {color:black; font-family:"Courier New", Courier, monospace; font-weight:bold;}
+.MO {color:black; font-family:"Courier New", Courier, monospace; font-style:italic;}
+.MR {font-family:"Courier New", Courier, monospace; font-size:105%; /* font-size:100%; */}
+.InlineFormula, .IF, .ICN {font-family:"Courier New", Courier, monospace; font-size:110%; word-spacing: -0.25em;}
+span.InlineCode {font-family:"Courier New", Courier, monospace; font-size:110%; word-spacing: -0.25em;}
+.IM {font-family:Times New Roman, Times, serif; /* font-style:italic; */}
+span.IM img { vertical-align: middle;}
+.IF a:link {color:#14286A; }
+.IF a:visited  { color: #14286A;}
+.IF a:hover  { color: #DA6525;}
+
+span.IF span.MR {font-size:100%; }
+ul.SeeAlso  .IF {font-weight:bold;} 
+ul.SeeAlso  .IF a:link { color: #2547AA;} 
+ul.SeeAlso  .IF a:visited { color: #2547AA;} 
+ul.SeeAlso  .IF a:hover { color: #DA6525;}
+
+.MR10 {font-family:"Courier New", courier,monospace; font-size:10px;}
+.RM {font-size:12px; font-family:Times New Roman, Times, serif; font-weight:normal;}
+.SB {font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold;}
+.SBO {font-weight:bold;font-style:italic;}
+.SO {font-family:Verdana, Arial, Helvetica, sans-serif;font-style:italic;}
+.SO10 {font-family:Verdana, Arial, Helvetica, sans-serif;font-style:italic; font-size:10px; }
+.SR {font-size:smaller; font-family:Verdana, Arial, Helvetica, sans-serif;}
+.TB {font-size:12px; font-family:Times New Roman, Times, serif; font-weight:bold;}
+.TBI {font-size:12px; font-family:Times New Roman, Times, serif; font-weight:bold;font-style:italic;}
+/* .TI {font-family:Times New Roman, Times, serif; font-style:italic; font-size:105%;} */
+.TI {font-family:Times New Roman, Times, serif; font-style:italic; font-size:105% !important; font-size:100%;}
+.TR {font-family:Times New Roman, Times, serif; font-weight:normal;}
+
+/* hack to get IE6 to display fonts at the right sizes for subs */
+/* TODO - might not work with ie7 when it comes out though... */
+/* purposefully bigger for IE's default <sub> style */
+sub { font-size:100%;}
+/* css compliant browsers get this */
+html>body sub {font-size:85%}
+/* to remove general padding introduced in TI */
+sub span.TI {padding-left:0px;}
+
+
+
+/*  Guides.css styles begin here  */
+/*  Remove these after site is built with divs  */
+
+
+div.guideTable {margin-left:30px;}
+
+table.guideTable  .GuideAbstract .IF a {color:#2547AA;}
+table.guideTable  .GuideAbstract .IF a:hover {color:#DA6525;} 
+table.guideTable  .GuideAbstract .IFSans a {color:#2547AA;}
+table.guideTable  .GuideAbstract .IFSans a:hover {color:#DA6525;} 
+
+div.GuideText a:link {color:#2547AA;}
+div.GuideText a:visited {color:#2547AA;}
+div.GuideText a:hover {color:#DA6525;} 
+
+div.GuideText span.IF {/* font-family:Verdana, sans-serif; */font-family:"Courier New", Courier, monospace; font-size:100%;}
+div.GuideText span.IF a { color:#2547AA; font-weight:bold; }
+div.GuideText span.InlineGuideFunction {/* color:#2547AA; */ font-weight:bold; font-family:Verdana, sans-serif; font-size:100%; }
+div.GuideText a:link span.InlineGuideFunction {color:#2547AA;}
+div.GuideText span.InlineCharacterDisplay,  div.GuideText span.ICN {font-weight:bold; }
+div.GuideText span.ICN a { color:#2547AA; }
+table.guideTable  .GuideText .IF a {font-weight:bold;}
+table.guideTable  .GuideText .IFSans a {font-weight:bold;}
+
+table.guideTable  .IF a:visited {color:#2547AA;}
+table.guideTable  .IF a:link {color:#2547AA;}
+table.guideTable  .IF a:hover {color:#DA6525;} 
+table.guideTable  .IFSans a:visited {color:#2547AA;}
+table.guideTable  .IFSans a:link {color:#2547AA;}
+table.guideTable  .IFSans a:hover {color:#DA6525;} 
+
+table.guideTable  .InlineFormula, table.guideTable  .IF {font-family:Verdana, sans-serif;  font-size:100%; word-spacing: 0em;}
+table.guideTable  .InlineFormula, table.guideTable  .IFSans {font-family:Verdana, sans-serif;  font-size:100%; word-spacing: 0em;}
+
+table.guideTable  .InlineGuideFunction a:link {color:#2547AA; font-weight:bold; font-family:Verdana, sans-serif;}
+table.guideTable  .InlineGuideFunction a:visited {color:#2547AA; font-weight:bold; font-family:Verdana, sans-serif; }
+table.guideTable  .InlineGuideFunction a:hover {color:#DA6525; }
+
+table.guideTable  .MBookTableText {font-family:Verdana, Arial, Helvetica, sans-serif;}
+table.guideTable  .GuideFunctionsSection a:hover {color:#2547AA}
+table.guideTable  table.Table {width:550px;}
+table.guideTable  .GuideEmDash { padding:0px 2px 0px 2px; color:#555; font-stretch:ultra-expanded;}
+/*  END Remove these after site is built with divs  */
+
+div.guideTable  div#AlphabeticalListing {border:solid 0px black; width:650px !important;  width:630px; }
+div#AlphabeticalListing Table{border:solid 0px green; width:100%}
+.GuideTitleGrid { /*border-top:3px solid #FF8725;*/ margin-right:0px; }
+a.newInVersionLinkHighlight {background:#FFFAAE} 
+
+div.guideTable  .GuideAbstract .IF a {color:#2547AA;}
+div.guideTable  .GuideAbstract .IF a:hover {color:#DA6525;} 
+div.guideTable  .GuideAbstract .IFSans {font-weight:bold;}
+div.guideTable  .GuideAbstract .IFSans a {color:#2547AA;}
+div.guideTable  .GuideAbstract .IFSans a:hover {color:#DA6525;} 
+
+div.guideTable  .GuideText .IF a {font-weight:bold;}
+div.guideTable  .GuideText .IFSans a {font-weight:bold;}
+
+div.guideTable  .IF a:visited {color:#2547AA;}
+div.guideTable  .IF a:link {color:#2547AA;}
+div.guideTable  .IF a:hover {color:#DA6525;} 
+div.guideTable  .IFSans a:visited {color:#2547AA;}
+div.guideTable  .IFSans a:link {color:#2547AA;}
+div.guideTable  .IFSans a:hover {color:#DA6525;} 
+
+/* bad fix for >> added  & then removed div.guideTable a:link {color:#DA6525;}  */
+
+div.guideTable  .InlineFormula, table.guideTable  .IF {font-family:Verdana, sans-serif;  font-size:100%; word-spacing: 0em;}
+div.guideTable  .InlineFormula, table.guideTable  .IFSans {font-family:Verdana, sans-serif;  font-size:100%; word-spacing: 0em;}
+
+div.guideTable  .InlineGuideFunction a:link {color:#2547AA; font-weight:bold; font-family:Verdana, sans-serif;}
+div.guideTable  .InlineGuideFunction a:visited {color:#2547AA; font-weight:bold; font-family:Verdana, sans-serif; }
+div.guideTable  .InlineGuideFunction a:hover {color:#DA6525; }
+
+div.guideTable  .MBookTableText {font-family:Verdana, Arial, Helvetica, sans-serif;}
+div.guideTable  .GuideFunctionsSection a:hover {color:#2547AA}
+div.guideTable  table.Table {width:550px;}
+div.guideTable  .GuideEmDash { padding:0px 2px 0px 2px; color:#555; font-stretch:ultra-expanded;}
+
+/*  Guides.css styles end here  */
+
+
+
+
+Div.ja  .ExampleText {letter-spacing: 0.1em; }
+/* Div.ja .NSH, Div.ja .ESH, Div.ja .SASH, Div.ja .TSH, Div.ja .RLSH, Div.ja .MASH, Div.ja .oclink {font-size:110%;} */
+Div.ja  Div, Div.ja li {font-size:110%; }
+Div#ja  Div, Div#ja li {font-size:100%; /* line-height:1.3; */}
+
+
+
+
+
+
+/* begin root guide styles from the layout page */
+.FloatRootSpacer { margin-top: -110px; margin-left:8px; margin-bottom:-8px !important; margin-bottom:-28px;}
+/* table.FloatRootTable  {
+border-left:1px solid #B9B7AE; 
+border-bottom:1px solid #B9B7AE; 
+border-right:1px solid #B9B7AE; width: 744px;  
+background:#FEFEF2 ;
+ } */
+table.FloatRootTable2  {
+margin-left:30px;
+border-left:1px solid #B9B7AE; 
+border-bottom:1px solid #B9B7AE; 
+border-right:1px solid #B9B7AE; width: 744px;  
+background:#FEFEF2 ;
+ }
+  div.banner {margin-left:30px; margin-bottom:-3px;} 
+  .FltShdwBarRt .banner {margin-left:30px; margin-bottom:-3px;} 
+ div.BtmShdwRt {text-align:right; margin-left:9px;  margin-top:0px; margin-bottom:10px;width:750px;  
+height:6px; background-image:url(../images/images/body_shadow_bgbottom.gif); }
+img.cornerRt {
+margin-top:0px;
+float:left !important;
+margin-left:0px;
+padding-left:0px !important;
+float:none;
+position: absolute; 
+left:6px; } 
+
+table.FltShdwBarRt { background-image: url(../images/images/body_shadow_top.gif); background-repeat: repeat-y;
+ background-position: 5px; position:absolute; left:0px; width:100px; height:100px; margin-top:-60px;}
+div.FltShdwBarRt { padding-left: 0px; 
+margin-left:-20px;
+ background-image: url(../images/images/body_shadow_top2.gif);
+ background-repeat: repeat-y;
+ background-position: 5px;
+}
+div.FltRt {position: absolute; left:5px;
+/* !important; left:4px;  */}

@@ -1,0 +1,28 @@
+<pre name='i_45_in' id='i_45_in' class='IFT'>spatialDimension[units_] := Module[{si},
+  si = {SI[units]} /. Sign -&gt; Sequence;
+  Which[
+   MemberQ[si, Meter^_, \[Infinity]], 
+   Cases[si, Meter^exp_ :&gt; exp, \[Infinity]][[1]],
+   MemberQ[si, Meter, \[Infinity]], 1,
+   True, 0
+   ]
+  ]</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0ytqdfpkmea2149g-tce2mo</String>
+  </Function>
+ </Function>
+</Expression>

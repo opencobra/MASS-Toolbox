@@ -1,0 +1,21 @@
+<pre name='i_21_in' id='i_21_in' class='IFT'>fba[ecoli, Toolbox`v[&quot;Biomass_Ecoli_core_N(w/GAM)_Nmet2&quot;]]
+Toolbox`v[&quot;Biomass_Ecoli_core_N(w/GAM)_Nmet2&quot;] /. %</pre><?xml version='1.0'?>
+<!DOCTYPE Expression SYSTEM 'http://www.wolfram.com/XML/notebookml1.dtd'>
+<Expression xmlns:mathematica='http://www.wolfram.com/XML/'
+    xmlns='http://www.wolfram.com/XML/'>
+ <Function>
+  <Symbol>Div</Symbol>
+  <Function>
+   <Symbol>List</Symbol>
+   <Function>
+    <Symbol>Rule</Symbol>
+    <String>class</String>
+    <String>IFU</String>
+   </Function>
+  </Function>
+  <Function>
+   <Symbol>List</Symbol>
+   <String>http://wolfram.com/xid/0fqluzhoky5ld1ins-sbwqyh</String>
+  </Function>
+ </Function>
+</Expression>
