@@ -1,0 +1,575 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["Toolbox Package", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->1555766126],
+
+Cell["Toolbox`", "Categorization",
+ CellLabel->"Context",
+ CellID->393810],
+
+Cell["Toolbox/ref/makeReversible", "Categorization",
+ CellLabel->"URI",
+ CellID->176313729]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["makeReversible", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ "makeReversible[reaction]\[LineSeparator]makes reaction reversible and \
+leaves it unchanged if it was alreay reversible"
+}], "Usage",
+ CellChangeTimes->{{3.562346637925273*^9, 3.562346643588238*^9}}],
+
+Cell["XXXX", "Notes",
+ CellID->1067943069]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["makeIrreversible",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/makeIrreversible"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  ButtonBox["reaction",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/reaction"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  ButtonBox["reversibleQ",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/reversibleQ"]], "InlineFormula"]
+}], "SeeAlso",
+ CellChangeTimes->{{3.5623468421620903`*^9, 3.562346844695826*^9}, {
+  3.562347134112813*^9, 3.5623471524626923`*^9}},
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell["\<\
+Make an irreversible reaction reversible\
+\>", "ExampleText",
+ CellChangeTimes->{{3.562346727655007*^9, 3.562346739102076*^9}},
+ CellID->1064286779],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"makeReversible", "[", 
+  InterpretationBox[
+   OverscriptBox[
+    RowBox[{
+     RowBox[{
+      InterpretationBox[
+       StyleBox["x1",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]],
+       Toolbox`metabolite["x1", None],
+       Editable->False,
+       Selectable->False], "+", 
+      InterpretationBox[
+       StyleBox["x2",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]],
+       Toolbox`metabolite["x2", None],
+       Editable->False,
+       Selectable->False]}], "\[RightArrow]", 
+     InterpretationBox[
+      StyleBox["x3",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]],
+      Toolbox`metabolite["x3", None],
+      Editable->False,
+      Selectable->False]}], 
+    StyleBox["1",
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     LineColor->RGBColor[0, 0, 0],
+     FrontFaceColor->RGBColor[0, 0, 0],
+     BackFaceColor->RGBColor[0, 0, 0],
+     GraphicsColor->RGBColor[0, 0, 0],
+     FontColor->RGBColor[0, 0, 0]]],
+   Toolbox`reaction["1", {
+     Toolbox`metabolite["x1", None], 
+     Toolbox`metabolite["x2", None]}, {
+     Toolbox`metabolite["x3", None]}, {1, 1, 1}, False],
+   Editable->False,
+   Selectable->False], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"reversibleQ", "[", "%", "]"}]}], "Input",
+ CellChangeTimes->{{3.562346708966982*^9, 3.562346745833481*^9}},
+ CellLabel->"In[215]:=",
+ CellID->1339811654],
+
+Cell[BoxData[
+ InterpretationBox[
+  OverscriptBox[
+   RowBox[{
+    RowBox[{
+     InterpretationBox[
+      StyleBox["x1",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]],
+      Toolbox`metabolite["x1", None],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      StyleBox["x2",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]],
+      Toolbox`metabolite["x2", None],
+      Editable->False,
+      Selectable->False]}], "\[Equilibrium]", 
+    InterpretationBox[
+     StyleBox["x3",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]],
+     Toolbox`metabolite["x3", None],
+     Editable->False,
+     Selectable->False]}], 
+   StyleBox["1",
+    StripOnInput->False,
+    ShowSyntaxStyles->False,
+    AutoSpacing->False,
+    ZeroWidthTimes->True,
+    LineColor->RGBColor[0, 0, 0],
+    FrontFaceColor->RGBColor[0, 0, 0],
+    BackFaceColor->RGBColor[0, 0, 0],
+    GraphicsColor->RGBColor[0, 0, 0],
+    FontColor->RGBColor[0, 0, 0]]],
+  Toolbox`reaction["1", {
+    Toolbox`metabolite["x1", None], 
+    Toolbox`metabolite["x2", None]}, {
+    Toolbox`metabolite["x3", None]}, {1, 1, 1}, True],
+  Editable->False,
+  Selectable->False]], "Output",
+ CellChangeTimes->{{3.5623467207266207`*^9, 3.5623467464630117`*^9}},
+ CellLabel->"Out[215]=",
+ CellID->1076598790],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{{3.5623467207266207`*^9, 3.562346746464641*^9}},
+ CellLabel->"Out[216]=",
+ CellID->1846137555]
+}, Open  ]],
+
+Cell["\<\
+An alreay reversible reaction remains unchanged\
+\>", "ExampleText",
+ CellChangeTimes->{{3.562346727655007*^9, 3.5623467724705477`*^9}},
+ CellID->1190155029],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"makeReversible", "[", 
+  InterpretationBox[
+   OverscriptBox[
+    RowBox[{
+     RowBox[{
+      InterpretationBox[
+       StyleBox["x1",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]],
+       Toolbox`metabolite["x1", None],
+       Editable->False,
+       Selectable->False], "+", 
+      InterpretationBox[
+       StyleBox["x2",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]],
+       Toolbox`metabolite["x2", None],
+       Editable->False,
+       Selectable->False]}], "\[Equilibrium]", 
+     InterpretationBox[
+      StyleBox["x3",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]],
+      Toolbox`metabolite["x3", None],
+      Editable->False,
+      Selectable->False]}], 
+    StyleBox["1",
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     LineColor->RGBColor[0, 0, 0],
+     FrontFaceColor->RGBColor[0, 0, 0],
+     BackFaceColor->RGBColor[0, 0, 0],
+     GraphicsColor->RGBColor[0, 0, 0],
+     FontColor->RGBColor[0, 0, 0]]],
+   Toolbox`reaction["1", {
+     Toolbox`metabolite["x1", None], 
+     Toolbox`metabolite["x2", None]}, {
+     Toolbox`metabolite["x3", None]}, {1, 1, 1}, True],
+   Editable->False,
+   Selectable->False], "]"}]], "Input",
+ CellChangeTimes->{{3.5623466974144382`*^9, 3.562346702710843*^9}},
+ CellLabel->"In[217]:=",
+ CellID->1432458355],
+
+Cell[BoxData[
+ InterpretationBox[
+  OverscriptBox[
+   RowBox[{
+    RowBox[{
+     InterpretationBox[
+      StyleBox["x1",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]],
+      Toolbox`metabolite["x1", None],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      StyleBox["x2",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]],
+      Toolbox`metabolite["x2", None],
+      Editable->False,
+      Selectable->False]}], "\[Equilibrium]", 
+    InterpretationBox[
+     StyleBox["x3",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]],
+     Toolbox`metabolite["x3", None],
+     Editable->False,
+     Selectable->False]}], 
+   StyleBox["1",
+    StripOnInput->False,
+    ShowSyntaxStyles->False,
+    AutoSpacing->False,
+    ZeroWidthTimes->True,
+    LineColor->RGBColor[0, 0, 0],
+    FrontFaceColor->RGBColor[0, 0, 0],
+    BackFaceColor->RGBColor[0, 0, 0],
+    GraphicsColor->RGBColor[0, 0, 0],
+    FontColor->RGBColor[0, 0, 0]]],
+  Toolbox`reaction["1", {
+    Toolbox`metabolite["x1", None], 
+    Toolbox`metabolite["x2", None]}, {
+    Toolbox`metabolite["x3", None]}, {1, 1, 1}, True],
+  Editable->False,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.562346703178111*^9, 3.562346774140897*^9},
+ CellLabel->"Out[217]=",
+ CellID->1272884245]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{99, Automatic}, {Automatic, 0}},
+CellContext->"Global`",
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
+2011)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+

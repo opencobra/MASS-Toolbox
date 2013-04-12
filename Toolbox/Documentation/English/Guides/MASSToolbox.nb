@@ -1,0 +1,875 @@
+Notebook[{
+Cell[TextData[{
+ Cell[BoxData["XXXX"], "InlineGuideFunction"],
+ " \[LongDash] XXXX"
+}], "GuideText",
+ CellID->1404563194],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["0.1", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Guide", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["Toolbox", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465],
+
+Cell["Toolbox`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828],
+
+Cell["Toolbox/guide/Toolbox", "Categorization",
+ CellChangeTimes->{3.563023911510612*^9},
+ CellLabel->"URI"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->1427428552],
+
+Cell["XXXX", "Keywords",
+ CellID->1251852827]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->795394057],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->802101],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->509823116],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->199884516],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->463951815],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->8237523],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->813936640],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["MASS Toolbox", "GuideTitle",
+ CellID->942062912],
+
+Cell["Abstract ...", "GuideAbstract",
+ CellChangeTimes->{{3.5623572711946363`*^9, 3.562357273495723*^9}},
+ CellID->2001916300]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "GuideFunctionsSection",
+ CellID->1866139230],
+
+Cell[CellGroupData[{
+
+Cell["Model construction and manipulation", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.562357405444008*^9, 3.562357408474516*^9}, {
+  3.562357701828176*^9, 3.562357707728829*^9}, {3.562358764296854*^9, 
+  3.5623587721913233`*^9}},
+ CellID->1080204154],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["constructModel",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/constructModel"]], 
+  "InlineGuideFunction"],
+ " \[LongDash] construct models"
+}], "GuideText",
+ CellChangeTimes->{{3.562357353113104*^9, 3.562357371945929*^9}, {
+  3.562357421421*^9, 3.562357421502571*^9}},
+ CellID->203374175],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["addReactions",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/addReactions"]], "InlineGuideFunction"],
+ " \[LongDash] add reactions to a model"
+}], "GuideText",
+ CellChangeTimes->{{3.5623587834776363`*^9, 3.562358791014806*^9}, {
+  3.5624224811464376`*^9, 3.56242248404745*^9}, {3.562422544650481*^9, 
+  3.562422554626788*^9}, {3.562422989612617*^9, 3.5624229896951723`*^9}},
+ CellID->1463276848],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["deleteReactions",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/deleteReactions"]], 
+  "InlineGuideFunction"],
+ " \[LongDash] delete reactions from a model"
+}], "GuideText",
+ CellChangeTimes->{{3.5623587834776363`*^9, 3.562358791014806*^9}, {
+  3.5624224811464376`*^9, 3.5624225042981586`*^9}, {3.562422555890726*^9, 
+  3.5624225604265833`*^9}, {3.562422991765081*^9, 3.562422991880856*^9}},
+ CellID->1012760100],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["deleteGenes",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/deleteGenes"]], 
+  "InlineGuideFunction"],
+ " \[LongDash] delete genes from a model"
+}], "GuideText",
+ CellChangeTimes->{{3.5623587834776363`*^9, 3.562358791014806*^9}, {
+  3.5624224811464376`*^9, 3.5624225176777973`*^9}, {3.562422561706985*^9, 
+  3.562422590435499*^9}, {3.5624229934407253`*^9, 3.562422993515818*^9}},
+ CellID->503614578],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["splitReversible",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/splitReversible"]], 
+  "InlineGuideFunction"],
+ " \[LongDash] split all reversible reactions into separate irreversible \
+reactions"
+}], "GuideText",
+ CellChangeTimes->{{3.5623587834776363`*^9, 3.562358791014806*^9}, {
+  3.5624224811464376`*^9, 3.5624225176777973`*^9}, {3.562422561706985*^9, 
+  3.562422590435499*^9}, {3.56242263735207*^9, 3.562422656544709*^9}, {
+  3.5624226935437307`*^9, 3.5624227007812977`*^9}, {3.562422995247286*^9, 
+  3.562422995334154*^9}},
+ CellID->948233031],
+
+Cell[TextData[{
+ ButtonBox["deleteSpecies",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/deleteSpecies"],
+ " . ",
+ ButtonBox["deleteProteins",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/deleteProteins"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.5624225293063517`*^9, 3.5624225397862043`*^9}, {
+  3.562422596419303*^9, 3.562422597251317*^9}, {3.56242270550145*^9, 
+  3.562422712117608*^9}, {3.5624229978904963`*^9, 3.56242300515546*^9}},
+ CellID->138570386]
+}, Open  ]],
+
+Cell["\t", "GuideDelimiter",
+ CellID->311258892],
+
+Cell[CellGroupData[{
+
+Cell["Model attributes", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.562357405444008*^9, 3.562357408474516*^9}, {
+  3.562357701828176*^9, 3.562357707728829*^9}, {3.562358764296854*^9, 
+  3.5623587721913233`*^9}, {3.562359119318676*^9, 3.56235912261499*^9}},
+ CellID->2093545322],
+
+Cell[TextData[{
+ StyleBox[ButtonBox["getAttributes",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/Model attributes"],
+  FontWeight->"Bold"],
+ " \[LongDash] get a list of available model attributes"
+}], "GuideText",
+ CellChangeTimes->{{3.5623587834776363`*^9, 3.562358791014806*^9}, {
+  3.56235912717161*^9, 3.5623591948278646`*^9}},
+ CellID->71624491],
+
+Cell[TextData[{
+ ButtonBox["InitialConditions",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/InitialConditions"],
+ " . ",
+ ButtonBox["Parameters",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/Parameters"],
+ " . ",
+ ButtonBox["ID",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/ID"],
+ " . ",
+ ButtonBox["CustomRateLaws",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/CustomRateLaws"],
+ " . ",
+ ButtonBox["...",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/guide/Model attributes"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.562359242265492*^9, 3.562359324650824*^9}, {
+  3.562431251319268*^9, 3.562431262965637*^9}, {3.562431336089533*^9, 
+  3.56243137972508*^9}},
+ CellID->1201977917],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["getInitialConditions",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/InitialConditions"]], 
+  "InlineGuideFunction"],
+ " \[LongDash] get initial conditions of model"
+}], "GuideText",
+ CellChangeTimes->{{3.5623587834776363`*^9, 3.562358791014806*^9}, {
+  3.562359351167552*^9, 3.562359414540766*^9}, {3.562431210956029*^9, 
+  3.562431211037505*^9}},
+ CellID->528495524],
+
+Cell[TextData[{
+ ButtonBox["getParameters",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/Parameters"],
+ " . ",
+ ButtonBox["getReactions",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/Reactions"],
+ " . ",
+ ButtonBox["getID",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/ID"],
+ " . ",
+ ButtonBox["getCustomRateLaws",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/CustomRateLaws"],
+ " . ",
+ ButtonBox["getRates",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/Rates"],
+ " . ",
+ ButtonBox["...",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/guide/Model attributes"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.562359242265492*^9, 3.562359324650824*^9}, {
+  3.562359429989299*^9, 3.562359480606444*^9}, {3.562431270223607*^9, 
+  3.5624312803143597`*^9}, {3.562431387929722*^9, 3.562431388945936*^9}},
+ CellID->657509620],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["setInitialConditions",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/InitialConditions"]], 
+  "InlineGuideFunction"],
+ " \[LongDash] set initial conditions of model"
+}], "GuideText",
+ CellChangeTimes->{{3.5623587834776363`*^9, 3.562358791014806*^9}, {
+  3.562359351167552*^9, 3.562359414540766*^9}, {3.562359503631316*^9, 
+  3.562359504382215*^9}, {3.562359570840251*^9, 3.562359570936357*^9}, {
+  3.562431287665989*^9, 3.5624312877356253`*^9}},
+ CellID->1960819525],
+
+Cell[TextData[{
+ ButtonBox["setParameters",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/Parameters"],
+ " . ",
+ ButtonBox["setID",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/ID"],
+ " . ",
+ ButtonBox["setCustomRateLaws",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/CustomRateLaws"],
+ " . ",
+ ButtonBox["setIgnore",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/Ignore"],
+ " . ",
+ ButtonBox["...",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/guide/Model attributes"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.562359242265492*^9, 3.562359324650824*^9}, {
+  3.562359429989299*^9, 3.562359480606444*^9}, {3.5623595115109797`*^9, 
+  3.5623595374635*^9}, {3.562431295713005*^9, 3.562431303513792*^9}, {
+  3.56243139089783*^9, 3.562431391753433*^9}},
+ CellID->209709813],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["updateInitialConditions",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/updateInitialConditions"]], 
+  "InlineGuideFunction"],
+ " \[LongDash] update initial conditions of model"
+}], "GuideText",
+ CellChangeTimes->{{3.5623587834776363`*^9, 3.562358791014806*^9}, {
+  3.562359558614109*^9, 3.562359580904388*^9}, {3.562431313837331*^9, 
+  3.5624313139025793`*^9}},
+ CellID->431907876],
+
+Cell[TextData[{
+ ButtonBox["updateParameters",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/updateParameters"],
+ " . ",
+ ButtonBox["updateCustomRateLaws",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/updateCustomRateLaws"],
+ " . ",
+ ButtonBox["updateBoundaryConditions",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/updateBoundaryConditions"],
+ " . ",
+ ButtonBox["...",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/guide/Model attributes"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.562359242265492*^9, 3.562359324650824*^9}, {
+  3.562359429989299*^9, 3.562359480606444*^9}, {3.5623595115109797`*^9, 
+  3.5623595374635*^9}, {3.562359624329329*^9, 3.562359638905456*^9}, {
+  3.562359674282474*^9, 3.562359690082654*^9}, {3.562431305836721*^9, 
+  3.5624313108832006`*^9}, {3.562431393577861*^9, 3.562431394409603*^9}},
+ CellID->572162364]
+}, Open  ]],
+
+Cell["\t", "GuideDelimiter",
+ CellID->264183690],
+
+Cell[CellGroupData[{
+
+Cell["Overloaded functions", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.562357405444008*^9, 3.562357408474516*^9}, {
+  3.562357701828176*^9, 3.562357707728829*^9}, {3.562358797887745*^9, 
+  3.5623588356006927`*^9}, {3.5623589585792828`*^9, 3.5623589596591682`*^9}},
+ CellID->912898708],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["Union",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Union"]], "InlineGuideFunction"],
+ " \[LongDash] unify models"
+}], "GuideText",
+ CellChangeTimes->{{3.562431678039236*^9, 3.562431705998165*^9}, {
+  3.56243180870325*^9, 3.562431808767589*^9}},
+ CellID->1322829214],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["Intersection",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Intersection"]], "InlineGuideFunction"],
+ " \[LongDash] get intersecting parts of multiple models"
+}], "GuideText",
+ CellChangeTimes->{{3.562431678039236*^9, 3.562431728102605*^9}, {
+  3.562431811133915*^9, 3.562431811251267*^9}},
+ CellID->2039885954],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["Complement",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Complement"]], "InlineGuideFunction"],
+ " \[LongDash] get unique part of a model that cannout be found in a series \
+of other models"
+}], "GuideText",
+ CellChangeTimes->{{3.562431678039236*^9, 3.562431813421015*^9}},
+ CellID->1934288170],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["MatrixRank",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/MatrixRank"]], "InlineGuideFunction"],
+ " \[LongDash] rank of model stoichiometry matrix"
+}], "GuideText",
+ CellChangeTimes->{{3.562358811670003*^9, 3.562358925714405*^9}, {
+  3.5623590726835413`*^9, 3.562359072750313*^9}},
+ CellID->652072550],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["Transpose",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Transpose"]], "InlineGuideFunction"],
+ " \[LongDash] transpose of model stoichiometry matrix"
+}], "GuideText",
+ CellChangeTimes->{{3.562358811670003*^9, 3.5623589069861298`*^9}, {
+  3.562359074964118*^9, 3.5623590750425463`*^9}},
+ CellID->1499584706],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["NullSpace",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/NullSpace"]], "InlineGuideFunction"],
+ " \[LongDash] null space of a model stoichiometry matrix"
+}], "GuideText",
+ CellChangeTimes->{{3.562358811670003*^9, 3.562358878666045*^9}, {
+  3.562358930802972*^9, 3.5623589383713503`*^9}, {3.562359076480542*^9, 
+  3.562359076586032*^9}},
+ CellID->1823372920],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["Dot",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Dot"]], "InlineGuideFunction"],
+ " \[LongDash] Dot product of model stoichiometry matrix and vector"
+}], "GuideText",
+ CellChangeTimes->{{3.562358811670003*^9, 3.562358878666045*^9}, {
+  3.562358930802972*^9, 3.5623589383713503`*^9}, {3.5623589715748*^9, 
+  3.562359047877036*^9}, {3.562359078430932*^9, 3.562359078527411*^9}},
+ CellID->509569767],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["ToString",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/ToString"]], "InlineGuideFunction"],
+ " \[LongDash] textual representation of types"
+}], "GuideText",
+ CellChangeTimes->{{3.562358811670003*^9, 3.562358878666045*^9}, {
+  3.562358930802972*^9, 3.5623589383713503`*^9}, {3.5623589715748*^9, 
+  3.562359001028314*^9}, {3.56235908102625*^9, 3.562359081090664*^9}},
+ CellID->2009774490],
+
+Cell[TextData[{
+ Cell[BoxData[
+  RowBox[{
+   ButtonBox["ReplaceAll",
+    BaseStyle->"Link",
+    ButtonData->"paclet:ref/ReplaceAll"], " ", 
+   RowBox[{"(", "/.", ")"}]}]], "InlineGuideFunction"],
+ " \[LongDash] use a model as a replacement list"
+}], "GuideText",
+ CellChangeTimes->{{3.5623587834776363`*^9, 3.562358791014806*^9}, {
+  3.562359351167552*^9, 3.562359414540766*^9}, {3.562359503631316*^9, 
+  3.562359504382215*^9}, {3.562359570840251*^9, 3.562359570936357*^9}, {
+  3.562424088626154*^9, 3.562424118074697*^9}, {3.562424195562443*^9, 
+  3.562424197600116*^9}},
+ CellID->87739139],
+
+Cell["Length . RowReduce . Equal . SameQ", "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.5624316227746887`*^9, 3.562431650629043*^9}},
+ CellID->837023750]
+}, Open  ]],
+
+Cell["\t", "GuideDelimiter",
+ CellID->1840278400],
+
+Cell[CellGroupData[{
+
+Cell["Simulation and Visualization", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.562357405444008*^9, 3.562357408474516*^9}, {
+  3.562357701828176*^9, 3.562357707728829*^9}, {3.562357794010886*^9, 
+  3.562357799778727*^9}},
+ CellID->1816901961],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["simulate",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/simulate"]], "InlineGuideFunction"],
+ " \[LongDash] integrate ODEs"
+}], "GuideText",
+ CellChangeTimes->{{3.562357805172476*^9, 3.56235781670722*^9}, {
+  3.5623584897074413`*^9, 3.56235848976562*^9}},
+ CellID->478719834],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["plotSimulation",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/plotSimulation"]], 
+  "InlineGuideFunction"],
+ " \[LongDash] plot concentration and flux profiles"
+}], "GuideText",
+ CellChangeTimes->{{3.562357805172476*^9, 3.56235781670722*^9}, {
+  3.562358106705442*^9, 3.5623581386897078`*^9}, {3.562358491973772*^9, 
+  3.562358492115417*^9}},
+ CellID->1182542304],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["plotPhasePortrait",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/plotPhasePortrait"]], 
+  "InlineGuideFunction"],
+ " \[LongDash] plot phase portraits of concentration and flux profiles"
+}], "GuideText",
+ CellChangeTimes->{{3.562357805172476*^9, 3.56235781670722*^9}, {
+  3.562358106705442*^9, 3.562358165810483*^9}, {3.5623584939705343`*^9, 
+  3.5623584940338163`*^9}},
+ CellID->27350343],
+
+Cell[TextData[{
+ ButtonBox["visualizePathways",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/visualizePathways"],
+ " . ",
+ ButtonBox["visualizeGPR",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/visualizeGPR"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.562422442345478*^9, 3.562422453184576*^9}, {
+  3.562431417777607*^9, 3.562431420917407*^9}, {3.5624314936931467`*^9, 
+  3.5624314942098427`*^9}},
+ CellID->1370508376]
+}, Open  ]],
+
+Cell["\t", "GuideDelimiter",
+ CellID->224677710],
+
+Cell[CellGroupData[{
+
+Cell["Constraint-based modeling", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.562357405444008*^9, 3.562357408474516*^9}, {
+  3.562357701828176*^9, 3.562357707728829*^9}, {3.562357794010886*^9, 
+  3.562357799778727*^9}, {3.562357833355481*^9, 3.5623578373876333`*^9}},
+ CellID->882020544],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["fba",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/fba"]], "InlineGuideFunction"],
+ " \[LongDash] perform flux-balance analysis"
+}], "GuideText",
+ CellChangeTimes->{{3.562357857813498*^9, 3.5623578680856333`*^9}, {
+  3.562358498291173*^9, 3.5623584983570843`*^9}},
+ CellID->1857127766],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["fva",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/fva"]], "InlineGuideFunction"],
+ " \[LongDash] perform flux-variability analysis"
+}], "GuideText",
+ CellChangeTimes->{{3.562357857813498*^9, 3.5623578822845173`*^9}, {
+  3.562358500313218*^9, 3.562358500374922*^9}},
+ CellID->1219037664],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["reduceModel",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/reduceModel"]], 
+  "InlineGuideFunction"],
+ " \[LongDash] remove reaction that cannot carry steady-state flux"
+}], "GuideText",
+ CellChangeTimes->{{3.562357857813498*^9, 3.5623578680856333`*^9}, {
+  3.562358343919915*^9, 3.562358363582609*^9}, {3.56235850259305*^9, 
+  3.562358502658016*^9}},
+ CellID->1372026468],
+
+Cell[TextData[{
+ ButtonBox["minspan",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/minspan"],
+ " . ",
+ ButtonBox["gimme",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/gimme"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.562423411685986*^9, 3.562423416051532*^9}, {
+  3.562424218124549*^9, 3.562424218883239*^9}, {3.562431425302327*^9, 
+  3.5624314282423143`*^9}},
+ CellID->976229399]
+}, Open  ]],
+
+Cell["\t", "GuideDelimiter",
+ CellID->712445913],
+
+Cell[CellGroupData[{
+
+Cell["Modeling types", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.562357405444008*^9, 3.562357408474516*^9}, {
+  3.562357594183877*^9, 3.5623575963664503`*^9}},
+ CellID->1953290430],
+
+Cell[TextData[{
+ StyleBox[ButtonBox["species",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/species"],
+  FontWeight->"Bold"],
+ " \[LongDash] represent a species"
+}], "GuideText",
+ CellChangeTimes->{{3.562357601783589*^9, 3.562357635599535*^9}, {
+  3.562357674957904*^9, 3.562357675137602*^9}},
+ CellID->547024438],
+
+Cell[TextData[{
+ StyleBox[ButtonBox["metabolite",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/metabolite"],
+  FontWeight->"Bold"],
+ " \[LongDash] represent a small compound"
+}], "GuideText",
+ CellChangeTimes->{{3.562357601783589*^9, 3.5623576131347837`*^9}, {
+  3.562357676543206*^9, 3.562357676722404*^9}},
+ CellID->1639419276],
+
+Cell[TextData[{
+ StyleBox[ButtonBox["reaction",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/reaction"],
+  FontWeight->"Bold"],
+ " \[LongDash] represent a reaction"
+}], "GuideText",
+ CellChangeTimes->{{3.562357601783589*^9, 3.562357626295436*^9}, {
+   3.562357659344914*^9, 3.562357678557076*^9}, 3.562422957854629*^9},
+ CellID->462236659],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["Keq",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/Keq"]], "InlineGuideFunction"],
+ " \[LongDash] represent an equilibrium constant"
+}], "GuideText",
+ CellChangeTimes->{{3.5623579536700687`*^9, 3.562357969782339*^9}, {
+  3.5624229192934093`*^9, 3.5624229193687677`*^9}},
+ CellID->2116929837],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["rateconst",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/rateconst"]], "InlineGuideFunction"],
+ " \[LongDash] represent an elementary rate constant"
+}], "GuideText",
+ CellChangeTimes->{{3.5623579536700687`*^9, 3.562357993086994*^9}, {
+  3.562422921771138*^9, 3.562422921854383*^9}},
+ CellID->1878190610],
+
+Cell[TextData[{
+ ButtonBox["enzyme",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/enzyme"],
+ " . ",
+ ButtonBox["gene",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/gene"],
+ " . ",
+ ButtonBox["protein",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/protein"],
+ " . ",
+ ButtonBox["parameter",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/parameter"],
+ " . ",
+ ButtonBox["vmax",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/vmax"],
+ " . ",
+ ButtonBox["Km",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/Km"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.56235764103189*^9, 3.562357653559779*^9}, {
+  3.5623579244295263`*^9, 3.5623579254454393`*^9}, {3.5623580009669867`*^9, 
+  3.562358010039402*^9}, {3.562358462700799*^9, 3.562358477093828*^9}, {
+  3.562422900699963*^9, 3.5624229007552137`*^9}},
+ CellID->1504580722]
+}, Open  ]],
+
+Cell["\t", "GuideDelimiter",
+ CellID->868251229],
+
+Cell[CellGroupData[{
+
+Cell["Import & Export", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.562357405444008*^9, 3.562357408474516*^9}, {
+  3.562357453340708*^9, 3.562357460507574*^9}},
+ CellID->164464540],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["importModel",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/importModel"]], 
+  "InlineGuideFunction"],
+ " \[LongDash] import a model"
+}], "GuideText",
+ CellChangeTimes->{{3.562357353113104*^9, 3.562357371945929*^9}, {
+  3.562357421421*^9, 3.562357421502571*^9}, {3.562357465510014*^9, 
+  3.562357489276251*^9}},
+ CellID->344070091],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["sbml2model",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/sbml2model"]], "InlineGuideFunction"],
+ " \[LongDash] import a model defined in SBML format"
+}], "GuideText",
+ CellChangeTimes->{{3.562357513234559*^9, 3.562357531962887*^9}},
+ CellID->1581316613],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["mat2model",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/mat2model"]], "InlineGuideFunction"],
+ " \[LongDash] import COBRA toolbox models from a Matlab file"
+}], "GuideText",
+ CellChangeTimes->{{3.562357740127824*^9, 3.5623577730329103`*^9}, {
+  3.5624227461917963`*^9, 3.5624227473744993`*^9}},
+ CellID->1353353734],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["biomodel2model",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/biomodel2model"]], 
+  "InlineGuideFunction"],
+ " \[LongDash] import a model from biomodels.net"
+}], "GuideText",
+ CellChangeTimes->{{3.5623579536700687`*^9, 3.562357993086994*^9}, {
+  3.5623580282206507`*^9, 3.562358045855942*^9}, {3.562358450838593*^9, 
+  3.562358450922266*^9}},
+ CellID->887455017]
+}, Open  ]],
+
+Cell["\t", "GuideDelimiter",
+ CellID->2078183066],
+
+Cell[CellGroupData[{
+
+Cell["Graph theory", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.562357405444008*^9, 3.562357408474516*^9}, {
+  3.562357453340708*^9, 3.562357460507574*^9}, {3.562357572975635*^9, 
+  3.5623575735820093`*^9}, {3.562358180922861*^9, 3.562358184011148*^9}},
+ CellID->1348755454],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["model2bipartite",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/model2bipartite"]], 
+  "InlineGuideFunction"],
+ " \[LongDash] construct a bipartite representation"
+}], "GuideText",
+ CellChangeTimes->{{3.5623579536700687`*^9, 3.562357993086994*^9}, {
+  3.5623580282206507`*^9, 3.562358045855942*^9}, {3.562358194403905*^9, 
+  3.562358199758161*^9}, {3.562358306367086*^9, 3.562358324118482*^9}, {
+  3.562358517858139*^9, 3.562358517922982*^9}},
+ CellID->115714343],
+
+Cell[TextData[{
+ ButtonBox["pathwaytize",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/pathwaytize"],
+ " . ",
+ ButtonBox["visualizePathways",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/visualizePathways"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.562431509091154*^9, 3.562431532843121*^9}},
+ CellID->820292189]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "GuideTutorialsSection",
+ CellID->415694126],
+
+Cell[TextData[ButtonBox["Model construction and manipulation",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:Toolbox/tutorial/Model construction and manipulation"]], \
+"GuideTutorial",
+ CellChangeTimes->{{3.562358233539825*^9, 3.562358242236126*^9}, {
+  3.562358275421898*^9, 3.562358275587064*^9}, {3.566325514679903*^9, 
+  3.566325526659986*^9}},
+ CellID->1577669631],
+
+Cell[TextData[ButtonBox["Model attributes",
+ BaseStyle->"Link",
+ ButtonData->"paclet:Toolbox/guide/Model attributes"]], "GuideTutorial",
+ CellChangeTimes->{{3.562358233539825*^9, 3.562358242236126*^9}, {
+  3.562358275421898*^9, 3.562358275587064*^9}, {3.562422818151635*^9, 
+  3.562422818186171*^9}, {3.5663254397368*^9, 3.566325439768477*^9}, {
+  3.566330937602227*^9, 3.566330937625476*^9}},
+ CellID->476407630],
+
+Cell[TextData[ButtonBox["Types",
+ BaseStyle->"Link",
+ ButtonData->"paclet:Toolbox/tutorial/Types"]], "GuideTutorial",
+ CellChangeTimes->{{3.562358221900116*^9, 3.562358222635625*^9}, {
+  3.5623582859659433`*^9, 3.5623582861624727`*^9}},
+ CellID->1338262266],
+
+Cell[TextData[ButtonBox["Constraint-based modeling",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:Toolbox/tutorial/Constraint-based modeling"]], "GuideTutorial",
+ CellChangeTimes->{{3.562358209259698*^9, 3.562358214339501*^9}, {
+  3.562358289348386*^9, 3.5623582895673523`*^9}, {3.566325419503955*^9, 
+  3.566325425940987*^9}, {3.5663309435438757`*^9, 3.566330963029991*^9}},
+ CellID->806871991]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "GuideMoreAboutSection",
+ CellID->23220180],
+
+Cell["XXXX", "GuideMoreAbout",
+ CellID->1567025153],
+
+Cell["XXXX", "GuideMoreAbout",
+ CellID->252299663]
+}, Open  ]],
+
+Cell["Related Links", "GuideRelatedLinksSection",
+ CellID->415694148]
+},
+WindowSize->{786, 974},
+WindowMargins->{{377, Automatic}, {Automatic, 19}},
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 20, \
+2012)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+

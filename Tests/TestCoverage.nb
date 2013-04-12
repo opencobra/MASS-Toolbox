@@ -1,0 +1,224 @@
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"<<", "Toolbox`"}]], "Input",
+ CellChangeTimes->{{3.524401612650771*^9, 3.5244016179428663`*^9}, {
+  3.524419193682447*^9, 3.5244191945606956`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"massContexts", "=", 
+   RowBox[{"Contexts", "[", "\"\<Toolbox`*\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"massContextsNonPrivate", "=", 
+   RowBox[{"DeleteCases", "[", 
+    RowBox[{"massContexts", ",", 
+     RowBox[{"s_String", "/;", 
+      RowBox[{"StringMatchQ", "[", 
+       RowBox[{"s", ",", 
+        RowBox[{"RegularExpression", "[", "\"\<.*Private.*\>\"", "]"}]}], 
+       "]"}]}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"subpackageFunctions", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"#", "\[Rule]", 
+      RowBox[{"Cases", "[", 
+       RowBox[{
+        RowBox[{"Symbol", "/@", 
+         RowBox[{"Names", "[", 
+          RowBox[{"#", "<>", "\"\<*\>\""}], "]"}]}], ",", 
+        RowBox[{"s_Symbol", "/;", 
+         RowBox[{
+          RowBox[{"DownValues", "[", "s", "]"}], "\[NotEqual]", 
+          RowBox[{"{", "}"}]}]}]}], "]"}]}], "&"}], "/@", 
+    "massContextsNonPrivate"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"testFiles", "=", 
+   RowBox[{"FileNames", "[", "\"\<*.mt\>\"", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"testContent", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Cases", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Import", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{"{", 
+            RowBox[{"\"\<Package\>\"", ",", "\"\<HeldExpressions\>\""}], 
+            "}"}]}], "]"}], "/.", 
+         RowBox[{"HoldComplete", "\[Rule]", "HoldForm"}]}], ",", 
+        RowBox[{"HoldForm", "[", "_Test", "]"}], ",", "\[Infinity]"}], "]"}], 
+      "&"}], "/@", "testFiles"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"testIDs", "=", 
+   RowBox[{"Cases", "[", 
+    RowBox[{"testContent", ",", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r", ":", 
+        RowBox[{"Rule", "[", 
+         RowBox[{"TestID", ",", "_"}], "]"}]}], "\[RuleDelayed]", "r"}], 
+      ")"}], ",", "\[Infinity]"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"testCounts", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"#", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "\[Rule]", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"#", "->", 
+          RowBox[{"Count", "[", 
+           RowBox[{"testContent", ",", 
+            RowBox[{"Blank", "[", "#", "]"}], ",", "\[Infinity]"}], "]"}]}], 
+         "&"}], "/@", 
+        RowBox[{"#", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], ")"}]}], "&"}], "/@", 
+    RowBox[{"(", "subpackageFunctions", ")"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"barCharts", "=", 
+   RowBox[{"Table", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"BarChart", "[", 
+        RowBox[{
+         RowBox[{"#", "[", 
+          RowBox[{"[", 
+           RowBox[{"All", ",", "2"}], "]"}], "]"}], ",", 
+         RowBox[{"ChartLabels", "\[Rule]", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Style", "[", 
+              RowBox[{
+               RowBox[{"Rotate", "[", 
+                RowBox[{"#", ",", 
+                 RowBox[{"90", "Degree"}]}], "]"}], ",", 
+               RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}]}], 
+              "]"}], "&"}], "/@", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", 
+              RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ")"}]}], ",", 
+         RowBox[{"AspectRatio", "\[Rule]", 
+          RowBox[{"1", "/", "6"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Length", "[", 
+             RowBox[{"elem", "[", 
+              RowBox[{"[", "2", "]"}], "]"}], "]"}], "*", "40"}], ")"}]}], 
+         ",", 
+         RowBox[{"PlotLabel", "\[Rule]", 
+          RowBox[{"elem", "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}]}], "]"}], "&"}], "[", 
+      RowBox[{"Sort", "[", 
+       RowBox[{
+        RowBox[{"elem", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"#1", "[", 
+           RowBox[{"[", "2", "]"}], "]"}], ">", 
+          RowBox[{"#2", "[", 
+           RowBox[{"[", "2", "]"}], "]"}]}], "&"}]}], "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"elem", ",", "testCounts"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{"Rotate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"barCharts", "[", 
+      RowBox[{"[", "4", "]"}], "]"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "1050"}]}], "]"}], ",", 
+   RowBox[{
+    RowBox[{"-", "90"}], "Degree"}]}], "]"}]}], "Input"],
+
+Cell[BoxData["JaccardDissimilarity"], "Input"],
+
+Cell[BoxData[
+ RowBox[{"SlideView", "[", "barCharts", "]"}]], "Input",
+ CellChangeTimes->{3.5244077548662367`*^9}]
+},
+WindowSize->{1347, 1143},
+WindowMargins->{{274, Automatic}, {Automatic, 0}},
+ShowSelection->True,
+InputAliases->{"intt" -> RowBox[{"\[Integral]", 
+     RowBox[{"\[SelectionPlaceholder]", 
+       RowBox[{"\[DifferentialD]", "\[Placeholder]"}]}]}], "dintt" -> 
+  RowBox[{
+     SubsuperscriptBox[
+     "\[Integral]", "\[SelectionPlaceholder]", "\[Placeholder]"], 
+     RowBox[{"\[Placeholder]", 
+       RowBox[{"\[DifferentialD]", "\[Placeholder]"}]}]}], "sumt" -> RowBox[{
+     UnderoverscriptBox["\[Sum]", 
+      RowBox[{"\[SelectionPlaceholder]", "=", "\[Placeholder]"}], 
+      "\[Placeholder]"], "\[Placeholder]"}], "prodt" -> RowBox[{
+     UnderoverscriptBox["\[Product]", 
+      RowBox[{"\[SelectionPlaceholder]", "=", "\[Placeholder]"}], 
+      "\[Placeholder]"], "\[Placeholder]"}], "dt" -> RowBox[{
+     SubscriptBox["\[PartialD]", "\[Placeholder]"], " ", 
+     "\[SelectionPlaceholder]"}], "ket" -> 
+  TemplateBox[{"\[Placeholder]"}, "Ket"], "bra" -> 
+  TemplateBox[{"\[Placeholder]"}, "Bra"], "braket" -> 
+  TemplateBox[{"\[Placeholder]", "\[Placeholder]"}, "BraKet"], "notation" -> 
+  RowBox[{"Notation", "[", 
+     RowBox[{
+       TemplateBox[{"\[SelectionPlaceholder]"}, "NotationTemplateTag"], " ", 
+       "\[DoubleLongLeftRightArrow]", " ", 
+       TemplateBox[{"\[Placeholder]"}, "NotationTemplateTag"]}], "]"}], 
+  "notation>" -> RowBox[{"Notation", "[", 
+     RowBox[{
+       TemplateBox[{"\[SelectionPlaceholder]"}, "NotationTemplateTag"], " ", 
+       "\[DoubleLongRightArrow]", " ", 
+       TemplateBox[{"\[Placeholder]"}, "NotationTemplateTag"]}], "]"}], 
+  "notation<" -> RowBox[{"Notation", "[", 
+     RowBox[{
+       TemplateBox[{"\[SelectionPlaceholder]"}, "NotationTemplateTag"], " ", 
+       "\[DoubleLongLeftArrow]", " ", 
+       TemplateBox[{"\[Placeholder]"}, "NotationTemplateTag"]}], "]"}], 
+  "symb" -> RowBox[{"Symbolize", "[", 
+     TemplateBox[{"\[SelectionPlaceholder]"}, "NotationTemplateTag"], "]"}], 
+  "infixnotation" -> RowBox[{"InfixNotation", "[", 
+     RowBox[{
+       TemplateBox[{"\[SelectionPlaceholder]"}, "NotationTemplateTag"], ",", 
+       "\[Placeholder]"}], "]"}], "addia" -> RowBox[{"AddInputAlias", "[", 
+     RowBox[{"\"\[SelectionPlaceholder]\"", "\[Rule]", 
+       TemplateBox[{"\[Placeholder]"}, "NotationTemplateTag"]}], "]"}], 
+  "pattwraper" -> 
+  TemplateBox[{"\[SelectionPlaceholder]"}, "NotationPatternTag"], 
+  "madeboxeswraper" -> 
+  TemplateBox[{"\[SelectionPlaceholder]"}, "NotationMadeBoxesTag"], "met" -> 
+  TagBox[
+    SuperscriptBox["\[SelectionPlaceholder]", "\[Placeholder]"], "metabolite",
+     Editable -> True, Selectable -> True], "rrxn" -> TagBox[
+    TagBox[
+     OverscriptBox[
+      RowBox[{
+        TagBox[
+         FrameBox["rhs"], "Placeholder"], "\[Equilibrium]", 
+        TagBox[
+         FrameBox["lhs"], "Placeholder"]}], "\[SelectionPlaceholder]"], 
+     "rxn"], DisplayForm], "irxn" -> TagBox[
+    TagBox[
+     OverscriptBox[
+      RowBox[{
+        TagBox[
+         FrameBox["rhs"], "Placeholder"], "\[RightArrow]", 
+        TagBox[
+         FrameBox["lhs"], "Placeholder"]}], "\[SelectionPlaceholder]"], 
+     "rxn"], DisplayForm]},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
+2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)

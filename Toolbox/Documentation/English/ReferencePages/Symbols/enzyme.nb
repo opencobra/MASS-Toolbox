@@ -1,0 +1,545 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["Toolbox Package", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->1186818436],
+
+Cell["Toolbox`", "Categorization",
+ CellLabel->"Context",
+ CellID->1029340516],
+
+Cell["Toolbox/ref/enzyme", "Categorization",
+ CellLabel->"URI",
+ CellID->2145275827]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["enzyme", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ "enzyme[\"ID\"->\"id\"]\[LineSeparator]represents an ",
+ Cell[BoxData[
+  ButtonBox["enzyme",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/enzyme"]], "InlineFormula"],
+ "."
+}], "Usage",
+ CellChangeTimes->{{3.557085493367799*^9, 3.557085506335149*^9}}],
+
+Cell["The following options can be given: ", "Notes"],
+
+Cell[BoxData[GridBox[{
+   {Cell["   ", "ModInfo"], 
+    ButtonBox["ID",
+     BaseStyle->"Link"], "Burb", Cell["The id of the enzyme", "TableText"]},
+   {Cell["   ", "ModInfo"], 
+    ButtonBox["Compartment",
+     BaseStyle->"Link"], "_", Cell[
+    "The compartment of the enzyme", "TableText"]},
+   {Cell["   ", "ModInfo"], 
+    ButtonBox["BoundCatalytic",
+     BaseStyle->"Link"], 
+    RowBox[{"{", "}"}], Cell["\<\
+Species that are bound to the enzyme and take part of the catalytic process\
+\>", "TableText"]},
+   {Cell["   ", "ModInfo"], 
+    ButtonBox["BoundActivators",
+     BaseStyle->"Link"], 
+    RowBox[{"{", "}"}], Cell["\<\
+A list of allosterically bound activators\
+\>", "TableText"]},
+   {Cell["   ", "ModInfo"], 
+    ButtonBox["BoundInhibitors",
+     BaseStyle->"Link"], 
+    RowBox[{"{", "}"}], Cell["\<\
+A list of allosterically bound inhibitors\
+\>", "TableText"]},
+   {Cell["   ", "ModInfo"], 
+    ButtonBox["CatalyticSites",
+     BaseStyle->"Link"], 
+    ButtonBox["Infinity",
+     BaseStyle->"Link"], Cell["The number of catalytic sites", "TableText"]},
+   {Cell["   ", "ModInfo"], 
+    ButtonBox["ActivationSites",
+     BaseStyle->"Link"], 
+    ButtonBox["Infinity",
+     BaseStyle->"Link"], Cell["\<\
+The number of allosteric activation sites\
+\>", "TableText"]},
+   {Cell["   ", "ModInfo"], 
+    ButtonBox["InhibitionSites",
+     BaseStyle->"Link"], 
+    ButtonBox["Infinity",
+     BaseStyle->"Link"], Cell["\<\
+The number of allosteric inhibition sites\
+\>", "TableText"]}
+  }]], "3ColumnTableMod",
+ CellChangeTimes->{{3.557085513686344*^9, 3.557085645232874*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["species",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/species"]], "InlineFormula"],
+ " ",
+ Cell[BoxData[
+  ButtonBox["metabolite",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/metabolite"]], "InlineFormula"]
+}], "SeeAlso",
+ CellChangeTimes->{{3.557086023916377*^9, 3.5570860336731977`*^9}},
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.557085673868373*^9, 3.557085680547804*^9}},
+ CellLabel->"In[73]:=",
+ CellID->2119146103],
+
+Cell[BoxData[
+ RowBox[{"enzyme", "[", 
+  RowBox[{
+   RowBox[{"\"\<ID\>\"", "\[Rule]", "\"\<PFK\>\""}], ",", 
+   RowBox[{"\"\<Compartment\>\"", "\[Rule]", "\"\<c\>\""}]}], "]"}]], "Input",
+ 
+ CellID->1005177648],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"bindCatalytic", "[", 
+  RowBox[{"%", ",", 
+   RowBox[{"m", "[", 
+    RowBox[{"\"\<atp\>\"", ",", "\"\<c\>\""}], "]"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"bindActivator", "[", 
+  RowBox[{"%", ",", 
+   RowBox[{"m", "[", 
+    RowBox[{"\"\<pep\>\"", ",", "\"\<c\>\""}], "]"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"bindInhibitor", "[", 
+  RowBox[{"%", ",", 
+   RowBox[{"m", "[", 
+    RowBox[{"\"\<pep\>\"", ",", "\"\<c\>\""}], "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.557085651882902*^9, 3.557085660347663*^9}, {
+  3.557085869424344*^9, 3.557085874760776*^9}, {3.55708591929737*^9, 
+  3.557085955628677*^9}},
+ CellLabel->"In[85]:=",
+ CellID->315950307],
+
+Cell[BoxData[
+ InterpretationBox[
+  UnderoverscriptBox[
+   StyleBox[
+    SuperscriptBox["PFK", "c"],
+    Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
+  Toolbox`enzyme[{
+   "ID" -> "PFK", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+    "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+    DirectedInfinity[1], "ActivationSites" -> DirectedInfinity[1], 
+    "InhibitionSites" -> DirectedInfinity[1]}]]], "Output",
+ CellChangeTimes->{{3.557085662080571*^9, 3.5570856818666067`*^9}, {
+  3.5570858595858717`*^9, 3.557085875058338*^9}, {3.557085919930728*^9, 
+  3.557085948721311*^9}},
+ CellLabel->"Out[85]=",
+ CellID->271537566],
+
+Cell[BoxData[
+ InterpretationBox[
+  UnderoverscriptBox[
+   StyleBox[
+    RowBox[{
+     SuperscriptBox["PFK", "c"], "&", 
+     InterpretationBox[
+      SuperscriptBox[Cell["atp", "Input"], Cell["c", "Input"]],
+      Toolbox`metabolite["atp", "c"]]}],
+    Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
+  Toolbox`enzyme[{
+   "ID" -> "PFK", "Compartment" -> "c", "BoundCatalytic" -> {
+      Toolbox`Util`Private`wrap[Toolbox`metabolite]["atp", "c"]},
+     "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+    DirectedInfinity[1], "ActivationSites" -> DirectedInfinity[1], 
+    "InhibitionSites" -> DirectedInfinity[1]}]]], "Output",
+ CellChangeTimes->{{3.557085662080571*^9, 3.5570856818666067`*^9}, {
+  3.5570858595858717`*^9, 3.557085875058338*^9}, {3.557085919930728*^9, 
+  3.557085948728457*^9}},
+ CellLabel->"Out[86]=",
+ CellID->329121887],
+
+Cell[BoxData[
+ InterpretationBox[
+  UnderoverscriptBox[
+   StyleBox[
+    RowBox[{
+     SuperscriptBox["PFK", "c"], "&", 
+     InterpretationBox[
+      SuperscriptBox[Cell["atp", "Input"], Cell["c", "Input"]],
+      Toolbox`metabolite["atp", "c"]]}],
+    Background->RGBColor[0.9, 0.9, 0.9]], "", 
+   StyleBox[
+    InterpretationBox[
+     SuperscriptBox[Cell["pep", "Input"], Cell["c", "Input"]],
+     Toolbox`metabolite["pep", "c"]],
+    StripOnInput->False,
+    LineColor->RGBColor[0, 
+      Rational[2, 3], 0],
+    FrontFaceColor->RGBColor[0, 
+      Rational[2, 3], 0],
+    BackFaceColor->RGBColor[0, 
+      Rational[2, 3], 0],
+    GraphicsColor->RGBColor[0, 
+      Rational[2, 3], 0],
+    FontColor->RGBColor[0, 
+      Rational[2, 3], 0]]],
+  Toolbox`enzyme[{
+   "ID" -> "PFK", "Compartment" -> "c", "BoundCatalytic" -> {
+      Toolbox`Util`Private`wrap[Toolbox`metabolite]["atp", "c"]},
+     "BoundActivators" -> {
+      Toolbox`Util`Private`wrap[Toolbox`metabolite]["pep", "c"]},
+     "BoundInhibitors" -> {}, "CatalyticSites" -> DirectedInfinity[1], 
+    "ActivationSites" -> DirectedInfinity[1], "InhibitionSites" -> 
+    DirectedInfinity[1]}]]], "Output",
+ CellChangeTimes->{{3.557085662080571*^9, 3.5570856818666067`*^9}, {
+  3.5570858595858717`*^9, 3.557085875058338*^9}, {3.557085919930728*^9, 
+  3.55708594873888*^9}},
+ CellLabel->"Out[87]=",
+ CellID->1781163784],
+
+Cell[BoxData[
+ InterpretationBox[
+  UnderoverscriptBox[
+   StyleBox[
+    RowBox[{
+     SuperscriptBox["PFK", "c"], "&", 
+     InterpretationBox[
+      SuperscriptBox[Cell["atp", "Input"], Cell["c", "Input"]],
+      Toolbox`metabolite["atp", "c"]]}],
+    Background->RGBColor[0.9, 0.9, 0.9]], 
+   StyleBox[
+    InterpretationBox[
+     SuperscriptBox[Cell["pep", "Input"], Cell["c", "Input"]],
+     Toolbox`metabolite["pep", "c"]],
+    StripOnInput->False,
+    LineColor->RGBColor[
+      Rational[2, 3], 0, 0],
+    FrontFaceColor->RGBColor[
+      Rational[2, 3], 0, 0],
+    BackFaceColor->RGBColor[
+      Rational[2, 3], 0, 0],
+    GraphicsColor->RGBColor[
+      Rational[2, 3], 0, 0],
+    FontColor->RGBColor[
+      Rational[2, 3], 0, 0]], 
+   StyleBox[
+    InterpretationBox[
+     SuperscriptBox[Cell["pep", "Input"], Cell["c", "Input"]],
+     Toolbox`metabolite["pep", "c"]],
+    StripOnInput->False,
+    LineColor->RGBColor[0, 
+      Rational[2, 3], 0],
+    FrontFaceColor->RGBColor[0, 
+      Rational[2, 3], 0],
+    BackFaceColor->RGBColor[0, 
+      Rational[2, 3], 0],
+    GraphicsColor->RGBColor[0, 
+      Rational[2, 3], 0],
+    FontColor->RGBColor[0, 
+      Rational[2, 3], 0]]],
+  Toolbox`enzyme[{
+   "ID" -> "PFK", "Compartment" -> "c", "BoundCatalytic" -> {
+      Toolbox`Util`Private`wrap[Toolbox`metabolite]["atp", "c"]},
+     "BoundActivators" -> {
+      Toolbox`Util`Private`wrap[Toolbox`metabolite]["pep", "c"]},
+     "BoundInhibitors" -> {
+      Toolbox`Util`Private`wrap[Toolbox`metabolite]["pep", "c"]},
+     "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 
+    DirectedInfinity[1], "InhibitionSites" -> 
+    DirectedInfinity[1]}]]], "Output",
+ CellChangeTimes->{{3.557085662080571*^9, 3.5570856818666067`*^9}, {
+  3.5570858595858717`*^9, 3.557085875058338*^9}, {3.557085919930728*^9, 
+  3.557085948753036*^9}},
+ CellLabel->"Out[88]=",
+ CellID->97678508]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"bindCatalytic", "[", 
+  RowBox[{"enz", ",", 
+   RowBox[{"m", "[", 
+    RowBox[{"\"\<atp\>\"", ",", "\"\<c\>\""}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5570858906872263`*^9, 3.557085912792974*^9}},
+ CellLabel->"In[78]:=",
+ CellID->10822669],
+
+Cell[BoxData[
+ InterpretationBox[
+  UnderoverscriptBox[
+   StyleBox[
+    RowBox[{
+     SuperscriptBox["PFK", "c"], "&", 
+     InterpretationBox[
+      SuperscriptBox[Cell["atp", "Input"], Cell["c", "Input"]],
+      Toolbox`metabolite["atp", "c"]]}],
+    Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
+  Toolbox`enzyme[{
+   "ID" -> "PFK", "Compartment" -> "c", "BoundCatalytic" -> {
+      Toolbox`Util`Private`wrap[Toolbox`metabolite]["atp", "c"]},
+     "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+    DirectedInfinity[1], "ActivationSites" -> DirectedInfinity[1], 
+    "InhibitionSites" -> DirectedInfinity[1]}]]], "Output",
+ CellChangeTimes->{3.557085907557065*^9},
+ CellLabel->"Out[78]=",
+ CellID->1507971535]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection"],
+
+Cell[BoxData[
+ InterpretationBox[Cell["ID", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection"],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Compartment", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection"],
+
+Cell[BoxData[
+ InterpretationBox[Cell["BoundCatalytic", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection"],
+
+Cell[BoxData[
+ InterpretationBox[Cell["BoundActivators", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection"],
+
+Cell[BoxData[
+ InterpretationBox[Cell["BoundInhibitors", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection"],
+
+Cell[BoxData[
+ InterpretationBox[Cell["CatalyticSites", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection"],
+
+Cell[BoxData[
+ InterpretationBox[Cell["ActivationSites", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection"],
+
+Cell[BoxData[
+ InterpretationBox[Cell["InhibitionSites", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection"]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{414, Automatic}, {Automatic, 17}},
+CellContext->"Global`",
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
+2010)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+

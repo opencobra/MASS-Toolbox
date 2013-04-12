@@ -1,0 +1,484 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     13691,        474]
+NotebookOptionsPosition[     10282,        361]
+NotebookOutlinePosition[     11944,        408]
+CellTagsIndexPosition[     11859,        403]
+WindowTitle->UnitList - Wolfram Mathematica
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Automatic unit conversion",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:AutomaticUnits/guide/AutomaticUnits"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
+Cell[BoxData[GridBox[{
+   {Cell["AUTOMATICUNITS PACLET SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"More About \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"Automatic unit conversion\"\>":>
+       Documentation`HelpLookup["paclet:AutomaticUnits/guide/AutomaticUnits"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"AutomaticUnits/ref/UnitList\"\>":>
+       None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["AutomaticUnits/ref/UnitList"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/AutomaticUnits/ref/\
+UnitList.html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]}, 
+            Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "AutomaticUnits/ref/UnitList", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell["UnitList", "ObjectName",
+ CellID->1224892054],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"UnitList", "[", "]"}]], "InlineFormula"],
+     " \[LineSeparator]UnitList[oldunit,{newunit1,newunit2,...}] decomposes \
+oldunit into a list of newunits such that the total of the list is equal to \
+oldunit"
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[
+  FrameBox[
+   StyleBox[
+    RowBox[{"MORE", " ", "INFORMATION"}], "NotesFrameText"],
+   StripOnInput->False],
+  Appearance->{Automatic, None},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->"Preemptive"]]]], "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->237203702],
+
+Cell["\<\
+UnitList is used to create mixed unit responses such as Feet and Inches or \
+Hours, Minutes and Seconds\
+\>", "Notes",
+ CellID->1067943069]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["EXAMPLES",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->18181720],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection",
+ CellID->124122533],
+
+Cell[BoxData[
+ RowBox[{"<<", "AutomaticUnits`"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->225504881],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnitList", "[", 
+  RowBox[{
+   RowBox[{"200000", " ", "Second"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"Day", ",", "Hour", ",", "Minute", ",", "Second"}], "}"}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->314177988],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    RowBox[{"2", " ", "Day"}],
+    AutomaticUnits`Unit[2, "Day"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"7", " ", "Hour"}],
+    AutomaticUnits`Unit[7, "Hour"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"33", " ", "Minute"}],
+    AutomaticUnits`Unit[33, "Minute"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"20", " ", "Second"}],
+    AutomaticUnits`Unit[20, "Second"],
+    AutoDelete->True]}], "}"}]], "Output",
+ ImageSize->{238, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->71849153]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Total", "[", "%", "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->490628359],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"200000", " ", "Second"}],
+  AutomaticUnits`Unit[200000, "Second"],
+  AutoDelete->True]], "Output",
+ ImageSize->{93, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->281284031]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnitList", "[", 
+  RowBox[{
+   RowBox[{"10.", " ", "Kilometer"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"Mile", ",", " ", "Yard", ",", " ", "Foot", ",", "Inch"}], 
+    "}"}]}], "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->271059853],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    RowBox[{"6", " ", "Mile"}],
+    AutomaticUnits`Unit[6, "Mile"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"376", " ", "Yard"}],
+    AutomaticUnits`Unit[376, "Yard"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"4.787401574791993`", " ", "Inch"}],
+    AutomaticUnits`Unit[4.787401574791993, "Inch"],
+    AutoDelete->True]}], "}"}]], "Output",
+ ImageSize->{203, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
+ CellID->263279861]
+}, Open  ]],
+
+Cell["\<\
+UnitList will attempt to give most weight to the largest unit which is less \
+than the initial value.\
+\>", "ExampleText",
+ CellID->716405184],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnitList", "[", 
+  RowBox[{
+   RowBox[{"10.", " ", "Kilometer"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"LightYear", ",", " ", "Yard", ",", "Inch"}], "}"}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->350900152],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    RowBox[{"10936", " ", "Yard"}],
+    AutomaticUnits`Unit[10936, "Yard"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"4.787401574818848`", " ", "Inch"}],
+    AutomaticUnits`Unit[4.787401574818848, "Inch"],
+    AutoDelete->True]}], "}"}]], "Output",
+ ImageSize->{170, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[5]=",
+ CellID->413118813]
+}, Open  ]],
+
+Cell["UnitList will ignore incompatible units.", "ExampleText",
+ CellID->41185016],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnitList", "[", 
+  RowBox[{
+   RowBox[{"200000", " ", "Second"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "Mile", ",", " ", "Yard", ",", " ", "Foot", ",", "Inch", ",", "Day", ",", 
+     "Hour", ",", "Minute", ",", "Second"}], "}"}]}], "]"}]], "Input",
+ CellLabel->"In[6]:=",
+ CellID->149026667],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    RowBox[{"2", " ", "Day"}],
+    AutomaticUnits`Unit[2, "Day"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"7", " ", "Hour"}],
+    AutomaticUnits`Unit[7, "Hour"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"33", " ", "Minute"}],
+    AutomaticUnits`Unit[33, "Minute"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"20", " ", "Second"}],
+    AutomaticUnits`Unit[20, "Second"],
+    AutoDelete->True]}], "}"}]], "Output",
+ ImageSize->{238, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[6]=",
+ CellID->851579788]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["MORE ABOUT",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "MoreAboutSection",
+ CellID->38303248],
+
+Cell[TextData[ButtonBox["Automatic unit conversion",
+ BaseStyle->"Link",
+ ButtonData->"paclet:AutomaticUnits/guide/AutomaticUnits"]], "MoreAbout",
+ CellID->14555891]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"UnitList - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, 
+  "Metadata" -> {
+   "built" -> "{2011, 1, 21, 15, 24, 1.2532979}", "context" -> 
+    "AutomaticUnits`", "keywords" -> {}, "index" -> True, "label" -> 
+    "AutomaticUnits Paclet Symbol", "language" -> "en", "paclet" -> 
+    "AutomaticUnits", "status" -> "None", "summary" -> 
+    "UnitList[] UnitList[oldunit,{newunit1,newunit2,...}] decomposes oldunit \
+into a list of newunits such that the total of the list is equal to oldunit", 
+    "synonyms" -> {}, "title" -> "UnitList", "type" -> "Symbol", "uri" -> 
+    "AutomaticUnits/ref/UnitList"}, "LinkTrails" -> "", 
+  "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"8.0 for Microsoft Windows (32-bit) (November 7, 2010)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "8.0 for Microsoft Windows (32-bit) (November 7, 2010)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[4597, 137, 460, 13, 70, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->18181720]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 11717, 396}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[601, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[680, 24, 208, 5, 70, "LinkTrail"],
+Cell[891, 31, 2352, 53, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[3268, 88, 51, 1, 70, "ObjectName",
+ CellID->1224892054],
+Cell[3322, 91, 469, 13, 70, "Usage",
+ CellID->982511436]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3828, 109, 580, 17, 70, "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->237203702],
+Cell[4411, 128, 149, 4, 70, "Notes",
+ CellID->1067943069]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[4597, 137, 460, 13, 70, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->18181720],
+Cell[CellGroupData[{
+Cell[5082, 154, 148, 5, 70, "ExampleSection",
+ CellID->124122533],
+Cell[5233, 161, 102, 3, 70, "Input",
+ CellID->225504881],
+Cell[CellGroupData[{
+Cell[5360, 168, 248, 8, 70, "Input",
+ CellID->314177988],
+Cell[5611, 178, 669, 23, 36, "Output",
+ CellID->71849153]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6317, 206, 101, 3, 70, "Input",
+ CellID->490628359],
+Cell[6421, 211, 273, 9, 36, "Output",
+ CellID->281284031]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6731, 225, 262, 8, 70, "Input",
+ CellID->271059853],
+Cell[6996, 235, 578, 19, 36, "Output",
+ CellID->263279861]
+}, Open  ]],
+Cell[7589, 257, 152, 4, 70, "ExampleText",
+ CellID->716405184],
+Cell[CellGroupData[{
+Cell[7766, 265, 247, 8, 70, "Input",
+ CellID->350900152],
+Cell[8016, 275, 463, 15, 36, "Output",
+ CellID->413118813]
+}, Open  ]],
+Cell[8494, 293, 82, 1, 70, "ExampleText",
+ CellID->41185016],
+Cell[CellGroupData[{
+Cell[8601, 298, 318, 9, 70, "Input",
+ CellID->149026667],
+Cell[8922, 309, 670, 23, 36, "Output",
+ CellID->851579788]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9653, 339, 419, 12, 70, "MoreAboutSection",
+ CellID->38303248],
+Cell[10075, 353, 165, 3, 70, "MoreAbout",
+ CellID->14555891]
+}, Open  ]],
+Cell[10255, 359, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

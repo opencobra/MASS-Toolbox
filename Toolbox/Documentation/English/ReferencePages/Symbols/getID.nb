@@ -1,0 +1,523 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["Toolbox Package", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->685371041],
+
+Cell["Toolbox`", "Categorization",
+ CellLabel->"Context",
+ CellID->2076287226],
+
+Cell["Toolbox/ref/getID", "Categorization",
+ CellLabel->"URI",
+ CellID->1697627279]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["getID", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ "getID[struct]\[LineSeparator]returns the identifier of the provided \
+structure."
+}], "Usage",
+ CellChangeTimes->{{3.562006678342904*^9, 3.5620066894435253`*^9}}],
+
+Cell["XXXX", "Notes",
+ CellID->1067943069]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ ButtonBox["getName",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/getName"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ ButtonBox["getCompartment",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/getCompartment"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ ButtonBox["getCompartments",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/getCompartments"]
+}], "SeeAlso",
+ CellChangeTimes->{{3.5620068938892717`*^9, 3.5620069007623796`*^9}, 
+   3.5620069972929153`*^9, {3.562007030523616*^9, 3.562007032930038*^9}, {
+   3.5620071460223722`*^9, 3.56200714898055*^9}, {3.562007397515934*^9, 
+   3.562007419534438*^9}},
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.562006750009568*^9, 3.5620067544862967`*^9}},
+ CellLabel->"In[75]:=",
+ CellID->422059516],
+
+Cell["\<\
+Get identifieres from all different kinds of toolbox expressions and types\
+\>", "ExampleText",
+ CellChangeTimes->{{3.562006762494369*^9, 3.562006785309063*^9}},
+ CellID->1229777516],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getID", "[", 
+  InterpretationBox[
+   OverscriptBox[
+    RowBox[{
+     RowBox[{
+      InterpretationBox[
+       StyleBox["a",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]],
+       Toolbox`metabolite["a", None],
+       Editable->False,
+       Selectable->False], "+", 
+      InterpretationBox[
+       StyleBox["b",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]],
+       Toolbox`metabolite["b", None],
+       Editable->False,
+       Selectable->False]}], "\[Equilibrium]", 
+     InterpretationBox[
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]],
+      Toolbox`metabolite["c", None],
+      Editable->False,
+      Selectable->False]}], 
+    StyleBox["RxnID",
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     LineColor->RGBColor[0, 0, 0],
+     FrontFaceColor->RGBColor[0, 0, 0],
+     BackFaceColor->RGBColor[0, 0, 0],
+     GraphicsColor->RGBColor[0, 0, 0],
+     FontColor->RGBColor[0, 0, 0]]],
+   Toolbox`reaction["RxnID", {
+     Toolbox`metabolite["a", None], 
+     Toolbox`metabolite["b", None]}, {
+     Toolbox`metabolite["c", None]}, {1, 1, 1}, True],
+   Editable->False,
+   Selectable->False], "]"}]], "Input",
+ CellChangeTimes->{{3.5620066927431717`*^9, 3.562006728007489*^9}},
+ CellLabel->"In[76]:=",
+ CellID->2031623316],
+
+Cell[BoxData["\<\"RxnID\"\>"], "Output",
+ CellChangeTimes->{{3.562006711243403*^9, 3.562006757099967*^9}},
+ CellLabel->"Out[76]=",
+ CellID->415799371]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getID", "[", 
+  InterpretationBox[
+   SuperscriptBox[
+    StyleBox["a",
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     LineColor->RGBColor[0, 0, 0],
+     FrontFaceColor->RGBColor[0, 0, 0],
+     BackFaceColor->RGBColor[0, 0, 0],
+     GraphicsColor->RGBColor[0, 0, 0],
+     FontColor->RGBColor[0, 0, 0]], 
+    StyleBox["c",
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     LineColor->RGBColor[0, 0, 0],
+     FrontFaceColor->RGBColor[0, 0, 0],
+     BackFaceColor->RGBColor[0, 0, 0],
+     GraphicsColor->RGBColor[0, 0, 0],
+     FontColor->RGBColor[0, 0, 0]]],
+   Toolbox`metabolite["a", "c"],
+   Editable->False,
+   Selectable->False], "]"}]], "Input",
+ CellChangeTimes->{{3.5620067325278053`*^9, 3.5620067408297977`*^9}},
+ CellLabel->"In[77]:=",
+ CellID->569344738],
+
+Cell[BoxData["\<\"a\"\>"], "Output",
+ CellChangeTimes->{{3.562006741619145*^9, 3.562006757599291*^9}},
+ CellLabel->"Out[77]=",
+ CellID->428241059]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getID", "[", 
+  InterpretationBox[
+   UnderscriptBox["K", 
+    StyleBox["RxnID",
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     LineColor->RGBColor[0, 0, 0],
+     FrontFaceColor->RGBColor[0, 0, 0],
+     BackFaceColor->RGBColor[0, 0, 0],
+     GraphicsColor->RGBColor[0, 0, 0],
+     FontColor->RGBColor[0, 0, 0]]],
+   Toolbox`Keq["RxnID"],
+   Editable->False,
+   Selectable->False], "]"}]], "Input",
+ CellChangeTimes->{{3.562006821654335*^9, 3.56200683796698*^9}},
+ CellLabel->"In[81]:=",
+ CellID->779187026],
+
+Cell[BoxData["\<\"RxnID\"\>"], "Output",
+ CellChangeTimes->{{3.562006833364538*^9, 3.562006838485834*^9}},
+ CellLabel->"Out[81]=",
+ CellID->2039877035]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getID", "[", 
+  InterpretationBox[
+   SubsuperscriptBox["k", 
+    StyleBox["RxnID",
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     LineColor->RGBColor[0, 0, 0],
+     FrontFaceColor->RGBColor[0, 0, 0],
+     BackFaceColor->RGBColor[0, 0, 0],
+     GraphicsColor->RGBColor[0, 0, 0],
+     FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+   Toolbox`rateconst["RxnID", True],
+   Editable->False,
+   Selectable->False], "]"}]], "Input",
+ CellChangeTimes->{{3.562006844145262*^9, 3.562006850227644*^9}},
+ CellLabel->"In[83]:=",
+ CellID->1784386537],
+
+Cell[BoxData["\<\"RxnID\"\>"], "Output",
+ CellChangeTimes->{3.562006850727571*^9},
+ CellLabel->"Out[83]=",
+ CellID->575397004]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getID", "[", 
+  InterpretationBox[
+   SubscriptBox[
+    StyleBox["v",
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     LineColor->RGBColor[0, 0, 0],
+     FrontFaceColor->RGBColor[0, 0, 0],
+     BackFaceColor->RGBColor[0, 0, 0],
+     GraphicsColor->RGBColor[0, 0, 0],
+     FontColor->RGBColor[0, 0, 0]], 
+    StyleBox["RxnID",
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     LineColor->RGBColor[0, 0, 0],
+     FrontFaceColor->RGBColor[0, 0, 0],
+     BackFaceColor->RGBColor[0, 0, 0],
+     GraphicsColor->RGBColor[0, 0, 0],
+     FontColor->RGBColor[0, 0, 0]]],
+   Toolbox`v["RxnID"],
+   Editable->False,
+   Selectable->False], "]"}]], "Input",
+ CellChangeTimes->{{3.562006859654007*^9, 3.562006867343758*^9}},
+ CellLabel->"In[85]:=",
+ CellID->578583787],
+
+Cell[BoxData["\<\"RxnID\"\>"], "Output",
+ CellChangeTimes->{3.56200686781013*^9},
+ CellLabel->"Out[85]=",
+ CellID->451754493]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getID", "@", 
+  RowBox[{"ExampleData", "[", 
+   RowBox[{"{", 
+    RowBox[{"\"\<Toolbox\>\"", ",", "\"\<Glycolysis\>\""}], "}"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.562006744988999*^9, 3.562006747773439*^9}, {
+  3.562006788655403*^9, 3.5620068025763474`*^9}},
+ CellLabel->"In[78]:=",
+ CellID->1132734253],
+
+Cell[BoxData["\<\"MASSmodel$4\"\>"], "Output",
+ CellChangeTimes->{3.562006803780354*^9},
+ CellLabel->"Out[78]=",
+ CellID->1488092684]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{Automatic, 425}, {Automatic, 0}},
+CellContext->"Global`",
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
+2011)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+

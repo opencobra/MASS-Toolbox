@@ -1,0 +1,574 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["Toolbox Package", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->1845630034],
+
+Cell["Toolbox`", "Categorization",
+ CellLabel->"Context",
+ CellID->1250184170],
+
+Cell["Toolbox/ref/addExchanges", "Categorization",
+ CellLabel->"URI",
+ CellID->865342942]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["addExchanges", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ "addExchanges[model_MASSmodel, ] adds a exchange reactions for multiple \
+metabolites to model."
+}], "Usage",
+ CellChangeTimes->{{3.557059480569935*^9, 3.557059539632886*^9}}],
+
+Cell["The following options can be given: ", "Notes"],
+
+Cell[BoxData[GridBox[{
+   {Cell["   ", "ModInfo"], 
+    ButtonBox["Direction",
+     BaseStyle->"Link"], 
+    ButtonBox["Forward",
+     BaseStyle->"Link"], Cell["\<\
+The direction of the of the exchange reactions (either Forward or Reverse).\
+\>", "TableText"]},
+   {Cell["   ", "ModInfo"], 
+    ButtonBox["Prefix",
+     BaseStyle->"Link"], "EX_", Cell["\<\
+The prefix string that will be prepended to exchange reaction IDs.\
+\>", "TableText"]}
+  }]], "3ColumnTableMod",
+ CellChangeTimes->{{3.557059571840684*^9, 3.5570595881897173`*^9}, {
+  3.557059668569058*^9, 3.5570596755554037`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  RowBox[{
+   ButtonBox["addExchange",
+    BaseStyle->"Link",
+    ButtonData->"paclet:Toolbox/ref/addExchange"], " ", 
+   ButtonBox["addReaction",
+    BaseStyle->"Link",
+    ButtonData->"paclet:Toolbox/ref/addReaction"]}]], "InlineFormula"],
+ " ",
+ Cell[BoxData[
+  ButtonBox["addReactions",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/addReactions"]], "InlineFormula"],
+ " ",
+ Cell[BoxData[
+  ButtonBox["addSink",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/addSink"]], "InlineFormula"],
+ " ",
+ Cell[BoxData[
+  ButtonBox["addSinks",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/addSinks"]], "InlineFormula"]
+}], "SeeAlso",
+ CellChangeTimes->{{3.557059593729937*^9, 3.5570595987346067`*^9}, {
+  3.557061474039668*^9, 3.557061508008214*^9}},
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.557060755878477*^9, 3.557060760546105*^9}},
+ CellLabel->"In[38]:=",
+ CellID->1300734271],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"model", "=", 
+   RowBox[{"ExampleData", "[", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<Glycolysis\>\""}], "}"}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.557060765022431*^9, 3.557060789442855*^9}},
+ CellLabel->"In[40]:=",
+ CellID->57366237],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"modifiedModel", "=", 
+   RowBox[{"addExchanges", "[", 
+    RowBox[{"model", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       InterpretationBox[
+        SuperscriptBox[Cell["pyr", "Input"], Cell["c", "Input"]],
+        Toolbox`metabolite["pyr", "c"]], ",", 
+       InterpretationBox[
+        SuperscriptBox[Cell["pg13", "Input"], Cell["c", "Input"]],
+        Toolbox`metabolite["pg13", "c"]]}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.5570607983667297`*^9, 3.557060844211854*^9}, {
+   3.557061194978633*^9, 3.557061209331588*^9}, 3.55706127854692*^9},
+ CellLabel->"In[26]:=",
+ CellID->2129233550],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Complement", "[", 
+  RowBox[{
+   RowBox[{"modifiedModel", "[", "\"\<Reactions\>\"", "]"}], ",", 
+   RowBox[{"model", "[", "\"\<Reactions\>\"", "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.557060850295167*^9, 3.557060882260284*^9}},
+ CellLabel->"In[27]:=",
+ CellID->1303998813],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    OverscriptBox[
+     RowBox[{
+      InterpretationBox[
+       SuperscriptBox[Cell["pg13", "Input"], Cell["c", "Input"]],
+       Toolbox`metabolite["pg13", "c"]], "\[Equilibrium]", 
+      "\[EmptySet]"}], Cell["EX_pg13_c", "Input"]],
+    Toolbox`reaction["EX_pg13_c", {
+      Toolbox`metabolite["pg13", "c"]}, {}, {1}, True],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    OverscriptBox[
+     RowBox[{
+      InterpretationBox[
+       SuperscriptBox[Cell["pyr", "Input"], Cell["c", "Input"]],
+       Toolbox`metabolite["pyr", "c"]], "\[Equilibrium]", 
+      "\[EmptySet]"}], Cell["EX_pyr_c", "Input"]],
+    Toolbox`reaction["EX_pyr_c", {
+      Toolbox`metabolite["pyr", "c"]}, {}, {1}, True],
+    Editable->False,
+    Selectable->False]}], "}"}]], "Output",
+ CellChangeTimes->{{3.5570608598090467`*^9, 3.5570608828893337`*^9}, 
+   3.557061212054553*^9, 3.557061280096424*^9},
+ CellLabel->"Out[27]=",
+ CellID->1252793100]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Direction", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->827923611],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"modifiedModel", "=", 
+   RowBox[{"addExchanges", "[", 
+    RowBox[{"model", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       InterpretationBox[
+        SuperscriptBox[Cell["pyr", "Input"], Cell["c", "Input"]],
+        Toolbox`metabolite["pyr", "c"]], ",", 
+       InterpretationBox[
+        SuperscriptBox[Cell["pg13", "Input"], Cell["c", "Input"]],
+        Toolbox`metabolite["pg13", "c"]]}], "}"}], ",", 
+     RowBox[{"Direction", "\[Rule]", "\"\<Forward\>\""}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.5570607983667297`*^9, 3.557060844211854*^9}, {
+  3.557060953342079*^9, 3.5570609603697577`*^9}, {3.5570610775368643`*^9, 
+  3.557061093465129*^9}, {3.5570612207737617`*^9, 3.557061232628931*^9}},
+ CellLabel->"In[19]:=",
+ CellID->1782005029],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Complement", "[", 
+  RowBox[{
+   RowBox[{"modifiedModel", "[", "\"\<Reactions\>\"", "]"}], ",", 
+   RowBox[{"model", "[", "\"\<Reactions\>\"", "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.557060850295167*^9, 3.557060882260284*^9}},
+ CellLabel->"In[20]:=",
+ CellID->1351581341],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    OverscriptBox[
+     RowBox[{
+      InterpretationBox[
+       SuperscriptBox[Cell["pg13", "Input"], Cell["c", "Input"]],
+       Toolbox`metabolite["pg13", "c"]], "\[Equilibrium]", 
+      "\[EmptySet]"}], Cell["EX_pg13_c", "Input"]],
+    Toolbox`reaction["EX_pg13_c", {
+      Toolbox`metabolite["pg13", "c"]}, {}, {1}, True],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    OverscriptBox[
+     RowBox[{
+      InterpretationBox[
+       SuperscriptBox[Cell["pyr", "Input"], Cell["c", "Input"]],
+       Toolbox`metabolite["pyr", "c"]], "\[Equilibrium]", 
+      "\[EmptySet]"}], Cell["EX_pyr_c", "Input"]],
+    Toolbox`reaction["EX_pyr_c", {
+      Toolbox`metabolite["pyr", "c"]}, {}, {1}, True],
+    Editable->False,
+    Selectable->False]}], "}"}]], "Output",
+ CellChangeTimes->{{3.5570608598090467`*^9, 3.5570608828893337`*^9}, 
+   3.5570609637275743`*^9, 3.557061095974506*^9, {3.557061236839891*^9, 
+   3.557061266561116*^9}},
+ CellLabel->"Out[20]=",
+ CellID->1147629228]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"modifiedModel", "=", 
+   RowBox[{"addExchanges", "[", 
+    RowBox[{"model", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       InterpretationBox[
+        SuperscriptBox[Cell["pyr", "Input"], Cell["c", "Input"]],
+        Toolbox`metabolite["pyr", "c"]], ",", 
+       InterpretationBox[
+        SuperscriptBox[Cell["pg13", "Input"], Cell["c", "Input"]],
+        Toolbox`metabolite["pg13", "c"]]}], "}"}], ",", 
+     RowBox[{"Direction", "\[Rule]", "\"\<Reverse\>\""}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.5570607983667297`*^9, 3.557060844211854*^9}, {
+  3.557060953342079*^9, 3.5570609603697577`*^9}, {3.5570610775368643`*^9, 
+  3.557061112633271*^9}, {3.557061223873395*^9, 3.557061230031596*^9}},
+ CellLabel->"In[21]:=",
+ CellID->365136996],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Complement", "[", 
+  RowBox[{
+   RowBox[{"modifiedModel", "[", "\"\<Reactions\>\"", "]"}], ",", 
+   RowBox[{"model", "[", "\"\<Reactions\>\"", "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.557060850295167*^9, 3.557060882260284*^9}},
+ CellLabel->"In[22]:=",
+ CellID->1496712293],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    OverscriptBox[
+     RowBox[{"\[EmptySet]", "\[Equilibrium]", 
+      InterpretationBox[
+       SuperscriptBox[Cell["pg13", "Input"], Cell["c", "Input"]],
+       Toolbox`metabolite["pg13", "c"]]}], Cell[
+     "EX_pg13_c", "Input"]],
+    Toolbox`reaction["EX_pg13_c", {}, {
+      Toolbox`metabolite["pg13", "c"]}, {1}, True],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    OverscriptBox[
+     RowBox[{"\[EmptySet]", "\[Equilibrium]", 
+      InterpretationBox[
+       SuperscriptBox[Cell["pyr", "Input"], Cell["c", "Input"]],
+       Toolbox`metabolite["pyr", "c"]]}], Cell["EX_pyr_c", "Input"]],
+    
+    Toolbox`reaction["EX_pyr_c", {}, {
+      Toolbox`metabolite["pyr", "c"]}, {1}, True],
+    Editable->False,
+    Selectable->False]}], "}"}]], "Output",
+ CellChangeTimes->{{3.5570608598090467`*^9, 3.5570608828893337`*^9}, 
+   3.5570609637275743`*^9, {3.557061095974506*^9, 3.55706111375632*^9}, {
+   3.55706124050557*^9, 3.557061268979954*^9}},
+ CellLabel->"Out[22]=",
+ CellID->1653801289]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Prefix", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1365581164],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"modifiedModel", "=", 
+   RowBox[{"addExchanges", "[", 
+    RowBox[{"model", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       InterpretationBox[
+        SuperscriptBox[Cell["pyr", "Input"], Cell["c", "Input"]],
+        Toolbox`metabolite["pyr", "c"]], ",", 
+       InterpretationBox[
+        SuperscriptBox[Cell["pg13", "Input"], Cell["c", "Input"]],
+        Toolbox`metabolite["pg13", "c"]]}], "}"}], ",", 
+     RowBox[{"Prefix", "\[Rule]", "\"\<Exhange_\>\""}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.5570607983667297`*^9, 3.557060844211854*^9}, {
+  3.557060953342079*^9, 3.5570609603697577`*^9}, {3.557061245792693*^9, 
+  3.557061250071858*^9}},
+ CellLabel->"In[23]:=",
+ CellID->409649375],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Complement", "[", 
+  RowBox[{
+   RowBox[{"modifiedModel", "[", "\"\<Reactions\>\"", "]"}], ",", 
+   RowBox[{"model", "[", "\"\<Reactions\>\"", "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.557060850295167*^9, 3.557060882260284*^9}},
+ CellLabel->"In[24]:=",
+ CellID->144473343],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    OverscriptBox[
+     RowBox[{
+      InterpretationBox[
+       SuperscriptBox[Cell["pg13", "Input"], Cell["c", "Input"]],
+       Toolbox`metabolite["pg13", "c"]], "\[Equilibrium]", 
+      "\[EmptySet]"}], Cell["Exhange_pg13_c", "Input"]],
+    Toolbox`reaction["Exhange_pg13_c", {
+      Toolbox`metabolite["pg13", "c"]}, {}, {1}, True],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    OverscriptBox[
+     RowBox[{
+      InterpretationBox[
+       SuperscriptBox[Cell["pyr", "Input"], Cell["c", "Input"]],
+       Toolbox`metabolite["pyr", "c"]], "\[Equilibrium]", 
+      "\[EmptySet]"}], Cell["Exhange_pyr_c", "Input"]],
+    Toolbox`reaction["Exhange_pyr_c", {
+      Toolbox`metabolite["pyr", "c"]}, {}, {1}, True],
+    Editable->False,
+    Selectable->False]}], "}"}]], "Output",
+ CellChangeTimes->{{3.5570608598090467`*^9, 3.5570608828893337`*^9}, 
+   3.5570609637275743`*^9, 3.557061273101918*^9},
+ CellLabel->"Out[24]=",
+ CellID->557421102]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{Automatic, -883}, {Automatic, -3}},
+CellContext->"Global`",
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
+2010)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+

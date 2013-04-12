@@ -1,0 +1,1441 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["Toolbox Package", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->1578655090],
+
+Cell["Toolbox`", "Categorization",
+ CellLabel->"Context",
+ CellID->295638945],
+
+Cell["Toolbox/ref/reaction", "Categorization",
+ CellLabel->"URI",
+ CellID->1674073104]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["reaction", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ "reaction[id_String, substrates, products, stoichiometry, revQ]\
+\[LineSeparator]represents/constructs a ",
+ Cell[BoxData[
+  ButtonBox["reaction",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/reaction"]], "InlineFormula"],
+ ". The argument stoichiometry contains the stoichiometric factors (all \
+positive). Argument revQ indicates a reversible ",
+ Cell[BoxData[
+  ButtonBox["reaction",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/reaction"]], "InlineFormula"],
+ " if True or an irreversible if False. \[EmptySet] is assumed if substrates \
+or products are omitted.\n",
+ Cell["      ", "ModInfo"],
+ Cell[BoxData[
+  RowBox[{"r", "[", "args", "]"}]], "InlineFormula"],
+ "\[LineSeparator]can be used as a shorthand."
+}], "Usage",
+ CellChangeTimes->{{3.557494152318016*^9, 3.557494153379116*^9}, {
+  3.562357121116232*^9, 3.562357141478298*^9}}],
+
+Cell["XXXX", "Notes",
+ CellID->1067943069]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["getSubstrates",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/getSubstrates"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  ButtonBox["getProducts",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/getProducts"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  ButtonBox["reversibleQ",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/reversibleQ"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  ButtonBox["makeReversible",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/makeReversible"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  ButtonBox["makeIrreversible",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/makeIrreversible"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  ButtonBox["str2mass",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/str2mass"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  ButtonBox["getStoichiometry",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/getStoichiometry"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  ButtonBox["getSignedStoich",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/getSignedStoich"]], "InlineFormula"]
+}], "SeeAlso",
+ CellChangeTimes->{{3.562346979221517*^9, 3.56234711888997*^9}},
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.5570862248413773`*^9, 3.55708623199111*^9}},
+ CellLabel->"In[7]:=",
+ CellID->375237392],
+
+Cell["Reversible reactions are defined in the following way", "ExampleText",
+ CellChangeTimes->{{3.557086201790674*^9, 3.557086206428894*^9}, {
+   3.557492321440604*^9, 3.557492335206053*^9}, {3.557492477025231*^9, 
+   3.5574924798410683`*^9}, {3.557492864824663*^9, 3.5574928734647512`*^9}, {
+   3.557492917897596*^9, 3.5574929555544233`*^9}, {3.557493010555538*^9, 
+   3.557493013675354*^9}, 3.55749418072297*^9, {3.5574944267352953`*^9, 
+   3.557494429935285*^9}},
+ CellID->1520810460],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"rxn", "=", 
+  RowBox[{"reaction", "[", 
+   RowBox[{"\"\<GAPD\>\"", ",", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"metabolite", "[", 
+       RowBox[{"\"\<g3p\>\"", ",", " ", "\"\<c\>\""}], "]"}], ",", " ", 
+      RowBox[{"metabolite", "[", 
+       RowBox[{"\"\<nad\>\"", ",", " ", "\"\<c\>\""}], "]"}], ",", " ", "\n", 
+      "   ", 
+      RowBox[{"metabolite", "[", 
+       RowBox[{"\"\<pi\>\"", ",", " ", "\"\<c\>\""}], "]"}]}], "}"}], ",", 
+    " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"metabolite", "[", 
+       RowBox[{"\"\<13dpg\>\"", ",", " ", "\"\<c\>\""}], "]"}], ",", " ", 
+      "\n", "   ", 
+      RowBox[{"metabolite", "[", 
+       RowBox[{"\"\<h\>\"", ",", " ", "\"\<c\>\""}], "]"}], ",", " ", 
+      RowBox[{"metabolite", "[", 
+       RowBox[{"\"\<nadh\>\"", ",", " ", "\"\<c\>\""}], "]"}]}], "}"}], ",", 
+    " ", 
+    RowBox[{"{", 
+     RowBox[{
+     "1", ",", " ", "1", ",", " ", "1", ",", " ", "1", ",", " ", "1", ",", 
+      " ", "1"}], "}"}], ",", " ", "\n", "  ", "True"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5231952992839108`*^9, 3.5231953080029*^9}, {
+  3.5231953935103292`*^9, 3.523195487998662*^9}, {3.531681647626931*^9, 
+  3.531681651874151*^9}, {3.5574942407598047`*^9, 3.557494241742853*^9}, {
+  3.5574944417554903`*^9, 3.557494454660075*^9}, {3.557494806629507*^9, 
+  3.557494818740103*^9}},
+ CellLabel->"In[28]:=",
+ CellID->532271133],
+
+Cell[BoxData[
+ InterpretationBox[
+  OverscriptBox[
+   RowBox[{
+    RowBox[{
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["g3p",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["g3p", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["nad",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["nad", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["pi",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["pi", "c"],
+      Editable->False,
+      Selectable->False]}], "\[Equilibrium]", 
+    RowBox[{
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox[
+        RowBox[{"13", "dpg"}],
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["13dpg", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["h",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["h", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["nadh",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["nadh", "c"],
+      Editable->False,
+      Selectable->False]}]}], 
+   StyleBox["GAPD",
+    StripOnInput->False,
+    ShowSyntaxStyles->False,
+    AutoSpacing->False,
+    ZeroWidthTimes->True,
+    LineColor->RGBColor[0, 0, 0],
+    FrontFaceColor->RGBColor[0, 0, 0],
+    BackFaceColor->RGBColor[0, 0, 0],
+    GraphicsColor->RGBColor[0, 0, 0],
+    FontColor->RGBColor[0, 0, 0]]],
+  Toolbox`reaction["GAPD", {
+    Toolbox`metabolite["g3p", "c"], 
+    Toolbox`metabolite["nad", "c"], 
+    Toolbox`metabolite["pi", "c"]}, {
+    Toolbox`metabolite["13dpg", "c"], 
+    Toolbox`metabolite["h", "c"], 
+    Toolbox`metabolite["nadh", "c"]}, {1, 1, 1, 1, 1, 1}, True],
+  Editable->False,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.557494184215111*^9, 3.5574942428469753`*^9, 
+  3.557494828082218*^9, 3.5574968269803543`*^9, 3.5575005402678947`*^9, 
+  3.557500630846262*^9, 3.557504661240283*^9},
+ CellLabel->"Out[28]=",
+ CellID->658475058]
+}, Open  ]],
+
+Cell["Irreversible reactions are defined in the following way", "ExampleText",
+ 
+ CellChangeTimes->{{3.557086201790674*^9, 3.557086206428894*^9}, {
+   3.557492321440604*^9, 3.557492335206053*^9}, {3.557492477025231*^9, 
+   3.5574924798410683`*^9}, {3.557492864824663*^9, 3.5574928734647512`*^9}, {
+   3.557492917897596*^9, 3.5574929555544233`*^9}, {3.557493010555538*^9, 
+   3.557493013675354*^9}, 3.55749418072297*^9, {3.5574944267352953`*^9, 
+   3.557494429935285*^9}, {3.557494481240314*^9, 3.557494482144204*^9}},
+ CellID->2046542632],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"irxn", "=", 
+  RowBox[{"reaction", "[", 
+   RowBox[{"\"\<AKGDH\>\"", ",", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"metabolite", "[", 
+       RowBox[{"\"\<akg\>\"", ",", " ", "\"\<c\>\""}], "]"}], ",", " ", 
+      RowBox[{"metabolite", "[", 
+       RowBox[{"\"\<coa\>\"", ",", " ", "\"\<c\>\""}], "]"}], ",", " ", "\n", 
+      "   ", 
+      RowBox[{"metabolite", "[", 
+       RowBox[{"\"\<nad\>\"", ",", " ", "\"\<c\>\""}], "]"}]}], "}"}], ",", 
+    " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"metabolite", "[", 
+       RowBox[{"\"\<co2\>\"", ",", " ", "\"\<c\>\""}], "]"}], ",", " ", "\n", 
+      "   ", 
+      RowBox[{"metabolite", "[", 
+       RowBox[{"\"\<nadh\>\"", ",", " ", "\"\<c\>\""}], "]"}], ",", " ", 
+      RowBox[{"metabolite", "[", 
+       RowBox[{"\"\<succoa\>\"", ",", " ", "\"\<c\>\""}], "]"}]}], "}"}], ",",
+     " ", "\n", "  ", 
+    RowBox[{"{", 
+     RowBox[{
+     "1", ",", " ", "1", ",", " ", "1", ",", " ", "1", ",", " ", "1", ",", 
+      " ", "1"}], "}"}], ",", " ", "False"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5231952992839108`*^9, 3.5231953080029*^9}, {
+  3.5231953935103292`*^9, 3.523195487998662*^9}, {3.531681647626931*^9, 
+  3.531681651874151*^9}, {3.5574942407598047`*^9, 3.557494241742853*^9}, {
+  3.557494438059821*^9, 3.557494470788226*^9}, {3.557500530345908*^9, 
+  3.5575005335290318`*^9}},
+ CellLabel->"In[83]:=",
+ CellID->1112579257],
+
+Cell[BoxData[
+ InterpretationBox[
+  OverscriptBox[
+   RowBox[{
+    RowBox[{
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["akg",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["akg", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["coa",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["coa", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["nad",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["nad", "c"],
+      Editable->False,
+      Selectable->False]}], "\[RightArrow]", 
+    RowBox[{
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["co2",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["co2", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["nadh",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["nadh", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["succoa",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["succoa", "c"],
+      Editable->False,
+      Selectable->False]}]}], 
+   StyleBox["AKGDH",
+    StripOnInput->False,
+    ShowSyntaxStyles->False,
+    AutoSpacing->False,
+    ZeroWidthTimes->True,
+    LineColor->RGBColor[0, 0, 0],
+    FrontFaceColor->RGBColor[0, 0, 0],
+    BackFaceColor->RGBColor[0, 0, 0],
+    GraphicsColor->RGBColor[0, 0, 0],
+    FontColor->RGBColor[0, 0, 0]]],
+  Toolbox`reaction["AKGDH", {
+    Toolbox`metabolite["akg", "c"], 
+    Toolbox`metabolite["coa", "c"], 
+    Toolbox`metabolite["nad", "c"]}, {
+    Toolbox`metabolite["co2", "c"], 
+    Toolbox`metabolite["nadh", "c"], 
+    Toolbox`metabolite["succoa", "c"]}, {1, 1, 1, 1, 1, 1}, False],
+  Editable->False,
+  Selectable->False]], "Output",
+ CellChangeTimes->{
+  3.557494184215111*^9, 3.5574942428469753`*^9, {3.5574944723107653`*^9, 
+   3.557494484670813*^9}, 3.557500541436295*^9, 3.557500631846045*^9},
+ CellLabel->"Out[83]=",
+ CellID->1460535266]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell["Query the ID of reaction", "ExampleText",
+ CellChangeTimes->{{3.557086201790674*^9, 3.557086206428894*^9}, {
+   3.557492321440604*^9, 3.557492335206053*^9}, {3.557492477025231*^9, 
+   3.5574924798410683`*^9}, {3.557492864824663*^9, 3.5574928734647512`*^9}, {
+   3.557492917897596*^9, 3.5574929555544233`*^9}, {3.557493010555538*^9, 
+   3.557493013675354*^9}, 3.55749418072297*^9, {3.5574942356835127`*^9, 
+   3.557494245950748*^9}},
+ CellID->2030618409],
+
+Cell[CellGroupData[{
+
+Cell["getID[rxn]", "Input",
+ CellChangeTimes->{{3.557494246267478*^9, 3.557494258531805*^9}},
+ CellLabel->"In[61]:=",
+ CellID->177500903],
+
+Cell[BoxData["\<\"vpfk\"\>"], "Output",
+ CellChangeTimes->{{3.5574942538394833`*^9, 3.5574942591769733`*^9}, 
+   3.5574944863873997`*^9},
+ CellLabel->"Out[61]=",
+ CellID->330656291]
+}, Open  ]],
+
+Cell["Check if a reaction is reversible", "ExampleText",
+ CellChangeTimes->{{3.557086201790674*^9, 3.557086206428894*^9}, {
+   3.557492321440604*^9, 3.557492335206053*^9}, {3.557492477025231*^9, 
+   3.5574924798410683`*^9}, {3.557492864824663*^9, 3.5574928734647512`*^9}, {
+   3.557492917897596*^9, 3.5574929555544233`*^9}, {3.557493010555538*^9, 
+   3.557493013675354*^9}, 3.55749418072297*^9, {3.5574942356835127`*^9, 
+   3.557494245950748*^9}, {3.5575046346981*^9, 3.557504640066428*^9}},
+ CellID->2104106770],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"reversibleQ", "[", "rxn", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"reversibleQ", "[", "irxn", "]"}]}], "Input",
+ CellChangeTimes->{{3.5575047164857817`*^9, 3.5575047406940193`*^9}},
+ CellLabel->"In[32]:=",
+ CellID->838423770],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{{3.55750472095645*^9, 3.557504741191718*^9}},
+ CellLabel->"Out[32]=",
+ CellID->1542442376],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{{3.55750472095645*^9, 3.557504741194202*^9}},
+ CellLabel->"Out[33]=",
+ CellID->1553910495]
+}, Open  ]],
+
+Cell["Query substrates and products", "ExampleText",
+ CellChangeTimes->{{3.557086201790674*^9, 3.557086206428894*^9}, {
+   3.557492321440604*^9, 3.557492335206053*^9}, {3.557492477025231*^9, 
+   3.5574924798410683`*^9}, {3.557492864824663*^9, 3.5574928734647512`*^9}, {
+   3.557492917897596*^9, 3.5574929555544233`*^9}, {3.557493010555538*^9, 
+   3.557493013675354*^9}, 3.55749418072297*^9, {3.5574942356835127`*^9, 
+   3.5574942698117733`*^9}},
+ CellID->2629250],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"getSubstrates", "[", "rxn", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"getProducts", "[", "rxn", "]"}]}], "Input",
+ CellChangeTimes->{{3.55749427213739*^9, 3.5574942824461403`*^9}},
+ CellLabel->"In[51]:=",
+ CellID->1240131810],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    SuperscriptBox[
+     StyleBox["atp",
+      StripOnInput->False,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], 
+     StyleBox["c",
+      StripOnInput->False,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`metabolite["atp", "c"]], ",", 
+   InterpretationBox[
+    SuperscriptBox[
+     StyleBox["f6p",
+      StripOnInput->False,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], 
+     StyleBox["c",
+      StripOnInput->False,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`metabolite["f6p", "c"]]}], "}"}]], "Output",
+ CellChangeTimes->{3.557494282997542*^9},
+ CellLabel->"Out[51]=",
+ CellID->1566536535],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    SuperscriptBox[
+     StyleBox["adp",
+      StripOnInput->False,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], 
+     StyleBox["c",
+      StripOnInput->False,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`metabolite["adp", "c"]], ",", 
+   InterpretationBox[
+    SuperscriptBox[
+     StyleBox["fbp",
+      StripOnInput->False,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], 
+     StyleBox["c",
+      StripOnInput->False,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`metabolite["fbp", "c"]], ",", 
+   InterpretationBox[
+    SuperscriptBox[
+     StyleBox["h",
+      StripOnInput->False,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], 
+     StyleBox["c",
+      StripOnInput->False,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`metabolite["h", "c"]]}], "}"}]], "Output",
+ CellChangeTimes->{3.5574942829997263`*^9},
+ CellLabel->"Out[52]=",
+ CellID->630031525]
+}, Open  ]],
+
+Cell["Query the stoichiometry of a reaction", "ExampleText",
+ CellChangeTimes->{{3.557086201790674*^9, 3.557086206428894*^9}, {
+   3.557492321440604*^9, 3.557492335206053*^9}, {3.557492477025231*^9, 
+   3.5574924798410683`*^9}, {3.557492864824663*^9, 3.5574928734647512`*^9}, {
+   3.557492917897596*^9, 3.5574929555544233`*^9}, {3.557493010555538*^9, 
+   3.557493013675354*^9}, 3.55749418072297*^9, {3.5574942356835127`*^9, 
+   3.5574943063485327`*^9}, {3.557494376110003*^9, 3.557494383942398*^9}},
+ CellID->556125134],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"getStoich", "[", "rxn", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"getSignedStoich", "[", "rxn", "]"}]}], "Input",
+ CellChangeTimes->{{3.5574943197273417`*^9, 3.5574943329512453`*^9}, {
+  3.55749438887211*^9, 3.557494392360338*^9}},
+ CellLabel->"In[56]:=",
+ CellID->122797276],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "1", ",", "1", ",", "1", ",", "1"}], "}"}]], "Output",
+ CellChangeTimes->{{3.5574943286294813`*^9, 3.5574943333900137`*^9}, {
+  3.557494372707383*^9, 3.55749439284077*^9}},
+ CellLabel->"Out[56]=",
+ CellID->1065709525],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", "1"}], ",", 
+   RowBox[{"-", "1"}], ",", "1", ",", "1", ",", "1"}], "}"}]], "Output",
+ CellChangeTimes->{{3.5574943286294813`*^9, 3.5574943333900137`*^9}, {
+  3.557494372707383*^9, 3.557494392842619*^9}},
+ CellLabel->"Out[57]=",
+ CellID->1366370695]
+}, Open  ]],
+
+Cell["Query the stoichiometry of a reaction", "ExampleText",
+ CellChangeTimes->{{3.557086201790674*^9, 3.557086206428894*^9}, {
+   3.557492321440604*^9, 3.557492335206053*^9}, {3.557492477025231*^9, 
+   3.5574924798410683`*^9}, {3.557492864824663*^9, 3.5574928734647512`*^9}, {
+   3.557492917897596*^9, 3.5574929555544233`*^9}, {3.557493010555538*^9, 
+   3.557493013675354*^9}, 3.55749418072297*^9, {3.5574942356835127`*^9, 
+   3.5574943063485327`*^9}, {3.557494376110003*^9, 3.557494383942398*^9}},
+ CellID->501064792],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getProdStoich", "[", "rxn", "]"}]], "Input",
+ CellChangeTimes->{{3.5574943961436167`*^9, 3.5574944061199217`*^9}},
+ CellLabel->"In[58]:=",
+ CellID->1549633494],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "1", ",", "1"}], "}"}]], "Output",
+ CellChangeTimes->{3.5574944066858397`*^9},
+ CellLabel->"Out[58]=",
+ CellID->8462842]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[TextData[{
+ "It is usually easier to use ",
+ Cell[BoxData[
+  ButtonBox["str2mass",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/str2mass"]], "InlineFormula"],
+ " to define reactions"
+}], "ExampleText",
+ CellChangeTimes->{{3.557086201790674*^9, 3.557086206428894*^9}, {
+   3.557492321440604*^9, 3.557492335206053*^9}, {3.557492477025231*^9, 
+   3.5574924798410683`*^9}, {3.557492864824663*^9, 3.5574928734647512`*^9}, {
+   3.557492917897596*^9, 3.5574929555544233`*^9}, {3.557493010555538*^9, 
+   3.557493013675354*^9}, 3.55749418072297*^9, {3.5574944267352953`*^9, 
+   3.557494429935285*^9}, {3.557494481240314*^9, 3.557494482144204*^9}, {
+   3.557500569200746*^9, 3.557500582928884*^9}, {3.557500643131599*^9, 
+   3.557500649185247*^9}},
+ CellID->2125933428],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"str2mass", "[", 
+  "\"\<GAPD: g3p[c] + nad[c] + pi[c] <=> 13dpg[c] + h[c] + nadh[c]\>\"", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.55750060425404*^9, 3.5575006121284723`*^9}},
+ CellLabel->"In[84]:=",
+ CellID->768246727],
+
+Cell[BoxData[
+ InterpretationBox[
+  OverscriptBox[
+   RowBox[{
+    RowBox[{
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["g3p",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["g3p", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["nad",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["nad", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["pi",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["pi", "c"],
+      Editable->False,
+      Selectable->False]}], "\[Equilibrium]", 
+    RowBox[{
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox[
+        RowBox[{"13", "dpg"}],
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["13dpg", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["h",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["h", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["nadh",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["nadh", "c"],
+      Editable->False,
+      Selectable->False]}]}], 
+   StyleBox["GAPD",
+    StripOnInput->False,
+    ShowSyntaxStyles->False,
+    AutoSpacing->False,
+    ZeroWidthTimes->True,
+    LineColor->RGBColor[0, 0, 0],
+    FrontFaceColor->RGBColor[0, 0, 0],
+    BackFaceColor->RGBColor[0, 0, 0],
+    GraphicsColor->RGBColor[0, 0, 0],
+    FontColor->RGBColor[0, 0, 0]]],
+  Toolbox`reaction["GAPD", {
+    Toolbox`metabolite["g3p", "c"], 
+    Toolbox`metabolite["nad", "c"], 
+    Toolbox`metabolite["pi", "c"]}, {
+    Toolbox`metabolite["13dpg", "c"], 
+    Toolbox`metabolite["h", "c"], 
+    Toolbox`metabolite["nadh", "c"]}, {1, 1, 1, 1, 1, 1}, True],
+  Editable->False,
+  Selectable->False]], "Output",
+ CellChangeTimes->{{3.557500613113821*^9, 3.557500639285969*^9}},
+ CellLabel->"Out[84]=",
+ CellID->1478130452]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"str2mass", "[", 
+  "\"\<AKGDH: akg[c] + coa[c] + nad[c] --> co2[c] + nadh[c] + succoa[c]\>\"", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.55750058378734*^9, 3.557500598875848*^9}},
+ CellLabel->"In[79]:=",
+ CellID->1780546280],
+
+Cell[BoxData[
+ InterpretationBox[
+  OverscriptBox[
+   RowBox[{
+    RowBox[{
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["akg",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["akg", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["coa",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["coa", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["nad",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["nad", "c"],
+      Editable->False,
+      Selectable->False]}], "\[RightArrow]", 
+    RowBox[{
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["co2",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["co2", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["nadh",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["nadh", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["succoa",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["succoa", "c"],
+      Editable->False,
+      Selectable->False]}]}], 
+   StyleBox["AKGDH",
+    StripOnInput->False,
+    ShowSyntaxStyles->False,
+    AutoSpacing->False,
+    ZeroWidthTimes->True,
+    LineColor->RGBColor[0, 0, 0],
+    FrontFaceColor->RGBColor[0, 0, 0],
+    BackFaceColor->RGBColor[0, 0, 0],
+    GraphicsColor->RGBColor[0, 0, 0],
+    FontColor->RGBColor[0, 0, 0]]],
+  Toolbox`reaction["AKGDH", {
+    Toolbox`metabolite["akg", "c"], 
+    Toolbox`metabolite["coa", "c"], 
+    Toolbox`metabolite["nad", "c"]}, {
+    Toolbox`metabolite["co2", "c"], 
+    Toolbox`metabolite["nadh", "c"], 
+    Toolbox`metabolite["succoa", "c"]}, {1, 1, 1, 1, 1, 1}, False],
+  Editable->False,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.5575005887261543`*^9},
+ CellLabel->"Out[79]=",
+ CellID->456707015]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{360, Automatic}, {Automatic, 119}},
+CellContext->"Global`",
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
+2011)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+

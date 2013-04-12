@@ -1,0 +1,463 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["Toolbox Package", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->2738164],
+
+Cell["Toolbox`COBRA`", "Categorization",
+ CellLabel->"Context",
+ CellID->923165761],
+
+Cell["Toolbox/ref/CPLEXStandalone", "Categorization",
+ CellLabel->"URI",
+ CellID->77595552]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["CPLEXStandalone", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ Cell[BoxData["CPLEXStandalone"], "InlineFormula"],
+ "\[LineSeparator]provides the same functionality and argument signature as \
+LinearProgramming and can be used as a solver for ",
+ Cell[BoxData[
+  ButtonBox["fba",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/fba"]], "InlineFormula"],
+ "."
+}], "Usage"],
+
+Cell["The following options can be given: ", "Notes"],
+
+Cell[BoxData[GridBox[{
+   {Cell["   ", "ModInfo"], 
+    ButtonBox["OutputFormat",
+     BaseStyle->"Link"], 
+    ButtonBox["Automatic",
+     BaseStyle->"Link"], Cell["XXXX", "TableText"]}
+  }]], "3ColumnTableMod"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell["XXXX", "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.5570061794525957`*^9, 3.55700618688767*^9}},
+ CellLabel->"In[5]:=",
+ CellID->1891264135],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CPLEXStandalone", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "2"}], "}"}], "}"}], ",", 
+   RowBox[{"{", "3", "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.557006189927919*^9, 3.557006194184824*^9}, {
+  3.5570062309687862`*^9, 3.557006259497904*^9}, {3.557006323028121*^9, 
+  3.5570063235080976`*^9}},
+ CellLabel->"In[12]:=",
+ CellID->1570857698],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", "1.5`"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.557006197754314*^9, {3.557006240838743*^9, 3.5570062601600723`*^9}, 
+   3.557006325483082*^9},
+ CellLabel->"Out[12]=",
+ CellID->1835157972]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["OutputFormat", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CPLEXStandalone", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "2"}], "}"}], "}"}], ",", 
+   RowBox[{"{", "3", "}"}], ",", 
+   RowBox[{"\"\<OutputFormat\>\"", "\[Rule]", "Full"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.557006424102727*^9, 3.557006429509081*^9}},
+ CellLabel->"In[14]:=",
+ CellID->1339897190],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"XMLObject", "[", "\<\"Document\"\>", "]"}], "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"XMLObject", "[", "\<\"Declaration\"\>", "]"}], "[", 
+       RowBox[{
+        RowBox[{"\<\"Version\"\>", "\[Rule]", "\<\"1.0\"\>"}], ",", 
+        RowBox[{"\<\"Encoding\"\>", "\[Rule]", "\<\"UTF-8\"\>"}], ",", 
+        RowBox[{"\<\"Standalone\"\>", "\[Rule]", "\<\"yes\"\>"}]}], "]"}], 
+      "}"}], ",", 
+     RowBox[{"XMLElement", "[", 
+      RowBox[{"\<\"CPLEXSolutions\"\>", ",", 
+       RowBox[{"{", 
+        RowBox[{"\<\"version\"\>", "\[Rule]", "\<\"1.2\"\>"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"XMLElement", "[", 
+         RowBox[{"\<\"CPLEXSolution\"\>", ",", 
+          RowBox[{"{", 
+           RowBox[{"\<\"version\"\>", "\[Rule]", "\<\"1.2\"\>"}], "}"}], ",", 
+          
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"XMLElement", "[", 
+             RowBox[{"\<\"header\"\>", ",", 
+              RowBox[{"{", 
+               RowBox[{
+                
+                RowBox[{"\<\"problemName\"\>", 
+                 "\[Rule]", "\<\"problemID\"\>"}], ",", 
+                RowBox[{"\<\"objectiveValue\"\>", "\[Rule]", "\<\"1.5\"\>"}], 
+                ",", 
+                RowBox[{"\<\"solutionTypeValue\"\>", "\[Rule]", "\<\"1\"\>"}],
+                 ",", 
+                
+                RowBox[{"\<\"solutionTypeString\"\>", 
+                 "\[Rule]", "\<\"basic\"\>"}], ",", 
+                
+                RowBox[{"\<\"solutionStatusValue\"\>", 
+                 "\[Rule]", "\<\"1\"\>"}], ",", 
+                
+                RowBox[{"\<\"solutionStatusString\"\>", 
+                 "\[Rule]", "\<\"optimal\"\>"}], ",", 
+                
+                RowBox[{"\<\"solutionMethodString\"\>", 
+                 "\[Rule]", "\<\"dual\"\>"}], ",", 
+                RowBox[{"\<\"primalFeasible\"\>", "\[Rule]", "\<\"1\"\>"}], 
+                ",", 
+                RowBox[{"\<\"dualFeasible\"\>", "\[Rule]", "\<\"1\"\>"}], ",", 
+                RowBox[{"\<\"simplexIterations\"\>", "\[Rule]", "\<\"0\"\>"}],
+                 ",", 
+                RowBox[{"\<\"writeLevel\"\>", "\[Rule]", "\<\"1\"\>"}]}], 
+               "}"}], ",", 
+              RowBox[{"{", "}"}]}], "]"}], ",", 
+            RowBox[{"XMLElement", "[", 
+             RowBox[{"\<\"quality\"\>", ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"\<\"epRHS\"\>", "\[Rule]", "\<\"1e-06\"\>"}], ",", 
+                RowBox[{"\<\"epOpt\"\>", "\[Rule]", "\<\"1e-06\"\>"}], ",", 
+                RowBox[{"\<\"maxPrimalInfeas\"\>", "\[Rule]", "\<\"0\"\>"}], 
+                ",", 
+                RowBox[{"\<\"maxDualInfeas\"\>", "\[Rule]", "\<\"0\"\>"}], 
+                ",", 
+                RowBox[{"\<\"maxPrimalResidual\"\>", "\[Rule]", "\<\"0\"\>"}],
+                 ",", 
+                RowBox[{"\<\"maxDualResidual\"\>", "\[Rule]", "\<\"0\"\>"}], 
+                ",", 
+                RowBox[{"\<\"maxX\"\>", "\[Rule]", "\<\"1.5\"\>"}], ",", 
+                RowBox[{"\<\"maxPi\"\>", "\[Rule]", "\<\"0.5\"\>"}], ",", 
+                RowBox[{"\<\"maxSlack\"\>", "\[Rule]", "\<\"0\"\>"}], ",", 
+                RowBox[{"\<\"maxRedCost\"\>", "\[Rule]", "\<\"0.5\"\>"}], ",", 
+                RowBox[{"\<\"kappa\"\>", "\[Rule]", "\<\"1\"\>"}]}], "}"}], 
+              ",", 
+              RowBox[{"{", "}"}]}], "]"}], ",", 
+            RowBox[{"XMLElement", "[", 
+             RowBox[{"\<\"linearConstraints\"\>", ",", 
+              RowBox[{"{", "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"XMLElement", "[", 
+                RowBox[{"\<\"constraint\"\>", ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"\<\"name\"\>", "\[Rule]", "\<\"c1\"\>"}], ",", 
+                   RowBox[{"\<\"index\"\>", "\[Rule]", "\<\"0\"\>"}], ",", 
+                   RowBox[{"\<\"status\"\>", "\[Rule]", "\<\"LL\"\>"}], ",", 
+                   RowBox[{"\<\"slack\"\>", "\[Rule]", "\<\"0\"\>"}], ",", 
+                   RowBox[{"\<\"dual\"\>", "\[Rule]", "\<\"0.5\"\>"}]}], 
+                  "}"}], ",", 
+                 RowBox[{"{", "}"}]}], "]"}], "}"}]}], "]"}], ",", 
+            RowBox[{"XMLElement", "[", 
+             RowBox[{"\<\"variables\"\>", ",", 
+              RowBox[{"{", "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"XMLElement", "[", 
+                 RowBox[{"\<\"variable\"\>", ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"\<\"name\"\>", "\[Rule]", "\<\"C(1)\"\>"}], ",", 
+                    
+                    RowBox[{"\<\"index\"\>", "\[Rule]", "\<\"0\"\>"}], ",", 
+                    RowBox[{"\<\"status\"\>", "\[Rule]", "\<\"LL\"\>"}], ",", 
+                    
+                    RowBox[{"\<\"value\"\>", "\[Rule]", "\<\"0\"\>"}], ",", 
+                    
+                    RowBox[{"\<\"reducedCost\"\>", 
+                    "\[Rule]", "\<\"0.5\"\>"}]}], "}"}], ",", 
+                  RowBox[{"{", "}"}]}], "]"}], ",", 
+                RowBox[{"XMLElement", "[", 
+                 RowBox[{"\<\"variable\"\>", ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"\<\"name\"\>", "\[Rule]", "\<\"C(2)\"\>"}], ",", 
+                    
+                    RowBox[{"\<\"index\"\>", "\[Rule]", "\<\"1\"\>"}], ",", 
+                    RowBox[{"\<\"status\"\>", "\[Rule]", "\<\"BS\"\>"}], ",", 
+                    
+                    RowBox[{"\<\"value\"\>", "\[Rule]", "\<\"1.5\"\>"}], ",", 
+                    
+                    RowBox[{"\<\"reducedCost\"\>", "\[Rule]", "\<\"0\"\>"}]}],
+                    "}"}], ",", 
+                  RowBox[{"{", "}"}]}], "]"}]}], "}"}]}], "]"}]}], "}"}]}], 
+         "]"}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", "}"}]}], "]"}], 
+   ",", "\<\"IBM ILOG License Manager: \\\"IBM ILOG Optimization Suite for \
+Academic Initiative\\\" is accessing CPLEX 12 with option(s): \\\"e m b q \
+\\\".\\n\\nIBM ILOG CPLEX Optimization Studio Academic Research \
+Edition\\nWelcome to IBM(R) ILOG(R) CPLEX(R) Interactive Optimizer \
+12.3.0.0\\n  with Simplex, Mixed Integer & Barrier Optimizers\\n5725-A06 \
+5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55\\nCopyright IBM Corp. 1988, \
+2011.  All Rights Reserved.\\n\\nType 'help' for a list of available \
+commands.\\nType 'help' followed by a command name for more\\ninformation on \
+commands.\\n\\nCPLEX> Enter new problem ['end' on a separate line \
+terminates]:\\nCPLEX> Parallel mode: deterministic, using up to 2 threads for \
+concurrent optimization.\\nTried aggregator 1 time.\\nLP Presolve eliminated \
+1 rows and 2 columns.\\nAll rows and columns eliminated.\\n\\nDual simplex - \
+Optimal:  Objective =  1.5000000000e+00\\nSolution time =    0.00 sec.  \
+Iterations = 0 (0)\\n\\nCPLEX> Solution pool written to file 'm000024401921'.\
+\\nCPLEX> \"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.557006420601672*^9, 3.5570064307235537`*^9}},
+ CellLabel->"Out[14]=",
+ CellID->714314072]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{36, Automatic}, {Automatic, 111}},
+CellContext->"Global`",
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
+2010)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+

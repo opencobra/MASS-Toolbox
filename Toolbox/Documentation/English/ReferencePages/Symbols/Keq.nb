@@ -1,0 +1,779 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["Toolbox Package", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->1962713475],
+
+Cell["Toolbox`", "Categorization",
+ CellLabel->"Context",
+ CellID->1976556405],
+
+Cell["Toolbox/ref/Keq", "Categorization",
+ CellLabel->"URI",
+ CellID->558963392]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keq", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ "Keq[\"RxnID\"]\[LineSeparator]represents the equilibrium constant for the \
+",
+ Cell[BoxData[
+  ButtonBox["reaction",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/reaction"]], "InlineFormula"],
+ " \"RxnID\""
+}], "Usage",
+ CellChangeTimes->{{3.55749307734221*^9, 3.557493086037006*^9}}],
+
+Cell["XXXX", "Notes",
+ CellID->1067943069]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ ButtonBox["metabolite",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/metabolite"],
+ " ",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare] \[MediumSpace]", 
+  "InlineSeparator"],
+ StyleBox[ButtonBox["species",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/species"], "InlineSeparator"],
+ " ",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare] \[MediumSpace]", 
+  "InlineSeparator"],
+ StyleBox[ButtonBox["parameter",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/parameter"], "InlineSeparator"],
+ " ",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare] \[MediumSpace]", 
+  "InlineSeparator"],
+ StyleBox[ButtonBox["Keq",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/Keq"], "InlineSeparator"],
+ " ",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare] \[MediumSpace]", 
+  "InlineSeparator"],
+ StyleBox[ButtonBox["rateconst",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/rateconst"], "InlineSeparator"],
+ " ",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare] \[MediumSpace]", 
+  "InlineSeparator"],
+ StyleBox[ButtonBox["protein",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/protein"], "InlineSeparator"],
+ " ",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare] \[MediumSpace]", 
+  "InlineSeparator"],
+ StyleBox[ButtonBox["gene",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/gene"], "InlineSeparator"],
+ " ",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare] \[MediumSpace]", 
+  "InlineSeparator"],
+ StyleBox[ButtonBox["enzyme",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/ref/enzyme"], "InlineSeparator"]
+}], "SeeAlso",
+ CellChangeTimes->{{3.56200776398221*^9, 3.562007849459257*^9}},
+ CellID->1048580842]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.557006593557788*^9, 3.5570065987201633`*^9}},
+ CellLabel->"In[33]:=",
+ CellID->1683793262],
+
+Cell["Define an equilibrium constant", "ExampleText",
+ CellChangeTimes->{{3.557086201790674*^9, 3.557086206428894*^9}, {
+  3.557492321440604*^9, 3.557492335206053*^9}, {3.557493130487267*^9, 
+  3.557493136093856*^9}},
+ CellID->1597963750],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Keq", "[", "\"\<RxnID\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.557006602616376*^9, 3.5570066625135202`*^9}},
+ CellLabel->"In[25]:=",
+ CellID->2121337915],
+
+Cell[BoxData[
+ InterpretationBox[
+  UnderscriptBox["K", 
+   StyleBox["RxnID",
+    StripOnInput->False,
+    LineColor->RGBColor[0, 0, 0],
+    FrontFaceColor->RGBColor[0, 0, 0],
+    BackFaceColor->RGBColor[0, 0, 0],
+    GraphicsColor->RGBColor[0, 0, 0],
+    FontColor->RGBColor[0, 0, 0]]],
+  Toolbox`Keq["RxnID"]]], "Output",
+ CellChangeTimes->{{3.557006607656704*^9, 3.5570066633551407`*^9}, 
+   3.557493138565024*^9},
+ CellLabel->"Out[25]=",
+ CellID->726446266]
+}, Open  ]],
+
+Cell["Query the ID of an equilibrium constant", "ExampleText",
+ CellChangeTimes->{{3.557086201790674*^9, 3.557086206428894*^9}, {
+  3.557492321440604*^9, 3.557492335206053*^9}, {3.557492379367607*^9, 
+  3.557492389420249*^9}, {3.557493158567566*^9, 3.5574931633505287`*^9}},
+ CellID->110866690],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getID", "@", 
+  InterpretationBox[
+   UnderscriptBox["K", 
+    StyleBox["RxnID",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0, 0],
+     FrontFaceColor->RGBColor[0, 0, 0],
+     BackFaceColor->RGBColor[0, 0, 0],
+     GraphicsColor->RGBColor[0, 0, 0],
+     FontColor->RGBColor[0, 0, 0]]],
+   Toolbox`Keq["RxnID"]]}]], "Input",
+ CellChangeTimes->{{3.557006609521529*^9, 3.557006658911178*^9}, {
+  3.5574931421198273`*^9, 3.557493142760648*^9}},
+ CellLabel->"In[26]:=",
+ CellID->522560076],
+
+Cell[BoxData["\<\"RxnID\"\>"], "Output",
+ CellChangeTimes->{{3.557006615226571*^9, 3.557006664219911*^9}, 
+   3.557493143802434*^9},
+ CellLabel->"Out[26]=",
+ CellID->937859467]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell["\<\
+Replace an equilibrium constant by the respective reverse and forward rate \
+constants\
+\>", "ExampleText",
+ CellChangeTimes->{{3.557086201790674*^9, 3.557086206428894*^9}, {
+  3.557492321440604*^9, 3.557492335206053*^9}, {3.557492477025231*^9, 
+  3.5574924798410683`*^9}, {3.557492864824663*^9, 3.5574928734647512`*^9}, {
+  3.557492917897596*^9, 3.5574929555544233`*^9}, {3.557493010555538*^9, 
+  3.557493013675354*^9}, {3.55749317847897*^9, 3.55749319640739*^9}},
+ CellID->1520810460],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"keq2k", "[", 
+  InterpretationBox[
+   UnderscriptBox["K", 
+    StyleBox["RxnID",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0, 0],
+     FrontFaceColor->RGBColor[0, 0, 0],
+     BackFaceColor->RGBColor[0, 0, 0],
+     GraphicsColor->RGBColor[0, 0, 0],
+     FontColor->RGBColor[0, 0, 0]]],
+   Toolbox`Keq["RxnID"]], "]"}]], "Input",
+ CellChangeTimes->{{3.557493201067746*^9, 3.557493208073945*^9}},
+ CellLabel->"In[28]:=",
+ CellID->1886153810],
+
+Cell[BoxData[
+ FractionBox[
+  InterpretationBox[
+   SubsuperscriptBox["k", 
+    StyleBox["RxnID",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0, 0],
+     FrontFaceColor->RGBColor[0, 0, 0],
+     BackFaceColor->RGBColor[0, 0, 0],
+     GraphicsColor->RGBColor[0, 0, 0],
+     FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+   Toolbox`rateconst["RxnID", True]], 
+  InterpretationBox[
+   SubsuperscriptBox["k", 
+    StyleBox["RxnID",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0, 0],
+     FrontFaceColor->RGBColor[0, 0, 0],
+     BackFaceColor->RGBColor[0, 0, 0],
+     GraphicsColor->RGBColor[0, 0, 0],
+     FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+   Toolbox`rateconst["RxnID", False]]]], "Output",
+ CellChangeTimes->{3.557493208408264*^9},
+ CellLabel->"Out[28]=",
+ CellID->1580971303]
+}, Open  ]],
+
+Cell["\<\
+Replace equilibrium constants by their respective standard changes of \
+reaction in Gibbs free energy\
+\>", "ExampleText",
+ CellChangeTimes->{{3.557086201790674*^9, 3.557086206428894*^9}, {
+  3.557492321440604*^9, 3.557492335206053*^9}, {3.557492477025231*^9, 
+  3.5574924798410683`*^9}, {3.557492864824663*^9, 3.5574928734647512`*^9}, {
+  3.557492917897596*^9, 3.5574929555544233`*^9}, {3.557493010555538*^9, 
+  3.557493013675354*^9}, {3.55749317847897*^9, 3.55749319640739*^9}, {
+  3.55749339261889*^9, 3.557493398202771*^9}, {3.557493453149356*^9, 
+  3.557493482500688*^9}, {3.557493531551256*^9, 3.5574935336618557`*^9}},
+ CellID->1348750168],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"keq2dG", "[", 
+  InterpretationBox[
+   UnderscriptBox["K", 
+    StyleBox["RxnID",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0, 0],
+     FrontFaceColor->RGBColor[0, 0, 0],
+     BackFaceColor->RGBColor[0, 0, 0],
+     GraphicsColor->RGBColor[0, 0, 0],
+     FontColor->RGBColor[0, 0, 0]]],
+   Toolbox`Keq["RxnID"]], "]"}]], "Input",
+ CellChangeTimes->{{3.557493291531219*^9, 3.5574932932584333`*^9}},
+ CellLabel->"In[44]:=",
+ CellID->242538486],
+
+Cell[BoxData[
+ SuperscriptBox["\[ExponentialE]", 
+  RowBox[{"-", 
+   FractionBox[
+    RowBox[{"0.0004033950002694735`", " ", "Mole", " ", 
+     InterpretationBox[
+      TooltipBox[
+       SubsuperscriptBox[Cell["\[CapitalDelta]G", "Input"], Cell[
+        "RxnID", "Input"], Cell["\[SmallCircle]'", "Input"]],
+       GridBox[{{
+          RowBox[{"{", 
+            RowBox[{
+              RowBox[{"\"is\"", "\[Rule]", "0.`"}], ",", 
+              RowBox[{"\"pH\"", "\[Rule]", "0.`"}]}], "}"}]}, {
+          RowBox[{"{", 
+            RowBox[{
+              RowBox[{"{", 
+                RowBox[{
+                  RowBox[{"\"is\"", "\[Rule]", "0.`"}], ",", 
+                  RowBox[{"\"pH\"", "\[Rule]", "0.`"}]}], "}"}], ",", 
+              RowBox[{"{", "}"}]}], "}"}]}}]],
+      Toolbox`Thermodynamics`dGstd[
+      "RxnID", {"is" -> 0., "pH" -> 0.}, {{"is" -> 0., "pH" -> 0.}, {}}]]}], 
+    "Joule"]}]]], "Output",
+ CellChangeTimes->{
+  3.5574932938022127`*^9, {3.55749334467701*^9, 3.557493356768415*^9}, 
+   3.557494009520852*^9},
+ CellLabel->"Out[44]=",
+ CellID->190276127]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"keq2dG", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    InterpretationBox[
+     UnderscriptBox["K", 
+      StyleBox["RxnID",
+       StripOnInput->False,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`Keq["RxnID"]], "\[Rule]", "10"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.557493222836403*^9, 3.55749325151396*^9}},
+ CellLabel->"In[45]:=",
+ CellID->569525190],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    TooltipBox[
+     SubsuperscriptBox[Cell["\[CapitalDelta]G", "Input"], Cell[
+      "RxnID", "Input"], Cell["\[SmallCircle]'", "Input"]],
+     GridBox[{{
+        RowBox[{"{", 
+          RowBox[{
+            RowBox[{"\"is\"", "\[Rule]", "0.`"}], ",", 
+            RowBox[{"\"pH\"", "\[Rule]", "0.`"}]}], "}"}]}, {
+        RowBox[{"{", 
+          RowBox[{
+            RowBox[{"{", 
+              RowBox[{
+                RowBox[{"\"is\"", "\[Rule]", "0.`"}], ",", 
+                RowBox[{"\"pH\"", "\[Rule]", "0.`"}]}], "}"}], ",", 
+            RowBox[{"{", "}"}]}], "}"}]}}]],
+    Toolbox`Thermodynamics`dGstd[
+    "RxnID", {"is" -> 0., "pH" -> 0.}, {{"is" -> 0., "pH" -> 0.}, {}}]], 
+   "\[Rule]", 
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{"5708.015943320782`", " ", "Joule"}], "Mole"]}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.557493231482047*^9, 3.5574932521003*^9}, 
+   3.557494014969508*^9},
+ CellLabel->"Out[45]=",
+ CellID->367716106]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"keq2dG", "[", 
+  RowBox[{
+   InterpretationBox[
+    SubsuperscriptBox["k", 
+     StyleBox["vhk",
+      StripOnInput->False,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+    Toolbox`rateconst["vhk", True]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox[
+       RowBox[{
+        RowBox[{
+         InterpretationBox[
+          SuperscriptBox[
+           StyleBox["adp",
+            StripOnInput->False,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["c",
+            StripOnInput->False,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`metabolite["adp", "c"]], "[", "t", "]"}], " ", 
+        RowBox[{
+         InterpretationBox[
+          SuperscriptBox[
+           StyleBox["g6p",
+            StripOnInput->False,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["c",
+            StripOnInput->False,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`metabolite["g6p", "c"]], "[", "t", "]"}]}], 
+       InterpretationBox[
+        UnderscriptBox["K", 
+         StyleBox["vhk",
+          StripOnInput->False,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]],
+        Toolbox`Keq["vhk"]]]}], "+", 
+     RowBox[{
+      RowBox[{
+       InterpretationBox[
+        SuperscriptBox[
+         StyleBox["atp",
+          StripOnInput->False,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], 
+         StyleBox["c",
+          StripOnInput->False,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]],
+        Toolbox`metabolite["atp", "c"]], "[", "t", "]"}], " ", 
+      RowBox[{
+       InterpretationBox[
+        SuperscriptBox[
+         StyleBox["glu",
+          StripOnInput->False,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], 
+         StyleBox["c",
+          StripOnInput->False,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]],
+        Toolbox`metabolite["glu", "c"]], "[", "t", "]"}]}]}], ")"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.5574935848969584`*^9, 3.557493591786828*^9}},
+ CellLabel->"In[46]:=",
+ CellID->741215063],
+
+Cell[BoxData[
+ RowBox[{
+  InterpretationBox[
+   SubsuperscriptBox["k", 
+    StyleBox["vhk",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0, 0],
+     FrontFaceColor->RGBColor[0, 0, 0],
+     BackFaceColor->RGBColor[0, 0, 0],
+     GraphicsColor->RGBColor[0, 0, 0],
+     FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+   Toolbox`rateconst["vhk", True]], " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      SuperscriptBox["\[ExponentialE]", 
+       FractionBox[
+        RowBox[{"0.0004033950002694735`", " ", "Mole", " ", 
+         InterpretationBox[
+          TooltipBox[
+           
+           SubsuperscriptBox[Cell["\[CapitalDelta]G", "Input"], Cell[
+            "vhk", "Input"], Cell["\[SmallCircle]'", "Input"]],
+           GridBox[{{
+              RowBox[{"{", 
+                RowBox[{
+                  RowBox[{"\"is\"", "\[Rule]", "0.`"}], ",", 
+                  RowBox[{"\"pH\"", "\[Rule]", "0.`"}]}], "}"}]}, {
+              RowBox[{"{", 
+                RowBox[{
+                  RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"is\"", "\[Rule]", "0.`"}], ",", 
+                    RowBox[{"\"pH\"", "\[Rule]", "0.`"}]}], "}"}], ",", 
+                  RowBox[{"{", "}"}]}], "}"}]}}]],
+          Toolbox`Thermodynamics`dGstd[
+          "vhk", {"is" -> 0., "pH" -> 0.}, {{"is" -> 0., "pH" -> 0.}, {}}]]}],
+         "Joule"]]}], " ", 
+     RowBox[{
+      InterpretationBox[
+       SuperscriptBox[
+        StyleBox["adp",
+         StripOnInput->False,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], 
+        StyleBox["c",
+         StripOnInput->False,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`metabolite["adp", "c"]], "[", "t", "]"}], " ", 
+     RowBox[{
+      InterpretationBox[
+       SuperscriptBox[
+        StyleBox["g6p",
+         StripOnInput->False,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], 
+        StyleBox["c",
+         StripOnInput->False,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`metabolite["g6p", "c"]], "[", "t", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{
+      InterpretationBox[
+       SuperscriptBox[
+        StyleBox["atp",
+         StripOnInput->False,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], 
+        StyleBox["c",
+         StripOnInput->False,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`metabolite["atp", "c"]], "[", "t", "]"}], " ", 
+     RowBox[{
+      InterpretationBox[
+       SuperscriptBox[
+        StyleBox["glu",
+         StripOnInput->False,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], 
+        StyleBox["c",
+         StripOnInput->False,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`metabolite["glu", "c"]], "[", "t", "]"}]}]}], 
+   ")"}]}]], "Output",
+ CellChangeTimes->{3.5574935923993053`*^9, 3.557493666684594*^9, 
+  3.557494019573244*^9},
+ CellLabel->"Out[46]=",
+ CellID->1894141123]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{4, Automatic}, {Automatic, 0}},
+CellContext->"Global`",
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 20, \
+2012)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+

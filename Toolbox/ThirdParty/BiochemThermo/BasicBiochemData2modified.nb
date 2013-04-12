@@ -1,0 +1,2695 @@
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"BeginPackage", "[", "\"\<BasicBiochemData2`\>\"", "]"}], ";"}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Modified", " ", "by", " ", "Niko", " ", "Sonnenschein", " ", 
+    RowBox[{
+     RowBox[{"06", "/", "16"}], "/", "11"}]}], "*)"}], "\[IndentingNewLine]", 
+  
+  RowBox[{
+   RowBox[{
+   "BeginPackage", "[", "\"\<BiochemThermo`BasicBiochemData2`\>\"", "]"}], 
+   ";"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.517250630765525*^9, 3.5172506855908127`*^9}, {
+  3.517250735233161*^9, 3.517250739721278*^9}}],
+
+Cell["\<\
+Notes : This package has been adapted to fit into the overall Toolbox \
+framework. The whole database of compound data has been removed and the \
+temperature symbol t has been changed to T, as t is already used in the \
+Toolbox package as the variable for time. Unused code has been removed \
+from the public API as well.  Niko Sonnenschein, 10/28/11\
+\>", "Text",
+ CellChangeTimes->{{3.52882926185576*^9, 3.528829264696534*^9}, {
+  3.528829440811273*^9, 3.528829460227591*^9}, {3.528829533981723*^9, 
+  3.528829538532927*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["BasicBiochemData2", "Title",
+ InitializationGroup->True,
+ FontVariations->{"CompatibilityType"->0}],
+
+Cell["Data and Programs for Biochemical Thermodynamics", "Subtitle",
+ InitializationGroup->True],
+
+Cell["\<\
+Robert A. Alberty
+Department of Chemistry 6-215
+Massachusetts Institute of Technology
+Cambridge, MA 02139
+alberty@mit.edu\
+\>", "Subsubtitle",
+ InitializationGroup->True],
+
+Cell[TextData[{
+ "Abstract:  The objective of this package is to give the basic thermodynamic \
+data on a large number of species involved in biochemical reactions at 298.15 \
+K, 1 bar, and zero ionic strength and show how to use these data to calculate \
+apparent equilibrium constants ",
+ StyleBox["K",
+  FontSlant->"Italic"],
+ "' of biochemical reactions at desired pHs and ionic strengths.  Biochemical \
+reactions are written in terms of sums of species, which are referred to as \
+reactants.  The thermodynamic properties of reactants are referred to as \
+transformed properties because the pH is specified.  Programs are given for \
+calculating the standard thermodynamic properties of reactants from the basic \
+data on species.  Four tables are included to show how the standard \
+transformed Gibbs energies of formation and standard transformed enthalpies \
+of formation of 131 reactants depend on pH and ionic strength.  Programs are \
+given for the calculation of apparent equilibrium constants and other \
+thermodynamic properties of reactions by simply typing in the reaction in the \
+computer.  Examples are given of various uses of these tables, including how \
+to plot the various properties versus pH."
+}], "Text",
+ InitializationGroup->True],
+
+Cell[CellGroupData[{
+
+Cell["1.0  Introduction", "Section",
+ PageBreakAbove->True,
+ InitializationGroup->True],
+
+Cell[TextData[{
+ "\n\tThe objective of this package is to give the basic thermodynamic data \
+on a large number of species involved in biochemical reactions at 298.15 K, 1 \
+bar, and zero ionic strength and show how to use these data to calculate \
+apparent equilibrium constants ",
+ StyleBox["K",
+  FontSlant->"Italic"],
+ "' of biochemical reactions at desired pHs and ionic strengths.  Programs \
+are given for making all of these calculations and more.  The apparent \
+equilibrium constant is related to the standard transformed Gibbs energy of \
+reaction ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", "r"], 
+    SuperscriptBox[
+     RowBox[{"G", "'"}], "o"]}], TraditionalForm]]],
+ "and to the standard transformed Gibbs energies of the reactants ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    SuperscriptBox[
+     RowBox[{
+      SubscriptBox["G", "i"], "'"}], "o"]}], TraditionalForm]]],
+ "by (ref. 1-3)\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", "r"], 
+    SuperscriptBox[
+     RowBox[{"G", "'"}], "o"]}], TraditionalForm]]],
+ "= ",
+ StyleBox["\[Sum]",
+  FontSize->14],
+ " ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Nu]", "i"], "'"}], TraditionalForm]]],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    SuperscriptBox[
+     RowBox[{
+      SubscriptBox["G", "i"], "'"}], "o"]}], TraditionalForm]]],
+ "\t= - ",
+ StyleBox["RT",
+  FontSlant->"Italic"],
+ " ln ",
+ StyleBox["K",
+  FontSlant->"Italic"],
+ "'\t\t\t\t\t\t\t\t\t\t(1)\nThe ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Nu]", "i"], "'"}], TraditionalForm]]],
+ " are the stoichiometric numbers of reactants in the biochemical equation \
+(positive for reactants on the right side of the equation and negative for \
+reactants on the left side).  The prime is needed on the stoichiometric \
+numbers to distinguish them from the stoichiomeric numbers in the underlying \
+chemical reactions.  The standard transformed enthalpy of reaction ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", "r"], 
+    SuperscriptBox[
+     RowBox[{"H", "'"}], "o"]}], TraditionalForm]]],
+ "(heat of reaction) is related to the standard transformed enthalpies of \
+formation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    SuperscriptBox[
+     RowBox[{
+      SubscriptBox["H", "i"], "'"}], "o"]}], TraditionalForm]]],
+ "of the reactants by \n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", "r"], 
+    SuperscriptBox[
+     RowBox[{"H", "'"}], "o"]}], TraditionalForm]]],
+ "= ",
+ StyleBox["\[Sum]",
+  FontSize->14],
+ " ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Nu]", "i"], "'"}], TraditionalForm]]],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    SuperscriptBox[
+     RowBox[{
+      SubscriptBox["H", "i"], "'"}], "o"]}], TraditionalForm]]],
+ "\t\t\t\t\t\t\t\t\t\t\t\t(2)\nThese thermodynamic properties are functions \
+of the pH and ionic strength, and they can be calculated from the standard \
+Gibbs energies of formation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox["G", "\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]]],
+ "and standard enthalpies of formation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox["H", "\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]]],
+ "of the species involved.  The ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    SuperscriptBox[
+     RowBox[{
+      SubscriptBox["G", "i"], "'"}], "o"]}], TraditionalForm]]],
+ "values of 131 reactants as functions of pH and ionic strength and the ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    SuperscriptBox[
+     RowBox[{
+      SubscriptBox["H", "i"], "'"}], "o"]}], TraditionalForm]]],
+ "values of 69 reactants are calculated using the ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " programs ",
+ StyleBox["calcdGmat",
+  FontWeight->"Bold"],
+ " and ",
+ StyleBox["calcdHmat ",
+  FontWeight->"Bold"],
+ "(ref. 4).   These functions make it possible to calculate values of these \
+properties at 298.15 K and at pHs in the range 5 to 9 and ionic strengths in \
+the range 0 to 0.35 M.  \n\tThe following tables are given and can be printed \
+out:\ntable1 gives standard transformed Gibbs energies of formation of 131 \
+reactants at pH 7 and ionic strengths of 0, 0.10, and 0.25 M.\ntable2 gives \
+standard transformed Gibbs energies of formation of 131 reactants at ionic \
+strength 0.25 M and pH values of 5, 6, 7, 8, and 9.\ntable3 gives standard \
+transformed enthalpies of formation of 69 reactants at pH 7 and ionic \
+strengths of 0, 0.10, and 0.25 M.\ntable4 gives standard transformed \
+enthalpies of formation of 69 reactants at ionic strength 0.25 M and pH \
+values of 5, 6, 7, 8, and 9.\nThese tables can be used to calculate ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["r",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    AdjustmentBox[
+     SuperscriptBox["G", "\[Prime]\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]],
+  GeneratedCell->True],
+ "and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["r",
+      SingleLetterItalics->False,
+      FontVariations->{"CompatibilityType"->0}]], 
+    AdjustmentBox[
+     SuperscriptBox["H", "\[Prime]\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]],
+  GeneratedCell->True],
+ "at pH 7 and ionic strengths of 0, 0.10, and 0.25 M or at ionic strength \
+0.25 M and pHs of 5, 6, 7, 8, and 9 for any reaction for which all the \
+reactants are in these tables.  They can also be used to calculate standard \
+apparent reduction potentials.  The species data can be used to calculate \
+average bindings of hydrogen ions by reactants.  ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " programs for carrying out these calculations are provided.\n\tThe basic \
+thermodynamic data comes from classical thermodynamic tables and from \
+experimental measurements of ",
+ StyleBox["K",
+  FontSlant->"Italic"],
+ "' and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["r",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox[
+      RowBox[{"H", "'"}], "\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]],
+  GeneratedCell->True],
+ "at a particular pH and ionic strength together with measurements of acid \
+dissociation constants.  Some biochemical reactants consist of a single \
+species, but others are sums of species; for example, ATP is made up of the \
+species ",
+ Cell[BoxData[
+  SuperscriptBox["ATP", 
+   RowBox[{"4", "-"}]]]],
+ ", ",
+ Cell[BoxData[
+  SuperscriptBox["HATP", 
+   RowBox[{"3", "-"}]]]],
+ ", and ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox["H", "2"], 
+   SuperscriptBox["ATP", 
+    RowBox[{"2", "-"}]]}]]],
+ " in the pH range 4 to 10 in the absence of metal ions that are bound \
+reversibly.  Therefore, the basic thermodynamic data on biochemical reactions \
+includes the standard Gibbs energies of formation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox["G", "\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]],
+  GeneratedCell->True],
+ "and the standard enthalpies of formation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox["H", "\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]],
+  GeneratedCell->True],
+ "of species at zero ionic strength.    \n\tThe basic data stored for each \
+species is a list of { ",
+ Cell[BoxData[
+  RowBox[{
+   FormBox[
+    RowBox[{
+     SubscriptBox["\[CapitalDelta]", 
+      StyleBox["f",
+       SingleLetterItalics->False]], 
+     AdjustmentBox[
+      SuperscriptBox["G", "\[EmptySmallCircle]"],
+      BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}],
+    TraditionalForm], ",", 
+   FormBox[
+    RowBox[{
+     SubscriptBox["\[CapitalDelta]", 
+      StyleBox["f",
+       SingleLetterItalics->False]], 
+     AdjustmentBox[
+      SuperscriptBox["H", "\[EmptySmallCircle]"],
+      BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}],
+    TraditionalForm], ",", 
+   StyleBox[
+    SubscriptBox["z", "i"],
+    FontSlant->"Italic"], ",", 
+   SubscriptBox[
+    StyleBox["N",
+     FontSlant->"Italic"], "Hi"]}]]],
+ "}, where ",
+ Cell[BoxData[
+  StyleBox[
+   SubscriptBox["z", "i"],
+   FontSlant->"Italic"]]],
+ " is the charge number, and ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["N",
+    FontSlant->"Italic"], "Hi"]]],
+ " is the number of hydrogen atoms in the species.  When a reactant is made \
+up of more than one species, the basic data is represented by a matrix with a \
+row for each species.  The values of the standard transformed Gibbs energies \
+of formation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox["G", "\[Prime]\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]],
+  GeneratedCell->True],
+ "and standard transformed enthalpies of formation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox["H", "\[Prime]\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]],
+  GeneratedCell->True],
+ " of these species are functions of pH and ionic strength, where the effects \
+of ionic strength are calculated using the extended Debye-Huckel equation and \
+the effects of pH are calculated using the number of hydrogen atoms in the \
+species.  These functions for reactants are calculated using the ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " ",
+ StyleBox["programs ",
+  FontVariations->{"CompatibilityType"->0}],
+ StyleBox["calcdGmat",
+  FontWeight->"Bold"],
+ " and ",
+ StyleBox["calcdHmat",
+  FontWeight->"Bold"],
+ ".   \n\tThis data base is set up in such a way that typing the name of a \
+reactant, say atp (lower case letters are used because capital letters are \
+used for ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " operations) yields the function of pH and ionic strength for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox["G", "\[Prime]\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]],
+  GeneratedCell->True],
+ "and typing the name atph yields the function of pH and ionic strength for \
+",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox["H", "\[Prime]\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]],
+  GeneratedCell->True],
+ ".  These functions can be evaluated at a specific pH and ionic strength by \
+use of the replacement operator (/.), as illustrated by typing \
+atp/.pH->7/.is->.1 or atp/.pH->{6,7,8}/.is->{0..1,.25}.  In addition the \
+average number of hydrogen atoms in a reactant at specified pH and ionic \
+strength can be calculated by taking the derivative of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox["G", "\[Prime]\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]],
+  GeneratedCell->True],
+ " with respect to pH.  For example, the number of hydrogen atoms bound by \
+ATP at pH 7 and 0.10 M ionic strength is given by \n\
+(1/RTLog[10])*D[atp,pH]/.pH->7/.is->.1.  \n\tIn writing chemical equations \
+and biochemical equations it is important to be careful with names of \
+reactants.  Chemical reactions are written in terms of species.  In chemical \
+reaction equations, atoms of all elements and electric charges must balance.  \
+Biochemical reaction equations are written in terms of reactants, that is in \
+terms of sums of species, ",
+ Cell[BoxData[
+  SuperscriptBox["H", "+"]]],
+ "is not included as a reactant and electric charges are not shown or \
+balanced.  In biochemical reaction equations, atoms of all elements other \
+than hydrogen must balance.  The names of the reactants that must be used in \
+making calculations with this data base are given later. \n\t The program ",
+ StyleBox["calctrGerx",
+  FontWeight->"Bold"],
+ " can be used to calculate the standard transformed Gibbs energy of reaction \
+",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["r",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox["G", "\[Prime]\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]],
+  GeneratedCell->True],
+ "for a biochemical reaction in the form atp+h2o+de=adp+pi, where de is \
+required for the ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " operation Solve.  The desired pHs and ionic strengths can be specified.  \
+The program ",
+ StyleBox["calckprime",
+  FontWeight->"Bold"],
+ " can be used to calculate the apparent equilibrium constant ",
+ StyleBox["K",
+  FontSlant->"Italic"],
+ "' for a reaction at desired pHs and ionic strengths.  The program ",
+ StyleBox["calctrGerx",
+  FontWeight->"Bold"],
+ " can also be used to calculate ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox["H", "\[Prime]\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]],
+  GeneratedCell->True],
+ "by typing in a biochemical reaction in the form atph+h2oh+de=adph+pih.    \n\
+\tWhen oxidation and reduction are involved in an enzyme-catalyzed reaction, \
+the standard apparent reduction potential for a half reaction can be \
+calculated by typing the half reaction in ",
+ StyleBox["calcappredpot ",
+  FontWeight->"Bold"],
+ StyleBox["and specifying the pHs and ionic strengths",
+  FontVariations->{"CompatibilityType"->0}],
+ ".  \n\tThe mathematical functions for the standard transformed Gibbs \
+energies of formation of biochemical reactants contain information about the \
+average number of hydrogen atoms bound, as mentioned above.  The change in \
+binding of hydrogen atoms in a biochemical reaction can be calculated by \
+taking the difference between products and reactants, but in using ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " there is an easier way and that is to take the derivative of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["r",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox["G", "\[Prime]\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]],
+  GeneratedCell->True],
+ "with respect to pH:  \n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["r",
+      SingleLetterItalics->False]], 
+    SubscriptBox["N", "H"]}], TraditionalForm]]],
+ "= (1/",
+ StyleBox["RT",
+  FontSlant->"Italic"],
+ "ln(10))(d",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["r",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox["G", "\[Prime]\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]],
+  GeneratedCell->True],
+ "/dpH)\t\t\t\t\t\t\t\t\t\t(3)  \n\tThe equilibrium composition for an \
+enzyme-catalyzed reaction or a series of enzyme-catalyzed reactions can be \
+calculated by using ",
+ StyleBox["equcalcc",
+  FontWeight->"Bold"],
+ " or ",
+ StyleBox["equcalccrx",
+  FontWeight->"Bold"],
+ ".  The first of these programs requires a conservation matrix.  The second \
+requires a stoichiometric matrix.  The second program is recommended, \
+especially when water is involved as a reactant, because the convention that \
+when dilute aqueous solutions are considered, the activity of water is taken \
+to be unity, means that a second Legendre transform is necessary.   \n\tThis \
+version of the package provides eleven additional programs.  One of the \
+prgrams ",
+ StyleBox["calcdGHT",
+  FontWeight->"Bold"],
+ " makes it possible to take the effect of temperature into account if \
+enthalpy data are available (ref. 6).  The uses of these programs are \
+illustrated in the notebook.\n\tSince the standard thermodynamic properties \
+of adenosine have been determined (ref. 7), new values are given for the ATP \
+series.  These changes do not change the values of apparent equilibrium \
+constants that are calculated between reactants in this series, but will be \
+useful in investigating the production of adenosine..\n\tThe current table \
+can be considerably extended by use of the compilations of Goldberg and \
+Tewari of evaluated equilibrium data on biochemical reactions (ref. 8).  \
+Akers and Goldberg have published \"BioEqCalc; A Package for Performing \
+Equilibrium Calculations in Biohemical Reactions\" (ref. 9).\n\tI am indebted \
+to NIH 5-R01-GM48358 for support of the research that produced these tables \
+and to Robert A. Goldberg and Ian Brooks for many helpful discussions.\n\t\
+References:\n1.  Alberty, R. A. Biophys. Chem. ",
+ StyleBox["1992",
+  FontWeight->"Bold"],
+ " 42, 117; ",
+ StyleBox["1992",
+  FontWeight->"Bold"],
+ " 43, 239.\t\n2.  Alberty, R. A.; Goldberg, R. N. Biochemistry ",
+ StyleBox["1992",
+  FontWeight->"Bold"],
+ " 31, 10610.\n3.  Alberty, R. A. J. Phys. Chem. ",
+ StyleBox["1992",
+  FontWeight->"Bold"],
+ " 96, 9614.\n4.  Alberty, R. A. Arch. Biochem. Biophys. ",
+ StyleBox["1998",
+  FontWeight->"Bold"],
+ " 353, 116; ",
+ StyleBox["1998",
+  FontWeight->"Bold"],
+ "  358, 25.\n5.  Alberty, R. A. J. Phys. Chem. B ",
+ StyleBox["2001",
+  FontWeight->"Bold"],
+ " 105, 7865.\n6.  Boerio-Goates, J.; Francis, M. R.; Goldberg, R. N.; \
+Ribeiro da Silva, M. A. V.; Ribeiro da Silva, M. D. M. C.; Tewari, Y.  J. \
+Chem. Thermo. ",
+ StyleBox["2001",
+  FontWeight->"Bold"],
+ " 33, 929.\n7.  Goldberg, R. N. J. Phys. Chem. Ref. Data ",
+ StyleBox["1999",
+  FontWeight->"Bold"],
+ " 28, 931 and earlier articles in this series. \n8.  Akers, D. L.; Goldberg, \
+R. N. ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " J. ",
+ StyleBox["2001",
+  FontWeight->"Bold"],
+ " 8, 1.  (URL: http://www.mathematica-journal.com/issue/v8i1/)"
+}], "Text",
+ InitializationGroup->True,
+ CellChangeTimes->{{3.528829467900322*^9, 3.528829468724018*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Off", "[", 
+     RowBox[{
+      RowBox[{"General", "::", "spell"}], ",", 
+      RowBox[{"General", "::", "spell1"}]}], "]"}], ";"}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"calcdGmat", "::", "usage"}], "=", 
+     "\"\<calcdGmat[speciesmat_] produces the function of pH and ionic \
+strength (is) that gives the standard transformed Gibbs energy of formation \
+of a reactant (sum of species) at 298.15 K.  The input speciesmat is a matrix \
+that gives the standard Gibbs energy of formation, the standard enthalpy of \
+formation, the electric charge, and the number of hydrogen atoms in each \
+species. There is a row in the matrix for each species of the reactant. \
+gpfnsp is a list of the functions for the species.  Energies are expressed in \
+kJ mol^-1.\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"calcdG3I", "::", "usage"}], "=", 
+      "\"\<calcdG3I[reactantname_] produces the standard transformed Gibbs \
+energies of formation at 298 K, pH 7, and ionic strengths of 0, 0.10, and \
+0.25 M.  The reactant name calls a function of pH and ionic strength or a \
+constant.\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"calcdG5pH", "::", "usage"}], "=", 
+      "\"\<calcG5pH[reactantname_] produces the standard transformed Gibbs \
+energies of formation at 298 K, ionic strength 0.25 M and pHs 5, 6, 7, 8, and \
+9.  The reactant name calls a function of pH and ionic strength.\>\""}], 
+     ";"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"calcdHmat", "::", "usage"}], "=", 
+     "\"\<calcdHmat[speciesmat_] produces the function of pH and ionic \
+strength that gives the standard transformed enthalpy of formation of a \
+reactant (sum of species) at 298.15 K.  The input is a matrix that gives the \
+standard Gibbs energy of formation,the standard enthalpy of formation, the \
+electric charge,and the number of hydrogen atoms in the species in the \
+reactant.  There is a row in the matrix for each species of the reactant.  \
+dhfnsp is a list of the functions for the species.  Energies are expressed in \
+kJ mol^-1.\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"calcdH3I", "::", "usage"}], "=", 
+      "\"\<calcdH3I[reactanth_] produces the standard transformed enthalpies \
+of formation at 298 K,pH 7,and ionic strengths of 0,0.10,and 0.25 M.The \
+reactanth name calls a function of pH and ionic strength or a \
+constant.\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"calcdH5pH", "::", "usage"}], "=", 
+      "\"\<calcdHpH[reactanth_] produces the standard transformed enthalpies \
+of formation at 298 K, ionic strength 0.25 M and pHs 5, 6, 7, 8, and 9.  The \
+reactanth name with hf calls a function of pH and ionic strength or a \
+constant.\>\""}], ";"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"calctrGerx", "::", "usage"}], "=", 
+      "\"\<calctrGerx[eq_,pHlist_,islist_] produces the standard transformed \
+Gibbs energy of reaction in kJ mol^-1 at specified pHs and ionic strengths \
+for a biochemical equation typed in the form atp+h2o+de==adp+pi.  The names \
+of the reactants call the corresponding functions of pH and ionic strength. \
+pHlist and islist can be lists.\>\""}], ";"}], "*)"}], "\[IndentingNewLine]", 
+   
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"calckprime", "::", "usage"}], "=", 
+      "\"\<calckprime[eq_,pHlist_,islist_] produces the apparent equilibrium \
+constant K' at specified pHs and ionic strengths for a biochemical equation \
+typed in the form atp+h2o+de==adp+pi.  The names of the reactants call the \
+corresponding functions of pH and ionic strength. pHlist and islist can be \
+lists.\>\""}], ";"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"calcpK", "::", "usage"}], "=", 
+     "\"\<calcpK[speciesmat_,no_,is_] calculates pKs of weak acids.\>\""}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"calcdGHT", "::", "usage"}], "=", 
+     "\"\<calcdGHT[speciesmat_] calculates the effect of temperature on \
+transformed thermodynamic properties.\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"calcGef1sp", "::", "usage"}], "=", 
+      "\"\<calcGef1sp[equat_,pH_,ionstr_,z1_,nH1_] calculates the standard \
+Gibbs energy of formation of the species of a reactant made up of a single \
+species.\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"calcGef2sp", "::", "usage"}], "=", 
+      "\"\<calcGef2sp[equat_,pH_,ionstr_,z1_,nH1_,pK0_] calculates the \
+standard Gibbs energies of formation of the two species of a reactant made up \
+of a two species.\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"calcGef3sp", "::", "usage"}], "=", 
+      "\"\<calcGef3sp[equat_,pH_,ionstr_,z1_,nH1_,pK10_,pK20] calculates the \
+standard Gibbs energies of formation of the three species of a reactant made \
+up of a three species.\>\""}], ";"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"calcNHrx", "::", "usage"}], "=", 
+      "\"\<calcNHrx[eq_,pHlist_,islist_] calculates the change in binding of \
+hydrogen ions in a biochemical reaction.\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"rxthermotab", "::", "usage"}], "=", 
+      "\"\<rxthermotab[eq_,pHlist_,islist_] calculates a table of standard \
+transformed reaction Gibbs energies, apparent equilibrium constants, and \
+changes in binding of hydrogen ions in a biochemical reaction.\>\""}], ";"}], 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"round", "::", "usage"}], "=", 
+      "\"\<round[vec_,params_:{4,2}] rounds to the desired number of \
+digits.\>\""}], ";"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"mkeqm", "::", "usage"}], "=", 
+      "\"\<mkeqm[c_List,s_List] types out a biochemical reaction from its \
+stoichiometric number vector.\>\""}], ";"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"nameMatrix", "::", "usage"}], "=", 
+      "\"\<nameMatrix[m_List,s_List] types out the biochemical reactions in a \
+system of biochemical reactions from the stoichiometric number matrix.\>\""}],
+      ";"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"calcappredpot", "::", "usage"}], "=", 
+      "\"\<calcappredpot[eq_,nu_,pHlist_,islist_] calculates the standard \
+apparent reduction potential of a half reaction at the desired pH and ionic \
+strength.\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"equcalcc", "::", "usage"}], "=", 
+      "\"\<equcalcc[as_,lnk_,no_] calculates the equilibrium composition for \
+a biochemical reaction or a series of biochemical reactions, given the \
+conservation matrix, a list of transformed Gibbs energies of formation, and a \
+list of initial concentrations of reactants.\>\""}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"equcalcrx", "::", "usage"}], "=", 
+      "\"\<equcalcrx[nt_,lnkr_,no_] calculates the equilibrium composition \
+for a biochemical reaction or a series of biochemical reactions, given the \
+transposed stoichiometric number matrix, the apparent equilibrium constants \
+of the reactons, and a list of initial concentrations of reactants.\>\""}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"listfnpHis", "::", "usage"}], "=", 
+      "\"\<listfnpHis is a list of functions, like atp, that gives the \
+standard transformed Gibbs energies of formation of reactants.\>\""}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"listspeciesdata", "::", "usage"}], "=", 
+      "\"\<listspeciesdata is a list of names, like atpsp, of data files on \
+the species of a reactant.\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"listdG3I", "::", "usage"}], "=", 
+      "\"\<listdG3I is a list of vectors, like atpis, that give the values of \
+the standard transformed Gibbs energies of formation at pH 7 and 3 ionic \
+strengths.\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"list", "::", "usage"}], "=", 
+      "\"\<list is a list of names of reactants, each in quotation \
+marks.\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"listreactantspH", "::", "usage"}], "=", 
+      "\"\<listreactantspH is a list of vectors, like atppH,that give the \
+values of the standard transformed Gibbs energy of formation of a reactant at \
+5 pH values.\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"listreactantsh", "::", "usage"}], "=", 
+      "\"\<listreactantsh is a list of the names in quotation marks for the \
+reactants for which the standard transformed enthalpy of formation is \
+calculated.\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"listhisreactants", "::", "usage"}], "=", 
+      "\"\<listhisreactants is a vector of the values of standard transformed \
+enthalpies of formation of reactants at three ionic strengths.\>\""}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"listfnpHish", "::", "usage"}], "=", 
+      "\"\<listfnpHish is a function of pH and ionic strength that gives the \
+standard transformed enthalpy of formation of a reactant.\>\""}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"listspeciesdatah", "::", "usage"}], "=", 
+      "\"\<listspeciesdatah is a list of names, like atpsp, of data files on \
+the species of a reactant for which the enthalpy is known.\>\""}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"listhpHreactants", " ", "::", "usage"}], "=", 
+      "\"\<listhpHreactants is a list of names of reactants, like atphpH, \
+that give the values of the standard transformed enthalpy of formation at 5 \
+pH values.\>\""}], ";"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Protect", "[", "pH", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"pH", "::", "usage"}], "=", 
+     "\"\<pH is an independent variable.\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Protect", "[", "is", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"is", "::", "usage"}], "=", 
+     "\"\<is is ionic strength, which is an independent variable.\>\""}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Protect", "[", "T", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"T", "::", "usage"}], "=", "\"\<Temperature in Kelvin.\>\""}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"atp", "::", "usage"}], "=", 
+      "\"\<atp is the name of a reactant that yields a function of pH and \
+ionic strength for the standard transformed Gibbs energy of formation.\>\""}],
+      ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"atpsp", "::", "usage"}], "=", 
+      "\"\<atpsp yields the basic data on the species of the reactant.\>\""}],
+      ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"atpis", "::", "usage"}], "=", 
+      "\"\<atpis yields the standard transformed Gibbs energy of a reactant \
+at 3 values of the ionic strength.\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"atppH", "::", "usage"}], "=", 
+      "\"\<atppH yields the standard transformed Gibbs energy of a reactant \
+at 5 values of the ionic strength.\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"atph", "::", "usage"}], "=", 
+      "\"\<atph yields the function of pH and ionic strength that gives the \
+standard transformed enthalpy of formation of atp.\>\""}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"atphis", "::", "usage"}], "=", 
+      "\"\<atphis yields the standard transformed enthaply of atp at 3 ionic \
+strengths.\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"atphpH", "::", "usage"}], "=", 
+      "\"\<atphis yields the standard transformed enthaply of atp at 5 pH \
+values.\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"table1", "::", "usage"}], "=", 
+      "\"\<table1 produces a table of standard transformed Gibbs energies of \
+formation of reactants at pH 7 and ionic strengths of 0, 0.10, and 0.25 \
+M.\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"table2", "::", "usage"}], "=", 
+      "\"\<table2 produces a table of standard transformed Gibbs energies of \
+formation of reactants at ionic strength 0.25 M and pHs of 5, 6, 7, 8, and 9.\
+\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"table3", "::", "usage"}], "=", 
+      "\"\<table3 produces a table of standard transformed enthalpies of \
+formation of reactants at pH 7 and ionic strengths of 0, 0.10, and 0.25 \
+M.\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"table4", "::", "usage"}], "=", 
+      "\"\<table4 produces a table of standard transformed enthalpies of \
+formation of reactants atonic strengths 0.25 M and pHs of 5, 6, 7, 8, and \
+9.\>\""}], ";"}], "*)"}]}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{
+  3.528829472365747*^9, {3.528829503749496*^9, 3.528829513856024*^9}, {
+   3.528829572548387*^9, 3.5288295801105423`*^9}, {3.528829614505158*^9, 
+   3.528829649927598*^9}, {3.5288297053629627`*^9, 3.52882972091961*^9}, {
+   3.528830121420807*^9, 3.528830164349348*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Begin", "[", "\"\<BasicBiochemData2`Private`\>\"", "]"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Modified", " ", "by", " ", "Niko", " ", "Sonnenschein", " ", 
+    RowBox[{"(", 
+     RowBox[{
+     "move", " ", "Private", " ", "after", " ", "species", " ", "data", " ", 
+      "section"}], ")"}], " ", 
+    RowBox[{
+     RowBox[{"06", "/", "16"}], "/", "11"}]}], "*)"}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.5172507168954697`*^9, 3.51725075284835*^9}, {
+  3.517250999790949*^9, 3.517251017932778*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Begin", "[", "\"\<Private`\>\"", "]"}]], "Input",
+ InitializationGroup->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["2.0  Basic data on the species that make up a \
+reactant.",
+ FontSize->14,
+ FontWeight->"Bold"]], "Section",
+ InitializationGroup->True],
+
+Cell[TextData[{
+ "These thermodynamic values are based on the usual conventions of chemical \
+thermodynamic tables that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox["G", "\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]]],
+ "= ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox["H", "\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]]],
+ "= 0 for elements in defined reference states and for ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox[
+    StyleBox["H",
+     FontSlant->"Plain"], "+"], TraditionalForm]]],
+ "(",
+ StyleBox["a",
+  FontSlant->"Italic"],
+ "=1).  Additional conventions are that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox["G", "\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]]],
+ "= ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      SingleLetterItalics->False]], 
+    AdjustmentBox[
+     SuperscriptBox["H", "\[EmptySmallCircle]"],
+     BoxMargins->{{-0.142857, 0.142857}, {0, 0}}]}], TraditionalForm]]],
+ "= 0 for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["coA", "-"], ",", " ", 
+    SuperscriptBox[
+     SubscriptBox["FAD", "ox"], 
+     RowBox[{"2", "-"}]], ",", " ", 
+    SuperscriptBox["FADenz", 
+     RowBox[{"2", "-"}]], ",", 
+    SuperscriptBox["cytochromec", 
+     RowBox[{"3", "+"}]], ",", " ", 
+    SuperscriptBox[
+     SubscriptBox["ferredoxin", "ox"], 
+     RowBox[{"-", "4"}]], ",", " ", 
+    SuperscriptBox["FMN", 
+     RowBox[{"2", "-"}]], ",", " ", 
+    SuperscriptBox[
+     SubscriptBox["glutathiome", "ox"], 
+     RowBox[{"2", "-"}]], ",", " ", 
+    SuperscriptBox[
+     SubscriptBox["NAD", "ox"], 
+     RowBox[{"-", "1"}]], ",", " ", 
+    SuperscriptBox[
+     SubscriptBox["NADP", "ox"], 
+     RowBox[{"3", "-"}]], ",", " ", 
+    SuperscriptBox["retinal", "0"], ",", " ", 
+    SuperscriptBox[
+     SubscriptBox["thioredoxin", "ox"], "0"], ",", " ", 
+    RowBox[{"and", " ", 
+     RowBox[{
+      SuperscriptBox[
+       SubscriptBox["ubiquinone", "ox"], "0"], "."}]}]}], TraditionalForm]]],
+ "  "
+}], "Text",
+ InitializationGroup->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["3.0  Calculation of the functions of pH and ionic strength for the \
+standard transformed Gibbs energy of formation of reactants",
+  FontSize->14,
+  FontWeight->"Bold"],
+ "."
+}], "Section",
+ InitializationGroup->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"calcdGmat", "[", "speciesmat_", "]"}], " ", ":=", " ", "\n", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "dGzero", ",", " ", "zi", ",", " ", "nH", ",", " ", "pHterm", ",", " ", 
+      "isterm", ",", "gpfnsp"}], "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+      "This", " ", "program", " ", "produces", " ", "the", " ", "function", 
+       " ", "of", " ", "pH", " ", "and", " ", "ionic", " ", "strength", " ", 
+       RowBox[{"(", "is", ")"}], " ", "that", " ", "gives", " ", "the", " ", 
+       "standard", " ", "transformed", " ", "Gibbs", " ", "energy", " ", "of",
+        " ", "formation", " ", "of", " ", "a", " ", "reactant", " ", 
+       RowBox[{"(", 
+        RowBox[{"sum", " ", "of", " ", "species"}], ")"}], " ", "at", " ", 
+       "298.15", " ", 
+       RowBox[{"K", ".", "  ", "The"}], " ", "input", " ", "speciesmat", " ", 
+       "is", " ", "a", " ", "matrix", " ", "that", " ", "gives", " ", "the", 
+       " ", "standard", " ", "Gibbs", " ", "energy", " ", "of", " ", 
+       "formation"}], ",", " ", 
+      RowBox[{
+      "the", " ", "standard", " ", "enthalpy", " ", "of", " ", "formation"}], 
+      ",", " ", 
+      RowBox[{"the", " ", "electric", " ", "charge"}], ",", " ", 
+      RowBox[{
+      "and", " ", "the", " ", "number", " ", "of", " ", "hydrogen", " ", 
+       "atoms", " ", "in", " ", "each", " ", 
+       RowBox[{"species", ".", " ", "There"}], " ", "is", " ", "a", " ", 
+       "row", " ", "in", " ", "the", " ", "matrix", " ", "for", " ", "each", 
+       " ", "species", " ", "of", " ", "the", " ", 
+       RowBox[{"reactant", ".", " ", "gpfnsp"}], " ", "is", " ", "a", " ", 
+       "list", " ", "of", " ", "the", " ", "functions", " ", "for", " ", 
+       "the", " ", 
+       RowBox[{"species", ".", "  ", "Energies"}], " ", "are", " ", 
+       "expressed", " ", "in", " ", "kJ", " ", 
+       RowBox[{"mol", "^", 
+        RowBox[{"-", "1."}]}]}]}], "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"dGzero", " ", "=", " ", 
+      RowBox[{"speciesmat", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", "\n", 
+     RowBox[{"zi", " ", "=", " ", 
+      RowBox[{"speciesmat", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "3"}], "]"}], "]"}]}], ";", "\n", 
+     RowBox[{"nH", " ", "=", " ", 
+      RowBox[{"speciesmat", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "4"}], "]"}], "]"}]}], ";", "\n", 
+     RowBox[{"pHterm", " ", "=", " ", 
+      RowBox[{"nH", "*", "8.31451", "*", ".29815", "*", 
+       RowBox[{"Log", "[", 
+        RowBox[{"10", "^", 
+         RowBox[{"-", "pH"}]}], "]"}]}]}], ";", "\n", 
+     RowBox[{"isterm", " ", "=", " ", 
+      RowBox[{"2.91482", "*", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"zi", "^", "2"}], ")"}], " ", "-", " ", "nH"}], ")"}], "*", 
+       
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"is", "^", ".5"}], ")"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"1", " ", "+", " ", 
+          RowBox[{"1.6", "*", 
+           RowBox[{"is", "^", ".5"}]}]}], ")"}]}]}]}], ";", "\n", 
+     RowBox[{"gpfnsp", "=", 
+      RowBox[{"dGzero", " ", "-", " ", "pHterm", " ", "-", " ", "isterm"}]}], 
+     ";", "\n", 
+     RowBox[{
+      RowBox[{"-", "8.31451"}], "*", ".29815", "*", 
+      RowBox[{"Log", "[", 
+       RowBox[{"Apply", "[", 
+        RowBox[{"Plus", ",", 
+         RowBox[{"Exp", "[", 
+          RowBox[{
+           RowBox[{"-", "1"}], "*", 
+           RowBox[{"gpfnsp", "/", 
+            RowBox[{"(", 
+             RowBox[{"8.31451", "*", ".29815"}], ")"}]}]}], "]"}]}], "]"}], 
+       "]"}]}]}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.528829386229815*^9, 3.528829386231764*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["6.0  Calculation of the functions of pH and ionic \
+strength for the standard transformed enthalpies of formation of reactants",
+ FontSize->14,
+ FontWeight->"Bold"]], "Section",
+ InitializationGroup->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"calcdHmat", "[", "speciesmat_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "dHzero", ",", "zi", ",", "nH", ",", "dhfnsp", ",", "dGzero", ",", 
+      "pHterm", ",", "isenth", ",", "dgfnsp", ",", "dGreactant", ",", "ri", 
+      ",", "gpfnsp"}], "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+      "This", " ", "program", " ", "produces", " ", "the", " ", "function", 
+       " ", "of", " ", "ionic", " ", "strength", " ", 
+       RowBox[{"(", "is", ")"}], "that", " ", "gives", " ", "the", " ", 
+       "standard", " ", "transformed", " ", "enthalpy", " ", "of", " ", 
+       "formation", " ", "of", " ", "a", " ", "reactant", " ", 
+       RowBox[{"(", 
+        RowBox[{"sum", " ", "of", " ", "species"}], ")"}], " ", "at", " ", 
+       "298.15", " ", 
+       RowBox[{"K", ".", "  ", "The"}], " ", "input", " ", "is", " ", "a", 
+       " ", "matrix", " ", "that", " ", "gives", " ", "the", " ", "standard", 
+       " ", "Gibbs", " ", "energy", " ", "of", " ", "formation"}], ",", 
+      RowBox[{
+      "the", " ", "standard", " ", "enthalpy", " ", "of", " ", "formation"}], 
+      ",", " ", 
+      RowBox[{"the", " ", "electric", " ", "charge"}], ",", 
+      RowBox[{
+      "and", " ", "the", " ", "number", " ", "of", " ", "hydrogen", " ", 
+       "atoms", " ", "in", " ", "the", " ", "species", " ", "in", " ", "the", 
+       " ", 
+       RowBox[{"reactant", ".", "  ", "There"}], " ", "is", " ", "a", " ", 
+       "row", " ", "in", " ", "the", " ", "matrix", " ", "for", " ", "each", 
+       " ", "species", " ", "of", " ", "the", " ", 
+       RowBox[{"reactant", ".", "  ", "dhfnsp"}], " ", "is", " ", "a", " ", 
+       "list", " ", "of", " ", "the", " ", "functions", " ", "for", " ", 
+       "the", " ", 
+       RowBox[{"species", ".", "  ", "Energies"}], " ", "are", " ", 
+       "expressed", " ", "in", " ", "kJ", " ", 
+       RowBox[{"mol", "^", 
+        RowBox[{"-", "1."}]}]}]}], "*)"}], "\n", "\t", 
+    RowBox[{
+     RowBox[{"dHzero", "=", 
+      RowBox[{"speciesmat", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", "\n", "\t", 
+     RowBox[{"zi", "=", 
+      RowBox[{"speciesmat", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "3"}], "]"}], "]"}]}], ";", "\n", "\t", 
+     RowBox[{"nH", "=", 
+      RowBox[{"speciesmat", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "4"}], "]"}], "]"}]}], ";", "\n", "\t", 
+     RowBox[{"isenth", "=", 
+      RowBox[{"1.4775", "*", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"zi", "^", "2"}], ")"}], "-", "nH"}], ")"}], "*", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"is", "^", ".5"}], ")"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"1", "+", 
+          RowBox[{"1.6", "*", 
+           RowBox[{"is", "^", ".5"}]}]}], ")"}]}]}]}], ";", "\n", "\t", 
+     RowBox[{"dhfnsp", "=", 
+      RowBox[{"dHzero", "+", "isenth"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "Now", " ", "calculate", " ", "the", " ", "functions", " ", "for", " ", 
+       "the", " ", "standard", " ", "Gibbs", " ", "energies", " ", "of", " ", 
+       "formation", " ", "of", " ", "the", " ", 
+       RowBox[{"species", "."}]}], "*)"}], "\[IndentingNewLine]", " ", 
+     RowBox[{"dGzero", "=", 
+      RowBox[{"speciesmat", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"pHterm", "=", 
+      RowBox[{"nH", "*", "8.31451", "*", ".29815", "*", 
+       RowBox[{"Log", "[", 
+        RowBox[{"10", "^", 
+         RowBox[{"-", "pH"}]}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"gpfnsp", "=", 
+      RowBox[{"dGzero", "-", "pHterm", "-", 
+       RowBox[{"isenth", "*", 
+        RowBox[{"2.91482", "/", "1.44775"}]}]}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "Now", " ", "calculate", " ", "the", " ", "standard", " ", 
+       "transformed", " ", "Gibbs", " ", "energy", " ", "of", " ", 
+       "formation", " ", "for", " ", "the", " ", 
+       RowBox[{"reactant", "."}]}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"dGreactant", "=", 
+      RowBox[{
+       RowBox[{"-", "8.31451"}], "*", ".29815", "*", 
+       RowBox[{"Log", "[", 
+        RowBox[{"Apply", "[", 
+         RowBox[{"Plus", ",", 
+          RowBox[{"Exp", "[", 
+           RowBox[{
+            RowBox[{"-", "1"}], "*", 
+            RowBox[{"gpfnsp", "/", 
+             RowBox[{"(", 
+              RowBox[{"8.31451", "*", ".29815"}], ")"}]}]}], "]"}]}], "]"}], 
+        "]"}]}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{
+       "Now", " ", "calculate", " ", "the", " ", "equilibrium", " ", "mole", 
+        " ", "fractions", " ", "of", " ", "the", " ", "species", " ", "in", 
+        " ", "the", " ", "reactant", " ", "and", " ", "the", " ", "mole", " ",
+         "fraction"}], "-", 
+       RowBox[{
+       "weighted", " ", "average", " ", "of", " ", "the", " ", "functions", 
+        " ", "for", " ", "the", " ", "standard", " ", "transformed", " ", 
+        "enthalpies", " ", "of", " ", "the", " ", 
+        RowBox[{"species", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"ri", "=", 
+      RowBox[{"Exp", "[", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"dGreactant", "-", "gpfnsp"}], ")"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"8.31451", "*", ".29815"}], ")"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"ri", ".", "dhfnsp"}]}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.528829847898018*^9, 3.528829848169025*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["7.0  Calculation of a table of standard transformed \
+enthalpies of formation of reactants at pH 7 and ionic strengths of 0, 0.10, \
+and 0.25 M",
+ FontSize->14,
+ FontWeight->"Bold"]], "Section",
+ InitializationGroup->True],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"calcdH3I", "[", "reactanth_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"out1", ",", "out2", ",", "out3"}], "}"}], ",", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+        "This", " ", "program", " ", "calculates", " ", "the", " ", 
+         "standard", " ", "transformed", " ", "enthalpies", " ", "of", " ", 
+         "formation", " ", "at", " ", "298", " ", "K"}], ",", " ", 
+        RowBox[{"pH", " ", "7"}], ",", " ", 
+        RowBox[{"and", " ", "ionic", " ", "strengths", " ", "of", " ", "0"}], 
+        ",", " ", "0.10", ",", " ", 
+        RowBox[{"and", " ", "0.25", " ", 
+         RowBox[{"M", ".", "  ", "The"}], " ", "reactanth", " ", "name", " ", 
+         "calls", " ", "a", " ", "function", " ", "of", " ", "pH", " ", "and",
+          " ", "ionic", " ", "strength", " ", "or", " ", "a", " ", 
+         RowBox[{"constant", "."}]}]}], "*)"}], "\n", 
+      RowBox[{
+       RowBox[{"out1", "=", 
+        RowBox[{"reactanth", "/.", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"pH", "->", "7"}], ",", 
+           RowBox[{"is", "->", "0"}]}], "}"}]}]}], ";", "\n", 
+       RowBox[{"out2", "=", 
+        RowBox[{"reactanth", "/.", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"pH", "->", "7"}], ",", 
+           RowBox[{"is", "->", ".1"}]}], "}"}]}]}], ";", "\n", 
+       RowBox[{"out3", "=", 
+        RowBox[{"reactanth", "/.", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"pH", "->", "7"}], ",", 
+           RowBox[{"is", "->", ".25"}]}], "}"}]}]}], ";", "\n", 
+       RowBox[{"{", 
+        RowBox[{"out1", ",", "out2", ",", "out3"}], "}"}]}]}], "]"}]}], ";"}],
+   "*)"}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.5288298853021097`*^9, 3.528829885303453*^9}, 
+   3.5288305058479843`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["8.0  Calculation of the standard transformed \
+enthalpies of formation of reactants at pH 5, 6, 7, 8, and 9 and ionic \
+strength 0.25 M",
+ FontSize->14,
+ FontWeight->"Bold"]], "Section",
+ InitializationGroup->True],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"calcdH5pH", "[", "reactanth_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"out1", ",", "out2", ",", "out3", ",", "out4", ",", "out5"}], 
+       "}"}], ",", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+        "This", " ", "program", " ", "calculates", " ", "the", " ", 
+         "standard", " ", "transformed", " ", "enthalpies", " ", "of", " ", 
+         "formation", " ", "at", " ", "298", " ", "K"}], ",", " ", 
+        RowBox[{
+        "ionic", " ", "strength", " ", "0.25", " ", "M", " ", "and", " ", 
+         "pHs", " ", "5"}], ",", " ", "6", ",", " ", "7", ",", " ", "8", ",", 
+        " ", 
+        RowBox[{
+        "and", " ", "9.", "  ", "The", " ", "reactanth", " ", "name", " ", 
+         "calls", " ", "a", " ", "function", " ", "of", " ", "pH", " ", "and",
+          " ", "ionic", " ", "strength", " ", "or", " ", "a", " ", 
+         RowBox[{"constant", "."}]}]}], "*)"}], "\n", 
+      RowBox[{
+       RowBox[{"out1", "=", 
+        RowBox[{"reactanth", "/.", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"pH", "->", "5"}], ",", 
+           RowBox[{"is", "->", ".25"}]}], "}"}]}]}], ";", "\n", 
+       RowBox[{"out2", "=", 
+        RowBox[{"reactanth", "/.", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"pH", "->", "6"}], ",", 
+           RowBox[{"is", "->", ".25"}]}], "}"}]}]}], ";", "\n", 
+       RowBox[{"out3", "=", 
+        RowBox[{"reactanth", "/.", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"pH", "->", "7"}], ",", 
+           RowBox[{"is", "->", ".25"}]}], "}"}]}]}], ";", "\n", 
+       RowBox[{"out4", "=", 
+        RowBox[{"reactanth", "/.", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"pH", "->", "8"}], ",", 
+           RowBox[{"is", "->", ".25"}]}], "}"}]}]}], ";", "\n", 
+       RowBox[{"out5", "=", 
+        RowBox[{"reactanth", "/.", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"pH", "->", "9"}], ",", 
+           RowBox[{"is", "->", ".25"}]}], "}"}]}]}], ";", "\n", 
+       RowBox[{"{", 
+        RowBox[{"out1", ",", "out2", ",", "out3", ",", "out4", ",", "out5"}], 
+        "}"}]}]}], "]"}]}], ";"}], "*)"}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.528829898565873*^9, 3.528829898567307*^9}, 
+   3.5288305091841993`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["9.0  Examples of calculations using the database on species", "Section",
+ InitializationGroup->True],
+
+Cell[CellGroupData[{
+
+Cell["9.1 Calculation of pKs of weak acids", "Subsection",
+ InitializationGroup->True],
+
+Cell["\<\
+When weak acids have pKs in the range between 4 to 10, the standard Gibbs \
+energies of formation at 298.15 K and zero ionic strength of the various \
+species are given in the database on species.  In using the program calcpK, \
+it is necessary to give the number associated with the pK.  pKs are numbered \
+1, 2, 3,... from the highest to the lowest in the pH range approximately 4 to \
+10.\
+\>", "Text",
+ InitializationGroup->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"calcpK", "[", 
+   RowBox[{"speciesmat_", ",", " ", "no_", ",", " ", "is_"}], "]"}], " ", ":=",
+   " ", "\n", "  ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"lnkzero", ",", " ", "sigmanuzsq", ",", " ", "lnK"}], "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+      "Calculates", " ", "pKs", " ", "for", " ", "a", " ", "weak", " ", 
+       "acid", " ", "at", " ", "298.15", " ", "K", " ", "at", " ", 
+       "specified", " ", "ionic", " ", "strengths", " ", 
+       RowBox[{"(", "is", ")"}], " ", "when", " ", "the", " ", "number", " ", 
+       "no", " ", "of", " ", "the", " ", "pK", " ", "is", " ", 
+       RowBox[{"specified", ".", "  ", "pKs"}], " ", "are", " ", "numbered", 
+       " ", "1"}], ",", "2", ",", " ", "3", ",", 
+      RowBox[{
+      "...", " ", "from", " ", "the", " ", "highest", " ", "pK", " ", "to", 
+       " ", "the", " ", "lowest", " ", "pK"}], ",", " ", 
+      RowBox[{
+      "but", " ", "the", " ", "highest", " ", "pK", " ", "for", " ", "a", " ",
+        "weak", " ", "acid", " ", "may", " ", "be", " ", "omitted", " ", "if",
+        " ", "it", " ", "is", " ", "outside", " ", "of", " ", "the", " ", 
+       "range", " ", "5", " ", "t0", " ", "9.", "  ", "For", " ", "h3PO4"}], 
+      ",", " ", 
+      RowBox[{"pK1", "=", 
+       RowBox[{
+        RowBox[{"calc", "[", 
+         RowBox[{"pisp", ",", "1", ",", 
+          RowBox[{"{", "0", "}"}]}], "]"}], " ", "=", " ", 
+        RowBox[{"7.22", "."}]}]}]}], "*)"}], " ", "\n", "   ", 
+    RowBox[{
+     RowBox[{"lnkzero", " ", "=", " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"speciesmat", "[", 
+          RowBox[{"[", 
+           RowBox[{
+            RowBox[{"no", " ", "+", " ", "1"}], ",", "1"}], "]"}], "]"}], " ",
+          "-", " ", 
+         RowBox[{"speciesmat", "[", 
+          RowBox[{"[", 
+           RowBox[{"no", ",", "1"}], "]"}], "]"}]}], ")"}], "/", "\n", 
+       "      ", 
+       RowBox[{"(", 
+        RowBox[{"8.31451", "*", "0.29815"}], ")"}]}]}], ";", " ", 
+     RowBox[{"sigmanuzsq", " ", "=", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"speciesmat", "[", 
+         RowBox[{"[", 
+          RowBox[{"no", ",", "3"}], "]"}], "]"}], "^", "2"}], " ", "-", " ", 
+       "\n", "      ", 
+       RowBox[{
+        RowBox[{"speciesmat", "[", 
+         RowBox[{"[", 
+          RowBox[{
+           RowBox[{"no", " ", "+", " ", "1"}], ",", "3"}], "]"}], "]"}], "^", 
+        "2"}], " ", "+", " ", "1"}]}], ";", " ", "\n", "    ", 
+     RowBox[{"lnK", " ", "=", " ", 
+      RowBox[{"lnkzero", " ", "+", " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1.17582", "*", 
+          RowBox[{"is", "^", "0.5"}], "*", "sigmanuzsq"}], ")"}], "/", "\n", 
+        "       ", 
+        RowBox[{"(", 
+         RowBox[{"1", " ", "+", " ", 
+          RowBox[{"1.6", "*", 
+           RowBox[{"is", "^", "0.5"}]}]}], ")"}]}]}]}], ";", " ", 
+     RowBox[{"N", "[", 
+      RowBox[{"-", 
+       RowBox[{"(", 
+        RowBox[{"lnK", "/", 
+         RowBox[{"Log", "[", "10", "]"}]}], ")"}]}], "]"}]}]}], 
+   "]"}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.528829924158283*^9, 3.528829924159972*^9}},
+ ImageRegion->{{0, 1}, {0, 1}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+9.2  Calculation of changes in thermodynamic properties of reactions\
+\>", "Subsection",
+ InitializationGroup->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"calctrGerx", "[", 
+   RowBox[{"eq_", ",", "pHlist_", ",", "islist_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "energy", "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+       "Calculates", " ", "the", " ", "standard", " ", "transformed", " ", 
+        "Gibbs", " ", "energy", " ", "of", " ", "reaction", " ", "in", " ", 
+        "kJ", " ", 
+        RowBox[{"mol", "^", 
+         RowBox[{"-", "1"}]}], " ", "at", " ", "specified", " ", "pHs", " ", 
+        "and", " ", "ionic", " ", "strengths", " ", "for", " ", "a", " ", 
+        "biochemical", " ", "reaction", " ", "typed", " ", "in", " ", "the", 
+        " ", "form", " ", "atp"}], "+", "h2o", "+", "de"}], "\[Equal]", 
+      RowBox[{"adp", "+", 
+       RowBox[{
+        RowBox[{"pi", ".", "  ", "The"}], " ", "names", " ", "of", " ", 
+        "reactants", " ", "call", " ", "the", " ", "appropriate", " ", 
+        "functions", " ", "of", " ", "pH", " ", "and", " ", "ionic", " ", 
+        RowBox[{"strength", ".", "  ", "pHlist"}], " ", "and", " ", "is", " ",
+         "list", " ", "can", " ", "be", " ", 
+        RowBox[{"lists", "."}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"energy", "=", 
+      RowBox[{"Solve", "[", 
+       RowBox[{"eq", ",", "de"}], "]"}]}], ";", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"energy", "\[LeftDoubleBracket]", 
+        RowBox[{"1", ",", "1", ",", "2"}], "\[RightDoubleBracket]"}], "/.", 
+       "\[InvisibleSpace]", 
+       RowBox[{"pH", "\[Rule]", "pHlist"}]}], "/.", "\[InvisibleSpace]", 
+      RowBox[{"is", "\[Rule]", "islist"}]}]}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ ImageRegion->{{0, 1}, {0, 1}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["9.3  Calculation of apparent equilibrium constants", "Subsection",
+ InitializationGroup->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"calckprime", "[", 
+   RowBox[{"eq_", ",", " ", "pHlist_", ",", " ", "islist_"}], "]"}], " ", ":=",
+   " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"energy", ",", " ", "dG"}], "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+       "Calculates", " ", "the", " ", "apparent", " ", "equilibrium", " ", 
+        "constant", " ", "at", " ", "specified", " ", "pHs", " ", "and", " ", 
+        "ionic", " ", "strengths", " ", "for", " ", "a", " ", "biochemical", 
+        " ", "reaction", " ", "typed", " ", "in", " ", "the", " ", "form", 
+        " ", "atp"}], "+", "h2o", "+", "de"}], "\[Equal]", 
+      RowBox[{"adp", "+", 
+       RowBox[{
+        RowBox[{"pi", ".", "  ", "The"}], " ", "names", " ", "of", " ", 
+        "reactants", " ", "call", " ", "the", " ", "appropriate", " ", 
+        "functions", " ", "of", " ", "pH", " ", "and", " ", "ionic", " ", 
+        RowBox[{"strength", ".", "  ", "pHlist"}], " ", "and", " ", "is", " ",
+         "list", " ", "can", " ", "be", " ", 
+        RowBox[{"lists", "."}]}]}]}], "*)"}], " ", "\n", "   ", 
+    RowBox[{
+     RowBox[{"energy", " ", "=", " ", 
+      RowBox[{"Solve", "[", 
+       RowBox[{"eq", ",", " ", "de"}], "]"}]}], ";", " ", "\n", "    ", 
+     RowBox[{"dG", " ", "=", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"energy", "[", 
+         RowBox[{"[", 
+          RowBox[{"1", ",", "1", ",", "2"}], "]"}], "]"}], " ", "/.", " ", 
+        RowBox[{"pH", " ", "->", " ", "pHlist"}]}], " ", "/.", " ", 
+       RowBox[{"is", " ", "->", " ", "islist"}]}]}], ";", " ", "\n", "    ", 
+     RowBox[{"E", "^", 
+      RowBox[{"(", 
+       RowBox[{"-", 
+        RowBox[{"(", 
+         RowBox[{"dG", "/", 
+          RowBox[{"(", 
+           RowBox[{"8.31451", "*", "0.29815"}], ")"}]}], ")"}]}], ")"}]}]}]}],
+    "]"}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.528829937031756*^9, 3.528829937033217*^9}},
+ ImageRegion->{{0, 1}, {0, 1}}]
+}, Open  ]],
+
+Cell["\<\
+9.4  Calculations of changes in binding of hydrogen ions in biochemical \
+reactions\
+\>", "Subsection",
+ InitializationGroup->True],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+9.5  Calculation of standard transformed reaction Gibbs energies at other \
+temperatures\
+\>", "Subsection",
+ InitializationGroup->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"calcdGHT", "[", "speciesmat_", "]"}], " ", ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "dGzero", ",", " ", "dGzeroT", ",", " ", "dHzero", ",", " ", "\n", 
+      "    ", "zi", ",", " ", "nH", ",", " ", "gibbscoeff", ",", " ", 
+      "pHterm", ",", " ", "isterm", ",", " ", "gpfnsp", ",", " ", "dGfn", ",",
+       " ", "dHfn", ",", "istermG"}], "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+      "This", " ", "program", " ", "produces", " ", "the", " ", "function", 
+       " ", "of", " ", "T", " ", 
+       RowBox[{"(", 
+        RowBox[{"in", " ", "Kelvin"}], ")"}]}], ",", " ", "pH", ",", " ", 
+      RowBox[{"and", " ", "ionic", " ", "strength", " ", 
+       RowBox[{"(", "is", ")"}], " ", "that", " ", "gives", " ", "the", " ", 
+       "stndard", " ", "transformed", " ", "Gibbs", " ", "energy", " ", "of", 
+       " ", "formation", " ", "of", " ", "a", " ", "reactant", " ", 
+       RowBox[{"(", 
+        RowBox[{"sum", " ", "of", " ", "species"}], ")"}], " ", "and", " ", 
+       "the", " ", "standard", " ", "transformed", " ", 
+       RowBox[{"enthalpy", ".", "  ", "The"}], " ", "input", " ", 
+       "speciesmat", " ", "is", " ", "a", " ", "matrix", " ", "that", " ", 
+       "gives", " ", "the", " ", "standard", " ", "Gibbs", " ", "energy", " ",
+        "of", " ", "formation", " ", "at", " ", "198.15", " ", "K"}], ",", 
+      " ", 
+      RowBox[{
+      "the", " ", "standard", " ", "enthalpy", " ", "of", " ", "formation", 
+       " ", "at", " ", "298.15", " ", "K"}], ",", " ", 
+      RowBox[{"the", " ", "electric", " ", "charge"}], ",", " ", 
+      RowBox[{
+      "and", " ", "the", " ", "number", " ", "of", " ", "hydrogen", " ", 
+       "atoms", " ", "in", " ", "each", " ", 
+       RowBox[{"species", ".", "  ", "There"}], " ", "is", " ", "a", " ", 
+       "row", " ", "in", " ", "the", " ", "matrix", " ", "for", " ", "each", 
+       " ", "species", " ", "of", " ", "the", " ", 
+       RowBox[{"reactant", ".", "  ", "gpfnsp"}], " ", "is", " ", "a", " ", 
+       "list", " ", "of", " ", "the", " ", "functions", " ", "for", " ", 
+       "the", " ", "transformed", " ", "Gibbs", " ", "energies", " ", "of", 
+       " ", "the", " ", 
+       RowBox[{"species", ".", "  ", "The"}], " ", "output", " ", "is", " ", 
+       "in", " ", "the", " ", "form", " ", 
+       RowBox[{"{", 
+        RowBox[{"dGfn", ",", "dHfn"}], "}"}]}], ",", " ", 
+      RowBox[{
+      "and", " ", "the", " ", "energies", " ", "are", " ", "expressed", " ", 
+       "in", " ", "kJ", " ", 
+       RowBox[{"mol", "^", 
+        RowBox[{"-", "1."}]}], "  ", "The", " ", "values", " ", "of", " ", 
+       "the", " ", "standard", " ", "transformed", " ", "Gibbs", " ", 
+       "energy", " ", "of", " ", "formation", " ", "and", " ", "the", " ", 
+       "standard", " ", "transformed", " ", "enthalpy", " ", "of", " ", 
+       "formation", " ", "can", " ", "be", " ", "calculated", " ", "at", " ", 
+       "any", " ", "temperature", " ", "in", " ", "the", " ", "range", " ", 
+       "273.15", " ", "K", " ", "to", " ", "313.15", " ", "K"}], ",", " ", 
+      RowBox[{
+      "any", " ", "pH", " ", "in", " ", "the", " ", "range", " ", "5", " ", 
+       "to", " ", "9"}], ",", " ", 
+      RowBox[{
+      "and", " ", "any", " ", "ionic", " ", "strength", " ", "in", " ", "the",
+        " ", "range", " ", "0", " ", "to", " ", "0.35", " ", "M", " ", "by", 
+       " ", "use", " ", "of", " ", "the", " ", "assignment", " ", "operator", 
+       " ", 
+       RowBox[{
+        RowBox[{"(", "/.", ")"}], "."}]}]}], "*)"}], " ", "\n", "   ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"dGzero", ",", " ", "dHzero", ",", " ", "zi", ",", " ", "nH"}],
+        "}"}], " ", "=", " ", 
+      RowBox[{"Transpose", "[", "speciesmat", "]"}]}], ";", " ", "\n", "    ", 
+     RowBox[{"gibbscoeff", " ", "=", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"9.20483", "*", "T"}], ")"}], "/", 
+        RowBox[{"10", "^", "3"}]}], " ", "-", " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1.284668", "*", 
+          RowBox[{"T", "^", "2"}]}], ")"}], "/", 
+        RowBox[{"10", "^", "5"}]}], " ", "+", " ", "\n", "      ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"4.95199", "*", 
+          RowBox[{"T", "^", "3"}]}], ")"}], "/", 
+        RowBox[{"10", "^", "8"}]}]}]}], ";", " ", 
+     RowBox[{"dGzeroT", " ", "=", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"dGzero", "*", "T"}], ")"}], "/", "298.15"}], " ", "+", " ", 
+       "\n", "      ", 
+       RowBox[{"dHzero", "*", 
+        RowBox[{"(", 
+         RowBox[{"1", " ", "-", " ", 
+          RowBox[{"T", "/", "298.15"}]}], ")"}]}]}]}], ";", " ", 
+     RowBox[{"pHterm", " ", "=", " ", "\n", "     ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"nH", "*", "8.31451", "*", "T", "*", 
+         RowBox[{"Log", "[", 
+          RowBox[{"10", "^", 
+           RowBox[{"(", 
+            RowBox[{"-", "pH"}], ")"}]}], "]"}]}], ")"}], "/", "1000"}]}], 
+     ";", " ", "\n", "    ", 
+     RowBox[{"istermG", " ", "=", " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"gibbscoeff", "*", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"zi", "^", "2"}], " ", "-", " ", "nH"}], ")"}], "*", 
+         RowBox[{"is", "^", "0.5"}]}], ")"}], "/", "\n", "      ", 
+       RowBox[{"(", 
+        RowBox[{"1", " ", "+", " ", 
+         RowBox[{"1.6", "*", 
+          RowBox[{"is", "^", "0.5"}]}]}], ")"}]}]}], ";", " ", 
+     RowBox[{"gpfnsp", " ", "=", " ", 
+      RowBox[{
+      "dGzeroT", " ", "-", " ", "pHterm", " ", "-", " ", "istermG"}]}], ";", 
+     " ", "\n", "    ", 
+     RowBox[{"dGfn", " ", "=", " ", 
+      RowBox[{"-", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"8.31451", "*", "T", "*", 
+           RowBox[{"Log", "[", 
+            RowBox[{"Plus", " ", "@@", " ", "\n", "          ", 
+             RowBox[{"(", 
+              RowBox[{"E", "^", 
+               RowBox[{"(", 
+                RowBox[{"-", 
+                 RowBox[{"(", 
+                  RowBox[{"gpfnsp", "/", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"8.31451", "*", "T"}], ")"}], "/", "1000"}], 
+                    ")"}]}], ")"}]}], ")"}]}], ")"}]}], "]"}]}], ")"}], "/", 
+         "1000"}], ")"}]}]}], ";", " ", "\n", "    ", 
+     RowBox[{"dHfn", " ", "=", " ", 
+      RowBox[{"-", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"T", "^", "2"}], "*", 
+         RowBox[{"D", "[", 
+          RowBox[{
+           RowBox[{"dGfn", "/", "T"}], ",", " ", "T"}], "]"}]}], ")"}]}]}], 
+     ";", " ", 
+     RowBox[{"{", 
+      RowBox[{"dGfn", ",", " ", "dHfn"}], "}"}]}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.528829952768858*^9, 3.5288299527703047`*^9}, {
+  3.528830098959858*^9, 3.5288301044998426`*^9}, {3.528831019354278*^9, 
+  3.528831019528459*^9}},
+ ImageRegion->{{0, 1}, {0, 1}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+9.6  Calculation of the standard transformed Gibbs energies of formation of \
+the species of a reactant from the apparent equilibrium constant of a reaction\
+\>", "Subsection",
+ InitializationGroup->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"calcGef1sp", "[", 
+   RowBox[{
+   "equat_", ",", " ", "pHc_", ",", " ", "ionstr_", ",", " ", "z1_", ",", " ",
+     "nH1_"}], "]"}], " ", ":=", " ", "\n", "  ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"energy", ",", " ", "trGereactant"}], "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"This", " ", "program", " ", "uses", " ", 
+        RowBox[{"\[Sum]", 
+         RowBox[{
+          RowBox[{"\[Nu]i\[CapitalDelta]fGi", "'"}], "\[Degree]"}]}]}], "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"RTlnK", "'"}]}], " ", "to", " ", "calculate", " ", "the", 
+          " ", "standard", " ", "Gibbs", " ", "energy", " ", "of", " ", 
+          "formation", " ", "of", " ", "the", " ", "species", " ", "of", " ", 
+          "a", " ", "reactant", " ", "that", " ", "does", " ", "not", " ", 
+          "have", " ", "a", " ", "pK", " ", "in", " ", "the", " ", "range", 
+          " ", "4", " ", "to", " ", "10.", " ", "The", " ", "equation", " ", 
+          "is", " ", "of", " ", "the", " ", "form", " ", "pyruvate"}], "+", 
+         "atp", "-", "x", "-", "adp"}], "==", 
+        RowBox[{
+         RowBox[{"-", "8.31451"}], "*", ".29815", "*", 
+         RowBox[{"Log", "[", 
+          RowBox[{"K", "'"}], "]"}]}]}]}], ",", " ", 
+      RowBox[{"where", " ", 
+       RowBox[{"K", "'"}], " ", "is", " ", "the", " ", "apparent", " ", 
+       "equilibrium", " ", "constant", " ", "at", " ", "298.15", " ", "K"}], 
+      ",", " ", "pHc", ",", " ", 
+      RowBox[{"and", " ", "ionic", " ", "strength", " ", 
+       RowBox[{"is", ".", "  ", "The"}], " ", "reactant", " ", "has", " ", 
+       "charge", " ", "number", " ", "z1", " ", "and", " ", "hydrogen", " ", 
+       "atom", " ", "number", " ", 
+       RowBox[{"nH1", ".", "  ", "The"}], " ", "output", " ", "is", " ", 
+       "the", " ", "species", " ", "vector", " ", "without", " ", "the", " ", 
+       "standard", " ", "enthalpy", " ", "of", " ", 
+       RowBox[{"formation", "."}]}]}], "*)"}], " ", "\n", "   ", 
+    RowBox[{
+     RowBox[{"energy", " ", "=", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Solve", "[", 
+         RowBox[{"equat", ",", " ", "x"}], "]"}], " ", "/.", " ", 
+        RowBox[{"pH", " ", "->", " ", "pHc"}]}], " ", "/.", " ", 
+       RowBox[{"is", " ", "->", " ", "ionstr"}]}]}], ";", " ", "\n", "    ", 
+     RowBox[{"trGereactant", " ", "=", " ", 
+      RowBox[{"energy", "[", 
+       RowBox[{"[", 
+        RowBox[{"1", ",", "1", ",", "2"}], "]"}], "]"}]}], ";", " ", "\n", 
+     "    ", 
+     RowBox[{"gef1", " ", "=", " ", 
+      RowBox[{"trGereactant", " ", "-", " ", 
+       RowBox[{"nH1", "*", "8.31451", "*", "0.29815", "*", 
+        RowBox[{"Log", "[", "10", "]"}], "*", "pHc"}], " ", "+", " ", "\n", 
+       "      ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"2.91482", "*", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"z1", "^", "2"}], " ", "-", " ", "nH1"}], ")"}], "*", 
+          RowBox[{"ionstr", "^", "0.5"}]}], ")"}], "/", "\n", "       ", 
+        RowBox[{"(", 
+         RowBox[{"1", " ", "+", " ", 
+          RowBox[{"1.6", "*", 
+           RowBox[{"ionstr", "^", "0.5"}]}]}], ")"}]}]}]}], ";", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{"gef1", ",", " ", "_", ",", " ", "z1", ",", " ", "nH1"}], 
+       "}"}], "}"}]}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.528829963911832*^9, 3.52882996391332*^9}},
+ ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"calcGef2sp", "[", 
+   RowBox[{
+   "equat_", ",", " ", "pHc_", ",", " ", "ionstr_", ",", " ", "z1_", ",", " ",
+     "nH1_", ",", " ", "pK0_"}], "]"}], " ", ":=", " ", "\n", "  ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "energy", ",", " ", "trGereactant", ",", " ", "pKe", ",", " ", 
+      "trgefpHis", ",", "gef1", ",", " ", "gef2"}], "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"This", " ", "program", " ", "uses", " ", 
+        RowBox[{"\[Sum]", 
+         RowBox[{
+          RowBox[{"\[Nu]i\[CapitalDelta]fGi", "'"}], "\[Degree]"}]}]}], "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"RTlnK", "'"}]}], " ", "to", " ", "calculate", " ", "the", 
+          " ", "standard", " ", "Gibbs", " ", "energies", " ", "of", " ", 
+          "formation", " ", "of", " ", "the", " ", "two", " ", "species", " ",
+           "of", " ", "a", " ", "reactant", " ", "for", " ", "which", " ", 
+          "the", " ", "pK", " ", "at", " ", "zero", " ", "ionic", " ", 
+          "strength", " ", "is", " ", 
+          RowBox[{"pK0", ".", " ", "The"}], " ", "equation", " ", "is", " ", 
+          "of", " ", "the", " ", "form", " ", "pyruvate"}], "+", "atp", "-", 
+         "x", "-", "adp"}], "==", 
+        RowBox[{
+         RowBox[{"-", "8.31451"}], "*", ".29815", "*", 
+         RowBox[{"Log", "[", 
+          RowBox[{"K", "'"}], "]"}]}]}]}], ",", " ", 
+      RowBox[{"where", " ", 
+       RowBox[{"K", "'"}], " ", "is", " ", "the", " ", "apparent", " ", 
+       "equilibrium", " ", "constant", " ", "at", " ", "298.15", " ", "K"}], 
+      ",", " ", "pHc", ",", " ", 
+      RowBox[{"and", " ", "ionic", " ", "strength", " ", 
+       RowBox[{"is", ".", "  ", "The"}], " ", "more", " ", "basic", " ", 
+       "form", " ", "of", " ", "the", " ", "reactant", " ", "has", " ", 
+       "charge", " ", "number", " ", "z1", " ", "and", " ", "hydrogen", " ", 
+       "atom", " ", "number", " ", 
+       RowBox[{"nH1", ".", "  ", "The"}], " ", "output", " ", "is", " ", 
+       "the", " ", "species", " ", "matrix", " ", "without", " ", "the", " ", 
+       "standard", " ", "enthalpies", " ", "of", " ", 
+       RowBox[{"formation", "."}]}]}], "*)"}], " ", "\n", " ", 
+    RowBox[{
+     RowBox[{"energy", " ", "=", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Solve", "[", 
+         RowBox[{"equat", ",", " ", "x"}], "]"}], " ", "/.", " ", 
+        RowBox[{"pH", " ", "->", " ", "pHc"}]}], " ", "/.", " ", 
+       RowBox[{"is", " ", "->", " ", "ionstr"}]}]}], ";", " ", "\n", "    ", 
+     RowBox[{"trGereactant", " ", "=", " ", 
+      RowBox[{"energy", "[", 
+       RowBox[{"[", 
+        RowBox[{"1", ",", "1", ",", "2"}], "]"}], "]"}]}], ";", " ", "\n", 
+     "    ", 
+     RowBox[{"pKe", " ", "=", " ", 
+      RowBox[{"pK0", " ", "+", " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"0.510651", "*", 
+          RowBox[{"ionstr", "^", "0.5"}], "*", "2", "*", "z1"}], ")"}], "/", 
+        "\n", "       ", 
+        RowBox[{"(", 
+         RowBox[{"1", " ", "+", " ", 
+          RowBox[{"1.6", "*", 
+           RowBox[{"ionstr", "^", "0.5"}]}]}], ")"}]}]}]}], ";", " ", 
+     RowBox[{"trgefpHis", " ", "=", " ", "\n", "     ", 
+      RowBox[{"trGereactant", " ", "+", " ", 
+       RowBox[{"8.31451", "*", "0.29815", "*", 
+        RowBox[{"Log", "[", 
+         RowBox[{"1", " ", "+", " ", 
+          RowBox[{"10", "^", 
+           RowBox[{"(", 
+            RowBox[{"pKe", " ", "-", " ", "pHc"}], ")"}]}]}], "]"}]}]}]}], 
+     ";", " ", "\n", "    ", 
+     RowBox[{"gef1", " ", "=", " ", 
+      RowBox[{"trgefpHis", " ", "-", " ", 
+       RowBox[{"nH1", "*", "8.31451", "*", "0.29815", "*", 
+        RowBox[{"Log", "[", "10", "]"}], "*", "pHc"}], " ", "+", " ", "\n", 
+       "      ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"2.91482", "*", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"z1", "^", "2"}], " ", "-", " ", "nH1"}], ")"}], "*", 
+          RowBox[{"ionstr", "^", "0.5"}]}], ")"}], "/", "\n", "       ", 
+        RowBox[{"(", 
+         RowBox[{"1", " ", "+", " ", 
+          RowBox[{"1.6", "*", 
+           RowBox[{"ionstr", "^", "0.5"}]}]}], ")"}]}]}]}], ";", " ", "\n", 
+     "    ", 
+     RowBox[{"gef2", " ", "=", " ", 
+      RowBox[{"gef1", " ", "+", " ", 
+       RowBox[{"8.31451", "*", "0.29815", "*", 
+        RowBox[{"Log", "[", 
+         RowBox[{"10", "^", 
+          RowBox[{"(", 
+           RowBox[{"-", "pK0"}], ")"}]}], "]"}]}]}]}], ";", " ", "\n", "    ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"gef1", ",", " ", "_", ",", " ", "z1", ",", " ", "nH1"}], 
+        "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"gef2", ",", " ", "_", ",", " ", 
+         RowBox[{"z1", " ", "+", " ", "1"}], ",", " ", 
+         RowBox[{"nH1", " ", "+", " ", "1"}]}], "}"}]}], "}"}]}]}], 
+   "]"}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.5288299639156923`*^9, 3.528829963917037*^9}},
+ ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"calcGef3sp", "[", 
+   RowBox[{
+   "equat_", ",", " ", "pHc_", ",", " ", "ionstr_", ",", " ", "z1_", ",", " ",
+     "nH1_", ",", " ", "pK10_", ",", " ", "\n", "   ", "pK20_"}], "]"}], " ", 
+  ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "energy", ",", " ", "trGereactant", ",", " ", "pKe", ",", " ", 
+      "trgefpHis", ",", " ", "\n", "    ", "gef1", ",", " ", "gef2", ",", " ",
+       "gef3", ",", " ", "pK1e", ",", " ", "pK2e"}], "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"This", " ", "program", " ", "uses", " ", 
+        RowBox[{"\[Sum]", 
+         RowBox[{
+          RowBox[{"\[Nu]i\[CapitalDelta]fGi", "'"}], "\[Degree]"}]}]}], "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"RTlnK", "'"}]}], " ", "to", " ", "calculate", " ", "the", 
+          " ", "standard", " ", "Gibbs", " ", "energies", " ", "of", " ", 
+          "formation", " ", "of", " ", "the", " ", "three", " ", "species", 
+          " ", "of", " ", "a", " ", "reactant", " ", "for", " ", "which", " ",
+           "the", " ", "pKs", " ", "at", " ", "zero", " ", "ionic", " ", 
+          "strength", " ", "is", " ", "pK10", " ", "and", " ", 
+          RowBox[{"pK20", ".", " ", "The"}], " ", "equation", " ", "is", " ", 
+          "of", " ", "the", " ", "form", " ", "pyruvate"}], "+", "atp", "-", 
+         "x", "-", "adp"}], "==", 
+        RowBox[{
+         RowBox[{"-", "8.31451"}], "*", ".29815", "*", 
+         RowBox[{"Log", "[", 
+          RowBox[{"K", "'"}], "]"}]}]}]}], ",", " ", 
+      RowBox[{"where", " ", 
+       RowBox[{"K", "'"}], " ", "is", " ", "the", " ", "apparent", " ", 
+       "equilibrium", " ", "constant", " ", "at", " ", "298.15", " ", "K"}], 
+      ",", " ", "pHc", ",", " ", 
+      RowBox[{"and", " ", "ionic", " ", "strength", " ", 
+       RowBox[{"is", ".", "  ", "The"}], " ", "more", " ", "basic", " ", 
+       "form", " ", "of", " ", "the", " ", "reactant", " ", "has", " ", 
+       "charge", " ", "number", " ", "z1", " ", "and", " ", "hydrogen", " ", 
+       "atom", " ", "number", " ", 
+       RowBox[{"nH1", ".", "  ", "The"}], " ", "output", " ", "is", " ", 
+       "the", " ", "species", " ", "matrix", " ", "without", " ", "the", " ", 
+       "standard", " ", "enthalpies", " ", "of", " ", "formation", " ", "of", 
+       " ", "the", " ", "three", " ", 
+       RowBox[{"species", "."}]}]}], "*)"}], " ", "\n", "   ", 
+    RowBox[{
+     RowBox[{"energy", " ", "=", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Solve", "[", 
+         RowBox[{"equat", ",", " ", "x"}], "]"}], " ", "/.", " ", 
+        RowBox[{"pH", " ", "->", " ", "pHc"}]}], " ", "/.", " ", 
+       RowBox[{"is", " ", "->", " ", "ionstr"}]}]}], ";", " ", "\n", "    ", 
+     RowBox[{"trGereactant", " ", "=", " ", 
+      RowBox[{"energy", "[", 
+       RowBox[{"[", 
+        RowBox[{"1", ",", "1", ",", "2"}], "]"}], "]"}]}], ";", " ", "\n", 
+     "    ", 
+     RowBox[{"pK1e", " ", "=", " ", 
+      RowBox[{"pK10", " ", "+", " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"0.510651", "*", 
+          RowBox[{"ionstr", "^", "0.5"}], "*", "2", "*", "z1"}], ")"}], "/", 
+        "\n", "       ", 
+        RowBox[{"(", 
+         RowBox[{"1", " ", "+", " ", 
+          RowBox[{"1.6", "*", 
+           RowBox[{"ionstr", "^", "0.5"}]}]}], ")"}]}]}]}], ";", " ", "\n", 
+     "    ", 
+     RowBox[{"pK2e", " ", "=", " ", 
+      RowBox[{"pK20", " ", "+", " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"0.510651", "*", 
+          RowBox[{"ionstr", "^", "0.5"}], "*", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", "*", "z1"}], " ", "+", " ", "2"}], ")"}]}], ")"}], 
+        "/", "\n", "       ", 
+        RowBox[{"(", 
+         RowBox[{"1", " ", "+", " ", 
+          RowBox[{"1.6", "*", 
+           RowBox[{"ionstr", "^", "0.5"}]}]}], ")"}]}]}]}], ";", " ", 
+     RowBox[{"trgefpHis", " ", "=", " ", "\n", "     ", 
+      RowBox[{"trGereactant", " ", "+", " ", 
+       RowBox[{"8.31451", "*", "0.29815", "*", "\n", "       ", 
+        RowBox[{"Log", "[", 
+         RowBox[{"1", " ", "+", " ", 
+          RowBox[{"10", "^", 
+           RowBox[{"(", 
+            RowBox[{"pK1e", " ", "-", " ", "pHc"}], ")"}]}], " ", "+", " ", 
+          RowBox[{"10", "^", 
+           RowBox[{"(", 
+            RowBox[{"pK1e", " ", "+", " ", "pK2e", " ", "-", " ", 
+             RowBox[{"2", "*", "pHc"}]}], ")"}]}]}], "]"}]}]}]}], ";", " ", 
+     "\n", "    ", 
+     RowBox[{"gef1", " ", "=", " ", 
+      RowBox[{"trgefpHis", " ", "-", " ", 
+       RowBox[{"nH1", "*", "8.31451", "*", "0.29815", "*", 
+        RowBox[{"Log", "[", "10", "]"}], "*", "pHc"}], " ", "+", " ", "\n", 
+       "      ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"2.91482", "*", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"z1", "^", "2"}], " ", "-", " ", "nH1"}], ")"}], "*", 
+          RowBox[{"ionstr", "^", "0.5"}]}], ")"}], "/", "\n", "       ", 
+        RowBox[{"(", 
+         RowBox[{"1", " ", "+", " ", 
+          RowBox[{"1.6", "*", 
+           RowBox[{"ionstr", "^", "0.5"}]}]}], ")"}]}]}]}], ";", " ", "\n", 
+     "    ", 
+     RowBox[{"gef2", " ", "=", " ", 
+      RowBox[{"gef1", " ", "+", " ", 
+       RowBox[{"8.31451", "*", "0.29815", "*", 
+        RowBox[{"Log", "[", 
+         RowBox[{"10", "^", 
+          RowBox[{"(", 
+           RowBox[{"-", "pK10"}], ")"}]}], "]"}]}]}]}], ";", " ", "\n", 
+     "    ", 
+     RowBox[{"gef3", " ", "=", " ", 
+      RowBox[{"gef2", " ", "+", " ", 
+       RowBox[{"8.31451", "*", "0.29815", "*", 
+        RowBox[{"Log", "[", 
+         RowBox[{"10", "^", 
+          RowBox[{"(", 
+           RowBox[{"-", "pK20"}], ")"}]}], "]"}]}]}]}], ";", " ", "\n", 
+     "    ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"gef1", ",", " ", "_", ",", " ", "z1", ",", " ", "nH1"}], 
+        "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"gef2", ",", " ", "_", ",", " ", 
+         RowBox[{"z1", " ", "+", " ", "1"}], ",", " ", 
+         RowBox[{"nH1", " ", "+", " ", "1"}]}], "}"}], ",", " ", "\n", 
+       "     ", 
+       RowBox[{"{", 
+        RowBox[{"gef3", ",", " ", "_", ",", " ", 
+         RowBox[{"z1", " ", "+", " ", "2"}], ",", " ", 
+         RowBox[{"nH1", " ", "+", " ", "2"}]}], "}"}]}], "}"}]}]}], 
+   "]"}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.5288299639324102`*^9, 3.528829963934084*^9}},
+ ImageRegion->{{0, 1}, {0, 1}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+9.7  Calculation of the thermodynamic properties of a biochemical reaction\
+\>", "Subsection",
+ InitializationGroup->True],
+
+Cell["\<\
+It is convenient to be able to calculate the standard transformed reaction \
+Gibbs energy, apparent equilibrium constant, and change in binding of \
+hydrogen ions in a biochemical reaction at a series of pHs and ionic \
+strengths.  The pH dependencies of the standard transformed reaction Gibbs \
+energies and K' can be regarded as a consequence of the change in binding of \
+hydrogen ions.\
+\>", "Text",
+ InitializationGroup->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"calcNHrx", "[", 
+   RowBox[{"eq_", ",", " ", "pHlist_", ",", " ", "islist_"}], "]"}], " ", ":=",
+   " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "energy", "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+     "This", " ", "program", " ", "calculates", " ", "the", " ", "change", 
+      " ", "in", " ", "the", " ", "binding", " ", "of", " ", "hydrogen", " ", 
+      "ions", " ", "in", " ", "a", " ", "biochemical", " ", "reaaction", " ", 
+      "at", " ", "specified", " ", "pHs", " ", "and", " ", "ionic", " ", 
+      RowBox[{"strengths", "."}]}], "*)"}], " ", "\n", "   ", 
+    RowBox[{
+     RowBox[{"energy", " ", "=", " ", 
+      RowBox[{"Solve", "[", 
+       RowBox[{"eq", ",", " ", "de"}], "]"}]}], ";", " ", "\n", "    ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"D", "[", 
+         RowBox[{
+          RowBox[{"energy", "[", 
+           RowBox[{"[", 
+            RowBox[{"1", ",", "1", ",", "2"}], "]"}], "]"}], ",", " ", "pH"}],
+          "]"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"8.31451", "*", "0.29815", "*", 
+          RowBox[{"Log", "[", "10", "]"}]}], ")"}]}], " ", "/.", " ", "\n", 
+       "      ", 
+       RowBox[{"pH", " ", "->", " ", "pHlist"}]}], " ", "/.", " ", 
+      RowBox[{"is", " ", "->", " ", "islist"}]}]}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.5288299800480623`*^9, 3.528829980049481*^9}},
+ ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"rxthermotab", "[", 
+   RowBox[{"eq_", ",", "pHlist_", ",", "islist_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"energy", ",", "tg", ",", "tk", ",", "tn"}], "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+      "This", " ", "program", " ", "uses", " ", "three", " ", "other", " ", 
+       "programs", " ", "to", " ", "make", " ", "a", " ", "thermodynamic", 
+       " ", "table", " ", "of", " ", "standard", " ", "transformed", " ", 
+       "reaction", " ", "Gibbs", " ", "energies"}], ",", " ", 
+      RowBox[{"apparent", " ", "equilibrium", " ", "constants"}], ",", " ", 
+      RowBox[{
+      "and", " ", "changes", " ", "in", " ", "the", " ", "number", " ", "of", 
+       " ", "hydrogen", " ", "ions", " ", "bound", " ", "in", " ", "a", " ", 
+       "biochemical", " ", 
+       RowBox[{"reaction", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"tg", "=", 
+      RowBox[{"calctrGerx", "[", 
+       RowBox[{"eq", ",", "pHlist", ",", "islist"}], "]"}]}], ";", 
+     RowBox[{"tk", "=", 
+      RowBox[{"calckprime", "[", 
+       RowBox[{"eq", ",", "pHlist", ",", "islist"}], "]"}]}], ";", 
+     RowBox[{"tn", "=", 
+      RowBox[{"calcNHrx", "[", 
+       RowBox[{"eq", ",", "pHlist", ",", "islist"}], "]"}]}], ";", 
+     RowBox[{"TableForm", "[", 
+      RowBox[{"Join", "[", 
+       RowBox[{"{", 
+        RowBox[{"tg", ",", "tk", ",", "tn"}], "}"}], "]"}], "]"}]}]}], 
+   "]"}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[TextData[{
+ "The first row gives the standard transformed reaction Gibbs energies in kJ ",
+ Cell[BoxData[
+  SuperscriptBox["mol", 
+   RowBox[{"-", "1"}]]]],
+ " at zero ionic strength, the second row at 0.10 M ionic strength, and the \
+third at 0.25 M ionic strength.  The second part of the tsable is made up of \
+apparent equilibrium constants, and the third is made up of changes in the \
+binding of hydrogen ions.  TableHeadings could be added, but this program \
+allows you to use various numbers of pHs and various numbers of ionic \
+strengths.\n\nA vector can be rounded by use of round."
+}], "Text",
+ InitializationGroup->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"round", "[", 
+   RowBox[{"vec_", ",", " ", 
+    RowBox[{"params_:", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", " ", "2"}], "}"}]}]}], "]"}], " ", ":=", " ", "\n", 
+  "  ", 
+  RowBox[{"Flatten", "[", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"NumberForm", "[", 
+       RowBox[{"#1", ",", " ", "params"}], "]"}], " ", "&"}], " ", ",", " ", 
+     RowBox[{"{", "vec", "}"}], ",", " ", 
+     RowBox[{"{", "2", "}"}]}], "]"}], "]"}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.528829993247541*^9, 3.528829993248979*^9}},
+ ImageRegion->{{0, 1}, {0, 1}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+9.8  Printing out biochemical reactions that correspond with a stoichiometric \
+matrix\
+\>", "Subsection",
+ InitializationGroup->True],
+
+Cell["\<\
+A biochemical reaction can be represented by a vector of its stoichiometric \
+numbers.  A system of biochemical reactions is represented by a \
+stoichiometric number matrix.  This stoichiometric number matrix can be used \
+to print out the reactions.  The programs that can be used to print out the \
+biochemical reactions are mkeqm and nameMatrix.\
+\>", "Text",
+ InitializationGroup->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mkeqm", "[", 
+   RowBox[{"c_List", ",", "s_List"}], "]"}], ":=", 
+  RowBox[{"(*", 
+   RowBox[{
+   "c_List", " ", "is", " ", "the", " ", "list", " ", "of", " ", 
+    "stoichiometric", " ", "numbers", " ", "for", " ", "a", " ", 
+    RowBox[{"reaction", ".", "  ", "s_List"}], " ", "is", " ", "a", " ", 
+    "list", " ", "of", " ", "the", " ", "names", " ", "of", " ", "species", 
+    " ", "or", " ", 
+    RowBox[{"reactants", ".", "  ", "These"}], " ", "names", " ", "have", " ",
+     "to", " ", "be", " ", "put", " ", "in", " ", "quotation", " ", 
+    RowBox[{"marks", "."}]}], "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Map", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"#", ",", "0"}], "]"}], "&"}], ",", 
+      RowBox[{"-", "c"}]}], "]"}], ".", "s"}], "->", 
+   RowBox[{
+    RowBox[{"Map", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"#", ",", "0"}], "]"}], "&"}], ",", "c"}], "]"}], ".", 
+    "s"}]}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.528830003599742*^9, 3.528830003601149*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"nameMatrix", "[", 
+   RowBox[{"m_List", ",", "s_List"}], "]"}], ":=", 
+  RowBox[{"(*", 
+   RowBox[{
+   "m_List", " ", "is", " ", "the", " ", "transposed", " ", "stoichiometric", 
+    " ", "number", " ", "matrix", " ", "for", " ", "the", " ", "system", " ", 
+    "of", " ", 
+    RowBox[{"reactions", ".", " ", "s_List"}], " ", "is", " ", "a", " ", 
+    "list", " ", "of", " ", "the", " ", "names", " ", "of", " ", "species", 
+    " ", "or", " ", 
+    RowBox[{"reactants", ".", "  ", "These"}], " ", "names", " ", "have", " ",
+     "to", " ", "be", " ", "put", " ", "in", " ", "quotation", " ", 
+    RowBox[{"marks", "."}]}], "*)"}], 
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"mkeqm", "[", 
+      RowBox[{"#", ",", "s"}], "]"}], "&"}], ",", "m"}], "]"}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.5288300036027813`*^9, 3.5288300036039124`*^9}},
+ ImageRegion->{{0, 1}, {0, 1}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+9.9  Calculation of standard apparent reduction potentials for half reactions\
+\
+\>", "Subsection",
+ InitializationGroup->True],
+
+Cell[TextData[{
+ "The standard apparent reduction potential in volts at 298.15 K for a half \
+reaction can be calculated using calcappredpots.  As an example of a half \
+reaction consider ",
+ Cell[BoxData[
+  SubscriptBox["NAD", "ox"]]],
+ " + ",
+ Cell[BoxData[
+  RowBox[{"2", 
+   SuperscriptBox["e", "-"]}]]],
+ " = ",
+ Cell[BoxData[
+  SubscriptBox["NAD", "red"]]],
+ ":"
+}], "Text",
+ InitializationGroup->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"calcappredpot", "[", 
+   RowBox[{"eq_", ",", " ", "nu_", ",", " ", "pHlist_", ",", " ", "islist_"}],
+    "]"}], " ", ":=", " ", "\n", "  ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "energy", "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+       "Calculates", " ", "the", " ", "standard", " ", "apparent", " ", 
+        "reduction", " ", "potential", " ", "of", " ", "a", " ", "half", " ", 
+        "reaction", " ", "at", " ", "specified", " ", "pHs", " ", "and", " ", 
+        "ionic", " ", "strengths", " ", "for", " ", "a", " ", "biochemical", 
+        " ", "half", " ", "reaction", " ", "typed", " ", "in", " ", "the", 
+        " ", "form", " ", "nadox"}], "+", "de"}], "==", 
+      RowBox[{
+       RowBox[{"nadred", ".", "  ", "The"}], " ", "names", " ", "of", " ", 
+       "the", " ", "reactants", " ", "call", " ", "the", " ", "corresponding",
+        " ", "functions", " ", "of", " ", "pH", " ", "and", " ", "ionic", " ", 
+       RowBox[{"strength", ".", "  ", "nu"}], " ", "is", " ", "the", " ", 
+       "number", " ", "of", " ", "electrons", " ", 
+       RowBox[{"involved", ".", "  ", "pHlist"}], " ", "and", " ", "islist", 
+       " ", "can", " ", "be", " ", 
+       RowBox[{"lists", "."}]}]}], "*)"}], "\n", " ", 
+    RowBox[{
+     RowBox[{"energy", " ", "=", " ", 
+      RowBox[{"Solve", "[", 
+       RowBox[{"eq", ",", " ", "de"}], "]"}]}], ";", " ", "\n", "    ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"energy", "[", 
+           RowBox[{"[", 
+            RowBox[{"1", ",", "1", ",", "2"}], "]"}], "]"}], "/", 
+          RowBox[{"(", 
+           RowBox[{"nu", "*", "96.485"}], ")"}]}], ")"}]}], " ", "/.", " ", 
+       RowBox[{"pH", " ", "->", " ", "pHlist"}]}], " ", "/.", " ", "\n", 
+      "     ", 
+      RowBox[{"is", " ", "->", " ", "islist"}]}]}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.528830016793054*^9, 3.528830016794476*^9}},
+ ImageRegion->{{0, 1}, {0, 1}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+9.10  Calculation of equilibrium compositions of a single biochemical \
+reaction or a system of biochemical reactions at specified pH\
+\>", "Subsection",
+ InitializationGroup->True],
+
+Cell["\<\
+Equilibrium compositions of systems of biochemical reactions can be \
+calculated using the following two programs.  The first was written by Fred \
+Krambeck (Mobil  Research and Development) and the second was written by \
+Krambeck and Alberty.  The Newton-Raphson method is used to iterate to the \
+composition with the lowest possible Gibbs energy or transformed Gibbs energy.\
+\>", "Text",
+ InitializationGroup->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"equcalcc", "[", 
+   RowBox[{"as_", ",", "lnk_", ",", "no_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "l", ",", "x", ",", "b", ",", "ac", ",", "m", ",", "n", ",", "e", ",", 
+      "k"}], "}"}], ",", "\n", 
+    RowBox[{"(*", "\t", 
+     RowBox[{"as", "=", 
+      RowBox[{
+       RowBox[{"conservation", " ", "matrix", "\n", "lnk"}], "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"(", 
+           RowBox[{"1", "/", "RT"}], ")"}]}], 
+         RowBox[{"(", 
+          RowBox[{
+          "Gibbs", " ", "energy", " ", "of", " ", "formation", " ", "vector", 
+           " ", "at", " ", "T"}], ")"}], "\n", "no"}], "=", 
+        RowBox[{"initial", " ", "composition", " ", "vector"}]}]}]}], " ", 
+     "*)"}], "\n", 
+    RowBox[{"(*", "Setup", "*)"}], "\n", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"m", ",", "n"}], "}"}], "=", 
+      RowBox[{"Dimensions", "[", "as", "]"}]}], ";", "\n", 
+     RowBox[{"b", "=", 
+      RowBox[{"as", ".", "no"}]}], ";", "\n", 
+     RowBox[{"ac", "=", "as"}], ";", "\n", 
+     RowBox[{"(*", "Initialize", "*)"}], "\n", 
+     RowBox[{"l", "=", 
+      RowBox[{"LinearSolve", "[", " ", 
+       RowBox[{
+        RowBox[{"as", ".", 
+         RowBox[{"Transpose", "[", "as", "]"}]}], ",", 
+        RowBox[{"-", 
+         RowBox[{"as", ".", 
+          RowBox[{"(", 
+           RowBox[{"lnk", "+", 
+            RowBox[{"Log", "[", "n", "]"}]}], ")"}]}]}]}], " ", "]"}]}], ";", 
+     "\n", 
+     RowBox[{"(*", "Solve", "*)"}], "\n", 
+     RowBox[{"Do", "[", "\t", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"e", "=", 
+         RowBox[{"b", "-", 
+          RowBox[{"ac", ".", 
+           RowBox[{"(", 
+            RowBox[{"x", "=", 
+             RowBox[{"E", "^", 
+              RowBox[{"(", 
+               RowBox[{"lnk", "+", 
+                RowBox[{"l", ".", "as"}]}], ")"}]}]}], " ", ")"}]}]}]}], ";", 
+        "\n", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"10", "^", 
+             RowBox[{"-", "10"}]}], ")"}], ">", 
+           RowBox[{"Max", "[", " ", 
+            RowBox[{"Abs", "[", "e", "]"}], " ", "]"}]}], ",", " ", 
+          RowBox[{"Break", "[", "]"}]}], " ", "]"}], ";", "\n", 
+        RowBox[{"l", "=", 
+         RowBox[{"l", "+", 
+          RowBox[{"LinearSolve", "[", 
+           RowBox[{
+            RowBox[{"ac", ".", 
+             RowBox[{"Transpose", "[", 
+              RowBox[{"as", "*", 
+               RowBox[{"Table", "[", 
+                RowBox[{"x", ",", 
+                 RowBox[{"{", "m", "}"}]}], "]"}]}], "]"}]}], ",", "e"}], 
+           "]"}]}]}]}], ",", "\n", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "100"}], "}"}]}], "]"}], ";", "\n", 
+     RowBox[{"If", "[", " ", 
+      RowBox[{
+       RowBox[{"k", "==", "100"}], ",", 
+       RowBox[{"Return", "[", "\"\<Algorithm Failed\>\"", "]"}]}], " ", "]"}],
+      ";", "\n", 
+     RowBox[{"Return", "[", "x", "]"}]}]}], "\n", "]"}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.528830035336835*^9, 3.528830044792091*^9}},
+ ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"equcalcrx", "[", 
+   RowBox[{"nt_", ",", "lnkr_", ",", "no_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"as", ",", "lnk"}], "}"}], ",", "\n", 
+    RowBox[{"(*", 
+     RowBox[{"nt", "=", 
+      RowBox[{
+       RowBox[{
+       "transposed", " ", "stoichiometric", " ", "number", " ", "matrix", 
+        "\n", "lnkr"}], "=", 
+       RowBox[{
+        RowBox[{
+        "ln", " ", "of", " ", "equilibrium", " ", "constants", " ", "of", " ",
+          "rxs", " ", 
+         RowBox[{"(", "vector", ")"}], "\n", "no"}], "=", 
+        RowBox[{"initial", " ", "composition", " ", "vector"}]}]}]}], "*)"}], 
+    "\n", 
+    RowBox[{"(*", "Setup", "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"lnk", "=", 
+      RowBox[{"LinearSolve", "[", 
+       RowBox[{"nt", ",", "lnkr"}], "]"}]}], ";", "\n", 
+     RowBox[{"as", "=", 
+      RowBox[{"NullSpace", "[", "nt", "]"}]}], ";", "\n", 
+     RowBox[{"equcalcc", "[", 
+      RowBox[{"as", ",", "lnk", ",", "no"}], "]"}]}]}], "\n", 
+   "]"}]}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ CellChangeTimes->{{3.528830035340193*^9, 3.528830035341346*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"End", "[", "]"}], ";"}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"EndPackage", "[", "]"}], ";"}]], "Input",
+ InitializationCell->True,
+ InitializationGroup->True,
+ ImageRegion->{{0, 1}, {0, 1}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+AutoGeneratedPackage->Automatic,
+WindowSize->{1142, 1063},
+WindowMargins->{{Automatic, 269}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
+2010)",
+StyleDefinitions->"Default.nb",
+MacintoshSystemPageSetup -> \
+"00<0001804P000000]P2:?oQon82n@960dL5:0?l0080001804P000000]P2:001\n\
+0000I00000400`<300000BL?00400@0000000000000006P801T1T00000000000\n\
+00000000000000000000000000000000"
+]
+(* End of Notebook Content *)

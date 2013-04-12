@@ -1,0 +1,545 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["Toolbox Package", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->978611441],
+
+Cell["Toolbox`", "Categorization",
+ CellLabel->"Context",
+ CellID->2092720161],
+
+Cell["Toolbox/ref/detectUnconservedMetabolites", "Categorization",
+ CellLabel->"URI",
+ CellID->860575361]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["detectUnconservedMetabolites", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ Cell[BoxData[
+  RowBox[{"detectUnconservedMetabolites", "[", "model", "]"}]], 
+  "InlineFormula"],
+ "\[LineSeparator]implements (works with a model structure too)"
+}], "Usage",
+ CellChangeTimes->{
+  3.557004376840332*^9, {3.562339404598634*^9, 3.5623394126292057`*^9}}],
+
+Cell["XXXX", "Notes",
+ CellID->1067943069]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox["stoichiometricallyConsistentQ",
+  BaseStyle->"Link",
+  ButtonData->
+   "paclet:Toolbox/ref/stoichiometricallyConsistentQ"]], \
+"InlineFormula"]], "SeeAlso",
+ CellChangeTimes->{{3.56234473273696*^9, 3.562344759940874*^9}},
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.5623388643981447`*^9, 3.562338870027722*^9}},
+ CellLabel->"In[138]:=",
+ CellID->1987800271],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"model", "=", 
+   RowBox[{"constructModel", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      InterpretationBox[
+       OverscriptBox[
+        RowBox[{
+         InterpretationBox[
+          StyleBox["x1",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]],
+          Toolbox`metabolite["x1", None],
+          Editable->False,
+          Selectable->False], "\[Equilibrium]", 
+         InterpretationBox[
+          StyleBox["x2",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]],
+          Toolbox`metabolite["x2", None],
+          Editable->False,
+          Selectable->False]}], 
+        StyleBox["1",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`reaction["1", {
+         Toolbox`metabolite["x1", None]}, {
+         Toolbox`metabolite["x2", None]}, {1, 1}, True],
+       Editable->False,
+       Selectable->False], ",", 
+      InterpretationBox[
+       OverscriptBox[
+        RowBox[{
+         InterpretationBox[
+          StyleBox["x2",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]],
+          Toolbox`metabolite["x2", None],
+          Editable->False,
+          Selectable->False], "\[Equilibrium]", 
+         InterpretationBox[
+          StyleBox["x3",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]],
+          Toolbox`metabolite["x3", None],
+          Editable->False,
+          Selectable->False]}], 
+        StyleBox["2",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`reaction["2", {
+         Toolbox`metabolite["x2", None]}, {
+         Toolbox`metabolite["x3", None]}, {1, 1}, True],
+       Editable->False,
+       Selectable->False], ",", 
+      InterpretationBox[
+       OverscriptBox[
+        RowBox[{
+         InterpretationBox[
+          StyleBox["x3",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]],
+          Toolbox`metabolite["x3", None],
+          Editable->False,
+          Selectable->False], "\[RightArrow]", 
+         InterpretationBox[
+          StyleBox["x4",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]],
+          Toolbox`metabolite["x4", None],
+          Editable->False,
+          Selectable->False]}], 
+        StyleBox["3",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`reaction["3", {
+         Toolbox`metabolite["x3", None]}, {
+         Toolbox`metabolite["x4", None]}, {1, 1}, False],
+       Editable->False,
+       Selectable->False]}], "}"}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[139]:=",
+ CellID->1654525261],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"detectUnconservedMetabolites", "[", "model", "]"}]], "Input",
+ CellChangeTimes->{{3.562338900543871*^9, 3.562338904292152*^9}, {
+  3.56233942867389*^9, 3.562339431607336*^9}},
+ CellLabel->"In[140]:=",
+ CellID->556058318],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"LinearProgramming", "::", "lpip"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Warning: Integer linear programming will use a \
+machine-precision approximation of the inputs. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/LinearProgramming\\\", ButtonNote -> \
+\\\"LinearProgramming::lpip\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.562339432084358*^9, 3.5623447202253857`*^9},
+ CellLabel->"During evaluation of In[140]:=",
+ CellID->1654339231],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{3.5623389049465027`*^9, 3.562339432086072*^9, 
+  3.5623447202280188`*^9},
+ CellLabel->"Out[140]=",
+ CellID->1008677708]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"stoichiometricallyConsistentQ", "[", "model", "]"}]], "Input",
+ CellChangeTimes->{{3.5623394414245443`*^9, 3.562339441951314*^9}},
+ CellLabel->"In[141]:=",
+ CellID->1833182853],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.56233944234153*^9, 3.5623447205926943`*^9},
+ CellLabel->"Out[141]=",
+ CellID->610328938]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"inconsistentModel", "=", 
+   RowBox[{"constructModel", "[", 
+    RowBox[{"str2mass", "/@", 
+     RowBox[{"{", 
+      RowBox[{"\"\<1: x1 <=> x2\>\"", ",", "\"\<2: x1 -> x2 + x3\>\""}], 
+      "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.562339066869768*^9, 3.562339126946764*^9}, {
+   3.562339164682461*^9, 3.562339190899068*^9}, {3.562339324494166*^9, 
+   3.562339345078024*^9}, 3.56234470501742*^9},
+ CellLabel->"In[142]:=",
+ CellID->490333575],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"detectUnconservedMetabolites", "[", "inconsistentModel", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.562339138568844*^9, 3.562339144228825*^9}, {
+   3.56233936410181*^9, 3.562339370621702*^9}, 3.5623447076578827`*^9},
+ CellLabel->"In[143]:=",
+ CellID->350432142],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"LinearProgramming", "::", "lpip"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Warning: Integer linear programming will use a \
+machine-precision approximation of the inputs. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/LinearProgramming\\\", ButtonNote -> \
+\\\"LinearProgramming::lpip\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{
+  3.5623391449025087`*^9, {3.56233934799262*^9, 3.56233937178096*^9}, 
+   3.562344721376333*^9},
+ CellLabel->"During evaluation of In[143]:=",
+ CellID->1416562894],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  InterpretationBox[
+   StyleBox["x3",
+    StripOnInput->False,
+    ShowSyntaxStyles->False,
+    AutoSpacing->False,
+    ZeroWidthTimes->True,
+    LineColor->RGBColor[0, 0, 0],
+    FrontFaceColor->RGBColor[0, 0, 0],
+    BackFaceColor->RGBColor[0, 0, 0],
+    GraphicsColor->RGBColor[0, 0, 0],
+    FontColor->RGBColor[0, 0, 0]],
+   Toolbox`metabolite["x3", None],
+   Editable->False,
+   Selectable->False], "}"}]], "Output",
+ CellChangeTimes->{
+  3.5623391449769506`*^9, {3.562339347995233*^9, 3.562339371784226*^9}, 
+   3.562344721378976*^9},
+ CellLabel->"Out[143]=",
+ CellID->1168848816]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"stoichiometricallyConsistentQ", "[", "inconsistentModel", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.562338900543871*^9, 3.562338904292152*^9}, 
+   3.562339136347911*^9, 3.562344708658349*^9},
+ CellLabel->"In[144]:=",
+ CellID->1949552904],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{3.5623389049465027`*^9, 3.56233913692907*^9, 
+  3.562339347277402*^9, 3.562339447879342*^9, 3.562344721827326*^9},
+ CellLabel->"Out[144]=",
+ CellID->1809131403]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{1100, 925},
+WindowMargins->{{409, Automatic}, {Automatic, 0}},
+CellContext->"Global`",
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
+2011)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+

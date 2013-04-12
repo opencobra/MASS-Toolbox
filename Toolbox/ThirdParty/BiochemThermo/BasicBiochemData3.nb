@@ -1,0 +1,2593 @@
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["BeginPackage[\"BiochemThermo`BasicBiochemData3`\"];", "Input",
+ PageWidth->DirectedInfinity[1],
+ InitializationCell->True,
+ ShowSpecialCharacters->False],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["BasicBiochemData3.nb", "Title"]], "Title"],
+
+Cell[TextData[StyleBox["Robert A. Alberty\nDepartment of Chemistry 6-215\n\
+Massachusetts Institute of Technology\nCambridge, MA 02139\nalberty@mit.edu", \
+"Subsubtitle"]], "Text"],
+
+Cell[TextData[{
+ StyleBox["Abstract:",
+  FontWeight->"Bold"],
+ "  The most efficient way to store thermodynamic data on enzyme-catalyzed \
+reactions is to use matrices of species properties.  Since equilibrium in \
+enzyme-catalyzed reactions is reached at specified pH values, the \
+thermodynamics of the reactions is discussed in terms of transformed \
+thermodynamic properties.  These transformed thermodynamic properties are \
+complicated functions of temperature, pH, and ionic strength that can be \
+calculated from the matrices of species values.  The most important of these \
+transformed thermodynamic properties is the standard transformed Gibbs energy \
+of formation of a reactant (sum of species).  It is the most important \
+because when this function of temperature, pH, and ionic strength is known, \
+all the other standard transformed properties can be calculated by taking \
+partial derivatives.  The species database in this package contains data \
+matrices for 199 reactants.  For 94 of these reactants, standard enthalpies \
+of formation of species are known, and so standard transformed Gibbs \
+energies, standard transformed enthalpies, standard transformed entropies, \
+and average numbers of hydrogen atoms can be calculated as functions of \
+temperature, pH, and ionic strength.  For reactions between these 94 \
+reactants, the changes in these properties can be calculated over a range of \
+temperatures, pHs, and ionic strengths, and so can apparent equilibrium \
+constants.  For the other 105 reactants, only standard transformed Gibbs \
+energies of formation and average numbers of hydrogen atoms at 298.15 K can \
+be calculated.  The loading of this package provides functions of pH and \
+ionic strength at 298.15 K for standard transformed Gibbs energies of \
+formation and average numbers of hydrogen atoms for 199 reactants.  It also \
+provides functions of temperature, pH, and ionic strength for the standard \
+transformed Gibbs energies of formation, standard transformed enthalpies of \
+formation, standard transformed entropies of formation, and average numbers \
+of hydrogen atoms for 94 reactants.  Thus loading this package makes \
+available 774 mathematical functions for these properties.  These functions \
+can be added and subtracted to obtain changes in these properties in \
+biochemical reactions and apparent equilibrium constants.  "
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["1  Introduction", "Section"]], "Section"],
+
+Cell[TextData[{
+ "Chemical reaction systems are discussed in terms of species, and many \
+chemical thermodynamic properties can be calculated from the species \
+properties given in the next section, for example p",
+ StyleBox["K",
+  FontSlant->"Italic"],
+ "s.  However, in making calculations on enzyme-catalyzed reactions it is \
+useful to take the pH as an independent variable.  When this is done the \
+principal thermodynamic properties of a reactant are the standard transformed \
+Gibbs energy of formation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], 
+    RowBox[{"G", " ", "'"}]}], TraditionalForm]]],
+ " \[Degree], the standard transformed enthalpy of formation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], 
+    RowBox[{"H", "'"}]}], TraditionalForm]]],
+ " \[Degree], the standard transformed entropy of formation  ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], 
+    RowBox[{"S", " ", "'"}]}], TraditionalForm]]],
+ " \[Degree], and the average number of hydrogen atoms in the reactant ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    FormBox[
+     OverscriptBox["N", "_"],
+     TraditionalForm], 
+    StyleBox["H",
+     FontSlant->"Plain"]], TraditionalForm]]],
+ ".  These properties are related by the following equations: "
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    RowBox[{
+     StyleBox[
+      SubscriptBox["H", "i"],
+      FontSlant->"Italic"], "'"}], "\[Degree]"}], TraditionalForm]],
+  FontSize->12],
+ StyleBox[" = ",
+  FontSize->12],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"-", 
+     SuperscriptBox["T", "2"]}], 
+    StyleBox[
+     FractionBox[
+      StyleBox[
+       RowBox[{"\[PartialD]", 
+        RowBox[{"(", 
+         RowBox[{
+          SubscriptBox["\[CapitalDelta]", 
+           StyleBox["f",
+            FontWeight->"Plain",
+            FontSlant->"Plain",
+            FontTracking->"Plain",
+            FontVariations->{"CompatibilityType"->0,
+            "Masked"->False,
+            "Outline"->False,
+            "RotationAngle"->0,
+            "Shadow"->False,
+            "StrikeThrough"->False,
+            "Underline"->False}]], 
+          RowBox[{
+           SubscriptBox["G", "i"], "'"}], 
+          RowBox[{"\[Degree]", "/", "T"}]}], ")"}]}],
+       FontSize->12], 
+      StyleBox[
+       RowBox[{"\[PartialD]", "T"}],
+       FontSize->12]],
+     FontSize->12]}], TraditionalForm]],
+  FontSize->12],
+ "\t\t\t\t\t\t\t\t\t\t(1)"
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    RowBox[{
+     SubscriptBox["S", "i"], "'"}], "\[Degree]"}], TraditionalForm]],
+  FontSize->12],
+ StyleBox[" = ",
+  FontSize->12],
+ StyleBox["-",
+  FontSize->16],
+ StyleBox[" ",
+  FontSize->12],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    FractionBox[
+     StyleBox[
+      RowBox[{
+       RowBox[{"\[PartialD]", 
+        SubscriptBox["\[CapitalDelta]", 
+         StyleBox["f",
+          FontWeight->"Plain",
+          FontSlant->"Plain",
+          FontTracking->"Plain",
+          FontVariations->{"CompatibilityType"->0,
+          "Masked"->False,
+          "Outline"->False,
+          "RotationAngle"->0,
+          "Shadow"->False,
+          "StrikeThrough"->False,
+          "Underline"->False}]]}], 
+       RowBox[{
+        SubscriptBox["G", "i"], "'"}], "\[Degree]"}],
+      FontSize->12], 
+     StyleBox[
+      RowBox[{"\[PartialD]", "T"}],
+      FontSize->12]],
+    FontSize->12], TraditionalForm]],
+  FontSize->12],
+ "\t\t\t\t\t\t\t\t\t\t\t\t(2)"
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     FormBox[
+      OverscriptBox["N", "_"],
+      TraditionalForm], 
+     StyleBox["H",
+      FontSlant->"Plain"]], "(", "i", ")"}], TraditionalForm]],
+  FontSize->12],
+ " ",
+ StyleBox["= ",
+  FontSize->12],
+ Cell[BoxData[
+  FractionBox[
+   StyleBox["1",
+    FontFamily->"Times",
+    FontSize->14], 
+   StyleBox[
+    RowBox[{
+     RowBox[{
+      StyleBox["RT",
+       FontSlant->"Italic"], "ln"}], 
+     RowBox[{"(", "10", ")"}]}],
+    FontFamily->"Times",
+    FontSize->12]]],
+  FontSize->12],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    FractionBox[
+     StyleBox[
+      RowBox[{
+       RowBox[{"\[PartialD]", 
+        SubscriptBox["\[CapitalDelta]", 
+         StyleBox["f",
+          FontWeight->"Plain",
+          FontSlant->"Plain",
+          FontTracking->"Plain",
+          FontVariations->{"CompatibilityType"->0,
+          "Masked"->False,
+          "Outline"->False,
+          "RotationAngle"->0,
+          "Shadow"->False,
+          "StrikeThrough"->False,
+          "Underline"->False}]]}], 
+       RowBox[{
+        SubscriptBox["G", "i"], "'"}], "\[Degree]"}],
+      FontSize->12], 
+     StyleBox[
+      RowBox[{"\[PartialD]", "pH"}],
+      FontSize->12]],
+    FontSize->12], TraditionalForm]],
+  FontSize->12],
+ "\t\t\t\t\t\t\t\t\t\t\t(3)"
+}], "Text"],
+
+Cell[TextData[{
+ "These equations emphasize the importance of being able to express ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], 
+    RowBox[{"G", " ", "'"}]}], TraditionalForm]]],
+ " \[Degree] as a function of temperature, pH, and ionic strength because the \
+other three properties can be calculated by taking partial derivatives.  \n\t\
+The calculation of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], "G"}], TraditionalForm]]],
+ "\[Degree] and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], "H"}], TraditionalForm]]],
+ "\[Degree] of species from experimental data on apparent equilibrium \
+constants and transformed enthalpies of reaction is described in R. A. \
+Alberty, Thermodynamics of Biochemical Reactions, Wiley, Hoboken, NJ (2003) \
+and a number of places in the literature.  That is not discussed here because \
+this package is oriented toward the derivation of mathematical functions to \
+calculate thermodynamic properties at specified ",
+ StyleBox["T",
+  FontSlant->"Italic"],
+ ", pH, and ionic strength.  There are two types of biochemical reactants in \
+the database: \n(1) reactants for which ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    SuperscriptBox[
+     RowBox[{"G", " "}], "o"]}], TraditionalForm]]],
+ " values are known for all species that are significant in the range pH 5 - \
+9\n(2) reactants for which ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    SuperscriptBox[
+     RowBox[{"G", " "}], "o"]}], TraditionalForm]]],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    SuperscriptBox["H", "o"]}], TraditionalForm]]],
+ " are known for all species that are significant in the range pH 5 - 9\n\
+There are 199 reactants of the first type and 94 reactants of the second \
+type. For the first type of reactant, it is possible to calculate ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], 
+    RowBox[{"G", " ", "'"}]}], TraditionalForm]]],
+ " \[Degree] and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    FormBox[
+     OverscriptBox["N", "_"],
+     TraditionalForm], 
+    StyleBox["H",
+     FontSlant->"Plain"]], TraditionalForm]]],
+ " as functions of pH and ionic strength at 298.15 K.  For the second type of \
+reactant, it is possible to calculate ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], 
+    RowBox[{"G", " ", "'"}]}], TraditionalForm]]],
+ " \[Degree],  ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], 
+    RowBox[{"H", " ", "'"}]}], TraditionalForm]]],
+ " \[Degree], ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], 
+    RowBox[{"S", " ", "'"}]}], TraditionalForm]]],
+ " \[Degree], and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    FormBox[
+     OverscriptBox["N", "_"],
+     TraditionalForm], 
+    StyleBox["H",
+     FontSlant->"Plain"]], TraditionalForm]]],
+ " as functions of temperature, pH , and ionic strength.  The equations for \
+calculating these transformed properties from species properties are quite \
+complicated, and so it is fortunate that they can be derived by using \
+Mathematica's symbolic capabilities.  The program ",
+ StyleBox["calcdGmat",
+  FontWeight->"Bold"],
+ " is used with the first type of reactants to derive the functions of pH and \
+ionic strength at 298.15 K.  The program ",
+ StyleBox["derivetrGT",
+  FontWeight->"Bold"],
+ " is used with the second type of reactants to derive the functions of \
+temperature, pH, and ionic strength.  \n\tThe transformed thermodynamic \
+properties of biochemical reactions (",
+ StyleBox["K ",
+  FontSlant->"Italic"],
+ "', ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", "r"], 
+    SuperscriptBox[
+     RowBox[{
+      RowBox[{"G", " ", "'"}], " ", " "}], "o"]}], TraditionalForm]]],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", "r"], 
+    SuperscriptBox[
+     RowBox[{
+      RowBox[{"H", " ", "'"}], " ", " "}], "o"]}], TraditionalForm]]],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", "r"], 
+    SuperscriptBox[
+     RowBox[{
+      RowBox[{"S", "'"}], " "}], 
+     RowBox[{" ", "o"}]]}], TraditionalForm]]],
+ ", and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["r",
+      FontSlant->"Plain"]], 
+    SubscriptBox[
+     StyleBox["N",
+      FontSlant->"Italic"], 
+     StyleBox["H",
+      FontSlant->"Plain"]]}], TraditionalForm]]],
+ ") are related to properties of reactants by the following equations:"
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["r",
+      FontSlant->"Plain"]], 
+    SuperscriptBox[
+     RowBox[{"G", "'"}], 
+     RowBox[{" ", "o"}]]}], TraditionalForm]],
+  FontSize->12],
+ StyleBox["= \[Sum] ",
+  FontSize->12],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Nu]", "i"], "'"}], TraditionalForm]],
+  FontSize->12],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    SuperscriptBox[
+     RowBox[{
+      SubscriptBox["G", "i"], "'"}], 
+     RowBox[{" ", "o"}]]}], TraditionalForm]],
+  FontSize->12],
+ StyleBox["= - ",
+  FontSize->12],
+ StyleBox["RT",
+  FontSize->12,
+  FontSlant->"Italic"],
+ StyleBox[" ln ",
+  FontSize->12],
+ StyleBox["K ",
+  FontSize->12,
+  FontSlant->"Italic"],
+ StyleBox["'",
+  FontSize->12],
+ "\t\t\t\t\t\t\t\t\t(4)\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["r",
+      FontSlant->"Plain"]], 
+    SuperscriptBox[
+     RowBox[{
+      RowBox[{"H", "'"}], " "}], "o"]}], TraditionalForm]],
+  FontSize->12],
+ StyleBox["= \[Sum] ",
+  FontSize->12],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Nu]", "i"], "'"}], TraditionalForm]],
+  FontSize->12],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    SuperscriptBox[
+     RowBox[{
+      RowBox[{
+       SubscriptBox["H", "i"], "'"}], " "}], "o"]}], TraditionalForm]],
+  FontSize->12],
+ "\t\t\t\t\t\t\t\t\t\t\t\t(5)\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["r",
+      FontSlant->"Plain"]], 
+    SuperscriptBox[
+     RowBox[{
+      RowBox[{"S", "'"}], " "}], "o"]}], TraditionalForm]],
+  FontSize->12],
+ StyleBox["= \[Sum] ",
+  FontSize->12],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Nu]", "i"], "'"}], TraditionalForm]],
+  FontSize->12],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    SuperscriptBox[
+     RowBox[{
+      RowBox[{
+       SubscriptBox["S", "i"], "'"}], " "}], "o"]}], TraditionalForm]],
+  FontSize->12],
+ "\t\t\t\t\t\t\t\t\t\t\t\t(6)\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["r",
+      FontSlant->"Plain"]], 
+    SubscriptBox[
+     StyleBox["N",
+      FontSlant->"Italic"], 
+     StyleBox["H",
+      FontSlant->"Plain"]]}], TraditionalForm]],
+  FontSize->12],
+ StyleBox["= \[Sum] ",
+  FontSize->12],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Nu]", "i"], "'"}], TraditionalForm]],
+  FontSize->12],
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    FormBox[
+     OverscriptBox["N", "_"],
+     TraditionalForm], 
+    StyleBox["H",
+     FontSlant->"Plain"]], TraditionalForm]],
+  FontSize->12],
+ "\t\t\t\t\t\t\t\t\t\t\t\t\t(7)"
+}], "Text"],
+
+Cell[TextData[{
+ "The ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Nu]", "i"], "'"}], TraditionalForm]]],
+ " are the stoichiometric numbers of reactants in the biochemical equation \
+(positive for reactants on the right side of the equation and negative for \
+reactants on the left side).  The prime is needed on the stoichiometric \
+numbers to distinguish them from the stoichiomeric numbers in the underlying \
+chemical reactions.  \n\tThis package provides mathematical functions for the \
+following properties of reactants:"
+}], "Text"],
+
+Cell[TextData[{
+ "(1) Functions of pH and ionic strength at 298.15 K for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    SuperscriptBox[
+     RowBox[{
+      RowBox[{
+       SubscriptBox["G", "i"], "'"}], " "}], 
+     RowBox[{" ", "o"}]]}], TraditionalForm]]],
+ " for 199 reactants, for example, atp.\n(2) Functions of pH and ionic \
+strength at 298.15 K for ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    FormBox[
+     OverscriptBox["N", "_"],
+     TraditionalForm], 
+    StyleBox["H",
+     FontSlant->"Plain"]], TraditionalForm]]],
+ " for 199 reactants, for example, atpNH.\n(3) Functions of temperature, pH \
+and ionic strength for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    SuperscriptBox[
+     RowBox[{
+      RowBox[{
+       SubscriptBox["G", "i"], "'"}], " ", " "}], "o"]}], TraditionalForm]]],
+ " for 94 reactants, for example, atpGT.\n(4) Functions of temperature, pH \
+and ionic strength for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    SuperscriptBox[
+     RowBox[{
+      RowBox[{
+       SubscriptBox["H", "i"], "'"}], " "}], 
+     RowBox[{" ", "o"}]]}], TraditionalForm]]],
+ " for 94 reactants, for example, atpHT\n(5) Functions of temperature, pH and \
+ionic strength for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontWeight->"Plain",
+      FontSlant->"Plain",
+      FontTracking->"Plain",
+      FontVariations->{"CompatibilityType"->0,
+      "Masked"->False,
+      "Outline"->False,
+      "RotationAngle"->0,
+      "Shadow"->False,
+      "StrikeThrough"->False,
+      "Underline"->False}]], 
+    SuperscriptBox[
+     RowBox[{
+      RowBox[{
+       SubscriptBox["S", "i"], "'"}], " ", " "}], "o"]}], TraditionalForm]]],
+ " for 94 reactants, for example, atpST\n(6) Functions of temperature, pH and \
+ionic strength for ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    FormBox[
+     OverscriptBox["N", "_"],
+     TraditionalForm], 
+    StyleBox["H",
+     FontSlant->"Plain"]], TraditionalForm]]],
+ " for 94 reactants, for example, atpNHT"
+}], "Text"],
+
+Cell["\<\
+These functions can be evaluated at desired temperatures, pHs, and ionic \
+strengths by use of the operation ReplaceAll: for example, \
+atpGT/.t->313.15/.pH->7/.is->0.25.  They can also be used to make tables and \
+plots.
+\tThe functions for biochemical reactants can be added and subtracted to \
+obtain standard transformed thermodynamic properties for enzyme-catalyzed \
+reactions and their apparent equilibrium constants.  The standard transformed \
+Gibbs energy of reaction for atp + h2o = adp + pi is given as a function of \
+temperature, pH, and ionic strength by adpGT+h2oGT-(atpGT+h2oGT).  The other \
+properties can also be calculated by changing the suffixes.  These functions \
+can also be used to produce plots and tables.\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Instructions for the use of the package \
+BasicBiochemData3.m",
+ FontWeight->"Bold",
+ FontSlant->"Italic"]], "Subsection"],
+
+Cell[TextData[{
+ "\tWhen the notebook BasicBiochemData3.nb was made, a package version \
+BasicBiochemData3.m was made automatically.  The package consists of the ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " input without the text.  When the 199 small matrices of species data or \
+the 774 functions are needed, the command     \
+<<BiochemThermo`BasicBiochemData3`\nis used to make this information \
+available.  It is necessary for the user of this book to put \
+BasicBiochemData3.m in their computer so that  \n\
+<<BiochemThermo`BasicBiochemData3` \nwill work.  To load this package \
+properly, it is first necessary to create a folder named BiochemThermo and \
+put BasicBiochemData3.m into this folder.  Then it is necessary to find out \
+where to put this folder as follows:  Open a Mathematica session and evaluate \
+$UserBaseDirectory.  On my Mac computer, this yields \
+/Users/robertalberty/Library/",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ ".  In this ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " file, you will find Applications.  Put the folder BiochemThermo (with \
+BasicBiochemData3.m in it) into this Applications directory.  Now this \
+package becomes available whenever you load it using\n\
+<<BiochemThermo`BasicBiochemData3`  \nEach chapter should be opened in a \
+fresh workspace.  When this package is loaded, all the species data on 199 \
+reactants and the 774 functions under this package will be available for \
+calculations.  The properties for adenosine triphosphate are named atpsp, \
+atp, atpNH, atpGT, atpHT, atpST, and atpNHT.  These functions are all \
+protected; that is, none of them can be changed without unprotecting them."
+}], "Text",
+ CellMargins->{{Inherited, 53}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Off", "[", 
+   RowBox[{"General", "::", "spell1"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Off", "[", 
+   RowBox[{"General", "::", "spell"}], "]"}], ";"}]}], "Input",
+ CellMargins->{{Inherited, 53}, {Inherited, Inherited}}],
+
+Cell["\<\
+Usage statements for the programs used to derive functions of temperature, \
+pH, and ionic strength for reactants:\
+\>", "Text",
+ CellMargins->{{Inherited, 53}, {Inherited, Inherited}}],
+
+Cell["\<\
+
+calcdGmat::usage=\"calcdGmat[species_] produces the function of pH and ionic 
+strength (is) that gives the standard transformed Gibbs energy of formation \
+of a 
+reactant (sum of species) at 298.15 K.  The input speciesmat is a matrix that \
+
+gives the standard Gibbs energy of formation, the standard enthalpy of \
+formation, 
+the electric charge, and the number of hydrogen atoms in each species. There \
+is 
+a row in the matrix for each species of the reactant. gpfnsp is a list of the \
+
+functions for the species.  Energies are expressed in kJ mol^-1.\";
+
+calcNHmat::usage=\"calcNHmat[speciesmat_]  
+produces the function of pH and ionic strength (is) that gives the average 
+number of hydrogen atoms in a reactant (sum of species) at 298.15 K.  
+The input speciesmat is a matrix that gives the standard Gibbs energy of 
+formation, the standard enthalpy of formation, the electric charge, and 
+the number of hydrogen atoms in each species. There is a row in the matrix 
+for each species of the reactant. gpfnsp is a list of the functions for 
+the species.\";
+
+derivetrGibbsT::usage=\"derivetrGibbsT[speciesmat_] derives the function of T \
+
+(in Kelvin), pH, and ionic strength (is) that gives 
+the standard transformed Gibbs energy of 
+formation of a reactant (sum of species).  The input speciesmat is a matrix 
+that gives the standard Gibbs energy of formation in kJ mol^-1 at 298.15 K and 
+zero ionic strength, the standard enthalpy of formation in kJ mol^-1 at \
+298.15 K 
+and zero ionic strength, the electric charge, and the number of hydrogen \
+atoms in 
+each species.  There is a row in the matrix for each species of the reactant. \
+
+gpfnsp is a list of the functions for the standard transformed Gibbs energies \
+
+of the species. The corresponding functions for other transformed properties 
+can be obtained by taking partial derivatives.  The standard transformed Gibbs 
+energy of formation of a reactant in kJ mol^-1 can be calculated at any \
+temperature 
+in the range 273.15 K to 313.15 K, any pH in the range 5 to 9, and any ionic 
+strength in the range 0 to 0.35 M by use of ReplaceAll (/.).\";
+
+derivetrHT::usage=\"derivetrHT[speciesmat_] derives the function of T (in \
+Kelvin), 
+pH, and ionic strength (is) that gives the standard transformed enthalpy of 
+formation of a reactant (sum of species).  The input speciesmat is a matrix 
+that gives the standard Gibbs energy of formation in kJ mol^-1 at 298.15 K and 
+zero ionic strength, the standard enthalpy of formation in kJ mol^-1 at \
+298.15 K 
+and zero ionic strength, the electric charge, and the number of hydrogen \
+atoms in 
+each species.  There is a row in the matrix for each species of the reactant. \
+
+gpfnsp is a list of the functions for the standard transformed Gibbs energies \
+
+of the species.  This program applies the Gibbs-Helmholtz equation to the 
+function for the standard transformed Gibbs energy of formation of a \
+reactant.  The 
+standard transformed enthalpy of formation of a reactant in kJ mol^-1 can be 
+calculated at any temperature in the range 273.15 K to 313.15 K, any pH in the 
+range 5 to 9, and any ionic strength in the range 0 to 0.35 M by use of \
+ReplaceAll (/.).\";
+
+derivetrST::usage=\"derivetrST[speciesmat_] derives the function of T 
+ (in Kelvin), pH, and ionic strength (is) that gives the stndard transformed 
+ entropy of formation of a reactant (sum of species).  The input speciesmat 
+ is a matrix that gives the standard Gibbs energy of formation in kJ mol^-1 
+ at 298.15 K and zero ionic strength, the standard enthalpy of formation in 
+ kJ mol^-1 at 298.15 K and zero ionic strength, the electric charge, and the 
+ number of hydrogen atoms in each species.  There is a row in the matrix for 
+ each species of the reactant.  gpfnsp is a list of the functions for the 
+ standard transformed Gibbs energies of the species.  This program applies 
+ the equation for the entropy to the function for the standard transformed 
+ Gibbs energy of formation of a reactant.  The standard transformed entropy 
+ of formation of a reactant in kJ K^-1 mol^-1 can be calculated at any 
+ temperature in the range 273.15 K to 313.15 K, any pH in the range 5 to 9, 
+ and any ionic strength in the range 0 to 0.35 M by use of ReplaceAll \
+(/.).\";
+ 
+ deriveNHT::usage=\"deriveNHT[speciesmat_] derives the function of T (in \
+Kelvin), pH, 
+and ionic strength (is) that gives the average number of hydrogen atoms in a 
+reactant (sum of species).  The input speciesmat is a matrix that gives the 
+standard Gibbs energy of formation in kJ mol^-1 at 298.15 K and zero ionic 
+strength, the standard enthalpy of formation in kJ mol^-1 at 298.15 K and 
+zero ionic strength, the electric charge, and the number of hydrogen atoms 
+in each species.  There is a row in the matrix for each species of the 
+reactant.  gpfnsp is a list of the functions for the standard transformed 
+Gibbs energies of the species. The average number can be calculated at any 
+temperature in the range 273.15 K to 313.15 K, any pH in the range 5 to 9, 
+and any ionic strength in the range 0 to 0.35 M by use of ReplaceAll (/.).\";\
+\
+\>", "Input",
+ PageWidth->DirectedInfinity[1],
+ CellMargins->{{Inherited, 53}, {Inherited, Inherited}},
+ InitializationCell->True,
+ ShowSpecialCharacters->False],
+
+Cell["Remove all the names to be used.", "Text"],
+
+Cell["\<\
+
+Remove [acetaldehydesp,acetatesp,acetoacetatesp,acetoacetylcoAsp,acetonesp,
+acetylcoAsp,acetylphossp,aconitatecissp,adeninesp,adenosinesp,
+adenosinephosphosulfatesp,adpsp,alaninesp,ammoniasp,ampsp,arabinosesp,
+arabinose5phossp,asparagineLsp,aspartatesp,atpsp,bpgsp,butanalsp,butanolnsp,
+butyratesp,cellobiosesp,citratesp,citrateisosp,co2gsp,co2totsp,coAsp,
+coAglutathionesp,coaqsp,cogsp,creatinesp,creatininesp,cyclicampsp,cysteineLsp,\
+
+cystineLsp,cytochromecoxsp,cytochromecredsp,deoxyadenosinesp,deoxyadpsp,
+deoxyampsp,deoxyatpsp,deoxyribosesp,deoxyribose1phossp,deoxyribose5phossp,
+dihydroxyacetonesp,dihydroxyacetonephossp,ethaneaqsp,ethanolsp,
+ethylacetatesp,fadenzoxsp,fadenzredsp,fadoxsp,fadredsp,ferredoxinoxsp,
+ferredoxinredsp,ferricsp,ferroussp,fmnoxsp,fmnredsp,formatesp,fructosesp,
+fructose16phossp,fructose6phossp,fumaratesp,galactono14lactonesp,
+galactosesp,galactose1phossp,galactose6phossp,gluconolactonesp,
+gluconolactone6phossp,glucosesp,glucose1phossp,glucose6phossp,glutamatesp,
+glutaminesp,glutathioneoxsp,glutathioneredsp,glyceraldehydesp,
+glyceraldehydephossp,glyceratesp,glycerolsp,glycerol3phossp,glycinesp,
+glycolatesp,glycylglycinesp,glyoxylatesp,h2aqsp,h2gsp,h2osp,h2o2aqsp,
+h2saqsp,hydroxy2oxoglutaratesp,hydroxyglutaratesp,hydroxypropionatebsp,
+hydroxypyruvatesp,hypoxanthinesp,i2crsp,iditolsp,idpsp,impsp,indolesp,
+inosinesp,iodideionsp,isomaltosesp,itpsp,ketoglutaramatesp,ketoglutaratesp,
+lactatesp,lactosesp,lactulosesp,leucineisoLsp,leucineLsp,lyxosesp,malatesp,
+maleatesp,maltosesp,malylcoAsp,mannitol1phossp,mannitolDsp,mannosesp,
+mannose1phossp,mannose6phossp,methaneaqsp,methanegsp,methanolsp,methionineLsp,\
+
+methyl2oxopentanoatesp,methylmalatesp,methylmaleatesp,methylmalonylcoAsp,
+n2aqsp,n2gsp,n2oaqsp,nadoxsp,nadpoxsp,nadpredsp,nadredsp,
+nicotinamideribonucleotidesp,nitratesp,nitritesp,noaqsp,o2aqsp,o2gsp,
+oxalatesp,oxaloacetatesp,oxalosuccinatesp,oxalylcoAsp,oxoprolinesp,
+palmitatesp,pepsp,phenylalanineLsp,phosphoglycerate2sp,phosphoglycerate3sp,
+phosphohydroxypyruvatesp,phosphoserinesp,pisp,ppisp,propanol2sp,propanolnsp,
+propanoylcoAsp,prppsp,pyruvatesp,retinalsp,retinolsp,ribitolsp,ribosesp,
+ribose1phossp,ribose5phossp,ribulosesp,ribulose5phossp,serineLsp,sorbitolsp,
+sorbitol6phossp,sorbosesp,succinatesp,succinylcoAsp,sucrosesp,sulfatesp,
+sulfitesp,sulfurcrsp,thioredoxinoxsp,thioredoxinredsp,threoninesp,
+transcinnamatesp,trehalosesp,tryptophanLsp,tyrosineLsp,ubiquinoneoxsp,
+ubiquinoneredsp,uratesp,ureasp,uricacidsp,valineLsp,xylitolsp,xylosesp,
+xylulosesp]
+
+Remove[acetaldehyde,acetate,acetoacetate,acetoacetylcoA,acetone,acetylcoA,
+acetylphos,aconitatecis,adenine,adenosine,adenosinephosphosulfate,adp,
+alanine,ammonia,amp,arabinose,arabinose5phos,asparagineL,aspartate,atp,bpg,
+butanal,butanoln,butyrate,cellobiose,citrate,citrateiso,co2g,co2tot,coA,
+coAglutathione,coaq,cog,creatine,creatinine,cyclicamp,cysteineL,cystineL,
+cytochromecox,cytochromecred,deoxyadenosine,deoxyadp,deoxyamp,deoxyatp,
+deoxyribose,deoxyribose1phos,deoxyribose5phos,dihydroxyacetone,
+dihydroxyacetonephos,ethaneaq,ethanol,ethylacetate,fadenzox,fadenzred,fadox,
+fadred,ferredoxinox,ferredoxinred,ferric,ferrous,fmnox,fmnred,formate,
+fructose,fructose16phos,fructose6phos,fumarate,galactono14lactone,galactose,
+galactose1phos,galactose6phos,gluconolactone,gluconolactone6phos,glucose,
+glucose1phos,glucose6phos,glutamate,glutamine,glutathioneox,glutathionered,
+glyceraldehyde,glyceraldehydephos,glycerate,glycerol,glycerol3phos,glycine,
+glycolate,glycylglycine,glyoxylate,h2aq,h2g,h2o,h2o2aq,h2saq,\
+hydroxy2oxoglutarate,
+hydroxyglutarate,hydroxypropionateb,hydroxypyruvate,hypoxanthine,i2cr,iditol,
+idp,imp,indole,inosine,iodideion,isomaltose,itp,ketoglutaramate,ketoglutarate,\
+
+lactate,lactose,lactulose,leucineisoL,leucineL,lyxose,malate,maleate,maltose,
+malylcoA,mannitol1phos,mannitolD,mannose,mannose1phos,mannose6phos,methaneaq,
+methaneg,methanol,methionineL,methyl2oxopentanoate,methylmalate,methylmaleate,\
+
+methylmalonylcoA,n2aq,n2g,n2oaq,nadox,nadpox,nadpred,nadred,
+nicotinamideribonucleotide,nitrate,nitrite,noaq,o2aq,o2g,oxalate,oxaloacetate,\
+
+oxalosuccinate,oxalylcoA,oxoproline,palmitate,pep,phenylalanineL,
+phosphoglycerate2,phosphoglycerate3,phosphohydroxypyruvate,phosphoserine,pi,
+ppi,propanol2,propanoln,propanoylcoA,prpp,pyruvate,retinal,retinol,ribitol,
+ribose,ribose1phos,ribose5phos,ribulose,ribulose5phos,serineL,sorbitol,
+sorbitol6phos,sorbose,succinate,succinylcoA,sucrose,sulfate,sulfite,sulfurcr,
+thioredoxinox,thioredoxinred,threonine,transcinnamate,trehalose,tryptophanL,
+tyrosineL,ubiquinoneox,ubiquinonered,urate,urea,uricacid,valineL,xylitol,
+xylose,xylulose]
+
+Remove[acetaldehydeNH,acetateNH,acetoacetateNH,acetoacetylcoANH,acetoneNH,
+acetylcoANH,acetylphosNH,aconitatecisNH,adenineNH,adenosineNH,
+adenosinephosphosulfateNH,adpNH,alanineNH,ammoniaNH,ampNH,arabinoseNH,
+arabinose5phosNH,asparagineLNH,aspartateNH,atpNH,bpgNH,butanalNH,butanolnNH,
+butyrateNH,cellobioseNH,citrateNH,citrateisoNH,co2gNH,co2totNH,coANH,
+coAglutathioneNH,coaqNH,cogNH,creatineNH,creatinineNH,cyclicampNH,cysteineLNH,\
+
+cystineLNH,cytochromecoxNH,cytochromecredNH,deoxyadenosineNH,deoxyadpNH,
+deoxyampNH,deoxyatpNH,deoxyriboseNH,deoxyribose1phosNH,deoxyribose5phosNH,
+dihydroxyacetoneNH,dihydroxyacetonephosNH,ethaneaqNH,ethanolNH,
+ethylacetateNH,fadenzoxNH,fadenzredNH,fadoxNH,fadredNH,ferredoxinoxNH,
+ferredoxinredNH,ferricNH,ferrousNH,fmnoxNH,fmnredNH,formateNH,fructoseNH,
+fructose16phosNH,fructose6phosNH,fumarateNH,galactono14lactoneNH,
+galactoseNH,galactose1phosNH,galactose6phosNH,gluconolactoneNH,
+gluconolactone6phosNH,glucoseNH,glucose1phosNH,glucose6phosNH,glutamateNH,
+glutamineNH,glutathioneoxNH,glutathioneredNH,glyceraldehydeNH,
+glyceraldehydephosNH,glycerateNH,glycerolNH,glycerol3phosNH,glycineNH,
+glycolateNH,glycylglycineNH,glyoxylateNH,h2aqNH,h2gNH,h2oNH,h2o2aqNH,
+h2saqNH,hydroxy2oxoglutarateNH,hydroxyglutarateNH,hydroxypropionatebNH,
+hydroxypyruvateNH,hypoxanthineNH,i2crNH,iditolNH,idpNH,impNH,indoleNH,
+inosineNH,iodideionNH,isomaltoseNH,itpNH,ketoglutaramateNH,
+ketoglutarateNH,lactateNH,lactoseNH,lactuloseNH,leucineisoLNH,leucineLNH,
+lyxoseNH,malateNH,maleateNH,maltoseNH,malylcoANH,mannitol1phosNH,mannitolDNH,
+mannoseNH,mannose1phosNH,mannose6phosNH,methaneaqNH,methanegNH,methanolNH,
+methionineLNH,methyl2oxopentanoateNH,methylmalateNH,methylmaleateNH,
+methylmalonylcoANH,n2aqNH,n2gNH,n2oaqNH,nadoxNH,nadpoxNH,nadpredNH,nadredNH,
+nicotinamideribonucleotideNH,nitrateNH,nitriteNH,noaqNH,o2aqNH,o2gNH,
+oxalateNH,oxaloacetateNH,oxalosuccinateNH,oxalylcoANH,oxoprolineNH,
+palmitateNH,pepNH,phenylalanineLNH,phosphoglycerate2NH,phosphoglycerate3NH,
+phosphohydroxypyruvateNH,phosphoserineNH,piNH,ppiNH,propanol2NH,propanolnNH,
+propanoylcoANH,prppNH,pyruvateNH,retinalNH,retinolNH,ribitolNH,riboseNH,
+ribose1phosNH,ribose5phosNH,ribuloseNH,ribulose5phosNH,serineLNH,sorbitolNH,
+sorbitol6phosNH,sorboseNH,succinateNH,succinylcoANH,sucroseNH,sulfateNH,
+sulfiteNH,sulfurcrNH,thioredoxinoxNH,thioredoxinredNH,threonineNH,
+transcinnamateNH,trehaloseNH,tryptophanLNH,tyrosineLNH,ubiquinoneoxNH,
+ubiquinoneredNH,urateNH,ureaNH,uricacidNH,valineLNH,xylitolNH,xyloseNH,
+xyluloseNH]
+
+Remove[acetaldehydeGT,acetateGT,acetoneGT,adenineGT,adenosineGT,adpGT,
+alanineGT,ammoniaGT,ampGT,arabinoseGT,asparagineLGT,aspartateGT,atpGT,
+citrateGT,co2gGT,co2totGT,coaqGT,cogGT,ethaneaqGT,ethanolGT,ethylacetateGT,
+ferricGT,ferrousGT,formateGT,fructoseGT,fructose16phosGT,fructose6phosGT,
+fumarateGT,galactoseGT,glucoseGT,glucose6phosGT,glutamateGT,glutamineGT,
+glycerolGT,glycerol3phosGT,glycineGT,glycylglycineGT,h2aqGT,h2gGT,h2oGT,
+h2o2aqGT,h2saqGT,i2crGT,idpGT,impGT,indoleGT,inosineGT,iodideionGT,
+isomaltoseGT,itpGT,ketoglutarateGT,lactateGT,lactoseGT,leucineLGT,malateGT,
+maltoseGT,mannoseGT,mannose6phosGT,methaneaqGT,methanegGT,methanolGT,n2aqGT,
+n2gGT,n2oaqGT,nadoxGT,nadpoxGT,nadpredGT,nadredGT,nitrateGT,nitriteGT,
+noaqGT,o2aqGT,o2gGT,oxaloacetateGT,pepGT,piGT,ppiGT,propanol2GT,pyruvateGT,
+riboseGT,ribose1phosGT,ribose5phosGT,ribuloseGT,sorboseGT,succinateGT,
+sucroseGT,sulfateGT,sulfiteGT,sulfurcrGT,tryptophanLGT,ureaGT,valineLGT,
+xyloseGT,xyluloseGT]
+
+Remove[acetaldehydeHT,acetateHT,acetoneHT,adenineHT,adenosineHT,adpHT,\
+alanineHT,
+ammoniaHT,ampHT,arabinoseHT,asparagineLHT,aspartateHT,atpHT,citrateHT,co2gHT,
+co2totHT,coaqHT,cogHT,ethaneaqHT,ethanolHT,ethylacetateHT,ferricHT,ferrousHT,
+formateHT,fructoseHT,fructose16phosHT,fructose6phosHT,fumarateHT,galactoseHT,
+glucoseHT,glucose6phosHT,glutamateHT,glutamineHT,glycerolHT,glycerol3phosHT,
+glycineHT,glycylglycineHT,h2aqHT,h2gHT,h2oHT,h2o2aqHT,h2saqHT,i2crHT,idpHT,
+impHT,indoleHT,inosineHT,iodideionHT,isomaltoseHT,itpHT,ketoglutarateHT,
+lactateHT,lactoseHT,leucineLHT,malateHT,maltoseHT,mannoseHT,mannose6phosHT,
+methaneaqHT,methanegHT,methanolHT,n2aqHT,n2gHT,n2oaqHT,nadoxHT,nadpoxHT,
+nadpredHT,nadredHT,nitrateHT,nitriteHT,noaqHT,o2aqHT,o2gHT,oxaloacetateHT,
+pepHT,piHT,ppiHT,propanol2HT,pyruvateHT,riboseHT,ribose1phosHT,ribose5phosHT,
+ribuloseHT,sorboseHT,succinateHT,sucroseHT,sulfateHT,sulfiteHT,sulfurcrHT,
+tryptophanLHT,ureaHT,valineLHT,xyloseHT,xyluloseHT]
+
+Remove[acetaldehydeST,acetateST,acetoneST,adenineST,adenosineST,adpST,\
+alanineST,
+ammoniaST,ampST,arabinoseST,asparagineLST,aspartateST,atpST,citrateST,co2gST,
+co2totST,coaqST,cogST,ethaneaqST,ethanolST,ethylacetateST,ferricST,ferrousST,
+formateST,fructoseST,fructose16phosST,fructose6phosST,fumarateST,galactoseST,
+glucoseST,glucose6phosST,glutamateST,glutamineST,glycerolST,glycerol3phosST,
+glycineST,glycylglycineST,h2aqST,h2gST,h2oST,h2o2aqST,h2saqST,i2crST,idpST,
+impST,indoleST,inosineST,iodideionST,isomaltoseST,itpST,ketoglutarateST,
+lactateST,lactoseST,leucineLST,malateST,maltoseST,mannoseST,mannose6phosST,
+methaneaqST,methanegST,methanolST,n2aqST,n2gST,n2oaqST,nadoxST,nadpoxST,
+nadpredST,nadredST,nitrateST,nitriteST,noaqST,o2aqST,o2gST,oxaloacetateST,
+pepST,piST,ppiST,propanol2ST,pyruvateST,riboseST,ribose1phosST,ribose5phosST,
+ribuloseST,sorboseST,succinateST,sucroseST,sulfateST,sulfiteST,sulfurcrST,
+tryptophanLST,ureaST,valineLST,xyloseST,xyluloseST]
+
+Remove[acetaldehydeNHT,acetateNHT,acetoneNHT,adenineNHT,adenosineNHT,adpNHT,
+alanineNHT,ammoniaNHT,ampNHT,arabinoseNHT,asparagineLNHT,aspartateNHT,atpNHT,
+citrateNHT,co2gNHT,co2totNHT,coaqNHT,cogNHT,ethaneaqNHT,ethanolNHT,
+ethylacetateNHT,ferricNHT,ferrousNHT,formateNHT,fructoseNHT,fructose16phosNHT,\
+
+fructose6phosNHT,fumarateNHT,galactoseNHT,glucoseNHT,glucose6phosNHT,
+glutamateNHT,glutamineNHT,glycerolNHT,glycerol3phosNHT,glycineNHT,
+glycylglycineNHT,h2aqNHT,h2gNHT,h2oNHT,h2o2aqNHT,h2saqNHT,i2crNHT,idpNHT,
+impNHT,indoleNHT,inosineNHT,iodideionNHT,isomaltoseNHT,itpNHT,
+ketoglutarateNHT,lactateNHT,lactoseNHT,leucineLNHT,malateNHT,maltoseNHT,
+mannoseNHT,mannose6phosNHT,methaneaqNHT,methanegNHT,methanolNHT,n2aqNHT,
+n2gNHT,n2oaqNHT,nadoxNHT,nadpoxNHT,nadpredNHT,nadredNHT,nitrateNHT,nitriteNHT,\
+
+noaqNHT,o2aqNHT,o2gNHT,oxaloacetateNHT,pepNHT,piNHT,ppiNHT,propanol2NHT,
+pyruvateNHT,riboseNHT,ribose1phosNHT,ribose5phosNHT,ribuloseNHT,sorboseNHT,
+succinateNHT,sucroseNHT,sulfateNHT,sulfiteNHT,sulfurcrNHT,tryptophanLNHT,
+ureaNHT,valineLNHT,xyloseNHT,xyluloseNHT]\
+\>", "Input",
+ PageWidth->DirectedInfinity[1],
+ InitializationCell->True,
+ ShowSpecialCharacters->False],
+
+Cell["Unprotect all the names to be used.", "Text"],
+
+Cell["\<\
+Unprotect [t,pH, is, 
+acetaldehydesp,acetatesp,acetoacetatesp,acetoacetylcoAsp,acetonesp,
+acetylcoAsp,acetylphossp,aconitatecissp,adeninesp,adenosinesp,
+adenosinephosphosulfatesp,adpsp,alaninesp,ammoniasp,ampsp,arabinosesp,
+arabinose5phossp,asparagineLsp,aspartatesp,atpsp,bpgsp,butanalsp,butanolnsp,
+butyratesp,cellobiosesp,citratesp,citrateisosp,co2gsp,co2totsp,coAsp,
+coAglutathionesp,coaqsp,cogsp,creatinesp,creatininesp,cyclicampsp,cysteineLsp,\
+
+cystineLsp,cytochromecoxsp,cytochromecredsp,deoxyadenosinesp,deoxyadpsp,
+deoxyampsp,deoxyatpsp,deoxyribosesp,deoxyribose1phossp,deoxyribose5phossp,
+dihydroxyacetonesp,dihydroxyacetonephossp,ethaneaqsp,ethanolsp,
+ethylacetatesp,fadenzoxsp,fadenzredsp,fadoxsp,fadredsp,ferredoxinoxsp,
+ferredoxinredsp,ferricsp,ferroussp,fmnoxsp,fmnredsp,formatesp,fructosesp,
+fructose16phossp,fructose6phossp,fumaratesp,galactono14lactonesp,
+galactosesp,galactose1phossp,galactose6phossp,gluconolactonesp,
+gluconolactone6phossp,glucosesp,glucose1phossp,glucose6phossp,glutamatesp,
+glutaminesp,glutathioneoxsp,glutathioneredsp,glyceraldehydesp,
+glyceraldehydephossp,glyceratesp,glycerolsp,glycerol3phossp,glycinesp,
+glycolatesp,glycylglycinesp,glyoxylatesp,h2aqsp,h2gsp,h2osp,h2o2aqsp,
+h2saqsp,hydroxy2oxoglutaratesp,hydroxyglutaratesp,hydroxypropionatebsp,
+hydroxypyruvatesp,hypoxanthinesp,i2crsp,iditolsp,idpsp,impsp,indolesp,
+inosinesp,iodideionsp,isomaltosesp,itpsp,ketoglutaramatesp,
+ketoglutaratesp,lactatesp,lactosesp,lactulosesp,leucineisoLsp,leucineLsp,
+lyxosesp,malatesp,maleatesp,maltosesp,malylcoAsp,mannitol1phossp,mannitolDsp,
+mannosesp,mannose1phossp,mannose6phossp,methaneaqsp,methanegsp,methanolsp,
+methionineLsp,methyl2oxopentanoatesp,methylmalatesp,methylmaleatesp,
+methylmalonylcoAsp,n2aqsp,n2gsp,n2oaqsp,nadoxsp,nadpoxsp,nadpredsp,nadredsp,
+nicotinamideribonucleotidesp,nitratesp,nitritesp,noaqsp,o2aqsp,o2gsp,
+oxalatesp,oxaloacetatesp,oxalosuccinatesp,oxalylcoAsp,oxoprolinesp,
+palmitatesp,pepsp,phenylalanineLsp,phosphoglycerate2sp,phosphoglycerate3sp,
+phosphohydroxypyruvatesp,phosphoserinesp,pisp,ppisp,propanol2sp,propanolnsp,
+propanoylcoAsp,prppsp,pyruvatesp,retinalsp,retinolsp,ribitolsp,ribosesp,
+ribose1phossp,ribose5phossp,ribulosesp,ribulose5phossp,serineLsp,sorbitolsp,
+sorbitol6phossp,sorbosesp,succinatesp,succinylcoAsp,sucrosesp,sulfatesp,
+sulfitesp,sulfurcrsp,thioredoxinoxsp,thioredoxinredsp,threoninesp,
+transcinnamatesp,trehalosesp,tryptophanLsp,tyrosineLsp,ubiquinoneoxsp,
+ubiquinoneredsp,uratesp,ureasp,uricacidsp,valineLsp,xylitolsp,xylosesp,
+xylulosesp];
+
+Unprotect[acetaldehyde,acetate,acetoacetate,acetoacetylcoA,acetone,acetylcoA,
+acetylphos,aconitatecis,adenine,adenosine,adenosinephosphosulfate,adp,alanine,\
+
+ammonia,amp,arabinose,arabinose5phos,asparagineL,aspartate,atp,bpg,butanal,
+butanoln,butyrate,cellobiose,citrate,citrateiso,co2g,co2tot,coA,
+coAglutathione,coaq,cog,creatine,creatinine,cyclicamp,cysteineL,cystineL,
+cytochromecox,cytochromecred,deoxyadenosine,deoxyadp,deoxyamp,deoxyatp,
+deoxyribose,deoxyribose1phos,deoxyribose5phos,dihydroxyacetone,
+dihydroxyacetonephos,ethaneaq,ethanol,ethylacetate,fadenzox,fadenzred,fadox,
+fadred,ferredoxinox,ferredoxinred,ferric,ferrous,fmnox,fmnred,formate,
+fructose,fructose16phos,fructose6phos,fumarate,galactono14lactone,galactose,
+galactose1phos,galactose6phos,gluconolactone,gluconolactone6phos,glucose,
+glucose1phos,glucose6phos,glutamate,glutamine,glutathioneox,glutathionered,
+glyceraldehyde,glyceraldehydephos,glycerate,glycerol,glycerol3phos,glycine,
+glycolate,glycylglycine,glyoxylate,h2aq,h2g,h2o,h2o2aq,h2saq,
+hydroxy2oxoglutarate,hydroxyglutarate,hydroxypropionateb,hydroxypyruvate,
+hypoxanthine,i2cr,iditol,idp,imp,indole,inosine,iodideion,isomaltose,itp,
+ketoglutaramate,ketoglutarate,lactate,lactose,lactulose,leucineisoL,
+leucineL,lyxose,malate,maleate,maltose,malylcoA,mannitol1phos,mannitolD,
+mannose,mannose1phos,mannose6phos,methaneaq,methaneg,methanol,methionineL,
+methyl2oxopentanoate,methylmalate,methylmaleate,methylmalonylcoA,n2aq,n2g,
+n2oaq,nadox,nadpox,nadpred,nadred,nicotinamideribonucleotide,nitrate,
+nitrite,noaq,o2aq,o2g,oxalate,oxaloacetate,oxalosuccinate,oxalylcoA,
+oxoproline,palmitate,pep,phenylalanineL,phosphoglycerate2,phosphoglycerate3,
+phosphohydroxypyruvate,phosphoserine,pi,ppi,propanol2,propanoln,
+propanoylcoA,prpp,pyruvate,retinal,retinol,ribitol,ribose,ribose1phos,
+ribose5phos,ribulose,ribulose5phos,serineL,sorbitol,sorbitol6phos,sorbose,
+succinate,succinylcoA,sucrose,sulfate,sulfite,sulfurcr,thioredoxinox,
+thioredoxinred,threonine,transcinnamate,trehalose,tryptophanL,tyrosineL,
+ubiquinoneox,ubiquinonered,urate,urea,uricacid,valineL,xylitol,xylose,
+xylulose];
+
+Unprotect[acetaldehydeNH,acetateNH,acetoacetateNH,acetoacetylcoANH,acetoneNH,
+acetylcoANH,acetylphosNH,aconitatecisNH,adenineNH,adenosineNH,
+adenosinephosphosulfateNH,adpNH,alanineNH,ammoniaNH,ampNH,arabinoseNH,
+arabinose5phosNH,asparagineLNH,aspartateNH,atpNH,bpgNH,butanalNH,butanolnNH,
+butyrateNH,cellobioseNH,citrateNH,citrateisoNH,co2gNH,co2totNH,coANH,
+coAglutathioneNH,coaqNH,cogNH,creatineNH,creatinineNH,cyclicampNH,cysteineLNH,\
+
+cystineLNH,cytochromecoxNH,cytochromecredNH,deoxyadenosineNH,deoxyadpNH,
+deoxyampNH,deoxyatpNH,deoxyriboseNH,deoxyribose1phosNH,deoxyribose5phosNH,
+dihydroxyacetoneNH,dihydroxyacetonephosNH,ethaneaqNH,ethanolNH,
+ethylacetateNH,fadenzoxNH,fadenzredNH,fadoxNH,fadredNH,ferredoxinoxNH,
+ferredoxinredNH,ferricNH,ferrousNH,fmnoxNH,fmnredNH,formateNH,fructoseNH,
+fructose16phosNH,fructose6phosNH,fumarateNH,galactono14lactoneNH,
+galactoseNH,galactose1phosNH,galactose6phosNH,gluconolactoneNH,
+gluconolactone6phosNH,glucoseNH,glucose1phosNH,glucose6phosNH,glutamateNH,
+glutamineNH,glutathioneoxNH,glutathioneredNH,glyceraldehydeNH,
+glyceraldehydephosNH,glycerateNH,glycerolNH,glycerol3phosNH,glycineNH,
+glycolateNH,glycylglycineNH,glyoxylateNH,h2aqNH,h2gNH,h2oNH,h2o2aqNH,
+h2saqNH,hydroxy2oxoglutarateNH,hydroxyglutarateNH,hydroxypropionatebNH,
+hydroxypyruvateNH,hypoxanthineNH,i2crNH,iditolNH,idpNH,impNH,indoleNH,
+inosineNH,iodideionNH,isomaltoseNH,itpNH,ketoglutaramateNH,
+ketoglutarateNH,lactateNH,lactoseNH,lactuloseNH,leucineisoLNH,leucineLNH,
+lyxoseNH,malateNH,maleateNH,maltoseNH,malylcoANH,mannitol1phosNH,mannitolDNH,
+mannoseNH,mannose1phosNH,mannose6phosNH,methaneaqNH,methanegNH,methanolNH,
+methionineLNH,methyl2oxopentanoateNH,methylmalateNH,methylmaleateNH,
+methylmalonylcoANH,n2aqNH,n2gNH,n2oaqNH,nadoxNH,nadpoxNH,nadpredNH,nadredNH,
+nicotinamideribonucleotideNH,nitrateNH,nitriteNH,noaqNH,o2aqNH,o2gNH,
+oxalateNH,oxaloacetateNH,oxalosuccinateNH,oxalylcoANH,oxoprolineNH,
+palmitateNH,pepNH,phenylalanineLNH,phosphoglycerate2NH,phosphoglycerate3NH,
+phosphohydroxypyruvateNH,phosphoserineNH,piNH,ppiNH,propanol2NH,propanolnNH,
+propanoylcoANH,prppNH,pyruvateNH,retinalNH,retinolNH,ribitolNH,riboseNH,
+ribose1phosNH,ribose5phosNH,ribuloseNH,ribulose5phosNH,serineLNH,sorbitolNH,
+sorbitol6phosNH,sorboseNH,succinateNH,succinylcoANH,sucroseNH,sulfateNH,
+sulfiteNH,sulfurcrNH,thioredoxinoxNH,thioredoxinredNH,threonineNH,
+transcinnamateNH,trehaloseNH,tryptophanLNH,tyrosineLNH,ubiquinoneoxNH,
+ubiquinoneredNH,urateNH,ureaNH,uricacidNH,valineLNH,xylitolNH,xyloseNH,
+xyluloseNH];
+
+Unprotect[acetaldehydeGT,acetateGT,acetoneGT,adenineGT,adenosineGT,adpGT,
+alanineGT,ammoniaGT,ampGT,arabinoseGT,asparagineLGT,aspartateGT,atpGT,
+citrateGT,co2gGT,co2totGT,coaqGT,cogGT,ethaneaqGT,ethanolGT,ethylacetateGT,
+ferricGT,ferrousGT,formateGT,fructoseGT,fructose16phosGT,fructose6phosGT,
+fumarateGT,galactoseGT,glucoseGT,glucose6phosGT,glutamateGT,glutamineGT,
+glycerolGT,glycerol3phosGT,glycineGT,glycylglycineGT,h2aqGT,h2gGT,h2oGT,
+h2o2aqGT,h2saqGT,i2crGT,idpGT,impGT,indoleGT,inosineGT,iodideionGT,
+isomaltoseGT,itpGT,ketoglutarateGT,lactateGT,lactoseGT,leucineLGT,malateGT,
+maltoseGT,mannoseGT,mannose6phosGT,methaneaqGT,methanegGT,methanolGT,n2aqGT,
+n2gGT,n2oaqGT,nadoxGT,nadpoxGT,nadpredGT,nadredGT,nitrateGT,nitriteGT,
+noaqGT,o2aqGT,o2gGT,oxaloacetateGT,pepGT,piGT,ppiGT,propanol2GT,pyruvateGT,
+riboseGT,ribose1phosGT,ribose5phosGT,ribuloseGT,sorboseGT,succinateGT,
+sucroseGT,sulfateGT,sulfiteGT,sulfurcrGT,tryptophanLGT,ureaGT,valineLGT,
+xyloseGT,xyluloseGT];
+
+Unprotect[acetaldehydeHT,acetateHT,acetoneHT,adenineHT,adenosineHT,adpHT,\
+alanineHT,
+ammoniaHT,ampHT,arabinoseHT,asparagineLHT,aspartateHT,atpHT,citrateHT,co2gHT,
+co2totHT,coaqHT,cogHT,ethaneaqHT,ethanolHT,ethylacetateHT,ferricHT,ferrousHT,
+formateHT,fructoseHT,fructose16phosHT,fructose6phosHT,fumarateHT,galactoseHT,
+glucoseHT,glucose6phosHT,glutamateHT,glutamineHT,glycerolHT,glycerol3phosHT,
+glycineHT,glycylglycineHT,h2aqHT,h2gHT,h2oHT,h2o2aqHT,h2saqHT,i2crHT,idpHT,
+impHT,indoleHT,inosineHT,iodideionHT,isomaltoseHT,itpHT,ketoglutarateHT,
+lactateHT,lactoseHT,leucineLHT,malateHT,maltoseHT,mannoseHT,mannose6phosHT,
+methaneaqHT,methanegHT,methanolHT,n2aqHT,n2gHT,n2oaqHT,nadoxHT,nadpoxHT,
+nadpredHT,nadredHT,nitrateHT,nitriteHT,noaqHT,o2aqHT,o2gHT,oxaloacetateHT,
+pepHT,piHT,ppiHT,propanol2HT,pyruvateHT,riboseHT,ribose1phosHT,ribose5phosHT,
+ribuloseHT,sorboseHT,succinateHT,sucroseHT,sulfateHT,sulfiteHT,sulfurcrHT,
+tryptophanLHT,ureaHT,valineLHT,xyloseHT,xyluloseHT];
+
+Unprotect[acetaldehydeST,acetateST,acetoneST,adenineST,adenosineST,adpST,\
+alanineST,
+ammoniaST,ampST,arabinoseST,asparagineLST,aspartateST,atpST,citrateST,co2gST,
+co2totST,coaqST,cogST,ethaneaqST,ethanolST,ethylacetateST,ferricST,ferrousST,
+formateST,fructoseST,fructose16phosST,fructose6phosST,fumarateST,galactoseST,
+glucoseST,glucose6phosST,glutamateST,glutamineST,glycerolST,glycerol3phosST,
+glycineST,glycylglycineST,h2aqST,h2gST,h2oST,h2o2aqST,h2saqST,i2crST,idpST,
+impST,indoleST,inosineST,iodideionST,isomaltoseST,itpST,ketoglutarateST,
+lactateST,lactoseST,leucineLST,malateST,maltoseST,mannoseST,mannose6phosST,
+methaneaqST,methanegST,methanolST,n2aqST,n2gST,n2oaqST,nadoxST,nadpoxST,
+nadpredST,nadredST,nitrateST,nitriteST,noaqST,o2aqST,o2gST,oxaloacetateST,
+pepST,piST,ppiST,propanol2ST,pyruvateST,riboseST,ribose1phosST,ribose5phosST,
+ribuloseST,sorboseST,succinateST,sucroseST,sulfateST,sulfiteST,sulfurcrST,
+tryptophanLST,ureaST,valineLST,xyloseST,xyluloseST];
+
+Unprotect[acetaldehydeNHT,acetateNHT,acetoneNHT,adenineNHT,adenosineNHT,adpNHT,
+alanineNHT,ammoniaNHT,ampNHT,arabinoseNHT,asparagineLNHT,aspartateNHT,atpNHT,
+citrateNHT,co2gNHT,co2totNHT,coaqNHT,cogNHT,ethaneaqNHT,ethanolNHT,
+ethylacetateNHT,ferricNHT,ferrousNHT,formateNHT,fructoseNHT,fructose16phosNHT,\
+
+fructose6phosNHT,fumarateNHT,galactoseNHT,glucoseNHT,glucose6phosNHT,
+glutamateNHT,glutamineNHT,glycerolNHT,glycerol3phosNHT,glycineNHT,
+glycylglycineNHT,h2aqNHT,h2gNHT,h2oNHT,h2o2aqNHT,h2saqNHT,i2crNHT,idpNHT,
+impNHT,indoleNHT,inosineNHT,iodideionNHT,isomaltoseNHT,itpNHT,
+ketoglutarateNHT,lactateNHT,lactoseNHT,leucineLNHT,malateNHT,maltoseNHT,
+mannoseNHT,mannose6phosNHT,methaneaqNHT,methanegNHT,methanolNHT,n2aqNHT,
+n2gNHT,n2oaqNHT,nadoxNHT,nadpoxNHT,nadpredNHT,nadredNHT,nitrateNHT,nitriteNHT,\
+
+noaqNHT,o2aqNHT,o2gNHT,oxaloacetateNHT,pepNHT,piNHT,ppiNHT,propanol2NHT,
+pyruvateNHT,riboseNHT,ribose1phosNHT,ribose5phosNHT,ribuloseNHT,sorboseNHT,
+succinateNHT,sucroseNHT,sulfateNHT,sulfiteNHT,sulfurcrNHT,tryptophanLNHT,
+ureaNHT,valineLNHT,xyloseNHT,xyluloseNHT];\
+\>", "Input",
+ PageWidth->DirectedInfinity[1],
+ InitializationCell->True,
+ ShowSpecialCharacters->False]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["2 Basic data on the species that make up a reactant", "Section"],
+
+Cell[TextData[{
+ "\tThe rows in the data matrices are of the form {",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], "G"}], TraditionalForm]]],
+ "\[Degree]\[NonBreakingSpace], ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], "H"}], TraditionalForm]]],
+ "\[Degree] , ",
+ StyleBox["z",
+  FontSlant->"Italic"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    SubscriptBox["N", 
+     StyleBox["H",
+      FontSlant->"Plain"]],
+    FontSlant->"Italic"], TraditionalForm]]],
+ "}, where the energies are in kJ ",
+ Cell[BoxData[
+  SuperscriptBox["mol", 
+   RowBox[{"-", "1"}]]]],
+ " at 298.15 K and zero ionic strength, ",
+ StyleBox["z",
+  FontSlant->"Italic"],
+ " is the charge number, and ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    SubscriptBox["N", 
+     StyleBox["H",
+      FontSlant->"Plain"]],
+    FontSlant->"Italic"], TraditionalForm]]],
+ " is the number of hydrogen atoms in the species."
+}], "Text"],
+
+Cell["\<\
+
+
+acetaldehydesp={{-139.,-212.23,0,4}};
+acetatesp={{-369.31,-486.01,-1,3},{-396.45,-485.76,0,4}};
+acetoacetatesp={{-482.49,_,0,5}};
+acetoacetylcoAsp={{-285.32,_,0,5}};
+acetonesp={{-159.7,-221.71,0,6}};
+acetylcoAsp={{-180.36,_,0,3}};
+acetylphossp={{-1219.49,_,-2,3},{-1269.08,_,-1,4},{-1298.26,_,0,5}};
+aconitatecissp={{-917.13,_,-3,3}};
+adeninesp={{313.40,129.5,0,5},{289.43,109.4,1,6}};
+adenosinesp={{-194.5,-621.3,0,13},{-214.28,-637.7,1,14}};
+adenosinephosphosulfatesp={{-1541.98,_,-1,12}};
+adpsp={{-1906.13,-2626.54,-3,12},{-1947.1,-2620.94,-2,
+        13},{-1971.98,-2638.54,-1,14}};
+alaninesp={{-371.,-554.8,0,7}};
+ammoniasp={{-26.5,-80.29,0,3},{-79.31,-132.51,1,4}};
+ampsp={{-1040.45,-1635.37,-2,12},{-1078.86,-1629.97,-1,
+        13},{-1101.63,-1648.07,0,14}};
+arabinosesp={{-742.23,-1043.79,0,10}};
+arabinose5phossp={{-1598.34,_,-2,9},{-1636.53,_,-1,10}};
+asparagineLsp={{-525.93,-766.09,0,8}};
+aspartatesp={{-695.88,-943.41,-1,6}};
+atpsp={{-2768.1,-3619.21,-4,12},{-2811.48,-3612.91,-3,
+        13},{-2838.18,-3627.91,-2,14}};
+bpgsp={{-2356.14,_,-4,4},{-2401.58,_,-3,5}};
+butanalsp={{-129.87,_,0,8}};
+butanolnsp={{-171.84,_,0,10}};
+butyratesp={{-352.63,_,-1,7}};
+cellobiosesp={{-1585.94,_,0,22}};
+citratesp={{-1162.69,-1515.11,-3,5},{-1199.18,-1518.46,-2,
+        6},{-1226.33,-1520.88,-1,7}};
+citrateisosp={{-1156.04,_,-3,5},{-1192.57,_,-2,6},{-1219.47,_,-1,7}};
+co2gsp={{-394.36,-393.5,0,0}};
+co2totsp={{-527.81,-677.14,-2,0},{-586.77,-691.99,-1,1},{-623.11,-699.63,0,
+        2}};
+coAsp={{0,_,-1,0},{-47.83,_,0,1}};
+coAglutathionesp={{-35.85,_,-1,15}};
+coaqsp={{-119.9,-120.96,0,0}};
+cogsp={{-137.17,-110.53,0,0}};
+creatinesp={{-259.2,_,0,9}};
+creatininesp={{-23.14,_,0,7}};
+cyclicampsp={{-629.68,_,-1,7}};
+cysteineLsp={{-291.,_,-1,6},{-338.82,_,0,7}};
+cystineLsp={{-666.51,_,0,12}};
+cytochromecoxsp={{0,_,3,0}};
+cytochromecredsp={{-24.51,_,2,0}};
+deoxyadenosinesp={{-46.64,_,0,13},{-66.42,_,1,14}};
+deoxyadpsp={{-1758.27,_,-3,12},{-1799.24,_,-2,13},{-1824.12,_,-1,14}};
+deoxyampsp={{-892.59,_,-2,12},{-931.0,_,-1,13},{-953.77,_,0,14}};
+deoxyatpsp={{-2620.24,_,-4,12},{-2663.62,_,-3,13},{-2690.32,_,-2,14}};
+deoxyribosesp={{-604.14,_,0,10}};
+deoxyribose1phossp={{-1439.84,_,-2,9},{-1478.02,_,-1,10}};
+deoxyribose5phossp={{-1447.92,_,-2,9},{-1486.11,_,-1,10}};
+dihydroxyacetonesp={{-451.0,_,0,6}};
+dihydroxyacetonephossp={{-1296.26,_,-2,5},{-1328.8,_,-1,6}};
+ethaneaqsp={{-17.01,-102.09,0,6}};
+ethanolsp={{-181.64,-288.3,0,6}};
+ethylacetatesp={{-337.65,-482.,0,8}};
+fadenzoxsp={{0,_,-2,31}};
+fadenzredsp={{-88.6,_,-2,33}};
+fadoxsp={{0,_,-2,31}};
+fadredsp={{-38.88,_,-2,33}};
+ferredoxinoxsp={{0,_,1,0}};
+ferredoxinredsp={{38.07,_,0,0}};
+ferricsp={{-4.70,-48.5,3,0}};
+ferroussp={{-78.90,-89.10,2,0}};
+fmnoxsp={{0,_,-2,19}};
+fmnredsp={{-38.88,_,-2,21}};
+formatesp={{-351.,-425.55,-1,1}};
+fructosesp={{-915.51,-1259.38,0,12}};
+fructose16phossp={{-2601.4,-3343.25,-4,10},{-2639.36,-3341.45,-3,11},{-2673.\\\
+
+\\
+89,-3339.65,-2,12}};
+fructose6phossp={{-1760.8,-2265.17,-2,11},{-1796.6,-2263.37,-1,12}};
+fumaratesp={{-601.87,-777.39,-2,2},{-628.14,-774.46,-1,3},{-645.8,-774.88,0,
+        4}};
+galactono14lactonesp={{-905.34,_,0,10}};
+galactosesp={{-908.93,-1255.2,0,12}};
+galactose1phossp={{-1756.69,_,-2,11},{-1791.77,_,-1,12}};
+galactose6phossp={{-1756.81,_,-2,11},{-1793.57,_,-1,12}};
+gluconolactonesp={{-903.50,_,0,10}};
+gluconolactone6phossp={{-1746.08,_,-2,9},{-1782.73,_,-1,10}};
+glucosesp={{-915.9,-1262.19,0,12}};
+glucose1phossp={{-1756.87,_,-2,11},{-1793.98,_,-1,12}};
+glucose6phossp={{-1763.94,-2276.44,-2,11},{-1800.59,-2274.64,-1,12}};
+glutamatesp={{-697.47,-979.89,-1,8}};
+glutaminesp={{-528.02,-805.,0,10}};
+glutathioneoxsp={{0,_,-2,30}};
+glutathioneredsp={{34.17,_,-2,15},{-13.44,_,-1,16}};
+glyceraldehydesp={{-440.02,_,0,6}};
+glyceraldehydephossp={{-1288.6,_,-2,5},{-1321.14,_,-1,6}};
+glyceratesp={{-661.01,_,-1,5}};
+glycerolsp={{-497.48,-676.55,0,8}};
+glycerol3phossp={{-1358.96,-1724.59,-2,7},{-1397.04,-1722.79,-1,8}};
+glycinesp={{-379.91,-523.,0,5}};
+glycolatesp={{-530.95,_,-1,3}};
+glycylglycinesp={{-520.2,-734.25,0,8}};
+glyoxylatesp={{-468.6,_,-1,1}};
+h2aqsp={{17.6,-4.2,0,2}};
+h2gsp={{0,0,0,2}};
+h2osp={{-237.19,-285.83,0,2}};
+h2o2aqsp={{-134.03,-191.17,0,2}};
+h2saqsp={{85.8,33.1,-2,0},{12.08,-17.6,-1,1},{-27.83,-39.7,0,2}};
+hydroxy2oxoglutaratesp={{-951.78,_,-2,4}};
+hydroxyglutaratesp={{-840.18,_,-2,6}};
+hydroxypropionatebsp={{-518.4,_,-1,5}};
+hydroxypyruvatesp={{-608.55,_,-1,3}};
+hypoxanthinesp={{89.5,_,0,4}};
+i2crsp={{0,0,0,0}};
+iditolsp={{-944.73,_,0,14}};
+idpsp={{-2066.44,-2797.18,-4,10},{-2121.01,-2825.88,-3,
+        11},{-2161.99,-2820.28,-2,12}};
+impsp={{-1200.43,-1799.61,-3,10},{-1255.42,-1834.71,-2,
+        11},{-1293.84,-1829.31,-1,12}};
+indolesp={{223.8,97.5,0,7}};
+inosinesp={{-358.02,-792.74,-1,11},{-409.15,-819.84,0,12}};
+iodideionsp={{-51.57,-55.19,-1,0}};
+isomaltosesp={{-1587.71,-2244.48,0,22}};
+itpsp={{-2925.31,-3794.65,-5,10},{-2982.90,-3818.60,-4,
+        11},{-3026.28,-3812.25,-3,12}};
+ketoglutaramatesp={{-595.88,_,-1,5}};
+ketoglutaratesp={{-793.41,-1044.06,-2,4}};
+lactatesp={{-516.72,-686.64,-1,5}};
+lactosesp={{-1567.33,-2233.08,0,22}};
+lactulosesp={{-1575.22,_,0,22}};
+leucineisoLsp={{-343.9,_,0,13}};
+leucineLsp={{-352.25,-643.37,0,13}};
+lyxosesp={{-749.14,_,0,10}};
+malatesp={{-842.66,-1079.79,-2,4},{-872.68,-1079.95,-1,5}};
+maleatesp={{-592.09,_,-2,2}};
+maltosesp={{-1574.69,-2238.06,0,22}};
+malylcoAsp={{-663.44,_,-1,4},{-687.47,_,0,5}};
+mannitol1phossp={{-1793.58,_,-2,13},{-1830.68,_,-1,14}};
+mannitolDsp={{-942.61,_,0,14}};
+mannosesp={{-910.,-1258.66,0,12}};
+mannose1phossp={{-1754.56,_,-2,11},{-1791.32,_,-1,12}};
+mannose6phossp={{-1759.87,-2273.71,-2,11},{-1796.63,-2271.90,-1,12}};
+methaneaqsp={{-34.33,-89.04,0,4}};
+methanegsp={{-50.72,-74.81,0,4}};
+methanolsp={{-175.31,-245.93,0,4}};
+methionineLsp={{-502.92,_,0,11}};
+methyl2oxopentanoatesp={{-445.14,_,-1,9}};
+methylmalatesp={{-843.90,_,-2,6}};
+methylmaleatesp={{-600.7,_,-2,4},{-636.49,_,-1,5}};
+methylmalonylcoAsp={{-502.48,_,-1,4},{-526.51,_,0,5}};
+n2aqsp={{18.7,-10.54,0,0}};
+n2gsp={{0,0,0,0}};
+n2oaqsp={{104.2,82.05,0,0}};
+nadoxsp={{0,0,-1,26}};
+nadpoxsp={{-835.18,-1007.48,-3,25}};
+nadpredsp={{-809.71,-1036.66,-4,26}};
+nadredsp={{22.65,-31.94,-2,27}};
+nicotinamideribonucleotidesp={{840.08,_,-2,14},{803.32,_,-1,15}};
+nitratesp={{-108.74,-205.0,-1,0},{-111.25,-207.36,0,1}};
+nitritesp={{-32.2,-104.6,-1,0},{-50.6,-119.2,0,1}};
+noaqsp={{86.55,90.25,0,0}};
+o2aqsp={{16.4,-11.7,0,0}};
+o2gsp={{0,0,0,0}};
+oxalatesp={{-673.9,825.1,-2,0},{-698.33,_,-1,1}};
+oxaloacetatesp={{-793.29,-959.90,-2,2}};
+oxalosuccinatesp={{-1138.88,_,-2,4}};
+oxalylcoAsp={{-509.96,_,-1,0}};
+oxoprolinesp={{-469.15,_,-1,6}};
+palmitatesp={{-259.4,_,-1,31}};
+pepsp={{-1263.65,-1621.38,-3,2},{-1303.61,-1619.58,-2,3}};
+phenylalanineLsp={{-207.1,_,0,11}};
+phosphoglycerate2sp={{-1496.38,_,-3,4},{-1539.99,_,-2,5}};
+phosphoglycerate3sp={{-1502.54,_,-3,4},{-1545.52,_,-2,5}};
+phosphohydroxypyruvatesp={{-1448.67,_,-3,2}};
+phosphoserinesp={{-1360.75,_,-2,6},{-1397.51,_,-1,7}};
+pisp={{-1096.1,-1299.,-2,1},{-1137.3,-1302.6,-1,2}};
+ppisp={{-1919.86,-2293.47,-4,0},{-1973.86,-2294.87,-3,
+        1},{-2012.21,-2295.37,-2,2},{-2025.11,-2290.37,-1,
+        3},{-2029.85,-2281.17,0,4}};
+propanol2sp={{-185.23,-330.83,0,8}};
+propanolnsp={{-175.81,_,0,8}};
+propanoylcoAsp={{-179.14,_,0,5}};
+prppsp={{-3284.25,_,-5,8},{-3325.23,_,-4,9},{-3363.42,_,-3,10}};
+pyruvatesp={{-472.27,-596.22,-1,3}};
+retinalsp={{0,_,0,28}};
+retinolsp={{-27.91,_,0,30}};
+ribitolsp={{-774.8,_,0,12}};
+ribosesp={{-752.00,-1034.00,0,10}};
+ribose1phossp={{-1587.70,-2041.48,-2,9},{-1625.88,-2030.18,-1,10}};
+ribose5phossp={{-1595.78,-2041.48,-2,9},{-1633.96,-2030.18,-1,10}};
+ribulosesp={{-735.94,-1023.02,0,10}};
+ribulose5phossp={{-1595.32,_,-2,9},{-1633.50,_,-1,10}};
+serineLsp={{-510.87,_,0,7}};
+sorbitolsp={{-946.36,_,0,14}};
+sorbitol6phossp={{-1793.10,_,-2,13},{-1829.75,_,-1,14}};
+sorbosesp={{-911.95,-1263.3,0,12}};
+succinatesp={{-690.44,-908.68,-2,4},{-722.62,-908.84,-1,5},{-746.64,-912.2,0,
+        6}};
+succinylcoAsp={{-509.72, _, -1, 4}, {-533.76, _, 0, 
+  5}};
+sucrosesp={{-1564.7,-2199.87,0,22}};
+sulfatesp={{-744.53,-909.27,-2,0},{-755.91,-887.34,-1,1}};
+sulfitesp={{-486.5,-635.5,-2,0},{-527.78,-626.22,-1,1}};
+sulfurcrsp={{0,0,0,0}};
+thioredoxinoxsp={{0,_,0,0}};
+thioredoxinredsp={{69.88,_,-2,0},{20.56,_,-1,1},{-25.37,_,0,2}};
+threoninesp={{-528.89,_,0,9}};
+transcinnamatesp={{-128.75,_,-1,7}};
+trehalosesp={{-1582.76,_,0,22}};
+tryptophanLsp={{-114.7,-405.2,0,12}};
+tyrosineLsp={{-370.7,_,0,11}};
+ubiquinoneoxsp={{0,_,0,90}};
+ubiquinoneredsp={{-89.92,_,0,92}};
+uratesp={{-325.9,_,-1,3}};
+ureasp={{-202.8,-317.65,0,4}};
+uricacidsp={{-356.9,_,0,4}};
+valineLsp={{-358.65,-611.99,0,11}};
+xylitolsp={{-784.09,_,0,12}};
+xylosesp={{-750.49,-1045.94,0,10}};
+xylulosesp={{-746.15,-1029.65,0,10}};\
+\>", "Input",
+ PageWidth->DirectedInfinity[1],
+ InitializationCell->True,
+ ShowSpecialCharacters->False],
+
+Cell["\<\
+
+Begin[\"Private`\"];\
+\>", "Input",
+ PageWidth->DirectedInfinity[1],
+ InitializationCell->True,
+ ShowSpecialCharacters->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["3 Programs that are used", "Section"],
+
+Cell["\<\
+calcdGmat[speciesmat_] := 
+  Module[{dGzero, dHzero, zi, nH, pHterm, isterm, 
+    gpfnsp},(*This program produces the function of pH and ionic 
+strength (is) that gives the standard transformed Gibbs energy of formation \
+of a 
+reactant (sum of species) at 298.15 K.  The input speciesmat is a matrix that \
+
+gives the standard Gibbs energy of formation, the standard enthalpy of \
+formation, 
+the electric charge, and the number of hydrogen atoms in each species. There \
+is 
+a row in the matrix for each species of the reactant. gpfnsp is a list of the \
+
+functions for the species.  Energies are expressed in kJ mol^-1.*) 
+    {dGzero, dHzero, zi, nH} = 
+     Transpose[speciesmat]; 
+     pHterm = nH*8.31451*0.29815*Log[10^(-pH)]; 
+    isterm = 2.91482*(zi^2 - nH)*(is^0.5/(1 + 1.6*is^0.5)); 
+    gpfnsp = dGzero - pHterm - isterm; 
+    -8.31451*0.29815*Log[Plus @@ 
+       Exp[-(gpfnsp/(8.31451*0.29815))]]]
+       
+calcNHmat[speciesmat_] := 
+Module[{dGzero, dHzero,zi, nH, pHterm, isterm,gpfnsp,trgef},(*This program 
+produces the function of pH and ionic strength (is) that gives the average 
+number of hydrogen atoms in a reactant (sum of species) at 298.15 K.  
+The input speciesmat is a matrix that gives the standard Gibbs energy of 
+formation, the standard enthalpy of formation, the electric charge, and 
+the number of hydrogen atoms in each species. There is a row in the matrix 
+for each species of the reactant. gpfnsp is a list of the functions for 
+the species.*)
+{dGzero,dHzero,zi,nH}=Transpose[speciesmat];
+pHterm = nH*8.31451*.29815*Log[10^-pH];
+isterm = 2.91482*((zi^2) - nH)*(is^.5)/(1 + 1.6*is^.5);
+gpfnsp=dGzero - pHterm - isterm;
+trgef=-8.31451*.29815*Log[Apply[Plus,Exp[-1*gpfnsp/(8.31451*.29815)]]];
+D[trgef,pH]/(8.31451*.29815*Log[10])]
+       
+derivetrGibbsT[speciesmat_]:=Module[{dGzero,dGzeroT,dHzero,zi,nH,gibbscoeff
+,pHterm, isterm,gpfnsp},(*This program derives the function of T (in Kelvin), \
+
+pH, and ionic strength (is) that gives the standard transformed Gibbs energy 
+of formation of a reactant (sum of species).  The input speciesmat is a matrix 
+that gives the standard Gibbs energy of formation in kJ mol^-1 at 298.15 K and 
+zero ionic strength, the standard enthalpy of formation in kJ mol^-1 at \
+298.15 K 
+and zero ionic strength, the electric charge, and the number of hydrogen \
+atoms in 
+each species.  There is a row in the matrix for each species of the reactant. \
+
+gpfnsp is a list of the functions for the standard transformed Gibbs energies \
+
+of the species. The corresponding functions for other transformed properties 
+can be obtained by taking partial derivatives.  The standard transformed Gibbs 
+energy of formation of a reactant in kJ mol^-1 can be calculated at any \
+temperature 
+in the range 273.15 K to 313.15 K, any pH in the range 5 to 9, and any ionic 
+strength in the range 0 to 0.35 M by use of ReplaceAll (/.).*) 
+{dGzero,dHzero,zi,nH}=Transpose[speciesmat]; 
+gibbscoeff=(9.20483*t)/10^3-(1.284668*t^2)/10^5+(4.95199*t^3)/10^8; 
+dGzeroT=(dGzero*t)/298.15+dHzero*(1-t/298.15); 
+pHterm=(nH*8.31451*t*Log[10^(-pH)])/1000; 
+istermG=(gibbscoeff*(zi^2-nH)*is^0.5)/(1+1.6*is^0.5); 
+gpfnsp=dGzeroT-pHterm-istermG; 
+-((8.31451*t*Log[Plus@@(E^(-(gpfnsp/((8.31451*t)/1000))))])/1000)]
+
+derivetrHT[speciesmat_]:=Module[{dGzero,dGzeroT,dHzero,zi,nH,gibbscoeff,
+pHterm,isterm,gpfnsp,gibbsereactant},(*This program derives the function of T \
+(in 
+Kelvin), pH, and ionic strength (is) that gives the stndard transformed \
+enthalpy of 
+formation of a reactant (sum of species).  The input speciesmat is a matrix 
+that gives the standard Gibbs energy of formation in kJ mol^-1 at 298.15 K and 
+zero ionic strength, the standard enthalpy of formation in kJ mol^-1 at \
+298.15 K 
+and zero ionic strength, the electric charge, and the number of hydrogen \
+atoms in 
+each species.  There is a row in the matrix for each species of the reactant. \
+
+gpfnsp is a list of the functions for the standard transformed Gibbs energies \
+
+of the species.  This program applies the Gibbs-Helmholtz equation to the \
+function 
+for the standard transformed Gibbs energy of formation of a reactant.  The 
+standard transformed enthalpy of formation of a reactant in kJ mol^-1 can be 
+calculated at any temperature in the range 273.15 K to 313.15 K, any pH in the 
+range 5 to 9, and any ionic strength in the range 0 to 0.35 M by use of \
+ReplaceAll (/.).*) 
+{dGzero,dHzero,zi,nH}=Transpose[speciesmat]; 
+gibbscoeff=(9.20483*t)/10^3-(1.284668*t^2)/10^5+(4.95199*t^3)/10^8; 
+dGzeroT=(dGzero*t)/298.15+dHzero*(1-t/298.15); 
+pHterm=(nH*8.31451*t*Log[10^(-pH)])/1000; 
+istermG=(gibbscoeff*(zi^2-nH)*is^0.5)/(1+1.6*is^0.5); 
+gpfnsp=dGzeroT-pHterm-istermG; 
+gibbsereactant=-((8.31451*t*Log[Plus@@(E^(-(gpfnsp/((8.31451*t)/1000))))])/\
+1000);
+-t^2*D[gibbsereactant/t,t]]
+
+derivetrST[speciesmat_]:=Module[{dGzero,dGzeroT,dHzero,zi,nH,gibbscoeff,pHterm,
+ isterm,gpfnsp,gibbsereactant},(*This program derives the function of T 
+ (in Kelvin), pH, and ionic strength (is) that gives the stndard transformed 
+ entropy of formation of a reactant (sum of species).  The input speciesmat 
+ is a matrix that gives the standard Gibbs energy of formation in kJ mol^-1 
+ at 298.15 K and zero ionic strength, the standard enthalpy of formation in 
+ kJ mol^-1 at 298.15 K and zero ionic strength, the electric charge, and the 
+ number of hydrogen atoms in each species.  There is a row in the matrix for 
+ each species of the reactant.  gpfnsp is a list of the functions for the 
+ standard transformed Gibbs energies of the species.  This program applies 
+ the equation for the entropy to the function for the standard transformed 
+ Gibbs energy of formation of a reactant.  The standard transformed entropy 
+ of formation of a reactant in kJ K^-1 mol^-1 can be calculated at any 
+ temperature in the range 273.15 K to 313.15 K, any pH in the range 5 to 9, 
+ and any ionic strength in the range 0 to 0.35 M by use of ReplaceAll (/.).*) \
+
+{dGzero,dHzero,zi,nH}=Transpose[speciesmat]; 
+gibbscoeff=(9.20483*t)/10^3-(1.284668*t^2)/10^5+(4.95199*t^3)/10^8; 
+dGzeroT=(dGzero*t)/298.15+dHzero*(1-t/298.15); 
+pHterm=(nH*8.31451*t*Log[10^(-pH)])/1000; 
+istermG=(gibbscoeff*(zi^2-nH)*is^0.5)/(1+1.6*is^0.5); 
+gpfnsp=dGzeroT-pHterm-istermG; 
+gibbsereactant=-((8.31451*t*Log[Plus@@(E^(-(gpfnsp/((8.31451*t)/1000))))])/\
+1000);
+-D[gibbsereactant,t]]
+
+deriveNHT[speciesmat_]:=Module[{dGzero,dGzeroT,dHzero,zi,nH,gibbscoeff,pHterm, 
+isterm,gpfnsp,trgefT},(*This program derives the function of T (in Kelvin), \
+pH, 
+and ionic strength (is) that gives the average number of hydrogen atoms in a 
+reactant (sum of species).  The input speciesmat is a matrix that gives the 
+standard Gibbs energy of formation in kJ mol^-1 at 298.15 K and zero ionic 
+strength, the standard enthalpy of formation in kJ mol^-1 at 298.15 K and 
+zero ionic strength, the electric charge, and the number of hydrogen atoms 
+in each species.  There is a row in the matrix for each species of the 
+reactant.  gpfnsp is a list of the functions for the standard transformed 
+Gibbs energies of the species. The average number can be calculated at any 
+temperature in the range 273.15 K to 313.15 K, any pH in the range 5 to 9, 
+and any ionic strength in the range 0 to 0.35 M by use of ReplaceAll (/.).*) 
+{dGzero,dHzero,zi,nH}=Transpose[speciesmat]; 
+gibbscoeff=(9.20483*t)/10^3-(1.284668*t^2)/10^5+(4.95199*t^3)/10^8; 
+dGzeroT=(dGzero*t)/298.15+dHzero*(1-t/298.15); 
+pHterm=(nH*8.31451*t*Log[10^(-pH)])/1000; 
+istermG=(gibbscoeff*(zi^2-nH)*is^0.5)/(1+1.6*is^0.5); 
+gpfnsp=dGzeroT-pHterm-istermG; 
+trgefT=-((8.31451*t*Log[Plus@@(E^(-(gpfnsp/((8.31451*t)/1000))))]));
+D[trgefT,pH]/(8.31451*t*Log[10])]\
+\>", "Input",
+ PageWidth->DirectedInfinity[1],
+ InitializationCell->True,
+ ShowSpecialCharacters->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+4 Calculation of the functions of pH and ionic strength for the standard \
+transformed Gibbs energies of formation of reactants at 298.15 K and desired \
+pHs and ionic strengths \
+\>", "Section"],
+
+Cell[TextData[{
+ "\tThese functions are given the following ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " names of reactants, which have to be cleared first."
+}], "Text"],
+
+Cell["\<\
+Clear[acetaldehyde,acetate,acetoacetate,acetoacetylcoA,acetone,acetylcoA,
+acetylphos,aconitatecis,adenine,adenosine,adenosinephosphosulfate,adp,alanine,\
+
+ammonia,amp,arabinose,arabinose5phos,asparagineL,aspartate,atp,bpg,butanal,
+butanoln,butyrate,cellobiose,citrate,citrateiso,co2g,co2tot,coA,
+coAglutathione,coaq,cog,creatine,creatinine,cyclicamp,cysteineL,cystineL,
+cytochromecox,cytochromecred,deoxyadenosine,deoxyadp,deoxyamp,deoxyatp,
+deoxyribose,deoxyribose1phos,deoxyribose5phos,dihydroxyacetone,
+dihydroxyacetonephos,ethaneaq,ethanol,ethylacetate,fadenzox,fadenzred,fadox,
+fadred,ferredoxinox,ferredoxinred,ferric,ferrous,fmnox,fmnred,formate,
+fructose,fructose16phos,fructose6phos,fumarate,galactono14lactone,galactose,
+galactose1phos,galactose6phos,gluconolactone,gluconolactone6phos,glucose,
+glucose1phos,glucose6phos,glutamate,glutamine,glutathioneox,glutathionered,
+glyceraldehyde,glyceraldehydephos,glycerate,glycerol,glycerol3phos,glycine,
+glycolate,glycylglycine,glyoxylate,h2aq,h2g,h2o,h2o2aq,h2saq,
+hydroxy2oxoglutarate,hydroxyglutarate,hydroxypropionateb,hydroxypyruvate,
+hypoxanthine,i2cr,iditol,idp,imp,indole,inosine,iodideion,isomaltose,itp,
+ketoglutaramate,ketoglutarate,lactate,lactose,lactulose,leucineisoL,
+leucineL,lyxose,malate,maleate,maltose,malylcoA,mannitol1phos,mannitolD,
+mannose,mannose1phos,mannose6phos,methaneaq,methaneg,methanol,methionineL,
+methyl2oxopentanoate,methylmalate,methylmaleate,methylmalonylcoA,n2aq,n2g,
+n2oaq,nadox,nadpox,nadpred,nadred,nicotinamideribonucleotide,nitrate,
+nitrite,noaq,o2aq,o2g,oxalate,oxaloacetate,oxalosuccinate,oxalylcoA,
+oxoproline,palmitate,pep,phenylalanineL,phosphoglycerate2,phosphoglycerate3,
+phosphohydroxypyruvate,phosphoserine,pi,ppi,propanol2,propanoln,
+propanoylcoA,prpp,pyruvate,retinal,retinol,ribitol,ribose,ribose1phos,
+ribose5phos,ribulose,ribulose5phos,serineL,sorbitol,sorbitol6phos,sorbose,
+succinate,succinylcoA,sucrose,sulfate,sulfite,sulfurcr,thioredoxinox,
+thioredoxinred,threonine,transcinnamate,trehalose,tryptophanL,tyrosineL,
+ubiquinoneox,ubiquinonered,urate,urea,uricacid,valineL,xylitol,xylose,
+xylulose]\
+\>", "Input",
+ PageWidth->DirectedInfinity[1],
+ InitializationCell->True,
+ ShowSpecialCharacters->False],
+
+Cell[TextData[{
+ "The program ",
+ StyleBox["calcdGmat",
+  FontWeight->"Bold"],
+ " is applied in a single step by use of Map."
+}], "Text"],
+
+Cell["\<\
+Evaluate[{acetaldehyde,acetate,acetoacetate,acetoacetylcoA,acetone,acetylcoA,
+acetylphos,aconitatecis,adenine,adenosine,adenosinephosphosulfate,adp,alanine,\
+
+ammonia,amp,arabinose,arabinose5phos,asparagineL,aspartate,atp,bpg,butanal,
+butanoln,butyrate,cellobiose,citrate,citrateiso,co2g,co2tot,coA,
+coAglutathione,coaq,cog,creatine,creatinine,cyclicamp,cysteineL,cystineL,
+cytochromecox,cytochromecred,deoxyadenosine,deoxyadp,deoxyamp,deoxyatp,
+deoxyribose,deoxyribose1phos,deoxyribose5phos,dihydroxyacetone,
+dihydroxyacetonephos,ethaneaq,ethanol,ethylacetate,fadenzox,fadenzred,fadox,
+fadred,ferredoxinox,ferredoxinred,ferric,ferrous,fmnox,fmnred,formate,
+fructose,fructose16phos,fructose6phos,fumarate,galactono14lactone,galactose,
+galactose1phos,galactose6phos,gluconolactone,gluconolactone6phos,glucose,
+glucose1phos,glucose6phos,glutamate,glutamine,glutathioneox,glutathionered,
+glyceraldehyde,glyceraldehydephos,glycerate,glycerol,glycerol3phos,glycine,
+glycolate,glycylglycine,glyoxylate,h2aq,h2g,h2o,h2o2aq,h2saq,
+hydroxy2oxoglutarate,hydroxyglutarate,hydroxypropionateb,hydroxypyruvate,
+hypoxanthine,i2cr,iditol,idp,imp,indole,inosine,iodideion,isomaltose,itp,
+ketoglutaramate,ketoglutarate,lactate,lactose,lactulose,leucineisoL,
+leucineL,lyxose,malate,maleate,maltose,malylcoA,mannitol1phos,mannitolD,
+mannose,mannose1phos,mannose6phos,methaneaq,methaneg,methanol,methionineL,
+methyl2oxopentanoate,methylmalate,methylmaleate,methylmalonylcoA,n2aq,n2g,
+n2oaq,nadox,nadpox,nadpred,nadred,nicotinamideribonucleotide,nitrate,
+nitrite,noaq,o2aq,o2g,oxalate,oxaloacetate,oxalosuccinate,oxalylcoA,
+oxoproline,palmitate,pep,phenylalanineL,phosphoglycerate2,phosphoglycerate3,
+phosphohydroxypyruvate,phosphoserine,pi,ppi,propanol2,propanoln,
+propanoylcoA,prpp,pyruvate,retinal,retinol,ribitol,ribose,ribose1phos,
+ribose5phos,ribulose,ribulose5phos,serineL,sorbitol,sorbitol6phos,sorbose,
+succinate,succinylcoA,sucrose,sulfate,sulfite,sulfurcr,thioredoxinox,
+thioredoxinred,threonine,transcinnamate,trehalose,tryptophanL,tyrosineL,
+ubiquinoneox,ubiquinonered,urate,urea,uricacid,valineL,xylitol,xylose,
+xylulose}]=Map[\\
+calcdGmat,{acetaldehydesp,acetatesp,acetoacetatesp,acetoacetylcoAsp,acetonesp,\
+
+acetylcoAsp,acetylphossp,aconitatecissp,adeninesp,adenosinesp,
+adenosinephosphosulfatesp,adpsp,alaninesp,ammoniasp,ampsp,arabinosesp,
+arabinose5phossp,asparagineLsp,aspartatesp,atpsp,bpgsp,butanalsp,butanolnsp,
+butyratesp,cellobiosesp,citratesp,citrateisosp,co2gsp,co2totsp,coAsp,
+coAglutathionesp,coaqsp,cogsp,creatinesp,creatininesp,cyclicampsp,cysteineLsp,\
+
+cystineLsp,cytochromecoxsp,cytochromecredsp,deoxyadenosinesp,deoxyadpsp,
+deoxyampsp,deoxyatpsp,deoxyribosesp,deoxyribose1phossp,deoxyribose5phossp,
+dihydroxyacetonesp,dihydroxyacetonephossp,ethaneaqsp,ethanolsp,
+ethylacetatesp,fadenzoxsp,fadenzredsp,fadoxsp,fadredsp,ferredoxinoxsp,
+ferredoxinredsp,ferricsp,ferroussp,fmnoxsp,fmnredsp,formatesp,fructosesp,
+fructose16phossp,fructose6phossp,fumaratesp,galactono14lactonesp,
+galactosesp,galactose1phossp,galactose6phossp,gluconolactonesp,
+gluconolactone6phossp,glucosesp,glucose1phossp,glucose6phossp,glutamatesp,
+glutaminesp,glutathioneoxsp,glutathioneredsp,glyceraldehydesp,
+glyceraldehydephossp,glyceratesp,glycerolsp,glycerol3phossp,glycinesp,
+glycolatesp,glycylglycinesp,glyoxylatesp,h2aqsp,h2gsp,h2osp,h2o2aqsp,
+h2saqsp,hydroxy2oxoglutaratesp,hydroxyglutaratesp,hydroxypropionatebsp,
+hydroxypyruvatesp,hypoxanthinesp,i2crsp,iditolsp,idpsp,impsp,indolesp,
+inosinesp,iodideionsp,isomaltosesp,itpsp,ketoglutaramatesp,
+ketoglutaratesp,lactatesp,lactosesp,lactulosesp,leucineisoLsp,leucineLsp,
+lyxosesp,malatesp,maleatesp,maltosesp,malylcoAsp,mannitol1phossp,mannitolDsp,
+mannosesp,mannose1phossp,mannose6phossp,methaneaqsp,methanegsp,methanolsp,
+methionineLsp,methyl2oxopentanoatesp,methylmalatesp,methylmaleatesp,
+methylmalonylcoAsp,n2aqsp,n2gsp,n2oaqsp,nadoxsp,nadpoxsp,nadpredsp,nadredsp,
+nicotinamideribonucleotidesp,nitratesp,nitritesp,noaqsp,o2aqsp,o2gsp,
+oxalatesp,oxaloacetatesp,oxalosuccinatesp,oxalylcoAsp,oxoprolinesp,
+palmitatesp,pepsp,phenylalanineLsp,phosphoglycerate2sp,phosphoglycerate3sp,
+phosphohydroxypyruvatesp,phosphoserinesp,pisp,ppisp,propanol2sp,propanolnsp,
+propanoylcoAsp,prppsp,pyruvatesp,retinalsp,retinolsp,ribitolsp,ribosesp,
+ribose1phossp,ribose5phossp,ribulosesp,ribulose5phossp,serineLsp,sorbitolsp,
+sorbitol6phossp,sorbosesp,succinatesp,succinylcoAsp,sucrosesp,sulfatesp,
+sulfitesp,sulfurcrsp,thioredoxinoxsp,thioredoxinredsp,threoninesp,
+transcinnamatesp,trehalosesp,tryptophanLsp,tyrosineLsp,ubiquinoneoxsp,
+ubiquinoneredsp,uratesp,ureasp,uricacidsp,valineLsp,xylitolsp,xylosesp,
+xylulosesp}];\
+\>", "Input",
+ PageWidth->DirectedInfinity[1],
+ InitializationCell->True,
+ ShowSpecialCharacters->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+5  Calculation of the functions of pH and ionic strength for the average \
+number of hydrogen atoms in the reactants at 298.15 K and desired pHs and \
+ionic strengths\
+\>", "Section"],
+
+Cell[TextData[{
+ "\tThe function of pH and ionic stength that gives the average number of \
+hydrogen atoms ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    FormBox[
+     OverscriptBox["N", "_"],
+     TraditionalForm], 
+    StyleBox["H",
+     FontSlant->"Plain"]], TraditionalForm]]],
+ " in a reactant can be derived by differentiating the function for the \
+standard transformed Gibbs energy of formation. The names to be assigned to \
+these functions are given by the following list:"
+}], "Text"],
+
+Cell["\<\
+Clear[acetaldehydeNH,acetateNH,acetoacetateNH,acetoacetylcoANH,acetoneNH,
+acetylcoANH,acetylphosNH,aconitatecisNH,adenineNH,adenosineNH,
+adenosinephosphosulfateNH,adpNH,alanineNH,ammoniaNH,ampNH,arabinoseNH,
+arabinose5phosNH,asparagineLNH,aspartateNH,atpNH,bpgNH,butanalNH,butanolnNH,
+butyrateNH,cellobioseNH,citrateNH,citrateisoNH,co2gNH,co2totNH,coANH,
+coAglutathioneNH,coaqNH,cogNH,creatineNH,creatinineNH,cyclicampNH,cysteineLNH,\
+
+cystineLNH,cytochromecoxNH,cytochromecredNH,deoxyadenosineNH,deoxyadpNH,
+deoxyampNH,deoxyatpNH,deoxyriboseNH,deoxyribose1phosNH,deoxyribose5phosNH,
+dihydroxyacetoneNH,dihydroxyacetonephosNH,ethaneaqNH,ethanolNH,
+ethylacetateNH,fadenzoxNH,fadenzredNH,fadoxNH,fadredNH,ferredoxinoxNH,
+ferredoxinredNH,ferricNH,ferrousNH,fmnoxNH,fmnredNH,formateNH,fructoseNH,
+fructose16phosNH,fructose6phosNH,fumarateNH,galactono14lactoneNH,
+galactoseNH,galactose1phosNH,galactose6phosNH,gluconolactoneNH,
+gluconolactone6phosNH,glucoseNH,glucose1phosNH,glucose6phosNH,glutamateNH,
+glutamineNH,glutathioneoxNH,glutathioneredNH,glyceraldehydeNH,
+glyceraldehydephosNH,glycerateNH,glycerolNH,glycerol3phosNH,glycineNH,
+glycolateNH,glycylglycineNH,glyoxylateNH,h2aqNH,h2gNH,h2oNH,h2o2aqNH,
+h2saqNH,hydroxy2oxoglutarateNH,hydroxyglutarateNH,hydroxypropionatebNH,
+hydroxypyruvateNH,hypoxanthineNH,i2crNH,iditolNH,idpNH,impNH,indoleNH,
+inosineNH,iodideionNH,isomaltoseNH,itpNH,ketoglutaramateNH,
+ketoglutarateNH,lactateNH,lactoseNH,lactuloseNH,leucineisoLNH,leucineLNH,
+lyxoseNH,malateNH,maleateNH,maltoseNH,malylcoANH,mannitol1phosNH,mannitolDNH,
+mannoseNH,mannose1phosNH,mannose6phosNH,methaneaqNH,methanegNH,methanolNH,
+methionineLNH,methyl2oxopentanoateNH,methylmalateNH,methylmaleateNH,
+methylmalonylcoANH,n2aqNH,n2gNH,n2oaqNH,nadoxNH,nadpoxNH,nadpredNH,nadredNH,
+nicotinamideribonucleotideNH,nitrateNH,nitriteNH,noaqNH,o2aqNH,o2gNH,
+oxalateNH,oxaloacetateNH,oxalosuccinateNH,oxalylcoANH,oxoprolineNH,
+palmitateNH,pepNH,phenylalanineLNH,phosphoglycerate2NH,phosphoglycerate3NH,
+phosphohydroxypyruvateNH,phosphoserineNH,piNH,ppiNH,propanol2NH,propanolnNH,
+propanoylcoANH,prppNH,pyruvateNH,retinalNH,retinolNH,ribitolNH,riboseNH,
+ribose1phosNH,ribose5phosNH,ribuloseNH,ribulose5phosNH,serineLNH,sorbitolNH,
+sorbitol6phosNH,sorboseNH,succinateNH,succinylcoANH,sucroseNH,sulfateNH,
+sulfiteNH,sulfurcrNH,thioredoxinoxNH,thioredoxinredNH,threonineNH,
+transcinnamateNH,trehaloseNH,tryptophanLNH,tyrosineLNH,ubiquinoneoxNH,
+ubiquinoneredNH,urateNH,ureaNH,uricacidNH,valineLNH,xylitolNH,xyloseNH,
+xyluloseNH]\
+\>", "Input",
+ PageWidth->DirectedInfinity[1],
+ InitializationCell->True,
+ ShowSpecialCharacters->False],
+
+Cell["\<\
+The program calcNHmat is applied in a single step by use of Map.\
+\>", "Text"],
+
+Cell["\<\
+Evaluate[{acetaldehydeNH,acetateNH,acetoacetateNH,acetoacetylcoANH,acetoneNH,
+acetylcoANH,acetylphosNH,aconitatecisNH,adenineNH,adenosineNH,
+adenosinephosphosulfateNH,adpNH,alanineNH,ammoniaNH,ampNH,arabinoseNH,
+arabinose5phosNH,asparagineLNH,aspartateNH,atpNH,bpgNH,butanalNH,butanolnNH,
+butyrateNH,cellobioseNH,citrateNH,citrateisoNH,co2gNH,co2totNH,coANH,
+coAglutathioneNH,coaqNH,cogNH,creatineNH,creatinineNH,cyclicampNH,cysteineLNH,\
+
+cystineLNH,cytochromecoxNH,cytochromecredNH,deoxyadenosineNH,deoxyadpNH,
+deoxyampNH,deoxyatpNH,deoxyriboseNH,deoxyribose1phosNH,deoxyribose5phosNH,
+dihydroxyacetoneNH,dihydroxyacetonephosNH,ethaneaqNH,ethanolNH,
+ethylacetateNH,fadenzoxNH,fadenzredNH,fadoxNH,fadredNH,ferredoxinoxNH,
+ferredoxinredNH,ferricNH,ferrousNH,fmnoxNH,fmnredNH,formateNH,fructoseNH,
+fructose16phosNH,fructose6phosNH,fumarateNH,galactono14lactoneNH,
+galactoseNH,galactose1phosNH,galactose6phosNH,gluconolactoneNH,
+gluconolactone6phosNH,glucoseNH,glucose1phosNH,glucose6phosNH,glutamateNH,
+glutamineNH,glutathioneoxNH,glutathioneredNH,glyceraldehydeNH,
+glyceraldehydephosNH,glycerateNH,glycerolNH,glycerol3phosNH,glycineNH,
+glycolateNH,glycylglycineNH,glyoxylateNH,h2aqNH,h2gNH,h2oNH,h2o2aqNH,
+h2saqNH,hydroxy2oxoglutarateNH,hydroxyglutarateNH,hydroxypropionatebNH,
+hydroxypyruvateNH,hypoxanthineNH,i2crNH,iditolNH,idpNH,impNH,indoleNH,
+inosineNH,iodideionNH,isomaltoseNH,itpNH,ketoglutaramateNH,
+ketoglutarateNH,lactateNH,lactoseNH,lactuloseNH,leucineisoLNH,leucineLNH,
+lyxoseNH,malateNH,maleateNH,maltoseNH,malylcoANH,mannitol1phosNH,mannitolDNH,
+mannoseNH,mannose1phosNH,mannose6phosNH,methaneaqNH,methanegNH,methanolNH,
+methionineLNH,methyl2oxopentanoateNH,methylmalateNH,methylmaleateNH,
+methylmalonylcoANH,n2aqNH,n2gNH,n2oaqNH,nadoxNH,nadpoxNH,nadpredNH,nadredNH,
+nicotinamideribonucleotideNH,nitrateNH,nitriteNH,noaqNH,o2aqNH,o2gNH,
+oxalateNH,oxaloacetateNH,oxalosuccinateNH,oxalylcoANH,oxoprolineNH,
+palmitateNH,pepNH,phenylalanineLNH,phosphoglycerate2NH,phosphoglycerate3NH,
+phosphohydroxypyruvateNH,phosphoserineNH,piNH,ppiNH,propanol2NH,propanolnNH,
+propanoylcoANH,prppNH,pyruvateNH,retinalNH,retinolNH,ribitolNH,riboseNH,
+ribose1phosNH,ribose5phosNH,ribuloseNH,ribulose5phosNH,serineLNH,sorbitolNH,
+sorbitol6phosNH,sorboseNH,succinateNH,succinylcoANH,sucroseNH,sulfateNH,
+sulfiteNH,sulfurcrNH,thioredoxinoxNH,thioredoxinredNH,threonineNH,
+transcinnamateNH,trehaloseNH,tryptophanLNH,tyrosineLNH,ubiquinoneoxNH,
+ubiquinoneredNH,urateNH,ureaNH,uricacidNH,valineLNH,xylitolNH,xyloseNH,
+xyluloseNH}]=Map[calcNHmat,{acetaldehydesp,acetatesp,acetoacetatesp,
+acetoacetylcoAsp,acetonesp,
+acetylcoAsp,acetylphossp,aconitatecissp,adeninesp,adenosinesp,
+adenosinephosphosulfatesp,adpsp,alaninesp,ammoniasp,ampsp,arabinosesp,
+arabinose5phossp,asparagineLsp,aspartatesp,atpsp,bpgsp,butanalsp,butanolnsp,
+butyratesp,cellobiosesp,citratesp,citrateisosp,co2gsp,co2totsp,coAsp,
+coAglutathionesp,coaqsp,cogsp,creatinesp,creatininesp,cyclicampsp,cysteineLsp,\
+
+cystineLsp,cytochromecoxsp,cytochromecredsp,deoxyadenosinesp,deoxyadpsp,
+deoxyampsp,deoxyatpsp,deoxyribosesp,deoxyribose1phossp,deoxyribose5phossp,
+dihydroxyacetonesp,dihydroxyacetonephossp,ethaneaqsp,ethanolsp,
+ethylacetatesp,fadenzoxsp,fadenzredsp,fadoxsp,fadredsp,ferredoxinoxsp,
+ferredoxinredsp,ferricsp,ferroussp,fmnoxsp,fmnredsp,formatesp,fructosesp,
+fructose16phossp,fructose6phossp,fumaratesp,galactono14lactonesp,
+galactosesp,galactose1phossp,galactose6phossp,gluconolactonesp,
+gluconolactone6phossp,glucosesp,glucose1phossp,glucose6phossp,glutamatesp,
+glutaminesp,glutathioneoxsp,glutathioneredsp,glyceraldehydesp,
+glyceraldehydephossp,glyceratesp,glycerolsp,glycerol3phossp,glycinesp,
+glycolatesp,glycylglycinesp,glyoxylatesp,h2aqsp,h2gsp,h2osp,h2o2aqsp,
+h2saqsp,hydroxy2oxoglutaratesp,hydroxyglutaratesp,hydroxypropionatebsp,
+hydroxypyruvatesp,hypoxanthinesp,i2crsp,iditolsp,idpsp,impsp,indolesp,
+inosinesp,iodideionsp,isomaltosesp,itpsp,ketoglutaramatesp,
+ketoglutaratesp,lactatesp,lactosesp,lactulosesp,leucineisoLsp,leucineLsp,
+lyxosesp,malatesp,maleatesp,maltosesp,malylcoAsp,mannitol1phossp,mannitolDsp,
+mannosesp,mannose1phossp,mannose6phossp,methaneaqsp,methanegsp,methanolsp,
+methionineLsp,methyl2oxopentanoatesp,methylmalatesp,methylmaleatesp,
+methylmalonylcoAsp,n2aqsp,n2gsp,n2oaqsp,nadoxsp,nadpoxsp,nadpredsp,nadredsp,
+nicotinamideribonucleotidesp,nitratesp,nitritesp,noaqsp,o2aqsp,o2gsp,
+oxalatesp,oxaloacetatesp,oxalosuccinatesp,oxalylcoAsp,oxoprolinesp,
+palmitatesp,pepsp,phenylalanineLsp,phosphoglycerate2sp,phosphoglycerate3sp,
+phosphohydroxypyruvatesp,phosphoserinesp,pisp,ppisp,propanol2sp,propanolnsp,
+propanoylcoAsp,prppsp,pyruvatesp,retinalsp,retinolsp,ribitolsp,ribosesp,
+ribose1phossp,ribose5phossp,ribulosesp,ribulose5phossp,serineLsp,sorbitolsp,
+sorbitol6phossp,sorbosesp,succinatesp,succinylcoAsp,sucrosesp,sulfatesp,
+sulfitesp,sulfurcrsp,thioredoxinoxsp,thioredoxinredsp,threoninesp,
+transcinnamatesp,trehalosesp,tryptophanLsp,tyrosineLsp,ubiquinoneoxsp,
+ubiquinoneredsp,uratesp,ureasp,uricacidsp,valineLsp,xylitolsp,xylosesp,
+xylulosesp}];\
+\>", "Input",
+ PageWidth->DirectedInfinity[1],
+ InitializationCell->True,
+ ShowSpecialCharacters->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+6  Calculation of the functions of temperature, pH and ionic strength for the \
+standard transformed Gibbs energies of formation for reactants for which \
+standard enthalpies of formation of the species are known \
+\>", "Section"],
+
+Cell[TextData[{
+ "\tWhen ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], "H"}], TraditionalForm]]],
+ "\[Degree] are known for all species of a reactant, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], 
+    RowBox[{"G", "'"}]}], TraditionalForm]]],
+ " \[Degree] , ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    FormBox[
+     OverscriptBox["N", "_"],
+     TraditionalForm], 
+    StyleBox["H",
+     FontSlant->"Plain"]], TraditionalForm]]],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], 
+    RowBox[{"H", "'"}]}], TraditionalForm]]],
+ " \[Degree], and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], 
+    RowBox[{"S", "'"}]}], TraditionalForm]]],
+ " \[Degree] can be calculated at temperatures in the range 273.15 - 313.15 \
+K, pHs in the range 5 - 9, and ionic strengths in the range zero to 0.35 M.  \
+The names of the 94 reactants for which all ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], "H"}], TraditionalForm]]],
+ "\[Degree] are known are given by"
+}], "Text"],
+
+Cell["\<\
+Clear[acetaldehydeGT,acetateGT,acetoneGT,adenineGT,adenosineGT,adpGT,
+alanineGT,ammoniaGT,ampGT,arabinoseGT,asparagineLGT,aspartateGT,atpGT,
+citrateGT,co2gGT,co2totGT,coaqGT,cogGT,ethaneaqGT,ethanolGT,ethylacetateGT,
+ferricGT,ferrousGT,formateGT,fructoseGT,fructose16phosGT,fructose6phosGT,
+fumarateGT,galactoseGT,glucoseGT,glucose6phosGT,glutamateGT,glutamineGT,
+glycerolGT,glycerol3phosGT,glycineGT,glycylglycineGT,h2aqGT,h2gGT,h2oGT,
+h2o2aqGT,h2saqGT,i2crGT,idpGT,impGT,indoleGT,inosineGT,iodideionGT,
+isomaltoseGT,itpGT,ketoglutarateGT,lactateGT,lactoseGT,leucineLGT,malateGT,
+maltoseGT,mannoseGT,mannose6phosGT,methaneaqGT,methanegGT,methanolGT,n2aqGT,
+n2gGT,n2oaqGT,nadoxGT,nadpoxGT,nadpredGT,nadredGT,nitrateGT,nitriteGT,
+noaqGT,o2aqGT,o2gGT,oxaloacetateGT,pepGT,piGT,ppiGT,propanol2GT,pyruvateGT,
+riboseGT,ribose1phosGT,ribose5phosGT,ribuloseGT,sorboseGT,succinateGT,
+sucroseGT,sulfateGT,sulfiteGT,sulfurcrGT,tryptophanLGT,ureaGT,valineLGT,
+xyloseGT,xyluloseGT]
+
+Evaluate[{acetaldehydeGT,acetateGT,acetoneGT,adenineGT,adenosineGT,adpGT,
+alanineGT,ammoniaGT,ampGT,arabinoseGT,asparagineLGT,aspartateGT,atpGT,
+citrateGT,co2gGT,co2totGT,coaqGT,cogGT,ethaneaqGT,ethanolGT,ethylacetateGT,
+ferricGT,ferrousGT,formateGT,fructoseGT,fructose16phosGT,fructose6phosGT,
+fumarateGT,galactoseGT,glucoseGT,glucose6phosGT,glutamateGT,glutamineGT,
+glycerolGT,glycerol3phosGT,glycineGT,glycylglycineGT,h2aqGT,h2gGT,h2oGT,
+h2o2aqGT,h2saqGT,i2crGT,idpGT,impGT,indoleGT,inosineGT,iodideionGT,
+isomaltoseGT,itpGT,ketoglutarateGT,lactateGT,lactoseGT,leucineLGT,malateGT,
+maltoseGT,mannoseGT,mannose6phosGT,methaneaqGT,methanegGT,methanolGT,n2aqGT,
+n2gGT,n2oaqGT,nadoxGT,nadpoxGT,nadpredGT,nadredGT,nitrateGT,nitriteGT,
+noaqGT,o2aqGT,o2gGT,oxaloacetateGT,pepGT,piGT,ppiGT,propanol2GT,pyruvateGT,
+riboseGT,ribose1phosGT,ribose5phosGT,ribuloseGT,sorboseGT,succinateGT,
+sucroseGT,sulfateGT,sulfiteGT,sulfurcrGT,tryptophanLGT,ureaGT,valineLGT,
+xyloseGT,xyluloseGT}]=Map[derivetrGibbsT,{acetaldehydesp,acetatesp,acetonesp,
+adeninesp,adenosinesp,adpsp,alaninesp,ammoniasp,ampsp,arabinosesp,
+asparagineLsp,aspartatesp,atpsp,citratesp,co2gsp,co2totsp,coaqsp,cogsp,
+ethaneaqsp,ethanolsp,ethylacetatesp,ferricsp,ferroussp,formatesp,fructosesp,
+fructose16phossp,fructose6phossp,fumaratesp,galactosesp,glucosesp,
+glucose6phossp,glutamatesp,glutaminesp,glycerolsp,glycerol3phossp,glycinesp,
+glycylglycinesp,h2aqsp,h2gsp,h2osp,h2o2aqsp,h2saqsp,i2crsp,idpsp,impsp,
+indolesp,inosinesp,iodideionsp,isomaltosesp,itpsp,ketoglutaratesp,lactatesp,
+lactosesp,leucineLsp,malatesp,maltosesp,mannosesp,mannose6phossp,
+methaneaqsp,methanegsp,methanolsp,n2aqsp,n2gsp,n2oaqsp,nadoxsp,nadpoxsp,
+nadpredsp,nadredsp,nitratesp,nitritesp,noaqsp,o2aqsp,o2gsp,oxaloacetatesp,
+pepsp,pisp,ppisp,propanol2sp,pyruvatesp,ribosesp,ribose1phossp,ribose5phossp,
+ribulosesp,sorbosesp,succinatesp,sucrosesp,sulfatesp,sulfitesp,sulfurcrsp,
+tryptophanLsp,ureasp,valineLsp,xylosesp,xylulosesp}];\
+\>", "Input",
+ PageWidth->DirectedInfinity[1],
+ InitializationCell->True,
+ ShowSpecialCharacters->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+7  Calculation of the functions of temperature, pH and ionic strength for the \
+standard transformed enthalpies of formation of reactants for which standard \
+enthalpies of formation of the species are known \
+\>", "Section"],
+
+Cell[TextData[{
+ "\tThe function of ",
+ StyleBox["T",
+  FontSlant->"Italic"],
+ ", pH, and ionic strength that gives the standard transformed enthalpy of \
+formation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], 
+    RowBox[{"H", "'"}]}], TraditionalForm]]],
+ " \[Degree] for a reactant can be derived by differentiating the function \
+for the standard transformed Gibbs energy of formation.  This is done by the \
+program ",
+ StyleBox["derivetrHT",
+  FontWeight->"Bold"],
+ "."
+}], "Text"],
+
+Cell["\<\
+Clear[acetaldehydeHT,acetateHT,acetoneHT,adenineHT,adenosineHT,adpHT,alanineHT,
+ammoniaHT,ampHT,arabinoseHT,asparagineLHT,aspartateHT,atpHT,citrateHT,co2gHT,
+co2totHT,coaqHT,cogHT,ethaneaqHT,ethanolHT,ethylacetateHT,ferricHT,ferrousHT,
+formateHT,fructoseHT,fructose16phosHT,fructose6phosHT,fumarateHT,galactoseHT,
+glucoseHT,glucose6phosHT,glutamateHT,glutamineHT,glycerolHT,glycerol3phosHT,
+glycineHT,glycylglycineHT,h2aqHT,h2gHT,h2oHT,h2o2aqHT,h2saqHT,i2crHT,idpHT,
+impHT,indoleHT,inosineHT,iodideionHT,isomaltoseHT,itpHT,ketoglutarateHT,
+lactateHT,lactoseHT,leucineLHT,malateHT,maltoseHT,mannoseHT,mannose6phosHT,
+methaneaqHT,methanegHT,methanolHT,n2aqHT,n2gHT,n2oaqHT,nadoxHT,nadpoxHT,
+nadpredHT,nadredHT,nitrateHT,nitriteHT,noaqHT,o2aqHT,o2gHT,oxaloacetateHT,
+pepHT,piHT,ppiHT,propanol2HT,pyruvateHT,riboseHT,ribose1phosHT,ribose5phosHT,
+ribuloseHT,sorboseHT,succinateHT,sucroseHT,sulfateHT,sulfiteHT,sulfurcrHT,
+tryptophanLHT,ureaHT,valineLHT,xyloseHT,xyluloseHT]
+
+Evaluate[{acetaldehydeHT,acetateHT,acetoneHT,adenineHT,adenosineHT,adpHT,\
+alanineHT,
+ammoniaHT,ampHT,arabinoseHT,asparagineLHT,aspartateHT,atpHT,citrateHT,co2gHT,
+co2totHT,coaqHT,cogHT,ethaneaqHT,ethanolHT,ethylacetateHT,ferricHT,ferrousHT,
+formateHT,fructoseHT,fructose16phosHT,fructose6phosHT,fumarateHT,galactoseHT,
+glucoseHT,glucose6phosHT,glutamateHT,glutamineHT,glycerolHT,glycerol3phosHT,
+glycineHT,glycylglycineHT,h2aqHT,h2gHT,h2oHT,h2o2aqHT,h2saqHT,i2crHT,idpHT,
+impHT,indoleHT,inosineHT,iodideionHT,isomaltoseHT,itpHT,ketoglutarateHT,
+lactateHT,lactoseHT,leucineLHT,malateHT,maltoseHT,mannoseHT,mannose6phosHT,
+methaneaqHT,methanegHT,methanolHT,n2aqHT,n2gHT,n2oaqHT,nadoxHT,nadpoxHT,
+nadpredHT,nadredHT,nitrateHT,nitriteHT,noaqHT,o2aqHT,o2gHT,oxaloacetateHT,
+pepHT,piHT,ppiHT,propanol2HT,pyruvateHT,riboseHT,ribose1phosHT,ribose5phosHT,
+ribuloseHT,sorboseHT,succinateHT,sucroseHT,sulfateHT,sulfiteHT,sulfurcrHT,
+tryptophanLHT,ureaHT,valineLHT,xyloseHT,xyluloseHT}]=Map[derivetrHT,{\
+acetaldehydesp,
+acetatesp,acetonesp,adeninesp,adenosinesp,adpsp,alaninesp,
+ammoniasp,ampsp,arabinosesp,asparagineLsp,aspartatesp,atpsp,citratesp,co2gsp,
+co2totsp,coaqsp,cogsp,ethaneaqsp,ethanolsp,ethylacetatesp,ferricsp,ferroussp,
+formatesp,fructosesp,fructose16phossp,fructose6phossp,fumaratesp,galactosesp,
+glucosesp,glucose6phossp,glutamatesp,glutaminesp,glycerolsp,glycerol3phossp,
+glycinesp,glycylglycinesp,h2aqsp,h2gsp,h2osp,h2o2aqsp,h2saqsp,i2crsp,idpsp,
+impsp,indolesp,inosinesp,iodideionsp,isomaltosesp,itpsp,ketoglutaratesp,
+lactatesp,lactosesp,leucineLsp,malatesp,maltosesp,mannosesp,mannose6phossp,
+methaneaqsp,methanegsp,methanolsp,n2aqsp,n2gsp,n2oaqsp,nadoxsp,nadpoxsp,
+nadpredsp,nadredsp,nitratesp,nitritesp,noaqsp,o2aqsp,o2gsp,oxaloacetatesp,
+pepsp,pisp,ppisp,propanol2sp,pyruvatesp,ribosesp,ribose1phossp,ribose5phossp,
+ribulosesp,sorbosesp,succinatesp,sucrosesp,sulfatesp,sulfitesp,sulfurcrsp,
+tryptophanLsp,ureasp,valineLsp,xylosesp,xylulosesp}];\
+\>", "Input",
+ PageWidth->DirectedInfinity[1],
+ InitializationCell->True,
+ ShowSpecialCharacters->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+8  Calculation of the functions of temperature, pH and ionic strength for the \
+standard transformed entropies of formation of reactants for which standard \
+enthalpies of formation of the species are known \
+\>", "Section"],
+
+Cell[TextData[{
+ "\tThe function of ",
+ StyleBox["T",
+  FontSlant->"Italic"],
+ ", pH, and ionic strength that gives the standard transformed entropy of \
+formation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]", 
+     StyleBox["f",
+      FontSlant->"Plain"]], 
+    RowBox[{"S", "'"}]}], TraditionalForm]]],
+ " \[Degree] for a reactant can be derived by differentiating the function \
+for the standard transformed Gibbs energy of formation.  This is done by the \
+program ",
+ StyleBox["derivetrST",
+  FontWeight->"Bold"],
+ "."
+}], "Text"],
+
+Cell["\<\
+Clear[acetaldehydeST,acetateST,acetoneST,adenineST,adenosineST,adpST,alanineST,
+ammoniaST,ampST,arabinoseST,asparagineLST,aspartateST,atpST,citrateST,co2gST,
+co2totST,coaqST,cogST,ethaneaqST,ethanolST,ethylacetateST,ferricST,ferrousST,
+formateST,fructoseST,fructose16phosST,fructose6phosST,fumarateST,galactoseST,
+glucoseST,glucose6phosST,glutamateST,glutamineST,glycerolST,glycerol3phosST,
+glycineST,glycylglycineST,h2aqST,h2gST,h2oST,h2o2aqST,h2saqST,i2crST,idpST,
+impST,indoleST,inosineST,iodideionST,isomaltoseST,itpST,ketoglutarateST,
+lactateST,lactoseST,leucineLST,malateST,maltoseST,mannoseST,mannose6phosST,
+methaneaqST,methanegST,methanolST,n2aqST,n2gST,n2oaqST,nadoxST,nadpoxST,
+nadpredST,nadredST,nitrateST,nitriteST,noaqST,o2aqST,o2gST,oxaloacetateST,
+pepST,piST,ppiST,propanol2ST,pyruvateST,riboseST,ribose1phosST,ribose5phosST,
+ribuloseST,sorboseST,succinateST,sucroseST,sulfateST,sulfiteST,sulfurcrST,
+tryptophanLST,ureaST,valineLST,xyloseST,xyluloseST]
+
+Evaluate[{acetaldehydeST,acetateST,acetoneST,adenineST,adenosineST,adpST,\
+alanineST,
+ammoniaST,ampST,arabinoseST,asparagineLST,aspartateST,atpST,citrateST,co2gST,
+co2totST,coaqST,cogST,ethaneaqST,ethanolST,ethylacetateST,ferricST,ferrousST,
+formateST,fructoseST,fructose16phosST,fructose6phosST,fumarateST,galactoseST,
+glucoseST,glucose6phosST,glutamateST,glutamineST,glycerolST,glycerol3phosST,
+glycineST,glycylglycineST,h2aqST,h2gST,h2oST,h2o2aqST,h2saqST,i2crST,idpST,
+impST,indoleST,inosineST,iodideionST,isomaltoseST,itpST,ketoglutarateST,
+lactateST,lactoseST,leucineLST,malateST,maltoseST,mannoseST,mannose6phosST,
+methaneaqST,methanegST,methanolST,n2aqST,n2gST,n2oaqST,nadoxST,nadpoxST,
+nadpredST,nadredST,nitrateST,nitriteST,noaqST,o2aqST,o2gST,oxaloacetateST,
+pepST,piST,ppiST,propanol2ST,pyruvateST,riboseST,ribose1phosST,ribose5phosST,
+ribuloseST,sorboseST,succinateST,sucroseST,sulfateST,sulfiteST,sulfurcrST,
+tryptophanLST,ureaST,valineLST,xyloseST,xyluloseST}]=Map[derivetrST,{\
+acetaldehydesp,
+acetatesp,acetonesp,adeninesp,adenosinesp,adpsp,alaninesp,
+ammoniasp,ampsp,arabinosesp,asparagineLsp,aspartatesp,atpsp,citratesp,co2gsp,
+co2totsp,coaqsp,cogsp,ethaneaqsp,ethanolsp,ethylacetatesp,ferricsp,ferroussp,
+formatesp,fructosesp,fructose16phossp,fructose6phossp,fumaratesp,galactosesp,
+glucosesp,glucose6phossp,glutamatesp,glutaminesp,glycerolsp,glycerol3phossp,
+glycinesp,glycylglycinesp,h2aqsp,h2gsp,h2osp,h2o2aqsp,h2saqsp,i2crsp,idpsp,
+impsp,indolesp,inosinesp,iodideionsp,isomaltosesp,itpsp,ketoglutaratesp,
+lactatesp,lactosesp,leucineLsp,malatesp,maltosesp,mannosesp,mannose6phossp,
+methaneaqsp,methanegsp,methanolsp,n2aqsp,n2gsp,n2oaqsp,nadoxsp,nadpoxsp,
+nadpredsp,nadredsp,nitratesp,nitritesp,noaqsp,o2aqsp,o2gsp,oxaloacetatesp,
+pepsp,pisp,ppisp,propanol2sp,pyruvatesp,ribosesp,ribose1phossp,ribose5phossp,
+ribulosesp,sorbosesp,succinatesp,sucrosesp,sulfatesp,sulfitesp,sulfurcrsp,
+tryptophanLsp,ureasp,valineLsp,xylosesp,xylulosesp}];\
+\>", "Input",
+ PageWidth->DirectedInfinity[1],
+ InitializationCell->True,
+ ShowSpecialCharacters->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+9  Calculation of the functions of temperature, pH and ionic strength for the \
+average numbers of hydrogen atoms in reactants for which standard enthalpies \
+of formation of the species are known \
+\>", "Section"],
+
+Cell[TextData[{
+ "\tThe function of temperature, pH. and ionic stength that gives the average \
+number of hydrogen atoms ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    FormBox[
+     OverscriptBox["N", "_"],
+     TraditionalForm], 
+    StyleBox["H",
+     FontSlant->"Plain"]], TraditionalForm]]],
+ " in a reactant can be derived by differentiating the function for the \
+standard transformed Gibbs energy of formation.  This is done by the program ",
+ StyleBox["deriveNHT",
+  FontWeight->"Bold"],
+ ". ",
+ Cell[BoxData[
+  FormBox[" ", TraditionalForm]]],
+ "    "
+}], "Text"],
+
+Cell["\<\
+Clear[acetaldehydeNHT,acetateNHT,acetoneNHT,adenineNHT,adenosineNHT,adpNHT,
+alanineNHT,ammoniaNHT,ampNHT,arabinoseNHT,asparagineLNHT,aspartateNHT,atpNHT,
+citrateNHT,co2gNHT,co2totNHT,coaqNHT,cogNHT,ethaneaqNHT,ethanolNHT,
+ethylacetateNHT,ferricNHT,ferrousNHT,formateNHT,fructoseNHT,fructose16phosNHT,\
+
+fructose6phosNHT,fumarateNHT,galactoseNHT,glucoseNHT,glucose6phosNHT,
+glutamateNHT,glutamineNHT,glycerolNHT,glycerol3phosNHT,glycineNHT,
+glycylglycineNHT,h2aqNHT,h2gNHT,h2oNHT,h2o2aqNHT,h2saqNHT,i2crNHT,idpNHT,
+impNHT,indoleNHT,inosineNHT,iodideionNHT,isomaltoseNHT,itpNHT,
+ketoglutarateNHT,lactateNHT,lactoseNHT,leucineLNHT,malateNHT,maltoseNHT,
+mannoseNHT,mannose6phosNHT,methaneaqNHT,methanegNHT,methanolNHT,n2aqNHT,
+n2gNHT,n2oaqNHT,nadoxNHT,nadpoxNHT,nadpredNHT,nadredNHT,nitrateNHT,nitriteNHT,\
+
+noaqNHT,o2aqNHT,o2gNHT,oxaloacetateNHT,pepNHT,piNHT,ppiNHT,propanol2NHT,
+pyruvateNHT,riboseNHT,ribose1phosNHT,ribose5phosNHT,ribuloseNHT,sorboseNHT,
+succinateNHT,sucroseNHT,sulfateNHT,sulfiteNHT,sulfurcrNHT,tryptophanLNHT,
+ureaNHT,valineLNHT,xyloseNHT,xyluloseNHT]
+
+Evaluate[{acetaldehydeNHT,acetateNHT,acetoneNHT,adenineNHT,adenosineNHT,adpNHT,
+alanineNHT,ammoniaNHT,ampNHT,arabinoseNHT,asparagineLNHT,aspartateNHT,atpNHT,
+citrateNHT,co2gNHT,co2totNHT,coaqNHT,cogNHT,ethaneaqNHT,ethanolNHT,
+ethylacetateNHT,ferricNHT,ferrousNHT,formateNHT,fructoseNHT,fructose16phosNHT,\
+
+fructose6phosNHT,fumarateNHT,galactoseNHT,glucoseNHT,glucose6phosNHT,
+glutamateNHT,glutamineNHT,glycerolNHT,glycerol3phosNHT,glycineNHT,
+glycylglycineNHT,h2aqNHT,h2gNHT,h2oNHT,h2o2aqNHT,h2saqNHT,i2crNHT,idpNHT,
+impNHT,indoleNHT,inosineNHT,iodideionNHT,isomaltoseNHT,itpNHT,
+ketoglutarateNHT,lactateNHT,lactoseNHT,leucineLNHT,malateNHT,maltoseNHT,
+mannoseNHT,mannose6phosNHT,methaneaqNHT,methanegNHT,methanolNHT,n2aqNHT,
+n2gNHT,n2oaqNHT,nadoxNHT,nadpoxNHT,nadpredNHT,nadredNHT,nitrateNHT,nitriteNHT,\
+
+noaqNHT,o2aqNHT,o2gNHT,oxaloacetateNHT,pepNHT,piNHT,ppiNHT,propanol2NHT,
+pyruvateNHT,riboseNHT,ribose1phosNHT,ribose5phosNHT,ribuloseNHT,sorboseNHT,
+succinateNHT,sucroseNHT,sulfateNHT,sulfiteNHT,sulfurcrNHT,tryptophanLNHT,
+ureaNHT,valineLNHT,xyloseNHT,xyluloseNHT}]=Map[deriveNHT,{acetaldehydesp,
+acetatesp,acetonesp,adeninesp,adenosinesp,adpsp,alaninesp,
+ammoniasp,ampsp,arabinosesp,asparagineLsp,aspartatesp,atpsp,citratesp,co2gsp,
+co2totsp,coaqsp,cogsp,ethaneaqsp,ethanolsp,ethylacetatesp,ferricsp,ferroussp,
+formatesp,fructosesp,fructose16phossp,fructose6phossp,fumaratesp,galactosesp,
+glucosesp,glucose6phossp,glutamatesp,glutaminesp,glycerolsp,glycerol3phossp,
+glycinesp,glycylglycinesp,h2aqsp,h2gsp,h2osp,h2o2aqsp,h2saqsp,i2crsp,idpsp,
+impsp,indolesp,inosinesp,iodideionsp,isomaltosesp,itpsp,ketoglutaratesp,
+lactatesp,lactosesp,leucineLsp,malatesp,maltosesp,mannosesp,mannose6phossp,
+methaneaqsp,methanegsp,methanolsp,n2aqsp,n2gsp,n2oaqsp,nadoxsp,nadpoxsp,
+nadpredsp,nadredsp,nitratesp,nitritesp,noaqsp,o2aqsp,o2gsp,oxaloacetatesp,
+pepsp,pisp,ppisp,propanol2sp,pyruvatesp,ribosesp,ribose1phossp,ribose5phossp,
+ribulosesp,sorbosesp,succinatesp,sucrosesp,sulfatesp,sulfitesp,sulfurcrsp,
+tryptophanLsp,ureasp,valineLsp,xylosesp,xylulosesp}];
+
+End[]\
+\>", "Input",
+ PageWidth->DirectedInfinity[1],
+ InitializationCell->True,
+ ShowSpecialCharacters->False],
+
+Cell["\<\
+Now we protect all the names that have been assigned so that they cannot be \
+changed.\
+\>", "Text"],
+
+Cell["\<\
+Protect [t,pH, is, 
+acetaldehydesp,acetatesp,acetoacetatesp,acetoacetylcoAsp,acetonesp,
+acetylcoAsp,acetylphossp,aconitatecissp,adeninesp,adenosinesp,
+adenosinephosphosulfatesp,adpsp,alaninesp,ammoniasp,ampsp,arabinosesp,
+arabinose5phossp,asparagineLsp,aspartatesp,atpsp,bpgsp,butanalsp,butanolnsp,
+butyratesp,cellobiosesp,citratesp,citrateisosp,co2gsp,co2totsp,coAsp,
+coAglutathionesp,coaqsp,cogsp,creatinesp,creatininesp,cyclicampsp,cysteineLsp,\
+
+cystineLsp,cytochromecoxsp,cytochromecredsp,deoxyadenosinesp,deoxyadpsp,
+deoxyampsp,deoxyatpsp,deoxyribosesp,deoxyribose1phossp,deoxyribose5phossp,
+dihydroxyacetonesp,dihydroxyacetonephossp,ethaneaqsp,ethanolsp,
+ethylacetatesp,fadenzoxsp,fadenzredsp,fadoxsp,fadredsp,ferredoxinoxsp,
+ferredoxinredsp,ferricsp,ferroussp,fmnoxsp,fmnredsp,formatesp,fructosesp,
+fructose16phossp,fructose6phossp,fumaratesp,galactono14lactonesp,
+galactosesp,galactose1phossp,galactose6phossp,gluconolactonesp,
+gluconolactone6phossp,glucosesp,glucose1phossp,glucose6phossp,glutamatesp,
+glutaminesp,glutathioneoxsp,glutathioneredsp,glyceraldehydesp,
+glyceraldehydephossp,glyceratesp,glycerolsp,glycerol3phossp,glycinesp,
+glycolatesp,glycylglycinesp,glyoxylatesp,h2aqsp,h2gsp,h2osp,h2o2aqsp,
+h2saqsp,hydroxy2oxoglutaratesp,hydroxyglutaratesp,hydroxypropionatebsp,
+hydroxypyruvatesp,hypoxanthinesp,i2crsp,iditolsp,idpsp,impsp,indolesp,
+inosinesp,iodideionsp,isomaltosesp,itpsp,ketoglutaramatesp,
+ketoglutaratesp,lactatesp,lactosesp,lactulosesp,leucineisoLsp,leucineLsp,
+lyxosesp,malatesp,maleatesp,maltosesp,malylcoAsp,mannitol1phossp,mannitolDsp,
+mannosesp,mannose1phossp,mannose6phossp,methaneaqsp,methanegsp,methanolsp,
+methionineLsp,methyl2oxopentanoatesp,methylmalatesp,methylmaleatesp,
+methylmalonylcoAsp,n2aqsp,n2gsp,n2oaqsp,nadoxsp,nadpoxsp,nadpredsp,nadredsp,
+nicotinamideribonucleotidesp,nitratesp,nitritesp,noaqsp,o2aqsp,o2gsp,
+oxalatesp,oxaloacetatesp,oxalosuccinatesp,oxalylcoAsp,oxoprolinesp,
+palmitatesp,pepsp,phenylalanineLsp,phosphoglycerate2sp,phosphoglycerate3sp,
+phosphohydroxypyruvatesp,phosphoserinesp,pisp,ppisp,propanol2sp,propanolnsp,
+propanoylcoAsp,prppsp,pyruvatesp,retinalsp,retinolsp,ribitolsp,ribosesp,
+ribose1phossp,ribose5phossp,ribulosesp,ribulose5phossp,serineLsp,sorbitolsp,
+sorbitol6phossp,sorbosesp,succinatesp,succinylcoAsp,sucrosesp,sulfatesp,
+sulfitesp,sulfurcrsp,thioredoxinoxsp,thioredoxinredsp,threoninesp,
+transcinnamatesp,trehalosesp,tryptophanLsp,tyrosineLsp,ubiquinoneoxsp,
+ubiquinoneredsp,uratesp,ureasp,uricacidsp,valineLsp,xylitolsp,xylosesp,
+xylulosesp];
+
+Protect[acetaldehyde,acetate,acetoacetate,acetoacetylcoA,acetone,acetylcoA,
+acetylphos,aconitatecis,adenine,adenosine,adenosinephosphosulfate,adp,alanine,\
+
+ammonia,amp,arabinose,arabinose5phos,asparagineL,aspartate,atp,bpg,butanal,
+butanoln,butyrate,cellobiose,citrate,citrateiso,co2g,co2tot,coA,
+coAglutathione,coaq,cog,creatine,creatinine,cyclicamp,cysteineL,cystineL,
+cytochromecox,cytochromecred,deoxyadenosine,deoxyadp,deoxyamp,deoxyatp,
+deoxyribose,deoxyribose1phos,deoxyribose5phos,dihydroxyacetone,
+dihydroxyacetonephos,ethaneaq,ethanol,ethylacetate,fadenzox,fadenzred,fadox,
+fadred,ferredoxinox,ferredoxinred,ferric,ferrous,fmnox,fmnred,formate,
+fructose,fructose16phos,fructose6phos,fumarate,galactono14lactone,galactose,
+galactose1phos,galactose6phos,gluconolactone,gluconolactone6phos,glucose,
+glucose1phos,glucose6phos,glutamate,glutamine,glutathioneox,glutathionered,
+glyceraldehyde,glyceraldehydephos,glycerate,glycerol,glycerol3phos,glycine,
+glycolate,glycylglycine,glyoxylate,h2aq,h2g,h2o,h2o2aq,h2saq,
+hydroxy2oxoglutarate,hydroxyglutarate,hydroxypropionateb,hydroxypyruvate,
+hypoxanthine,i2cr,iditol,idp,imp,indole,inosine,iodideion,isomaltose,itp,
+ketoglutaramate,ketoglutarate,lactate,lactose,lactulose,leucineisoL,
+leucineL,lyxose,malate,maleate,maltose,malylcoA,mannitol1phos,mannitolD,
+mannose,mannose1phos,mannose6phos,methaneaq,methaneg,methanol,methionineL,
+methyl2oxopentanoate,methylmalate,methylmaleate,methylmalonylcoA,n2aq,n2g,
+n2oaq,nadox,nadpox,nadpred,nadred,nicotinamideribonucleotide,nitrate,
+nitrite,noaq,o2aq,o2g,oxalate,oxaloacetate,oxalosuccinate,oxalylcoA,
+oxoproline,palmitate,pep,phenylalanineL,phosphoglycerate2,phosphoglycerate3,
+phosphohydroxypyruvate,phosphoserine,pi,ppi,propanol2,propanoln,
+propanoylcoA,prpp,pyruvate,retinal,retinol,ribitol,ribose,ribose1phos,
+ribose5phos,ribulose,ribulose5phos,serineL,sorbitol,sorbitol6phos,sorbose,
+succinate,succinylcoA,sucrose,sulfate,sulfite,sulfurcr,thioredoxinox,
+thioredoxinred,threonine,transcinnamate,trehalose,tryptophanL,tyrosineL,
+ubiquinoneox,ubiquinonered,urate,urea,uricacid,valineL,xylitol,xylose,
+xylulose];
+
+Protect[acetaldehydeNH,acetateNH,acetoacetateNH,acetoacetylcoANH,acetoneNH,
+acetylcoANH,acetylphosNH,aconitatecisNH,adenineNH,adenosineNH,
+adenosinephosphosulfateNH,adpNH,alanineNH,ammoniaNH,ampNH,arabinoseNH,
+arabinose5phosNH,asparagineLNH,aspartateNH,atpNH,bpgNH,butanalNH,butanolnNH,
+butyrateNH,cellobioseNH,citrateNH,citrateisoNH,co2gNH,co2totNH,coANH,
+coAglutathioneNH,coaqNH,cogNH,creatineNH,creatinineNH,cyclicampNH,cysteineLNH,\
+
+cystineLNH,cytochromecoxNH,cytochromecredNH,deoxyadenosineNH,deoxyadpNH,
+deoxyampNH,deoxyatpNH,deoxyriboseNH,deoxyribose1phosNH,deoxyribose5phosNH,
+dihydroxyacetoneNH,dihydroxyacetonephosNH,ethaneaqNH,ethanolNH,
+ethylacetateNH,fadenzoxNH,fadenzredNH,fadoxNH,fadredNH,ferredoxinoxNH,
+ferredoxinredNH,ferricNH,ferrousNH,fmnoxNH,fmnredNH,formateNH,fructoseNH,
+fructose16phosNH,fructose6phosNH,fumarateNH,galactono14lactoneNH,
+galactoseNH,galactose1phosNH,galactose6phosNH,gluconolactoneNH,
+gluconolactone6phosNH,glucoseNH,glucose1phosNH,glucose6phosNH,glutamateNH,
+glutamineNH,glutathioneoxNH,glutathioneredNH,glyceraldehydeNH,
+glyceraldehydephosNH,glycerateNH,glycerolNH,glycerol3phosNH,glycineNH,
+glycolateNH,glycylglycineNH,glyoxylateNH,h2aqNH,h2gNH,h2oNH,h2o2aqNH,
+h2saqNH,hydroxy2oxoglutarateNH,hydroxyglutarateNH,hydroxypropionatebNH,
+hydroxypyruvateNH,hypoxanthineNH,i2crNH,iditolNH,idpNH,impNH,indoleNH,
+inosineNH,iodideionNH,isomaltoseNH,itpNH,ketoglutaramateNH,
+ketoglutarateNH,lactateNH,lactoseNH,lactuloseNH,leucineisoLNH,leucineLNH,
+lyxoseNH,malateNH,maleateNH,maltoseNH,malylcoANH,mannitol1phosNH,mannitolDNH,
+mannoseNH,mannose1phosNH,mannose6phosNH,methaneaqNH,methanegNH,methanolNH,
+methionineLNH,methyl2oxopentanoateNH,methylmalateNH,methylmaleateNH,
+methylmalonylcoANH,n2aqNH,n2gNH,n2oaqNH,nadoxNH,nadpoxNH,nadpredNH,nadredNH,
+nicotinamideribonucleotideNH,nitrateNH,nitriteNH,noaqNH,o2aqNH,o2gNH,
+oxalateNH,oxaloacetateNH,oxalosuccinateNH,oxalylcoANH,oxoprolineNH,
+palmitateNH,pepNH,phenylalanineLNH,phosphoglycerate2NH,phosphoglycerate3NH,
+phosphohydroxypyruvateNH,phosphoserineNH,piNH,ppiNH,propanol2NH,propanolnNH,
+propanoylcoANH,prppNH,pyruvateNH,retinalNH,retinolNH,ribitolNH,riboseNH,
+ribose1phosNH,ribose5phosNH,ribuloseNH,ribulose5phosNH,serineLNH,sorbitolNH,
+sorbitol6phosNH,sorboseNH,succinateNH,succinylcoANH,sucroseNH,sulfateNH,
+sulfiteNH,sulfurcrNH,thioredoxinoxNH,thioredoxinredNH,threonineNH,
+transcinnamateNH,trehaloseNH,tryptophanLNH,tyrosineLNH,ubiquinoneoxNH,
+ubiquinoneredNH,urateNH,ureaNH,uricacidNH,valineLNH,xylitolNH,xyloseNH,
+xyluloseNH];
+
+Protect[acetaldehydeGT,acetateGT,acetoneGT,adenineGT,adenosineGT,adpGT,
+alanineGT,ammoniaGT,ampGT,arabinoseGT,asparagineLGT,aspartateGT,atpGT,
+citrateGT,co2gGT,co2totGT,coaqGT,cogGT,ethaneaqGT,ethanolGT,ethylacetateGT,
+ferricGT,ferrousGT,formateGT,fructoseGT,fructose16phosGT,fructose6phosGT,
+fumarateGT,galactoseGT,glucoseGT,glucose6phosGT,glutamateGT,glutamineGT,
+glycerolGT,glycerol3phosGT,glycineGT,glycylglycineGT,h2aqGT,h2gGT,h2oGT,
+h2o2aqGT,h2saqGT,i2crGT,idpGT,impGT,indoleGT,inosineGT,iodideionGT,
+isomaltoseGT,itpGT,ketoglutarateGT,lactateGT,lactoseGT,leucineLGT,malateGT,
+maltoseGT,mannoseGT,mannose6phosGT,methaneaqGT,methanegGT,methanolGT,n2aqGT,
+n2gGT,n2oaqGT,nadoxGT,nadpoxGT,nadpredGT,nadredGT,nitrateGT,nitriteGT,
+noaqGT,o2aqGT,o2gGT,oxaloacetateGT,pepGT,piGT,ppiGT,propanol2GT,pyruvateGT,
+riboseGT,ribose1phosGT,ribose5phosGT,ribuloseGT,sorboseGT,succinateGT,
+sucroseGT,sulfateGT,sulfiteGT,sulfurcrGT,tryptophanLGT,ureaGT,valineLGT,
+xyloseGT,xyluloseGT];
+
+Protect[
+acetaldehydeHT,acetateHT,acetoneHT,adenineHT,adenosineHT,adpHT,alanineHT,
+ammoniaHT,ampHT,arabinoseHT,asparagineLHT,aspartateHT,atpHT,citrateHT,co2gHT,
+co2totHT,coaqHT,cogHT,ethaneaqHT,ethanolHT,ethylacetateHT,ferricHT,ferrousHT,
+formateHT,fructoseHT,fructose16phosHT,fructose6phosHT,fumarateHT,galactoseHT,
+glucoseHT,glucose6phosHT,glutamateHT,glutamineHT,glycerolHT,glycerol3phosHT,
+glycineHT,glycylglycineHT,h2aqHT,h2gHT,h2oHT,h2o2aqHT,h2saqHT,i2crHT,idpHT,
+impHT,indoleHT,inosineHT,iodideionHT,isomaltoseHT,itpHT,ketoglutarateHT,
+lactateHT,lactoseHT,leucineLHT,malateHT,maltoseHT,mannoseHT,mannose6phosHT,
+methaneaqHT,methanegHT,methanolHT,n2aqHT,n2gHT,n2oaqHT,nadoxHT,nadpoxHT,
+nadpredHT,nadredHT,nitrateHT,nitriteHT,noaqHT,o2aqHT,o2gHT,oxaloacetateHT,
+pepHT,piHT,ppiHT,propanol2HT,pyruvateHT,riboseHT,ribose1phosHT,ribose5phosHT,
+ribuloseHT,sorboseHT,succinateHT,sucroseHT,sulfateHT,sulfiteHT,sulfurcrHT,
+tryptophanLHT,ureaHT,valineLHT,xyloseHT,xyluloseHT];
+
+Protect[acetaldehydeST,acetateST,acetoneST,adenineST,adenosineST,adpST,\
+alanineST,
+ammoniaST,ampST,arabinoseST,asparagineLST,aspartateST,atpST,citrateST,co2gST,
+co2totST,coaqST,cogST,ethaneaqST,ethanolST,ethylacetateST,ferricST,ferrousST,
+formateST,fructoseST,fructose16phosST,fructose6phosST,fumarateST,galactoseST,
+glucoseST,glucose6phosST,glutamateST,glutamineST,glycerolST,glycerol3phosST,
+glycineST,glycylglycineST,h2aqST,h2gST,h2oST,h2o2aqST,h2saqST,i2crST,idpST,
+impST,indoleST,inosineST,iodideionST,isomaltoseST,itpST,ketoglutarateST,
+lactateST,lactoseST,leucineLST,malateST,maltoseST,mannoseST,mannose6phosST,
+methaneaqST,methanegST,methanolST,n2aqST,n2gST,n2oaqST,nadoxST,nadpoxST,
+nadpredST,nadredST,nitrateST,nitriteST,noaqST,o2aqST,o2gST,oxaloacetateST,
+pepST,piST,ppiST,propanol2ST,pyruvateST,riboseST,ribose1phosST,ribose5phosST,
+ribuloseST,sorboseST,succinateST,sucroseST,sulfateST,sulfiteST,sulfurcrST,
+tryptophanLST,ureaST,valineLST,xyloseST,xyluloseST];
+
+Protect[acetaldehydeNHT,acetateNHT,acetoneNHT,adenineNHT,adenosineNHT,adpNHT,
+alanineNHT,ammoniaNHT,ampNHT,arabinoseNHT,asparagineLNHT,aspartateNHT,atpNHT,
+citrateNHT,co2gNHT,co2totNHT,coaqNHT,cogNHT,ethaneaqNHT,ethanolNHT,
+ethylacetateNHT,ferricNHT,ferrousNHT,formateNHT,fructoseNHT,fructose16phosNHT,\
+
+fructose6phosNHT,fumarateNHT,galactoseNHT,glucoseNHT,glucose6phosNHT,
+glutamateNHT,glutamineNHT,glycerolNHT,glycerol3phosNHT,glycineNHT,
+glycylglycineNHT,h2aqNHT,h2gNHT,h2oNHT,h2o2aqNHT,h2saqNHT,i2crNHT,idpNHT,
+impNHT,indoleNHT,inosineNHT,iodideionNHT,isomaltoseNHT,itpNHT,
+ketoglutarateNHT,lactateNHT,lactoseNHT,leucineLNHT,malateNHT,maltoseNHT,
+mannoseNHT,mannose6phosNHT,methaneaqNHT,methanegNHT,methanolNHT,n2aqNHT,
+n2gNHT,n2oaqNHT,nadoxNHT,nadpoxNHT,nadpredNHT,nadredNHT,nitrateNHT,nitriteNHT,\
+
+noaqNHT,o2aqNHT,o2gNHT,oxaloacetateNHT,pepNHT,piNHT,ppiNHT,propanol2NHT,
+pyruvateNHT,riboseNHT,ribose1phosNHT,ribose5phosNHT,ribuloseNHT,sorboseNHT,
+succinateNHT,sucroseNHT,sulfateNHT,sulfiteNHT,sulfurcrNHT,tryptophanLNHT,
+ureaNHT,valineLNHT,xyloseNHT,xyluloseNHT];
+
+EndPackage[]
+
+
+
+
+
+
+\
+\>", "Input",
+ PageWidth->DirectedInfinity[1],
+ InitializationCell->True,
+ ShowSpecialCharacters->False]
+}, Closed]]
+}, Open  ]]
+},
+AutoGeneratedPackage->Automatic,
+WindowToolbars->"RulerBar",
+WindowSize->{967, 631},
+WindowMargins->{{12, Automatic}, {Automatic, 24}},
+PrintingCopies->1,
+PrintingPageRange->{1, 3},
+PageHeaders->{{
+   Cell[
+    TextData[
+     CounterBox["Page"]], "Header"], None, 
+   Cell["BasicBiochemData3.nb", "Header"]}, {
+   Cell["BasicBiochemData3.nb", "Header"], None, 
+   Cell[
+    TextData[
+     CounterBox["Page"]], "Header"]}},
+PageFooters->{{None, None, None}, {None, None, None}},
+PageHeaderLines->{True, True},
+PageFooterLines->{False, False},
+PrintingOptions->{"CellBackgroundHalftoneAngle"->Automatic,
+"CellBackgroundHalftoneDensity"->Automatic,
+"FacingPages"->True,
+"FirstPageFace"->Right,
+"FirstPageFooter"->False,
+"FirstPageHeader"->False,
+"GraphicsPrintingFormat"->"Automatic",
+"IncludePostScriptResourceDirectives"->True,
+"IncludeSpecialFonts"->True,
+"Magnification"->1,
+"PaperOrientation"->"Portrait",
+"PostScriptOutputFile":>"Automatic",
+"PrintCellBrackets"->False,
+"PrintMultipleHorizontalPages"->False,
+"PrintRegistrationMarks"->True,
+"PrintSelectionHighlighting"->False,
+"RestPagesFooter"->True,
+"RestPagesHeader"->True,
+"UnixShellPrintingCommand"->Automatic,
+"UsePostScriptOutputFile"->False,
+"UseUnixShellPrintingCommand"->False},
+Magnification->1,
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
+2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)

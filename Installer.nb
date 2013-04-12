@@ -1,0 +1,439 @@
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Run the following code to install the Toolbox", "Subsection"],
+
+Cell["\<\
+The following code will install the MASS Toolbox in \
+$UserBaseDirectory/Applications\
+\>", "Text"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"install", "[", 
+    RowBox[{"path_String:", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"$UserBaseDirectory", ",", "\"\<Applications\>\""}], "}"}], 
+      "]"}]}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "configPath", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"SetDirectory", "[", 
+       RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Quiet", "[", 
+       RowBox[{
+        RowBox[{"DeleteDirectory", "[", 
+         RowBox[{
+          RowBox[{"FileNameJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{"path", ",", "\"\<Toolbox\>\""}], "}"}], "]"}], ",", 
+          RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         StyleBox[
+          RowBox[{"DeleteDirectory", "::", "nodir"}], "MessageName"], "}"}]}],
+        "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Quiet", "[", 
+       RowBox[{
+        RowBox[{"DeleteDirectory", "[", 
+         RowBox[{
+          RowBox[{"FileNameJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{"path", ",", "\"\<AutomaticUnits\>\""}], "}"}], "]"}], 
+          ",", 
+          RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         StyleBox[
+          RowBox[{"DeleteDirectory", "::", "nodir"}], "MessageName"], "}"}]}],
+        "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"CopyDirectory", "[", 
+       RowBox[{"\"\<Toolbox\>\"", ",", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{"path", ",", "\"\<Toolbox\>\""}], "}"}], "]"}]}], "]"}],
+       ";", "\[IndentingNewLine]", 
+      RowBox[{"CopyDirectory", "[", 
+       RowBox[{"\"\<AutomaticUnits\>\"", ",", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{"path", ",", "\"\<AutomaticUnits\>\""}], "}"}], "]"}]}], 
+       "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"install", "[", "]"}]}], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Run the following code to uninstall the Toolbox", "Subsection"],
+
+Cell["\<\
+The following code will determine the location of the currently installed \
+MASS Toolbox and uninstall it\
+\>", "Text"],
+
+Cell[BoxData[{
+ RowBox[{"<<", "Toolbox`"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Toolbox", "::", "gitrepository"}], "=", 
+   "\"\<Package found at `1` is a GIT repository and not a regular \
+installation of the Toolbox. It will not be removed.\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"installationDirectory", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{
+     RowBox[{"FileNameSplit", "[", 
+      RowBox[{"DirectoryName", "[", 
+       RowBox[{"FindFile", "[", "\"\<Toolbox`\>\"", "]"}], "]"}], "]"}], 
+     "[", 
+     RowBox[{"[", 
+      RowBox[{";;", 
+       RowBox[{"-", "2"}]}], "]"}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"MemberQ", "[", 
+     RowBox[{
+      RowBox[{"FileNameTake", "/@", 
+       RowBox[{"FileNames", "[", 
+        RowBox[{"\"\<.*\>\"", ",", 
+         RowBox[{"{", 
+          RowBox[{"DirectoryName", "[", "installationDirectory", "]"}], 
+          "}"}]}], "]"}]}], ",", "\"\<.git\>\""}], "]"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Message", "[", 
+     RowBox[{
+      RowBox[{"Toolbox", "::", "gitrepository"}], ",", 
+      "installationDirectory"}], "]"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"ChoiceDialog", "[", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{
+        "\"\<Are you sure that you want to delete the following directory:\\n\
+\>\"", ",", "installationDirectory", ",", 
+         "\"\<\\nThis action cannot be undone.\>\""}], "]"}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"DeleteDirectory", "[", 
+       RowBox[{"installationDirectory", ",", 
+        RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"installationDirectory", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{
+     RowBox[{"FileNameSplit", "[", 
+      RowBox[{"DirectoryName", "[", 
+       RowBox[{"FindFile", "[", "\"\<AutomaticUnits`\>\"", "]"}], "]"}], 
+      "]"}], "[", 
+     RowBox[{"[", 
+      RowBox[{";;", 
+       RowBox[{"-", "2"}]}], "]"}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"MemberQ", "[", 
+     RowBox[{
+      RowBox[{"FileNameTake", "/@", 
+       RowBox[{"FileNames", "[", 
+        RowBox[{"\"\<.*\>\"", ",", 
+         RowBox[{"{", 
+          RowBox[{"DirectoryName", "[", "installationDirectory", "]"}], 
+          "}"}]}], "]"}]}], ",", "\"\<.git\>\""}], "]"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Message", "[", 
+     RowBox[{
+      RowBox[{"Toolbox", "::", "gitrepository"}], ",", 
+      "installationDirectory"}], "]"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"ChoiceDialog", "[", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{
+        "\"\<Are you sure that you want to delete the following directory:\\n\
+\>\"", ",", "installationDirectory", ",", 
+         "\"\<\\nThis action cannot be undone.\>\""}], "]"}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"DeleteDirectory", "[", 
+       RowBox[{"installationDirectory", ",", 
+        RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], 
+  ";"}]}], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Run the following code to deploy the Toolbox (for developers only!)\
+\>", "Subsection"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"deploy", "[", "path_String", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"gitCommitHash", ",", "path2", ",", "configPath"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"gitCommitHash", "=", 
+       RowBox[{
+        RowBox[{"StringSplit", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"StringSplit", "[", 
+            RowBox[{
+             RowBox[{"Import", "[", 
+              RowBox[{"\"\<.git/logs/HEAD\>\"", ",", "\"\<Text\>\""}], "]"}], 
+             ",", "\"\<\\n\>\""}], "]"}], "[", 
+           RowBox[{"[", 
+            RowBox[{"-", "1"}], "]"}], "]"}], ",", "\"\< \>\""}], "]"}], "[", 
+        
+        RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"path2", "=", 
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{"{", 
+         RowBox[{"path", ",", 
+          RowBox[{
+           RowBox[{"DateString", "[", 
+            RowBox[{"{", 
+             RowBox[{
+             "\"\<Year\>\"", ",", "\"\<\>\"", ",", "\"\<Month\>\"", ",", 
+              "\"\<\>\"", ",", "\"\<Day\>\""}], "}"}], "]"}], "<>", 
+           "\"\<_\>\"", "<>", "\"\<Toolbox\>\"", "<>", "\"\<_\>\"", "<>", 
+           
+           RowBox[{"StringTake", "[", 
+            RowBox[{"gitCommitHash", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "8"}], "}"}]}], "]"}]}]}], "}"}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"!", 
+         RowBox[{"DirectoryQ", "[", "path2", "]"}]}], ",", 
+        RowBox[{"CreateDirectory", "[", "path2", "]"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"SetDirectory", "[", 
+       RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Quiet", "[", 
+       RowBox[{
+        RowBox[{"DeleteDirectory", "[", 
+         RowBox[{
+          RowBox[{"FileNameJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{"path2", ",", "\"\<Toolbox\>\""}], "}"}], "]"}], ",", 
+          
+          RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         StyleBox[
+          RowBox[{"DeleteDirectory", "::", "nodir"}], "MessageName"], "}"}]}],
+        "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Quiet", "[", 
+       RowBox[{
+        RowBox[{"DeleteDirectory", "[", 
+         RowBox[{
+          RowBox[{"FileNameJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{"path2", ",", "\"\<AutomaticUnits\>\""}], "}"}], "]"}], 
+          ",", 
+          RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         StyleBox[
+          RowBox[{"DeleteDirectory", "::", "nodir"}], "MessageName"], "}"}]}],
+        "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"CopyDirectory", "[", 
+       RowBox[{"\"\<Toolbox\>\"", ",", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{"path2", ",", "\"\<Toolbox\>\""}], "}"}], "]"}]}], 
+       "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"DeleteDirectory", "[", 
+       RowBox[{
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{"path2", ",", "\"\<Toolbox/Documentation\>\""}], "}"}], 
+         "]"}], ",", 
+        RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"CopyDirectory", "[", 
+       RowBox[{"\"\<AutomaticUnits\>\"", ",", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{"path2", ",", "\"\<AutomaticUnits\>\""}], "}"}], "]"}]}], 
+       "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"CopyDirectory", "[", 
+       RowBox[{"\"\<build/Toolbox/Documentation\>\"", ",", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{
+          "path2", ",", "\"\<Toolbox\>\"", ",", "\"\<Documentation\>\""}],
+           "}"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{"Set", " ", "version", " ", "information", " ", "in", " ", 
+        RowBox[{"Config", ".", "m"}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"configPath", "=", 
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{"{", 
+         RowBox[{"path2", ",", "\"\<Toolbox/Config.m\>\""}], "}"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Export", "[", 
+       RowBox[{"configPath", ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Import", "[", 
+          RowBox[{"configPath", ",", "\"\<Text\>\""}], "]"}], "<>", 
+         "\"\<\\n\\n$Toolbox$Version = \\\"\>\"", "<>", "gitCommitHash", 
+         "<>", "\"\<\\\"\>\""}], "\[IndentingNewLine]", ",", "\"\<Text\>\""}],
+        "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Export", "[", 
+       RowBox[{
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{"path2", ",", "\"\<Installer.nb\>\""}], "}"}], "]"}], ",", 
+        RowBox[{"Notebook", "[", 
+         RowBox[{
+          RowBox[{"Import", "[", "\"\<Installer.nb\>\"", "]"}], "[", 
+          RowBox[{"[", 
+           RowBox[{"1", ",", 
+            RowBox[{"1", ";;", "2"}]}], "]"}], "]"}], "]"}]}], "]"}], ";"}]}],
+     "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"deploy", "[", "\"\</Users/niko/tmp/\>\"", "]"}]}], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Development setup (for developers only!)", "Subsection"],
+
+Cell[CellGroupData[{
+
+Cell["Setup", "Subsubsection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"1.", " ", "Run"}], ";", " ", 
+     RowBox[{"2.", " ", 
+      RowBox[{"Quit", "[", "]"}]}]}], ",", " ", 
+    RowBox[{"3.", " ", 
+     RowBox[{"<<", "Toolbox`"}], " ", "should", " ", "work"}]}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"initDir", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "$UserBaseDirectory", ",", "\"\<Kernel\>\"", ",", "\"\<init.m\>\""}], 
+       "}"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"setupString", "=", 
+     RowBox[{
+     "\"\<\\n\\n(** Start Toolbox Development Setup **)\\nAppendTo[$Path,\
+\\\"\>\"", "<>", 
+      RowBox[{"StringReplace", "[", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+        RowBox[{"\"\<\\\\\>\"", "\[Rule]", "\"\</\>\""}]}], "]"}], "<>", 
+      "\"\<\\\"]\\n(** End Toolbox Development Setup **)\\n\>\""}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"initFile", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{"initDir", ",", "\"\<Text\>\""}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"initFile", "=", 
+     RowBox[{"StringReplace", "[", 
+      RowBox[{"initFile", ",", 
+       RowBox[{
+        RowBox[{
+        "Whitespace", "~~", 
+         "\"\<(** Start Toolbox Development Setup **)\>\"", "~~", "__", 
+         "~~", "\"\<(** End Toolbox Development Setup **)\>\""}], 
+        "\[Rule]", "\"\<\>\""}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{"initDir", ",", 
+      RowBox[{"initFile", "<>", "setupString"}], ",", "\"\<Text\>\""}], "]"}],
+     ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Import", "[", 
+    RowBox[{"initDir", ",", "\"\<Text\>\""}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"Quit", "[", "]"}]}]}]], "Input"],
+
+Cell[BoxData["\<\"(* ::Package:: *)\\n\\n(** User Mathematica initialization \
+file **)\\n\\n(*AppendTo[$Path, \
+ToFileName[{$HomeDirectory,\\\"work/Code/MathematicaRepo/ModelBuilding/\\\"}]]\
+;\\nAppendTo[$Path, ToFileName[{$HomeDirectory,\\\"work/Code/MathematicaRepo/\
+\\\"}]];\\nAppendTo[$Path, \
+ToFileName[{$HomeDirectory,\\\"work/Code/MathematicaRepo/MASStoolbox/\\\"}]];*\
+)\\n\\n(** Start Toolbox Development Setup \
+**)\\nAppendTo[$Path,\\\"/Users/niko/work/Code/MathematicaRepo/MASStoolbox/\\\
+\"]\\n(** End Toolbox Development Setup **)\"\>"], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"<<", "MASStoolbox`"}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Cleanup", "Subsubsection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"initDir", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$UserBaseDirectory", ",", "\"\<Kernel\>\"", ",", "\"\<init.m\>\""}], 
+     "}"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"initFile", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{"initDir", ",", "\"\<Text\>\""}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"initFile", "=", 
+   RowBox[{"StringReplace", "[", 
+    RowBox[{"initFile", ",", 
+     RowBox[{
+      RowBox[{
+      "Whitespace", "~~", 
+       "\"\<(** Start Toolbox Development Setup **)\>\"", "~~", "__", 
+       "~~", "\"\<(** End Toolbox Development Setup **)\>\""}], 
+      "\[Rule]", "\"\<\>\""}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{"initDir", ",", "initFile", ",", "\"\<Text\>\""}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Import", "[", 
+  RowBox[{"initDir", ",", "\"\<Text\>\""}], "]"}]}], "Input"],
+
+Cell[BoxData["\<\"(* ::Package:: *)\\n\\n(** User Mathematica initialization \
+file **)\"\>"], "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]]
+},
+WindowSize->{1414, 1099},
+WindowMargins->{{Automatic, 46}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 20, \
+2012)",
+StyleDefinitions->"Default.nb"
+]
+

@@ -1,0 +1,389 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["0.1", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["Toolbox", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465],
+
+Cell["Toolbox`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828],
+
+Cell["Toolbox/ref/Notes", "Categorization",
+ CellLabel->"URI"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Notes", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ Cell[BoxData["Notes"], "InlineFormula"],
+ " \[LineSeparator]is a string attribute that can hold notes and remarks \
+concerning the model at hand."
+}], "Usage",
+ CellChangeTimes->{{3.56311407922182*^9, 3.5631141023588753`*^9}, {
+  3.5631143132235107`*^9, 3.563114313849859*^9}},
+ CellID->982511436],
+
+Cell["XXXX", "Notes",
+ CellID->1067943069]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell["XXXX", "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell[TextData[ButtonBox["Model attributes",
+ BaseStyle->"Link",
+ ButtonData->"paclet:Toolbox/guide/ModelAttributes"]], "MoreAbout",
+ CellChangeTimes->{{3.563111538829206*^9, 3.5631115411330214`*^9}, {
+  3.563111617849613*^9, 3.5631116180145407`*^9}},
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}], "\n", 
+ RowBox[{
+  RowBox[{"model", "=", 
+   RowBox[{"ExampleData", "[", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<EcoliCore\>\""}], "}"}], 
+    "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.563111406583416*^9, 3.5631114115157557`*^9}, {
+  3.563114111345751*^9, 3.5631141171369953`*^9}},
+ CellLabel->"In[30]:=",
+ CellID->334522496],
+
+Cell["\<\
+Access the notes section of a model\
+\>", "ExampleText",
+ CellChangeTimes->{{3.563113788834546*^9, 3.563113797400529*^9}, {
+  3.56311416174402*^9, 3.563114165360373*^9}},
+ CellID->1993685104],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getNotes", "[", "model", "]"}]], "Input",
+ CellChangeTimes->{{3.563114125568939*^9, 3.563114151433473*^9}},
+ CellLabel->"In[36]:=",
+ CellID->1274687745],
+
+Cell[BoxData["\<\"Model constructed on Mon 17 Sep 2012 16:53:35 by niko on \
+staphylococcus.ucsd.edu using Mathematica 8.0 for Mac OS X x86 (64-bit) \
+(November 6, 2010) at the following geodetic location: latitude 32.88; \
+longitude -117.24\"\>"], "Output",
+ CellChangeTimes->{{3.5631141272262363`*^9, 3.56311415191143*^9}},
+ CellLabel->"Out[36]=",
+ CellID->870706016]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"model", "[", "\"\<Notes\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.5631114481548653`*^9, 3.563111450764426*^9}, {
+  3.56311398004631*^9, 3.563113981101898*^9}, {3.56311422993161*^9, 
+  3.5631142325952272`*^9}},
+ CellLabel->"In[45]:=",
+ CellID->1979467826],
+
+Cell[BoxData["\<\"Model constructed on Mon 17 Sep 2012 16:53:35 by niko on \
+staphylococcus.ucsd.edu using Mathematica 8.0 for Mac OS X x86 (64-bit) \
+(November 6, 2010) at the following geodetic location: latitude 32.88; \
+longitude -117.24\"\>"], "Output",
+ CellChangeTimes->{
+  3.5631114517915897`*^9, {3.563113975540502*^9, 3.56311398157936*^9}, 
+   3.563114120014366*^9, 3.563114232845783*^9},
+ CellLabel->"Out[45]=",
+ CellID->1594455094]
+}, Open  ]],
+
+Cell["\<\
+Overwrite the notes section of a model\
+\>", "ExampleText",
+ CellChangeTimes->{{3.5631138140184727`*^9, 3.563113821007082*^9}, {
+  3.56311424090534*^9, 3.5631142509938173`*^9}},
+ CellID->678198787],
+
+Cell[BoxData[
+ RowBox[{"setNotes", "[", 
+  RowBox[{"model", ",", "\"\<New notes ...\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.563113823610756*^9, 3.5631138290668983`*^9}, {
+  3.5631139882146473`*^9, 3.563113997902532*^9}, {3.563114236891624*^9, 
+  3.5631142383712187`*^9}, {3.563114272620186*^9, 3.563114276028195*^9}},
+ CellLabel->"In[46]:=",
+ CellID->1791298480],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getNotes", "[", "model", "]"}]], "Input",
+ CellChangeTimes->{{3.5631138331019783`*^9, 3.563113837955357*^9}, {
+  3.56311400127873*^9, 3.563114003750242*^9}, {3.563114278964134*^9, 
+  3.5631142799477043`*^9}},
+ CellLabel->"In[47]:=",
+ CellID->780306067],
+
+Cell[BoxData["\<\"New notes ...\"\>"], "Output",
+ CellChangeTimes->{3.56311383955656*^9, 3.5631140043485823`*^9, 
+  3.5631142802180758`*^9},
+ CellLabel->"Out[47]=",
+ CellID->1705817592]
+}, Open  ]],
+
+Cell["\<\
+Updating the Notes attribute will concatenate the newly provided string to \
+the previous one\
+\>", "ExampleText",
+ CellChangeTimes->{{3.563113849587813*^9, 3.563113880922492*^9}, {
+  3.563113916316877*^9, 3.563113916763154*^9}, {3.5631140097495937`*^9, 
+  3.5631140147974567`*^9}, {3.563114261547825*^9, 3.563114262346264*^9}},
+ CellID->274605785],
+
+Cell[BoxData[
+ RowBox[{"updateNotes", "[", 
+  RowBox[{"model", ",", "\"\<more notes ...\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.563113882745133*^9, 3.563113894660667*^9}, {
+  3.5631140203113422`*^9, 3.5631140317689743`*^9}, {3.5631142833483667`*^9, 
+  3.563114293675956*^9}},
+ CellLabel->"In[48]:=",
+ CellID->357071092],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getNotes", "[", "model", "]"}]], "Input",
+ CellChangeTimes->{{3.563114034207199*^9, 3.5631140351670856`*^9}, {
+  3.5631142958763657`*^9, 3.563114299268475*^9}},
+ CellLabel->"In[49]:=",
+ CellID->1224533526],
+
+Cell[BoxData["\<\"New notes ...\\nmore notes ...\"\>"], "Output",
+ CellChangeTimes->{3.563113901862389*^9, 3.563114035575594*^9, 
+  3.563114300552226*^9},
+ CellLabel->"Out[49]=",
+ CellID->769581294]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{4, Automatic}, {Automatic, 0}},
+CellContext->"Global`",
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
+2011)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+

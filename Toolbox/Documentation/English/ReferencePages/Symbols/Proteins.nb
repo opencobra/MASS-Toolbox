@@ -1,0 +1,1469 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["0.1", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["Toolbox", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465],
+
+Cell["Toolbox`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828],
+
+Cell["Toolbox/ref/Proteins", "Categorization",
+ CellLabel->"URI"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Proteins", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ Cell[BoxData["Proteins"], "InlineFormula"],
+ "\[LineSeparator]is an immutable attribute containging all proteins in a \
+model."
+}], "Usage",
+ CellChangeTimes->{{3.563133350021946*^9, 3.563133367562992*^9}},
+ CellID->982511436],
+
+Cell["XXXX", "Notes",
+ CellID->1067943069]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell["XXXX", "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell[TextData[ButtonBox["Model attributes",
+ BaseStyle->"Link",
+ ButtonData->"paclet:Toolbox/guide/ModelAttributes"]], "MoreAbout",
+ CellChangeTimes->{{3.563111538829206*^9, 3.5631115411330214`*^9}, {
+  3.563111617849613*^9, 3.5631116180145407`*^9}},
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.557508341598042*^9, 3.55750834854175*^9}, {
+  3.557521768779581*^9, 3.557521771548505*^9}, {3.563130796834032*^9, 
+  3.563130797169799*^9}},
+ CellLabel->"In[144]:=",
+ CellID->1442699638],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"model", "=", 
+   RowBox[{"ExampleData", "[", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<EcoliCore\>\""}], "}"}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.5575081007577553`*^9, 3.557508163699807*^9}, {
+  3.5575082106925793`*^9, 3.557508241631016*^9}, {3.557508279855599*^9, 
+  3.5575083005925293`*^9}, {3.557508330906055*^9, 3.55750835712017*^9}, {
+  3.563121956946724*^9, 3.563121957346571*^9}, {3.563130739112488*^9, 
+  3.56313074038479*^9}, {3.563132735680524*^9, 3.5631327383044357`*^9}},
+ CellLabel->"In[145]:=",
+ CellID->442561503],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getProteins", "[", "model", "]"}]], "Input",
+ CellChangeTimes->{{3.563133314782832*^9, 3.563133319131205*^9}, {
+  3.5631333756786423`*^9, 3.5631333831084833`*^9}},
+ CellLabel->"In[146]:=",
+ CellID->895379847],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     FrameBox["AceA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["AceA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["AceB"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["AceB", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["AceEec"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["AceEec", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["AceFec"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["AceFec", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["AckA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["AckA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["AcnA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["AcnA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["AcnB"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["AcnB", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["AdhE"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["AdhE", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["AdhP"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["AdhP", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Adk"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Adk", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["AmtB"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["AmtB", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["AqpZ"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["AqpZ", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["AtpF0"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["AtpF0", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["AtpF1"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["AtpF1", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["AtpI"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["AtpI", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["B1773"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["B1773", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["CbdAB"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["CbdAB", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Crr"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Crr", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["CydA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["CydA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["DctA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["DctA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Dld"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Dld", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Eno"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Eno", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["EutD"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["EutD", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["FbaA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["FbaA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["FbaB"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["FbaB", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Fbp"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Fbp", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["FocA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["FocA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["FocB"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["FocB", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Frd"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Frd", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["FrmA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["FrmA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["FumA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["FumA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["FumB"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["FumB", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["FumCec"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["FumCec", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["GapA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["GapA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["GdhA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["GdhA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["GlcA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["GlcA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["GlcB"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["GlcB", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["GlnA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["GlnA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["GlnHec"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["GlnHec", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["GlnPec"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["GlnPec", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["GlnQec"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["GlnQec", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["GlpX"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["GlpX", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["GltA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["GltA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["GltB"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["GltB", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["GltP"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["GltP", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Gnd"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Gnd", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["GpmA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["GpmA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["GpmB"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["GpmB", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Icd"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Icd", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["KgtPec"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["KgtPec", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Ldh"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Ldh", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["LldP"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["LldP", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["LpdA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["LpdA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Mae"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Mae", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["MalX"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["MalX", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["ManX"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["ManX", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["ManY"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["ManY", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["ManZ"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["ManZ", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Mdh"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Mdh", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["MhpF"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["MhpF", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Nuo"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Nuo", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["PabBec"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["PabBec", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Pck"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Pck", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["PfkA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["PfkA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["PfkB"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["PfkB", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["PflBec"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["PflBec", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["PflDec"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["PflDec", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Pgi"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Pgi", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Pgk"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Pgk", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Pgl"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Pgl", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["PitA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["PitA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["PitBec"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["PitBec", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Pnt"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Pnt", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Ppc"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Ppc", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Ppsa"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Ppsa", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Pta"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Pta", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["PtsG"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["PtsG", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["PtsH"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["PtsH", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["PtsI"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["PtsI", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["PurT"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["PurT", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Pyka"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Pyka", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Pykf"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Pykf", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Rpeec"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Rpeec", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["RpiA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["RpiA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["RpiB"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["RpiB", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Sdh"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Sdh", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Sfc"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Sfc", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["SgcE"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["SgcE", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["SPONTANEOUS"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["SPONTANEOUS", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["SthA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["SthA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["SucAec"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["SucAec", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["SucBec"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["SucBec", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["SucCD"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["SucCD", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["TalA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["TalA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["TalB"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["TalB", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["TdcD"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["TdcD", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["TdcEec"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["TdcEec", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["TktA"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["TktA", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["TktB"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["TktB", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Tpi"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Tpi", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["YbaS"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["YbaS", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["YcjK"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["YcjK", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["YfiD"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["YfiD", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["YibO"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["YibO", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["YneH"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["YneH", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["Zwf"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[1, 0.5, 0]],
+    Toolbox`protein["Zwf", None],
+    Editable->False,
+    Selectable->False]}], "}"}]], "Output",
+ CellChangeTimes->{3.563133391619265*^9},
+ CellLabel->"Out[146]=",
+ CellID->1336479155]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{Automatic, 492}, {Automatic, 32}},
+CellContext->"Global`",
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
+2011)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+

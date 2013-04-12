@@ -1,0 +1,141 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      4733,        131]
+NotebookOptionsPosition[      4371,        114]
+NotebookOutlinePosition[      4776,        131]
+CellTagsIndexPosition[      4733,        128]
+WindowFrame->Palette*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`$SelectedSet$$ = 
+  "SI", $CellContext`$SelectedDimension$$ = "Length", $CellContext`$Action$$ =
+   False, $CellContext`SortedUnitSets$$ = {
+  "SI", "PrefixedSI", "USCustomary", "Imperial", "CGS", "Astronomical", 
+   "Atomic", Delimiter, "Alternative", "Anthropic", "Arabic", "Avoirdupois", 
+   "BritishAvoirdupois", "Champagne", "IEC", "Japanese", "Malay", "Maltese", 
+   "MeterTonneSecond", "MKS", "Norwegian", "Planck", "Roman", "Russian", 
+   "Scottish", "Spanish", "Survey", "Swedish", "Taiwanese", "Troy"}}, 
+  DynamicBox[ToBoxes[$CellContext`SortedUnitSets$$ = (Join[#, 
+       Complement[
+        AutomaticUnits`UnitSet[], #, {
+        "All", "InteractiveChoices", "AlternativeNames"}]]& )[{
+       "SI", "PrefixedSI", "USCustomary", "Imperial", "CGS", "Astronomical", 
+        "Atomic", Delimiter}]; TabView[{"Units" -> Panel[
+         Column[{
+           Row[{"UnitSet    ", 
+             PopupMenu[
+              
+              Dynamic[$CellContext`$SelectedSet$$], \
+$CellContext`SortedUnitSets$$]}], 
+           Dynamic[
+            If[Length[
+               AutomaticUnits`UnitSet[$CellContext`$SelectedSet$$]] > 37, 
+             Column[{
+               Row[{"Dimension ", 
+                 Dynamic[
+                  PopupMenu[
+                   Dynamic[$CellContext`$SelectedDimension$$], 
+                   (($CellContext`$SelectedDimension$$ = First[#]; #)& )[
+                    
+                    AutomaticUnits`private`AvailableDimensions[$CellContext`$\
+SelectedSet$$]]]]}], 
+               Row[{"TraditionalForm ", 
+                 Checkbox[
+                  Dynamic[$CellContext`$Action$$]]}], 
+               Dynamic[
+                Panel[
+                 Grid[
+                  Partition[
+                   Map[
+                    AutomaticUnits`private`UnitButton[$CellContext`$Action$$], 
+                    
+                    AutomaticUnits`private`DimensionSelect[$CellContext`$\
+SelectedSet$$, $CellContext`$SelectedDimension$$]], 3, 3, 1, ""]], Background -> 
+                 White]]}], 
+             Column[
+              Flatten[{
+                Row[{"TraditionalForm ", 
+                  Checkbox[
+                   Dynamic[$CellContext`$Action$$]]}], 
+                Grid[
+                 Flatten[
+                  Map[Partition[
+                    Prepend[
+                    Map[
+                    AutomaticUnits`private`UnitButton[$CellContext`$Action$$], 
+                    
+                    AutomaticUnits`private`DimensionSelect[$CellContext`$\
+SelectedSet$$, #]], 
+                    Style[#, "Subsubsection"]], 3, 3, 1, ""]& , 
+                   
+                   AutomaticUnits`private`AvailableDimensions[$CellContext`$\
+SelectedSet$$]], 1]]}]]]]}]], "Preferences" -> Panel[
+         Column[{
+           Row[{"Default: ", 
+             PopupMenu[
+              Dynamic[
+              AutomaticUnits`$DefaultUnitSet], \
+$CellContext`SortedUnitSets$$]}], 
+           Row[{"Formatting: ", 
+             PopupMenu[
+              Dynamic[AutomaticUnits`$UnitOutputForm], {
+              "StandardForm", "Linear", "Powers"}]}], 
+           Row[{"Interactive output: ", 
+             Checkbox[
+              Dynamic[AutomaticUnits`$UnitInteractiveOutput]]}], Null}]]}], 
+    StandardForm],
+   ImageSizeCache->{264., {90., 98.}}],
+  DynamicModuleValues:>{},
+  Initialization:>Needs["AutomaticUnits`"]]],
+ CellMargins->{{0, 0}, {0, 0}},
+ CellBracketOptions->{"Color"->RGBColor[0.269993, 0.308507, 0.6]},
+ CellHorizontalScrolling->True,
+ PageBreakAbove->True,
+ PageBreakWithin->False,
+ ShowAutoStyles->True,
+ LineSpacing->{1.25, 0},
+ AutoItalicWords->{},
+ ScriptMinSize->9,
+ ShowStringCharacters->False,
+ FontFamily:>CurrentValue["PanelFontFamily"],
+ FontSize:>CurrentValue["PanelFontSize"]]
+},
+WindowSize->All,
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+WindowElements->{},
+PrivateNotebookOptions->{"NotebookAuthor"->""},
+FrontEndVersion->"8.0 for Microsoft Windows (32-bit) (September 25, 2010)",
+StyleDefinitions->"Palette.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 3809, 92, 190, InheritFromParent,
+ PageBreakAbove->True,
+ PageBreakWithin->False]
+}
+]
+*)
+
+(* End of internal cache information *)
+

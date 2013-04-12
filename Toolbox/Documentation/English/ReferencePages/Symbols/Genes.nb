@@ -1,0 +1,1809 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["0.1", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["Toolbox", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465],
+
+Cell["Toolbox`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828],
+
+Cell["Toolbox/ref/Genes", "Categorization",
+ CellLabel->"URI"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Genes", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ Cell[BoxData["Genes"], "InlineFormula"],
+ "\[LineSeparator]is an immutable attribute containing all genes in a model."
+}], "Usage",
+ CellChangeTimes->{{3.5631332855606127`*^9, 3.5631333041649303`*^9}, 
+   3.563133361389578*^9},
+ CellID->982511436],
+
+Cell["XXXX", "Notes",
+ CellID->1067943069]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell["XXXX", "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell[TextData[ButtonBox["Model attributes",
+ BaseStyle->"Link",
+ ButtonData->"paclet:Toolbox/guide/ModelAttributes"]], "MoreAbout",
+ CellChangeTimes->{{3.563111538829206*^9, 3.5631115411330214`*^9}, {
+  3.563111617849613*^9, 3.5631116180145407`*^9}},
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.557508341598042*^9, 3.55750834854175*^9}, {
+  3.557521768779581*^9, 3.557521771548505*^9}, {3.563130796834032*^9, 
+  3.563130797169799*^9}},
+ CellLabel->"In[141]:=",
+ CellID->1442699638],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"model", "=", 
+   RowBox[{"ExampleData", "[", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<EcoliCore\>\""}], "}"}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.5575081007577553`*^9, 3.557508163699807*^9}, {
+  3.5575082106925793`*^9, 3.557508241631016*^9}, {3.557508279855599*^9, 
+  3.5575083005925293`*^9}, {3.557508330906055*^9, 3.55750835712017*^9}, {
+  3.563121956946724*^9, 3.563121957346571*^9}, {3.563130739112488*^9, 
+  3.56313074038479*^9}, {3.563132735680524*^9, 3.5631327383044357`*^9}},
+ CellLabel->"In[142]:=",
+ CellID->442561503],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getGenes", "[", "model", "]"}]], "Input",
+ CellChangeTimes->{{3.563133314782832*^9, 3.563133319131205*^9}},
+ CellLabel->"In[143]:=",
+ CellID->895379847],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0008"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0008", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0114"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0114", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0115"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0115", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0116"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0116", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0118"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0118", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0351"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0351", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0356"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0356", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0451"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0451", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0474"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0474", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0485"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0485", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0720"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0720", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0721"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0721", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0722"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0722", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0723"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0723", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0724"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0724", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0726"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0726", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0727"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0727", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0728"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0728", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0729"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0729", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0733"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0733", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0734"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0734", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0755"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0755", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0767"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0767", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0809"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0809", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0810"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0810", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0811"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0811", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0875"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0875", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0902"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0902", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0903"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0903", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0904"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0904", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0978"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0978", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b0979"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b0979", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1101"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1101", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1136"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1136", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1241"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1241", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1276"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1276", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1297"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1297", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1380"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1380", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1478"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1478", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1479"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1479", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1524"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1524", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1602"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1602", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1603"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1603", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1611"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1611", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1612"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1612", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1621"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1621", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1676"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1676", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1702"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1702", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1723"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1723", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1761"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1761", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1773"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1773", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1779"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1779", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1812"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1812", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1817"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1817", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1818"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1818", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1819"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1819", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1849"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1849", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1852"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1852", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b1854"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b1854", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2029"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2029", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2097"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2097", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2133"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2133", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2276"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2276", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2277"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2277", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2278"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2278", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2279"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2279", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2280"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2280", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2281"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2281", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2282"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2282", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2283"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2283", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2284"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2284", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2285"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2285", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2286"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2286", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2287"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2287", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2288"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2288", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2296"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2296", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2297"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2297", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2415"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2415", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2416"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2416", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2417"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2417", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2458"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2458", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2463"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2463", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2464"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2464", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2465"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2465", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2492"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2492", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2579"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2579", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2587"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2587", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2779"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2779", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2914"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2914", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2925"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2925", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2926"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2926", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2935"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2935", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2975"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2975", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2976"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2976", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b2987"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b2987", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3114"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3114", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3115"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3115", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3212"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3212", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3213"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3213", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3236"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3236", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3386"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3386", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3403"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3403", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3493"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3493", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3528"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3528", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3603"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3603", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3612"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3612", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3731"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3731", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3732"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3732", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3733"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3733", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3734"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3734", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3735"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3735", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3736"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3736", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3737"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3737", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3738"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3738", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3739"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3739", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3870"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3870", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3916"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3916", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3919"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3919", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3925"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3925", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3951"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3951", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3952"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3952", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3956"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3956", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b3962"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b3962", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b4014"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b4014", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b4015"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b4015", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b4025"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b4025", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b4077"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b4077", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b4090"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b4090", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b4122"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b4122", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b4151"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b4151", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b4152"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b4152", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b4153"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b4153", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b4154"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b4154", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b4232"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b4232", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b4301"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b4301", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["b4395"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["b4395", None],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     FrameBox["s0001"],
+     StripOnInput->False,
+     ShowSyntaxStyles->False,
+     AutoSpacing->False,
+     ZeroWidthTimes->True,
+     Background->RGBColor[0, 1, 1]],
+    Toolbox`gene["s0001", None],
+    Editable->False,
+    Selectable->False]}], "}"}]], "Output",
+ CellChangeTimes->{3.563133319615148*^9},
+ CellLabel->"Out[143]=",
+ CellID->1231174000]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{4, Automatic}, {Automatic, 0}},
+CellContext->"Global`",
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
+2011)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+

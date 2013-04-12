@@ -1,0 +1,698 @@
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Mappings", "Title",
+ CellChangeTimes->{{3.523210361239586*^9, 3.523210364142129*^9}}],
+
+Cell[BoxData[
+ RowBox[{"<<", "Toolbox`"}]], "Input",
+ CellChangeTimes->{{3.523210429330634*^9, 3.523210433143837*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["BIGG database IDs", "Section",
+ CellChangeTimes->{{3.523966696932823*^9, 3.5239667051000357`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"internalID2abbrv", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"internalID", "[", 
+       RowBox[{"#", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "]"}], "\[Rule]", 
+      RowBox[{"#", "[", 
+       RowBox[{"[", "2", "]"}], "]"}]}], "&"}], "/@", 
+    RowBox[{
+     RowBox[{"Import", "[", 
+      RowBox[{"\"\<allBIGGreactions.txt\>\"", ",", "\"\<TSV\>\""}], "]"}], 
+     "[", 
+     RowBox[{"[", 
+      RowBox[{
+       RowBox[{"2", ";;"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "3"}], ",", "1"}], "}"}]}], "]"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"internalMetID2abbrv", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"internalMetID", "[", 
+       RowBox[{"#", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "]"}], "\[Rule]", 
+      RowBox[{"#", "[", 
+       RowBox[{"[", "2", "]"}], "]"}]}], "&"}], "/@", 
+    RowBox[{
+     RowBox[{"Import", "[", 
+      RowBox[{"\"\<allBIGGmetabolites.txt\>\"", ",", "\"\<TSV\>\""}], "]"}], 
+     "[", 
+     RowBox[{"[", 
+      RowBox[{
+       RowBox[{"2", ";;"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "3"}], ",", "1"}], "}"}]}], "]"}], "]"}]}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.5239667312880783`*^9, 3.523966768541575*^9}, {
+  3.523967072192173*^9, 3.523967128576849*^9}, {3.52397510430059*^9, 
+  3.5239751349967947`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{"\"\<internalBIGGrxnID2ID.m\>\"", ",", "internalID2abbrv"}], "]"}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{"\"\<internalBIGGmetID2ID.m\>\"", ",", "internalMetID2abbrv"}], 
+   "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.523967143946918*^9, 3.523967205511017*^9}, 
+   3.523975461442844*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["BiGG2KEGG", "Section",
+ CellChangeTimes->{{3.5232103666060953`*^9, 3.5232103724298286`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"bigg2kegg", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"metabolite", "[", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"StringMatchQ", "[", 
+           RowBox[{
+            RowBox[{"StringTake", "[", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"tmp", "=", 
+                RowBox[{"StringReplace", "[", 
+                 RowBox[{
+                  RowBox[{"#", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{
+                    "\"\<-\>\"", "\[Rule]", "\"\<\[UnderBracket]\>\""}], ",", 
+                    
+                    RowBox[{
+                    "\"\<_\>\"", "\[Rule]", "\"\<\[UnderBracket]\>\""}]}], 
+                   "}"}]}], "]"}]}], ")"}], ",", "1"}], "]"}], ",", 
+            RowBox[{"RegularExpression", "[", "\"\<\\\\d\>\"", "]"}]}], "]"}],
+           ",", 
+          RowBox[{"\"\<$\>\"", "<>", "tmp"}], ",", "tmp"}], "]"}], ",", "_"}],
+        "]"}], "\[Rule]", 
+      RowBox[{"keggCmpdID", "[", 
+       RowBox[{"#", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "]"}]}], "&"}], "/@", 
+    RowBox[{"DeleteCases", "[", 
+     RowBox[{
+      RowBox[{"Rule", "@@@", 
+       RowBox[{"DeleteCases", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"Import", "[", 
+            RowBox[{"\"\<allBIGGmetabolites.txt.gz\>\"", ",", "\"\<TSV\>\""}],
+             "]"}], "[", 
+           RowBox[{"[", 
+            RowBox[{"2", ";;"}], "]"}], "]"}], "[", 
+          RowBox[{"[", 
+           RowBox[{"All", ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "6"}], "}"}]}], "]"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"_", ",", "\"\<\>\""}], "}"}]}], "]"}]}], ",", 
+      RowBox[{"r_Rule", "/;", 
+       RowBox[{"!", 
+        RowBox[{"StringMatchQ", "[", 
+         RowBox[{
+          RowBox[{"r", "[", 
+           RowBox[{"[", "2", "]"}], "]"}], ",", 
+          RowBox[{"RegularExpression", "[", "\"\<C\\\\d+\>\"", "]"}]}], 
+         "]"}]}]}]}], "]"}]}]}], ";"}]}], "Input"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"bigg2kegg", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"metabolite", "[", 
+       RowBox[{
+        RowBox[{"#", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], ",", "_"}], "]"}], "\[Rule]", 
+      RowBox[{"keggCmpdID", "[", 
+       RowBox[{"#", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "]"}]}], "&"}], "/@", 
+    RowBox[{"DeleteCases", "[", 
+     RowBox[{
+      RowBox[{"Rule", "@@@", 
+       RowBox[{"DeleteCases", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"Import", "[", 
+            RowBox[{"\"\<allBIGGmetabolites.txt.gz\>\"", ",", "\"\<TSV\>\""}],
+             "]"}], "[", 
+           RowBox[{"[", 
+            RowBox[{"2", ";;"}], "]"}], "]"}], "[", 
+          RowBox[{"[", 
+           RowBox[{"All", ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "6"}], "}"}]}], "]"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"_", ",", "\"\<\>\""}], "}"}]}], "]"}]}], ",", 
+      RowBox[{"r_Rule", "/;", 
+       RowBox[{"!", 
+        RowBox[{"StringMatchQ", "[", 
+         RowBox[{
+          RowBox[{"r", "[", 
+           RowBox[{"[", "2", "]"}], "]"}], ",", 
+          RowBox[{"RegularExpression", "[", "\"\<C\\\\d+\>\"", "]"}]}], 
+         "]"}]}]}]}], "]"}]}]}], ";"}]}], "Input"],
+
+Cell[BoxData["bigg2kegg"], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Import", "[", 
+    RowBox[{"\"\<allBIGGmetabolites.txt.gz\>\"", ",", "\"\<TSV\>\""}], "]"}], 
+   "[", 
+   RowBox[{"[", 
+    RowBox[{"2", ";;"}], "]"}], "]"}], "[", 
+  RowBox[{"[", "2", "]"}], "]"}]], "Input"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"bigg2inchi", "=", 
+   RowBox[{"Import", "[", "\"\<bigg2inchi.m.gz\>\"", "]"}]}], ";"}]}], "Input"],
+
+Cell[BoxData[
+ RowBox[{"testinchi", "=", 
+  RowBox[{
+   RowBox[{"m", "[", 
+    RowBox[{"\"\<fdp\>\"", ",", "_"}], "]"}], "/.", "bigg2inchi"}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"inchi2elementalComposition", "[", "testinchi", "]"}]], "Input"],
+
+Cell[BoxData["\"\<InChI=1S/C6H14O12P2/c7-3(1-17-19(11,12)13)5(9)6(10)4(8)2-18-\
+20(14,15)16/h3,5-7,9-10H,1-2H2,(H2,11,12,13)(H2,14,15,16)/t3-,5-,6-/m1/s1\>\"\
+"], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"formula2elementalComposition", "[", "\"\<C6H10O12P2\>\"", "]"}], 
+  "-", 
+  RowBox[{"inchi2elementalComposition", "[", "testinchi", "]"}]}]], "Input"],
+
+Cell[BoxData["C6H14O12P2"], "Input"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{"\"\<bigg2kegg.m\>\"", ",", "bigg2kegg"}], "]"}], ";"}]}], "Input",\
+
+ CellChangeTimes->{{3.523210436920672*^9, 3.523210458656465*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["BiGG2ChEBI", "Section",
+ CellChangeTimes->{{3.523210390103532*^9, 3.523210394398286*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"bigg2kegg", "=", 
+   RowBox[{"Import", "[", "\"\<bigg2kegg.m\>\"", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.5232136921003923`*^9, 3.523213710357356*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Monitor", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"bigg2chebi", "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"bigg2kegg", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "1"}], "]"}], "]"}], "->", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"result", "=", 
+              RowBox[{"StringCases", "[", 
+               RowBox[{
+                RowBox[{"Import", "[", 
+                 RowBox[{
+                 "\"\<http://www.genome.jp/dbget-bin/www_bget?cpd:\>\"", "<>", 
+                  TagBox[
+                   StyleBox[
+                    RowBox[{"bigg2kegg", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "2", ",", "1"}], "]"}], "]"}],
+                    ShowSpecialCharacters->False,
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                   FullForm]}], "]"}], ",", 
+                RowBox[{
+                 RowBox[{
+                 "RegularExpression", "[", "\"\<(?s)ChEBI:.+?(\\\\d+)\>\"", 
+                  "]"}], "\[RuleDelayed]", "\"\<$1\>\""}]}], "]"}]}], ")"}], "!=", 
+            RowBox[{"{", "}"}]}], ",", 
+           RowBox[{"ChEBI", "[", 
+            RowBox[{"result", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], "]"}], ",", "None"}], "]"}]}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", 
+          RowBox[{"Length", "@", "bigg2kegg"}]}], "}"}]}], "]"}]}], ";"}], 
+    ",", 
+    RowBox[{"ProgressIndicator", "[", 
+     RowBox[{"i", ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", 
+        RowBox[{"Length", "[", "bigg2kegg", "]"}]}], "}"}]}], "]"}]}], "]"}], 
+  ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bigg2chebi", "=", 
+   RowBox[{"DeleteCases", "[", 
+    RowBox[{"bigg2chebi", ",", 
+     RowBox[{"r_Rule", "/;", 
+      RowBox[{
+       RowBox[{"r", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "\[Equal]", "None"}]}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.5232138856026382`*^9, 3.52321390678577*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{"\"\<bigg2chebi.m\>\"", ",", "bigg2chebi"}], "]"}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.523210302355332*^9, 3.523210323566471*^9}, {
+  3.523210492409783*^9, 3.5232105009935703`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["BiGG2completeChEBIentities", "Section",
+ CellChangeTimes->{{3.523213723332383*^9, 3.523213729100178*^9}, {
+  3.5232152876572*^9, 3.523215296265386*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"bigg2chebi", "=", 
+   RowBox[{"Import", "[", "\"\<bigg2chebi.m\>\"", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.523213751678752*^9, 3.523213756334446*^9}}],
+
+Cell[BoxData[
+ RowBox[{"InstallService", "[", 
+  "\"\<http://www.ebi.ac.uk/webservices/chebi/2.0/webservice?wsdl\>\"", 
+  "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"Monitor", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"bigg2completeChEBIentities", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"bigg2chebi", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "1"}], "]"}], "]"}], "->", 
+        RowBox[{"getCompleteEntity", "[", 
+         RowBox[{"\"\<CHEBI:\>\"", "<>", 
+          RowBox[{"ToString", "[", 
+           RowBox[{"bigg2chebi", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "2", ",", "1"}], "]"}], "]"}], "]"}]}], 
+         "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "[", "bigg2chebi", "]"}]}], "}"}]}], "]"}]}], 
+    ";"}], ",", 
+   RowBox[{"ProgressIndicator", "[", 
+    RowBox[{"i", ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", 
+       RowBox[{"Length", "[", "bigg2chebi", "]"}]}], "}"}]}], "]"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.5232138254648848`*^9, 3.523213854224379*^9}, {
+   3.523213959915085*^9, 3.523214020982423*^9}, 3.523214107721511*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+   "\"\<bigg2completeChEBIentities.m.gz\>\"", ",", 
+    "bigg2completeChEBIentities"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.523215109993011*^9, 3.523215180673167*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["BiGG2SMILES & BiGG2INCHI", "Section",
+ CellChangeTimes->{{3.523215302354425*^9, 3.523215306369508*^9}, {
+  3.523215547151288*^9, 3.523215557493948*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"bigg2completeChEBIentities", "=", 
+   RowBox[{"Import", "[", "\"\<bigg2completeChEBIentities.m.gz\>\"", "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.5232152530151777`*^9, 3.523215272891883*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"m", "[", 
+   RowBox[{"\"\<fru\>\"", ",", "_"}], "]"}], "/.", 
+  "bigg2completeChEBIentities"}]], "Input",
+ CellChangeTimes->{{3.523215450549605*^9, 3.523215457597348*^9}, {
+  3.529083510858884*^9, 3.529083537994852*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\"\<smiles\>\"", "/.", 
+  RowBox[{"(", 
+   RowBox[{"List", "@@", 
+    RowBox[{"bigg2completeChEBIentities", "[", 
+     RowBox[{"[", 
+      RowBox[{"1", ",", "2"}], "]"}], "]"}]}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.523215316219404*^9, 3.523215319210845*^9}, {
+  3.5232154022607594`*^9, 3.523215463029537*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bigg2smiles", "=", 
+   RowBox[{"DeleteCases", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"#", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "\[Rule]", 
+        RowBox[{"SMILES", "[", 
+         RowBox[{"(", 
+          RowBox[{"\"\<smiles\>\"", "/.", 
+           RowBox[{"List", "@@", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}]}], ")"}], "]"}]}], "&"}], "/@", 
+      "bigg2completeChEBIentities"}], ",", 
+     RowBox[{"r_Rule", "/;", 
+      RowBox[{
+       RowBox[{"r", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "===", 
+       RowBox[{"SMILES", "[", "\"\<smiles\>\"", "]"}]}]}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.523215277336622*^9, 3.523215281330048*^9}, {
+  3.523215467845562*^9, 3.523215505335834*^9}, {3.529083636565919*^9, 
+  3.529083652198971*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bigg2inchi", "=", 
+   RowBox[{"DeleteCases", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"#", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "\[Rule]", 
+        RowBox[{"InChI", "[", 
+         RowBox[{"(", 
+          RowBox[{"\"\<inchi\>\"", "/.", 
+           RowBox[{"List", "@@", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}]}], ")"}], "]"}]}], "&"}], "/@", 
+      "bigg2completeChEBIentities"}], ",", 
+     RowBox[{"r_Rule", "/;", 
+      RowBox[{
+       RowBox[{"r", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "===", 
+       RowBox[{"InChI", "[", "\"\<inchi\>\"", "]"}]}]}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.523215564531733*^9, 3.5232156234576187`*^9}, {
+  3.529083619118846*^9, 3.5290836320626383`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{"\"\<bigg2smiles.m\>\"", ",", "bigg2smiles"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{"\"\<bigg2inchi.m\>\"", ",", "bigg2inchi"}], "]"}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.52321566044816*^9, 3.523215720243421*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["iJO1366_metabolite_mapping_fromRoger.xls", "Section",
+ CellChangeTimes->{3.525097243796459*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"iJO1366toSMILES", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"metabolite", "[", 
+       RowBox[{
+        RowBox[{"#", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], ",", "_"}], "]"}], "\[Rule]", 
+      RowBox[{"SMILES", "[", 
+       RowBox[{"#", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "]"}]}], "&"}], "/@", 
+    RowBox[{"DeleteCases", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+        "Import", "[", "\"\<iJO1366_metabolite_mapping_fromRoger.xls\>\"", 
+         "]"}], "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", 
+          RowBox[{"2", ";;"}]}], "]"}], "]"}], "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "7"}], "}"}]}], "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"_", ",", "\"\<\>\""}], "}"}]}], "]"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.525097248078958*^9, 3.525097265453113*^9}, {
+  3.525097339341975*^9, 3.525097350779368*^9}, {3.525097595960188*^9, 
+  3.525097607903973*^9}, {3.525097646705991*^9, 3.525097699419435*^9}, {
+  3.525097730892395*^9, 3.525097742275625*^9}}],
+
+Cell[BoxData[
+ RowBox[{"elementalComposition2formulasmiles2elementalComposition", "[", 
+  RowBox[{
+   RowBox[{"m", "[", 
+    RowBox[{"\"\<fru\>\"", ",", "_"}], "]"}], "/.", "iJO1366toSMILES"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.529083680443722*^9, 3.5290836971927443`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"bigg2smiles", "=", 
+   RowBox[{"Import", "[", "\"\<bigg2smiles.m\>\"", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.52509774658914*^9, 3.525097771442851*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"scatterFromDicts", "[", 
+   RowBox[{"bigg2smiles", ",", "iJO1366toSMILES"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.525097779567339*^9, 3.525097812579674*^9}}],
+
+Cell[BoxData[
+ RowBox[{"smiles2elementalComposition", "[", 
+  RowBox[{"bigg2smiles", "[", 
+   RowBox[{"[", 
+    RowBox[{"1", ",", "2"}], "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.5250980131674013`*^9, 3.525098013303548*^9}}],
+
+Cell[BoxData[
+ RowBox[{"smiles2elementalComposition", "[", 
+  RowBox[{"bigg2smiles", "[", 
+   RowBox[{"[", 
+    RowBox[{"1", ",", "2", ",", "1"}], "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.525097955167363*^9, 3.5250979730147552`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tmp", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"#", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "\[Rule]", 
+      RowBox[{"smiles2elementalComposition", "[", 
+       RowBox[{"#", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "]"}]}], "&"}], "/@", 
+    "iJO1366toSMILES"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.525097816498496*^9, 3.525097829075687*^9}, {
+   3.525097928961402*^9, 3.525097943782467*^9}, {3.525098024864891*^9, 
+   3.525098042817562*^9}, 3.525098077666808*^9, 3.5250981237642307`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"metabolite", "[", 
+   RowBox[{"\"\<glc-D\>\"", ",", "\"\<c\>\""}], "]"}], "/.", 
+  "iJO1366toSMILES"}]], "Input",
+ CellChangeTimes->{{3.5250982847658377`*^9, 3.525098285893785*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"metabolite", "[", 
+   RowBox[{"\"\<glc-D\>\"", ",", "\"\<c\>\""}], "]"}], "/.", "tmp"}]], "Input",\
+
+ CellChangeTimes->{{3.525098200094267*^9, 3.525098211434712*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{982, 878},
+WindowMargins->{{406, Automatic}, {Automatic, 0}},
+InputAliases->{"intt" -> RowBox[{"\[Integral]", 
+     RowBox[{"\[SelectionPlaceholder]", 
+       RowBox[{"\[DifferentialD]", "\[Placeholder]"}]}]}], "dintt" -> 
+  RowBox[{
+     SubsuperscriptBox[
+     "\[Integral]", "\[SelectionPlaceholder]", "\[Placeholder]"], 
+     RowBox[{"\[Placeholder]", 
+       RowBox[{"\[DifferentialD]", "\[Placeholder]"}]}]}], "sumt" -> RowBox[{
+     UnderoverscriptBox["\[Sum]", 
+      RowBox[{"\[SelectionPlaceholder]", "=", "\[Placeholder]"}], 
+      "\[Placeholder]"], "\[Placeholder]"}], "prodt" -> RowBox[{
+     UnderoverscriptBox["\[Product]", 
+      RowBox[{"\[SelectionPlaceholder]", "=", "\[Placeholder]"}], 
+      "\[Placeholder]"], "\[Placeholder]"}], "dt" -> RowBox[{
+     SubscriptBox["\[PartialD]", "\[Placeholder]"], " ", 
+     "\[SelectionPlaceholder]"}], "ket" -> 
+  TemplateBox[{"\[Placeholder]"}, "Ket"], "bra" -> 
+  TemplateBox[{"\[Placeholder]"}, "Bra"], "braket" -> 
+  TemplateBox[{"\[Placeholder]", "\[Placeholder]"}, "BraKet"], "notation" -> 
+  RowBox[{"Notation", "[", 
+     RowBox[{
+       TemplateBox[{"\[SelectionPlaceholder]"}, "NotationTemplateTag"], " ", 
+       "\[DoubleLongLeftRightArrow]", " ", 
+       TemplateBox[{"\[Placeholder]"}, "NotationTemplateTag"]}], "]"}], 
+  "notation>" -> RowBox[{"Notation", "[", 
+     RowBox[{
+       TemplateBox[{"\[SelectionPlaceholder]"}, "NotationTemplateTag"], " ", 
+       "\[DoubleLongRightArrow]", " ", 
+       TemplateBox[{"\[Placeholder]"}, "NotationTemplateTag"]}], "]"}], 
+  "notation<" -> RowBox[{"Notation", "[", 
+     RowBox[{
+       TemplateBox[{"\[SelectionPlaceholder]"}, "NotationTemplateTag"], " ", 
+       "\[DoubleLongLeftArrow]", " ", 
+       TemplateBox[{"\[Placeholder]"}, "NotationTemplateTag"]}], "]"}], 
+  "symb" -> RowBox[{"Symbolize", "[", 
+     TemplateBox[{"\[SelectionPlaceholder]"}, "NotationTemplateTag"], "]"}], 
+  "infixnotation" -> RowBox[{"InfixNotation", "[", 
+     RowBox[{
+       TemplateBox[{"\[SelectionPlaceholder]"}, "NotationTemplateTag"], ",", 
+       "\[Placeholder]"}], "]"}], "addia" -> RowBox[{"AddInputAlias", "[", 
+     RowBox[{"\"\[SelectionPlaceholder]\"", "\[Rule]", 
+       TemplateBox[{"\[Placeholder]"}, "NotationTemplateTag"]}], "]"}], 
+  "pattwraper" -> 
+  TemplateBox[{"\[SelectionPlaceholder]"}, "NotationPatternTag"], 
+  "madeboxeswraper" -> 
+  TemplateBox[{"\[SelectionPlaceholder]"}, "NotationMadeBoxesTag"], "met" -> 
+  TagBox[
+    SuperscriptBox["\[SelectionPlaceholder]", "\[Placeholder]"], "metabolite",
+     Editable -> True, Selectable -> True], "rrxn" -> TagBox[
+    TagBox[
+     OverscriptBox[
+      RowBox[{
+        TagBox[
+         FrameBox["rhs"], "Placeholder"], "\[Equilibrium]", 
+        TagBox[
+         FrameBox["lhs"], "Placeholder"]}], "\[SelectionPlaceholder]"], 
+     "rxn"], DisplayForm], "irxn" -> TagBox[
+    TagBox[
+     OverscriptBox[
+      RowBox[{
+        TagBox[
+         FrameBox["rhs"], "Placeholder"], "\[RightArrow]", 
+        TagBox[
+         FrameBox["lhs"], "Placeholder"]}], "\[SelectionPlaceholder]"], 
+     "rxn"], DisplayForm]},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
+2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)

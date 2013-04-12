@@ -1,0 +1,1255 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["Toolbox Package", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->716572242],
+
+Cell["Toolbox`", "Categorization",
+ CellLabel->"Context",
+ CellID->341378918],
+
+Cell["Toolbox/ref/getJacobian", "Categorization",
+ CellLabel->"URI",
+ CellID->1626653689]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["getJacobian", "ObjectName",
+ CellChangeTimes->{{3.562012298579337*^9, 3.5620123007070503`*^9}},
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ "getJacobian[model]\[LineSeparator]constructs the Jacobian matrix for model"
+}], "Usage",
+ CellChangeTimes->{{3.562012292414806*^9, 3.5620123476519012`*^9}, {
+  3.562014489329302*^9, 3.562014490302384*^9}}],
+
+Cell["The following options can be given: ", "Notes",
+ CellID->274703539],
+
+Cell[BoxData[GridBox[{
+   {Cell["   ", "ModInfo"], 
+    ButtonBox["Type",
+     BaseStyle->"Link"], "\"\<Concentration\>\"", Cell["\<\
+generate either the concentration (\"Concentration\") or flux (\"Flux\") \
+jacobian\
+\>", "TableText"]}
+  }]], "3ColumnTableMod",
+ CellChangeTimes->{{3.562013475901819*^9, 3.562013516414074*^9}},
+ CellID->1669245021]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["getGradient",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/getGradient"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  ButtonBox["getStoichiometry",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Toolbox/ref/getStoichiometry"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ ButtonBox["D",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/D"]
+}], "SeeAlso",
+ CellChangeTimes->{{3.5620153900833197`*^9, 3.562015443906645*^9}, {
+  3.56201562083322*^9, 3.562015625248686*^9}},
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.562011701528708*^9, 3.562011707544488*^9}},
+ CellLabel->"In[1]:=",
+ CellID->1853183878],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"model", "=", 
+   RowBox[{"constructModel", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      InterpretationBox[
+       OverscriptBox[
+        RowBox[{
+         InterpretationBox[
+          StyleBox["x1",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]],
+          Toolbox`metabolite["x1", None],
+          Editable->False,
+          Selectable->False], "\[Equilibrium]", 
+         InterpretationBox[
+          StyleBox["x2",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]],
+          Toolbox`metabolite["x2", None],
+          Editable->False,
+          Selectable->False]}], 
+        StyleBox["1",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`reaction["1", {
+         Toolbox`metabolite["x1", None]}, {
+         Toolbox`metabolite["x2", None]}, {1, 1}, True],
+       Editable->False,
+       Selectable->False], ",", 
+      InterpretationBox[
+       OverscriptBox[
+        RowBox[{
+         InterpretationBox[
+          StyleBox["x2",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]],
+          Toolbox`metabolite["x2", None],
+          Editable->False,
+          Selectable->False], "\[Equilibrium]", 
+         InterpretationBox[
+          StyleBox["x3",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]],
+          Toolbox`metabolite["x3", None],
+          Editable->False,
+          Selectable->False]}], 
+        StyleBox["2",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`reaction["2", {
+         Toolbox`metabolite["x2", None]}, {
+         Toolbox`metabolite["x3", None]}, {1, 1}, True],
+       Editable->False,
+       Selectable->False], ",", 
+      InterpretationBox[
+       OverscriptBox[
+        RowBox[{
+         InterpretationBox[
+          StyleBox["x3",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]],
+          Toolbox`metabolite["x3", None],
+          Editable->False,
+          Selectable->False], "\[RightArrow]", 
+         InterpretationBox[
+          StyleBox["x4",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]],
+          Toolbox`metabolite["x4", None],
+          Editable->False,
+          Selectable->False]}], 
+        StyleBox["3",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`reaction["3", {
+         Toolbox`metabolite["x3", None]}, {
+         Toolbox`metabolite["x4", None]}, {1, 1}, False],
+       Editable->False,
+       Selectable->False]}], "}"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.562011698944045*^9, 3.562011723600947*^9}, 
+   3.562013634498472*^9},
+ CellLabel->"In[2]:=",
+ CellID->105650900],
+
+Cell["Construct the (default) concentration Jacobian", "ExampleText",
+ CellChangeTimes->{{3.562012590866782*^9, 3.5620126004731073`*^9}, {
+  3.562013548875764*^9, 3.562013552947782*^9}, {3.562013895202445*^9, 
+  3.562013902426701*^9}},
+ CellID->1262459847],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getJacobian", "[", "model", "]"}], "//", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.56201251587928*^9, 3.5620125264164124`*^9}, {
+  3.5620125753866663`*^9, 3.562012579625915*^9}, {3.5620135600934877`*^9, 
+  3.5620136437825212`*^9}},
+ CellLabel->"In[5]:=",
+ CellID->335710815],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"-", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["1",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["1", True],
+        Editable->False,
+        Selectable->False]}], 
+      FractionBox[
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["1",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["1", True],
+        Editable->False,
+        Selectable->False], 
+       InterpretationBox[
+        UnderscriptBox["K", 
+         StyleBox["1",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]],
+        Toolbox`Keq["1"],
+        Editable->False,
+        Selectable->False]], "0", "0"},
+     {
+      InterpretationBox[
+       SubsuperscriptBox["k", 
+        StyleBox["1",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       Toolbox`rateconst["1", True],
+       Editable->False,
+       Selectable->False], 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["1", True],
+          Editable->False,
+          Selectable->False], 
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["1"],
+          Editable->False,
+          Selectable->False]]}], "-", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["2",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["2", True],
+        Editable->False,
+        Selectable->False]}], 
+      FractionBox[
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["2",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["2", True],
+        Editable->False,
+        Selectable->False], 
+       InterpretationBox[
+        UnderscriptBox["K", 
+         StyleBox["2",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]],
+        Toolbox`Keq["2"],
+        Editable->False,
+        Selectable->False]], "0"},
+     {"0", 
+      InterpretationBox[
+       SubsuperscriptBox["k", 
+        StyleBox["2",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       Toolbox`rateconst["2", True],
+       Editable->False,
+       Selectable->False], 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["2", True],
+          Editable->False,
+          Selectable->False], 
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["2"],
+          Editable->False,
+          Selectable->False]]}], "-", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["3",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["3", True],
+        Editable->False,
+        Selectable->False]}], "0"},
+     {"0", "0", 
+      InterpretationBox[
+       SubsuperscriptBox["k", 
+        StyleBox["3",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       Toolbox`rateconst["3", True],
+       Editable->False,
+       Selectable->False], "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.562012521210699*^9, 3.5620125268857803`*^9}, 
+   3.562012576912714*^9, 3.562012840867787*^9, {3.562013536483536*^9, 
+   3.56201364419987*^9}, 3.56201372576171*^9, {3.562013887076344*^9, 
+   3.562013904390176*^9}},
+ CellLabel->"Out[5]//MatrixForm=",
+ CellID->918189172]
+}, Open  ]],
+
+Cell["Construct the flux Jacobian", "ExampleText",
+ CellChangeTimes->{{3.562012590866782*^9, 3.5620126004731073`*^9}, {
+  3.562013548875764*^9, 3.562013552947782*^9}, {3.5620136565098047`*^9, 
+  3.562013656861463*^9}},
+ CellID->1334892730],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getJacobian", "[", 
+   RowBox[{"model", ",", " ", 
+    RowBox[{"Type", "\[Rule]", "\"\<Flux\>\""}]}], "]"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.56201251587928*^9, 3.5620125264164124`*^9}, {
+  3.5620125753866663`*^9, 3.562012579625915*^9}, {3.5620135600934877`*^9, 
+  3.5620136748634768`*^9}},
+ CellLabel->"In[6]:=",
+ CellID->780452901],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{
+       RowBox[{"-", 
+        InterpretationBox[
+         SubsuperscriptBox["k", 
+          StyleBox["1",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+         Toolbox`rateconst["1", True],
+         Editable->False,
+         Selectable->False]}], "-", 
+       FractionBox[
+        InterpretationBox[
+         SubsuperscriptBox["k", 
+          StyleBox["1",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+         Toolbox`rateconst["1", True],
+         Editable->False,
+         Selectable->False], 
+        InterpretationBox[
+         UnderscriptBox["K", 
+          StyleBox["1",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Toolbox`Keq["1"],
+         Editable->False,
+         Selectable->False]]}], 
+      FractionBox[
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["1",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["1", True],
+        Editable->False,
+        Selectable->False], 
+       InterpretationBox[
+        UnderscriptBox["K", 
+         StyleBox["1",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]],
+        Toolbox`Keq["1"],
+        Editable->False,
+        Selectable->False]], "0"},
+     {
+      InterpretationBox[
+       SubsuperscriptBox["k", 
+        StyleBox["2",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       Toolbox`rateconst["2", True],
+       Editable->False,
+       Selectable->False], 
+      RowBox[{
+       RowBox[{"-", 
+        InterpretationBox[
+         SubsuperscriptBox["k", 
+          StyleBox["2",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+         Toolbox`rateconst["2", True],
+         Editable->False,
+         Selectable->False]}], "-", 
+       FractionBox[
+        InterpretationBox[
+         SubsuperscriptBox["k", 
+          StyleBox["2",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+         Toolbox`rateconst["2", True],
+         Editable->False,
+         Selectable->False], 
+        InterpretationBox[
+         UnderscriptBox["K", 
+          StyleBox["2",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Toolbox`Keq["2"],
+         Editable->False,
+         Selectable->False]]}], 
+      FractionBox[
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["2",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["2", True],
+        Editable->False,
+        Selectable->False], 
+       InterpretationBox[
+        UnderscriptBox["K", 
+         StyleBox["2",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]],
+        Toolbox`Keq["2"],
+        Editable->False,
+        Selectable->False]]},
+     {"0", 
+      InterpretationBox[
+       SubsuperscriptBox["k", 
+        StyleBox["3",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       Toolbox`rateconst["3", True],
+       Editable->False,
+       Selectable->False], 
+      RowBox[{"-", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["3",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["3", True],
+        Editable->False,
+        Selectable->False]}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.562012521210699*^9, 3.5620125268857803`*^9}, 
+   3.562012576912714*^9, 3.562012840867787*^9, {3.562013536483536*^9, 
+   3.56201364419987*^9}, {3.562013675579239*^9, 3.5620136909911222`*^9}, 
+   3.562013726987516*^9, {3.562013890077544*^9, 3.5620139054898777`*^9}},
+ CellLabel->"Out[6]//MatrixForm=",
+ CellID->187926462]
+}, Open  ]],
+
+Cell["J can be used as a shorthand notation for getJacobian", "ExampleText",
+ CellChangeTimes->{{3.562011852394147*^9, 3.5620118833383207`*^9}, {
+  3.562011919324703*^9, 3.562011926411104*^9}, {3.562012482984045*^9, 
+  3.562012483870521*^9}, {3.562012607928937*^9, 3.5620126081686907`*^9}, {
+  3.562013763024107*^9, 3.562013765775907*^9}},
+ CellID->264375314],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"J", "[", "model", "]"}]], "Input",
+ CellChangeTimes->{{3.5620126095760612`*^9, 3.562012618611094*^9}},
+ CellLabel->"In[7]:=",
+ CellID->1024216169],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      InterpretationBox[
+       SubsuperscriptBox["k", 
+        StyleBox["1",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       Toolbox`rateconst["1", True],
+       Editable->False,
+       Selectable->False]}], ",", 
+     FractionBox[
+      InterpretationBox[
+       SubsuperscriptBox["k", 
+        StyleBox["1",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       Toolbox`rateconst["1", True],
+       Editable->False,
+       Selectable->False], 
+      InterpretationBox[
+       UnderscriptBox["K", 
+        StyleBox["1",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`Keq["1"],
+       Editable->False,
+       Selectable->False]], ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     InterpretationBox[
+      SubsuperscriptBox["k", 
+       StyleBox["1",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+      Toolbox`rateconst["1", True],
+      Editable->False,
+      Selectable->False], ",", 
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox[
+        InterpretationBox[
+         SubsuperscriptBox["k", 
+          StyleBox["1",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+         Toolbox`rateconst["1", True],
+         Editable->False,
+         Selectable->False], 
+        InterpretationBox[
+         UnderscriptBox["K", 
+          StyleBox["1",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Toolbox`Keq["1"],
+         Editable->False,
+         Selectable->False]]}], "-", 
+      InterpretationBox[
+       SubsuperscriptBox["k", 
+        StyleBox["2",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       Toolbox`rateconst["2", True],
+       Editable->False,
+       Selectable->False]}], ",", 
+     FractionBox[
+      InterpretationBox[
+       SubsuperscriptBox["k", 
+        StyleBox["2",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       Toolbox`rateconst["2", True],
+       Editable->False,
+       Selectable->False], 
+      InterpretationBox[
+       UnderscriptBox["K", 
+        StyleBox["2",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`Keq["2"],
+       Editable->False,
+       Selectable->False]], ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     InterpretationBox[
+      SubsuperscriptBox["k", 
+       StyleBox["2",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+      Toolbox`rateconst["2", True],
+      Editable->False,
+      Selectable->False], ",", 
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox[
+        InterpretationBox[
+         SubsuperscriptBox["k", 
+          StyleBox["2",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+         Toolbox`rateconst["2", True],
+         Editable->False,
+         Selectable->False], 
+        InterpretationBox[
+         UnderscriptBox["K", 
+          StyleBox["2",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Toolbox`Keq["2"],
+         Editable->False,
+         Selectable->False]]}], "-", 
+      InterpretationBox[
+       SubsuperscriptBox["k", 
+        StyleBox["3",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       Toolbox`rateconst["3", True],
+       Editable->False,
+       Selectable->False]}], ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", 
+     InterpretationBox[
+      SubsuperscriptBox["k", 
+       StyleBox["3",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+      Toolbox`rateconst["3", True],
+      Editable->False,
+      Selectable->False], ",", "0"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.5620126121494503`*^9, 3.562012615884288*^9}, 
+   3.562013543003208*^9, 3.56201375376119*^9, 3.5620139066419573`*^9},
+ CellLabel->"Out[7]=",
+ CellID->1679085744]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"J", "[", "model", "]"}], "==", 
+  RowBox[{
+   RowBox[{"S", "[", "model", "]"}], ".", 
+   RowBox[{"G", "[", "model", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.562012790347863*^9, 3.562012809094091*^9}},
+ CellLabel->"In[8]:=",
+ CellID->2118068913],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.562012809506681*^9, 3.562013912160985*^9},
+ CellLabel->"Out[8]=",
+ CellID->311494181]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"J", "[", 
+   RowBox[{"model", ",", 
+    RowBox[{"Type", "\[Rule]", "\"\<Flux\>\""}]}], "]"}], "==", 
+  RowBox[{
+   RowBox[{"G", "[", "model", "]"}], ".", 
+   RowBox[{"S", "[", "model", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.562013917374758*^9, 3.562013924524886*^9}},
+ CellLabel->"In[9]:=",
+ CellID->1865052328],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.562013925656501*^9},
+ CellLabel->"Out[9]=",
+ CellID->1263165084]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{Automatic, 417}, {156, Automatic}},
+ShowSelection->True,
+CellContext->"Global`",
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
+2011)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+
