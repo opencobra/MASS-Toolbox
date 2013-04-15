@@ -316,7 +316,6 @@ Full-Width Styles
   display: block;
   position: relative;
   width: 18%;
-  top: -30%;
   left: 0%;
   z-index: 10;
   padding: 10px 50px 10px 10px;
@@ -342,7 +341,9 @@ Full-Width Styles
 }
 
 #header_wrap .inner {
-  padding: 50px 10px 30px 10px;
+  padding: 30px 10px 30px 10px;
+  background: url('../images/MASS-Toolbox-Logo.png') no-repeat 0% 50%;
+  background-size: 25%;
 }
 
 #project_title {
