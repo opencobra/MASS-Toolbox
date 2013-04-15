@@ -1,7 +1,0 @@
-<pre name='i_15_in' id='i_15_in' class='IFT'>activeWtFluxes = 
-  Select[fba[ecoli, Toolbox`v[
-    &quot;Biomass_Ecoli_core_N(w/GAM)_Nmet2&quot;]], #[[2]] != 0 &amp;];
-% // Short
-activeReactions = getID /@ activeWtFluxes[[All, 1]]
-wtFlux = v[&quot;Biomass_Ecoli_core_N(w/GAM)_Nmet2&quot;] /. activeWtFluxes
-</pre><div class='IFU'><a name='1685447489'></a>http://wolfram.com/xid/0c0f2mvzfmpxx6hx8-15q9v3</div>

@@ -1,7 +1,0 @@
-<pre name='i_5_in' id='i_5_in' class='IFT'>plotSimulation[
- FilterRules[
-  simulate[model, {t, 0, 100}][[2]], {Toolbox`v[&quot;HK&quot;], Toolbox`v[
-   &quot;PGI&quot;], Toolbox`v[&quot;PFK&quot;], Toolbox`v[&quot;ALD&quot;], Toolbox`v[&quot;TPI&quot;], 
-   Toolbox`v[&quot;GAPDH&quot;], Toolbox`v[&quot;PGK&quot;], Toolbox`v[&quot;PGM&quot;], Toolbox`v[
-   &quot;ENO&quot;], Toolbox`v[&quot;PYK&quot;], Toolbox`v[&quot;PDC&quot;], Toolbox`v[&quot;ADH&quot;]}], 
- PlotFunction -&gt; Plot, Legend -&gt; True, FrameLabel -&gt; {&quot;Time&quot;, &quot;Flux&quot;}]</pre><div class='IFU'><a name='440235883'></a>http://wolfram.com/xid/0yhuava5fpwtkvut1t450k-hkd2gt</div>

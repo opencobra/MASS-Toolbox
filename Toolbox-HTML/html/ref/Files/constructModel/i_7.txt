@@ -1,9 +1,0 @@
-<pre name='i_7_in' id='i_7_in' class='IFT'>model = constructModel[({
-     {-1, 0, 0},
-     {1, -1, 0},
-     {0, 1, -1},
-     {0, 0, 1}
-    }), {Toolbox`metabolite[&quot;x1&quot;, None], Toolbox`metabolite[
-    &quot;x2&quot;, None], Toolbox`metabolite[&quot;x3&quot;, None], Toolbox`metabolite[
-    &quot;x4&quot;, None]}, {&quot;1&quot;, &quot;2&quot;, &quot;3&quot;}];
-getReactions[model]</pre><div class='IFU'><a name='1364488089'></a>http://wolfram.com/xid/0bhbpvbntnx2d8tlwvbibdnh-wunz07</div>

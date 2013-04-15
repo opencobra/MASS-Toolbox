@@ -1,5 +1,0 @@
-<pre name='i_21_in' id='i_21_in' class='IFT'>plotSimulation[
- simulate[model, {t, 0, 1000}, 
-   InitialConditions -&gt; {Toolbox`metabolite[&quot;glu&quot;, &quot;c&quot;] -&gt; 
-      AutomaticUnits`Unit[2, &quot;Liter&quot;^(-1) &quot;Millimole&quot;]}][[1]]
- ]</pre><div class='IFU'><a name='1122511209'></a>http://wolfram.com/xid/0d352h30vbpa9byaiidv-sullg7</div>

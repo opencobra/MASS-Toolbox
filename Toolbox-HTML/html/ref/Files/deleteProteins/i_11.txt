@@ -1,6 +1,0 @@
-<pre name='i_11_in' id='i_11_in' class='IFT'>mutant = deleteProteins[
-   ecoli, {protein[&quot;AckA&quot;], protein[&quot;TdcD&quot;], protein[&quot;PurT&quot;]}];
-mutant // Dimensions
-Complement[ecoli[&quot;Genes&quot;], mutant[&quot;Genes&quot;]]
-Complement[ecoli[&quot;Proteins&quot;], mutant[&quot;Proteins&quot;]]
-Complement[ecoli[&quot;Reactions&quot;], mutant[&quot;Reactions&quot;], SameTest -&gt; SameQ]</pre><div class='IFU'><a name='1507964434'></a>http://wolfram.com/xid/0b6arsu4kgre5fx4y8cy4q2q2s-y72628</div>

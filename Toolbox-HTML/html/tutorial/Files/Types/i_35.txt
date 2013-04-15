@@ -1,9 +1,0 @@
-<pre name='i_35_in' id='i_35_in' class='IFT'>Needs[&quot;Toolbox`&quot;];
-str2mass[&quot;atp[c]&quot;]
-% // FullForm;
-constructModel[
- str2mass /@ {&quot;1: x1[c] &lt;=&gt; x2[c]&quot;, &quot;2: x2[c] &lt;=&gt; x3[c]&quot;, 
-   &quot;3: x3[c] --&gt; x4[c]&quot;}
- ]
-NullSpace[%\[Transpose]].%[&quot;Species&quot;]
-</pre><div class='IFU'><a name='1213957252'></a>http://wolfram.com/xid/0n272124uljqfsa-uc1lo2</div>

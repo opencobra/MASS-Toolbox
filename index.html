@@ -5,8 +5,8 @@ title: MASS-Toolbox
 
     {% for post in site.posts %}
       <div class="hero-unit">
-        <p><h2><a href="/blog{{ post.url }}">{{ post.title }}</a></h2>{{ post.date | date_to_string }} - {{site.author}}</p>
+        <p><h2><a href="{{ post.url }}">{{ post.title }}</a></h2>{{ post.date | date_to_string }} - {{site.author}}</p>
         <p>{{ post.content | strip_html | truncatewords: 55 }}</p>
-        <p><a href="/blog{{ post.url }}">Read more ...</a></p>
+        <p><a href="{{ post.url }}">Read more ...</a></p>
       </div>
     {% endfor %}

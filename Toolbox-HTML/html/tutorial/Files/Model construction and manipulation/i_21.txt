@@ -1,4 +1,0 @@
-<pre name='i_21_in' id='i_21_in' class='IFT'>updateInitialConditions[model, {Toolbox`metabolite[&quot;x2&quot;, None] -&gt; 0.5}]
-updateParameters[model, {Toolbox`rateconst[&quot;3&quot;, True] -&gt; 0.01}]
-plotSimulation[simulate[model, {t, 0, 1*^6}][[1]], 
- PlotFunction -&gt; LogLinearPlot]</pre><div class='IFU'><a name='1679922516'></a>http://wolfram.com/xid/0l2etquq3sacfojukpeduleeb2lehrozn2-12gusm</div>

@@ -1,8 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>Select[
-  Thread[
-   {
-    \[Rho][model, Ignore -&gt; {}],
-    \[Rho][model, Ignore -&gt; {m[&quot;adp&quot;, &quot;c&quot;]}]
-    }
-   ],
-  #[[1]] =!= #[[2]] &amp;] // TableForm</pre><div class='IFU'><a name='1760694990'></a>http://wolfram.com/xid/0jpywr2g0u3757m1f3ntjfrkqvo79k-3ej28g</div>

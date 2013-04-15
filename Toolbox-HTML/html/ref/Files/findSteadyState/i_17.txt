@@ -1,7 +1,0 @@
-<pre name='i_17_in' id='i_17_in' class='IFT'>Manipulate[
- BarChart[#[[All, 2]], 
-    ChartLabels -&gt; (Rotate[#, 45 Degree] &amp; /@ #[[All, 1]]), 
-    ImageSize -&gt; 350, PlotRange -&gt; {All, {-0.5, 3}}] &amp;@
-  findSteadyState[model, Strategy -&gt; simulate, 
-    Parameters -&gt; {Toolbox`rateconst[&quot;vatp&quot;, True] -&gt; p Hour^-1}][[
-   1]], {p, 1.3, 1.6}]</pre><div class='IFU'><a name='163749983'></a>http://wolfram.com/xid/0raenxhutwkh2qag81p8son9k-czr0kx</div>

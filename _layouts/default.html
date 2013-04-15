@@ -8,36 +8,47 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title> {% if page.title %} {{ page.title }} | {% endif %} </title>
+    <title> {% if page.title %} {{ page.title |}} {% endif %} </title>
   </head>
 
   <body>
-    <div id="main">
+      <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="http://google.com">About</a></li>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/clients/">Clients</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
 
-    <!-- HEADER -->
     <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/phantomas1234/MASS-Toolbox">View on GitHub</a>
-
-          <h1 id="project_title">MASS Toolbox</h1>
-          <h2 id="project_tagline">For all things mass-action</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="20130412_MASS-Toolbox_8061cb5a.zip">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/phantomas1234/MASS-Toolbox/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+        <!-- HEADER -->
+            <header class="inner">
+                <img id="toolboxlogo" src="images/MASS-Toolbox-Logo.png"/>
+                <h1 id="project_title">Home of the MASS Toolbox</h1>
+                <h2 id="project_tagline">For all things mass-action ...</h2>
+                <section id="downloads">
+                    <a class="zip_download_link" id="forkme_banner" href="https://github.com/phantomas1234/MASS-Toolbox">View on GitHub</a>
+                    <a class="zip_download_link" href="20130412_MASS-Toolbox_8061cb5a.zip">Download this project as a .zip file</a>
+                    <a class="tar_download_link" href="https://github.com/phantomas1234/MASS-Toolbox/tarball/master">Download this project as a tar.gz file</a>
+                </section>
+            </header>
     </div>
 
     <!-- MAIN CONTENT -->
-    {{ content }}
+    <div id="main_content_wrap" class="outer">
+        <!-- <img src="images/MASS-Toolbox-Logo.png" alt="Smiley face" height="2%"> -->
+        <section id="main_content" class="inner">
+            {{ content }}
+        </section>
+    </div>
 
     <!-- FOOTER  -->
-    <footer>
-      <p>@copy; MASS Toolbox maintained by <a href="https://github.com/phantomas1234">phantomas1234</a> | 2013 | All Rights Reserved. </p>
-      <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-    </footer>
-  </div>
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+            <p class="copyright">MASS Toolbox maintained by <a href="https://github.com/phantomas1234">phantomas1234</a></p>
+            <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+        </footer>
+    </div>
 
   </body>
 </html>

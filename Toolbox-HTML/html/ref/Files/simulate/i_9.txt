@@ -1,5 +1,0 @@
-<pre name='i_9_in' id='i_9_in' class='IFT'>{concSol, fluxSol} = 
-  simulate[model, {t, 0, 1000}, 
-   InitialConditions -&gt; {Toolbox`metabolite[&quot;atp&quot;, &quot;c&quot;] -&gt; 
-      10 Milli Mole Liter^-1}];
-plotSimulation[concSol, FrameLabel -&gt; {&quot;t&quot;, &quot;Concentration [mM]&quot;}]</pre><div class='IFU'><a name='1066442151'></a>http://wolfram.com/xid/0d352h30vbpbdi73fvpg-rw7ubd</div>

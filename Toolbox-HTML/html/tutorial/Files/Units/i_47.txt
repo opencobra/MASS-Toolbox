@@ -1,6 +1,0 @@
-<pre name='i_47_in' id='i_47_in' class='IFT'>volumeChooserSimple = 
-  Composition[
-   Which[# == 0, 1, Abs[#] == 1, defaultLengthUnit, Abs[#] == 2, 
-     defaultSurfaceUnit, Abs[#] &gt; 2, Liter] &amp;,
-   spatialDimension
-   ];</pre><div class='IFU'><a name='582064131'></a>http://wolfram.com/xid/0ytqdfpkmea2149g-jwtxud</div>
