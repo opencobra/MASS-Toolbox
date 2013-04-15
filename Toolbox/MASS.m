@@ -1719,10 +1719,9 @@ If[!MemberQ[$MASSmodel$Attributes,attribute],Message[updateModelAttribute::wrong
 attributeTest=MatchQ[#,attribute/.attributeTestPatterns]&;
 If[!attributeTest[rhs],Message[setModelAttribute::malformedarg,attribute,rhs//Short,attribute/.attributeTestPatterns];Abort[];];
 callBack=attribute/.attributeCallBacks;
-
 prevAttribute=model[attribute];
 newAttribute=Switch[prevAttribute,_v,callBack[rhs,model],_String,prevAttribute<>"\n"<>callBack[rhs,model],{_Rule..},updateRules[prevAttribute,callBack[rhs,model]],_List,Union[prevAttribute,callBack[rhs,model]],(True|False),callBack[rhs,model]];
-setModelAttribute[model,attribute,newAttribute]
+setModelAttribute[model,attribute,newAttribute,"Sloppy"->True]
 ];
 def:updateModelAttribute[___]:=(Message[Toolbox::badargs,updateModelAttribute,Defer@def];Abort[])
 Protect[updateModelAttribute];
