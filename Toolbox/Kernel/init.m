@@ -1,62 +1,11 @@
 (* ::Package:: *)
 
 (* ::Section:: *)
-(*Handle MathSBML*)
-
-
-(* Mathematica Init File *)
-
-MathSBML::notinstalled="MathSBML seems to be not installed. SBML import/export capabilities will be limited. MathSBML can be obtained from http://sbml.org/Software/MathSBML";
-stubStream=OpenWrite[];bkupoutput=$Output;$Output={stubStream};
-Block[{$ContextPath},
-Quiet[Check[Needs["MathSBML`"],$Failed(*Message[MathSBML::notinstalled]*),{Get::noopen,Needs::nocont}]];];
-Quiet[Check[Remove[reaction,t,name,Stoichiometry],None,{Remove::rmptc}],{Remove::rmptc}];
-$Output=bkupoutput;Close[stubStream];
-Quiet[Check[Remove[stubStream,bkupoutput],None,{Remove::rmptc}],{Remove::rmptc}];
-
-
-(* ::Section:: *)
-(*Handle GurobiML*)
-
-
-Quiet@Needs["GurobiML`"]
-
-
-(* ::Section:: *)
-(*Handle PhysicalConstants vs. AutomaticUnits *)
-
-
-(*If[$VersionNumber<9,
-	Unprotect[BeginPackage];
-	BeginPackage["PhysicalConstants`", "Units`"] = BeginPackage["PhysicalConstants`", "AutomaticUnits`"];
-	Quiet[<<PhysicalConstants`;];
-	(*Unprotect[PhysicalConstants`Private`Mole];*)
-	PhysicalConstants`Private`Mole=AutomaticUnits`Unit[1,"Mole"];
-	BeginPackage["PhysicalConstants`", "Units`"] =.;
-	Protect[BeginPackage];
-]*)
-Unprotect[BeginPackage];
-BeginPackage["PhysicalConstants`", "Units`"] = BeginPackage["PhysicalConstants`", "AutomaticUnits`"];
-Quiet[<<PhysicalConstants`;];
-(*Unprotect[PhysicalConstants`Private`Mole];*)
-PhysicalConstants`Private`Mole=AutomaticUnits`Unit[1,"Mole"];
-BeginPackage["PhysicalConstants`", "Units`"] =.;
-Protect[BeginPackage];
-
-
-(* ::Section:: *)
 (*M9 hacks*)
 
 
 If[$VersionNumber>8,SetOptions[Manipulate,TrackedSymbols:>True]]
 If[$VersionNumber>=9,SetOptions[NDSolve,Method->{"EquationSimplification"->"Residual"}]];
-
-
-(* ::Section:: *)
-(*Begin package*)
-
-
-BeginPackage["Toolbox`"]
 
 
 (* ::Section:: *)
@@ -69,49 +18,64 @@ cheatSheet[]:=TableForm[{{"Evaluate in place","Shift + Cmd + Return"},{"Convert 
 GurobiML::notinstalled="GurobiML seems to be not installed. Advanced LP/MILP/QP capabilities will be limited. GurobiML can be obtained from https://github.com/phantomas1234/GurobiML (very experimental at the moment!).";
 
 
-Needs["DifferentialEquations`InterpolatingFunctionAnatomy`"]
-(*Quiet[Check[
-	Needs["GurobiML`"],
-	Message[GurobiML::notinstalled],
-	{Get::noopen,Needs::nocont}],
-{Get::noopen,Needs::nocont}];*)
-
-Needs["XML`"]
-Needs["JLink`"]
-(*If[$VersionNumber<9,
-	Needs["AutomaticUnits`"]
-]*)
-Needs["AutomaticUnits`"]
+AutoCollapse[]:=(If[$FrontEnd=!=$Failed,SelectionMove[EvaluationNotebook[],All,GeneratedCell];FrontEndTokenExecute["SelectionCloseUnselectedCells"]])
 
 
 (* ::Section:: *)
 (*Load defintions*)
 
 
-Get["Toolbox`Config`"]
-Get["Toolbox`Util`"]
-Get["Toolbox`MASS`"]
-Get["Toolbox`IO`"]
-Get["Toolbox`COBRA`"]
-Get["Toolbox`Chemoinformatics`"]
-Get["Toolbox`Visualization`"]
-Get["Toolbox`Regulation`"]
-Get["Toolbox`Sensitivity`"]
-Get["Toolbox`Thermodynamics`"]
-Get["Toolbox`Networks`"]
-Get["Toolbox`Simulations`"]
-Get["Toolbox`ExampleData`"]
+If[$FrontEnd=!=Null,
+	Monitor[ReleaseHold[#],Column[{progtext,If[$FrontEnd=!=Null,ProgressIndicator[prog,{1,19}],prog]}]],
+	ReleaseHold[#]
+]&@Hold[
+	prog=0;
+	progtext="Loading MathSBML ...";
+	(* Mathematica Init File *)
+	MathSBML::notinstalled="MathSBML seems to be not installed. SBML import/export capabilities will be limited. MathSBML can be obtained from http://sbml.org/Software/MathSBML";
+	stubStream=OpenWrite[];bkupoutput=$Output;$Output={stubStream};
+	Block[{$ContextPath},
+		Quiet[Check[Needs["MathSBML`"],$Failed(*Message[MathSBML::notinstalled]*),{Get::noopen,Needs::nocont}]];
+	];
+	Quiet[Check[Remove[reaction,t,name,Stoichiometry],None,{Remove::rmptc}],{Remove::rmptc}];
+	$Output=bkupoutput;Close[stubStream];
+	Quiet[Check[Remove[stubStream,bkupoutput],None,{Remove::rmptc}],{Remove::rmptc}];
+	prog++;
+	
+	progtext="Loading GurobiML ...";
+	Quiet@Needs["GurobiML`"];prog++;
 
-
-(* ::Section:: *)
-(*End package*)
-
-
-EndPackage[]
-
-
-AutoCollapse[]:=(If[$FrontEnd=!=$Failed,SelectionMove[EvaluationNotebook[],All,GeneratedCell];
-FrontEndTokenExecute["SelectionCloseUnselectedCells"]])
+	progtext="Loading AutomaticUnits ...";
+	Unprotect[BeginPackage];
+	BeginPackage["PhysicalConstants`", "Units`"] = BeginPackage["PhysicalConstants`", "AutomaticUnits`"];
+	Quiet[<<PhysicalConstants`;];
+	(*Unprotect[PhysicalConstants`Private`Mole];*)
+	PhysicalConstants`Private`Mole=AutomaticUnits`Unit[1,"Mole"];
+	BeginPackage["PhysicalConstants`", "Units`"] =.;
+	Protect[BeginPackage];
+	progtext="Loading AutomaticUnits ...";Needs["AutomaticUnits`"];prog++;
+	
+	progtext="Loading InterpolatingFunctionAnatomy ...";Needs["DifferentialEquations`InterpolatingFunctionAnatomy`"];prog++;
+	progtext="XML ...";Needs["XML`"];prog++;
+	progtext="Loading JLink ...";Needs["JLink`"];prog++;
+	
+	BeginPackage["Toolbox`"];
+	Needs["AutomaticUnits`"];
+	progtext="Loading Config ...";Get["Toolbox`Config`"];prog++;
+	progtext="Loading Utilities ...";Get["Toolbox`Util`"];prog++;
+	progtext="Loading Core ...";Get["Toolbox`MASS`"];prog++;
+	progtext="Loading IO ...";Get["Toolbox`IO`"];prog++;
+	progtext="Loading COBRA ...";Get["Toolbox`COBRA`"];prog++;
+	progtext="Loading Chemoinformatics ...";Get["Toolbox`Chemoinformatics`"];prog++;
+	progtext="Loading Visualization ...";Get["Toolbox`Visualization`"];prog++;
+	progtext="Loading Regulation ...";Get["Toolbox`Regulation`"];prog++;
+	progtext="Loading Sensitivity Analysis ...";Get["Toolbox`Sensitivity`"];prog++;
+	progtext="Loading Thermodynamics ...";Get["Toolbox`Thermodynamics`"];prog++;
+	progtext="Loading Network Theory ...";Get["Toolbox`Networks`"];prog++;
+	progtext="Loading Simulations ...";Get["Toolbox`Simulations`"];prog++;
+	progtext="Loading ExampleData ...";Get["Toolbox`ExampleData`"];prog++;
+	EndPackage[];
+]
 
 
 (* ::Section:: *)
