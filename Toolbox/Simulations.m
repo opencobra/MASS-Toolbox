@@ -34,7 +34,7 @@ simulate::missingParam="Missing parameter values encountered for `1`.";
 simulate::specProfile="The option \"SpeciesProfiles\" can be specified either as \"Concentrations\" or \"Particles\" but not as `1`";
 simulate::NDSolveProblem="Something unexpected happend. Manual inspection of the ODE might be necessary.";
 
-simulate[model_MASSmodel,opts:OptionsPattern[{simulate,NDSolve}]]:=Module[{ode,events,initialConditions,allConstants,parameters,equations,solution,fluxSolution,tStart,tFinal,vars,units,ic},
+simulate[model_MASSmodel,opts:OptionsPattern[{simulate,NDSolve}]]:=Module[{repl,ode,events,initialConditions,allConstants,parameters,equations,solution,fluxSolution,tStart,tFinal,vars,units,ic,catchMissingDerivs},
 	parameters=updateRules[model["Parameters"],adjustUnits[OptionValue["Parameters"],model]];
 	ode=getODE[model,"Parameters"->parameters];
 	If[$VersionNumber>8,events=updateRules[getEvents[model],OptionValue["Events"]][[All,2]],events={}];
@@ -51,12 +51,16 @@ simulate[model_MASSmodel,opts:OptionsPattern[{simulate,NDSolve}]]:=Module[{ode,e
 		initialConditions=#[[1]][0]==#[[2]]&/@#
 	]&[ic];
 	equations=Join[ode,initialConditions,events]//.parameters;
+	(*Set initial history functions for variables that are involved with delays*)
+	repl=(#[0]==val_)->#[t/;t<=0]==val&/@Union[Cases[equations,_[t+_],\[Infinity]][[All,0]]];
+	equations=equations/.repl;
 	(*Run NDSolve and check for missing parameter values if NDSolve::ndnum is raised*)
+	catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;
 	Check[
 					
 			solution=#[[1]]->(#[[2]] (#[[1]][[0]]/.Dispatch[units]))&/@
 				Check[
-					NDSolve[stripUnits@equations,model["Variables"],{t,tStart,tFinal},FilterRules[{opts}, Options[NDSolve]]],
+					catchMissingDerivs@Hold[NDSolve[stripUnits@equations,model["Variables"],{t,tStart,tFinal},FilterRules[{opts}, Options[NDSolve]]]],
 					Message[simulate::NDSolveProblem];Abort[];,{NDSolve::icfail,NDSolve::nderr,NDSolve::underdet,NDSolve::nlnum,NDSolve::overdet,NDSolve::ndinnt}][[1]],
 		Message[simulate::missingParam,Union[Cases[equations,(_Keq|_rateconst|_parameter|metabolite[_,"Xt"]),\[Infinity]]]];Abort[],
 		{NDSolve::ndnum}
