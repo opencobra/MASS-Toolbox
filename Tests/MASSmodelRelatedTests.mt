@@ -250,6 +250,16 @@ Test[(*Test adding reaction*)
 	TestID->"MASSmodelRelatedTests-20110511-O6O6C0"
 ]
 
+Test[(*Test if Toolbox`Private`checkConstraints::irrevNegativeLowerBound is raised*)
+	CheckAbort[updateConstraints[modelWithNewReaction, {"emptySetReaction" -> {-1, 10}}],True]
+	,
+	True
+	,
+	{Toolbox`Private`checkConstraints::irrevNegativeLowerBound}
+	,
+	TestID->"MASSmodelRelatedTests-20130422-H1H9Y8"
+]
+
 Test[(*Undo reaction adding by deleting reaction*)
 	And@@Thread[Equal[Sort@model["Reactions"],Sort@deleteReaction[modelWithNewReaction,getID[emptySetReactionIrrev]]["Reactions"]]]
 	,
