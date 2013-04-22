@@ -30,7 +30,7 @@ stoich2bipartite::usage="stoich2bipartite[stoich_?MatrixQ,rxns_List,mets_List] r
 (*Definitions*)
 
 
-Begin["Private`"]
+Begin["`Private`"]
 
 
 Unprotect[stoich2bipartite];
