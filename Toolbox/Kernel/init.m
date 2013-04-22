@@ -73,6 +73,7 @@ If[$FrontEnd=!=Null,
 	progtext="Loading Thermodynamics ...";Get["Toolbox`Thermodynamics`"];prog++;
 	progtext="Loading Network Theory ...";Get["Toolbox`Networks`"];prog++;
 	progtext="Loading Simulations ...";Get["Toolbox`Simulations`"];prog++;
+	progtext="Loading QCQA ...";Get["Toolbox`QCQA`"];prog++;
 	progtext="Loading ExampleData ...";Get["Toolbox`ExampleData`"];prog++;
 	EndPackage[];
 ]
