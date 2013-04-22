@@ -4,10 +4,7 @@
 (*Style*)
 
 
-BeginPackage["Toolbox`Style`"]
-
-
-Begin["`Private`"]
+Begin["Toolbox`Private`"];
 
 commonToAll={Axes->False,Frame->True,PlotStyle->Automatic,BaseStyle->{"FontFamily"->"Helvetica",FontSize->12},ImageSize->350,PlotRange->All};
 plotFunctions2D={ListPlot,ListLogPlot,ListLogLogPlot,ListLogLinearPlot,Plot,LogPlot,LogLogPlot,LogLinearPlot,ParametricPlot,DateListPlot,DateListLogPlot,Histogram,SmoothHistogram};
@@ -17,9 +14,6 @@ commonToAll3D={BaseStyle->{"FontFamily"->"Helvetica",FontSize->12},ImageSize->35
 plotFunctions3D={Plot3D};
 Do[SetOptions[plotFunc,Sequence@@FilterRules[commonToAll3D,Options[plotFunc]]],{plotFunc,plotFunctions3D}]
 
-End[]
+SetOptions[SlideView,AppearanceElements->All];
 
-EndPackage[]
-
-
-Get["Toolbox`"];
+End[];
