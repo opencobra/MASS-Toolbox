@@ -1473,7 +1473,7 @@ Protect[calcLinkMatrix];
 
 attributeTestPatterns={
 "Stoichiometry"->_?MatrixQ,
-"InitialConditions"->{((_String|_v|_species|_metabolite|_enzyme|_parameter|_complex)->(_?NumberQ|\[Infinity]|-\[Infinity]|NaN|Indeterminate|$MASS$unitsPattern|With[{pat=$MASS$unitsPattern},HoldPattern@Times[(pat)..]]))..}|{},
+"InitialConditions"->{((_String|_v|_species|_metabolite|_enzyme|_parameter|_complex)->(_|_?NumberQ|\[Infinity]|-\[Infinity]|NaN|Indeterminate|$MASS$unitsPattern|With[{pat=$MASS$unitsPattern},HoldPattern@Times[(pat)..]]))..}|{},
 "Constraints"->{((_String|_v|_species|_metabolite|_enzyme)->{(_?NumberQ|-\[Infinity]),(_?NumberQ|\[Infinity])})..}|{},
 "Parameters"->{(Join[$MASS$speciesPattern,$MASS$parametersPattern]->(_?NumberQ|Indeterminate|\[Infinity]|-\[Infinity]|NaN|_Unit))..}|{},
 "GPR"->{((_String|_protein|_proteinComplex)->(_protein|_proteinComplex|_gene|_geneComplex|_Or))..}|{},
@@ -1785,7 +1785,10 @@ model_MASSmodel["LinkMatrix"]:=Chop[model["Stoichiometry"].PseudoInverse[N@model
 model_MASSmodel["Reactions"]:=model2reactionList[model];
 model_MASSmodel["Exchanges"]:=Cases[model2reactionList[model],r_reaction/;Length[getSubstrates[r]]==0||Length[getProducts[r]]==0,\[Infinity]]
 (*model_MASSmodel["Variables"]:=Union[Cases[model["ODE"],Join[$MASS$speciesPattern,$MASS$parametersPattern][t|(t+___)]|D[Join[$MASS$speciesPattern,$MASS$parametersPattern][t],t],\[Infinity]]/.Derivative[_][stuff_]:>stuff/.(t+_):>t]*)
-model_MASSmodel["Variables"]:=Union[Cases[Join[model["ODE"],model["Events"][[All,2]]],Join[$MASS$speciesPattern,$MASS$parametersPattern][t]|D[Join[$MASS$speciesPattern,$MASS$parametersPattern][t],t],\[Infinity]]/.Derivative[_][stuff_]:>stuff]
+model_MASSmodel["Variables"]:=Module[{pattern},
+	pattern=Alternatives@@Flatten[{#[t],D[#[t],t],#[t+_]}&/@List@@Join[$MASS$speciesPattern,$MASS$parametersPattern]];
+	Union[#[t]&/@(Cases[Join[model["ODE"],model["Events"][[All,2]]],pattern,\[Infinity]]/.Derivative[_][stuff_]:>stuff)[[All,0]]]
+];
 model_MASSmodel["ForwardRateConstants"]:=Union[Cases[model["Rates"],rateconst[_,True],\[Infinity]]];
 model_MASSmodel["ReverseRateConstants"]:=Union[Cases[model["Rates"],rateconst[_,False],\[Infinity]]];
 model_MASSmodel["EquilibriumConstants"]:=Union[Cases[model["Rates"],Keq[_],\[Infinity]]];

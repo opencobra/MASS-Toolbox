@@ -214,7 +214,8 @@ parseListOfUnitsXML[XMLElement["listOfUnits",_,units_List]]:=Times@@(parseUnitXM
 parseUnitDefinitionXML[XMLElement["unitDefinition",attrVal:{_Rule..},listOfUnits_List]]:=("id"/.attrVal)->Quiet[Check[DeclareUnit[StringReplace["name"/.attrVal,{"(new default)"->"","(default)"->"","_"->"",Whitespace->""}],(parseListOfUnitsXML[extractXMLelement[listOfUnits,"listOfUnits",0][[1]]])],DeclareUnit["stub"<>ToString[Unique[]],(parseListOfUnitsXML[extractXMLelement[listOfUnits,"listOfUnits",0][[1]]])],{Symbol::symname}],{Unit::exists}]
 
 getListOfUnitDefinitions[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:=Module[{},
-updateRules[sbmlDefaultUnits,parseUnitDefinitionXML/@extractXMLelement[xml,"listOfUnitDefinitions",2]]
+	(*Join[updateRules[sbmlDefaultUnits,parseUnitDefinitionXML/@extractXMLelement[xml,"listOfUnitDefinitions",2]],sbmlBaseUnit2mathematica,{elem_String:>Unit[1,elem]}]*)
+	Join[updateRules[sbmlDefaultUnits,parseUnitDefinitionXML/@extractXMLelement[xml,"listOfUnitDefinitions",2]],sbmlBaseUnit2mathematica,{elem_String:>Unit[1,elem]}]
 ]
 
 
@@ -232,7 +233,7 @@ getListOfSpecies[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:
 ];
 
 
-getInitialConcentrations[listOfSpecies:{((_species[t]|_species)->_List)...},unitDefinitions:{_Rule..}]:=Module[{init,unit,hasOnlySubstanceUnits,volume},
+getInitialConcentrations[listOfSpecies:{((_species[t]|_species)->_List)...},unitDefinitions:{(_Rule|_RuleDelayed)..}]:=Module[{init,unit,hasOnlySubstanceUnits,volume},
 Table[
 	unit=query["substanceUnits", spec[[2]], "substance"]/.Dispatch[unitDefinitions];
 	volume="volume"/.unitDefinitions;
@@ -270,7 +271,7 @@ getListOfCompartments[xml_/;Head[xml]===XMLObject["Document"]]:=Module[{},
 ];
 
 
-getCompartmentVolumes[listOfCompartments:{((parameter["Volume",_String]|parameter["Volume",_String][t])->_List)...},unitDefinitions:{_Rule...}]:=#[[1]]->sbmlString2Number[query["size",#[[2]],"1"]]*(query["units",#[[2]],"volume"]/.Dispatch[unitDefinitions])&/@listOfCompartments
+getCompartmentVolumes[listOfCompartments:{((parameter["Volume",_String]|parameter["Volume",_String][t])->_List)...},unitDefinitions:{(_Rule|_RuleDelayed)...}]:=#[[1]]->sbmlString2Number[query["size",#[[2]],"1"]]*(query["units",#[[2]],"volume"]/.Dispatch[unitDefinitions])&/@listOfCompartments
 
 
 (* ::Subsubsection:: *)
@@ -474,6 +475,8 @@ sbml2model::NotExistFile="File `1` does not exist.";
 sbml2model::nonValidMethod="SBML import method `1` is not provided. Try \"Full\" or \"Light\" instead.";
 sbml2model::eventDetected="The MASS Toolbox does not provide support events in Mathematica versions older than 9. Events will be ignored in further calculations.";
 sbml2model::eventDelayDetected="Delayed event detected. The MASS Toolbox does not provide support for delayed events.";
+sbml2model::variableStoichiometry="The toolbox does not support for variable stoichiometric factors (detected in reaction `1`)";
+sbml2model::eventProblem="Problem encountered for the following events: `1`. Amongst other things, the toolbox does not provide support for events that involve parameters.";
 sbml2model[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:=Module[{listOfUnitDefinitions,listOfFunctionDefinitions,listOfCompartments,compartmentVolumes,listOfParameters,parameters,
 listOfSpecies,initialConditions,boundaryConditions,id2massID,listOfRxns,listOfRules,assignmentRules,rateRules,algebraicRules,listOfInitialAssignments,
 listOfKineticLawsAndLocalParameters,listOfKineticLaws,listOfLocalParameters,speciesInReactions,notCoveredByReactions,customODE,constantSpecies,paramInListOfRules,
@@ -488,7 +491,7 @@ constParam,speciesIDs2names,modelID,modelName,notes,modelStuff,hasOnlySubstanceU
 		
 		listOfUnitDefinitions=getListOfUnitDefinitions[xml];
 		
-		listOfFunctionDefinitions=getListOfFunctionDefinitions[xml]/.Dispatch[listOfUnitDefinitions];
+		listOfFunctionDefinitions=getListOfFunctionDefinitions[xml](*/.Dispatch[listOfUnitDefinitions]*);
 		
 		listOfCompartments=getListOfCompartments[xml];
 		(*compartmentIDs2names=DeleteCases[(#[[1]]->query["name",#[[2]],Undefined]&/@listOfCompartments)/.elem_[t]:>elem,r_Rule/;r[[2]]===Undefined];*)
@@ -506,7 +509,8 @@ constParam,speciesIDs2names,modelID,modelName,notes,modelStuff,hasOnlySubstanceU
 		(*Temporary Fix*)
 		id2massID=Join[id2massID,{"Pi"->Pi,"E"->E,"avogadro"->6.0221415`*^23}];
 		listOfInitialAssignments=getListOfInitialAssignments[xml,id2massID];	
-		listOfInitialAssignments=(#[[1]]->(#[[2]]/.Dispatch[listOfInitialAssignments])&/@listOfInitialAssignments)/."t"->0;
+		
+		listOfInitialAssignments=(#[[1]]->(#[[2]]/.Dispatch[listOfInitialAssignments])&/@listOfInitialAssignments)(*/."t"->0*);
 		
 		listOfRules=getListOfRules[xml,id2massID]/.Dispatch[listOfFunctionDefinitions]/.("algebraicRule"->eq_Equal/;MatchQ[Simplify[eq/.Dispatch[constParam]],(_parameter|_parameter[t])==_?NumberQ]):>("assignmentRule"->Rule@@Simplify[eq/.Dispatch[constParam]]);
 		
@@ -569,11 +573,11 @@ constParam,speciesIDs2names,modelID,modelName,notes,modelStuff,hasOnlySubstanceU
 		parameters=#[[1]]->(#[[2]]//.Dispatch[parameters])&/@parameters;
 		parameters=parameters/.Dispatch[listOfFunctionDefinitions];
 		initialConditions=#[[1]]->(#[[2]]//.Dispatch[parameters])&/@initialConditions;
-		initialConditions=DeleteCases[initialConditions,r_Rule/;r[[2]]==="Indeterminate"]/."t"->0;
+		initialConditions=DeleteCases[initialConditions,r_Rule/;r[[2]]==="Indeterminate"](*/."t"->0*);
 		parameters=#[[1]]->(#[[2]]//.Dispatch[initialConditions])&/@parameters;
 		parameters=DeleteCases[parameters,r_Rule/;r[[2]]==="Indeterminate"];
 		customODE=Join[#[[1]]==#[[2]]&/@FilterRules[assignmentRules,notCoveredByReactions],rateRules,algebraicRules]/.Dispatch[listOfFunctionDefinitions]/."t"->t;
-		initialConditions=DeleteCases[initialConditions,r_Rule/;r[[2]]===Indeterminate]/.t->0(*t0 is always zero in SBML*);
+		initialConditions=DeleteCases[initialConditions,r_Rule/;r[[2]]===Indeterminate](*/.t->0*)(*t0 is always zero in SBML*);
 		parameters=DeleteCases[parameters,r_Rule/;r[[2]]===Indeterminate]/.t->0;
 		
 		(* FIXME: compartment volumes from ic to parameters if not covered by customODE *)
@@ -600,6 +604,8 @@ FullForm]\):>Derivative[1][s][t]*parameter["Volume",getCompartment[s]];
 		(* Temporary Fix: get rid of parameters that don't have an initial value*)
 		parameters=DeleteCases[parameters,r_Rule/;MatchQ[r[[2]],_String]];
 
+		If[!MatchQ[listOfEvents,{(_String->WhenEvent[_,({_[t]..}->{__})|(_[t]->_)|{(_[t]->_)..},OptionsPattern[]])...}],Message[sbml2model::eventProblem,DeleteCases[listOfEvents,{(_String->WhenEvent[_,({_[t]..}->{__})|(_[t]->_)|{(_[t]->_)..},OptionsPattern[]])...}]]];
+		Scan[If[!MatchQ[getStoichiometry[#],{_?NumberQ...}],Message[sbml2model::variableStoichiometry,getID[#]];Abort[];]&,listOfRxns];
 		constructModel[listOfRxns,
 			Sequence@@updateRules[
 				{"ID"->modelID,"Name"->modelName,"Notes"->notes,"InitialConditions"->N@initialConditions,"Parameters"->N@parameters,
