@@ -4,25 +4,6 @@
 (*Sensitivity*)
 
 
-(* ::Section::Closed:: *)
-(*Documentation*)
-
-
-(* Exported symbols added here with SymbolName::usage *) 
-
-
-calculatePartialVariances::usage="###FIXME###"
-
-
-calcLinIndependentFreq::usage="calcLinIndependentFreq[dim] returns a list of integer frequencies \[Omega] such that \!\(\*UnderoverscriptBox[\(\[Sum]\), \(i = 1\), \(n\)]\)\!\(\*SubscriptBox[\(a\), \(i\)]\)\!\(\*SubscriptBox[\(\[Omega]\), \(i\)]\)\[NotEqual]0 for \!\(\*UnderoverscriptBox[\(\[Sum]\), \(i = 1\), \(n\)]\)|a| \[LessEqual] M'+1. So far we can only provide linear independent frequencies upto order M=4 and dimension n=50.";
-
-
-FASTsimul::usage="FASTsimul[func_Function,searchFunc_Function,parametersOfInterest:{_Rule..},opts:OptionsPattern[]] "
-
-
-FASTcalcSensitivities::usage="###FIXME###"
-
-
 (* ::Section:: *)
 (*Definitions*)
 

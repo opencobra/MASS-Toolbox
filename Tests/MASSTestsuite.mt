@@ -25,8 +25,8 @@ TestSuite[
     "CobraRelatedTests.mt"
     ,
     "GPRRelatedTests.mt"
-    ,
-    "SBMLrelatedTests.mt"
+    (*,
+    "SBMLrelatedTests.mt"*)
 (*    ,
     "UnitCheckingRelatedTests"
 *)    ,

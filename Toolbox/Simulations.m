@@ -5,22 +5,6 @@
 
 
 (* ::Section:: *)
-(*Documentation*)
-
-
-(* Exported symbols added here with SymbolName::usage *) 
-
-
-findSteadyState::usage="findSteadyState[model, opts] tries to find a steady-state for model, either by using Newton's method (Strategy->FindRoot) or forward integration (Strategy->simulate).";
-
-
-simulate::usage="simulate[model_MASSmodel, opts___] simulates model.";
-
-
-solveSteadyState::usage="solveSteadyState[model_MASSmodel] will attempt to solve for species concentrations assuming that the system is at steady state."
-
-
-(* ::Section:: *)
 (*Definitions*)
 
 
@@ -141,15 +125,14 @@ Protect[findSteadyState];
 
 Options[solveSteadyState]={"Numeric"->True};
 solveSteadyState[model_MASSmodel,opts:OptionsPattern[]]:=Module[{ssEq,conservationRelations,ssSol,nonNegativity},
-ssEq=model["ODE"]/.Derivative[1][_metabolite][t]:>0/.elem_[t]:>elem;
-conservationRelations=MapIndexed[C[First@#2]==#&,NullSpace[model\[Transpose]].model["Species"]];
-(*conservationRelations=C[ToString[#]]==#&/@(NullSpace[model\[Transpose]].model["Species"]);*)
-nonNegativity=0<=#&/@model["Species"];
-ssSol=anonymize[NSolve[Join[ssEq/.stripUnits@model["Parameters"],conservationRelations,nonNegativity],model["Species"],Reals]];
-If[OptionValue["Numeric"]==True,
-ssSol=ssSol/.model["Parameters"];
-];
-{ssSol,Rule@@@conservationRelations}
+	ssEq=model["ODE"]/.Derivative[1][_metabolite][t]:>0/.elem_[t]:>elem;
+	conservationRelations=MapIndexed[C[First@#2]==#&,NullSpace[model\[Transpose]].model["Species"]];
+	nonNegativity=0<=#&/@model["Species"];
+	ssSol=anonymize[NSolve[Join[ssEq/.stripUnits@model["Parameters"],conservationRelations,nonNegativity],model["Species"],Reals]];
+	If[OptionValue["Numeric"]==True,
+		ssSol=ssSol/.model["Parameters"];
+	];
+	{ssSol,Rule@@@conservationRelations}
 ];
 
 

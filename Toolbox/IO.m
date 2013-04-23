@@ -5,37 +5,6 @@
 
 
 (* ::Section:: *)
-(*Documentation*)
-
-
-biomodel2model::usage="biomodel2model[id_String] imports model with identifier id (B\\d+) from the Biomodels repository at ";
-
-
-importModel::usage="importModel[path] will import a model and try to convert legacy models to the most current version of the toolbox.";
-
-
-mat2model::usage="mat2model[path2mat] imports a Matlab .mat file and parses all COBRA models in it."
-
-
-model2sbml::usage="model2sbml[model_MASSmodel] converts model into an SBML representation (returns a string). Initial conditions and other parameters can be provided as options and take precedence over the model's own definitions.";
-
-
-sbml2model::usage="sbml2model[path|xml] either takes a path to a SBML file or symbolic XML as inputs and construct a MASSmodel data structure.";
-
-
-eQuilibratorCompoundData::usage="eQuilibratorCompoundData[query] queries the eQuilibrator database for compound related data. Sample query:
-
-{\"InChI_identifiers\"->{\"InChI=1S/C10H16N5O13P3/c11-8-5-9(13-2-12-8)15(3-14-5)10-7(17)6(16)4(26-10)1-25-30(21,22)28-31(23,24)27-29(18,19)20/h2-4,6-7,10,16-17H,1H2,(H,21,22)(H,23,24)(H2,11,12,13)(H2,18,19,20)/t4-,6-,7-,10-/m1/s1\",\"InChI=1S/C10H15N5O10P2/c11-8-5-9(13-2-12-8)15(3-14-5)10-7(17)6(16)4(24-10)1-23-27(21,22)25-26(18,19)20/h2-4,6-7,10,16-17H,1H2,(H,21,22)(H2,11,12,13)(H2,18,19,20)/t4-,6-,7-,10-/m1/s1\"}}
-"
-
-
-eQuilibratorReactionData::usage="eQuilibratorReactionData[query] queries the eQuilibrator database for compound related data. Sample query:
-
-{\"ionic_strength\"->1.0,\"KEGG_reactions\"->{\"R00002\",\"R00022\"},\"pH\"->7.0}
-"
-
-
-(* ::Section:: *)
 (*Definitions*)
 
 

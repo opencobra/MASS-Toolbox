@@ -26,7 +26,7 @@ AutoCollapse[]:=(If[$FrontEnd=!=$Failed,SelectionMove[EvaluationNotebook[],All,G
 
 
 If[$FrontEnd=!=Null,
-	Monitor[ReleaseHold[#],Column[{progtext,If[$FrontEnd=!=Null,ProgressIndicator[prog,{1,19}],prog]}]],
+	Monitor[ReleaseHold[#],Column[{progtext,If[$FrontEnd=!=Null,ProgressIndicator[prog,{1,22}],prog]}]],
 	ReleaseHold[#]
 ]&@Hold[
 	prog=0;
@@ -62,8 +62,10 @@ If[$FrontEnd=!=Null,
 	BeginPackage["Toolbox`"];
 	Needs["AutomaticUnits`"];
 	progtext="Loading Config ...";Get["Toolbox`Config`"];prog++;
+	progtext="Loading Usage strings ...";Get["Toolbox`UsageStrings`"];prog++;
 	progtext="Loading Utilities ...";Get["Toolbox`Util`"];prog++;
-	progtext="Loading Core ...";Get["Toolbox`MASS`"];prog++;
+	progtext="Loading Types ...";Get["Toolbox`Types`"];prog++;
+	progtext="Loading Core ...";Get["Toolbox`Core`"];prog++;
 	progtext="Loading IO ...";Get["Toolbox`IO`"];prog++;
 	progtext="Loading COBRA ...";Get["Toolbox`COBRA`"];prog++;
 	progtext="Loading Chemoinformatics ...";Get["Toolbox`Chemoinformatics`"];prog++;

@@ -32,8 +32,8 @@ Cell["Toolbox`", "Categorization",
  CellLabel->"Context",
  CellID->468444828],
 
-Cell["Toolbox/tutorial/Model construction and manipulation", \
-"Categorization",
+Cell["Toolbox/tutorial/Model construction and manipulation", "Categorization",
+ 
  CellLabel->"URI"]
 }, Closed]],
 
@@ -369,7 +369,6 @@ Cell[BoxData[
                 GridBoxBackground->{"Columns" -> {{None}}, "Rows" -> {{
                     GrayLevel[0.99], 
                     RGBColor[0.87, 0.94, 1]}}},
-                
                 GridBoxDividers->{
                  "Columns" -> {True, {}, True}, "Rows" -> {{True}}},
                 
@@ -521,9 +520,9 @@ Cell[BoxData[
                     ZeroWidthTimes -> True]], 
                     Toolbox`reaction["1", {
                     Toolbox`metabolite["x1", None]}, {
-                    Toolbox`metabolite["x2", None]}, {1, 1}, True], 
-                    Editable -> False, Selectable -> False], StandardForm], 
-                    StandardForm, Editable -> True]], Annotation[#, 
+                    Toolbox`metabolite["x2", None]}, {1, 1}, True], Editable -> 
+                    False, Selectable -> False], StandardForm], StandardForm, 
+                    Editable -> True]], Annotation[#, 
                     StandardForm[
                     Toolbox`reaction["1", {
                     Toolbox`metabolite["x1", None]}, {
@@ -559,9 +558,9 @@ Cell[BoxData[
                     ZeroWidthTimes -> True]], 
                     Toolbox`reaction["2", {
                     Toolbox`metabolite["x2", None]}, {
-                    Toolbox`metabolite["x3", None]}, {1, 1}, True], 
-                    Editable -> False, Selectable -> False], StandardForm], 
-                    StandardForm, Editable -> True]], Annotation[#, 
+                    Toolbox`metabolite["x3", None]}, {1, 1}, True], Editable -> 
+                    False, Selectable -> False], StandardForm], StandardForm, 
+                    Editable -> True]], Annotation[#, 
                     StandardForm[
                     Toolbox`reaction["2", {
                     Toolbox`metabolite["x2", None]}, {
@@ -597,9 +596,9 @@ Cell[BoxData[
                     ZeroWidthTimes -> True]], 
                     Toolbox`reaction["3", {
                     Toolbox`metabolite["x3", None]}, {
-                    Toolbox`metabolite["x4", None]}, {1, 1}, True], 
-                    Editable -> False, Selectable -> False], StandardForm], 
-                    StandardForm, Editable -> True]], Annotation[#, 
+                    Toolbox`metabolite["x4", None]}, {1, 1}, True], Editable -> 
+                    False, Selectable -> False], StandardForm], StandardForm, 
+                    Editable -> True]], Annotation[#, 
                     StandardForm[
                     Toolbox`reaction["3", {
                     Toolbox`metabolite["x3", None]}, {
@@ -2171,36 +2170,35 @@ Cell[BoxData[
              StyleBox[
               
               DynamicModuleBox[{Toolbox`Private`method$$ = "Remove", 
-               Toolbox`p$$ = 0, Toolbox`Private`pltfunc$$ = 
-               LayeredGraphPlot, Typeset`show$$ = True, 
-               Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-               Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-               "\"untitled\"", Typeset`specs$$ = {{{
-                  Hold[Toolbox`p$$], 0, "Currency metabolites to remove"},
-                  0, 4, 1}, {{
+               Toolbox`p$$ = 0, Toolbox`Private`pltfunc$$ = LayeredGraphPlot, 
+               Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+               Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, 
+               Typeset`animvar$$ = 1, Typeset`name$$ = "\"untitled\"", 
+               Typeset`specs$$ = {{{
+                  Hold[Toolbox`p$$], 0, "Currency metabolites to remove"}, 0, 
+                 4, 1}, {{
                   Hold[Toolbox`Private`method$$], "Remove", 
                   "How to treat currency metabolites"}, {"Remove", "Mask"}}, {{
                   Hold[Toolbox`Private`pltfunc$$], LayeredGraphPlot, 
                   "Plot function"}, {LayeredGraphPlot, GraphPlot, TreePlot}}},
                 Typeset`size$$ = Automatic, Typeset`update$$ = 0, 
                Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
-               Toolbox`p$9893$$ = 0, Toolbox`Private`method$9898$$ = 
-               False, Toolbox`Private`pltfunc$9899$$ = 0}, 
+               Toolbox`p$9893$$ = 0, Toolbox`Private`method$9898$$ = False, 
+               Toolbox`Private`pltfunc$9899$$ = 0}, 
                
                DynamicBox[Manipulate`ManipulateBoxes[
                 1, StandardForm, 
                  "Variables" :> {
-                  Toolbox`Private`method$$ = "Remove", Toolbox`p$$ = 
-                   0, Toolbox`Private`pltfunc$$ = LayeredGraphPlot}, 
+                  Toolbox`Private`method$$ = "Remove", Toolbox`p$$ = 0, 
+                   Toolbox`Private`pltfunc$$ = LayeredGraphPlot}, 
                  "ControllerVariables" :> {
                    Hold[Toolbox`p$$, Toolbox`p$9893$$, 0], 
                    Hold[
-                   Toolbox`Private`method$$, 
-                    Toolbox`Private`method$9898$$, False], 
+                   Toolbox`Private`method$$, Toolbox`Private`method$9898$$, 
+                    False], 
                    Hold[
-                   Toolbox`Private`pltfunc$$, 
-                    Toolbox`Private`pltfunc$9899$$, 0]}, 
-                 "OtherVariables" :> {
+                   Toolbox`Private`pltfunc$$, Toolbox`Private`pltfunc$9899$$, 
+                    0]}, "OtherVariables" :> {
                   Typeset`show$$, Typeset`bookmarkList$$, 
                    Typeset`bookmarkMode$$, Typeset`animator$$, 
                    Typeset`animvar$$, Typeset`name$$, Typeset`specs$$, 
@@ -2232,18 +2230,16 @@ Cell[BoxData[
                     Toolbox`metabolite["x1", None] -> "&x1&", 
                     Toolbox`metabolite["x2", None] -> "&x2&", 
                     Toolbox`metabolite["x3", None] -> "&x3&", 
-                    Toolbox`metabolite["x4", None] -> "&x4&"}, "Notes" -> 
-                    "", "Ignore" -> {}, "UnitChecking" -> False, 
-                    "Synonyms" -> {}, "Events" -> {}}]], Toolbox`p$$, 
-                    Method -> Toolbox`Private`method$$], 
-                   Toolbox`Private`PlotFunction -> 
+                    Toolbox`metabolite["x4", None] -> "&x4&"}, "Notes" -> "", 
+                    "Ignore" -> {}, "UnitChecking" -> False, "Synonyms" -> {},
+                     "Events" -> {}}]], Toolbox`p$$, Method -> 
+                    Toolbox`Private`method$$], Toolbox`Private`PlotFunction -> 
                    Toolbox`Private`pltfunc$$, 
                    ImageSize -> {{Toolbox`Private`width}, {
                     Toolbox`Private`height - 140}}], 
                  "Specifications" :> {{{
-                    Toolbox`p$$, 0, "Currency metabolites to remove"}, 0, 
-                    4, 1}, {{
-                    Toolbox`Private`method$$, "Remove", 
+                    Toolbox`p$$, 0, "Currency metabolites to remove"}, 0, 4, 
+                    1}, {{Toolbox`Private`method$$, "Remove", 
                     "How to treat currency metabolites"}, {
                     "Remove", "Mask"}}, {{
                     Toolbox`Private`pltfunc$$, LayeredGraphPlot, 
@@ -2420,15 +2416,13 @@ Cell[BoxData[
               StandardForm[
                Toolbox`reaction["1", {
                  Toolbox`metabolite["x1", None]}, {
-                 Toolbox`metabolite["x2", None]}, {1, 1}, True]]]}, {
-            1.5, 
+                 Toolbox`metabolite["x2", None]}, {1, 1}, True]]]}, {1.5, 
              Tooltip[
               Rotate["2", 90 Degree], 
               StandardForm[
                Toolbox`reaction["2", {
                  Toolbox`metabolite["x2", None]}, {
-                 Toolbox`metabolite["x3", None]}, {1, 1}, True]]]}, {
-            2.5, 
+                 Toolbox`metabolite["x3", None]}, {1, 1}, True]]]}, {2.5, 
              Tooltip[
               Rotate["3", 90 Degree], 
               StandardForm[
@@ -2496,18 +2490,15 @@ Cell[BoxData[
             Grid[{{
                Toolbox`v["1"], 
                Toolbox`rateconst["1", False] (
-                Toolbox`Keq["1"] 
-                 Toolbox`metabolite["x1", None][Toolbox`t] - 
+                Toolbox`Keq["1"] Toolbox`metabolite["x1", None][Toolbox`t] - 
                 Toolbox`metabolite["x2", None][Toolbox`t])}, {
                Toolbox`v["2"], 
                Toolbox`rateconst["2", False] (
-                Toolbox`Keq["2"] 
-                 Toolbox`metabolite["x2", None][Toolbox`t] - 
+                Toolbox`Keq["2"] Toolbox`metabolite["x2", None][Toolbox`t] - 
                 Toolbox`metabolite["x3", None][Toolbox`t])}, {
                Toolbox`v["3"], 
                Toolbox`rateconst["3", False] (
-                Toolbox`Keq["3"] 
-                 Toolbox`metabolite["x3", None][Toolbox`t] - 
+                Toolbox`Keq["3"] Toolbox`metabolite["x3", None][Toolbox`t] - 
                 Toolbox`metabolite["x4", None][Toolbox`t])}}, 
              Dividers -> {True, All}, Background -> {None, {{
                  GrayLevel[0.99], 
@@ -2515,11 +2506,11 @@ Cell[BoxData[
             12]}], {{800}, {450}}, Scrollbars -> {False, True}], "ODE" -> Pane[
         Style[
          Column[{Derivative[1][
-             Toolbox`metabolite["x1", None]][Toolbox`t] == -
-            Toolbox`rateconst["1", True] (
+             Toolbox`metabolite["x1", None]][
+            Toolbox`t] == (-Toolbox`rateconst["1", True]) (
              Toolbox`metabolite["x1", None][Toolbox`t] - 
-             Toolbox`Keq["1"]^(-1) 
-             Toolbox`metabolite["x2", None][Toolbox`t]), Derivative[1][
+             Toolbox`Keq["1"]^(-1) Toolbox`metabolite["x2", None][Toolbox`t]),
+            Derivative[1][
              Toolbox`metabolite["x2", None]][Toolbox`t] == 
            Toolbox`rateconst["1", True] (
               Toolbox`metabolite["x1", None][Toolbox`t] - 
@@ -2527,8 +2518,8 @@ Cell[BoxData[
               Toolbox`metabolite["x2", None][Toolbox`t]) - 
             Toolbox`rateconst["2", True] (
              Toolbox`metabolite["x2", None][Toolbox`t] - 
-             Toolbox`Keq["2"]^(-1) 
-             Toolbox`metabolite["x3", None][Toolbox`t]), Derivative[1][
+             Toolbox`Keq["2"]^(-1) Toolbox`metabolite["x3", None][Toolbox`t]),
+            Derivative[1][
              Toolbox`metabolite["x3", None]][Toolbox`t] == 
            Toolbox`rateconst["2", True] (
               Toolbox`metabolite["x2", None][Toolbox`t] - 
@@ -2536,8 +2527,8 @@ Cell[BoxData[
               Toolbox`metabolite["x3", None][Toolbox`t]) - 
             Toolbox`rateconst["3", True] (
              Toolbox`metabolite["x3", None][Toolbox`t] - 
-             Toolbox`Keq["3"]^(-1) 
-             Toolbox`metabolite["x4", None][Toolbox`t]), Derivative[1][
+             Toolbox`Keq["3"]^(-1) Toolbox`metabolite["x4", None][Toolbox`t]),
+            Derivative[1][
              Toolbox`metabolite["x4", None]][Toolbox`t] == 
            Toolbox`rateconst["3", True] (
              Toolbox`metabolite["x3", None][Toolbox`t] - 
@@ -2590,9 +2581,8 @@ Cell[BoxData[
                Toolbox`metabolite["x3", None] -> "&x3&", 
                Toolbox`metabolite["x4", None] -> "&x4&"}, "Notes" -> "", 
              "Ignore" -> {}, "UnitChecking" -> False, "Synonyms" -> {}, 
-             "Events" -> {}}]], Toolbox`p, Method -> 
-          Toolbox`Private`method], Toolbox`Private`PlotFunction -> 
-         Toolbox`Private`pltfunc, 
+             "Events" -> {}}]], Toolbox`p, Method -> Toolbox`Private`method], 
+         Toolbox`Private`PlotFunction -> Toolbox`Private`pltfunc, 
          ImageSize -> {{Toolbox`Private`width}, {
            Toolbox`Private`height - 140}}], {{
          Toolbox`p, 0, "Currency metabolites to remove"}, 0, 4, 1}, {{
@@ -2602,10 +2592,9 @@ Cell[BoxData[
          LayeredGraphPlot, GraphPlot, TreePlot}}], "Nullspace" -> 
       "Nullspace empty", "Left Nullspace" -> Pane[
         TableForm[{
-         Toolbox`metabolite["x1", None] + 
-          Toolbox`metabolite["x2", None] + 
-          Toolbox`metabolite["x3", None] + 
-          Toolbox`metabolite["x4", None]}, TableHeadings -> {None, {
+         Toolbox`metabolite["x1", None] + Toolbox`metabolite["x2", None] + 
+          Toolbox`metabolite["x3", None] + Toolbox`metabolite["x4", None]}, 
+         TableHeadings -> {None, {
             Toolbox`metabolite["x1", None], 
             Toolbox`metabolite["x2", None], 
             Toolbox`metabolite["x3", None], 
@@ -2726,16 +2715,22 @@ Cell["Model attributes", "Subsection",
  CellChangeTimes->{{3.5623530705831738`*^9, 3.562353072907361*^9}},
  CellID->115847815],
 
-Cell["\<\
-Models provide a series of attributes. Some of them are mutable, e.g, \
-InitialConditions or Parameters, others are immutable, e.g., Species or \
-Stoichiometry. Immutable attributes usually depend on other mutable \
-attributes and thus can be modified indirectly.\
-\>", "Text",
+Cell[TextData[{
+ "Models provide a series of attributes (see ",
+ ButtonBox["Model attributes ",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Toolbox/guide/Model attributes"],
+ "for more information about individual attributes). Some of them are \
+mutable, e.g, InitialConditions or Parameters, others are immutable, e.g., \
+Species or Stoichiometry. Immutable attributes usually depend on other \
+mutable attributes and thus can be modified indirectly."
+}], "Text",
  CellChangeTimes->{{3.562353179579075*^9, 3.5623532666559353`*^9}, {
   3.562353721523033*^9, 3.562353852101454*^9}, {3.562354082402873*^9, 
   3.562354107339258*^9}, {3.5623546480017242`*^9, 3.562354683360752*^9}, {
-  3.5624306594579163`*^9, 3.562430724114764*^9}},
+  3.5624306594579163`*^9, 3.562430724114764*^9}, {3.575306113005426*^9, 
+  3.575306116276023*^9}, {3.575306330296185*^9, 3.575306332272044*^9}, {
+  3.575306366273299*^9, 3.575306417859729*^9}},
  CellID->666336559],
 
 Cell[BoxData[GridBox[{
@@ -2760,9 +2755,8 @@ Cell[BoxData[GridBox[{
     RowBox[{"model", "[", "\"\<\!\(\*
 StyleBox[\"Attribute\",
 FontWeight->\"Bold\",
-FontSlant->\"Italic\"]\)\>\"", "]"}], Cell["\<\
-returns the respective attribute\
-\>", "TableText"]},
+FontSlant->\"Italic\"]\)\>\"", "]"}], Cell[
+    "returns the respective attribute", "TableText"]},
    {
     RowBox[{
      StyleBox[
@@ -2773,7 +2767,7 @@ returns the respective attribute\
      StyleBox[
       RowBox[{"model", ",", " ", "new"}],
       FontSlant->"Italic"], "]"}], Cell[TextData[{
-     "replaces the respective attribute enirely with ",
+     "replaces the respective attribute entirely with ",
      StyleBox["new",
       FontSlant->"Italic"]
     }], "TableText"]},
@@ -2795,7 +2789,7 @@ returns the respective attribute\
   3.5623540603080883`*^9, 3.562354075324336*^9}, {3.562354195223473*^9, 
   3.562354234154817*^9}, {3.562354273387844*^9, 3.5623542816918383`*^9}, {
   3.562430818251688*^9, 3.562430841322348*^9}, {3.574598523883213*^9, 
-  3.574598523883314*^9}},
+  3.574598523883314*^9}, {3.575306425535467*^9, 3.575306425535563*^9}},
  CellID->1358913365],
 
 Cell["Handling model attributes.", "Caption",
@@ -3983,8 +3977,7 @@ JNm90i04P1UN+rV08Y1WPCL///8B4fvQ002yCwHk/wGJS8dm
       StyleBox["x1", 
        RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False, 
        AutoSpacing -> False, ZeroWidthTimes -> True], 
-      Toolbox`metabolite["x1", None], Editable -> False, Selectable -> 
-      False]],
+      Toolbox`metabolite["x1", None], Editable -> False, Selectable -> False]],
     Annotation[#, 
      Toolbox`metabolite["x1", None], "Tooltip"]& ], 
    TagBox[
@@ -4318,8 +4311,7 @@ epqlgcrEuUQe1Vyj/f//T9EXDXD5/Tuc9n9ZHK8O
       StyleBox["x2", 
        RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False, 
        AutoSpacing -> False, ZeroWidthTimes -> True], 
-      Toolbox`metabolite["x2", None], Editable -> False, Selectable -> 
-      False]],
+      Toolbox`metabolite["x2", None], Editable -> False, Selectable -> False]],
     Annotation[#, 
      Toolbox`metabolite["x2", None], "Tooltip"]& ], 
    TagBox[
@@ -4729,8 +4721,7 @@ oSAOzca8Ox+P//9PCEbfxNG+aBfifwBiwcf5
       StyleBox["x3", 
        RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False, 
        AutoSpacing -> False, ZeroWidthTimes -> True], 
-      Toolbox`metabolite["x3", None], Editable -> False, Selectable -> 
-      False]],
+      Toolbox`metabolite["x3", None], Editable -> False, Selectable -> False]],
     Annotation[#, 
      Toolbox`metabolite["x3", None], "Tooltip"]& ], 
    TagBox[
@@ -5051,8 +5042,7 @@ otRjzmFr3yknBAIVGP6DgwLde/v+//8F4S3Ovf/z/wBxX9/V
       StyleBox["x4", 
        RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False, 
        AutoSpacing -> False, ZeroWidthTimes -> True], 
-      Toolbox`metabolite["x4", None], Editable -> False, Selectable -> 
-      False]],
+      Toolbox`metabolite["x4", None], Editable -> False, Selectable -> False]],
     Annotation[#, 
      Toolbox`metabolite["x4", None], "Tooltip"]& ]},
   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
@@ -5827,8 +5817,7 @@ zxf/A0jKS0A=
       StyleBox["x1", 
        RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False, 
        AutoSpacing -> False, ZeroWidthTimes -> True], 
-      Toolbox`metabolite["x1", None], Editable -> False, Selectable -> 
-      False]],
+      Toolbox`metabolite["x1", None], Editable -> False, Selectable -> False]],
     Annotation[#, 
      Toolbox`metabolite["x1", None], "Tooltip"]& ], 
    TagBox[
@@ -6188,8 +6177,7 @@ ghca/weHwSOp
       StyleBox["x2", 
        RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False, 
        AutoSpacing -> False, ZeroWidthTimes -> True], 
-      Toolbox`metabolite["x2", None], Editable -> False, Selectable -> 
-      False]],
+      Toolbox`metabolite["x2", None], Editable -> False, Selectable -> False]],
     Annotation[#, 
      Toolbox`metabolite["x2", None], "Tooltip"]& ], 
    TagBox[
@@ -6566,8 +6554,7 @@ oStAQteODbS85LrYCrrn
       StyleBox["x3", 
        RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False, 
        AutoSpacing -> False, ZeroWidthTimes -> True], 
-      Toolbox`metabolite["x3", None], Editable -> False, Selectable -> 
-      False]],
+      Toolbox`metabolite["x3", None], Editable -> False, Selectable -> False]],
     Annotation[#, 
      Toolbox`metabolite["x3", None], "Tooltip"]& ], 
    TagBox[
@@ -6914,8 +6901,7 @@ LXxLiWnn//l/71P/n/8fh3xuzQ==
       StyleBox["x4", 
        RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False, 
        AutoSpacing -> False, ZeroWidthTimes -> True], 
-      Toolbox`metabolite["x4", None], Editable -> False, Selectable -> 
-      False]],
+      Toolbox`metabolite["x4", None], Editable -> False, Selectable -> False]],
     Annotation[#, 
      Toolbox`metabolite["x4", None], "Tooltip"]& ]},
   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
@@ -7757,89 +7743,6 @@ Cell[BoxData[
    3.574600866918359*^9, 3.574600918437945*^9},
  CellLabel->"Out[38]=",
  CellID->1511320065]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Head", "[", 
-  RowBox[{"v", "[", "\"\<1\>\"", "]"}], "]"}]], "Input",
- CellChangeTimes->{{3.574601205249436*^9, 3.574601207890679*^9}},
- CellLabel->"In[42]:=",
- CellID->1880401145],
-
-Cell[BoxData["v"], "Output",
- CellChangeTimes->{3.5746012082038317`*^9},
- CellLabel->"Out[42]=",
- CellID->1532694763]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"FullForm", "[", 
-  RowBox[{
-   RowBox[{"v", "[", "\"\<1\>\"", "]"}], "*", 
-   RowBox[{"v", "[", "\"\<2\>\"", "]"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.5746012655947742`*^9, 3.574601267419745*^9}},
- CellLabel->"In[47]:=",
- CellID->533284269],
-
-Cell[BoxData[
- TagBox[
-  StyleBox[
-   RowBox[{"Times", "[", 
-    RowBox[{
-     RowBox[{"v", "[", "\"\<1\>\"", "]"}], ",", 
-     RowBox[{"v", "[", "\"\<2\>\"", "]"}]}], "]"}],
-   ShowSpecialCharacters->False,
-   ShowStringCharacters->True,
-   NumberMarks->True],
-  FullForm]], "Output",
- CellChangeTimes->{{3.574601261898983*^9, 3.574601267871295*^9}},
- CellLabel->"Out[47]//FullForm=",
- CellID->420488630]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Times", "[", 
-  RowBox[{"\"\<a\>\"", ",", "\"\<b\>\"", ",", "\"\<c\>\""}], "]"}]], "Input",
- CellChangeTimes->{{3.574601341649651*^9, 3.5746013616445723`*^9}},
- CellLabel->"In[58]:=",
- CellID->611799125],
-
-Cell[BoxData[
- RowBox[{"\<\"a\"\>", " ", "\<\"b\"\>", " ", "\<\"c\"\>"}]], "Output",
- CellChangeTimes->{{3.574601347405881*^9, 3.5746013620693493`*^9}},
- CellLabel->"Out[58]=",
- CellID->1482675284]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"MatchQ", "[", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"v", "[", "\"\<1\>\"", "]"}], "*", 
-    RowBox[{"v", "[", "\"\<2\>\"", "]"}]}], ",", 
-   TagBox[
-    StyleBox[
-     RowBox[{"Times", "[", "__v", "]"}],
-     ShowSpecialCharacters->False,
-     ShowStringCharacters->True,
-     NumberMarks->True],
-    FullForm]}], "]"}]], "Input",
- CellChangeTimes->{{3.5746011484843807`*^9, 3.574601334356266*^9}},
- CellLabel->"In[56]:=",
- CellID->319755739],
-
-Cell[BoxData["False"], "Output",
- CellChangeTimes->{{3.5746011678856363`*^9, 3.574601335061378*^9}},
- CellLabel->"Out[56]=",
- CellID->116309985]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],

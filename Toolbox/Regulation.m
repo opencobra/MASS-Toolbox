@@ -5,43 +5,6 @@
 
 
 (* ::Section:: *)
-(*Documentation*)
-
-
-(* Exported symbols added here with SymbolName::usage *) 
-
-
-constructEnzymeModule::usage="constructEnzymeModule[reaction, activatingBindingSites, inhibitingBindingSites, activators, inhibitors] generates an enzyme module that replaces the provided elementary reaction. ###FIXME### More documentation needed.";
-
-
-correctRatesForBindingSites::usage="###FIXME###";
-
-
-haldaneRelation::usage="haldaneRelation[rxnID,elementaryRxns] relates the overall equilibrium constant of the enzymatic reaction to the products of ratios of elemenatary rate constants";
-
-
-(Toolbox`rateconst["rxnID_cat1", True] Toolbox`rateconst["rxnID_cat2", True]...)/(Toolbox`rateconst["rxnID_cat1", False] Toolbox`rateconst["rxnID_cat2", False]...)
-
-
-(rateconst["rxnID_cat1"]rateconst["rxnID_cat2"])/(rateconst["rxnID_cat1",False]rateconst["rxnID_cat2",False])
-
-
-(Toolbox`rateconst["rxnID_cat1", True] Toolbox`rateconst["rxnID_cat2", True]...)/(Toolbox`rateconst["rxnID_cat1", False] Toolbox`rateconst["rxnID_cat2", False]...)
-
-
-Keq["rxnID"]
-
-
-KingAltmanPatterns::usage="KingAltmanPatterns[model] generates King-Altman patterns for all enzyme forms in model."
-
-
-unifyRateConstants::usage="unifyRateConstatns[rates] replaces IDs of the form rxnID$\\d+ with rxnID.";
-
-
-Mechanism::usage="Option for constructEnzymeModule.";
-
-
-(* ::Section:: *)
 (*Definitions*)
 
 
@@ -261,7 +224,7 @@ result
 isomerization[enzymeForms1:{_enzyme..},enzymeForms2:{_enzyme..},rxnIDprefix_String]:=Flatten[Table[r[rxnIDprefix<>"_Catalysis_Transition"<>ToString[Unique[]],{e1},{e2},{1,1},True],{e1,enzymeForms1},{e2,enzymeForms2}]]
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*King-Altman Method*)
 
 
@@ -282,7 +245,7 @@ KingAltmanPatterns[model_MASSmodel]:=Module[{kMat,distributionTerms,kJJ,enzForms
 distributionTerms=Table[
 (*kMatJ=ReplacePart[kMat,{_,i}->1];*)
 kJJ=kMat[[#,#]]&[Drop[Range[1,Length[kMat]],{i}]];
-enzForms[[i]]->Det[kJJ],{i,1,Length[enzForms]}
+enzForms[[i]]->anonymize[Det[kJJ]],{i,1,Length[enzForms]}
 ];
 Table[enzForms[[i]]->(distributionTerms[[i,2]]/(Plus@@distributionTerms[[All,2]]))*parameter["Etot"],{i,1,Length[distributionTerms]}]
 ];

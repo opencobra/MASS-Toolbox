@@ -5,34 +5,6 @@
 
 
 (* ::Section:: *)
-(*Documentation*)
-
-
-(* Exported symbols added here with SymbolName::usage *) 
-
-
-getReferenceFluxesAndBoundsFromXML::usage="getReferenceFluxesAndBoundsFromXML[path2xml] returns reference fluxe and bounds from files like Ec_iJR904_flux1.xml.gz"
-
-
-parseJSON::usage="parseJSON[string] parses a JSON ojbect structure. parseJSON[path] reads from path.";
-
-
-scatterFromDicts::usage="scatterFromDicts[dict, ...] constructs a scatter representation of the data associated with the the common keys of dicts."
-
-
-updateRules::usage="updateRules[rules, newRules] updates rules with newRules by joinging them. Key-value pairs of which keys are present in newRules are removed from rules prior joining.";
-
-
-integerChop::usage="integerChop[number] will round real numbers to integers if Round[number] == number.";
-
-
-query::usage="query[key, listOfRules] will return the corresponding value."(*## ## FIXME ## ##*);
-
-
-filter::usage="filter[listOfRules, keys] behave like FilterRules with the exception that the filtered rules are returned in the order of keys.";
-
-
-(* ::Section:: *)
 (*Definitions*)
 
 
@@ -107,6 +79,19 @@ commonkeys=Union[Flatten@Intersection[Sequence@@ldicts[[All,All,1]]]];
 Table[k->(k/.#&/@ldicts),{k,commonkeys}]
 ];
 Protect[scatterFromDicts];
+
+
+Unprotect[calcLinkMatrix];
+calcLinkMatrix[s_?MatrixQ]:=Module[{Q,R,independent,tmp,dependent,newOrder,rank},
+	{Q,R}=QRDecomposition[N@Transpose[s]];
+	dependent=Flatten[Position[Chop@Tr[R,List],0]];
+	independent=Complement[Range[1,Length[s]],dependent];
+	newOrder=Join[independent,dependent];
+	s[[newOrder]].PseudoInverse[N@s[[independent]]];
+	{newOrder,s[[newOrder]],s[[independent]],Chop[s[[newOrder]].PseudoInverse[N@s[[independent]]]]}
+];
+def:calcLinkMatrix[___]:=(Message[Toolbox::badargs,calcLinkMatrix,Defer@def];Abort[])
+Protect[calcLinkMatrix];
 
 
 (* ::Subsection::Closed:: *)

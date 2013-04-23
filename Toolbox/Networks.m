@@ -5,28 +5,6 @@
 
 
 (* ::Section:: *)
-(*Documentation*)
-
-
-(* Exported symbols added here with SymbolName::usage *) 
-
-
-gpr2graphs::usage="gpr2graphs[gprRules] transforms gprRules into a network and returns a list of its connected subgraphs.";
-
-
-model2bipartite::usage="model2bipartite[model] converts model into a bipartite network, i.e., metabolites as well as reactions are represented as nodes.";
-
-
-pathwaytize::usage="pathwaytize[network, numberOfHighDegreeNodesToTreat, ignoreNodes] attempts to make very dense network visually more appealing by masking high degree nodes (e.g. metabolites like ATP, NADPH, etc.).";
-
-
-reactions2bipartite::usage="reactions2bipartite[rxns] converts a list of reactions into a bipartite network, i.e., metabolites as well as reactions are represented as nodes.";
-
-
-stoich2bipartite::usage="stoich2bipartite[stoich_?MatrixQ,rxns_List,mets_List] returns a bipartite network representation of the system defined by its stoichiometry and corresponding row (mets) and column (rxns) identifiers. An overloaded MASSmodel version of this function exists also (stoich2bipartite[model_MASSmodel])";
-
-
-(* ::Section:: *)
 (*Definitions*)
 
 

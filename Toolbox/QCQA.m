@@ -5,13 +5,6 @@
 
 
 (* ::Section:: *)
-(*Documentation*)
-
-
-qcqa::usage="qcqa[model] will run a series of quality assessment and control tests on model and return a report.";
-
-
-(* ::Section:: *)
 (*Definitions*)
 
 
@@ -60,8 +53,8 @@ qcqa[model_MASSmodel,opts:OptionsPattern[]]:=Module[{missingParameters,pane,grid
 	If[OptionValue["ODE"]===True,
 		AppendTo[report,"ODEs with missing parameters and initial conditions"->pane@grid@Partition[Select[model["ODE"]/.Join[(#->OptionValue["MissingInitialConditionStyle"][#]&/@missingIC),(#->OptionValue["MissingParameterStyle"][#]&/@missingParameters)(*,{pat:Join[$MASS$parametersPattern,$MASS$speciesPattern]:>Style[pat,Opacity[.5]]}*)],MemberQ[#,_Style,\[Infinity]]&],1]];
 	];
-
-	MenuView[report]
+	Print[report];
+	MenuView[report,ImageSize->Automatic]
 ];
 
 
