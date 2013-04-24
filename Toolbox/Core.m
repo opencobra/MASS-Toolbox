@@ -15,7 +15,7 @@
 Begin["`Private`"];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Util*)
 
 
@@ -132,13 +132,14 @@ Protect[speciesFromString];
 Unprotect[str2mass];
 str2mass::wrngStrRepresentation="`1` cannot be parsed!";
 Options[str2mass]={"ReversibleDelimiter"->RegularExpression["<[=-]*>"],"IrreversibleDelimeter"->RegularExpression["[=-]*>"]};
-str2mass[s_String,opts:OptionsPattern[]]:=Module[{},
-	Switch[s,
-		elem_String/;StringMatchQ[elem,RegularExpression["k_.+"]],rateconst[StringJoin[Sequence@@Riffle[#[[2;;-2]],"_"]],Switch[#[[-1]],"fwd",True,"rev",False,_,Message[str2mass::wrngStrRepresentation,s];Abort[];]]&@StringSplit[s,"_"],
-		elem_String/;StringMatchQ[elem,RegularExpression["Keq_.+"]],Keq[StringJoin[Sequence@@Riffle[StringSplit[s,"_"][[2;;]],"_"]]],
-		elem_String/;StringMatchQ[elem,RegularExpression["^\\S+\\[\\S+\\]$"]|RegularExpression["\\S+(_[\\S]+)?"]],speciesFromString[s],
-		elem_String/;StringMatchQ[elem,RegularExpression[".+: .+"]],reactionFromString[s,OptionValue["ReversibleDelimiter"],OptionValue["IrreversibleDelimeter"]],
-		_,Message[str2mass::wrngStrRepresentation,s];s
+str2mass[s_String,opts:OptionsPattern[]]:=Module[{cleanStr},
+	cleanStr=reverseIdXmlConform[s];
+	Switch[cleanStr,
+		elem_String/;StringMatchQ[elem,RegularExpression["k_.+"]],rateconst[StringJoin[Sequence@@Riffle[#[[2;;-2]],"_"]],Switch[#[[-1]],"fwd",True,"rev",False,_,Message[str2mass::wrngStrRepresentation,cleanStr];Abort[];]]&@StringSplit[cleanStr,"_"],
+		elem_String/;StringMatchQ[elem,RegularExpression["Keq_.+"]],Keq[StringJoin[Sequence@@Riffle[StringSplit[cleanStr,"_"][[2;;]],"_"]]],
+		elem_String/;StringMatchQ[elem,RegularExpression["^\\S+\\[\\S+\\]$"]|RegularExpression["\\S+(_[\\S]+)?"]],speciesFromString[cleanStr],
+		elem_String/;StringMatchQ[elem,RegularExpression[".+: .+"]],reactionFromString[cleanStr,OptionValue["ReversibleDelimiter"],OptionValue["IrreversibleDelimeter"]],
+		_,Message[str2mass::wrngStrRepresentation,cleanStr];cleanStr
 	]
 ];
 def:str2mass[___]:=(Message[Toolbox::badargs,str2mass,Defer@def];Abort[])

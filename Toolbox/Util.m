@@ -11,6 +11,10 @@
 Begin["`Private`"]
 
 
+makeIdXmlConform[str_String]:=StringReplace[str,RegularExpression["([^a-z_A-Z0-9])"]:>("_Char"<>ToString[ToCharacterCode["$1"][[1]]]<>"_")]
+reverseIdXmlConform[str_String]:=StringReplace[str,RegularExpression["(_Char)(\\d+)(_)"]:>FromCharacterCode[ToExpression["$2"]]]
+
+
 filter[listOfRules:{_Rule...},keys_List]:=Module[{cleanKeys},cleanKeys=Select[keys,MemberQ[listOfRules[[All,1]],#]&];Thread[cleanKeys->(cleanKeys/.FilterRules[listOfRules,cleanKeys])]]
 
 

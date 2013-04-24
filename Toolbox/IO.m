@@ -14,7 +14,7 @@ Begin["`Private`"]
 Needs["AutomaticUnits`"]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*IO*)
 
 
@@ -36,7 +36,7 @@ importModel[path_String,opts:OptionsPattern[]]:=Module[{stuff},
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Matlab*)
 
 
@@ -85,10 +85,10 @@ Protect[mat2model];
 
 
 (* ::Subsection:: *)
-(*SBML*)
+(*SBML import*)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Utilities*)
 
 
@@ -107,7 +107,7 @@ cleanUpMathML[math:XMLElement["math",_,_]]:=Module[{adjustments},
 mathML2mass=XML`MathML`SymbolicMathMLToExpression[cleanUpMathML[#]]&;
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfEvents*)
 
 
@@ -127,7 +127,7 @@ getListOfEvents[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_p
 ]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfInitialAssignments*)
 
 
@@ -135,7 +135,7 @@ parseInitialAssignmentXML[initialAssignment_XMLElement,id2massID:{_Rule..}]:=(("
 getListOfInitialAssignments[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseInitialAssignmentXML[#,id2massID]&/@extractXMLelement[xml,"listOfInitialAssignments",2]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfRules*)
 
 
@@ -152,7 +152,7 @@ Switch[#[[1]],
 getListOfRules[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseRuleXML[#,id2massID]&/@extractXMLelement[xml,"listOfRules",2]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfFunctionDefinitions*)
 
 
@@ -163,7 +163,7 @@ parseFunctionXML/@extractXMLelement[xml,"listOfFunctionDefinitions",2]
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfUnitDefinitions*)
 
 
@@ -188,7 +188,7 @@ getListOfUnitDefinitions[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPat
 ]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfSpecies*)
 
 
@@ -229,7 +229,7 @@ getBoundaryConditions[listOfSpecies:{((_species|_species[t])->_List)...}]:=Cases
 Protect[getBoundaryConditions];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfCompartments*)
 
 
@@ -243,7 +243,7 @@ getListOfCompartments[xml_/;Head[xml]===XMLObject["Document"]]:=Module[{},
 getCompartmentVolumes[listOfCompartments:{((parameter["Volume",_String]|parameter["Volume",_String][t])->_List)...},unitDefinitions:{(_Rule|_RuleDelayed)...}]:=#[[1]]->sbmlString2Number[query["size",#[[2]],"1"]]*(query["units",#[[2]],"volume"]/.Dispatch[unitDefinitions])&/@listOfCompartments
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfReactions*)
 
 
@@ -295,7 +295,7 @@ getStoich[attrVal:{_Rule...},id2massID:{(_String->(_parameter|_parameter[t]|_spe
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*kineticLaw*)
 
 
@@ -326,7 +326,7 @@ getKineticLaw[XMLElement["kineticLaw",attrVal:{_Rule...},data_List],rxnID_String
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*parameters*)
 
 
@@ -355,7 +355,7 @@ getListOfGlobalParameters[xml]
 getParameterValues[listOfParameters:{((_parameter|_parameter[t])->_List)...}]:=#[[1]]->sbmlString2Number["value"/.Dispatch[#[[2]]]/."value"->"Indeterminate"]&/@listOfParameters
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*main*)
 
 
@@ -603,44 +603,46 @@ Protect[sbml2model];
 
 
 (* ::Subsection:: *)
-(*SBML (old)*)
+(*SBML export*)
 
 
 Unprotect[model2sbml];
-model2sbml::wrongarg="`1` `2` do not match the neccessary argument pattern `3`.";
-Options[model2sbml]={"InitialConditions"->{},"Parameters"->{}};
-model2sbml[model_MASSmodel,OptionsPattern[]]:=Module[{intrnlParameters,makeConform,ratemapping,conformRules,makeRxnConform},
-If[!MatchQ[OptionValue["InitialConditions"],{}|{(_->_?NumberQ)..}],Message[model2sbml::wrongarg,"Initial conditions",Short@OptionValue["InitialConditions"],{(_->_?NumberQ)..}]];
-If[!MatchQ[OptionValue["Parameters"],{}|{(_->_?NumberQ)..}],Message[model2sbml::wrongarg,"Parameters",Short@OptionValue["Parameters"],{(_->_?NumberQ)..}]];
-intrnlParameters=#[[1]]->Rule[#[[1]],#[[2]]]&/@updateRules[model["Parameters"],OptionValue["Parameters"]];
-
-MathSBML`newModel[Global`id->StringReplace[ToString[model["ID"]],"$"->"_"]];
-conformRules={"-"->"_DASH_","/"->"_FSLASH_","("->"_LPAREN_",")"->"_RPAREN_","["->"_LSQBKT_","]"->"_RSQBKT_"};
-makeConform="M_"<>StringReplace[#,conformRules]&;
-makeRxnConform="R_"<>StringReplace[#,conformRules]&;
-Do[
-MathSBML`addSpecies[
-makeConform@ToString[spec],
-Global`compartment->spec[[2]],
-Global`initialConcentration->(spec/.OptionValue["InitialConditions"]/.model["InitialConditions"]/.n_/;!NumberQ[n]:>Indeterminate)
-];
-,{spec,model["Species"]}
-];
-ratemapping=updateRules[Thread[Rule[model["Fluxes"],makeRates[model,model["Parameters"]]]],model["CustomRateLaws"]]/.elem_[t]:>elem;
-Do[
-MathSBML`addReaction[
-Global`id->makeRxnConform@getID[rxn],
-Global`reactants->Evaluate[If[#=!={},makeConform@ToString[#],{}]&/@getSubstrates[rxn]],
-Global`reactantStoichiometry->getSubstrStoich[rxn],
-Global`products->Evaluate[If[#=!={},makeConform@ToString[#],{}]&/@getProducts[rxn]],
-Global`productStoichiometry->getProdStoich[rxn],
-Global`reversible->reversibleQ[rxn],
-Global`kineticLaw->(getID[rxn]/.Dispatch[ratemapping])/.m:(_metabolite|_species|_enzyme):>makeConform@ToString[m]/.p:(_rateconst|_Keq|_parameter):>ToString[p],
-Global`parameters->(Union[Cases[getID[rxn]/.Dispatch[ratemapping],(_rateconst|_Keq|metabolite[_,"Xt"]|_parameter),\[Infinity]]]/.intrnlParameters/.p:(_rateconst|_Keq|metabolite[_,"Xt"]|_parameter):>ToString[p])/.{\[Infinity]->"INF",-\[Infinity]->"-INF"}
-];
-,{rxn,model["Reactions"]}
-];
-Return[ImportString[StringReplace[MathSBML`createModel[],{"<ms>"->"<ci>","</ms>"->"</ci>"}],"XML"]];
+model2sbml[model_MASSmodel]:=Module[{ratemapping,localParam,globalParam},
+	MathSBML`newModel[Global`id->makeIdXmlConform@StringReplace[ToString[model["ID"]],"$"->"_"]];
+	Do[
+		MathSBML`addSpecies[
+			ToString[spec,"SBML"],
+			Global`compartment->getCompartment[spec],
+			Global`initialConcentration->(spec/.stripUnits[model["InitialConditions"]]/.stripUnits[model["Parameters"]]/.n_/;!NumberQ[n]:>Indeterminate),
+			Global`boundaryCondition->MemberQ[model["BoundaryConditions"],spec],
+			Global`constant->MemberQ[model["Constant"],spec]
+		];
+		,{spec,Union[model["Species"],model["BoundaryConditions"],model["Constant"]]}
+	];
+	ratemapping=stripTime[Thread[Rule[(getID/@model["Fluxes"]),model["Rates"]]]];
+	localParam=If[MatchQ[#,_List],#[[2]],#]&[getID[#[[1]]]]->(ToString[#[[1]],"SBML"]->(stripUnits[#[[2]]]/.{\[Infinity]->"INF",-\[Infinity]->"-INF"}))&/@FilterRules[model["Parameters"],Cases[ratemapping,pat:$MASS$parametersPattern/;MemberQ[ratemapping[[All,1]],If[MatchQ[#,_List],#[[2]],#]&[getID[pat]]],\[Infinity]]];
+	Do[
+		MathSBML`addReaction[
+			Global`id->makeIdXmlConform[getID[rxn]],
+			Global`reactants->Evaluate[If[#=!={},ToString[#,"SBML"],{}]&/@getSubstrates[rxn]],
+			Global`reactantStoichiometry->getSubstrStoich[rxn],
+			Global`products->Evaluate[If[#=!={},ToString[#,"SBML"],{}]&/@getProducts[rxn]],
+			Global`productStoichiometry->getProdStoich[rxn],
+			Global`reversible->reversibleQ[rxn],
+			Global`kineticLaw->(getID[rxn]/.Dispatch[ratemapping])/.pat:Join[$MASS$speciesPattern,$MASS$parametersPattern]:>ToString[pat,"SBML"],
+			Global`parameters->FilterRules[localParam,getID[rxn]][[All,2]]
+			(*,Global`parameters->(Union[Cases[getID[rxn]/.Dispatch[ratemapping],$MASS$parametersPattern,\[Infinity]]]/.model["Parameters"]/.p:(_rateconst|_Keq|metabolite[_,"Xt"]|_parameter):>ToString[p])/.{\[Infinity]->"INF",-\[Infinity]->"-INF"}*)
+		];
+		,{rxn,model["Reactions"]}
+	];
+	globalParam=FilterRules[model["Parameters"],Cases[ratemapping,((p_parameter/;!MatchQ[getID[p],_List])|metabolite[_,"Xt"]),\[Infinity]]];
+	Do[
+		MathSBML`addParameter[
+			Global`id->ToString[param[[1]],"SBML"],
+			Global`value->stripUnits[param[[2]]]
+		];
+	,{param,globalParam}];
+	Return[ImportString[StringReplace[MathSBML`createModel["annotations"->False],{"<ms>"->"<ci>","</ms>"->"</ci>"}],"XML"]];
 ];
 def:model2sbml[___]:=(Message[Toolbox::badargs,model2sbml,Defer@def];Abort[])
 Protect[model2sbml];
