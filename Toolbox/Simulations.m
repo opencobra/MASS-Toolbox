@@ -11,6 +11,9 @@
 Begin["Private`"]
 
 
+Needs["DifferentialEquations`InterpolatingFunctionAnatomy`"]
+
+
 Unprotect[simulate];
 Options[simulate]={"InitialConditions"->{},"Parameters"->{},"Events"->{},"tFinal"->Infinity,"tStart"->0,"SpeciesProfiles"->"Concentrations"};
 simulate::missingIC="Missing initial conditions encountered for `1`.";
@@ -27,7 +30,7 @@ simulate[model_MASSmodel,opts:OptionsPattern[{simulate,NDSolve}]]:=Module[{repl,
 	(*Check if all initial conditions are provided*)
 	ic=FilterRules[updateRules[model["InitialConditions"],adjustUnits[OptionValue["InitialConditions"],model]],model["Variables"][[All,0]]];
 	{ic,parameters}=If[model["UnitChecking"],{ic,parameters},stripUnits[{ic,parameters}]];
-	units=#[[1]]->Replace[#[[2]],pat_/;Head[pat]=!=Unit->1,3]&/@ic;
+	units=#[[1]]->If[MatchQ[#[[2]],_Unit],ReplacePart[#[[2]],1->1],1]&/@ic;
 	If[
 		vars=Union[Cases[model["Variables"],Append[$MASS$speciesPattern,_parameter][t],\[Infinity]]][[All,0]];
 		Complement[vars,#[[All,1]]]=!={},
@@ -43,8 +46,7 @@ simulate[model_MASSmodel,opts:OptionsPattern[{simulate,NDSolve}]]:=Module[{repl,
 	(*catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;*)
 	(*catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;*)
 	Check[
-					
-			solution=(*#[[1]]->(#[[2]] (#[[1]][[0]]/.Dispatch[units]))&/@*)
+			solution=#[[1]]->(#[[2]] (#[[1]][[0]]/.Dispatch[units]))&/@
 				Check[
 					(*catchMissingDerivs@Hold[NDSolve[stripUnits@equations,model["Variables"],{t,tStart,tFinal},FilterRules[{opts}, Options[NDSolve]]]],*)
 					Quiet[Check[
