@@ -55,7 +55,7 @@ If[$VersionNumber>=9,
 
 Do[
     If[MemberQ[doNotTest,testCase[[1]]],(*Print["Skipping "<>testCase[[1]]<>"!"];*)Continue[]];
-    testResult=Check[CheckAbort[runSBMLTestSuiteTest[testCase,"LevelVersion"->"l3v1",Sequence @@ (testCase[[1]] /. options)],Print[testCase[[1]]];None],Print[$MessageList[[-1]]];Print["Skipping "<>testCase[[1]]<>"!"];Continue[];,{sbml2model::eventProblem,sbml2model::variableStoichiometry,sbml2model::eventDelayDetected,Toolbox`Private`reactionList2model::autoCatalyticRxn,Toolbox`Private`parseReactionXML::fastReactionDetected,runSBMLTestSuiteTest::lvNotFound,runSBMLTestSuiteTest::noODE}];
+    testResult=Check[CheckAbort[runSBMLTestSuiteTest[testCase,"LevelVersion"->"l3v1",Sequence @@ (testCase[[1]] /. options)],Print[testCase[[1]]];None],Print[$MessageList[[-1]]];Print["Skipping "<>testCase[[1]]<>"!"];Continue[];,{sbml2model::conversionFactorDetected,sbml2model::eventProblem,sbml2model::variableStoichiometry,sbml2model::eventDelayDetected,Toolbox`Private`reactionList2model::autoCatalyticRxn,Toolbox`Private`parseReactionXML::fastReactionDetected,runSBMLTestSuiteTest::lvNotFound,runSBMLTestSuiteTest::noODE}];
     With[{id="SBMLTestSuite_"<>testCase[[1]]},
     Test[
         testResult,

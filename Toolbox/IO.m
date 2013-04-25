@@ -152,7 +152,7 @@ Switch[#[[1]],
 getListOfRules[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseRuleXML[#,id2massID]&/@extractXMLelement[xml,"listOfRules",2]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfFunctionDefinitions*)
 
 
@@ -295,7 +295,7 @@ getStoich[attrVal:{_Rule...},id2massID:{(_String->(_parameter|_parameter[t]|_spe
 ];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*kineticLaw*)
 
 
@@ -355,7 +355,7 @@ getListOfGlobalParameters[xml]
 getParameterValues[listOfParameters:{((_parameter|_parameter[t])->_List)...}]:=#[[1]]->sbmlString2Number["value"/.Dispatch[#[[2]]]/."value"->"Indeterminate"]&/@listOfParameters
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*main*)
 
 
@@ -446,6 +446,7 @@ sbml2model::eventDetected="The MASS Toolbox does not provide support events in M
 sbml2model::eventDelayDetected="Delayed event detected. The MASS Toolbox does not provide support for delayed events.";
 sbml2model::variableStoichiometry="The toolbox does not support for variable stoichiometric factors (detected in reaction `1`)";
 sbml2model::eventProblem="Problem encountered for the following events: `1`. Amongst other things, the toolbox does not provide support for events that involve parameters.";
+sbml2model::conversionFactorDetected="Conversion factor detected. The MASS Toolbox does not provide support conversion factors. The conversion factors will be ignored in further calculations.";
 sbml2model[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:=Module[{listOfUnitDefinitions,listOfFunctionDefinitions,listOfCompartments,compartmentVolumes,listOfParameters,parameters,
 listOfSpecies,initialConditions,boundaryConditions,id2massID,listOfRxns,listOfRules,assignmentRules,rateRules,algebraicRules,listOfInitialAssignments,
 listOfKineticLawsAndLocalParameters,listOfKineticLaws,listOfLocalParameters,speciesInReactions,notCoveredByReactions,customODE,constantSpecies,paramInListOfRules,
@@ -453,6 +454,7 @@ constParam,speciesIDs2names,modelID,modelName,notes,modelStuff,hasOnlySubstanceU
 
 	Switch[OptionValue["Method"],
 		"Full",
+		If[MemberQ[xml,"conversionFactor",\[Infinity]],Message[sbml2model::conversionFactorDetected];];
 		modelStuff=extractXMLelement[xml,"model",0,3][[1]];
 		modelID=query["id",modelStuff[[2]]];
 		modelName=query["name",modelStuff[[2]],modelID];
@@ -672,7 +674,7 @@ def:biomodel2model[___]:=(Message[Toolbox::badargs,biomodel2model,Defer@def];Abo
 Protect[biomodel2model];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*eQuilibrator*)
 
 
