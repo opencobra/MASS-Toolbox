@@ -16,4 +16,9 @@ Do[SetOptions[plotFunc,Sequence@@FilterRules[commonToAll3D,Options[plotFunc]]],{
 
 SetOptions[SlideView,AppearanceElements->All];
 
+(*Charts*)
+commonToAllCharts={PlotStyle->Automatic,BaseStyle->{"FontFamily"->"Helvetica",FontSize->12},ImageSize->350,PlotRange->All,LabelStyle->{FontFamily->"Helvetica"}};
+charts={BarChart};
+Do[SetOptions[plotFunc,Sequence@@FilterRules[commonToAll3D,Options[plotFunc]]],{plotFunc,charts}]
+
 End[];

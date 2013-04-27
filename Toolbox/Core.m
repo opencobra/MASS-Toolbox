@@ -239,7 +239,7 @@ def:getJacobian[___]:=(Message[Toolbox::badargs,getJacobian,Defer@def];Abort[])
 Protect[getJacobian];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Rates*)
 
 
@@ -567,7 +567,7 @@ attributeCallBacks={
 };
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Model construction*)
 
 
@@ -772,7 +772,7 @@ def:addModelAttribute[___]:=(Message[Toolbox::badargs,addModelAttribute,Defer@de
 Protect[addModelAttribute];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Model attributes*)
 
 
@@ -872,7 +872,7 @@ MASSmodel/:ReplaceAll[stuff_,model_MASSmodel]:=stuff/.Join[model["Parameters"],m
 
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Model set operations*)
 
 
@@ -891,6 +891,7 @@ MASSmodel/:Union[models__MASSmodel]:=Module[{listOfModels,commonAttributes,listO
 				And@@(MatchQ[#,_List]&/@listOfAttributes),Union[Flatten[listOfAttributes]],
 				And@@(MatchQ[#,_String]&/@listOfAttributes),StringJoin[Sequence@@Riffle[listOfAttributes,"\n"]],
 				And@@(MatchQ[#,True|False]&/@listOfAttributes),And@@Flatten[(listOfAttributes)],
+				And@@(MatchQ[#,_v|_Plus]&/@listOfAttributes),listOfAttributes[[1]],
 				True,Print["Panic!"]
 			];
 		setModelAttribute[modelTmp,attr,rhs,"Sloppy"->True];
@@ -920,9 +921,36 @@ MASSmodel/:Intersection[models__MASSmodel]:=Module[{listOfModels,commonAttribute
 
 
 
-MASSmodel/:Complement[model_MASSmodel, models__MASSmodel]:=Module[{listOfModels,commonAttributes},
-	listOfModels=List[models];
+MASSmodel/:Complement[model_MASSmodel, models__MASSmodel]:=Module[{listOfModels,commonAttributes,modelTmp,listOfAttributes,rhs,rxnIDsToDelete},
+	(*subModel[model,Complement[getID/@getFluxes[model],otherModelsRxnIDs]]*)
+	listOfModels=Join[{model},List[models]];
+	commonAttributes=Complement[Intersection[Union[Sequence@@(listOfModels[[All,1,All,1]])],Options[constructModel][[All,1]]],{"ID","Name","GPR"}];
+	(*modelTmp=constructModel[
+		Complement[model["Reactions"],Sequence@@(#["Reactions"]&/@List[models]),SameTest->(#1==#2&)],
+		"ID" -> StringJoin[Sequence@@Riffle[#["ID"]&/@listOfModels," \[Union] "]],
+		"Name" -> StringJoin[Sequence@@Riffle[#["Name"]&/@listOfModels," \[Union] "]]
+	];*)
+	rxnIDsToDelete=Intersection[getID/@model["Fluxes"],getID/@Flatten[getFluxes/@List[models]]];
+	modelTmp=deleteReactions[model,rxnIDsToDelete];
+	updateID[modelTmp,StringJoin[Sequence@@Riffle[#["ID"]&/@listOfModels," \[Union] "]]];
+	updateName[modelTmp, StringJoin[Sequence@@Riffle[#["Name"]&/@listOfModels," \[Union] "]]];
+	Do[listOfAttributes=#[attr]&/@listOfModels;
+		rhs=Which[
+				And@@(MatchQ[#,{}]&/@listOfAttributes),{},
+				And@@(MatchQ[#,{_Rule...}]&/@listOfAttributes),FilterRules[Flatten[listOfAttributes],Complement[#1,##2]&[Sequence@@listOfAttributes[[All,All,1]]]],
+				And@@(MatchQ[#,_List]&/@listOfAttributes),Complement[listOfAttributes[[1]],Sequence@@listOfAttributes[[2;;]]],
+				And@@(MatchQ[#,_String]&/@listOfAttributes),StringJoin[Sequence@@Riffle[listOfAttributes,"\n"]],
+				And@@(MatchQ[#,True|False]&/@listOfAttributes),And@@Flatten[(listOfAttributes)],
+				And@@(MatchQ[#,_v|_Plus]&/@listOfAttributes),listOfAttributes[[1]],
+				True,Print["Panic!"];Print[listOfAttributes];Print[attr];
+			];
+		setModelAttribute[modelTmp,attr,rhs,"Sloppy"->True];
+	,{attr,commonAttributes}];
+	modelTmp	
+
+(*listOfModels=List[models];
 	commonAttributes=Complement[Intersection[Union[Sequence@@(Prepend[listOfModels,model][[All,1,All,1]])],Options[constructModel][[All,1]]],{"ID","Name"}];
+	Print[Complement[model["Reactions"],Sequence@@(#["Reactions"]&/@listOfModels),SameTest->(#1==#2&)]];
 	constructModel[
 		Complement[model["Reactions"],Sequence@@(#["Reactions"]&/@listOfModels),SameTest->(#1==#2&)],
 		"ID" -> model["ID"]<>" \[Backslash] "<>StringJoin[Sequence@@Riffle[#["ID"]&/@listOfModels," \[Union] "]],
@@ -936,7 +964,7 @@ MASSmodel/:Complement[model_MASSmodel, models__MASSmodel]:=Module[{listOfModels,
 				(True|False),model[attr]
 			]
 		,{attr,commonAttributes}]
-	]
+	]*)
 ];
 
 
@@ -1072,7 +1100,7 @@ MASSmodel/:splitReversible[model_MASSmodel]:=Module[{splitModel,splitStoich,newC
 Protect[MASSmodel];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Structural manipulations*)
 
 
