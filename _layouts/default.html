@@ -5,34 +5,41 @@
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content="MASS Toolbox : For all things mass-action" />
-
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
     <title> {% if page.title %} {{ page.title |}} {% endif %} </title>
   </head>
 
-  <body>
-      <ul class="nav">
-        <li><a href="/">Home</a></li>
-        <li><a href="http://google.com">About</a></li>
-        <li><a href="/work/">Work</a></li>
-        <li><a href="/clients/">Clients</a></li>
-        <li><a href="/contact/">Contact</a></li>
-      </ul>
-    <a href="https://github.com/JuliaLang/julia" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/camo.github.com/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
-    <div id="header_wrap" class="outer">
-            <!-- <img id="toolboxlogo" src="images/MASS-Toolbox-Logo.png"/> -->
-        <!-- HEADER -->
-            <header class="inner">
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+      <!-- <a id="forkme_banner" href="https://github.com/phantomas1234/MASS-Toolbox">View on GitHub</a> -->
+    
+    <div class='container'>
 
+    <div id="header_wrap" class="outer">
+        <!-- HEADER -->
+        <div class="navbar navbar-inverse">
+          <div class="navbar-inner">
+            <a class="brand" href="#">Home</a>
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+            </ul>
+          </div>
+        </div>
+
+            <header class="inner">
                 <h1 id="project_title">Home of the MASS Toolbox</h1>
                 <h2 id="project_tagline">For all things mass-action ...</h2>
                 <section id="downloads">
                     <a class="zip_download_link" href="20130412_MASS-Toolbox_8061cb5a.zip">Download this project as a .zip file</a>
                     <a class="tar_download_link" href="https://github.com/phantomas1234/MASS-Toolbox/tarball/master">Download this project as a tar.gz file</a>
                 </section>
+                
             </header>
-            <!-- <a id="forkme_banner" href="https://github.com/phantomas1234/MASS-Toolbox">View on GitHub</a> -->
     </div>
 
     <!-- MAIN CONTENT -->
@@ -50,6 +57,10 @@
             <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
         </footer>
     </div>
+
+      <!-- <a href="https://github.com/SBRG/MASS-Toolbox" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/camo.github.com/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a> -->
+
+  </div>
 
   </body>
 </html>

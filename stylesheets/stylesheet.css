@@ -314,9 +314,10 @@ Full-Width Styles
 
 #forkme_banner {
   display: block;
-  position: relative;
-  width: 18%;
-  left: 0%;
+  position: absolute;
+  width: 140px;
+  left: 800px;
+  top: 70px;
   z-index: 10;
   padding: 10px 50px 10px 10px;
   color: #fff;
@@ -364,7 +365,7 @@ Full-Width Styles
 
 #downloads {
   position: absolute;
-  width: 210px;
+  width: 410px;
   z-index: 10;
   bottom: -40px;
   right: 0;
