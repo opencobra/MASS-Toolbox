@@ -448,7 +448,8 @@ Protect[drawPathway];
 
 Unprotect[drawNodeMaps];
 Options[drawNodeMaps]={"Fluxes"->{},"Metabolites"->{},ColorFunction->ColorData["Rainbow"],"Legend"->True};
-drawNodeMaps[model_MASSmodel,opts:OptionsPattern[]]:=Module[{activeFluxes,directions,bip,activeBip,nodeMapGraphs,edgeThicknesses,colorValues,edgeRenderingFunc,nodeRenderingFunc,metabolites,legendFunc},
+drawNodeMaps[model_MASSmodel,opts:OptionsPattern[]]:=Module[{activeFluxes,directions,bip,activeBip,nodeMapGraphs,edgeThicknesses,colorValues,edgeRenderingFunc,nodeRenderingFunc,metabolites,legendFunc,netFluxes},
+	netFluxes=Thread[model["Species"]->model.model["Fluxes"]];
 	metabolites=If[OptionValue["Metabolites"]==={},model["Species"],OptionValue["Metabolites"]];
 	activeFluxes=If[OptionValue["Fluxes"]==={},Thread[model["Fluxes"]->0],OptionValue["Fluxes"]];
 	directions=#[[1]]->If[#[[2]]<0,"Reverse","Forward"]&/@activeFluxes;
@@ -460,7 +461,7 @@ drawNodeMaps[model_MASSmodel,opts:OptionsPattern[]]:=Module[{activeFluxes,direct
 	edgeRenderingFunc=({OptionValue["ColorFunction"][Cases[#2,_v,\[Infinity]][[1]]/.colorValues],Thickness[(Cases[#2,_v,\[Infinity]][[1]]/.edgeThicknesses)],Arrowheads[Max[{3*(Cases[#2,_v,\[Infinity]][[1]]/.edgeThicknesses),.02}]],Arrow[#,{.1,.1}],Style[Text[Round[Abs[(Cases[#2,_v,\[Infinity]][[1]]/.activeFluxes)],.001],Mean@#1,Background->Opacity[.8,White]],Black,FontFamily->"Helvetica",FontSize->Scaled[.02]]}&);
 	nodeRenderingFunc=({Style[Text[#2,#1],FontSize->Scaled[.02]]}&);
 	legendFunc=If[OptionValue["Legend"]===True,Legended[#,BarLegend[{OptionValue["ColorFunction"][[1]],{0,Max@Abs@activeFluxes[[All,2]]}},LegendLabel->"Flux\nmmol \!\(\*SuperscriptBox[\(h\), \(-1\)]\) \!\(\*SuperscriptBox[\(gDW\), \(-1\)]\)",LabelStyle->{FontFamily->"Helvetica"}]]&,#&];
-	legendFunc[GraphPlot[#[[2]],PlotStyle->Gray,VertexLabeling->True,ImageSize->600,EdgeRenderingFunction->edgeRenderingFunc,VertexRenderingFunction->nodeRenderingFunc]]&/@nodeMapGraphs
+	legendFunc[GraphPlot[#[[2]],PlotStyle->Gray,VertexLabeling->True,ImageSize->600,EdgeRenderingFunction->edgeRenderingFunc,VertexRenderingFunction->nodeRenderingFunc,PlotLabel->Style[#,Which[#[[1,2,1]]<0,Red,#[[1,2,1]]>0,Green,True,Black],FontFamily->"Helvetica",FontSize->12]&[Row[{"Net flux: ",ScientificForm@Chop[#[[1]]/.netFluxes/.activeFluxes]}]]]]&/@nodeMapGraphs
 ];
 def:drawNodeMaps[___]:=(Message[Toolbox::badargs,drawNodeMaps,Defer@def];Abort[])
 Protect[drawNodeMaps];
