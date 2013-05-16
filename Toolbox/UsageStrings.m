@@ -114,7 +114,7 @@ molconvert::usage="molconvert[input, outformat, cmdlineOpts] provides an interfa
 drawCompound::usage="Takes a InChI or SMILES description of a compounds and uses openbabel to draw it.";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*COBRA*)
 
 
@@ -164,6 +164,12 @@ reduceModel::usage="reduceModel[model_MASSmodel,bounds_List] performs FVA on pro
 
 
 X3::usage="X3[model_MASSmodel, opts] calculates all extreme pathways for model using X3."
+
+
+createWarmupPoints::usage="createWarmupPoints[model] will create warmup points for sampling."
+
+
+ACHRsampler::usage="ACHRsampler[model] will perform Monte Carlo sampling with model."
 
 
 (* ::Subsection::Closed:: *)
@@ -493,7 +499,7 @@ kRev2keq::usage="kRev2keq[expression] replaces all \!\(\*SubsuperscriptBox[\(k\)
 (*updateModelAttribute::usage="updateModelAttribute[model, attribute, rhs] update the model's attribute 'in place' with rhs";*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Networks*)
 
 
