@@ -422,7 +422,7 @@ spatialDimension[units_]:=Module[{si},
 
 
 Options[spatialUnit]={"DefaultVolumeUnit"->Liter,"DefaultSurfaceUnit"->Meter^2,"DefaultLengthUnit"->Meter};
-spatialUnit[stuff_,rxnOrder_?NumberQ:None,opts:OptionsPattern[]]:=Module[{dim,correctedDim},
+spatialUnit[stuff_,rxnOrder_?NumberQ,opts:OptionsPattern[]]:=Module[{dim,correctedDim},
 	dim=spatialDimension[stuff];
 	correctedDim=If[dim==0,1,dim/(rxnOrder-1)];
 	Which[
@@ -861,7 +861,8 @@ model_MASSmodel["Enzymes"]:=Cases[model["Species"],_enzyme];
 def:model_MASSmodel[args___]:=(Message[Toolbox::badargs,"MASSmodel["<>getID@model<>", ...]",List[args]];Abort[])
 
 (*Overloading*)
-MASSmodel/:MatrixPlot[model_MASSmodel,opts:OptionsPattern[]]:=MatrixPlot[model["SparseStoichiometry"],FrameTicks->{{Automatic,Thread[List[Range[1,Length[#]],#]]&[Tooltip[StandardForm[#],TraditionalForm@#]&/@model["Species"]]},{Thread[List[Range[1,Length[#]],#]]&[Thread[Tooltip[Rotate[stringShortener[#],90Degree]&/@model["Fluxes"],StandardForm/@model["Reactions"]]]],Automatic}},opts]
+MASSmodel/:MatrixPlot[model_MASSmodel,opts:OptionsPattern[]]:=Legended[MatrixPlot[model["Stoichiometry"],FrameTicks->{{Automatic,Thread[List[Range[1,Length[#]],#]]&[Tooltip[StandardForm[#],TraditionalForm@#]&/@model["Species"]]},{Thread[List[Range[1,Length[#]],#]]&[Thread[Tooltip[Rotate[stringShortener[#],90Degree]&/@model["Fluxes"],StandardForm/@model["Reactions"]]]],Automatic}},ColorFunction->(Which[#1<0,Red,#>0,Green,True,White]&),ColorFunctionScaling->False,opts],SwatchLegend[{White,Green,Red},{"\!\(\*SubscriptBox[\(S\), \(i, j\)]\) = 0","\!\(\*SubscriptBox[\(S\), \(\(i\)\(,\)\(j\)\(\\\ \)\)]\)> 0","\!\(\*SubscriptBox[\(S\), \(\(i\)\(,\)\(j\)\(\\\ \)\)]\)< 0"}]]
+MASSmodel/:SparseArray[model_MASSmodel]:=model["SparseStoichiometry"];
 MASSmodel/:Dot[rest1___,model_MASSmodel,rest2___]:=Dot[rest1,model["Stoichiometry"],rest2];
 MASSmodel/:Transpose[model_MASSmodel]:=Transpose[model["SparseStoichiometry"]];
 MASSmodel/:NullSpace[model_MASSmodel]:=NullSpace[model["Stoichiometry"]];
@@ -873,7 +874,6 @@ MASSmodel/:MatrixForm[model_MASSmodel]:=MatrixForm[model["SparseStoichiometry"]]
 MASSmodel/:SameQ[model1_MASSmodel,model2_MASSmodel]:=Sort[model1[[1]]]===Sort[model2[[1]]];
 MASSmodel/:Equal[model1_MASSmodel,model2_MASSmodel]:=Sort[model1[[1]]]==Sort[model2[[1]]];
 MASSmodel/:ReplaceAll[stuff_,model_MASSmodel]:=stuff/.Join[model["Parameters"],model["InitialConditions"],Thread[Rule[getID/@model["Fluxes"],Thread[{model["Reactions"],model["Rates"]}]]]]
-
 
 
 (* ::Subsubsection:: *)
@@ -972,7 +972,7 @@ MASSmodel/:Complement[model_MASSmodel, models__MASSmodel]:=Module[{listOfModels,
 ];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Model overview*)
 
 
@@ -1019,7 +1019,7 @@ MASSmodel/:MakeBoxes[model_MASSmodel,_]:=ToBoxes@MenuView[{
 ]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Stuff*)
 
 

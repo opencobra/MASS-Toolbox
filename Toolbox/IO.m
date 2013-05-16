@@ -662,7 +662,7 @@ model
 ]
 
 biomodel2model[id_String,opts:OptionsPattern[]]:=Module[{sbmlString,tmpFile},
-If[DownValues[Biomodels`getModelSBMLById]==={},PrintTemporary["Biomodel's web API used for the first time. Installing web services from http://www.ebi.ac.uk/biomodels-main/services/BioModelsWebServices?wsdl"];Quiet@InstallService["http://www.ebi.ac.uk/biomodels-main/services/BioModelsWebServices?wsdl","Biomodels`"]];
+If[DownValues[Biomodels`getModelSBMLById]==={},PrintTemporary["Biomodel's web API is used for the first time. Installing web services from http://www.ebi.ac.uk/biomodels-main/services/BioModelsWebServices?wsdl"];Quiet@InstallService["http://www.ebi.ac.uk/biomodels-main/services/BioModelsWebServices?wsdl","Biomodels`"]];
 sbmlString=Biomodels`getModelSBMLById[id];
 If[sbmlString===Null,Message[biomodel2model::wrngid,sbmlString];Abort[];];
 tmpFile=OpenWrite[];
