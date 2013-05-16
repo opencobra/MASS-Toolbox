@@ -214,7 +214,7 @@ plotPhasePortrait[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},op
 	cleanSimulation=stripUnits@simulation;
 	plotOpts=FilterRules[updateRules[Options[plotPhasePortrait],List[opts]],Options[ParametricPlot]];
 	(*pltFunc=ParametricPlot[#[[All,2]],{t,tMin,tMax},Epilog->annotateStartEnd[Sequence@@#[[All,2]],tMin,tMax,Sequence@@FilterRules[List@opts,Options[annotateStartEnd]]],Evaluate[Sequence@@If[OptionValue["FrameLabel"]===Automatic,updateRules[plotOpts,"FrameLabel"->(TraditionalForm/@#[[All,1]])],plotOpts]]]&;*)
-	pltFunc=ParametricPlot[Evaluate[#[[All,2]]],{t,tMin,tMax},Epilog->annotateStartEnd[Sequence@@#[[All,2]],tMin,tMax,Sequence@@FilterRules[List@opts,Options[annotateStartEnd]]],Evaluate[Sequence@@If[OptionValue["FrameLabel"]===Automatic,updateRules[plotOpts,{FrameLabel->(TraditionalForm/@#[[All,1]])}],plotOpts]]]&;
+	pltFunc=ParametricPlot[Evaluate[#[[All,2]]],{t,tMin,tMax},Evaluate[If[OptionValue["Annotate"]===True,Epilog->annotateStartEnd[Sequence@@#[[All,2]],tMin,tMax,Sequence@@FilterRules[List@opts,Options[annotateStartEnd]]],Unevaluated[Sequence[]]]],Evaluate[Sequence@@If[OptionValue["FrameLabel"]===Automatic,updateRules[plotOpts,{FrameLabel->(TraditionalForm/@#[[All,1]])}],plotOpts]]]&;
 	If[Length[cleanSimulation]>2,
 		Manipulate[
 			pltFunc[FilterRules[cleanSimulation,{x,y}]],
@@ -228,7 +228,7 @@ plotPhasePortrait[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},op
 plotPhasePortrait[simulation:{{_Rule,_Rule}..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},opts:OptionsPattern[{plotPhasePortrait,ParametricPlot,Manipulate}]]:=Module[{plotOpts,cleanSimulation},
 	cleanSimulation=stripUnits@simulation;	
 	plotOpts=FilterRules[updateRules[Options[plotPhasePortrait],{opts}],Options[ParametricPlot]];
-	ParametricPlot[Evaluate[cleanSimulation/.r_Rule:>r[[2]]],{t,tMin,tMax},Epilog->(annotateStartEnd[Sequence@@#[[All,2]],tMin,tMax,Sequence@@FilterRules[List@opts,Options[annotateStartEnd]]]&/@cleanSimulation),Evaluate[Sequence@@plotOpts]]
+	ParametricPlot[Evaluate[cleanSimulation/.r_Rule:>r[[2]]],{t,tMin,tMax},Evaluate[If[OptionValue["Annotate"]===True,Epilog->(annotateStartEnd[Sequence@@#[[All,2]],tMin,tMax,Sequence@@FilterRules[List@opts,Options[annotateStartEnd]]]&/@cleanSimulation),Unevaluated[Sequence[]]]],Evaluate[Sequence@@plotOpts]]
 ];
 
 def:plotPhasePortrait[___]:=(Message[Toolbox::badargs,plotPhasePortrait,Defer@def];Abort[])
@@ -446,9 +446,33 @@ Protect[drawPathway];
 (*Node maps*)
 
 
+distributeSinks[sinks_List/;Length[sinks]===1]:=(Print[1];Thread[sinks->{{1,0}}])
+distributeSinks[sinks_List]:=Module[{num,start,end,interval},
+	num=Length[sinks];
+	start=Pi/Max[{num,3}];
+	end=Pi-start;
+	interval=(end-start)/(If[#===0,1,#]&[num-1]);
+	Thread[sinks->({Sin[#],Cos[#]}&/@NestList[interval+#1&,start,num-1])]
+];
+distributeSources[sources_List/;Length[sources]==1]:=Thread[sources->{{-1,0}}]
+distributeSources[sources_List]:=Module[{num,start,end,interval},
+	num=Length[sources];
+	start=Pi/Max[{num,3}];
+	end=Pi-start;
+	interval=(end-start)/(If[#===0,1,#]&[num-1]);
+	Thread[sources->({Sin[#],Cos[#]}&/@NestList[interval+#1&,start+Pi,num-1])]
+];
+
+nodeMapCoordinates[nodeMap:{_Rule...}]:=Module[{sources,sinks},
+	sources=Cases[nodeMap,r_Rule/;r[[1,0]]===v][[All,1]];
+	sinks=Cases[nodeMap,r_Rule/;r[[2,0]]===v][[All,2]];
+	Join[distributeSources[sources],distributeSinks[sinks]]
+];
+
 Unprotect[drawNodeMaps];
 Options[drawNodeMaps]={"Fluxes"->{},"Metabolites"->{},ColorFunction->ColorData["Rainbow"],"Legend"->True};
-drawNodeMaps[model_MASSmodel,opts:OptionsPattern[]]:=Module[{activeFluxes,directions,bip,activeBip,nodeMapGraphs,edgeThicknesses,colorValues,edgeRenderingFunc,nodeRenderingFunc,metabolites,legendFunc,netFluxes},
+drawNodeMaps[model_MASSmodel,opts:OptionsPattern[{drawNodeMaps,GraphPlot}]]:=Module[{colorFunction,activeFluxes,directions,bip,activeBip,nodeMapGraphs,edgeThicknesses,colorValues,edgeRenderingFunc,nodeRenderingFunc,metabolites,legendFunc,netFluxes},
+	colorFunction=If[OptionValue["Fluxes"]==={},Black&,OptionValue["ColorFunction"]];
 	netFluxes=Thread[model["Species"]->model.model["Fluxes"]];
 	metabolites=If[OptionValue["Metabolites"]==={},model["Species"],OptionValue["Metabolites"]];
 	activeFluxes=If[OptionValue["Fluxes"]==={},Thread[model["Fluxes"]->0],OptionValue["Fluxes"]];
@@ -458,10 +482,10 @@ drawNodeMaps[model_MASSmodel,opts:OptionsPattern[]]:=Module[{activeFluxes,direct
 	nodeMapGraphs=SortBy[Select[#->Cases[activeBip,r_Rule/;MemberQ[r,#],\[Infinity]]&/@metabolites,#[[2]]!={}&],-Length[#[[2]]]&];
 	edgeThicknesses=Thread[activeFluxes[[All,1]]->Rescale[#,{Min[#],Max[#]},{0.001,0.02}]&[Abs[activeFluxes[[All,2]]]]];
 	colorValues=Thread[activeFluxes[[All,1]]->Rescale[#,{Min[#],Max[#]},{0,1}]&[Abs[activeFluxes[[All,2]]]]];
-	edgeRenderingFunc=({OptionValue["ColorFunction"][Cases[#2,_v,\[Infinity]][[1]]/.colorValues],Thickness[(Cases[#2,_v,\[Infinity]][[1]]/.edgeThicknesses)],Arrowheads[Max[{3*(Cases[#2,_v,\[Infinity]][[1]]/.edgeThicknesses),.02}]],Arrow[#,{.1,.1}],Style[Text[Round[Abs[(Cases[#2,_v,\[Infinity]][[1]]/.activeFluxes)],.001],Mean@#1,Background->Opacity[.8,White]],Black,FontFamily->"Helvetica",FontSize->Scaled[.02]]}&);
+	edgeRenderingFunc=({colorFunction[Cases[#2,_v,\[Infinity]][[1]]/.colorValues],Thickness[(Cases[#2,_v,\[Infinity]][[1]]/.edgeThicknesses)],Arrowheads[Max[{3*(Cases[#2,_v,\[Infinity]][[1]]/.edgeThicknesses),.02}]],Arrow[#,{.1,.1}],If[OptionValue["Fluxes"]=!={},Style[Text[Round[Abs[(Cases[#2,_v,\[Infinity]][[1]]/.activeFluxes)],.001],Mean@#1,Background->Opacity[.8,White]],Black,FontFamily->"Helvetica",FontSize->Scaled[.02]]]}&);
 	nodeRenderingFunc=({Style[Text[#2,#1],FontSize->Scaled[.02]]}&);
-	legendFunc=If[OptionValue["Legend"]===True,Legended[#,BarLegend[{OptionValue["ColorFunction"][[1]],{0,Max@Abs@activeFluxes[[All,2]]}},LegendLabel->"Flux\nmmol \!\(\*SuperscriptBox[\(h\), \(-1\)]\) \!\(\*SuperscriptBox[\(gDW\), \(-1\)]\)",LabelStyle->{FontFamily->"Helvetica"}]]&,#&];
-	legendFunc[GraphPlot[#[[2]],PlotStyle->Gray,VertexLabeling->True,ImageSize->600,EdgeRenderingFunction->edgeRenderingFunc,VertexRenderingFunction->nodeRenderingFunc,PlotLabel->Style[#,Which[#[[1,2,1]]<0,Red,#[[1,2,1]]>0,Green,True,Black],FontFamily->"Helvetica",FontSize->12]&[Row[{"Net flux: ",ScientificForm@Chop[#[[1]]/.netFluxes/.activeFluxes]}]]]]&/@nodeMapGraphs
+	legendFunc=If[OptionValue["Legend"]===True&&OptionValue["Fluxes"]=!={},Legended[#,BarLegend[{colorFunction[[1]],{0,Max@Abs@activeFluxes[[All,2]]}},LegendLabel->"Flux\nmmol \!\(\*SuperscriptBox[\(h\), \(-1\)]\) \!\(\*SuperscriptBox[\(gDW\), \(-1\)]\)",LabelStyle->{FontFamily->"Helvetica"}]]&,#&];
+	legendFunc[GraphPlot[#[[2]],VertexCoordinateRules->(N@nodeMapCoordinates[#[[2]]]),PlotStyle->Gray,VertexLabeling->True,ImageSize->600,EdgeRenderingFunction->edgeRenderingFunc,VertexRenderingFunction->nodeRenderingFunc,PlotLabel->Style[#,Which[#[[1,2,1]]<0,Red,#[[1,2,1]]>0,Green,True,Black],FontFamily->"Helvetica",FontSize->12]&[Row[{"Net flux: ",ScientificForm@Chop[#[[1]]/.netFluxes/.activeFluxes]}]],Sequence@@FilterRules[{opts},Options[GraphPlot]]]]&/@nodeMapGraphs
 ];
 def:drawNodeMaps[___]:=(Message[Toolbox::badargs,drawNodeMaps,Defer@def];Abort[])
 Protect[drawNodeMaps];
