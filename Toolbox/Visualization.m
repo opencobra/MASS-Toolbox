@@ -446,7 +446,7 @@ Protect[drawPathway];
 (*Node maps*)
 
 
-distributeSinks[sinks_List/;Length[sinks]===1]:=(Print[1];Thread[sinks->{{1,0}}])
+distributeSinks[sinks_List/;Length[sinks]===1]:=Thread[sinks->{{1,0}}]
 distributeSinks[sinks_List]:=Module[{num,start,end,interval},
 	num=Length[sinks];
 	start=Pi/Max[{num,3}];
@@ -463,15 +463,17 @@ distributeSources[sources_List]:=Module[{num,start,end,interval},
 	Thread[sources->({Sin[#],Cos[#]}&/@NestList[interval+#1&,start+Pi,num-1])]
 ];
 
-nodeMapCoordinates[nodeMap:{_Rule...}]:=Module[{sources,sinks},
-	sources=Cases[nodeMap,r_Rule/;r[[1,0]]===v][[All,1]];
-	sinks=Cases[nodeMap,r_Rule/;r[[2,0]]===v][[All,2]];
+nodeMapCoordinates[nodeMap:{{_Rule,_?NumberQ}...}]:=Module[{sortedNodeMap,sources,sinks},
+	sortedNodeMap=SortBy[nodeMap,#[[2]]&];
+	sources=Cases[sortedNodeMap,r_Rule/;r[[1,0]]===v,\[Infinity]][[All,1]];
+	sinks=Cases[sortedNodeMap,r_Rule/;r[[2,0]]===v,\[Infinity]][[All,2]];
 	Join[distributeSources[sources],distributeSinks[sinks]]
 ];
 
 Unprotect[drawNodeMaps];
 Options[drawNodeMaps]={"Fluxes"->{},"Metabolites"->{},ColorFunction->ColorData["Rainbow"],"Legend"->True};
-drawNodeMaps[model_MASSmodel,opts:OptionsPattern[{drawNodeMaps,GraphPlot}]]:=Module[{colorFunction,activeFluxes,directions,bip,activeBip,nodeMapGraphs,edgeThicknesses,colorValues,edgeRenderingFunc,nodeRenderingFunc,metabolites,legendFunc,netFluxes},
+drawNodeMaps[model_MASSmodel,opts:OptionsPattern[{drawNodeMaps,GraphPlot}]]:=Module[{stoichRules,minFlux,maxFlux,colorFunction,activeFluxes,directions,bip,activeBip,nodeMapGraphs,edgeThicknesses,colorValues,edgeRenderingFunc,nodeRenderingFunc,metabolites,legendFunc,netFluxes},
+	stoichRules={model["Species"][[#[[1,1]]]],model["Fluxes"][[#[[1,2]]]]}->Abs[#[[2]]]&/@ArrayRules[model["SparseStoichiometry"]][[;;-2]];
 	colorFunction=If[OptionValue["Fluxes"]==={},Black&,OptionValue["ColorFunction"]];
 	netFluxes=Thread[model["Species"]->model.model["Fluxes"]];
 	metabolites=If[OptionValue["Metabolites"]==={},model["Species"],OptionValue["Metabolites"]];
@@ -480,12 +482,12 @@ drawNodeMaps[model_MASSmodel,opts:OptionsPattern[{drawNodeMaps,GraphPlot}]]:=Mod
 	bip=model2bipartite[model,"EdgeDirections"->True];
 	activeBip=Select[bip,(Cases[#,_v,\[Infinity]][[1]]/.Dispatch[directions])==#[[2]]&];
 	nodeMapGraphs=SortBy[Select[#->Cases[activeBip,r_Rule/;MemberQ[r,#],\[Infinity]]&/@metabolites,#[[2]]!={}&],-Length[#[[2]]]&];
-	edgeThicknesses=Thread[activeFluxes[[All,1]]->Rescale[#,{Min[#],Max[#]},{0.001,0.02}]&[Abs[activeFluxes[[All,2]]]]];
-	colorValues=Thread[activeFluxes[[All,1]]->Rescale[#,{Min[#],Max[#]},{0,1}]&[Abs[activeFluxes[[All,2]]]]];
-	edgeRenderingFunc=({colorFunction[Cases[#2,_v,\[Infinity]][[1]]/.colorValues],Thickness[(Cases[#2,_v,\[Infinity]][[1]]/.edgeThicknesses)],Arrowheads[Max[{3*(Cases[#2,_v,\[Infinity]][[1]]/.edgeThicknesses),.02}]],Arrow[#,{.1,.1}],If[OptionValue["Fluxes"]=!={},Style[Text[Round[Abs[(Cases[#2,_v,\[Infinity]][[1]]/.activeFluxes)],.001],Mean@#1,Background->Opacity[.8,White]],Black,FontFamily->"Helvetica",FontSize->Scaled[.02]]]}&);
+	nodeMapGraphs=Table[elem[[1]]->({#,If[#[[1,0]]===metabolite,Abs[((List@@#)/.Dispatch[stoichRules])*#[[2]]/.Dispatch[activeFluxes]],Abs[(Reverse[List@@#]/.Dispatch[stoichRules])*#[[1]]/.Dispatch[activeFluxes]]]}&/@elem[[2]]),{elem,nodeMapGraphs}];
+	{minFlux,maxFlux}={Min[#],Max[#]}&[Abs@Flatten[nodeMapGraphs[[All,2,All,2]]]];
+	edgeRenderingFunc=({colorFunction[Rescale[#3,{minFlux,maxFlux},{0,1}]],Thickness[Rescale[#3,{minFlux,maxFlux},{0.001,0.02}]],Arrowheads[Max[{3*Rescale[#3,{minFlux,maxFlux},{0.001,0.02}],.02}]],Arrow[#,{.1,.1}],If[OptionValue["Fluxes"]=!={},Style[Text[#3/.{Unit[num_?NumberQ,units_]:>Unit[Round[Abs[num],.001],units],num_?NumberQ:>Round[Abs[num],.001]},Mean@#1,Background->Opacity[.8,White]],Black,FontFamily->"Helvetica",FontSize->Scaled[.02]]]}&);
 	nodeRenderingFunc=({Style[Text[#2,#1],FontSize->Scaled[.02]]}&);
-	legendFunc=If[OptionValue["Legend"]===True&&OptionValue["Fluxes"]=!={},Legended[#,BarLegend[{colorFunction[[1]],{0,Max@Abs@activeFluxes[[All,2]]}},LegendLabel->"Flux\nmmol \!\(\*SuperscriptBox[\(h\), \(-1\)]\) \!\(\*SuperscriptBox[\(gDW\), \(-1\)]\)",LabelStyle->{FontFamily->"Helvetica"}]]&,#&];
-	legendFunc[GraphPlot[#[[2]],VertexCoordinateRules->(N@nodeMapCoordinates[#[[2]]]),PlotStyle->Gray,VertexLabeling->True,ImageSize->600,EdgeRenderingFunction->edgeRenderingFunc,VertexRenderingFunction->nodeRenderingFunc,PlotLabel->Style[#,Which[#[[1,2,1]]<0,Red,#[[1,2,1]]>0,Green,True,Black],FontFamily->"Helvetica",FontSize->12]&[Row[{"Net flux: ",ScientificForm@Chop[#[[1]]/.netFluxes/.activeFluxes]}]],Sequence@@FilterRules[{opts},Options[GraphPlot]]]]&/@nodeMapGraphs
+	legendFunc=If[OptionValue["Legend"]===True&&OptionValue["Fluxes"]=!={},Legended[#,BarLegend[{colorFunction[[1]],{0,maxFlux}},LegendLabel->"Flux\nmmol \!\(\*SuperscriptBox[\(h\), \(-1\)]\) \!\(\*SuperscriptBox[\(gDW\), \(-1\)]\)",LabelStyle->{FontFamily->"Helvetica"}]]&,#&];
+	#[[1]]->legendFunc[GraphPlot[#[[2]],VertexCoordinateRules->Join[N@nodeMapCoordinates[#[[2]]],{#[[1]]->{0,0}}],PlotStyle->Gray,VertexLabeling->True,ImageSize->600,EdgeRenderingFunction->edgeRenderingFunc,VertexRenderingFunction->nodeRenderingFunc,PlotLabel->Style[#,Which[#[[1,2,1]]<0,Red,#[[1,2,1]]>0,Green,True,Black],FontFamily->"Helvetica",FontSize->12]&[Row[{"Net flux: ",ScientificForm@Chop[#[[1]]/.netFluxes/.activeFluxes/._v->0]}]],Sequence@@FilterRules[{opts},Options[GraphPlot]]]]&/@nodeMapGraphs
 ];
 def:drawNodeMaps[___]:=(Message[Toolbox::badargs,drawNodeMaps,Defer@def];Abort[])
 Protect[drawNodeMaps];
