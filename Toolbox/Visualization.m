@@ -284,7 +284,7 @@ Switch[fvaResult[[i,2]],
 {Point[{i,fvaResult[[i,2,1]]}]},
 {_?NumberQ,_?NumberQ},
 {Line[{{i,fvaResult[[i,2,1]]},{i,fvaResult[[i,2,2]]}}]}
-],{i,1,Length[fvaResult]}],Sequence@@FilterRules[List[opts],Options[Graphics][[All,1]]],PlotRange->{All,{min-EuclideanDistance[min,max]*.2,max+EuclideanDistance[min,max]*.2}},Frame->True,AspectRatio->1/GoldenRatio,FrameTicks->({{Automatic,None},{Thread[List[Range[1,Length[#]],Style[Rotate[stringShortener[#,10],90Degree],FontFamily->"Helvetica",FontSize->Scaled[0.005]]&/@#]]&[fvaResult[[All,1]]],None}})]
+],{i,1,Length[fvaResult]}],Sequence@@FilterRules[List[opts],Options[Graphics][[All,1]]],PlotRange->All(*PlotRange->{All,{min-EuclideanDistance[min,max]*.3,max+EuclideanDistance[min,max]*.3}}*),AspectRatio->1/6,Frame->True,FrameTicks->({{Automatic,None},{Thread[List[Range[1,Length[#]],Style[Rotate[stringShortener[#,10],90Degree],FontFamily->"Helvetica",FontSize->Scaled[0.005]]&/@#]]&[fvaResult[[All,1]]],None}})]
 ];
 def:plotFVA[___]:=(Message[Toolbox::badargs,plotFVA,Defer@def];Abort[])
 Protect[plotFVA];
@@ -431,7 +431,7 @@ drawPathway[metPos:{_Rule..},rxnPos:{_Rule..},textPos:({(_Text|_Rule|_Style)..}|
 	];
 	map=Show[
 		cellMembrane,
-		drawReactionMap[rxnPos,Sequence@@updateRules[OptionValue["ReactionStyle"],{"Style"->fluxStyle}]],
+		drawReactionMap[rxnPos,Sequence@@updateRules[OptionValue["ReactionStyle"],{"Style"->fluxStyle}]]/.(Tooltip[graphics_,#[[1]]]:>Tooltip[graphics,#[[1]]<>": "<>ToString[#[[2]]]]&/@cleanRxnData),
 		drawMetaboliteMap[metPos,Sequence@@updateRules[OptionValue["MetaboliteStyle"],If[metStyle=!={},{"Style"->metStyle},{}]],Sequence@@FilterRules[{opts},Options[drawMetaboliteMap]]],Graphics@Style[textPos,Sequence@@(OptionValue["TextStyle"]/.elem:(_Scaled):>elem[[0]][elem[[1]]*(1/aspectRatio)])],
 		ImageSize->OptionValue["ImageSize"]
 	];

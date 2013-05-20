@@ -48,7 +48,7 @@ If[$FrontEnd=!=Null,
 	prog++;
 	
 	progtext="Loading GurobiML ...";
-	Quiet@Needs["GurobiML`"];prog++;delay[];
+	Quiet@Needs["GurobiML`"];Quiet@ParallelNeeds["GurobiML`"];prog++;delay[];
 
 	progtext="Loading AutomaticUnits ...";
 	Unprotect[BeginPackage];
