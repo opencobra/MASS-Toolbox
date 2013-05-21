@@ -14,5 +14,10 @@ ExampleData[{"Toolbox", "Hemoglobin"}] := Import[FileNameJoin[{$ToolboxPath,"Exa
 ExampleData[{"Toolbox", "EcoliCore"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","EcoliCore","EcoliCore.m.gz"}]];
 ExampleData[{"Toolbox", "EcoliCoreMap"}] := importBIGGmap[FileNameJoin[{$ToolboxPath,"ExampleData","EcoliCore","EcoliCoreMap.svg"}]];
 ExampleData[{"Toolbox", "SBMLModel"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","SBML","BIOMD0000000172.xml"}],"XML"];
+ExampleData[{"Toolbox", "iAB-RBC-238"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","iAB-RBC-238","iAB-RBC-238.m.gz"}]];
+ExampleData[{"Toolbox", "iAB-RBC-238-Glycolysis"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","iAB-RBC-238","iAB-RBC-238-Glycolysis.m.gz"}]];
+ExampleData[{"Toolbox", "iAB-RBC-238-PentosePhosphatePathway"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","iAB-RBC-238","iAB-RBC-238-PentosePhosphatePathway.m.gz"}]];
+ExampleData[{"Toolbox", "iAB-RBC-238-NucleotideSalvagePathway"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","iAB-RBC-238","iAB-RBC-238-NucleotideSalvagePathway.m.gz"}]];
+ExampleData[{"Toolbox", "iAB-RBC-238-Hemoglobin"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","iAB-RBC-238","iAB-RBC-238-Hemoglobin.m.gz"}]];
 ExampleData[pat:{"Toolbox", _}]:=(Message[ExampleData::notFound,pat];Abort[];)
 Protect[ExampleData];
