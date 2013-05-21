@@ -354,7 +354,7 @@ def:calcPERC[___]:=(Message[Toolbox::badargs,calcPERC,Defer@def];Abort[])
 Protect[calcPERC];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Structural stuff*)
 
 
@@ -379,9 +379,13 @@ Protect[calcKappa];
 
 Unprotect[getMassActionRatios];
 Options[getMassActionRatios]={"Ignore"->{}};
-getMassActionRatios[s_?MatrixQ,mets_List,opts:OptionsPattern[]]:=Inner[Power,mets,s,Times]/.Thread[OptionValue["Ignore"]->1];
-getMassActionRatios[rxn_reaction,opts:OptionsPattern[]]:=getMassActionRatios[{getSignedStoich[rxn]}\[Transpose],getSpecies[rxn],opts][[1]]
+getMassActionRatios[r_reaction,opts:OptionsPattern[]]:=Replace[Times@@(getProducts[r]^integerChop[getProdStoich[r]]), 1->Times@@(m[getID[#],"Xt"]&/@getSubstrates[r])]/Replace[Times@@(getSubstrates[r]^integerChop[getSubstrStoich[r]]), 1->Times@@(m[getID[#],"Xt"]&/@getProducts[r])]/.Thread[OptionValue["Ignore"]->1]
 getMassActionRatios[rxns:{_reaction..},opts:OptionsPattern[]]:=getMassActionRatios[#,opts]&/@rxns
+
+
+(*getMassActionRatios[s_?MatrixQ,mets_List,opts:OptionsPattern[]]:=Inner[Power,mets,s,Times]/.Thread[OptionValue["Ignore"]->1];*)
+(*getMassActionRatios[rxn_reaction,opts:OptionsPattern[]]:=getMassActionRatios[{getSignedStoich[rxn]}\[Transpose],getSpecies[rxn],opts][[1]]*)
+
 def:getMassActionRatios[___]:=(Message[Toolbox::badargs,calcKappa,Defer@def];Abort[])
 Protect[getMassActionRatios];
 
@@ -863,13 +867,13 @@ def:model_MASSmodel[args___]:=(Message[Toolbox::badargs,"MASSmodel["<>getID@mode
 (*Overloading*)
 MASSmodel/:MatrixPlot[model_MASSmodel,opts:OptionsPattern[]]:=Legended[MatrixPlot[model["Stoichiometry"],opts,FrameTicks->{{Automatic,Thread[List[Range[1,Length[#]],#]]&[Tooltip[Style[StandardForm[#],FontSize->Scaled[0.01]],TraditionalForm@#]&/@model["Species"]]},{Thread[List[Range[1,Length[#]],#]]&[Thread[Tooltip[Rotate[Style[stringShortener[#],FontSize->Scaled[0.01]],90Degree]&/@model["Fluxes"],StandardForm[#]&/@model["Reactions"]]]],Automatic}},ColorFunction->(Which[#1<0,Red,#>0,Green,True,White]&),ColorFunctionScaling->False],SwatchLegend[{White,Green,Red},{"\!\(\*SubscriptBox[\(S\), \(i, j\)]\) = 0","\!\(\*SubscriptBox[\(S\), \(\(i\)\(,\)\(j\)\(\\\ \)\)]\)> 0","\!\(\*SubscriptBox[\(S\), \(\(i\)\(,\)\(j\)\(\\\ \)\)]\)< 0"}]]
 MASSmodel/:SparseArray[model_MASSmodel]:=model["SparseStoichiometry"];
-MASSmodel/:Dot[rest1___,model_MASSmodel,rest2___]:=Dot[rest1,model["Stoichiometry"],rest2];
+MASSmodel/:Dot[rest1___,model_MASSmodel,rest2___]:=Dot[rest1,model["SparseStoichiometry"],rest2];
 MASSmodel/:Transpose[model_MASSmodel]:=Transpose[model["SparseStoichiometry"]];
-MASSmodel/:NullSpace[model_MASSmodel]:=NullSpace[model["Stoichiometry"]];
+MASSmodel/:NullSpace[model_MASSmodel]:=NullSpace[model["SparseStoichiometry"]];
 MASSmodel/:Length[model_MASSmodel]:=Length[model["SparseStoichiometry"]];
 MASSmodel/:Dimensions[model_MASSmodel]:=Dimensions[model["SparseStoichiometry"]];
 MASSmodel/:MatrixRank[model_MASSmodel]:=MatrixRank[model["SparseStoichiometry"]];
-MASSmodel/:RowReduce[model_MASSmodel]:=RowReduce[model["Stoichiometry"]];
+MASSmodel/:RowReduce[model_MASSmodel]:=RowReduce[model["SparseStoichiometry"]];
 MASSmodel/:MatrixForm[model_MASSmodel]:=MatrixForm[model["SparseStoichiometry"]];
 MASSmodel/:SameQ[model1_MASSmodel,model2_MASSmodel]:=Sort[model1[[1]]]===Sort[model2[[1]]];
 MASSmodel/:Equal[model1_MASSmodel,model2_MASSmodel]:=Sort[model1[[1]]]==Sort[model2[[1]]];
@@ -926,19 +930,14 @@ MASSmodel/:Intersection[models__MASSmodel]:=Module[{listOfModels,commonAttribute
 
 
 MASSmodel/:Complement[model_MASSmodel, models__MASSmodel]:=Module[{listOfModels,commonAttributes,modelTmp,listOfAttributes,rhs,rxnIDsToDelete},
-	(*subModel[model,Complement[getID/@getFluxes[model],otherModelsRxnIDs]]*)
 	listOfModels=Join[{model},List[models]];
 	commonAttributes=Complement[Intersection[Union[Sequence@@(listOfModels[[All,1,All,1]])],Options[constructModel][[All,1]]],{"ID","Name","GPR"}];
-	(*modelTmp=constructModel[
-		Complement[model["Reactions"],Sequence@@(#["Reactions"]&/@List[models]),SameTest->(#1==#2&)],
-		"ID" -> StringJoin[Sequence@@Riffle[#["ID"]&/@listOfModels," \[Union] "]],
-		"Name" -> StringJoin[Sequence@@Riffle[#["Name"]&/@listOfModels," \[Union] "]]
-	];*)
 	rxnIDsToDelete=Intersection[getID/@model["Fluxes"],getID/@Flatten[getFluxes/@List[models]]];
 	modelTmp=deleteReactions[model,rxnIDsToDelete];
-	updateID[modelTmp,StringJoin[Sequence@@Riffle[#["ID"]&/@listOfModels," \[Union] "]]];
-	updateName[modelTmp, StringJoin[Sequence@@Riffle[#["Name"]&/@listOfModels," \[Union] "]]];
-	Do[listOfAttributes=#[attr]&/@listOfModels;
+	setID[modelTmp,getID[model]<>" \[Backslash] "<>StringJoin[Sequence@@Riffle[#["ID"]&/@List[models]," \[Union] "]]];
+	setName[modelTmp,getName[model]<>" \[Backslash] "<>StringJoin[Sequence@@Riffle[#["Name"]&/@List[models]," \[Union] "]]];
+	Do[If[attr==="ID",Print[1]];
+		listOfAttributes=#[attr]&/@listOfModels;
 		rhs=Which[
 				And@@(MatchQ[#,{}]&/@listOfAttributes),{},
 				And@@(MatchQ[#,{_Rule...}]&/@listOfAttributes),FilterRules[Flatten[listOfAttributes],Complement[#1,##2]&[Sequence@@listOfAttributes[[All,All,1]]]],
@@ -950,25 +949,7 @@ MASSmodel/:Complement[model_MASSmodel, models__MASSmodel]:=Module[{listOfModels,
 			];
 		setModelAttribute[modelTmp,attr,rhs,"Sloppy"->True];
 	,{attr,commonAttributes}];
-	modelTmp	
-
-(*listOfModels=List[models];
-	commonAttributes=Complement[Intersection[Union[Sequence@@(Prepend[listOfModels,model][[All,1,All,1]])],Options[constructModel][[All,1]]],{"ID","Name"}];
-	Print[Complement[model["Reactions"],Sequence@@(#["Reactions"]&/@listOfModels),SameTest->(#1==#2&)]];
-	constructModel[
-		Complement[model["Reactions"],Sequence@@(#["Reactions"]&/@listOfModels),SameTest->(#1==#2&)],
-		"ID" -> model["ID"]<>" \[Backslash] "<>StringJoin[Sequence@@Riffle[#["ID"]&/@listOfModels," \[Union] "]],
-		"Name" -> model["Name"]<>" \[Backslash] "<>StringJoin[Sequence@@Riffle[#["Name"]&/@listOfModels," \[Union] "]],
-		Sequence@@Table[
-			attr->
-			Switch[model[attr],
-				{_Rule...},FilterRules[updateRules[Sequence@@(#[attr]&/@Append[listOfModels,model])],Except[Union[Sequence@@(#[attr][[All,1]]&/@listOfModels)]]],
-				_List,model[attr],
-				_String,model[attr],
-				(True|False),model[attr]
-			]
-		,{attr,commonAttributes}]
-	]*)
+	modelTmp
 ];
 
 
