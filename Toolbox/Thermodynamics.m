@@ -41,8 +41,17 @@ calcDeltaG::noOrWrongUnitsDG="No (or incompatible) units have been specified for
 calcDeltaG::noOrWrongUnitsDH="No (or incompatible) units have been specified for \!\(\*SubscriptBox[\(\[CapitalDelta]\), \(f\)]\)H in isomer `1`. Kilo Joule \!\(\*SuperscriptBox[\(Mole\), \(-1\)]\) are assumed.";
 calcDeltaG::noOrWrongUnitsIonicStrength="No (or incompatible) units have been specified for the ionic strength. Mole \!\(\*SuperscriptBox[\(Liter\), \(-1\)]\) assumed.";
 calcDeltaG::missingPseudoisomerData="Missing pseudoisomer information encountered for `1` in reaction `2`.";
-Options[calcDeltaG]=Join[FilterRules[constants,{"R"}], defaults, {"Ignore"->{Toolbox`metabolite["h", Blank[]],Toolbox`metabolite["H", Blank[]],Toolbox`metabolite["C00080", Blank[]]}}];
+Options[calcDeltaG]=Join[FilterRules[constants,{"R"}], defaults, {"Concentrations"->{},"Parameters"->{},"Ignore"->{Toolbox`metabolite["h", Blank[]],Toolbox`metabolite["H", Blank[]],Toolbox`metabolite["C00080", Blank[]]}}];
 (*SetAttributes[calcDeltaG,Listable];*)
+calcDeltaG[model_MASSmodel,opts:OptionsPattern[]]:=Module[{fluxes,conc,tmpParam,keq,speciesParam,dissEqRatios},
+	conc=updateRules[FilterRules[model["InitialConditions"],$MASS$speciesPattern],FilterRules[OptionValue["Concentrations"],species:$MASS$speciesPattern/;MemberQ[model["Species"],species]]];
+	tmpParam=updateRules[model["Parameters"],OptionValue["Parameters"]];
+	keq=FilterRules[tmpParam,_Keq];
+	speciesParam=FilterRules[tmpParam,$MASS$speciesPattern];
+	dissEqRatios=SimplifyUnits[Chop[getDisequilibriumRatios[model]/.keq/.conc/.speciesParam]];
+	Thread[(dG[getID[#]]&/@model["Fluxes"])->PhysicalConstants`MolarGasConstant*298.15 Kelvin*Chop[Log[dissEqRatios]]]
+];
+
 calcDeltaG[pseudoIsomers:{_?(MatchQ[#,{_Rule..}&&MemberQ[Quiet@#[[All,1]],"dG0_f"]]&)..},opts:OptionsPattern[]]:=Module[{dGzero,dHzero,dGzeroT,zi,nH,pHterm,isterm,gpfnsp,T,R,stub,is,pH,Tstd,gibbsCoeff},
 	dGzero=Table[
 		Quiet[Check[stub=Convert["dG0_f"/.Dispatch[isomer],Kilojoule Mole^-1],Message[calcDeltaG::noOrWrongUnitsDG,isomer];stub,{Convert::incomp,Unit::incomp2}],{Convert::incomp,Unit::incomp2}]
@@ -165,11 +174,12 @@ def:dG2keq[___]:=(Message[Toolbox::badargs,dG2keq,Defer@def];Abort[])
 Protect[dG2keq]
 
 
+adjustKeqUnits=stripUnits[Convert[#,Table[Liter^-i Mole^i,{i,Join[Range[-5,-1],Range[1,5]]}]]]&;
 Unprotect[keq2dG];
-Options[keq2dG]=Join[Join[FilterRules[constants,{"R"}],FilterRules[defaults,{"T"}]],Options[dGstd]];
-keq2dG[keq_Keq,opts:OptionsPattern[]]:=Exp[-(dGstd[getID[keq],Sequence@@updateRules[Options[dGstd],FilterRules[List@opts,Options[dGstd][[All,1]]]]]/(OptionValue["R"]OptionValue["T"]))]
-keq2dG[keq_?NumberQ,opts:OptionsPattern[]]:=-OptionValue["R"] OptionValue["T"] Log[keq]
-keq2dG[param:{_Rule..},opts:OptionsPattern[]]:=param/.r_Rule/;r[[1,0]]==Keq&&Head[getID[r[[1]]]]==String:>(dGstd[getID[r[[1]]],Sequence@@updateRules[Options[dGstd],FilterRules[List@opts,Options[dGstd][[All,1]]]]]->-OptionValue["R"] OptionValue["T"] Log[r[[2]]])
+Options[keq2dG]=Join[Join[FilterRules[constants,{"R"}],FilterRules[defaults,{"T"}]],{"is"->Undefined,"pH"->Undefined}];
+keq2dG[keq_Keq,opts:OptionsPattern[]]:=Exp[-(dGstd[getID[keq],Sequence@@updateRules[FilterRules[Options[keq2dG],Options[dGstd][[All,1]]],FilterRules[List@opts,Options[dGstd][[All,1]]]]]/(OptionValue["R"]OptionValue["T"]))]
+keq2dG[keq:(_?NumberQ|_Unit),opts:OptionsPattern[]]:=-OptionValue["R"] OptionValue["T"] Log[adjustKeqUnits[keq]]
+keq2dG[param:{_Rule..},opts:OptionsPattern[]]:=param/.r_Rule/;r[[1,0]]==Keq&&Head[getID[r[[1]]]]==String:>(dGstd[getID[r[[1]]],Sequence@@updateRules[FilterRules[Options[keq2dG],Options[dGstd][[All,1]]],FilterRules[List@opts,Options[dGstd][[All,1]]]]]->-OptionValue["R"] OptionValue["T"] Log[adjustKeqUnits[r[[2]]]])
 keq2dG[stuff_,opts:OptionsPattern[]]:=stuff/.keq_Keq:>Exp[-(dGstd[getID[keq],Sequence@@updateRules[Options[dGstd],FilterRules[List@opts,Options[dGstd][[All,1]]]]]/(OptionValue["R"]OptionValue["T"]))]
 def:keq2dG[___]:=(Message[Toolbox::badargs,keq2dG,Defer@def];Abort[])
 Protect[keq2dG];

@@ -11,6 +11,25 @@
 Begin["`Private`"]
 
 
+Unprotect[thermodynamicallyConsistentQ];
+Options[thermodynamicallyConsistentQ]={"Fluxes"->{},"Concentrations"->{},"Parameters"->{},"Output"->Automatic};
+thermodynamicallyConsistentQ::incon="Conflicting thermodynamics detected:\n`1`\nSet the output options to Full to obtain a list of the inconsistent cases ...";
+thermodynamicallyConsistentQ[model_MASSmodel,opts:OptionsPattern[]]:=Module[{fluxes,ofInterest,deltaGees,table,inconsistent},
+	fluxes=updateRules[FilterRules[model["InitialConditions"],_v],FilterRules[OptionValue["Fluxes"],flux_v/;MemberQ[model["Fluxes"],flux]]];
+	ofInterest=dG[getID[#]]&/@fluxes[[All,1]];
+	deltaGees=calcDeltaG[model,"Concentrations"->OptionValue["Concentrations"],"Parameters"->OptionValue["Parameters"]];
+	table=Thread[{getID/@ofInterest,ofInterest/.deltaGees,fluxes[[All,2]]}];
+	inconsistent=Select[table,(Sign[#[[2]]]+Sign[#[[3]]])!=0&];
+	If[OptionValue["Output"]===Full,Return[inconsistent]];
+	If[inconsistent=!={},
+		Message[thermodynamicallyConsistentQ::incon,Pane[TableForm[inconsistent,TableHeadings->{None,{"ID","\!\(\*SubscriptBox[\(\[CapitalDelta]\), \(r\)]\)G","Flux"}}],{Automatic,200},Scrollbars->True]];False,
+		True
+	]
+];
+def:thermodynamicallyConsistentQ[___]:=(Message[Toolbox::badargs,thermodynamicallyConsistentQ,Defer@def];Abort[])
+Protect[thermodynamicallyConsistentQ];
+
+
 getMissingParameters[model_MASSmodel,rates_List]:=Union[Cases[rates/.model["Parameters"],$MASS$parametersPattern,\[Infinity]]];
 
 
@@ -23,8 +42,9 @@ getSuperfluous[model_MASSmodel]:=Module[{ode},
 ];
 
 
-Options[qcqa]={"MissingParameters"->True,"MissingInitialConditions"->True,"SuperfluousParameters"->True,"Rates"->True,"ODE"->True,"MissingParameterStyle"->(Style[#,Background->Red,Bold]&),"MissingInitialConditionStyle"->(Style[#,Background->Orange,Bold]&)};
-qcqa[model_MASSmodel,opts:OptionsPattern[]]:=Module[{missingParameters,pane,grid,rates,missingIC,$MAXROWS,report,prune,superfluousParam,rateWithMissingParamAndIC,odeWithMissingParamAndIC},
+Unprotect[qcqa];
+Options[qcqa]={"MissingParameters"->True,"MissingInitialConditions"->True,"SuperfluousParameters"->True,"Rates"->True,"ODE"->True,"Thermodynamics"->True,"MissingParameterStyle"->(Style[#,Background->Red,Bold]&),"MissingInitialConditionStyle"->(Style[#,Background->Orange,Bold]&)};
+qcqa[model_MASSmodel,opts:OptionsPattern[]]:=Module[{inconsistent,missingParameters,pane,grid,rates,missingIC,$MAXROWS,report,prune,superfluousParam,rateWithMissingParamAndIC,odeWithMissingParamAndIC},
 	$MAXROWS=50;
 	prune=If[Length[#]>$MAXROWS,Join[#[[1;;$MAXROWS]],{{SpanFromLeft,ToString[Length[#]-$MAXROWS]<>" rows omitted!",SpanFromBoth}}],#]&;
 	pane=Pane[#,{{800},{600}},Scrollbars->{True,True}]&;
@@ -66,11 +86,19 @@ qcqa[model_MASSmodel,opts:OptionsPattern[]]:=Module[{missingParameters,pane,grid
 			AppendTo[report,"ODEs with missing parameters and initial conditions"->pane@grid@Partition[odeWithMissingParamAndIC,1]];
 		];
 	];
+	If[OptionValue["Thermodynamics"]===True,
+		inconsistent=thermodynamicallyConsistentQ[model,"Output"->Full];
+		If[inconsistent=!={},
+			AppendTo[report,"Conflicting thermodynamics"->pane@grid@inconsistent];
+		];
+	];
 	If[report==={},
-		Panel["No issues detected :-)"],
+		Panel["No issues detected ..."],
 		MenuView[report,ImageSize->Automatic]
 	]
 ];
+def:qcqa[___]:=(Message[Toolbox::badargs,qcqa,Defer@def];Abort[])
+Protect[qcqa];
 
 
 (* ::Subsection:: *)

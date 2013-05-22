@@ -358,10 +358,30 @@ Protect[calcPERC];
 (*Structural stuff*)
 
 
+Unprotect[getMassActionRatios];
+Options[getMassActionRatios]={"Ignore"->{}};
+getMassActionRatios[r_reaction,opts:OptionsPattern[]]:=Module[{massActionRatio},
+	massActionRatio=Replace[Times@@(getProducts[r]^integerChop[getProdStoich[r]]), 1->Times@@(m[getID[#],"Xt"]&/@getSubstrates[r])]/Replace[Times@@(getSubstrates[r]^integerChop[getSubstrStoich[r]]), 1->Times@@(m[getID[#],"Xt"]&/@getProducts[r])];
+	If[Select[getSpecies[r],!MatchQ[#,Alternatives@@OptionValue["Ignore"]]&]!={},
+		massActionRatio/.Dispatch[Thread[(#&/@OptionValue["Ignore"])->1]],
+		massActionRatio
+	]
+];
+getMassActionRatios[rxns:{_reaction..},opts:OptionsPattern[]]:=getMassActionRatios[#,opts]&/@rxns
+(*getMassActionRatios[s_?MatrixQ,mets_List,opts:OptionsPattern[]]:=Inner[Power,mets,s,Times]/.Thread[OptionValue["Ignore"]->1];*)
+(*getMassActionRatios[rxn_reaction,opts:OptionsPattern[]]:=getMassActionRatios[{getSignedStoich[rxn]}\[Transpose],getSpecies[rxn],opts][[1]]*)
+def:getMassActionRatios[___]:=(Message[Toolbox::badargs,calcKappa,Defer@def];Abort[])
+Protect[getMassActionRatios];
+
+Unprotect[\[CapitalGamma]];
+\[CapitalGamma][stuff__,opts:OptionsPattern[]]:=getMassActionRatios[stuff,opts]
+Protect[\[CapitalGamma]];
+
+
 Unprotect[getDisequilibriumRatios];
 Options[getDisequilibriumRatios]={"Ignore"->{}};
-getDisequilibriumRatios[s_?MatrixQ,mets_List,equilibriumConstants_List,opts:OptionsPattern[]]:=(getMassActionRatios[s,mets]/.Thread[OptionValue["Ignore"]->1])/equilibriumConstants
-getDisequilibriumRatios[rxn_reaction,opts:OptionsPattern[]]:=(getMassActionRatios[rxn]/.Thread[OptionValue["Ignore"]->1])/Keq[getID[rxn]]
+(*getDisequilibriumRatios[s_?MatrixQ,mets_List,equilibriumConstants_List,opts:OptionsPattern[]]:=(getMassActionRatios[s,mets]/.Thread[OptionValue["Ignore"]->1])/equilibriumConstants*)
+getDisequilibriumRatios[rxn_reaction,opts:OptionsPattern[]]:=getMassActionRatios[rxn,opts]/Keq[getID[rxn]]
 getDisequilibriumRatios[rxns:{_reaction..},opts:OptionsPattern[]]:=getDisequilibriumRatios[#,opts]&/@rxns
 def:getDisequilibriumRatios[___]:=(Message[Toolbox::badargs,getMassActionRatios,Defer@def];Abort[])
 Protect[getDisequilibriumRatios];
@@ -375,23 +395,6 @@ Unprotect[calcKappa];
 calcKappa[rateconstants_List]:=DiagonalMatrix[rateconstants]
 def:calcKappa[___]:=(Message[Toolbox::badargs,calcKappa,Defer@def];Abort[])
 Protect[calcKappa];
-
-
-Unprotect[getMassActionRatios];
-Options[getMassActionRatios]={"Ignore"->{}};
-getMassActionRatios[r_reaction,opts:OptionsPattern[]]:=Replace[Times@@(getProducts[r]^integerChop[getProdStoich[r]]), 1->Times@@(m[getID[#],"Xt"]&/@getSubstrates[r])]/Replace[Times@@(getSubstrates[r]^integerChop[getSubstrStoich[r]]), 1->Times@@(m[getID[#],"Xt"]&/@getProducts[r])]/.Thread[OptionValue["Ignore"]->1]
-getMassActionRatios[rxns:{_reaction..},opts:OptionsPattern[]]:=getMassActionRatios[#,opts]&/@rxns
-
-
-(*getMassActionRatios[s_?MatrixQ,mets_List,opts:OptionsPattern[]]:=Inner[Power,mets,s,Times]/.Thread[OptionValue["Ignore"]->1];*)
-(*getMassActionRatios[rxn_reaction,opts:OptionsPattern[]]:=getMassActionRatios[{getSignedStoich[rxn]}\[Transpose],getSpecies[rxn],opts][[1]]*)
-
-def:getMassActionRatios[___]:=(Message[Toolbox::badargs,calcKappa,Defer@def];Abort[])
-Protect[getMassActionRatios];
-
-Unprotect[\[CapitalGamma]];
-\[CapitalGamma][stuff__,opts:OptionsPattern[]]:=getMassActionRatios[stuff,opts]
-Protect[\[CapitalGamma]];
 
 
 (* ::Subsection:: *)

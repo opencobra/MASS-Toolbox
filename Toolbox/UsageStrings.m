@@ -114,7 +114,7 @@ molconvert::usage="molconvert[input, outformat, cmdlineOpts] provides an interfa
 drawCompound::usage="Takes a InChI or SMILES description of a compounds and uses openbabel to draw it.";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*COBRA*)
 
 
@@ -518,8 +518,11 @@ reactions2bipartite::usage="reactions2bipartite[rxns] converts a list of reactio
 (*stoich2bipartite::usage="stoich2bipartite[stoich_?MatrixQ,rxns_List,mets_List] returns a bipartite network representation of the system defined by its stoichiometry and corresponding row (mets) and column (rxns) identifiers. An overloaded MASSmodel version of this function exists also (stoich2bipartite[model_MASSmodel])";*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*QCQA*)
+
+
+thermodynamicallyConsistentQ::usage="thermodynamicallyConsistentQ[model] will check the model for thermodynamic consistency.";
 
 
 qcqa::usage="qcqa[model] will run a series of quality assessment and control tests on model and return a report.";
