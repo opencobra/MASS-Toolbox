@@ -6,7 +6,6 @@
 
 Unprotect[ExampleData];
 ExampleData::notFound="`1` is not a known collection for ExampleData. Use ExampleData[] for a list of collections.";
-ExampleData["Toolbox"]:={{"Toolbox","Glycolysis"},{"Toolbox", "PentosePhosphatePathway"},{"Toolbox", "EcoliCore"},{"Toolbox", "SBMLModel"}};
 ExampleData[{"Toolbox", "Glycolysis"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","SB2","glycolysis.m.gz"}]];
 ExampleData[{"Toolbox", "PentosePhosphatePathway"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","SB2","ppp.m.gz"}]];
 ExampleData[{"Toolbox", "NucleotideSalvagePathway"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","SB2","salvage.m.gz"}]];
@@ -19,5 +18,6 @@ ExampleData[{"Toolbox", "iAB-RBC-238-Glycolysis"}] := Import[FileNameJoin[{$Tool
 ExampleData[{"Toolbox", "iAB-RBC-238-PentosePhosphatePathway"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","iAB-RBC-238","iAB-RBC-238-PentosePhosphatePathway.m.gz"}]];
 ExampleData[{"Toolbox", "iAB-RBC-238-NucleotideSalvagePathway"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","iAB-RBC-238","iAB-RBC-238-NucleotideSalvagePathway.m.gz"}]];
 ExampleData[{"Toolbox", "iAB-RBC-238-Hemoglobin"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","iAB-RBC-238","iAB-RBC-238-Hemoglobin.m.gz"}]];
+ExampleData["Toolbox"]:=Cases[DownValues@ExampleData,{"Toolbox",_String},\[Infinity]];
 ExampleData[pat:{"Toolbox", _}]:=(Message[ExampleData::notFound,pat];Abort[];)
 Protect[ExampleData];
