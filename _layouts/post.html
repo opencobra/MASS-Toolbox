@@ -2,35 +2,12 @@
 layout: default
 comments: true
 ---
-<article>
-  <header>
-    <h2>
-      <a href="{{ page.url }}" rel="bookmark" title="Permanent link to ">{{ page.title }}</a>
-    </h2>
-    <h5>
-        <!-- avatar><img 
-		class="avatar"
-		src="http://s.gravatar.com/avatar/{{ site.gravatar }}?s=40"
-		alt="{{ site.author }}"
-		width="40"
-		height="40">
-        </avatar -->
-        <time>{{ page.date | date: '%B' }} {{ page.date | date: '%e' }}, {{ page.date | date: '%Y' }}</time> - 
-        <author>{{ site.author }}</author>
-    </h5>
-  </header>
-
-  <p /><br /><p />{{ content }}
-
-<div class="hero-unit">
-  <nav id="related">
-    <h3>Related Posts</h3>
-    <ul class="posts">
-      {% for post in site.related_posts limit:5 %}
-        <p><li><span>{{ post.date | date_to_string }}</span> - <a href="{{ post.url }}">{{ post.title }}</a></li></p>
-      {% endfor %}
-    </ul>
-  </nav>
+<div class="post">
+    <h3><a href="{{ post.url }}">{{ page.title }}</a></h3>
+  
+    <div class="body">
+        {{ content }}
+    </div>
 </div>
 
 {% if page.comments %}
@@ -70,5 +47,3 @@ comments: true
   </div>
   {% endif %}
 -->
-
-</article>
