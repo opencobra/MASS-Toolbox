@@ -1,5 +1,5 @@
 markdown: rdiscount
-
+permalink: MASS-Toolbox/:title
 destination: build
 auto: true
 exclude:
