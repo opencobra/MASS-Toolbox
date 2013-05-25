@@ -55,7 +55,7 @@ qcqa[model_MASSmodel,opts:OptionsPattern[]]:=Module[{inconsistent,missingParamet
 	If[OptionValue["MissingParameters"]===True,
 		missingParameters=getMissingParameters[model,rates];
 		If[missingParameters=!={},
-			AppendTo[report,"Missing parameters"->pane@grid@Join[{{"Parameter","Rate equation(s)"}},Table[{p,Column[Select[rates,MemberQ[#,p]&]]/.p:>OptionValue["MissingParameterStyle"][p]},{p,missingParameters}]]];
+			AppendTo[report,"Missing parameters"->pane@grid@Join[{{"Parameter","Rate equation(s)"}},Table[{p,Column[Select[rates,MemberQ[#,p,\[Infinity]]&]]/.p:>OptionValue["MissingParameterStyle"][p]},{p,missingParameters}]]];
 		];
 	];
 
