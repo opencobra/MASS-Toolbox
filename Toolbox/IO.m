@@ -152,7 +152,7 @@ Switch[#[[1]],
 getListOfRules[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseRuleXML[#,id2massID]&/@extractXMLelement[xml,"listOfRules",2]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfFunctionDefinitions*)
 
 
@@ -163,7 +163,7 @@ parseFunctionXML/@extractXMLelement[xml,"listOfFunctionDefinitions",2]
 ];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfUnitDefinitions*)
 
 
@@ -180,7 +180,8 @@ parseUnitXML[XMLElement["unit",attrVal:{_Rule..},_]]:=(10^sbmlString2Number["sca
 
 parseListOfUnitsXML[XMLElement["listOfUnits",_,units_List]]:=Times@@(parseUnitXML/@units)
 
-parseUnitDefinitionXML[XMLElement["unitDefinition",attrVal:{_Rule..},listOfUnits_List]]:=("id"/.attrVal)->Quiet[Check[DeclareUnit[StringReplace["name"/.attrVal,{"(new default)"->"","(default)"->"","_"->"",Whitespace->""}],(parseListOfUnitsXML[extractXMLelement[listOfUnits,"listOfUnits",0][[1]]])],DeclareUnit["stub"<>ToString[Unique[]],(parseListOfUnitsXML[extractXMLelement[listOfUnits,"listOfUnits",0][[1]]])],{Symbol::symname}],{Unit::exists}]
+makeValidSymbol=StringReplace[#,RegularExpression["([^a-zA-Z0-9])"]:>("$"<>ToString[ToCharacterCode["$1"][[1]]]<>"$")]&
+parseUnitDefinitionXML[XMLElement["unitDefinition",attrVal:{_Rule..},listOfUnits_List]]:=("id"/.attrVal)->Quiet[Check[DeclareUnit[StringReplace[makeValidSymbol[query["name", attrVal, "id"/.attrVal]],{"(new default)"->"","(default)"->"","_"->"",Whitespace->""}],(parseListOfUnitsXML[extractXMLelement[listOfUnits,"listOfUnits",0][[1]]])],DeclareUnit["stub"<>ToString[Unique[]],(parseListOfUnitsXML[extractXMLelement[listOfUnits,"listOfUnits",0][[1]]])],{Symbol::symname}],{Unit::exists}]
 
 getListOfUnitDefinitions[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:=Module[{},
 	(*Join[updateRules[sbmlDefaultUnits,parseUnitDefinitionXML/@extractXMLelement[xml,"listOfUnitDefinitions",2]],sbmlBaseUnit2mathematica,{elem_String:>Unit[1,elem]}]*)
@@ -188,7 +189,7 @@ getListOfUnitDefinitions[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPat
 ]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfSpecies*)
 
 
@@ -447,7 +448,7 @@ sbml2model::eventDelayDetected="Delayed event detected. The MASS Toolbox does no
 sbml2model::variableStoichiometry="The toolbox does not support for variable stoichiometric factors (detected in reaction `1`)";
 sbml2model::eventProblem="Problem encountered for the following events: `1`. Amongst other things, the toolbox does not provide support for events that involve parameters.";
 sbml2model::conversionFactorDetected="Conversion factor detected. The MASS Toolbox does not provide support conversion factors. The conversion factors will be ignored in further calculations.";
-sbml2model[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:=Module[{listOfUnitDefinitions,listOfFunctionDefinitions,listOfCompartments,compartmentVolumes,listOfParameters,parameters,
+sbml2model[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:=Module[{hosuRules,listOfUnitDefinitions,listOfFunctionDefinitions,listOfCompartments,compartmentVolumes,listOfParameters,parameters,
 listOfSpecies,initialConditions,boundaryConditions,id2massID,listOfRxns,listOfRules,assignmentRules,rateRules,algebraicRules,listOfInitialAssignments,
 listOfKineticLawsAndLocalParameters,listOfKineticLaws,listOfLocalParameters,speciesInReactions,notCoveredByReactions,customODE,constantSpecies,paramInListOfRules,
 constParam,speciesIDs2names,modelID,modelName,notes,modelStuff,hasOnlySubstanceUnits,listOfEvents},
@@ -459,9 +460,7 @@ constParam,speciesIDs2names,modelID,modelName,notes,modelStuff,hasOnlySubstanceU
 		modelID=query["id",modelStuff[[2]]];
 		modelName=query["name",modelStuff[[2]],modelID];
 		notes=Quiet@Check[ImportString[ExportString[extractXMLelement[modelStuff[[3]],"notes",2][[1]],"XML"],"XHTML"],""];
-		
 		listOfUnitDefinitions=getListOfUnitDefinitions[xml];
-		
 		listOfFunctionDefinitions=getListOfFunctionDefinitions[xml](*/.Dispatch[listOfUnitDefinitions]*);
 		
 		listOfCompartments=getListOfCompartments[xml];
@@ -498,7 +497,7 @@ constParam,speciesIDs2names,modelID,modelName,notes,modelStuff,hasOnlySubstanceU
 			listOfEvents={};,
 			listOfEvents=getListOfEvents[xml,id2massID]/.Dispatch[listOfFunctionDefinitions];
 		];
-		(*Print[listOfEvents];*)
+		
 		listOfRules=listOfRules/.p_parameter[t]/;!MemberQ[paramInListOfRules,p]:>p/.t^t->Piecewise[{{1,t==0},{t^t,True}}];
 		assignmentRules=FilterRules[listOfRules,"assignmentRule"][[All,2]];
 		rateRules=FilterRules[listOfRules,"rateRule"][[All,2]];
@@ -574,7 +573,6 @@ FullForm]\):>Derivative[1][s][t]*parameter["Volume",getCompartment[s]];
 
 		(* Temporary Fix: get rid of parameters that don't have an initial value*)
 		parameters=DeleteCases[parameters,r_Rule/;MatchQ[r[[2]],_String]];
-
 		If[!MatchQ[listOfEvents,{(_String->WhenEvent[_,({_[t]..}->{__})|(_[t]->_)|{(_[t]->_)..},OptionsPattern[]])...}],Message[sbml2model::eventProblem,DeleteCases[listOfEvents,{(_String->WhenEvent[_,({_[t]..}->{__})|(_[t]->_)|{(_[t]->_)..},OptionsPattern[]])...}]]];
 		Scan[If[!MatchQ[getStoichiometry[#],{_?NumberQ...}],Message[sbml2model::variableStoichiometry,getID[#]];Abort[];]&,listOfRxns];
 		constructModel[listOfRxns,
