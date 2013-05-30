@@ -4,6 +4,33 @@
 (*Usage strings*)
 
 
+(* ::Subsection:: *)
+(*Options*)
+
+
+Type::usage="Type is an option for getJacobian that specifies which type of Jacobian matrix to generate (either \"Concentration\" or \"Flux\")."
+
+Strategy::usage="Strategy is an option for findSteadyState that specifies if Newton's method or forward integration should be used (either FindRoot or simulate)."
+
+ReversibleDelimiter::usage="ReversibleDelimiter is an option for str2mass.";
+
+IrreversibleDelimiter::usage="ReversibleDelimiter is an option for str2mass.";
+
+Tooltipped::usage="Tooltipped is a boolean option for toolbox plots that specifies if tooltip information should be shown when the mouse pointer is over certain plot elements.";
+
+Solver::usage="Solver is an option for optimization related functions that specifies the solver backend to be used for the solution process."
+
+ReactionData::usage="ReactionData is an option for drawPathway.";
+
+MetaboliteData::usage="MetaboliteData is an option for drawPathway.";
+
+Legend::usage="Legend is an option for many plotting functions, e.g., plotSimulation.";
+
+Category::usage="Category is an option for optimzation code e.g. GAMSForm or NEOS.";
+
+Output::usage="Output is an option for many functions specifying the amount of detail that should be provided in the results.";
+
+
 (* ::Subsection::Closed:: *)
 (*Species & Reactions*)
 
@@ -518,7 +545,7 @@ reactions2bipartite::usage="reactions2bipartite[rxns] converts a list of reactio
 (*stoich2bipartite::usage="stoich2bipartite[stoich_?MatrixQ,rxns_List,mets_List] returns a bipartite network representation of the system defined by its stoichiometry and corresponding row (mets) and column (rxns) identifiers. An overloaded MASSmodel version of this function exists also (stoich2bipartite[model_MASSmodel])";*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*QCQA*)
 
 
@@ -641,7 +668,7 @@ query::usage="query[key, listOfRules] will return the corresponding value."(*## 
 filter::usage="filter[listOfRules, keys] behave like FilterRules with the exception that the filtered rules are returned in the order of keys.";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Visualization*)
 
 

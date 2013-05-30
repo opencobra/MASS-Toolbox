@@ -1443,21 +1443,3 @@ Protect[detectUnconservedMetabolites];
 End[];
 
 (#::usage=StringReplace[ToString[#],RegularExpression["^.*`"]->""]<>" is a model attribute. Use it like model[\""<>StringReplace[ToString[#],RegularExpression["^.*`"]->""]<>"\"].")&[Symbol["Toolbox`"<>ToString[#]]]&/@(If[Quiet@MatchQ[Context[#],_Context],#,Unevaluated[Sequence[]]]&/@Toolbox`Private`$MASSmodel$Attributes)
-
-Type::usage="Type is an option for getJacobian that specifies which type of Jacobian matrix to generate (either \"Concentration\" or \"Flux\")."
-
-Strategy::usage="Strategy is an option for findSteadyState that specifies if Newton's method or forward integration should be used (either FindRoot or simulate)."
-
-ReversibleDelimiter::usage="ReversibleDelimiter is an option for str2mass.";
-
-IrreversibleDelimiter::usage="ReversibleDelimiter is an option for str2mass.";
-
-Tooltipped::usage="Tooltipped is a boolean option for toolbox plots that specifies if tooltip information should be shown when the mouse pointer is over certain plot elements.";
-
-Solver::usage="Solver is an option for optimization related functions that specifies the solver backend to be used for the solution process."
-
-ReactionData::usage="ReactionData is an option for drawPathway.";
-
-MetaboliteData::usage="MetaboliteData is an option for drawPathway.";
-
-Legend::usage="Legend is an option for many plotting functions, e.g., plotSimulation.";
