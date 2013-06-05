@@ -29,7 +29,7 @@ AutoCollapse[]:=(If[$FrontEnd=!=$Failed,SelectionMove[EvaluationNotebook[],All,G
 
 
 icon=Show[Import[FileNameJoin[{DirectoryName[$InputFileName],"MASS-Toolbox-Logo.m"}]],ImageSize->150];
-delay=Pause[.07]&;
+delay=Pause[.03]&;
 If[$FrontEnd=!=Null,
 	Monitor[ReleaseHold[#],Row[{Blur[icon,(*Log[23-prog]*)Max[{15-prog,0}]],progtext}]],
 	ReleaseHold[#]
