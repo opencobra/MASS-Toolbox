@@ -643,8 +643,14 @@ pH::usage="pH";
 T::usage="Temperature";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Util*)
+
+
+expandLog::usage="Check http://mathematica.stackexchange.com/questions/22705/simplify-expressions-with-log/22746#22746.";
+
+
+expandAllLog::usage="Check http://mathematica.stackexchange.com/questions/22705/simplify-expressions-with-log/22746#22746.";
 
 
 getReferenceFluxesAndBoundsFromXML::usage="getReferenceFluxesAndBoundsFromXML[path2xml] returns reference fluxe and bounds from files like Ec_iJR904_flux1.xml.gz"
