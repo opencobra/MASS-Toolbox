@@ -18,9 +18,6 @@ cheatSheet[]:=TableForm[{{"Evaluate in place","Shift + Cmd + Return"},{"Convert 
 GurobiML::notinstalled="GurobiML seems to be not installed. Advanced LP/MILP/QP capabilities will be limited. GurobiML can be obtained from https://github.com/phantomas1234/GurobiML (very experimental at the moment!).";
 
 
-AutoCollapse[]:=(If[$FrontEnd=!=$Failed,SelectionMove[EvaluationNotebook[],All,GeneratedCell];FrontEndTokenExecute["SelectionCloseUnselectedCells"]])
-
-
 (* ::Section:: *)
 (*Load defintions*)
 

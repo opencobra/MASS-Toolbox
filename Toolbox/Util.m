@@ -11,6 +11,9 @@
 Begin["`Private`"]
 
 
+AutoCollapse[]:=(If[$FrontEnd=!=$Failed,SelectionMove[EvaluationNotebook[],All,GeneratedCell];FrontEndTokenExecute["SelectionCloseUnselectedCells"]])
+
+
 expandLog[expr_]:=Module[{rule1,rule2,a,b,x},
 	rule1=Log[a_*b_]->Log[a]+Log[b];
 	rule2=Log[a_^x_]->x*Log[a];
