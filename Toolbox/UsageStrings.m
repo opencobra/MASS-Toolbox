@@ -647,7 +647,7 @@ T::usage="Temperature";
 (*Util*)
 
 
-AutoCollapse::usage="Check out Hyperlink[RowBox[{RowBox[{"http", ":"}], "//", RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{"mathematica", ".", "stackexchange", ".", "com"}], "/", "questions"}], "/", "680"}], "/", "how"}], "-", "to", "-", "keep", "-", "input", "-", "cells", "-", "hidden", "-", "after", "-", "evaluating", "-", RowBox[{RowBox[{"notebook", "/", "683"}], "#683"}]}]}], "http://mathematica.stackexchange.com/questions/680/how-to-keep-input-cells-hidden-after-evaluating-notebook/683#683", ButtonNote -> "http://mathematica.stackexchange.com/questions/680/how-to-keep-input-cells-hidden-after-evaluating-notebook/683#683"]";
+AutoCollapse::usage="Check out http://mathematica.stackexchange.com/questions/680/how-to-keep-input-cells-hidden-after-evaluating-notebook/683#683"
 
 
 expandLog::usage="Check out http://mathematica.stackexchange.com/questions/22705/simplify-expressions-with-log/22746#22746.";
