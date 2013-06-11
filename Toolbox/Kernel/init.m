@@ -27,7 +27,7 @@ GurobiML::notinstalled="GurobiML seems to be not installed. Advanced LP/MILP/QP 
 
 icon=Show[Import[FileNameJoin[{DirectoryName[$InputFileName],"MASS-Toolbox-Logo.m"}]],ImageSize->150];
 delay=Pause[.03]&;
-If[$FrontEnd=!=Null,
+If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	Monitor[ReleaseHold[#],Row[{Blur[icon,(*Log[23-prog]*)Max[{15-prog,0}]],progtext}]],
 	ReleaseHold[#]
 ]&@Hold[
