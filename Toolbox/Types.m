@@ -373,7 +373,7 @@ enzyme/:ToString[E_enzyme]:=Module[{adjustSpeciesCompartments,id,comp,catalytic,
 	inhibitors=ToString[adjustSpeciesCompartments[#]]&/@getInhibitors[E];
 	"E_"<>id<>"["<>comp<>"]"<>
 		StringJoin[Sequence@@("&"<>#&/@catalytic)]<>
-			StringJoin[Sequence@@("@"<>#&/activators)]<>StringJoin[Sequence@@("#"<>#&/@inhibitors)]
+			StringJoin[Sequence@@("@"<>#&/@activators)]<>StringJoin[Sequence@@("#"<>#&/@inhibitors)]
 ];
 enzyme/:ToString[E_enzyme,"SBML"]:=makeIdXmlConform[ToString[E]]
 
