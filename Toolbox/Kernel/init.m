@@ -25,13 +25,18 @@ GurobiML::notinstalled="GurobiML seems to be not installed. Advanced LP/MILP/QP 
 (*Column[{icon,progtext,If[$FrontEnd=!=Null,ProgressIndicator[prog,{1,22}],prog]}]*)
 
 
+Module[{licenseInfo,icon,delay,stubStream,bkupoutput,prog,progtext},
+licenseInfo="Copyright (c) 2013, Regents of the University of California
+All rights reserved.
+Evaluate $ToolboxLicense for more information";
+progtext="";
+prog=0;
 icon=Show[Import[FileNameJoin[{DirectoryName[$InputFileName],"MASS-Toolbox-Logo.m"}]],ImageSize->150];
 delay=Pause[.03]&;
 If[$FrontEnd=!=Null&&$VersionNumber>=8,
-	Monitor[ReleaseHold[#],Row[{Blur[icon,(*Log[23-prog]*)Max[{15-prog,0}]],progtext}]],
-	ReleaseHold[#]
+	Monitor[ReleaseHold[#],Grid[{{Blur[icon,(*Log[23-prog]*)Max[{15-prog,0}]],progtext},{licenseInfo,SpanFromLeft}}]],
+	Monitor[ReleaseHold[#],Column[{progtext,licenseInfo}]]
 ]&@Hold[
-	prog=0;
 	progtext="Loading MathSBML ...";
 	(* Mathematica Init File *)
 	MathSBML::notinstalled="MathSBML seems to be not installed. SBML import/export capabilities will be limited. MathSBML can be obtained from http://sbml.org/Software/MathSBML";
@@ -80,6 +85,7 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	progtext="Loading QCQA ...";Get["Toolbox`QCQA`"];prog++;delay[];
 	progtext="Loading ExampleData ...";Get["Toolbox`ExampleData`"];prog++;delay[];
 	EndPackage[];
+]
 ]
 
 
