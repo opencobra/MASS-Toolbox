@@ -1,15 +1,16 @@
 markdown: rdiscount
-permalink: MASS-Toolbox/:title.html
+permalink: /MASS-Toolbox/:title.html
 destination: build
 auto: true
 exclude:
   - Rakefile
   - Gemfile
   - .gitignore
-author: Nikolaus Sonnenschein
+author: Niko Sonnenschein
 gravatar: 4705d980299511a15653f3c6e7f314dd
 email: niko.sonnenschein@gmail.com
 web: http://phantomas1234.github.io/MASS-Toolbox/
 twitter: phantomas1234
 github: phantomas1234
 baseurl: /MASS-Toolbox
+github: true
