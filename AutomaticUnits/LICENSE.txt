@@ -1,0 +1,103 @@
+The package included in this directory (AutomaticUnits) contains a slightly modified version of the Automatic Units package developed by Jon McLoone (http://http://library.wolfram.com/infocenter/MathSource/7655/). Written permission to modify and include the package in the MASS Toolbox package has been obtained from Jon personally (see below).
+
+
+Date: Mon, 8 Oct 2012 14:47:45 -0500 (CDT)
+From: Jon McLoone <jonm@wolfram.com>
+To: Nikolaus Sonnenschein <nsonnenschein@eng.ucsd.edu>
+Message-ID: <1866717193.245069.1349725665766.JavaMail.root@wolfram.com>
+In-Reply-To: <CACbzdio=XE4ZZa0Va3TtL1CN2sZ9axsuGPZiz5x+Qa43n-fW8Q@mail.gmail.com>
+Subject: Re: AutomaticUnits package license
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [140.177.205.164]
+X-Mailer: Zimbra 7.2.1_GA_2790 (zclient/7.2.1_GA_2790)
+
+Sorry, I didn't,t think about either infinity or what the appropriate license was for the code!  Feel free to incorporate a modified versio with your code. If you need a more precise license definition than that, let me know. 
+
+You should, however, know that package will shortly be made obsolete as similar functionality will be built in to Mathematica 9. The aim is to ship that before the end of the year. So you may wish to base your work on that instead.
+
+Jon
+
+
+----- Original Message -----
+From: Nikolaus Sonnenschein <nsonnenschein@eng.ucsd.edu>
+To: jonm@wolfram.com
+Sent: Mon, 08 Oct 2012 12:57:22 -0500 (CDT)
+Subject: AutomaticUnits package license
+
+Dear Jon,
+
+I would like to use your fantastic 'AutomaticUntis' package as the unit
+handling backend of a metabolic network modeling package I am developing.
+Adding it as a dependency to my package would by fine, alas I had to tweak
+a few lines in AutomaticUnits.m to handle Infinity when parsing unit input
+(checkout the diff at the end of my email). I believe you didn't include
+any license information with your package, so I would like to request your
+permission to package a modified version of 'AutomaticUntis' together with
+my package. A better solution might be, however, if you could incorporate
+my changes into a new version of your package? I would like to point out
+that something like
+
+Unit[Infinity, "Kilogram"]
+
+did work before my modifications.
+
+Inifinity * Kilogram, however, was not parsed as Unit[Infinity, "Kilogram"].
+
+
+Best wishes,
+
+Niko Sonnenschein
+
+
+-- 
+Nikolaus Sonnenschein
+Post-Doctoral Researcher
+
+University of California, San Diego
+Department of Bioengineering
+PFBH/EBU3A, Room 413
+9500 Gilman Drive # 0421
+La Jolla, California 92093-0512
+
+Tel: (858) 822-3181
+niko.sonnenschein@gmail.com
+nsonnenschein@ucsd.edu
+http://systemsbiology.ucsd.edu
+
+
+
+0a1,2
+> (* ::Package:: *)
+>
+364a367
+>
+366c369
+< If[NumericQ[exactconversion],
+---
+> If[MatchQ[exactconversion,(_?NumericQ|Infinity|-Infinity)],
+511,512c514,515
+<
+<
+Unit/:Times[a___,b_Unit,c___]/;MemberQ[{a,c},(_Rational|_Unit|_Real|_Integer|_?NumericQ)]:=Block[{uns,nums,rest,unlist,unsorted,splitlist,finallist,finalunit,finalnumber},
+---
+> (*FIXME: Following line introduced by Niko*)
+>
+Unit/:Times[a___,b_Unit,c___]/;MemberQ[{a,c},(_Rational|_Unit|_Real|_Integer|_?NumericQ|Infinity|-Infinity)]:=Block[{uns,nums,rest,unlist,unsorted,splitlist,finallist,finalunit,finalnumber},
+517,518c520,521
+< nums=Cases[rest,_?NumericQ];
+< rest=DeleteCases[rest,_?NumericQ];
+---
+> nums=Cases[rest,(_?NumericQ|Infinity|-Infinity)];
+> rest=DeleteCases[rest,_?NumericQ|Infinity|-Infinity];
+533,534c536,537
+< nums=Join[nums,Cases[finallist,_?NumericQ]];
+< finallist=DeleteCases[finallist,_?NumericQ];
+---
+> nums=Join[nums,Cases[finallist,_?NumericQ|Infinity|-Infinity]];
+> finallist=DeleteCases[finallist,_?NumericQ|Infinity|-Infinity];
+543c546
+<
+---
+>
