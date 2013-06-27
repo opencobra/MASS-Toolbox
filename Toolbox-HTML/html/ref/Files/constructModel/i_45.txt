@@ -1,0 +1,9 @@
+<pre name='i_45_in' id='i_45_in' class='IFT'>constructModel[{Toolbox`reaction[&quot;1&quot;, {
+Toolbox`metabolite[&quot;x1&quot;, None]}, {
+Toolbox`metabolite[&quot;x2&quot;, None]}, {1, 1}, True], Toolbox`reaction[&quot;2&quot;, {
+Toolbox`metabolite[&quot;x2&quot;, None]}, {
+Toolbox`metabolite[&quot;x3&quot;, None]}, {1, 1}, True], Toolbox`reaction[&quot;3&quot;, {
+Toolbox`metabolite[&quot;x3&quot;, None]}, {
+Toolbox`metabolite[&quot;x4&quot;, None]}, {1, 1}, False]}, 
+  Notes -&gt; &quot;This model has been constructed by &quot; &lt;&gt; $UserName &lt;&gt; 
+    &quot; on &quot; &lt;&gt; DateString[]] // getNotes</pre><div class='IFU'><a name='1630509510'></a>http://wolfram.com/xid/0bhbpvbntnx2d8tlwvbibdnh-081rg4</div>

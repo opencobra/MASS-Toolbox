@@ -1,0 +1,225 @@
+<table class="EST">
+ <tr>
+  <td>
+   <div class="ExampleText" id="2030618409"><a name="2030618409"></a>Query the ID of reaction</div>
+   <a name="177500903" />
+   <a name="330656291" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[1]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="177500903"></a>
+        <a href="javascript:input('i_7')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/reaction/I_8.gif"
+             height="12"
+             width="73"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_7_out" id="i_7_out" class="IFL"><a name="177500903"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[1]=</td>
+      <td class="Output">
+       <img src="Files/reaction/O_3.gif"
+           height="12"
+           width="29"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+   <div class="ExampleText" id="2104106770"><a name="2104106770"></a>Check if a reaction is reversible</div>
+   <a name="838423770" />
+   <a name="1542442376" />
+   <a name="1553910495" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[2]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="838423770"></a>
+        <a href="javascript:input('i_9')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/reaction/I_10.gif"
+             height="26"
+             width="122"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_9_out" id="i_9_out" class="IFL"><a name="838423770"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[2]=</td>
+      <td class="Output">
+       <img src="Files/reaction/O_4.gif"
+           height="12"
+           width="29"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[2]=</td>
+      <td class="Output">
+       <img src="Files/reaction/O_5.gif"
+           height="12"
+           width="36"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+   <div class="ExampleText" id="2629250"><a name="2629250"></a>Query substrates and products</div>
+   <a name="1240131810" />
+   <a name="1566536535" />
+   <a name="630031525" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[3]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="1240131810"></a>
+        <a href="javascript:input('i_11')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/reaction/I_12.gif"
+             height="26"
+             width="130"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_11_out" id="i_11_out" class="IFL"><a name="1240131810"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[3]=</td>
+      <td class="Output">
+       <img src="Files/reaction/O_6.gif"
+           height="18"
+           width="81"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[3]=</td>
+      <td class="Output">
+       <img src="Files/reaction/O_7.gif"
+           height="18"
+           width="105"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+   <div class="ExampleText" id="556125134"><a name="556125134"></a>Query the stoichiometry of a reaction</div>
+   <a name="122797276" />
+   <a name="1065709525" />
+   <a name="1366370695" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[4]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="122797276"></a>
+        <a href="javascript:input('i_13')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/reaction/I_14.gif"
+             height="26"
+             width="144"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_13_out" id="i_13_out" class="IFL"><a name="122797276"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[4]=</td>
+      <td class="Output">
+       <img src="Files/reaction/O_8.gif"
+           height="12"
+           width="93"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[4]=</td>
+      <td class="Output">
+       <img src="Files/reaction/O_9.gif"
+           height="12"
+           width="109"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+   <div class="ExampleText" id="501064792"><a name="501064792"></a>Query the stoichiometry of a reaction</div>
+   <a name="1549633494" />
+   <a name="8462842" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[5]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="1549633494"></a>
+        <a href="javascript:input('i_15')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/reaction/I_16.gif"
+             height="12"
+             width="130"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_15_out" id="i_15_out" class="IFL"><a name="1549633494"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[5]=</td>
+      <td class="Output">
+       <img src="Files/reaction/O_10.gif"
+           height="12"
+           width="57"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+  </td>
+  <td class="CBG"
+      width="5px"
+      onclick="toggle('ES_2')" />
+ </tr>
+</table>

@@ -1,0 +1,6 @@
+/* * * keep in sync with css/2003/www.wolfram.com/M6.css! * * */
+/* menu overrides (red) */
+#menu { background-color: #dc0200; border-top-color:#dc0200; }
+	#menu .logo { background: url('/common/images2008/wolframlogo08-red.gif') no-repeat 0px 9px; }
+.WRIdropMenu a.WRImenuHover, a.topLevel:hover { color: #dc0200 !important; }
+.WRImenuContents a.WRImenuHover, .WRImenuContents a:hover { background-color: #dc0200; color: #fff !important; }

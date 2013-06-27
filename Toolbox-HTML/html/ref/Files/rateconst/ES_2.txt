@@ -1,0 +1,105 @@
+<table class="EST">
+ <tr>
+  <td>
+   <div class="ExampleText" id="1115348272"><a name="1115348272"></a>rateconst represents elementary rate constants</div>
+   <table class="InCell">
+    <tr>
+     <td class="lab">
+      <a name="inoutlink" href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[1]:=</a>
+     </td>
+     <td class="Input">
+      <div>
+       <a name="1158511581"></a>
+       <a href="javascript:input('i_9')"
+           onmouseover="javascript:return(true);">
+        <img src="Files/rateconst/I_10.gif"
+            height="12"
+            width="326"
+            alt="Click for copyable input" />
+       </a>
+      </div>
+      <div name="i_9_out" id="i_9_out" class="IFL"><a name="1158511581"></a></div>
+     </td>
+    </tr>
+   </table>
+   <a name="2017398165" />
+   <a name="1178381195" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[2]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="2017398165"></a>
+        <a href="javascript:input('i_11')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/rateconst/I_12.gif"
+             height="12"
+             width="158"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_11_out" id="i_11_out" class="IFL"><a name="2017398165"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td colspan="2">
+       <div class="celllabelTableForm">Out[2]//Short=</div>
+      </td>
+     </tr>
+     <tr>
+      <td class="lab"> </td>
+      <td class="Output">
+       <img src="Files/rateconst/O_4.gif"
+           width="526"
+           height="47"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+   <a name="541692429" />
+   <a name="1151882912" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[3]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="541692429"></a>
+        <a href="javascript:input('i_13')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/rateconst/I_14.gif"
+             height="12"
+             width="135"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_13_out" id="i_13_out" class="IFL"><a name="541692429"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[3]=</td>
+      <td class="Output">
+       <img src="Files/rateconst/O_5.gif"
+           height="47"
+           width="315"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+  </td>
+  <td class="CBG"
+      width="5px"
+      onclick="toggle('ES_2')" />
+ </tr>
+</table>

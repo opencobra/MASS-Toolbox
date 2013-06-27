@@ -1,0 +1,5 @@
+<pre name='i_19_in' id='i_19_in' class='IFT'>plotSimulation[
+ FilterRules[pools, {&quot;Reductive Energy Charge&quot;}] /. concSol, 
+ PlotFunction -&gt; LogLinearPlot, FrameLabel -&gt; {&quot;t&quot;, &quot;Pool&quot;}]
+plotSimulation[FilterRules[pools, {&quot;Energy Charge&quot;}] /. concSol, 
+ PlotFunction -&gt; LogLinearPlot, FrameLabel -&gt; {&quot;t&quot;, &quot;Pool&quot;}]</pre><div class='IFU'><a name='660769508'></a>http://wolfram.com/xid/0yhuava5fpwuih4bk423iq-k7ovau</div>

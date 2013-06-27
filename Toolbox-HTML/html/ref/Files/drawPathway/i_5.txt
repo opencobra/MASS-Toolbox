@@ -1,0 +1,8 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>iABglycolysis = 
+ ExampleData[{&quot;Toolbox&quot;, &quot;iAB-RBC-238-Glycolysis&quot;}]; iABppp = 
+ ExampleData[{&quot;Toolbox&quot;, &quot;iAB-RBC-238-PentosePhosphatePathway&quot;}];
+iABsalvage = 
+ ExampleData[{&quot;Toolbox&quot;, 
+   &quot;iAB-RBC-238-NucleotideSalvagePathway&quot;}]; ExampleData[{&quot;Toolbox&quot;, 
+  &quot;iAB-RBC-238-PentosePhosphatePathway&quot;}];
+combi = Union[iABglycolysis, iABppp, iABsalvage];</pre><div class='IFU'><a name='724117592'></a>http://wolfram.com/xid/0bmpebgb0k5jdcz4uwbs0j0-l9emzu</div>

@@ -1,0 +1,5 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>model3 = deleteSpecies[
+   model, {Toolbox`metabolite[&quot;adp&quot;, &quot;c&quot;], Toolbox`metabolite[
+    &quot;amp&quot;, &quot;c&quot;], Toolbox`metabolite[&quot;atp&quot;, &quot;c&quot;]}];
+model3[&quot;Species&quot;]
+model3 // Dimensions</pre><div class='IFU'><a name='152303067'></a>http://wolfram.com/xid/0cestzoqcqkj9b5mbcmay11as-csyn21</div>

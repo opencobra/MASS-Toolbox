@@ -1,0 +1,4 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>revcol = getReversibleColumnIndices[model];
+revcol // Short;
+model[&quot;Reactions&quot;][[revcol]]
+reversibleQ /@ %</pre><div class='IFU'><a name='1834175108'></a>http://wolfram.com/xid/08ai1kpfdiuoy0wpgbemahs3u-4ma0uu</div>

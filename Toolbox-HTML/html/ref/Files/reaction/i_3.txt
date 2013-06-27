@@ -1,0 +1,6 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>rxn = reaction[
+  &quot;GAPD&quot;, {metabolite[&quot;g3p&quot;, &quot;c&quot;], metabolite[&quot;nad&quot;, &quot;c&quot;], 
+      metabolite[&quot;pi&quot;, &quot;c&quot;]}, {metabolite[&quot;13dpg&quot;, &quot;c&quot;], 
+      metabolite[&quot;h&quot;, &quot;c&quot;], metabolite[&quot;nadh&quot;, &quot;c&quot;]}, {1, 1, 1, 1, 1, 
+   1}, 
+    True]</pre><div class='IFU'><a name='532271133'></a>http://wolfram.com/xid/0hx1upxrgc4cgu4fah7m-i26pbj</div>

@@ -1,0 +1,79 @@
+<table class="EST">
+ <tr>
+  <td>
+   <div class="ESS_Co"
+       id="ESS_1">
+    <table class="ESSHT"
+        border="0">
+     <tr>
+      <td>
+       <div class="ESSH"><a href="javascript:toggle('ESS_1')"><img src="../images/mathematicaImages/closedGroup.gif" id="ESS_1_" /> Ignore&#160;&#160;</a> <span class="excount">(1)</span></div>
+      </td>
+      <td class="CB"
+          valign="bottom"
+          width="5px"
+          height="100%"
+          onclick="toggle('ESS_1')" />
+     </tr>
+    </table>
+    <div class="ESS">
+     <table class="ESST">
+      <tr>
+       <td>
+        <div>
+         <a name="1760694990" />
+         <a name="958170963" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[1]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="1760694990"></a>
+              <a href="javascript:input('i_9')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/getDisequilibriumRatios/I_10.gif"
+                   height="104"
+                   width="267"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_9_out" id="i_9_out" class="IFL"><a name="1760694990"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td colspan="2">
+             <div class="celllabelTableForm">Out[1]//TableForm=</div>
+            </td>
+           </tr>
+           <tr>
+            <td class="lab"> </td>
+            <td class="Output">
+             <img src="Files/getDisequilibriumRatios/O_3.gif"
+                 width="181"
+                 height="242"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </td>
+       <td class="CBG"
+           width="5px"
+           height="100%"
+           onclick="toggle('ESS_1')" />
+      </tr>
+     </table>
+    </div>
+   </div>
+  </td>
+  <td class="CBG"
+      width="5px"
+      onclick="toggle('ES_2')" />
+ </tr>
+</table>

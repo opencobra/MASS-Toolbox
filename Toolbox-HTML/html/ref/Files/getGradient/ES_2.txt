@@ -1,0 +1,79 @@
+<table class="EST">
+ <tr>
+  <td>
+   <a name="2118068913" />
+   <a name="311494181" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[1]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="2118068913"></a>
+        <a href="javascript:input('i_9')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/getGradient/I_10.gif"
+             height="12"
+             width="200"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_9_out" id="i_9_out" class="IFL"><a name="2118068913"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[1]=</td>
+      <td class="Output">
+       <img src="Files/getGradient/O_3.gif"
+           height="12"
+           width="29"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+   <a name="1865052328" />
+   <a name="1263165084" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[2]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="1865052328"></a>
+        <a href="javascript:input('i_11')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/getGradient/I_12.gif"
+             height="12"
+             width="300"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_11_out" id="i_11_out" class="IFL"><a name="1865052328"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[2]=</td>
+      <td class="Output">
+       <img src="Files/getGradient/O_4.gif"
+           height="12"
+           width="29"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+  </td>
+  <td class="CBG"
+      width="5px"
+      onclick="toggle('ES_2')" />
+ </tr>
+</table>

@@ -1,0 +1,20 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>aliasedBipNet = 
+  model2bipartite[glycolysis, 
+   AliasingRules -&gt; {&quot;vhk&quot; -&gt; {Toolbox`metabolite[&quot;atp&quot;, &quot;c&quot;], 
+       Toolbox`metabolite[&quot;adp&quot;, &quot;c&quot;], Toolbox`metabolite[&quot;h&quot;, &quot;c&quot;]}, 
+     &quot;vpfk&quot; -&gt; {Toolbox`metabolite[&quot;atp&quot;, &quot;c&quot;], Toolbox`metabolite[
+       &quot;adp&quot;, &quot;c&quot;], Toolbox`metabolite[&quot;h&quot;, &quot;c&quot;]}, 
+     &quot;vgapdh&quot; -&gt; {Toolbox`metabolite[&quot;nad&quot;, &quot;c&quot;], Toolbox`metabolite[
+       &quot;phos&quot;, &quot;c&quot;], Toolbox`metabolite[&quot;h&quot;, &quot;c&quot;], Toolbox`metabolite[
+       &quot;nadh&quot;, &quot;c&quot;]}, 
+     &quot;vpgk&quot; -&gt; {Toolbox`metabolite[&quot;adp&quot;, &quot;c&quot;], Toolbox`metabolite[
+       &quot;atp&quot;, &quot;c&quot;]}, &quot;veno&quot; -&gt; {
+Toolbox`metabolite[&quot;h2o&quot;, &quot;c&quot;]}, 
+     &quot;vpk&quot; -&gt; {Toolbox`metabolite[&quot;h&quot;, &quot;c&quot;], Toolbox`metabolite[
+       &quot;adp&quot;, &quot;c&quot;], Toolbox`metabolite[&quot;atp&quot;, &quot;c&quot;]}, 
+     &quot;vldh&quot; -&gt; {Toolbox`metabolite[&quot;h&quot;, &quot;c&quot;], Toolbox`metabolite[
+       &quot;nadh&quot;, &quot;c&quot;], Toolbox`metabolite[&quot;nad&quot;, &quot;c&quot;]}, 
+     &quot;vatp&quot; -&gt; {Toolbox`metabolite[&quot;h2o&quot;, &quot;c&quot;], Toolbox`metabolite[
+       &quot;h&quot;, &quot;c&quot;], Toolbox`metabolite[&quot;phos&quot;, &quot;c&quot;]}, &quot;vnadh&quot; -&gt; {
+Toolbox`metabolite[&quot;h&quot;, &quot;c&quot;]}}];
+% // Short</pre><div class='IFU'><a name='1827058290'></a>http://wolfram.com/xid/0bb00r9e08ll1trfxvwk0c5vxyjtqd6-4h2hhg</div>

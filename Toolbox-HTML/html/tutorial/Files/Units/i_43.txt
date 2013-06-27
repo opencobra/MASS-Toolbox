@@ -1,0 +1,10 @@
+<pre name='i_43_in' id='i_43_in' class='IFT'>adjustUnits[{Toolbox`rateconst[&quot;test&quot;, True] -&gt; 
+   1 Second^-1}, {str2mass[&quot;test: 0 &lt;=&gt; c&quot;]}]
+adjustUnits[{Toolbox`rateconst[&quot;test&quot;, True] -&gt; 1 Hour^-1}, {str2mass[
+   &quot;test: a &lt;=&gt; c&quot;]}]
+adjustUnits[{Toolbox`rateconst[&quot;test&quot;, True] -&gt; 
+   1 Mole^-1 Meter Hour^-1}, {str2mass[&quot;test: a + b &lt;=&gt; c&quot;]}]
+adjustUnits[{Toolbox`rateconst[&quot;test&quot;, True] -&gt; 
+   1 Mole^-2 Meter^6 Hour^-1}, {str2mass[&quot;test: a + b + c &lt;=&gt; d&quot;]}]
+adjustUnits[{Toolbox`rateconst[&quot;test&quot;, True] -&gt; 
+   1 Mole^-2 Liter^2 Hour^-1}, {str2mass[&quot;test: a + b + c &lt;=&gt; d&quot;]}]</pre><div class='IFU'><a name='1264417792'></a>http://wolfram.com/xid/0ytqdfpkmea2149g-u625aq</div>

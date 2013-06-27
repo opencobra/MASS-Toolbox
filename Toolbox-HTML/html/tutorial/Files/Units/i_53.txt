@@ -1,0 +1,6 @@
+<pre name='i_53_in' id='i_53_in' class='IFT'>volumeChooser = 
+  Composition[
+   Which[# == 0, 1, Abs[#] == 1, defaultLengthUnit, Abs[#] == 2, 
+     defaultSurfaceUnit, Abs[#] &gt; 2, Liter^(Abs[#]/3)] &amp;,
+   spatialDimension
+   ];</pre><div class='IFU'><a name='902958445'></a>http://wolfram.com/xid/0ytqdfpkmea2149g-o7vthb</div>

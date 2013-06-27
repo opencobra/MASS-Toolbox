@@ -1,0 +1,50 @@
+<table class="EST">
+ <tr>
+  <td>
+   <div class="ExampleText" id="861671355"><a name="861671355"></a>It is not possible to add a reaction that already exists in the model</div>
+   <a name="822319435" />
+   <a name="1346554202" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[1]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="822319435"></a>
+        <a href="javascript:input('i_13')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/addReaction/I_14.gif"
+             height="30"
+             width="321"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_13_out" id="i_13_out" class="IFL"><a name="822319435"></a></div>
+      </td>
+     </tr>
+    </table>
+    <div class="Message">
+     <img src="Files/addReaction/1.gif"
+         height="13"
+         width="385" />
+    </div>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[1]=</td>
+      <td class="Output">
+       <img src="Files/addReaction/O_4.gif"
+           height="12"
+           width="58"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+  </td>
+  <td class="CBG"
+      width="5px"
+      onclick="toggle('ES_2')" />
+ </tr>
+</table>

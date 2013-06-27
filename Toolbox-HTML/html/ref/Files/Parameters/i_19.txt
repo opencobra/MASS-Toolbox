@@ -1,0 +1,2 @@
+<pre name='i_19_in' id='i_19_in' class='IFT'>model = ExampleData[{&quot;Toolbox&quot;, &quot;Glycolysis&quot;}];
+plotSimulation[simulate[model, {t, 0, 1000}][[1]]]</pre><div class='IFU'><a name='1685796544'></a>http://wolfram.com/xid/0ytqdfpkmd66e4ir-15yq72</div>

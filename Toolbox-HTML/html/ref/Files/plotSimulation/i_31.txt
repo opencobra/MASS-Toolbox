@@ -1,0 +1,5 @@
+<pre name='i_31_in' id='i_31_in' class='IFT'>plotSimulation[
+ FilterRules[
+  concSol, {Toolbox`metabolite[&quot;atp&quot;, &quot;c&quot;], Toolbox`metabolite[
+   &quot;adp&quot;, &quot;c&quot;], Toolbox`metabolite[&quot;amp&quot;, &quot;c&quot;]}], 
+ FrameLabel -&gt; {&quot;t&quot;, &quot;Concentration [M]&quot;}, Legend -&gt; True]</pre><div class='IFU'><a name='32626030'></a>http://wolfram.com/xid/0yhuava5fpwuih4bk423iq-tpkow</div>

@@ -1,0 +1,58 @@
+body { margin: 0; padding: 0; }
+a { outline: none; } 
+
+#menu { width: 100%; height: 55px; background: #7787ff url('/common/images2008/headerBackground.gif') repeat-x; border-top: 1px solid #7787ff; margin-top: -1px; /* this fixes a safari bug*/ }
+	#menu .logo { background: url('/common/images2008/wolframlogo08-blue.gif') no-repeat 0px 9px; }
+	#menu table { margin: 12px 0 0 20px; }
+	#menu td { padding-top: 8px; }
+	#menu td#menuContainer { padding: 8px 10px 0 55px; white-space: nowrap; }
+
+
+/* * * * * * * menu * * * * * * */
+.WRImenuWrap { display: inline; padding: 0; margin: 0; border: 0; font-family: Arial, Helvetica, Geneva, Verdana, serif; font-size: 11px; line-height: 23px; }
+.WRImenuContents { display: none; position: absolute; left: -2000px; top: -2000px; z-index: 99997; padding: 0; margin: 0; border: none; white-space: nowrap; background: #6a6a6a; }
+  .WRImenuContents .WRImenuContents { background: #808080; }
+
+.WRImenuWrap a, .WRImenuWrap a:hover { outline: none; text-decoration: none; color: #fff !important; padding: 0 6px; }
+  .WRImenuWrap a.topLevel { display: inline-block; margin-right: 5px; }
+  .WRImenuWrap .WRImenuWrap a.WRImenuLink { background-image: url('/common/images/submenuarrow.gif'); background-repeat: no-repeat; background-position: right center; }
+	@media screen and (-webkit-min-device-pixel-ratio:0) {
+		.WRImenuWrap .WRImenuWrap a.WRImenuLink { margin-right: -3px; }
+	}
+  .WRImenuWrap a.itemborder { border-bottom: 1px solid #999; }
+  /* widths */
+  .WRImenuContents a { display: inline-block; width: 195px; }
+    #solutionsWide a { width: 245px; }
+      #solutionsWide .WRImenuContents a { width: 165px; }
+      #solutionsWide #designWide a { width: 260px; }
+      #solutionsWide #techWide a { width: 255px; }
+  /* hovering */
+  .WRIdropMenu a.WRImenuHover, a.topLevel:hover { background-color: #383838; color: #7787ff !important; }
+  .WRImenuContents a.WRImenuHover, .WRImenuContents a:hover { background-color: #7787ff; color: #fff !important; }
+/* * * * * * * end of menu * * * * * * */
+
+
+#menuspace { margin-top: 22px; }
+
+#menu form.headerSearchBox { margin: 1px 0 0 0; padding: 0; }
+#menu .searchboxsub, #menu .searchboxsub-on { width: 155px; height: 16px; margin: 0 0 2px 0; padding: 1px 0 0 3px; border: 1px solid #666; font: 11px Arial, Helvetica, Verdana, sans-serif; }
+	/* ie and safari hacks */
+	html*#menu .searchboxsub, html*#menu .searchboxsub-on {
+	height: 14px; padding-top: 0; margin-bottom: -1px;
+	]height: 16px;
+	]padding-top: 1px;
+	]margin-bottom: 2px;
+	}/*end*/
+	.dummyend[id]{clear:both;}
+
+	/*\*/
+	* html #menu .searchboxsub, * html #menu .searchboxsub-on {
+	height: 16px; padding-top: 1px; margin-bottom: 2px;
+	}
+	/*end*/
+#menu .searchboxsub    { color: #bbb; background: #555; }
+#menu .searchboxsub-on { color: #000; background: #fff; }
+#menu .headerSearchSubmit { position: relative; padding: 0;
+	/*  FF */ margin: 0 2px 1px -11px !important;
+	/* IE6 */ margin: 0 2px 3px -11px; }
+	/* IE7 */ * + html #menu .headerSearchSubmit { margin: 0 2px 3px -11px !important; }

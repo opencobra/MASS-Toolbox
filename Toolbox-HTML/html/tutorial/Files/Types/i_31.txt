@@ -1,0 +1,16 @@
+<pre name='i_31_in' id='i_31_in' class='IFT'>getID[
+Toolbox`reaction[&quot;PFK&quot;, {
+Toolbox`metabolite[&quot;atp&quot;, &quot;c&quot;], 
+Toolbox`metabolite[&quot;f6p&quot;, &quot;c&quot;]}, {
+Toolbox`metabolite[&quot;adp&quot;, &quot;c&quot;], 
+Toolbox`metabolite[&quot;fbp&quot;, &quot;c&quot;], 
+Toolbox`metabolite[&quot;h&quot;, &quot;c&quot;]}, {1, 1, 1, 1, 1}, True]]
+getCompartment[
+Toolbox`reaction[&quot;PFK&quot;, {
+Toolbox`metabolite[&quot;atp&quot;, &quot;c&quot;], 
+Toolbox`metabolite[&quot;f6p&quot;, &quot;c&quot;]}, {
+Toolbox`metabolite[&quot;adp&quot;, &quot;c&quot;], 
+Toolbox`metabolite[&quot;fbp&quot;, &quot;c&quot;], 
+Toolbox`metabolite[&quot;h&quot;, &quot;c&quot;]}, {1, 1, 1, 1, 1}, True]];
+str2mass[&quot;atp&quot;]
+% // FullForm</pre><div class='IFU'><a name='1309429608'></a>http://wolfram.com/xid/0n272124uljqfsa-vxvwmy</div>

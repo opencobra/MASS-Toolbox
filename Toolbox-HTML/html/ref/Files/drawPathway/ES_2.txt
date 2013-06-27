@@ -1,0 +1,59 @@
+<table class="EST">
+ <tr>
+  <td>
+   <div class="ESS_Co"
+       id="ESS_1">
+    <table class="ESSHT"
+        border="0">
+     <tr>
+      <td>
+       <div class="ESSH"><a name="1757724783"></a><a href="javascript:toggle('ESS_1')"><img src="../images/mathematicaImages/closedGroup.gif" id="ESS_1_" /> ReactionData&#160;&#160;</a> <span class="excount">(1)</span></div>
+      </td>
+      <td class="CB"
+          valign="bottom"
+          width="5px"
+          height="100%"
+          onclick="toggle('ESS_1')" />
+     </tr>
+    </table>
+    <div class="ESS">
+     <table class="ESST">
+      <tr>
+       <td>
+        <div>
+         <table class="InCell">
+          <tr>
+           <td class="lab">
+            <a name="inoutlink" href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[1]:=</a>
+           </td>
+           <td class="Input">
+            <div>
+             <a name="1965194274"></a>
+             <a href="javascript:input('i_13')"
+                 onmouseover="javascript:return(true);">
+              <img src="Files/drawPathway/I_14.gif"
+                  height="12"
+                  width="299"
+                  alt="Click for copyable input" />
+             </a>
+            </div>
+            <div name="i_13_out" id="i_13_out" class="IFL"><a name="1965194274"></a></div>
+           </td>
+          </tr>
+         </table>
+        </div>
+       </td>
+       <td class="CBG"
+           width="5px"
+           height="100%"
+           onclick="toggle('ESS_1')" />
+      </tr>
+     </table>
+    </div>
+   </div>
+  </td>
+  <td class="CBG"
+      width="5px"
+      onclick="toggle('ES_2')" />
+ </tr>
+</table>

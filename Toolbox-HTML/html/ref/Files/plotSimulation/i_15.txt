@@ -1,0 +1,8 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>pools = {&quot;Energy Charge&quot; -&gt; (
+    1/2 Toolbox`metabolite[&quot;adp&quot;, &quot;c&quot;] + Toolbox`metabolite[
+     &quot;atp&quot;, &quot;c&quot;])/(
+    Toolbox`metabolite[&quot;adp&quot;, &quot;c&quot;] + Toolbox`metabolite[&quot;amp&quot;, &quot;c&quot;] + 
+     Toolbox`metabolite[&quot;atp&quot;, &quot;c&quot;]), 
+   &quot;Reductive Energy Charge&quot; -&gt; Toolbox`metabolite[&quot;nadh&quot;, &quot;c&quot;]/(
+    Toolbox`metabolite[&quot;nad&quot;, &quot;c&quot;] + Toolbox`metabolite[
+     &quot;nadh&quot;, &quot;c&quot;])};</pre><div class='IFU'><a name='918514210'></a>http://wolfram.com/xid/0yhuava5fpwuih4bk423iq-pg48dw</div>

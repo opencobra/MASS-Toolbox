@@ -1,0 +1,57 @@
+<table class="EST">
+ <tr>
+  <td>
+   <div class="ExampleText" id="1349518687"><a name="1349518687"></a>Flux IDs (e.g. <span class="IF"><a href="http://reference.wolfram.com/mathematica/Toolbox/ref/v.html">v</a></span>[&quot;vhk&quot;]) can also be used to specify reactions</div>
+   <a name="608481233" />
+   <a name="1778245490" />
+   <a name="442035131" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[1]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="608481233"></a>
+        <a href="javascript:input('i_11')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/deleteReactions/I_12.gif"
+             height="30"
+             width="248"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_11_out" id="i_11_out" class="IFL"><a name="608481233"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[1]=</td>
+      <td class="Output">
+       <img src="Files/deleteReactions/O_3.gif"
+           height="12"
+           width="53"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[1]=</td>
+      <td class="Output">
+       <img src="Files/deleteReactions/O_4.gif"
+           height="389"
+           width="316"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+  </td>
+  <td class="CBG"
+      width="5px"
+      onclick="toggle('ES_2')" />
+ </tr>
+</table>

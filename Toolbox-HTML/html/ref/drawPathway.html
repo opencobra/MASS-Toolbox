@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+<title>drawPathway</title>
+<meta name='keywords' content='' />
+<meta name='description' content='drawPathway[metPos, rxnPos, labels] will draw a pathway map from the provided species, reactions, and text labels.' />
+<link rel='stylesheet' type='text/css' href='../css/functions.css' />
+<script src='../javascript/menu.js' type='text/javascript'></script>
+<script src='../javascript/common.js' type='text/javascript'></script>
+<script src='../javascript/prototype-1.4.0.js' type='text/javascript'></script>
+<script src='../javascript/search.js' type='text/javascript'></script>
+<script src='../javascript/jquery.js' type='text/javascript'></script>
+<script src='../javascript/jquery-query.js' type='text/javascript'></script>
+<script src='../javascript/jquery.dimensions.min.js' type='text/javascript'></script>
+<script src='../javascript/jquery.mousewheel.min.js' type='text/javascript'></script>
+<script src='../javascript/jScrollPane.js' type='text/javascript'></script>
+<script src='../javascript/FunctionBrowser.js' type='text/javascript'></script>
+<script src='../javascript/VirtualBook.js' type='text/javascript'></script>
+<script src='../javascript/Navigator.js' type='text/javascript'></script>
+<script language='JavaScript' type='text/javascript'>baselang='drawPathway';</script>
+</head>
+<body style='margin:35px 0px 0px 0px; background:#ffffff'>
+<!-- saved from url=(0014)about:internet -->
+
+
+
+
+
+    <div class="FlShdBar">
+ <a name="1"></a>
+ <div class="Flt">
+  <a name="1"></a>
+  <img src="../images/images/body_shdwspcr.gif"
+      width="8"
+      height="15"
+      alt="" />
+ </div>
+ <div id="CntTabTop"
+     class="en">
+  <a name="1"></a>
+  <div class="infoHeader">
+   <a name="1"></a>
+   <table class="infoHeaderTable">
+    <tr><td align="left" style="width:90% important!;width:77%;"><span class="contextName"><i>Toolbox</i> Package Symbol</span></td><td align="right" nowrap="true" style=""><span class="" /></td></tr>
+   </table>
+  </div>
+ </div>
+</div><div class="FlShdBar">
+ <a name="1224892054"></a>
+ <div id="CntTabMid"
+     class="en">
+  <a name="1224892054"></a>
+  <h1 class="ObjectName"><a name="1224892054"></a>drawPathway</h1>
+ </div>
+</div><div class="FlShdBar">
+ <a name="982511436"></a>
+ <div id="CntTabMid"
+     class="en">
+  <a name="982511436"></a>
+  <div id="UT">
+   <a name="982511436"></a>
+   <table class="Table"
+       width="100%"
+       cellpadding="5"
+       style="border-collapse: collapse;">
+    <col width="95%" />
+    <col width="5%" />
+    <tr class="" style=""><td class="UM"><span class="MBookTableText"><span class="IF">drawPathway[<i>metPos</i>, <i>rxnPos</i>, <i>labels</i>]</span> <br />will draw a pathway map from the provided species, reactions, and text labels.</span></td></tr>
+   </table>
+  </div>
+ </div>
+</div><div class="FlShdBar">
+ <div id="CntTabMid"
+     class="en">
+  <div class="NS_Co"
+      id="NS">
+   <a name="NotesSection"><div class="NSH"
+        id="ModInfo_8"
+        name="ModInfo_8">
+     <a name="2083584164"></a>
+     <a href="javascript:toggle('NS')" onmouseover="javascript:return(true);"><img src="../images/mathematicaImages/closedSectionGroup.gif" id="NS_" border="0" width="8" height="8" alt="" /> <span class="NSSpan">MORE INFORMATION</span></a>
+    </div></a>
+   <div class="NS"
+       name="NSG"
+       id="NSG">
+    <ul class="Notes"><li>The expression <i>metPos</i> must be of the following form {<i>id</i> -&gt; {<i>x</i>, <i>y</i>}, ...}.</li></ul>
+    <ul class="Notes"><li>The expression <i>rxnPos</i> must be of the following form {<i>id</i> -&gt; <span class="IF">{{{<i>pt<sub>1</sub></i>, <i>pt<sub>2</sub></i>, ...</span>}, direction},...}, ...} specifying bezier curve or line elements, where direction is either 0 (no arrow heads), 1 (arrowheads in the forward direction), or -1 (for arrowheads in the reverse direction).</li></ul>
+    <ul class="Notes"><li>labels</li></ul>
+    <ul class="Notes"><li>The following options can be given: </li></ul>
+    <div class="FunctionTable"
+        name="3ColumnTableMod"
+        id="ThreeColumnTableMod">
+     <a name="11156"></a>
+     <table class="Table"
+         width="100%"
+         cellpadding="5"
+         style="border-collapse: collapse;">
+      <col width="5%" />
+      <col width="28%" />
+      <col width="28%" />
+      <col width="43%" />
+      <tr class="lineAbove" style=""><td class="IconColumn" /><td>ReactionData</td><td>{}</td><td><span class="TT" id="TableText">reaction centric data</span></td></tr>
+      <tr class="" style=""><td class="IconColumn" /><td>MetaboliteData</td><td>{}</td><td><span class="TT" id="TableText">metbolite centric data</span></td></tr>
+      <tr class="" style=""><td class="IconColumn" /><td><img src="http://reference.wolfram.com/chars/Placeholder.gif" width="7" height="19" style="vertical-align:middle;" /></td><td><img src="http://reference.wolfram.com/chars/Placeholder.gif" width="7" height="19" style="vertical-align:middle;" /></td><td><img src="http://reference.wolfram.com/chars/Placeholder.gif" width="7" height="19" style="vertical-align:middle;" /></td></tr>
+      <tr class="" style=""><td class="IconColumn" /><td><img src="http://reference.wolfram.com/chars/Placeholder.gif" width="7" height="19" style="vertical-align:middle;" /></td><td><img src="http://reference.wolfram.com/chars/Placeholder.gif" width="7" height="19" style="vertical-align:middle;" /></td><td><img src="http://reference.wolfram.com/chars/Placeholder.gif" width="7" height="19" style="vertical-align:middle;" /></td></tr>
+     </table>
+    </div>
+    <ul class="Notes"><li>The options ReactionData and MetaboliteData can be used visualize</li></ul>
+   </div>
+  </div>
+ </div>
+</div><div class="FlShdBar">
+ <div id="CntTabMid"
+     class="en">
+  <div class="PES_Ex"
+      name="PES"
+      id="PES">
+   <a name="PES"><div class="PESH"
+        name="PES">
+     <a name="PrimaryExamplesSection"></a>
+     <a name="1930696366"></a>
+     <table width="100%">
+      <tr><td><a href="javascript:toggle('PES')" onmouseover="javascript:return(true);"><img src="../images/mathematicaImages/openSectionGroup.gif" id="PES_" border="0" width="8" height="8" /> EXAMPLES</a></td><td style="text-align: right"><a class="oclink" name="oclink" id="oclink" href="javascript:close_ES()" onmouseover="javascript:return(true);">CLOSE ALL</a></td></tr>
+     </table>
+    </div></a>
+   <div class="PES">
+    <div class="ES_Ex"
+        id="ES_1">
+     <table class="ESHT">
+      <tr><td valign="top"><div class="ESH"><a name="735917192"></a><a name="ExampleSection" href="javascript:toggle('ES_1')" onmouseover="javascript:return(true);"><img src="../images/mathematicaImages/openGroup.gif" id="ES_1_" alt="" /> Basic Examples&#160;&#160;</a> <span class="excount">(1)</span></div></td><td class="CB" width="5px" onclick="toggle('ES_1')" /></tr>
+     </table>
+     <div class="ES">
+      <table class="EST">
+       <tr><td><table class="InCell">
+          <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+             <a name="1058912120"></a>
+             <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/drawPathway/I_2.gif" height="12" width="122" alt="Click for copyable input" /></a>
+            </div><div name="i_1_out" id="i_1_out" class="IFL"><a name="1058912120"></a></div></td></tr>
+         </table><table class="InCell">
+          <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+             <a name="721672258"></a>
+             <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/drawPathway/I_4.gif" height="26" width="533" alt="Click for copyable input" /></a>
+            </div><div name="i_3_out" id="i_3_out" class="IFL"><a name="721672258"></a></div></td></tr>
+         </table><table class="InCell">
+          <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+             <a name="724117592"></a>
+             <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/drawPathway/I_6.gif" height="78" width="514" alt="Click for copyable input" /></a>
+            </div><div name="i_5_out" id="i_5_out" class="IFL"><a name="724117592"></a></div></td></tr>
+         </table><a name="623345522" /><a name="1887540280" /><div class="IO">
+          <table class="InCell">
+           <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
+              <a name="623345522"></a>
+              <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/drawPathway/I_8.gif" height="26" width="367" alt="Click for copyable input" /></a>
+             </div><div name="i_7_out" id="i_7_out" class="IFL"><a name="623345522"></a></div></td></tr>
+          </table>
+          <table class="OCell">
+           <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/drawPathway/O_1.gif" height="450" width="479" alt="" /></td></tr>
+          </table>
+         </div><table class="InCell">
+          <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
+             <a name="220742054"></a>
+             <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/drawPathway/I_10.gif" height="12" width="455" alt="Click for copyable input" /></a>
+            </div><div name="i_9_out" id="i_9_out" class="IFL"><a name="220742054"></a></div></td></tr>
+         </table><a name="1248985958" /><a name="1392991797" /><div class="IO">
+          <table class="InCell">
+           <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[6]:=</a></td><td class="Input"><div>
+              <a name="1248985958"></a>
+              <a href="javascript:input('i_11')" onmouseover="javascript:return(true);"><img src="Files/drawPathway/I_12.gif" height="26" width="367" alt="Click for copyable input" /></a>
+             </div><div name="i_11_out" id="i_11_out" class="IFL"><a name="1248985958"></a></div></td></tr>
+          </table>
+          <table class="OCell">
+           <tr><td class="lab">Out[6]=</td><td class="Output"><img src="Files/drawPathway/O_2.gif" height="321" width="350" alt="" /></td></tr>
+          </table>
+         </div></td><td class="CBG" width="5px" onclick="toggle('ES_1')" /></tr>
+      </table>
+     </div>
+    </div>
+    <div class="ES_Co"
+        id="ES_2">
+     <table class="ESHT">
+      <tr><td valign="top"><div class="ESH"><a name="2061341341"></a><a name="ExampleSection" href="javascript:toggle('ES_2')" onmouseover="javascript:return(true);"><img src="../images/mathematicaImages/closedGroup.gif" id="ES_2_" alt="" /> Options&#160;&#160;</a> <span class="excount">(1)</span></div></td><td class="CB" width="5px" onclick="toggle('ES_2')" /></tr>
+     </table>
+     <div class="ES"></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+<div class="FlShdBar"><div id="CntTabBtm"> </div></div>
+
+ <img class="crnr" src="../images/images/body_shadow_corner.gif" width="25" height="9" alt=" "/>
+ 
+<div class="BmShdw"><img class="cornerbottomright" src="../images/images/body_shadow_bottomright.gif" width="23" height="9" alt=""/></div>
+
+ <!--#include virtual="/includes/footer2010.cgi"-->
+    
+<div class="dashboard" />
+

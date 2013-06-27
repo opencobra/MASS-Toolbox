@@ -1,0 +1,134 @@
+<table class="EST">
+ <tr>
+  <td>
+   <div class="ExampleText" id="2135492433"><a name="2135492433"></a>Shorthand notation</div>
+   <a name="327129120" />
+   <a name="633606579" />
+   <a name="1801851427" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[1]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="327129120"></a>
+        <a href="javascript:input('i_15')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/rateconst/I_16.gif"
+             height="26"
+             width="111"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_15_out" id="i_15_out" class="IFL"><a name="327129120"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[1]=</td>
+      <td class="Output">
+       <img src="Files/rateconst/O_6.gif"
+           height="14"
+           width="35"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td colspan="2">
+       <div class="celllabelTableForm">Out[1]//FullForm=</div>
+      </td>
+     </tr>
+     <tr>
+      <td class="lab"> </td>
+      <td class="Output">
+       <img src="Files/rateconst/O_7.gif"
+           width="169"
+           height="12"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+   <div class="ExampleText" id="1520810460"><a name="1520810460"></a>Replace a forward rate constant by the respective reverse rate and equilibrium constants</div>
+   <a name="273652841" />
+   <a name="2050027242" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[2]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="273652841"></a>
+        <a href="javascript:input('i_17')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/rateconst/I_18.gif"
+             height="14"
+             width="107"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_17_out" id="i_17_out" class="IFL"><a name="273652841"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[2]=</td>
+      <td class="Output">
+       <img src="Files/rateconst/O_8.gif"
+           height="20"
+           width="65"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+   <div class="ExampleText" id="235281734"><a name="235281734"></a>Replace a reverse rate constant by the respective reverse rate and equilibrium constants</div>
+   <a name="1344059961" />
+   <a name="580223826" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[3]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="1344059961"></a>
+        <a href="javascript:input('i_19')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/rateconst/I_20.gif"
+             height="14"
+             width="107"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_19_out" id="i_19_out" class="IFL"><a name="1344059961"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[3]=</td>
+      <td class="Output">
+       <img src="Files/rateconst/O_9.gif"
+           height="43"
+           width="40"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+  </td>
+  <td class="CBG"
+      width="5px"
+      onclick="toggle('ES_3')" />
+ </tr>
+</table>

@@ -1,0 +1,6 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>{concSol, fluxSol} = 
+  simulate[model, {t, 0, 1000}, 
+   Parameters -&gt; {Toolbox`rateconst[&quot;vatp&quot;, True] -&gt; 2./Hour, 
+     parameter[&quot;Volume&quot;, &quot;c&quot;] -&gt; 0.001 Liter}, 
+   SpeciesProfiles -&gt; &quot;Concentrations&quot;];
+plotSimulation[concSol, FrameLabel -&gt; {&quot;t&quot;, &quot;Concentration [mM]&quot;}]</pre><div class='IFU'><a name='1494338592'></a>http://wolfram.com/xid/0d352h30vbpbdi73fvpg-yzy5bm</div>

@@ -1,0 +1,45 @@
+<table class="EST">
+ <tr>
+  <td>
+   <div class="ExampleText" id="1733011469"><a name="1733011469"></a>Providing Blank[] as a compartment specifies a species in any compartment</div>
+   <a name="278600621" />
+   <a name="1552802659" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[1]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="278600621"></a>
+        <a href="javascript:input('i_7')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/species/I_8.gif"
+             height="12"
+             width="175"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_7_out" id="i_7_out" class="IFL"><a name="278600621"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[1]=</td>
+      <td class="Output">
+       <img src="Files/species/O_4.gif"
+           height="12"
+           width="79"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+  </td>
+  <td class="CBG"
+      width="5px"
+      onclick="toggle('ES_2')" />
+ </tr>
+</table>

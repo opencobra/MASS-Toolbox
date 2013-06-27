@@ -1,0 +1,6 @@
+<pre name='i_13_in' id='i_13_in' class='IFT'>{cmpd, rxns, text} = ExampleData[{&quot;Toolbox&quot;, &quot;EcoliCoreMap&quot;}];
+drawPathway[cmpd, rxns, Flatten@text, 
+ ReactionData -&gt; Select[fluxes, #[[2]] != 0 &amp;], 
+ PlotLegends -&gt; {LegendLabel -&gt; 
+    &quot;Flux\nmmol \!\(\*SuperscriptBox[\(h\), \(-1\)]\) \
+\!\(\*SuperscriptBox[\(gDW\), \(-1\)]\)&quot;}]</pre><div class='IFU'><a name='1908733242'></a>http://wolfram.com/xid/0gwut8csqvnthuvf2wzg0kfunw59i7pxu-5uo194</div>

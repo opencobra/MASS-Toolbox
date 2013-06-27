@@ -1,0 +1,219 @@
+<table class="EST">
+ <tr>
+  <td>
+   <div class="ESS_Co"
+       id="ESS_1">
+    <table class="ESSHT"
+        border="0">
+     <tr>
+      <td>
+       <div class="ESSH"><a href="javascript:toggle('ESS_1')"><img src="../images/mathematicaImages/closedGroup.gif" id="ESS_1_" /> AliasingRules&#160;&#160;</a> <span class="excount">(1)</span></div>
+      </td>
+      <td class="CB"
+          valign="bottom"
+          width="5px"
+          height="100%"
+          onclick="toggle('ESS_1')" />
+     </tr>
+    </table>
+    <div class="ESS">
+     <table class="ESST">
+      <tr>
+       <td>
+        <div>
+         <a name="1827058290" />
+         <a name="2087540151" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[1]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="1827058290"></a>
+              <a href="javascript:input('i_11')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/model2bipartite/I_12.gif"
+                   height="108"
+                   width="520"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_11_out" id="i_11_out" class="IFL"><a name="1827058290"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td colspan="2">
+             <div class="celllabelTableForm">Out[1]//Short=</div>
+            </td>
+           </tr>
+           <tr>
+            <td class="lab"> </td>
+            <td class="Output">
+             <img src="Files/model2bipartite/O_4.gif"
+                 width="444"
+                 height="35"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+         <a name="681432452" />
+         <a name="1555887768" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[2]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="681432452"></a>
+              <a href="javascript:input('i_13')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/model2bipartite/I_14.gif"
+                   height="12"
+                   width="539"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_13_out" id="i_13_out" class="IFL"><a name="681432452"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[2]=</td>
+            <td class="Output">
+             <img src="Files/model2bipartite/O_5.gif"
+                 height="432"
+                 width="282"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </td>
+       <td class="CBG"
+           width="5px"
+           height="100%"
+           onclick="toggle('ESS_1')" />
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="ESS_Co"
+       id="ESS_2">
+    <table class="ESSHT"
+        border="0">
+     <tr>
+      <td>
+       <div class="ESSH"><a href="javascript:toggle('ESS_2')"><img src="../images/mathematicaImages/closedGroup.gif" id="ESS_2_" /> DeletionRules&#160;&#160;</a> <span class="excount">(1)</span></div>
+      </td>
+      <td class="CB"
+          valign="bottom"
+          width="5px"
+          height="100%"
+          onclick="toggle('ESS_2')" />
+     </tr>
+    </table>
+    <div class="ESS">
+     <table class="ESST">
+      <tr>
+       <td>
+        <div>
+         <a name="1525663358" />
+         <a name="1846976818" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[1]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="1525663358"></a>
+              <a href="javascript:input('i_15')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/model2bipartite/I_16.gif"
+                   height="108"
+                   width="520"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_15_out" id="i_15_out" class="IFL"><a name="1525663358"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td colspan="2">
+             <div class="celllabelTableForm">Out[1]//Short=</div>
+            </td>
+           </tr>
+           <tr>
+            <td class="lab"> </td>
+            <td class="Output">
+             <img src="Files/model2bipartite/O_6.gif"
+                 width="436"
+                 height="35"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+         <a name="66394185" />
+         <a name="110125234" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[2]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="66394185"></a>
+              <a href="javascript:input('i_17')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/model2bipartite/I_18.gif"
+                   height="12"
+                   width="546"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_17_out" id="i_17_out" class="IFL"><a name="66394185"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td class="lab">Out[2]=</td>
+            <td class="Output">
+             <img src="Files/model2bipartite/O_7.gif"
+                 height="432"
+                 width="153"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </td>
+       <td class="CBG"
+           width="5px"
+           height="100%"
+           onclick="toggle('ESS_2')" />
+      </tr>
+     </table>
+    </div>
+   </div>
+  </td>
+  <td class="CBG"
+      width="5px"
+      onclick="toggle('ES_2')" />
+ </tr>
+</table>
