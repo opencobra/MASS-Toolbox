@@ -2,12 +2,14 @@
 layout: default
 
 ---
-<div class="container">
+<div class="row">
+    <div class="span8 offest2">
     <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ page.title }}</a></h3>
   
 
         {{ content }}
 
+  </div>
 </div>
 
 {% if page.comments %}
