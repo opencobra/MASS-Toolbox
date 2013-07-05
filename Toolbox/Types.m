@@ -28,8 +28,8 @@ Begin["`Private`"]
 simplyBlack[str_String]:=StyleBox[str,RGBColor[0,0,0],StripOnInput->False,ShowSyntaxStyles->False,AutoSpacing->False,ZeroWidthTimes->True]
 geneStyle[stuff_]:=StyleBox[stuff,Background->RGBColor[0,1,1],StripOnInput->False,ShowSyntaxStyles->False,AutoSpacing->False,ZeroWidthTimes->True]
 proteinStyle[stuff_]:=StyleBox[stuff,Background->RGBColor[1,0.5`,0],StripOnInput->False,ShowSyntaxStyles->False,AutoSpacing->False,ZeroWidthTimes->True]
-activatorStyle[stuff_]:=StyleBox[stuff,Background->RGBColor[0,2/3,0],StripOnInput->False,ShowSyntaxStyles->False,AutoSpacing->False,ZeroWidthTimes->True]
-inhibitorStyle[stuff_]:=StyleBox[stuff,Background->RGBColor[2/3,0,0],StripOnInput->False,ShowSyntaxStyles->False,AutoSpacing->False,ZeroWidthTimes->True]
+activatorStyle[stuff_]:=StyleBox[stuff,Background->None,StripOnInput->False,ShowSyntaxStyles->False,AutoSpacing->False,ZeroWidthTimes->True]
+inhibitorStyle[stuff_]:=StyleBox[stuff,Background->None,StripOnInput->False,ShowSyntaxStyles->False,AutoSpacing->False,ZeroWidthTimes->True]
 
 
 (* ::Subsection:: *)

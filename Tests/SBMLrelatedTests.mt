@@ -2,7 +2,7 @@
 
 (*Current percentage of succesful simulations: 98%*)
 
-Options[runSBMLTestSuiteTest]={"LevelVersion"->"l2v3"};
+Options[runSBMLTestSuiteTest]={"LevelVersion"->"l2v1"};
 runSBMLTestSuiteTest::lvNotFound="SBML XML with version/level `1` not found in test data.";
 runSBMLTestSuiteTest::noODE="Model contains no ODE.";
 runSBMLTestSuiteTest[cachedStuff_Rule,opts:OptionsPattern[{runSBMLTestSuiteTest, NDSolve}]]:=Module[{start,stop,fluxSol,results,settings,sPecies,comparison,model,amountVars,anticipatedResults,concVar,concSol,paramIni,anicipatedResults},

@@ -18,17 +18,21 @@ Begin["`Private`"]
 Quiet@<<GraphUtilities`
 
 
+
 showNetwork[model_MASSmodel,opts:OptionsPattern[]]:=Module[{net,nodes,coords,tmp},
-net=Replace[model2bipartite[model],s_String:>v[s],2];
-nodes=VertexList[net];
-coords=Thread[nodes->GraphCoordinates[net,Sequence@@FilterRules[List@opts,Options[GraphCoordinates]]]];
-tmp=Flatten[Tuples[{Replace[getSubstrates[#],{}->{\[EmptySet]}],{v[getID[#]]},{v[getID[#]]},Replace[getProducts[#],{}->{\[EmptySet]}]}]&/@model["Reactions"],1]/.coords;
-tmp=DeleteCases[tmp,\[EmptySet]|_metabolite|_String|_enzyme,\[Infinity]];
-Show[
-Graphics[{Arrowheads[0.01],Arrow[BezierCurve[#],{.2,.2}]}&/@tmp/.coords],
-Graphics[{(*If[MatchQ[#[[1]],$MASS$speciesPattern],{White,Disk[#[[2]],.25],Black,Circle[#[[2]],.25]},{EdgeForm[Black],White,Rectangle[#[[2]]-.2,#[[2]]+.2]}],*)Style[Text[#[[1]],#[[2]]],FontSize->14,Background->White,Italic]}&/@coords],
-Sequence@@FilterRules[List@opts,Options[Graphics]]
+	net=Replace[model2bipartite[model],s_String:>v[s],2];
+	showNetwork[net,model,opts]
 ]
+showNetwork[net_List,model_MASSmodel,opts:OptionsPattern[]]:=Module[{nodes,coords,tmp},
+	nodes=VertexList[net];
+	coords=Thread[nodes->GraphCoordinates[net,Sequence@@FilterRules[List@opts,Options[GraphCoordinates]]]];
+	tmp=Flatten[Tuples[{Replace[getSubstrates[#],{}->{\[EmptySet]}],{v[getID[#]]},{v[getID[#]]},Replace[getProducts[#],{}->{\[EmptySet]}]}]&/@model["Reactions"],1]/.coords;
+	tmp=DeleteCases[tmp,\[EmptySet]|_metabolite|_String|_enzyme,\[Infinity]];
+	Show[
+		Graphics[{Arrowheads[0.01],Arrow[BezierCurve[#],{.2,.2}]}&/@tmp/.coords],
+		Graphics[{(*If[MatchQ[#[[1]],$MASS$speciesPattern],{White,Disk[#[[2]],.25],Black,Circle[#[[2]],.25]},{EdgeForm[Black],White,Rectangle[#[[2]]-.2,#[[2]]+.2]}],*)Style[Text[#[[1]],#[[2]]],FontSize->14,Background->None,Italic]}&/@coords],
+		Sequence@@FilterRules[List@opts,Options[Graphics]]
+	]
 ];
 
 
@@ -121,7 +125,7 @@ plotSimulation[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ,tStep_
 	numericalDat=DeleteCases[Complement[simulation,interPolDat],r_Rule/;r[[2]]==0.];
 	numericalDat=If[OptionValue["Tooltipped"],MapIndexed[Tooltip[#,ToString[#2//First]]&,numericalDat[[All,2]]],numericalDat[[All,2]]];
 	interPolDat=interPolDat/.{elem:InterpolatingFunction[__][t]:>elem,elem:InterpolatingFunction[__]:>elem[t]};
-	interPolDat=If[OptionValue["Tooltipped"],Thread[Tooltip[stripUnits@interPolDat[[All,2]],(interPolDat[[All,1]]*(interPolDat[[All,2]]/.InterpolatingFunction[___][t]:>1)/.u_Unit:>u[[2]])]],stripUnits@interPolDat[[All,2]]];
+	interPolDat=If[OptionValue["Tooltipped"],Thread[Tooltip[stripUnits@interPolDat[[All,2]],(interPolDat[[All,1]]*(interPolDat[[All,2]]/.InterpolatingFunction[___][t]:>1)/.{u_Unit:>u[[2]],_?NumberQ:>1})]],stripUnits@interPolDat[[All,2]]];
 	plotFunction=OptionValue["PlotFunction"];
 	numericalPlotFunction=ToExpression["List"<>ToString[plotFunction]];
 	If[$VersionNumber<9,
@@ -388,11 +392,12 @@ Protect[drawMetaboliteMap];
 Unprotect[drawReactionMap];
 Options[drawReactionMap]={"AbsentStyle"->{Dotted,Thickness[0.001],Lighter@Gray},"DefaultStyle"->{Thickness[0.002],Gray},"Tooltips"->True,"Style"->{},"Directed"->True,"Arrowheads"->0.01,"Hyperlinks"->False};
 drawReactionMap[reactionPositions_List,opts:OptionsPattern[]]:=Block[{rxnCoords,rxnPoints,rxnPos2Curve,color,thickness,defaultStyle,graphicElements,url,out,style,direction,aspectRatio},
+
 defaultStyle=If[OptionValue["Style"]==={},OptionValue["DefaultStyle"],OptionValue["AbsentStyle"]];
 aspectRatio=getAspectRatio[Sequence@@getCorners[reactionPositions]];
 If[OptionValue["Directed"],
 	rxnPos2Curve=If[#[[-1]]===0,BezierCurve[#[[1]]],If[#[[-1]]==#2,
-		{PointSize[0.],Arrowheads[OptionValue["Arrowheads"]],Arrow[{BezierFunction[Reverse@#[[1]]][If[#[[-1]]===1,.95,.05]],#[[1,#[[-1]]]]}],BezierCurve[#[[1]]]},
+		{(*Arrowheads[OptionValue["Arrowheads"]],*)Arrow[{BezierFunction[Reverse@#[[1]]][If[#[[-1]]===1,.95,.05]],#[[1,#[[-1]]]]}],BezierCurve[#[[1]]]},
 		BezierCurve[#[[1]]]
 	]]&;
 	,
@@ -415,15 +420,15 @@ Protect[drawReactionMap];
 
 
 Unprotect[drawPathway];
-Options[drawPathway]={"PlotLegends"->None,"Tooltips"->True,"ColorFunctionScaling"->True,"Boundary"->True,"ReactionData"->{},"MetaboliteData"->{},ColorFunction->ColorData["Rainbow"],"MinSize"->0.005,"MaxSize"->0.01,"MinThickness"->0.001,"MaxThickness"->0.003,"Directed"->True,"TextStyle"->{FontFamily->"Arial",FontSize->Scaled[.008]},"MetaboliteStyle"->Options[drawMetaboliteMap],"ReactionStyle"->Options[drawReactionMap],ImageSize->350};
+Options[drawPathway]={"PlotLegends"->None,"Tooltips"->True,"ColorFunctionScaling"->True,"Boundary"->True,"ReactionData"->{},"MetaboliteData"->{},ColorFunction->ColorData["Rainbow"],"MinSize"->0.005,"MaxSize"->0.01,"MinThickness"->0.001,"MaxThickness"->0.003,"TextStyle"->{FontFamily->"Arial",FontSize->Scaled[.008]},"MetaboliteStyle"->Options[drawMetaboliteMap],"ReactionStyle"->Options[drawReactionMap],ImageSize->350};
 drawPathway[metPos:{_Rule..},rxnPos:{_Rule..},textPos:({(_Text|_Rule|_Style)..}|{}),opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{map,fluxStyle,metStyle,cellMembrane,corners,aspectRatio,cleanRxnData,scalingFunction,cleanMetaboliteData},
-	scalingFunction=If[OptionValue["ColorFunctionScaling"],Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{0.,1.}]&,#&];
+	scalingFunction=Switch[OptionValue["ColorFunctionScaling"],True,Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{0.,1.}]&,_Function,OptionValue["ColorFunctionScaling"],False,#&];
 	corners=getCorners[rxnPos];
 	aspectRatio=getAspectRatio[Sequence@@corners];
 	cleanRxnData=FilterRules[OptionValue["ReactionData"]/.elem_v:>getID[elem],rxnPos[[All,1]]];
-	cleanMetaboliteData=FilterRules[OptionValue["MetaboliteData"]/.elem_metabolite:>getID[elem],metPos[[All,1]]];
-	fluxStyle=Thread[Rule[cleanRxnData[[All,1]]/.elem_v:>getID[elem],Thread[List[Thickness/@Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{OptionValue["MinThickness"],OptionValue["MaxThickness"]}],OptionValue["ColorFunction"]/@scalingFunction[#],-1*Sign[#]]]]]&[cleanRxnData[[All,2]]];
-	metStyle=Thread[Rule[cleanMetaboliteData[[All,1]],Thread[List[PointSize/@Rescale[#,{Min[#],Max[#]},{OptionValue["MinSize"],OptionValue["MaxSize"]}],OptionValue["ColorFunction"]/@Rescale[#,{Min[#],Max[#]},{0.,1.}]]]]]&[cleanMetaboliteData[[All,2]]];
+	cleanMetaboliteData=FilterRules[OptionValue["MetaboliteData"]/.elem:$MASS$speciesPattern:>getID[elem],metPos[[All,1]]];
+	fluxStyle=Thread[Rule[cleanRxnData[[All,1]]/.elem_v:>getID[elem],Thread[List[Arrowheads/@Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{OptionValue["MinThickness"]*5,OptionValue["MaxThickness"]*5}],Thickness/@Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{OptionValue["MinThickness"],OptionValue["MaxThickness"]}],OptionValue["ColorFunction"]/@scalingFunction[#],-1*Sign[#]]]]]&[cleanRxnData[[All,2]]];
+	metStyle=Thread[Rule[cleanMetaboliteData[[All,1]],Thread[List[PointSize/@Rescale[#,{Min[#],Max[#]},{OptionValue["MinSize"],OptionValue["MaxSize"]}],OptionValue["ColorFunction"]/@scalingFunction[#](*Rescale[#,{Min[#],Max[#]},{0.,1.}]*)]]]]&[cleanMetaboliteData[[All,2]]];
 	If[OptionValue["Boundary"],
 		cellMembrane=Graphics[{Opacity[0.],EdgeForm[{Thin,Black}],Scale[#,.99]&@Rectangle[Sequence@@Partition[corners[[{1,3,2,4}]],2],RoundingRadius->Scaled[.1]]}];,
 		cellMembrane=Sequence[];,
@@ -431,7 +436,7 @@ drawPathway[metPos:{_Rule..},rxnPos:{_Rule..},textPos:({(_Text|_Rule|_Style)..}|
 	];
 	map=Show[
 		cellMembrane,
-		drawReactionMap[rxnPos,Sequence@@updateRules[OptionValue["ReactionStyle"],{"Style"->fluxStyle}]]/.(Tooltip[graphics_,#[[1]]]:>Tooltip[graphics,#[[1]]<>": "<>ToString[#[[2]]]]&/@cleanRxnData),
+		drawReactionMap[rxnPos,Sequence@@updateRules[OptionValue["ReactionStyle"],{"Style"->fluxStyle}],Sequence@@FilterRules[List@opts,Options[drawReactionMap]]]/.(Tooltip[graphics_,#[[1]]]:>Tooltip[graphics,#[[1]](*<>": "<>ToString[#[[2]]]*)]&/@cleanRxnData),
 		drawMetaboliteMap[metPos,Sequence@@updateRules[OptionValue["MetaboliteStyle"],If[metStyle=!={},{"Style"->metStyle},{}]],Sequence@@FilterRules[{opts},Options[drawMetaboliteMap]]],Graphics@Style[textPos,Sequence@@(OptionValue["TextStyle"]/.elem:(_Scaled):>elem[[0]][elem[[1]]*(1/aspectRatio)])],
 		ImageSize->OptionValue["ImageSize"]
 	];
@@ -463,7 +468,7 @@ distributeSources[sources_List]:=Module[{num,start,end,interval},
 	Thread[sources->({Sin[#],Cos[#]}&/@NestList[interval+#1&,start+Pi,num-1])]
 ];
 
-nodeMapCoordinates[nodeMap:{{_Rule,_?NumberQ}...}]:=Module[{sortedNodeMap,sources,sinks},
+nodeMapCoordinates[nodeMap:{{_Rule,(_?NumberQ|_Unit)}...}]:=Module[{sortedNodeMap,sources,sinks},
 	sortedNodeMap=SortBy[nodeMap,#[[2]]&];
 	sources=Cases[sortedNodeMap,r_Rule/;r[[1,0]]===v,\[Infinity]][[All,1]];
 	sinks=Cases[sortedNodeMap,r_Rule/;r[[2,0]]===v,\[Infinity]][[All,2]];
@@ -471,14 +476,15 @@ nodeMapCoordinates[nodeMap:{{_Rule,_?NumberQ}...}]:=Module[{sortedNodeMap,source
 ];
 
 Unprotect[drawNodeMaps];
-Options[drawNodeMaps]={"Fluxes"->{},"Metabolites"->{},ColorFunction->ColorData["Rainbow"],"Legend"->True};
+Options[drawNodeMaps]={"Fluxes"->{},"Metabolites"->{},ColorFunction->ColorData["Rainbow"],"Legend"->False};
 drawNodeMaps[model_MASSmodel,opts:OptionsPattern[{drawNodeMaps,GraphPlot}]]:=Module[{stoichRules,minFlux,maxFlux,colorFunction,activeFluxes,directions,bip,activeBip,nodeMapGraphs,edgeThicknesses,colorValues,edgeRenderingFunc,nodeRenderingFunc,metabolites,legendFunc,netFluxes},
 	stoichRules={model["Species"][[#[[1,1]]]],model["Fluxes"][[#[[1,2]]]]}->Abs[#[[2]]]&/@ArrayRules[model["SparseStoichiometry"]][[;;-2]];
 	colorFunction=If[OptionValue["Fluxes"]==={},Black&,OptionValue["ColorFunction"]];
 	netFluxes=Thread[model["Species"]->model.model["Fluxes"]];
 	metabolites=If[OptionValue["Metabolites"]==={},model["Species"],OptionValue["Metabolites"]];
 	activeFluxes=If[OptionValue["Fluxes"]==={},Thread[model["Fluxes"]->0],OptionValue["Fluxes"]];
-	directions=#[[1]]->If[#[[2]]<0,"Reverse","Forward"]&/@activeFluxes;
+	unitlessFluxes=stripUnits[activeFluxes];
+	directions=#[[1]]->If[#[[2]]<0,"Reverse","Forward"]&/@unitlessFluxes;
 	(*Generate a bipartite network representation of model; each edge contains the direction as a label: {{v -> m}}*)
 	bip=model2bipartite[model,"EdgeDirections"->True];
 	(*Get rid of edges that don't contain metabolites of interest*)
@@ -486,11 +492,11 @@ drawNodeMaps[model_MASSmodel,opts:OptionsPattern[{drawNodeMaps,GraphPlot}]]:=Mod
 	activeBip=Select[bip,(Cases[#,_v,\[Infinity]][[1]]/.Dispatch[directions])==#[[2]]&];
 	nodeMapGraphs=SortBy[Select[#->Cases[activeBip,r_Rule/;MemberQ[r,#],\[Infinity]]&/@metabolites,#[[2]]!={}&],-Length[#[[2]]]&];
 	nodeMapGraphs=Table[elem[[1]]->({#,If[#[[1,0]]===metabolite,Abs[((List@@#)/.Dispatch[stoichRules])*#[[2]]/.Dispatch[activeFluxes]],Abs[(Reverse[List@@#]/.Dispatch[stoichRules])*#[[1]]/.Dispatch[activeFluxes]]]}&/@elem[[2]]),{elem,nodeMapGraphs}];
-	{minFlux,maxFlux}={Min[#],Max[#]}&[Abs@Flatten[nodeMapGraphs[[All,2,All,2]]]];
-	edgeRenderingFunc=({colorFunction[Rescale[#3,{minFlux,maxFlux},{0,1}]],Thickness[Rescale[#3,{minFlux,maxFlux},{0.001,0.02}]],Arrowheads[Max[{3*Rescale[#3,{minFlux,maxFlux},{0.001,0.02}],.02}]],Arrow[#,{.1,.1}],If[OptionValue["Fluxes"]=!={},Style[Text[#3/.{Unit[num_?NumberQ,units_]:>Unit[Round[Abs[num],.001],units],num_?NumberQ:>Round[Abs[num],.001]},Mean@#1,Background->Opacity[.8,White]],Black,FontFamily->"Helvetica",FontSize->Scaled[.02]]]}&);
+	{minFlux,maxFlux}={Min[#],Max[#]}&[Abs@stripUnits[Flatten[nodeMapGraphs[[All,2,All,2]]]]];
+	edgeRenderingFunc=({colorFunction[Rescale[stripUnits@#3,{minFlux,maxFlux},{0,1}]],Thickness[Rescale[stripUnits@#3,{minFlux,maxFlux},{0.001,0.02}]],Arrowheads[Max[{3*Rescale[stripUnits@#3,{minFlux,maxFlux},{0.001,0.02}],.02}]],Arrow[#,{.1,.1}],If[OptionValue["Fluxes"]=!={},Style[Text[#3/.{Unit[num_?NumberQ,units_]:>Unit[Round[Abs[num],.001],units],num_?NumberQ:>Round[Abs[num],.001]},Mean@#1,Background->Opacity[.8,White]],Black,FontFamily->"Helvetica",FontSize->Scaled[.02]]]}&);
 	nodeRenderingFunc=({Style[Text[#2,#1],FontSize->Scaled[.02]]}&);
 	legendFunc=If[OptionValue["Legend"]===True&&OptionValue["Fluxes"]=!={},Legended[#,BarLegend[{colorFunction[[1]],{0,maxFlux}},LegendLabel->"Flux\nmmol \!\(\*SuperscriptBox[\(h\), \(-1\)]\) \!\(\*SuperscriptBox[\(gDW\), \(-1\)]\)",LabelStyle->{FontFamily->"Helvetica"}]]&,#&];
-	#[[1]]->legendFunc[GraphPlot[#[[2]],VertexCoordinateRules->Join[N@nodeMapCoordinates[#[[2]]],{#[[1]]->{0,0}}],PlotStyle->Gray,VertexLabeling->True,ImageSize->600,EdgeRenderingFunction->edgeRenderingFunc,VertexRenderingFunction->nodeRenderingFunc,PlotLabel->Style[#,Which[#[[1,2,1]]<0,Red,#[[1,2,1]]>0,Green,True,Black],FontFamily->"Helvetica",FontSize->12]&[Row[{"Net flux: ",ScientificForm@Chop[#[[1]]/.netFluxes/.activeFluxes/._v->0]}]],Sequence@@FilterRules[{opts},Options[GraphPlot]]]]&/@nodeMapGraphs
+	#[[1]]->legendFunc[GraphPlot[#[[2]],VertexCoordinateRules->Join[N@nodeMapCoordinates[#[[2]]],{#[[1]]->{0,0}}],PlotStyle->Gray,VertexLabeling->True,ImageSize->600,EdgeRenderingFunction->edgeRenderingFunc,VertexRenderingFunction->nodeRenderingFunc,PlotLabel->Style[#,Which[#[[1,2,1]]<0,Red,#[[1,2,1]]>0,Green,True,Black],FontFamily->"Helvetica",FontSize->Scaled[.025]]&[Row[{"Net flux: ",ScientificForm@Chop[#[[1]]/.netFluxes/.activeFluxes/._v->0]}]],Sequence@@FilterRules[{opts},Options[GraphPlot]]]]&/@nodeMapGraphs
 ];
 def:drawNodeMaps[___]:=(Message[Toolbox::badargs,drawNodeMaps,Defer@def];Abort[])
 Protect[drawNodeMaps];

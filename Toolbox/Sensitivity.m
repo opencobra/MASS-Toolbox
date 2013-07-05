@@ -31,11 +31,11 @@ Protect[calcLinIndependentFreq];
 
 
 Unprotect[FASTsimul];
-Options[FASTsimul]={"Frequencies"->Automatic,"SearchFunction"->(#1 Exp[4.39*Sin[#2*#3]]&),"SampleNum"->Automatic,"Partitioning"->"Saltelli99","Parallelize"->True};
+Options[FASTsimul]={"Frequencies"->Automatic,"SearchFunction"->(#1 Exp[4.39*Sin[#2*#3]]&),"SampleNum"->Automatic,"Partitioning"->"Saltelli99","ProgressBar"->True};
 FASTsimul::freq="Provided frequencies `1` do not match the pattern of a list of integers `2`.";
 FASTsimul::samplenum="Provided sample number `1` do not match the pattern of a integer `2`.";
 FASTsimul::unreconPartitioningMethod="Partitioning method `1` not recognized.";
-FASTsimul[func_Function,parametersOfInterest:{_Rule..},opts:OptionsPattern[]]:=Module[{j,sampleNum,resampleNum,freq,sdivisions,oscillatingParameters,output,searchFunction},
+FASTsimul[func_Function,parametersOfInterest:{_Rule..},opts:OptionsPattern[]]:=Module[{j,sampleNum,resampleNum,freq,sdivisions,oscillatingParameters,output,searchFunction,progressBarQ},
 	searchFunction=OptionValue["SearchFunction"];
 	Switch[OptionValue["Frequencies"],
 		Automatic,freq=calcLinIndependentFreq[Length[parametersOfInterest]],
@@ -52,23 +52,14 @@ FASTsimul[func_Function,parametersOfInterest:{_Rule..},opts:OptionsPattern[]]:=M
 		"Cukier73",sdivisions=N@(2Pi*#/sampleNum)&/@Range[1,sampleNum],(*Wrong? definition in Cukier 1973*)
 		_,Message[FASTsimul::unreconPartitioningMethod,OptionValue["Partitioning"]];Abort[];
 	];
-	If[OptionValue["Parallelize"],
-		Clear[j];
-		j=0;SetSharedVariable[j];
-		Monitor[
-			output=ParallelTable[
+	j=0;SetSharedVariable[j];
+	progressBarQ=If[$FrontEnd=!=Null,OptionValue["ProgressBar"],False];
+	output=If[progressBarQ,Monitor[ReleaseHold[#],ProgressIndicator[j,{1,Length[sdivisions]}]],ReleaseHold[#]]&@
+			Hold@ParallelTable[
 				j++;
 				oscillatingParameters=Thread[Rule[parametersOfInterest[[All,1]],Thread[searchFunction[parametersOfInterest[[All,2]],freq,s,0.]]]];
 				func@oscillatingParameters
-				,{s,sdivisions},DistributedContexts->{"Toolbox`","Toolbox`Private`","Global`","AutomaticUnits`"}]
-		,ProgressIndicator[j,{1,Length[sdivisions]}]];,
-		Monitor[
-			output=Table[
-			oscillatingParameters=Thread[Rule[parametersOfInterest[[All,1]],Thread[searchFunction[parametersOfInterest[[All,2]],freq,s,0.]]]];
-			func@oscillatingParameters
-			,{s,sdivisions}]
-		,ProgressIndicator[s,{sdivisions[[1]],sdivisions[[-1]]}]];
-	];
+				,{s,sdivisions},DistributedContexts->{"Toolbox`","Toolbox`Private`","Global`","AutomaticUnits`"}];
 	{output,Thread[Rule[parametersOfInterest[[All,1]],freq]],sdivisions}
 ];
 Protect[FASTsimul];
@@ -82,7 +73,7 @@ n=Length[sdivisions];
 
 Unprotect[FASTcalcSensitivities];
 FASTcalcSensitivities[timeSeries_List,paramFreqDict_List,sdivisions_List]:=Module[{},
-#[[1]]->computeFourierSineAmplitude[timeSeries,#[[2]],sdivisions]&/@paramFreqDict
+	#[[1]]->computeFourierSineAmplitude[timeSeries,#[[2]],sdivisions]&/@paramFreqDict
 ];
 Protect[FASTcalcSensitivities];
 

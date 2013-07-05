@@ -1,0 +1,1260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="903.749875" width="1123.75" viewBox="297.5 11.25 1123.75 903.749875" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>MAP - H. sapiens Recon 1: SB2</title>
+<g transform="scale(0.25)">
+<defs>
+<style type="text/css" id="document_styles">
+.inv {visibility:hidden}
+#Layer_label_rxn {font-size: 45px; fill: rgb(32, 32, 80); font-family: serif; font-style: italic; font-weight: bold; stroke: rgb(32, 32, 80); text-rendering: optimizelegibility;}
+#Layer_label_met {color-interpolation: auto; fill: black; fill-opacity: 1; font-family: sans-serif; font-style: normal; font-weight: normal; shape-rendering: auto; stroke: black; stroke-dasharray: none; stroke-dashoffset: 0pt; stroke-linecap: square; stroke-linejoin: miter; stroke-miterlimit: 10; stroke-opacity: 1; stroke-width: 1; text-rendering: auto; fill: rgb(96, 32, 32); font-weight: bold; font-size: 38px; stroke: rgb(96, 32, 32); text-rendering: optimizelegibility;}
+.end {marker-end: url(#Triangle);}
+.start {marker-start: url(#triangle);}
+</style>
+<marker id="Triangle" viewBox="0 0 12 12" refX="0" refY="6"
+                                    markerUnits="strokeWidth" markerWidth="2.1" markerHeight="2.1"
+                                    orient="auto">
+<path d="M 0 0 L 12 6 L 0 12 z" fill="blue" stroke="deepskyblue"/>
+</marker>
+<marker id="triangle" viewBox="0 0 12 12" refX="12" refY="6"
+                                    markerUnits="strokeWidth" markerWidth="2.0" markerHeight="2.0"
+                                    orient="auto">
+<path d="M 12 0 L 0 6 L 12 12 z" fill="blue" stroke="deepskyblue"/>
+</marker>
+<marker id="hl_Triangle" viewBox="0 0 12 12" refX="0" refY="6"
+                                    markerUnits="strokeWidth" markerWidth="2.1" markerHeight="2.1"
+                                    orient="auto">
+<path d="M 0 0 L 12 6 L 0 12 z" fill="blue" stroke="red"/>
+</marker>
+<marker id="hl_triangle" viewBox="0 0 12 12" refX="12" refY="6"
+                                    markerUnits="strokeWidth" markerWidth="1.5" markerHeight="1.5"
+                                    orient="auto">
+<path d="M 12 0 L 0 6 L 12 12 z" fill="blue" stroke="red"/>
+</marker>
+</defs>
+<g id="Layer_base">
+<g style="color-interpolation: auto; fill: black; fill-opacity: 1; font-family: sans-serif; font-style: normal; font-weight: normal; shape-rendering: auto; stroke: black; stroke-dasharray: none; stroke-dashoffset: 0pt; stroke-linecap: square; stroke-linejoin: miter; stroke-miterlimit: 10; stroke-opacity: 1; stroke-width: 1; text-rendering: auto;">
+</g>
+</g>
+<g id="Layer_text">
+<g style="color-interpolation: auto; fill: black; fill-opacity: 1; font-family: sans-serif; font-style: normal; font-weight: normal; shape-rendering: auto; stroke: black; stroke-dasharray: none; stroke-dashoffset: 0pt; stroke-linecap: square; stroke-linejoin: miter; stroke-miterlimit: 10; stroke-opacity: 1; stroke-width: 1; text-rendering: auto;">
+<g style="font-size: 70px;   ">
+<text style="stroke: none;" x="4629.942" y="3445.6304">find_this_map_SB2_Niko</text>
+</g>
+<g style="font-size: 70px;   ">
+<text style="stroke: none;" x="2745" y="795">Pentose Phosphate Pathway</text>
+</g>
+<g style="font-size: 70px;   ">
+<text style="stroke: none;" x="2505" y="2385">Glycolysis</text>
+</g>
+<g style="font-size: 70px;   ">
+<text style="stroke: none;" x="3980.0024" y="1860">AMP Metabolism</text>
+</g>
+</g>
+</g>
+<g id="Layer_rxn" stroke = "deepskyblue">
+<g id = "HEX1" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>hexokinase (D-glucose:ATP)</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=134052&amp;model=2795088">
+<path style="fill: none" d="M2285, 755 C2285,765 2285,793 2285,805"  />
+<path style="fill: none" d="M2285, 805 C2285,805 2285,825 2285,825"  />
+<path style="fill: none" d="M2365.47540373619, 770.665240406298 C2285,752.798467455447 2285,789.339540236634 2285,805"  />
+<path style="fill: none" d="M2285, 845 C2285,897.201532544553 2329.71564783837,887.27397343721 2348.87949691195,883.019305248349" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2285, 825 C2285,825 2285,845 2285,845"  />
+<path style="fill: none" d="M2285, 845 C2285,909.031242374328 2329.42404224655,916.125210008205 2348.46291749507,919.165481851295" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2285, 845 C2285,910 2285,922.6 2285,928" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "LDH_L" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>L-lactate dehydrogenase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=135631&amp;model=2795088">
+<path style="fill: none" d="M2285.0896, 3157.0537 C2285.0896,3157.0537 2285.0896,3137.0537 2285.0896,3137.0537"  />
+<path style="fill: none" d="M2285.0896, 3137.0537 C2285.0896,3073.02245762567 2329.51364224655,3065.92848999179 2348.55251749506,3062.8882181487" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2285.0896, 3177.0537 C2285.0896,3177.0537 2285.0896,3157.0537 2285.0896,3157.0537"  />
+<path style="fill: none" d="M2352.87401616471, 3214.20605332961 C2285.0896,3229.25523254455 2285.0896,3192.71415976337 2285.0896,3177.0537" marker-start="url(#triangle)" />
+<path style="fill: none" d="M2285.0896, 3137.0537 C2285.0896,3072.02683456761 2285.07221262646,3059.40801913855 2285.06476089495,3053.99995538324" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2285.0896, 3217.0537 C2285.0896,3214.0537 2285.0896,3189.0537 2285.0896,3177.0537" marker-start="url(#triangle)" />
+<path style="fill: none" d="M2285.0896, 3137.0537 C2285.0896,3084.85216745545 2329.80524783837,3094.77972656279 2348.96909691195,3099.03439475165" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "ADNt" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>adenosine facilated transport in cytosol</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=2327417&amp;model=2795088">
+<path style="fill: none" d="M3715, 568 C3715,575 3715,610 3715,625" marker-start="url(#triangle)" />
+<path style="fill: none" d="M3715, 625 C3715,675 3715,677.1 3715,678" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "RPE" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>ribulose 5-phosphate 3-epimerase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=134933&amp;model=2795088">
+<path style="fill: none" d="M3435.6453247438, 1006.42137871901 C3420.7685,1022.3456 3389.80645,1055.48752 3376.537,1069.6912" marker-start="url(#triangle)" />
+<path style="fill: none" d="M3376.537, 1069.6912 C3321.00119484863,1129.13697996167 3296.38664155644,1139.38627977829 3285.83754728836,1143.77883684256" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "HYXNt" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>Hypoxanthine transport</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=1436627&amp;model=2795088">
+<path style="fill: none" d="M4385, 568 C4385,575 4385,610 4385,625" marker-start="url(#triangle)" />
+<path style="fill: none" d="M4385, 625 C4385,675 4385,677.1 4385,678" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "PFK" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>phosphofructokinase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=134377&amp;model=2795088">
+<path style="fill: none" d="M2285, 1277 C2285,1325.76338881418 2263.66953673966,1333.52001075693 2254.52790962809,1336.84427730383" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2285, 1257 C2285,1257 2285,1277 2285,1277"  />
+<path style="fill: none" d="M2285, 1205 C2285,1206 2285,1227.7 2285,1237"  />
+<path style="fill: none" d="M2285, 1237 C2285,1237 2285,1257 2285,1257"  />
+<path style="fill: none" d="M2285, 1277 C2285,1326.29253326849 2240.78410365528,1309.64548263 2221.83443379325,1302.51103235636" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2209.36957633425, 1200.8165749409 C2285,1186.65994627861 2285,1221.89798388358 2285,1237"  />
+<path style="fill: none" d="M2285, 1277 C2285,1342 2285,1354.6 2285,1360" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "DM_nadh" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>demand NADH</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=1316851&amp;model=2795088">
+<path style="fill: none" d="M4209.9985, 2829.9995 C4209.99425005662,2914.99921754142 4137.87952547927,2912.5955924933 4106.97321494612,2911.56546747268" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4210.0011999859, 2739.998999976 C4210.0019999825,2759.99915006187 4210.00024999475,2794.99925501856 4209.9995,2809.9993"  />
+<path style="fill: none" d="M4209.9985, 2829.9995 C4209.9965000125,2869.99964995703 4209.99588753013,2862.99980017992 4209.99607127484,2865.09975511305" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4209.9995, 2809.9993 C4209.9995,2809.9993 4209.9985,2829.9995 4209.9985,2829.9995"  />
+</a>
+</g>
+<g id = "PUNP5" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>purine-nucleoside phosphorylase (Inosine)</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=145043&amp;model=2795088">
+<path style="fill: none" d="M3975, 1495 C3920,1495 3914.4,1495 3912,1495" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4063.83331589405, 1542.02062996058 C4062.16990566028,1495 4029.15097169808,1495 4015,1495" marker-start="url(#triangle)" />
+<path style="fill: none" d="M4015, 1495 C4015,1495 3995,1495 3995,1495"  />
+<path style="fill: none" d="M3975, 1495 C3869.52488445135,1495 3867.18425246499,1588.11039034828 3866.18112447083,1628.01484335469" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3995, 1495 C3995,1495 3975,1495 3975,1495"  />
+<path style="fill: none" d="M4092, 1495 C4075,1495 4033,1495 4015,1495" marker-start="url(#triangle)" />
+</a>
+</g>
+<g id = "PGK" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>phosphoglycerate kinase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=134578&amp;model=2795088">
+<path style="fill: none" d="M2285, 2075 C2285,2016.69048105155 2329.10369996242,2015.94491636065 2348.0052856606,2015.62538863598" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2285, 2192 C2285,2175 2285,2133 2285,2115" marker-start="url(#triangle)" />
+<path style="fill: none" d="M2285, 2095 C2285,2095 2285,2075 2285,2075"  />
+<path style="fill: none" d="M2352.05731990204, 2166.94417796604 C2285,2170.90169943749 2285,2131.77050983125 2285,2115" marker-start="url(#triangle)" />
+<path style="fill: none" d="M2285, 2075 C2285,2010 2285,1997.4 2285,1992" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2285, 2115 C2285,2115 2285,2095 2285,2095"  />
+</a>
+</g>
+<g id = "PIt" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>Inorganic phosphate exchange, diffusion</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=1753197&amp;model=2795088">
+<path style="fill: none" d="M3010.00085500129, 3292.99929999516 C3010.00075,3299.9994 3010.000225,3334.99947 3010,3349.9995" marker-start="url(#triangle)" />
+<path style="fill: none" d="M3010, 3349.9995 C3009.9992500015,3399.9995 3009.99934450144,3402.09950003331 3009.99938500141,3402.99950004759" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "PPM" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>phosphopentomutase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=137582&amp;model=2795088">
+<path style="fill: none" d="M3745, 1335 C3687.62565594257,1258.50087459009 3670.69132530725,1228.66316910253 3663.43375503497,1215.87558103644" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3839.2, 1460.6 C3805,1415 3763,1359 3745,1335" marker-start="url(#triangle)" />
+</a>
+</g>
+<g id = "ADPT" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>adenine phosphoribosyltransferase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=144139&amp;model=2795088">
+<path style="fill: none" d="M3936.31001539512, 874.971384013164 C3939.80797594797,955 3985.44239278439,955 4005,955"  />
+<path style="fill: none" d="M4055, 955 C4055,955 4105,955 4105,955"  />
+<path style="fill: none" d="M4005, 955 C4005,955 4055,955 4055,955"  />
+<path style="fill: none" d="M4105, 955 C4306.12185361119,955 4380.25408210123,1087.29871029702 4412.0250371684,1143.99815756717" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3871.99774189906, 955.631922620496 C3923.4984662721,955 3980.54953988163,955 4005,955"  />
+<path style="fill: none" d="M4105, 955 C4167.64982043071,955 4166.41867744697,903.892488471432 4165.89104473966,881.989269244903" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "TPI" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>triose-phosphate isomerase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=134757&amp;model=2795088">
+<path style="fill: none" d="M2215, 1655 C2250,1655 2238,1655 2241.6,1655" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2118, 1655 C2145,1655 2194,1655 2215,1655" marker-start="url(#triangle)" />
+</a>
+</g>
+<g id = "PYRt2r" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>pyruvate reversible transport via proton symport</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=1449520&amp;model=2795088">
+<path style="fill: none" d="M1770.00005, 3010 C1773,3010 1798.000085,3010 1810.0001,3010" marker-start="url(#triangle)" />
+<path style="fill: none" d="M1810.0001, 3010 C1810.0001,3010 1830,3010 1830,3010"  />
+<path style="fill: none" d="M1830, 3010 C1830,3010 1850,3010 1850,3010"  />
+<path style="fill: none" d="M1850, 3010 C2067.50517235229,3010 2186.85468101563,3008.3537607314 2238.00447044277,3007.64822961629" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M1772.84767296152, 2942.21558967231 C1757.79855308803,3010 1794.33963592641,3010 1810.0001,3010" marker-start="url(#triangle)" />
+<path style="fill: none" d="M1850, 3010 C1902.20153254455,3010 1892.27397343721,2965.28435216163 1888.01930524835,2946.12050308805" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "PYK" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>pyruvate kinase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=134355&amp;model=2795088">
+<path style="fill: none" d="M2285, 2845 C2285,2845 2285,2865 2285,2865"  />
+<path style="fill: none" d="M2285, 2745 C2285,2780 2285,2825.5 2285,2845"  />
+<path style="fill: none" d="M2365.47540373619, 2810.6652404063 C2285,2792.79846745545 2285,2829.33954023663 2285,2845"  />
+<path style="fill: none" d="M2365.25022567301, 2768.15379359389 C2285,2780.96875762567 2285,2825.7906272877 2285,2845"  />
+<path style="fill: none" d="M2285, 2865 C2285,2865 2285,2885 2285,2885"  />
+<path style="fill: none" d="M2285, 2885 C2285,2946 2285,2955.8 2285,2960" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2285, 2885 C2285,2937.20153254455 2329.71564783837,2927.27397343721 2348.87949691195,2923.01930524835" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "ADA" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>Adenosine deaminase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=1529051&amp;model=2795088">
+<path style="fill: none" d="M4265, 1495 C4200,1495 4187.4,1495 4182,1495" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4265, 1495 C4210.91673086804,1495 4208.47405531493,1532.15578833693 4207.4271943636,1548.07969762419" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4399.3783072457, 1565.80634035479 C4378.63961030679,1495 4334.09188309204,1495 4315,1495"  />
+<path style="fill: none" d="M4285, 1495 C4285,1495 4265,1495 4265,1495"  />
+<path style="fill: none" d="M4357.04353484663, 1565.10467478701 C4364.24428900898,1495 4329.77328670269,1495 4315,1495"  />
+<path style="fill: none" d="M4315, 1495 C4315,1495 4285,1495 4285,1495"  />
+<path style="fill: none" d="M4405, 1495 C4375,1495 4333,1495 4315,1495"  />
+</a>
+</g>
+<g id = "GTHO" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>glutathione oxidoreductase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=1445973&amp;model=2795088">
+<path style="fill: none" d="M3754.29313447197, 2603.78408849823 C3715.46278804437,2549.99841088231 3666.83953641331,2549.99938326469 3646.001,2549.9998"  />
+<path style="fill: none" d="M3754.05135470374, 2495.40883340343 C3719.78441275539,2549.99832445717 3668.13602382662,2549.99935733715 3646.001,2549.9998"  />
+<path style="fill: none" d="M3678.29338156588, 2600.13170199576 C3684.07970795576,2549.99903849057 3657.42461238673,2549.99957154717 3646.001,2549.9998"  />
+<path style="fill: none" d="M3625.9993, 2550.0002 C3625.9993,2550.0002 3606.0002,2549.9998 3606.0002,2549.9998"  />
+<path style="fill: none" d="M3646.001, 2549.9998 C3646.001,2549.9998 3625.9993,2550.0002 3625.9993,2550.0002"  />
+<path style="fill: none" d="M3606.0002, 2549.9998 C3559.04027352212,2549.9988607592 3553.73353177702,2573.72407453271 3551.45921388626,2583.89202329279" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3606.0002, 2549.9998 C3538.76644027647,2549.99845526429 3525.13457697479,2523.30087032073 3519.2923498455,2511.85904820205" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "ENO" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>enolase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=133911&amp;model=2795088">
+<path style="fill: none" d="M2285, 2538 C2285,2544 2285,2578.3 2285,2593" marker-start="url(#triangle)" />
+<path style="fill: none" d="M2285, 2613 C2285,2667.23098745183 2329.29158134443,2661.81368969537 2348.27368763491,2659.49199065689" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2285, 2593 C2285,2593 2285,2613 2285,2613"  />
+<path style="fill: none" d="M2285, 2613 C2285,2664 2285,2666.8 2285,2668" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "G6PDH2r" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>glucose 6-phosphate dehydrogenase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=1437943&amp;model=2795088">
+<path style="fill: none" d="M2587, 975 C2639.20153254455,975 2629.27397343721,1019.71564783837 2625.01930524835,1038.87949691195" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2509.84764667039, 1042.78441616471 C2494.79846745545,975 2531.33954023663,975 2547,975" marker-start="url(#triangle)" />
+<path style="fill: none" d="M2547, 975 C2547,975 2567,975 2567,975"  />
+<path style="fill: none" d="M2587, 975 C2685.228,975 2721.08760000001,974.999978096103 2736.45600000001,974.999968708718" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2567, 975 C2567,975 2587,975 2587,975"  />
+<path style="fill: none" d="M2328, 975 C2416,975 2507.7,975 2547,975" marker-start="url(#triangle)" />
+<path style="fill: none" d="M2587, 975 C2669.00609733428,975 2691.39525168951,1021.64999741981 2700.99060355603,1041.64285345687" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "ADK1" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>adenylate kinase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=144242&amp;model=2795088">
+<path style="fill: none" d="M4219.9985, 2439.9998 C4219.99725000375,2489.999649985 4219.99732350014,2492.09954501565 4219.99735499859,2492.99950002879" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4219.999, 2419.9998 C4219.999,2419.9998 4219.9985,2439.9998 4219.9985,2439.9998"  />
+<path style="fill: none" d="M4219.9999999975, 2379.9999000125 C4220.000075,2382.99999998656 4219.99929999925,2407.99983000375 4219.999,2419.9998" marker-start="url(#triangle)" />
+<path style="fill: none" d="M4112.97462827171, 2338.56738045038 C4220.00112500434,2334.9996264969 4219.9996375013,2394.49974794907 4219.999,2419.9998" marker-start="url(#triangle)" />
+</a>
+</g>
+<g id = "CO2t" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>CO2 transporter via diffusion</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=1441068&amp;model=2795088">
+<path style="fill: none" d="M4180, 3350.0002 C4180,3300.0001 4180,3297.90003 4180,3297" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4180, 3407.0002 C4180,3400.0002 4180,3365.0002 4180,3350.0002" marker-start="url(#triangle)" />
+</a>
+</g>
+<g id = "AMPDA" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>Adenosine monophosphate deaminase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=1530455&amp;model=2795088">
+<path style="fill: none" d="M4265, 1185 C4200,1185 4187.4,1185 4182,1185" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4389.3783072457, 1255.80634035479 C4368.63961030679,1185 4324.09188309204,1185 4305,1185"  />
+<path style="fill: none" d="M4305, 1185 C4305,1185 4285,1185 4285,1185"  />
+<path style="fill: none" d="M4265, 1185 C4207.99122874504,1185 4202.59760513939,1222.36568218722 4200.28605216554,1238.37954598174" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4285, 1185 C4285,1185 4265,1185 4265,1185"  />
+<path style="fill: none" d="M4405, 1185 C4370,1185 4324.5,1185 4305,1185"  />
+<path style="fill: none" d="M4347.04353484663, 1255.10467478701 C4354.24428900898,1185 4319.77328670269,1185 4305,1185"  />
+</a>
+</g>
+<g id = "GLCt1r" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>glucose transport (uniport)</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=2305208&amp;model=2795088">
+<path style="fill: none" d="M2285, 625 C2285,675 2285,677.1 2285,678" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2285, 558 C2285,570 2285,608.5 2285,625" marker-start="url(#triangle)" />
+</a>
+</g>
+<g id = "GND" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>phosphogluconate dehydrogenase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=134821&amp;model=2795088">
+<path style="fill: none" d="M3325, 975 C3395,975 3411.1,975 3418,975" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3197.85732549489, 904.794840009868 C3207.99122874504,975 3247.89736862351,975 3265,975"  />
+<path style="fill: none" d="M3265, 975 C3265,975 3295,975 3295,975"  />
+<path style="fill: none" d="M3325, 975 C3396.06335201776,975 3413.03506203504,935.770790997422 3420.30865204244,918.95827285346" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3325, 975 C3374.24428900898,975 3370.41966432908,937.764446150821 3368.78053946626,921.806351644031" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3295, 975 C3295,975 3325,975 3325,975"  />
+<path style="fill: none" d="M3155, 975 C3195,975 3244,975 3265,975"  />
+</a>
+</g>
+<g id = "NTD11" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>5'-nucleotidase (IMP)</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=144053&amp;model=2795088">
+<path style="fill: none" d="M4054.99714288616, 1265.33804791134 C4135,1266.69048105155 4135,1307.50714431546 4135,1325"  />
+<path style="fill: none" d="M4135, 1325 C4135,1325 4135,1345 4135,1345"  />
+<path style="fill: none" d="M4135, 1365 C4135,1423.30951894845 4090.89630003758,1424.05508363935 4071.9947143394,1424.37461136402" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4135, 1365 C4135,1430 4135,1442.6 4135,1448" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4135, 1345 C4135,1345 4135,1365 4135,1365"  />
+<path style="fill: none" d="M4135, 1215 C4135,1255 4135,1304 4135,1325"  />
+</a>
+</g>
+<g id = "NTD7" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>5'-nucleotidase (AMP)</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=143889&amp;model=2795088">
+<path style="fill: none" d="M4435, 1375 C4435,1430.90169943749 4479.14498743827,1428.29639496217 4498.06426776896,1427.17983590131" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4435, 1345 C4435,1345 4435,1375 4435,1375"  />
+<path style="fill: none" d="M4515.03473933457, 1263.82171032361 C4435,1259.09830056251 4435,1298.22949016875 4435,1315"  />
+<path style="fill: none" d="M4435, 1215 C4435,1250 4435,1295.5 4435,1315"  />
+<path style="fill: none" d="M4435, 1315 C4435,1315 4435,1345 4435,1345"  />
+<path style="fill: none" d="M4435, 1375 C4435,1435 4435,1444.1 4435,1448" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "L-LACt2r" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>L-lactate reversible transport via proton symport</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=1441889&amp;model=2795088">
+<path style="fill: none" d="M2283.1755, 3355.9053 C2283.1755,3355.9053 2283.1755,3335.9053 2283.1755,3335.9053"  />
+<path style="fill: none" d="M2283.1755, 3375.9053 C2283.1755,3375.9053 2283.1755,3355.9053 2283.1755,3355.9053"  />
+<path style="fill: none" d="M2283.1755, 3415.9053 C2283.1755,3412.9053 2283.1755,3387.9053 2283.1755,3375.9053" marker-start="url(#triangle)" />
+<path style="fill: none" d="M2350.95991616471, 3413.05765332961 C2283.1755,3428.10683254455 2283.1755,3391.56575976337 2283.1755,3375.9053" marker-start="url(#triangle)" />
+<path style="fill: none" d="M2283.1755, 3335.9053 C2283.1755,3296.46788565344 2282.80979134366,3303.99837459138 2282.91950394056,3301.73922791" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2283.1755, 3335.9053 C2283.1755,3283.70376745545 2327.89114783837,3293.63132656279 2347.05499691195,3297.88599475165" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "NH4t3r" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>ammonia transport via proton antiport</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=2328272&amp;model=2795088">
+<path style="fill: none" d="M3890, 3289.9998 C3890,3292.9998 3890,3317.9998 3890,3329.9998" marker-start="url(#triangle)" />
+<path style="fill: none" d="M3890, 3329.9998 C3890,3329.9998 3890,3350 3890,3350"  />
+<path style="fill: none" d="M3957.78441616471, 3292.84744667039 C3890,3277.79826745545 3890,3314.33934023663 3890,3329.9998" marker-start="url(#triangle)" />
+<path style="fill: none" d="M3890, 3350 C3890,3350 3890,3370 3890,3370"  />
+<path style="fill: none" d="M3890, 3370 C3890,3409.9999 3890,3402.9998 3890,3405.09983" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3890, 3370 C3890,3422.20150380985 3934.71565700078,3412.27386608591 3953.87951000111,3408.01916420422" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "Ht" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>proton diffusion</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=1391848&amp;model=2795088">
+<path style="fill: none" d="M3580, 3350 C3580,3400 3580,3402.1 3580,3403" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3580, 3293 C3580,3300 3580,3335 3580,3350" marker-start="url(#triangle)" />
+</a>
+</g>
+<g id = "GTHP" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>glutathione peroxidase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=1445947&amp;model=2795088">
+<path style="fill: none" d="M3537.42802368817, 2352.5074542701 C3555.8014243781,2410.00230505714 3600.74077731343,2410.00118151714 3620.0005,2410.0007" marker-start="url(#triangle)" />
+<path style="fill: none" d="M3660.0015, 2410.0007 C3726.94340965316,2410.0023733804 3743.04854813866,2375.95674257082 3749.95075034673,2361.36575793814" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3639.9995, 2410.0002 C3639.9995,2410.0002 3660.0015,2410.0007 3660.0015,2410.0007"  />
+<path style="fill: none" d="M3526.70486442565, 2438.0567063491 C3551.98614741326,2410.00240044384 3599.59619422398,2410.00121013315 3620.0005,2410.0007" marker-start="url(#triangle)" />
+<path style="fill: none" d="M3620.0005, 2410.0007 C3620.0005,2410.0007 3639.9995,2410.0002 3639.9995,2410.0002"  />
+<path style="fill: none" d="M3660.0015, 2410.0007 C3722.65093333928,2410.00226607923 3735.41407593947,2426.17456926111 3740.8839941967,2433.10555633906" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "PRPPS" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>phosphoribosylpyrophosphate synthetase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=140540&amp;model=2795088">
+<path style="fill: none" d="M3721, 1077 C3721,1077 3736,1062 3736,1062"  />
+<path style="fill: none" d="M3664.30287521967, 1139.366692985 C3676.1015014477,1121.8984985523 3707.53045043431,1090.46954956569 3721,1077" marker-start="url(#triangle)" />
+<path style="fill: none" d="M3736, 1062 C3736,1062 3750,1048 3750,1048"  />
+<path style="fill: none" d="M3750, 1048 C3787.02026472083,1010.97973527917 3811.67214140394,1049.99798125538 3822.23723141099,1066.72008667376" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3750, 1048 C3795.17327749898,1002.82672250102 3831.46467170976,1029.07096979361 3847.01812637152,1040.31850434758" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3726.91451363658, 1166.41906873416 C3679.75378805272,1118.24621194728 3708.62613641582,1089.37386358418 3721,1077" marker-start="url(#triangle)" />
+<path style="fill: none" d="M3750, 1048 C3796,1002 3804.93618689896,993.063813101037 3808.76598128423,989.234018715768" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "H2Ot" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>H2O transport via diffusion</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=311663&amp;model=2795088">
+<path style="fill: none" d="M3280.000086, 3407.00000000009 C3280.0001,3400 3280.00017,3365 3280.0002,3350" marker-start="url(#triangle)" />
+<path style="fill: none" d="M3280.0002, 3350 C3280.0003,3300 3280.0002874,3297.89999999941 3280.000282,3296.99999999915" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "GAPD" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>glyceraldehyde-3-phosphate dehydrogenase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=134299&amp;model=2795088">
+<path style="fill: none" d="M2285, 1796 C2285,1796 2285,1816 2285,1816"  />
+<path style="fill: none" d="M2285, 1816 C2285,1880.5 2285,1892.75 2285,1898" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2285, 1816 C2285,1880.03124237433 2329.42404224655,1887.12521000821 2348.46291749507,1890.1654818513" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2352.78441616471, 1738.84764667039 C2285,1723.79846745545 2285,1760.33954023663 2285,1776" marker-start="url(#triangle)" />
+<path style="fill: none" d="M2285, 1776 C2285,1776 2285,1796 2285,1796"  />
+<path style="fill: none" d="M2285, 1698 C2285,1715.5 2285,1757.85 2285,1776" marker-start="url(#triangle)" />
+<path style="fill: none" d="M2352.41287236046, 1701.20375942993 C2285,1711.96875762567 2285,1756.7906272877 2285,1776" marker-start="url(#triangle)" />
+<path style="fill: none" d="M2285, 1816 C2285,1868.20153254455 2329.71564783837,1858.27397343721 2348.87949691195,1854.01930524835" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "TKT2" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>transketolase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=135006&amp;model=2795088">
+<path style="fill: none" d="M2842.5112, 1497.4592 C2842.5112,1497.4592 2777.1873,1492.4519 2777.1873,1492.4519"  />
+<path style="fill: none" d="M2914.837, 1497.4591 C2914.837,1497.4591 2842.5112,1497.4592 2842.5112,1497.4592"  />
+<path style="fill: none" d="M3230.95339779002, 1203.28058554484 C3149.33958386568,1497.45877576911 2985.1877751597,1497.45900273073 2914.837,1497.4591" marker-start="url(#triangle)" />
+<path style="fill: none" d="M2777.1873, 1492.4519 C2518.77831863485,1472.64396917545 2381.07474023978,1580.05802764374 2322.05892092761,1626.09262413015" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3238.44264739664, 1919.03271665921 C3198.99555619523,1497.45870711315 3000.08456685857,1497.45898213395 2914.837,1497.4591" marker-start="url(#triangle)" />
+<path style="fill: none" d="M2777.1873, 1492.4519 C2485.20258360089,1470.07027443225 2363.53267608267,1290.74605015991 2311.38843000343,1213.89281118605" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "ATPM" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>ATP maintenance requirement</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=245454&amp;model=2795088">
+<path style="fill: none" d="M4560.47539666102, 2385.66527227434 C4480,2367.79863872057 4480,2404.33973161617 4480,2420.0002"  />
+<path style="fill: none" d="M4480, 2370.0005 C4480,2380.00035 4480,2408.000245 4480,2420.0002"  />
+<path style="fill: none" d="M4480, 2460.0002 C4480,2512.20173254455 4524.71564783837,2502.27417343721 4543.87949691195,2498.01950524835" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4480, 2420.0002 C4480,2420.0002 4480,2440.0002 4480,2440.0002"  />
+<path style="fill: none" d="M4480, 2460.0002 C4480,2524.03137990487 4524.42403676927,2531.12528556748 4543.46290967038,2534.16553085145" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4480, 2460.0002 C4480,2525.0002 4480,2537.6002 4480,2543.0002" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4480, 2440.0002 C4480,2440.0002 4480,2460.0002 4480,2460.0002"  />
+</a>
+</g>
+<g id = "ADNK1" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>adenosine kinase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=144183&amp;model=2795088">
+<path style="fill: none" d="M4695, 1275 C4694.6466384139,1228.90363207812 4733.0110746263,1239.98426510537 4749.45297586018,1244.73310783134" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4695, 1275 C4694.51217126311,1211.3622594436 4732.98743477181,1200.15307371182 4749.4768334184,1195.34913696963" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4695, 1275 C4693.94547273613,1137.435876871 4545.04228342222,1164.7870004724 4481.22663085912,1176.50891058728" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M4464.32195888532, 1501.34213900252 C4693.9573807655,1551.01070893548 4694.68721422965,1455.80321268064 4695,1415"  />
+<path style="fill: none" d="M4765.79828833427, 1499.40587190831 C4694.51217126311,1478.6377405564 4694.85365137893,1434.09132216692 4695,1415"  />
+<path style="fill: none" d="M4695.5366, 1345 C4695.5366,1345 4695,1275 4695,1275"  />
+<path style="fill: none" d="M4695, 1415 C4695,1415 4695.5366,1345 4695.5366,1345"  />
+</a>
+</g>
+<g id = "INSt" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>Inosine transport (diffusion)</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=1491142&amp;model=2795088">
+<path style="fill: none" d="M4175, 568 C4175,575 4175,610 4175,625" marker-start="url(#triangle)" />
+<path style="fill: none" d="M4175, 625 C4175,675 4175,677.1 4175,678" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "TKT1" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>transketolase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=134985&amp;model=2795088">
+<path style="fill: none" d="M3465, 1423.9928 C3465,1554.88634032909 3342.09801639262,1558.7295298229 3289.42573770375,1560.37661103453" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3465, 1423.9928 C3465,1538.92892833639 3559.51489130124,1552.50197125928 3600.02127328748,1558.3189896548" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3465, 1375 C3465,1375 3465,1423.9928 3465,1423.9928"  />
+<path style="fill: none" d="M3465, 1323.9264 C3465,1323.9264 3465,1375 3465,1375"  />
+<path style="fill: none" d="M3598.01948202639, 1183.17670381714 C3465,1208.94124574632 3465,1289.4308537239 3465,1323.9264" marker-start="url(#triangle)" />
+<path style="fill: none" d="M3285.19210025771, 1166.53620064479 C3465,1186.26806674305 3465,1282.62890002291 3465,1323.9264" marker-start="url(#triangle)" />
+</a>
+</g>
+<g id = "PGI" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>glucose-6-phosphate isomerase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=134518&amp;model=2795088">
+<path style="fill: none" d="M2285, 1018 C2285,1025 2285,1060 2285,1075" marker-start="url(#triangle)" />
+<path style="fill: none" d="M2285, 1075 C2285,1125 2285,1127.1 2285,1128" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "FBA" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>fructose-bisphosphate aldolase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=134019&amp;model=2795088">
+<path style="fill: none" d="M2285, 1505 C2285,1505 2285,1515 2285,1515"  />
+<path style="fill: none" d="M2285, 1515 C2285,1641.19429464124 2170.82913373417,1648.70005340419 2121.89876247738,1651.91680715975" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2285, 1450 C2285,1456 2285,1490.3 2285,1505" marker-start="url(#triangle)" />
+<path style="fill: none" d="M2285, 1515 C2285,1585 2285,1601.1 2285,1608" marker-end="url(#Triangle)" />
+</a>
+</g>
+<g id = "RPI" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>ribose-5-phosphate isomerase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=134909&amp;model=2795088">
+<path style="fill: none" d="M3545, 1075 C3500.84129940819,1028.63180872578 3494.03264990171,1018.44355679179 3491.11465725608,1014.0771631058" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3610.5802493164, 1143.86157208796 C3592.61745,1125 3559.285235,1090 3545,1075" marker-start="url(#triangle)" />
+</a>
+</g>
+<g id = "PGM" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>phosphoglycerate mutase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=134544&amp;model=2795088">
+<path style="fill: none" d="M2285, 2365 C2285,2300 2285,2287.4 2285,2282" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2285, 2452 C2285,2430 2285,2384.5 2285,2365" marker-start="url(#triangle)" />
+</a>
+</g>
+<g id = "ADEt" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>adenine reversible transport, cytosol</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=2327441&amp;model=2795088">
+<path style="fill: none" d="M3935, 625 C3935,735 3935,779.1 3935,798" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3935, 568 C3935,575 3935,610 3935,625" marker-start="url(#triangle)" />
+</a>
+</g>
+<g id = "TALA" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>transaldolase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=134966&amp;model=2795088">
+<path style="fill: none" d="M3468.1543, 1809.228 C3476.66293126764,1928.5317262484 3565.59482481296,1947.27468346642 3603.70849347524,1955.307379417" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3604.28017184109, 1572.92267816803 C3465,1599.03181273424 3465,1682.04186382027 3465,1717.6176" marker-start="url(#triangle)" />
+<path style="fill: none" d="M3468.1543, 1809.228 C3477.8455295935,1945.11352213216 3345.88494937451,1954.49337615815 3289.33041499494,1958.51331359786" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M3285.27702170508, 1565.68420129816 C3465,1581.79234727091 3465,1676.87002418127 3465,1717.6176" marker-start="url(#triangle)" />
+<path style="fill: none" d="M3465, 1717.6176 C3465,1717.6176 3465,1765 3465,1765"  />
+<path style="fill: none" d="M3465, 1765 C3465,1765 3468.1543,1809.228 3468.1543,1809.228"  />
+</a>
+</g>
+<g id = "PGL" stroke = "deepskyblue" stroke-width="12" stroke-linecap = "round">
+<title>6-phosphogluconolactonase</title>
+<a xlink:href="view3.pl?type=reaction&amp;id=134860&amp;model=2795088">
+<path style="fill: none" d="M2935, 975 C2935,975 2965,975 2965,975"  />
+<path style="fill: none" d="M3005, 975 C3068.63961030679,975 3079.81179097522,936.855789240551 3084.59986840455,920.508270343645" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2965, 975 C2965,975 3005,975 3005,975"  />
+<path style="fill: none" d="M2813.45599999999, 974.999963755477 C2859.22799999999,975 2912.2684,975 2935,975"  />
+<path style="fill: none" d="M3005, 975 C3065,975 3074.1,975 3078,975" marker-end="url(#Triangle)" />
+<path style="fill: none" d="M2859.29558511726, 904.533252378965 C2874.79202710604,975 2916.93760813181,975 2935,975"  />
+</a>
+</g>
+</g>
+<g id="Layer_label_rxn">
+<text style="stroke: none;" x="4485" y="1335">NTD7</text>
+<text style="stroke: none;" x="3606.0005" y="2320.0002">GTHP</text>
+<text style="stroke: none;" x="2273.1755" y="3355.9053">L-LACt2r</text>
+<text style="stroke: none;" x="3570" y="3550">Ht</text>
+<text style="stroke: none;" x="3455" y="1385">TKT1</text>
+<text style="stroke: none;" x="3665" y="1005">PRPPS</text>
+<text style="stroke: none;" x="3455" y="1765">TALA</text>
+<text style="stroke: none;" x="1490" y="2980">PYRt2r</text>
+<text style="stroke: none;" x="4195" y="1135">AMPDA</text>
+<text style="stroke: none;" x="3565" y="1055">RPI</text>
+<text style="stroke: none;" x="2275" y="2865">PYK</text>
+<text style="stroke: none;" x="4345" y="445">HYXNt</text>
+<text style="stroke: none;" x="3935" y="1575">PUNP5</text>
+<text style="stroke: none;" x="2205" y="485">GLCt1r</text>
+<text style="stroke: none;" x="3965" y="1325">NTD11</text>
+<text style="stroke: none;" x="2935" y="1125">PGL</text>
+<text style="stroke: none;" x="4245" y="965">ADPT</text>
+<text style="stroke: none;" x="4755.5366" y="1345">ADNK1</text>
+<text style="stroke: none;" x="2275" y="1075">PGI</text>
+<text style="stroke: none;" x="4145" y="445">INSt</text>
+<text style="stroke: none;" x="2285" y="2375">PGM</text>
+<text style="stroke: none;" x="3825" y="1335">PPM</text>
+<text style="stroke: none;" x="2275" y="1505">FBA</text>
+<text style="stroke: none;" x="3395.537" y="1078.6912">RPE</text>
+<text style="stroke: none;" x="4470" y="2440.0005">ATPM</text>
+<text style="stroke: none;" x="2832.5112" y="1497.4592">TKT2</text>
+<text style="stroke: none;" x="4209.9985" y="2439.9993">ADK1</text>
+<text style="stroke: none;" x="2285" y="825">HEX1</text>
+<text style="stroke: none;" x="3685" y="445">ADNt</text>
+<text style="stroke: none;" x="3905" y="445">ADEt</text>
+<text style="stroke: none;" x="4199.999" y="2809.9998">DM_nadh</text>
+<text style="stroke: none;" x="3280" y="3550.0002">H2Ot</text>
+<text style="stroke: none;" x="2345" y="1675">TPI</text>
+<text style="stroke: none;" x="4255" y="1435">ADA</text>
+<text style="stroke: none;" x="4140" y="3510.0005">CO2t</text>
+<text style="stroke: none;" x="3305" y="995">GND</text>
+<text style="stroke: none;" x="3638.6177" y="2549.4626">GTHO</text>
+<text style="stroke: none;" x="2075" y="1825">GAPD</text>
+<text style="stroke: none;" x="2275" y="2593">ENO</text>
+<text style="stroke: none;" x="3860" y="3520.0002">NH4t3r</text>
+<text style="stroke: none;" x="2275.0896" y="3157.0537">LDH_L</text>
+<text style="stroke: none;" x="2980" y="3559.9995">PIt</text>
+<text style="stroke: none;" x="2275" y="1257">PFK</text>
+<text style="stroke: none;" x="2345" y="2075">PGK</text>
+<text style="stroke: none;" x="2595" y="915">G6PDH2r</text>
+</g>
+<g id="Layer_test">
+</g>
+<g id="Layer_met">
+<g id="atp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33477&amp;model=2795088">
+<circle cx="4219.999" cy="2340" r="25" />
+</a>
+</g>
+<g id="h2o" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33474&amp;model=2795088">
+<circle cx="3765.7725" cy="2327.9192" r="15" />
+</a>
+</g>
+<g id="r1p" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34994&amp;model=2795088">
+<circle cx="3865" cy="1495" r="25" />
+</a>
+</g>
+<g id="adp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33496&amp;model=2795088">
+<circle cx="4785" cy="1185" r="15" />
+</a>
+</g>
+<g id="co2" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33506&amp;model=2795088">
+<circle cx="4180" cy="3250" r="25" />
+</a>
+</g>
+<g id="hxan" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34434&amp;model=2795088">
+<circle cx="3865" cy="1675" r="25" />
+</a>
+</g>
+<g id="atp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33477&amp;model=2795088">
+<circle cx="4480" cy="2340.0005" r="25" />
+</a>
+</g>
+<g id="fdp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34717&amp;model=2795088">
+<circle cx="2285" cy="1407" r="25" />
+</a>
+</g>
+<g id="h" style="fill: rgb(240, 240, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="2383.1755" cy="3405.9053" r="15" />
+</a>
+</g>
+<g id="h2o" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33474&amp;model=2795088">
+<circle cx="4580" cy="2390" r="15" />
+</a>
+</g>
+<g id="h2o" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33474&amp;model=2795088">
+<circle cx="3280" cy="3250" r="25" />
+</a>
+</g>
+<g id="nadph" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33486&amp;model=2795088">
+<circle cx="3676.0002" cy="2619.9998" r="15" />
+</a>
+</g>
+<g id="h2o" style="fill: rgb(240, 240, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33474&amp;model=2795088">
+<circle cx="3280" cy="3450" r="25" />
+</a>
+</g>
+<g id="nadp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33488&amp;model=2795088">
+<circle cx="3195" cy="885" r="15" />
+</a>
+</g>
+<g id="h2o" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33474&amp;model=2795088">
+<circle cx="2855" cy="885" r="15" />
+</a>
+</g>
+<g id="gthox" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33951&amp;model=2795088">
+<circle cx="3770.001" cy="2470" r="25" />
+</a>
+</g>
+<g id="atp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33477&amp;model=2795088">
+<circle cx="3750" cy="1190" r="15" />
+</a>
+</g>
+<g id="h2o" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33474&amp;model=2795088">
+<circle cx="4035" cy="1265" r="15" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="3580" cy="3250" r="25" />
+</a>
+</g>
+<g id="adp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33496&amp;model=2795088">
+<circle cx="2385" cy="2015" r="15" />
+</a>
+</g>
+<g id="13dpg" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34342&amp;model=2795088">
+<circle cx="2285" cy="1945" r="25" />
+</a>
+</g>
+<g id="nad" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33480&amp;model=2795088">
+<circle cx="2385" cy="1696" r="15" />
+</a>
+</g>
+<g id="xu5p-D" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34329&amp;model=2795088">
+<circle cx="3242.4487" cy="1161.8456" r="25" />
+</a>
+</g>
+<g id="2pg" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=35542&amp;model=2795088">
+<circle cx="2285" cy="2495" r="25" />
+</a>
+</g>
+<g id="co2" style="fill: rgb(240, 240, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33506&amp;model=2795088">
+<circle cx="4180" cy="3450.0002" r="25" />
+</a>
+</g>
+<g id="amp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33534&amp;model=2795088">
+<circle cx="4435" cy="1185" r="25" />
+</a>
+</g>
+<g id="ins" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34525&amp;model=2795088">
+<circle cx="4175" cy="725" r="25" />
+</a>
+</g>
+<g id="adn" style="fill: rgb(240, 240, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34273&amp;model=2795088">
+<circle cx="3715" cy="525" r="25" />
+</a>
+</g>
+<g id="ade" style="fill: rgb(240, 240, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34039&amp;model=2795088">
+<circle cx="3935" cy="525" r="25" />
+</a>
+</g>
+<g id="hxan" style="fill: rgb(240, 240, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34434&amp;model=2795088">
+<circle cx="4385" cy="525" r="25" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="3990" cy="3399.9998" r="15" />
+</a>
+</g>
+<g id="f6p" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33795&amp;model=2795088">
+<circle cx="2285" cy="1175" r="25" />
+</a>
+</g>
+<g id="amp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33534&amp;model=2795088">
+<circle cx="3842" cy="1098" r="15" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="2617" cy="1075" r="15" />
+</a>
+</g>
+<g id="e4p" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34479&amp;model=2795088">
+<circle cx="3242.4487" cy="1961.8457" r="25" />
+</a>
+</g>
+<g id="nh4" style="fill: rgb(240, 240, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33515&amp;model=2795088">
+<circle cx="3890" cy="3449.9998" r="25" />
+</a>
+</g>
+<g id="h" style="fill: rgb(240, 240, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="3580" cy="3450" r="25" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="2383.1755" cy="3305.9053" r="15" />
+</a>
+</g>
+<g id="pi" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33499&amp;model=2795088">
+<circle cx="4065" cy="1575" r="15" />
+</a>
+</g>
+<g id="adp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33496&amp;model=2795088">
+<circle cx="4480" cy="2590.0002" r="25" />
+</a>
+</g>
+<g id="s7p" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34485&amp;model=2795088">
+<circle cx="3646.544" cy="1565" r="25" />
+</a>
+</g>
+<g id="nadph" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33486&amp;model=2795088">
+<circle cx="3435" cy="885" r="15" />
+</a>
+</g>
+<g id="h" style="fill: rgb(240, 240, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="3990" cy="3299.9998" r="15" />
+</a>
+</g>
+<g id="adp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33496&amp;model=2795088">
+<circle cx="2385" cy="2765" r="15" />
+</a>
+</g>
+<g id="lac-L" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34179&amp;model=2795088">
+<circle cx="2285.0896" cy="3257.0537" r="25" />
+</a>
+</g>
+<g id="co2" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33506&amp;model=2795088">
+<circle cx="3365" cy="885" r="15" />
+</a>
+</g>
+<g id="atp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33477&amp;model=2795088">
+<circle cx="2385" cy="2165" r="15" />
+</a>
+</g>
+<g id="adn" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34273&amp;model=2795088">
+<circle cx="4435" cy="1495" r="25" />
+</a>
+</g>
+<g id="6pgl" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=37157&amp;model=2795088">
+<circle cx="2783.456" cy="974.99994" r="25" />
+</a>
+</g>
+<g id="adp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33496&amp;model=2795088">
+<circle cx="2385" cy="875" r="15" />
+</a>
+</g>
+<g id="3pg" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34230&amp;model=2795088">
+<circle cx="2285" cy="2235" r="25" />
+</a>
+</g>
+<g id="nadh" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33484&amp;model=2795088">
+<circle cx="4210" cy="2709.999" r="25" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="4395" cy="1275" r="15" />
+</a>
+</g>
+<g id="atp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33477&amp;model=2795088">
+<circle cx="2385" cy="775" r="15" />
+</a>
+</g>
+<g id="pi" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33499&amp;model=2795088">
+<circle cx="3010.0015" cy="3249.9993" r="25" />
+</a>
+</g>
+<g id="g3p" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=35637&amp;model=2795088">
+<circle cx="3242.4487" cy="1561.8456" r="25" />
+</a>
+</g>
+<g id="atp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33477&amp;model=2795088">
+<circle cx="4785" cy="1505" r="15" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="4785" cy="1255" r="15" />
+</a>
+</g>
+<g id="nh4" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33515&amp;model=2795088">
+<circle cx="4205" cy="1585" r="15" />
+</a>
+</g>
+<g id="nadph" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33486&amp;model=2795088">
+<circle cx="2717" cy="1075" r="15" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="1880" cy="2910" r="15" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="2385" cy="925" r="15" />
+</a>
+</g>
+<g id="r5p" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=42420&amp;model=2795088">
+<circle cx="3640.2349" cy="1175" r="25" />
+</a>
+</g>
+<g id="ru5p-D" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34237&amp;model=2795088">
+<circle cx="3465" cy="975" r="25" />
+</a>
+</g>
+<g id="h" style="fill: rgb(240, 240, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="1780" cy="2910" r="15" />
+</a>
+</g>
+<g id="pi" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33499&amp;model=2795088">
+<circle cx="2385" cy="1746" r="15" />
+</a>
+</g>
+<g id="ppi" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33511&amp;model=2795088">
+<circle cx="4165" cy="845" r="15" />
+</a>
+</g>
+<g id="atp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33477&amp;model=2795088">
+<circle cx="2385" cy="2915" r="15" />
+</a>
+</g>
+<g id="h2o" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33474&amp;model=2795088">
+<circle cx="4345" cy="1275" r="15" />
+</a>
+</g>
+<g id="nadh" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33484&amp;model=2795088">
+<circle cx="2385" cy="1896" r="15" />
+</a>
+</g>
+<g id="g3p" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=35637&amp;model=2795088">
+<circle cx="2285" cy="1655" r="25" />
+</a>
+</g>
+<g id="nh4" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33515&amp;model=2795088">
+<circle cx="3890" cy="3249.9998" r="25" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="3095" cy="885" r="15" />
+</a>
+</g>
+<g id="pep" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33756&amp;model=2795088">
+<circle cx="2285" cy="2715" r="25" />
+</a>
+</g>
+<g id="nadp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33488&amp;model=2795088">
+<circle cx="3543.3828" cy="2619.9998" r="15" />
+</a>
+</g>
+<g id="pyr" style="fill: rgb(240, 240, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33546&amp;model=2795088">
+<circle cx="1730" cy="3010" r="25" />
+</a>
+</g>
+<g id="h2o2" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33570&amp;model=2795088">
+<circle cx="3527.3828" cy="2321.0735" r="15" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="2219.7556" cy="1349.4889" r="15" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="3766" cy="2619.9998" r="15" />
+</a>
+</g>
+<g id="pi" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33499&amp;model=2795088">
+<circle cx="4580" cy="2540" r="15" />
+</a>
+</g>
+<g id="h2o" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33474&amp;model=2795088">
+<circle cx="4535" cy="1265" r="15" />
+</a>
+</g>
+<g id="pi" style="fill: rgb(240, 240, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33499&amp;model=2795088">
+<circle cx="3010.0015" cy="3449.9995" r="25" />
+</a>
+</g>
+<g id="nadh" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33484&amp;model=2795088">
+<circle cx="2385.0896" cy="3057.0537" r="15" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="2385" cy="1846" r="15" />
+</a>
+</g>
+<g id="adp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33496&amp;model=2795088">
+<circle cx="4219.999" cy="2539.9995" r="25" />
+</a>
+</g>
+<g id="adn" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34273&amp;model=2795088">
+<circle cx="3715" cy="725" r="25" />
+</a>
+</g>
+<g id="ade" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34039&amp;model=2795088">
+<circle cx="3935" cy="845" r="25" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="2385" cy="2815" r="15" />
+</a>
+</g>
+<g id="f6p" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33795&amp;model=2795088">
+<circle cx="3649.6982" cy="1965" r="25" />
+</a>
+</g>
+<g id="atp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33477&amp;model=2795088">
+<circle cx="2189.711" cy="1204.4963" r="15" />
+</a>
+</g>
+<g id="nad" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33480&amp;model=2795088">
+<circle cx="4210" cy="2909.9998" r="25" />
+</a>
+</g>
+<g id="gthrd" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33669&amp;model=2795088">
+<circle cx="3497.919" cy="2470" r="25" />
+</a>
+</g>
+<g id="glc-D" style="fill: rgb(240, 240, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33582&amp;model=2795088">
+<circle cx="2285" cy="515" r="25" />
+</a>
+</g>
+<g id="imp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33960&amp;model=2795088">
+<circle cx="4135" cy="1185" r="25" />
+</a>
+</g>
+<g id="g6p" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=36977&amp;model=2795088">
+<circle cx="2285" cy="975" r="25" />
+</a>
+</g>
+<g id="nh4" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33515&amp;model=2795088">
+<circle cx="4195" cy="1275" r="15" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="3877" cy="1062" r="15" />
+</a>
+</g>
+<g id="pyr" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33546&amp;model=2795088">
+<circle cx="2285" cy="3007" r="25" />
+</a>
+</g>
+<g id="prpp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33926&amp;model=2795088">
+<circle cx="3842" cy="956" r="25" />
+</a>
+</g>
+<g id="pi" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33499&amp;model=2795088">
+<circle cx="4035" cy="1425" r="15" />
+</a>
+</g>
+<g id="nadp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33488&amp;model=2795088">
+<circle cx="2517" cy="1075" r="15" />
+</a>
+</g>
+<g id="adp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33496&amp;model=2795088">
+<circle cx="2187.2073" cy="1289.4741" r="15" />
+</a>
+</g>
+<g id="h2o" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33474&amp;model=2795088">
+<circle cx="4355" cy="1585" r="15" />
+</a>
+</g>
+<g id="ins" style="fill: rgb(240, 240, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34525&amp;model=2795088">
+<circle cx="4175" cy="525" r="25" />
+</a>
+</g>
+<g id="pi" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33499&amp;model=2795088">
+<circle cx="4535" cy="1425" r="15" />
+</a>
+</g>
+<g id="lac-L" style="fill: rgb(240, 240, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34179&amp;model=2795088">
+<circle cx="2283.1755" cy="3455.9053" r="25" />
+</a>
+</g>
+<g id="hxan" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34434&amp;model=2795088">
+<circle cx="4385" cy="725" r="25" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="4405" cy="1585" r="15" />
+</a>
+</g>
+<g id="glc-D" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33582&amp;model=2795088">
+<circle cx="2285" cy="725" r="25" />
+</a>
+</g>
+<g id="dhap" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33898&amp;model=2795088">
+<circle cx="2075" cy="1655" r="25" />
+</a>
+</g>
+<g id="h2o" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33474&amp;model=2795088">
+<circle cx="2385" cy="2655" r="15" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="4580" cy="2490.0002" r="15" />
+</a>
+</g>
+<g id="6pgc" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34686&amp;model=2795088">
+<circle cx="3125" cy="975" r="25" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="2385.0896" cy="3107.0537" r="15" />
+</a>
+</g>
+<g id="nad" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33480&amp;model=2795088">
+<circle cx="2385.0896" cy="3207.0537" r="15" />
+</a>
+</g>
+<g id="h" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33778&amp;model=2795088">
+<circle cx="4059.9993" cy="2909.9998" r="25" />
+</a>
+</g>
+<g id="ins" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=34525&amp;model=2795088">
+<circle cx="4135" cy="1495" r="25" />
+</a>
+</g>
+<g id="amp" style="fill: rgb(255, 160, 128) ; stroke: rgb(64, 0, 0); stroke-width: 1; ">
+<a xlink:href="view3.pl?type=metabolite&amp;id=33534&amp;model=2795088">
+<circle cx="4069.9985" cy="2340" r="25" />
+</a>
+</g>
+</g>
+<g id="Layer_label_met">
+<text style="stroke: none;" x="4249.999" y="2340">atp</text>
+<text style="stroke: none;" x="3811.773" y="2297.9192">h2o</text>
+<text style="stroke: none;" x="3875" y="1535">r1p</text>
+<text style="stroke: none;" x="4805" y="1185">adp</text>
+<text style="stroke: none;" x="4210" y="3250">co2</text>
+<text style="stroke: none;" x="3895" y="1675">hxan</text>
+<text style="stroke: none;" x="4510" y="2340">atp</text>
+<text style="stroke: none;" x="2315" y="1407">fdp</text>
+<text style="stroke: none;" x="2403.1755" y="3405.9053">h[e]</text>
+<text style="stroke: none;" x="4600" y="2390.0002">h2o</text>
+<text style="stroke: none;" x="3310" y="3250">h2o</text>
+<text style="stroke: none;" x="3676.0005" y="2639.9998">nadph</text>
+<text style="stroke: none;" x="3310" y="3450">h2o[e]</text>
+<text style="stroke: none;" x="3215" y="885">nadp</text>
+<text style="stroke: none;" x="2875" y="885">h2o</text>
+<text style="stroke: none;" x="3770.001" y="2500">gthox</text>
+<text style="stroke: none;" x="3764" y="1204">atp</text>
+<text style="stroke: none;" x="4055" y="1265">h2o</text>
+<text style="stroke: none;" x="3610" y="3250">h</text>
+<text style="stroke: none;" x="2405" y="2015">adp</text>
+<text style="stroke: none;" x="2315" y="1945">13dpg</text>
+<text style="stroke: none;" x="2405" y="1696">nad</text>
+<text style="stroke: none;" x="3272.4487" y="1161.8456">xu5p-D</text>
+<text style="stroke: none;" x="2315" y="2495">2pg</text>
+<text style="stroke: none;" x="4210" y="3450.0002">co2[e]</text>
+<text style="stroke: none;" x="4465" y="1185">amp</text>
+<text style="stroke: none;" x="4205" y="725">ins</text>
+<text style="stroke: none;" x="3745" y="525">adn[e]</text>
+<text style="stroke: none;" x="3965" y="525">ade[e]</text>
+<text style="stroke: none;" x="4415" y="525">hxan[e]</text>
+<text style="stroke: none;" x="4010" y="3399.9998">h</text>
+<text style="stroke: none;" x="2320.0073" y="1180.0073">f6p</text>
+<text style="stroke: none;" x="3856" y="1112">amp</text>
+<text style="stroke: none;" x="2617" y="1095">h</text>
+<text style="stroke: none;" x="3272.4487" y="1961.8457">e4p</text>
+<text style="stroke: none;" x="3920" y="3449.9998">nh4[e]</text>
+<text style="stroke: none;" x="3610" y="3450">h[e]</text>
+<text style="stroke: none;" x="2403.1755" y="3305.9053">h</text>
+<text style="stroke: none;" x="4085" y="1575">pi</text>
+<text style="stroke: none;" x="4510" y="2590">adp</text>
+<text style="stroke: none;" x="3676.544" y="1565">s7p</text>
+<text style="stroke: none;" x="3455" y="885">nadph</text>
+<text style="stroke: none;" x="4010" y="3299.9998">h[e]</text>
+<text style="stroke: none;" x="2405" y="2765">adp</text>
+<text style="stroke: none;" x="2315.0896" y="3257.0537">lac-L</text>
+<text style="stroke: none;" x="3375" y="885">co2</text>
+<text style="stroke: none;" x="2405" y="2165">atp</text>
+<text style="stroke: none;" x="4455" y="1525">adn</text>
+<text style="stroke: none;" x="2813.456" y="974.99994">6pgl</text>
+<text style="stroke: none;" x="2355" y="895">adp</text>
+<text style="stroke: none;" x="2315" y="2235">3pg</text>
+<text style="stroke: none;" x="4239.999" y="2709.9993">nadh</text>
+<text style="stroke: none;" x="4405" y="1305">h</text>
+<text style="stroke: none;" x="2405" y="775">atp</text>
+<text style="stroke: none;" x="3040" y="3249.9993">pi</text>
+<text style="stroke: none;" x="3272.4487" y="1561.8456">g3p</text>
+<text style="stroke: none;" x="4805" y="1505">atp</text>
+<text style="stroke: none;" x="4805" y="1255">h</text>
+<text style="stroke: none;" x="4205" y="1605">nh4</text>
+<text style="stroke: none;" x="2717" y="1095">nadph</text>
+<text style="stroke: none;" x="1910" y="2919.9998">h</text>
+<text style="stroke: none;" x="2405" y="925">h</text>
+<text style="stroke: none;" x="3670.2349" y="1175">r5p</text>
+<text style="stroke: none;" x="3495" y="975">ru5p-D</text>
+<text style="stroke: none;" x="1780" y="2910">h[e]</text>
+<text style="stroke: none;" x="2405" y="1746">pi</text>
+<text style="stroke: none;" x="4185" y="845">ppi</text>
+<text style="stroke: none;" x="2405" y="2915">atp</text>
+<text style="stroke: none;" x="4345" y="1305">h2o</text>
+<text style="stroke: none;" x="2405" y="1896">nadh</text>
+<text style="stroke: none;" x="2315" y="1655">g3p</text>
+<text style="stroke: none;" x="3920" y="3249.9998">nh4</text>
+<text style="stroke: none;" x="3115" y="885">h</text>
+<text style="stroke: none;" x="2315" y="2715">pep</text>
+<text style="stroke: none;" x="3543.383" y="2639.9998">nadp</text>
+<text style="stroke: none;" x="1720" y="3000">pyr[e]</text>
+<text style="stroke: none;" x="3517.3833" y="2341.0732">h2o2</text>
+<text style="stroke: none;" x="2239.7556" y="1349.4889">h</text>
+<text style="stroke: none;" x="3766.0005" y="2639.9998">h</text>
+<text style="stroke: none;" x="4600" y="2540">pi</text>
+<text style="stroke: none;" x="4555" y="1265">h2o</text>
+<text style="stroke: none;" x="3040" y="3449.9993">pi[e]</text>
+<text style="stroke: none;" x="2405.0896" y="3057.0537">nadh</text>
+<text style="stroke: none;" x="2405" y="1846">h</text>
+<text style="stroke: none;" x="4249.999" y="2539.9993">adp</text>
+<text style="stroke: none;" x="3745" y="725">adn</text>
+<text style="stroke: none;" x="3965" y="845">ade</text>
+<text style="stroke: none;" x="2405" y="2815">h</text>
+<text style="stroke: none;" x="3679.6982" y="1965">f6p</text>
+<text style="stroke: none;" x="2209.711" y="1204.4963">atp</text>
+<text style="stroke: none;" x="4239.999" y="2909.9995">nad</text>
+<text style="stroke: none;" x="3497.9187" y="2500">gthrd</text>
+<text style="stroke: none;" x="2315" y="515">glc-D[e]</text>
+<text style="stroke: none;" x="4135" y="1155">imp</text>
+<text style="stroke: none;" x="2325" y="1025">g6p</text>
+<text style="stroke: none;" x="4225" y="1295">nh4</text>
+<text style="stroke: none;" x="3891" y="1077">h</text>
+<text style="stroke: none;" x="2315" y="3007">pyr</text>
+<text style="stroke: none;" x="3863" y="978">prpp</text>
+<text style="stroke: none;" x="4035" y="1425">pi</text>
+<text style="stroke: none;" x="2517" y="1095">nadp</text>
+<text style="stroke: none;" x="2207.2073" y="1289.4741">adp</text>
+<text style="stroke: none;" x="4355" y="1605">h2o</text>
+<text style="stroke: none;" x="4205" y="525">ins[e]</text>
+<text style="stroke: none;" x="4555" y="1425">pi</text>
+<text style="stroke: none;" x="2313.1755" y="3455.9053">lac-L[e]</text>
+<text style="stroke: none;" x="4415" y="725">hxan</text>
+<text style="stroke: none;" x="4405" y="1605">h</text>
+<text style="stroke: none;" x="2315" y="725">glc-D</text>
+<text style="stroke: none;" x="2075" y="1695">dhap</text>
+<text style="stroke: none;" x="2405" y="2655">h2o</text>
+<text style="stroke: none;" x="4600" y="2490">h</text>
+<text style="stroke: none;" x="3155" y="975">6pgc</text>
+<text style="stroke: none;" x="2405.0896" y="3107.0537">h</text>
+<text style="stroke: none;" x="2405.0896" y="3207.0537">nad</text>
+<text style="stroke: none;" x="4089.999" y="2909.9995">h</text>
+<text style="stroke: none;" x="4165" y="1495">ins</text>
+<text style="stroke: none;" x="4099.9995" y="2340">amp</text>
+</g>
+</g>
+</svg>

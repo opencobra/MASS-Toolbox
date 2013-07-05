@@ -314,7 +314,7 @@ calcPERC::negativePERC="Negative PERC (`1`) detected for reaction `2`.";
 calcPERC::inconsistent="`1` is at equilbrium while the non-zero flux `2` indicates otherwise.";
 Options[calcPERC]={"SteadyStateConcentrations"->{},"SteadyStateFluxes"->{},"Parameters"->{},"AtEquilibriumDefault"->Undefined};
 calcPERC[rate_,opts:OptionsPattern[]]:=Module[{getFluxID,fluxID,ssFlux,solution,keq,rateClean,finalRate},
-	rateClean=rate/.parameter["Volume",_]->1;
+	rateClean=rate(*/.parameter["Volume",_]->1*);
 	getFluxID=Cases[#,p:(_Keq|_rateconst):>getID[p],\[Infinity]][[1]]&;
 	fluxID=Quiet[Check[getFluxID[rateClean],Return[{}],{Part::partw}],{Part::partw}];
 	ssFlux=(v[fluxID]/.Dispatch[OptionValue["SteadyStateFluxes"]]);
@@ -470,7 +470,7 @@ adjustUnits[stuff:{_Rule...},rxns:{_reaction...}:{},opts:OptionsPattern[]]:=Modu
 	defaultTimeUnit=OptionValue["DefaultTimeUnit"];
 	defaultMassUnit=OptionValue["DefaultMassUnit"];
 	defaultConcUnit=defaultAmountUnit defaultVolumeUnit^-1;
-	defaultFluxUnit=defaultAmountUnit defaultVolumeUnit^-1 defaultTimeUnit^-1;
+	defaultFluxUnit=defaultAmountUnit (*defaultVolumeUnit^-1*) defaultTimeUnit^-1;
 
 	catchIncomp=Function[{expr,elem},Check[expr,Message[adjustUnits::incomp,elem];Abort[];,{Convert::incomp,Unit::incomp2}],{HoldFirst}];
 	unitLessQ=(NumberQ[#]||#===\[Infinity])&;
@@ -483,16 +483,17 @@ adjustUnits[stuff:{_Rule...},rxns:{_reaction...}:{},opts:OptionsPattern[]]:=Modu
 	fluxHelper=If[unitLessQ[#[[2]]],Message[adjustUnits::noUnitsProvidedFlux,#[[1]],defaultFluxUnit,#[[2]]defaultFluxUnit];#[[2]]defaultFluxUnit,Convert[#[[2]],defaultAmountUnit getVolumeUnit1[#[[2]]]^-1 defaultTimeUnit^-1]]&;
 
 	fwdRateConstHelper=(rxn=getID[#[[1]]]/.id2rxns;If[!MatchQ[rxn,_reaction],Message[adjustUnits::noRxnInfo,#];Abort[];];
-    rxnOrder=getReactionOrders[rxn,Ignore->OptionValue["Ignore"]][[1]];
-    Switch[#[[2]],
-        _?unitLessQ,(Message[adjustUnits::noUnitsProvidedRateConst,#[[1]],defaultAmountUnit,defaultVolumeUnit,defaultTimeUnit,#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-1) defaultTimeUnit^-1];#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-1) defaultTimeUnit^-1),
-        _,Convert[#[[2]],defaultAmountUnit^(1-rxnOrder) getVolumeUnit2[#[[2]],rxnOrder]^(rxnOrder-1) defaultTimeUnit^-1]])&;
+		rxnOrder=getReactionOrders[rxn,Ignore->OptionValue["Ignore"]][[1]];
+		Switch[#[[2]],
+			_?unitLessQ,(Message[adjustUnits::noUnitsProvidedRateConst,#[[1]],defaultAmountUnit,defaultVolumeUnit,defaultTimeUnit,#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-1+If[MatchQ[getCompartment[rxn],_List],1,0]) defaultTimeUnit^-1];#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-1+If[MatchQ[getCompartment[rxn],_List],1,0]) defaultTimeUnit^-1),
+			_,Convert[#[[2]],defaultAmountUnit^(1-rxnOrder) getVolumeUnit2[#[[2]],rxnOrder]^(rxnOrder-1+If[MatchQ[getCompartment[rxn],_List],1,0]) defaultTimeUnit^-1]
+		])&;
 
 	revRateConstHelper=(rxn=getID[#[[1]]]/.id2rxns;If[!MatchQ[rxn,_reaction],Message[adjustUnits::noRxnInfo,#];Abort[];];
     rxnOrder=getReactionOrders[rxn,Ignore->OptionValue["Ignore"]][[2]];
     Switch[#[[2]],
-        _?unitLessQ,(Message[adjustUnits::noUnitsProvidedRateConst,#[[1]],defaultAmountUnit,defaultVolumeUnit,defaultTimeUnit,#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-1) defaultTimeUnit^-1];#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-1) defaultTimeUnit^-1),
-        _,Convert[#[[2]],defaultAmountUnit^(1-rxnOrder) getVolumeUnit2[#[[2]],rxnOrder]^(rxnOrder-1) defaultTimeUnit^-1]])&;
+        _?unitLessQ,(Message[adjustUnits::noUnitsProvidedRateConst,#[[1]],defaultAmountUnit,defaultVolumeUnit,defaultTimeUnit,#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-1+If[MatchQ[getCompartment[rxn],_List],1,0]) defaultTimeUnit^-1];#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-1+If[MatchQ[getCompartment[rxn],_List],1,0]) defaultTimeUnit^-1),
+        _,Convert[#[[2]],defaultAmountUnit^(1-rxnOrder) getVolumeUnit2[#[[2]],rxnOrder]^(rxnOrder-1+If[MatchQ[getCompartment[rxn],_List],1,0]) defaultTimeUnit^-1]])&;
 
 	keqHelper=(rxn=getID[#[[1]]]/.id2rxns;If[!MatchQ[rxn,_reaction],Message[adjustUnits::noRxnInfo,#];Abort[];];keqExp=Subtract@@Reverse[getReactionOrders[rxn,Ignore->OptionValue["Ignore"]]];    
     Switch[#[[2]],
@@ -1154,7 +1155,7 @@ deleteReactions::rxnNotInModel="Reaction(s) `1` does/do not exist in the model."
 deleteReactions[model_MASSmodel,{}]:=model
 deleteReactions[model_MASSmodel,rxns:{_reaction..}]:=deleteReactions[model,getID/@rxns]
 deleteReactions[model_MASSmodel,rxnIDs:{(_String|_v)..}]:=Module[{modelTmp,notInModel,fixIDs},
-	If[notInModel=Complement[rxnIDs/.flux_v:>getID[flux],getID/@model["Fluxes"]];notInModel!={},Message[deleteReactions::rxnNotInModel,notInModel];Abort[];];
+	If[notInModel=Complement[rxnIDs/.flux_v:>getID[flux],getID/@model["Fluxes"]];notInModel!={},Message[deleteReactions::rxnNotInModel,notInModel];];
 	modelTmp=constructModel[DeleteCases[model["Reactions"],r_reaction/;MemberQ[rxnIDs/.flux_v:>getID[flux],getID[r]]]];
 	setModelAttribute[modelTmp,"Ignore",Select[model["Ignore"],MemberQ[modelTmp["Species"],#]&],"Sloppy"->True];
 	setModelAttribute[modelTmp,"ID",model["ID"],"Sloppy"->True];

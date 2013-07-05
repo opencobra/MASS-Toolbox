@@ -140,13 +140,13 @@ calcDeltaG[rxns:{_reaction..},pseudosiomerData:{($MASS$speciesPattern->{{_Rule..
 ]
 
 calcDeltaG[rxn_reaction,dGofFormation:{(_dGstd->_ )..},opts:OptionsPattern[]]:=Module[{conditions,tmpRules,ignore},
-	conditions=Union[getConditions/@Cases[dGofFormation,dg_dGstd/;MemberQ[getCompounds[rxn],getID[dg]],\[Infinity]]];
+	conditions=Union[getConditions/@Cases[dGofFormation,dg_dGstd/;MemberQ[getSpecies[rxn],getID[dg]],\[Infinity]]];
 	If[conditions==={},conditions=Union[getConditions/@dGofFormation[[All,1]]]];
 	If[Length[conditions]>1,Message[calcDeltaG::inconcond];Abort[];];
 	conditions=conditions[[1]];
 	tmpRules=getID[#[[1]]]->#[[2]]&/@dGofFormation;
 	ignore=Alternatives@@OptionValue["Ignore"];
-	Chop[dGstd[getID[rxn],Sequence@@conditions]->Total[getSignedStoich[rxn]*(getCompounds[rxn]/. ignore->0)/.Dispatch[tmpRules]/.m:$MASS$speciesPattern:>dGstd[m,Sequence@@conditions]]]
+	Chop[dGstd[getID[rxn],Sequence@@conditions]->Total[Chop[getSignedStoich[rxn]*(getSpecies[rxn]/. ignore->0)/.Dispatch[tmpRules]/.m:$MASS$speciesPattern:>dGstd[m,Sequence@@conditions]]]]
 ];
 
 calcDeltaG[rxns:{_reaction..},dGofFormation:{(_dGstd->_ )..}]:=calcDeltaG[#,dGofFormation]&/@rxns
