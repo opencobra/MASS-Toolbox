@@ -2,7 +2,9 @@
 
 ## For the reviewers
 
-You can download the toolbox [here](https://www.dropbox.com/s/htxd3vk8j210gi5/20130704_MASS-Toolbox_v1.0.zip)
+You can download the toolbox [here](https://www.dropbox.com/s/htxd3vk8j210gi5/20130704_MASS-Toolbox_v1.0.zip). If you run into any problems installing or using the package we would really appreciate if you would let us know **anonymously** via the [issue tracker](https://github.com/SBRG/MASS-Toolbox/issues). Thank you very much for your time!
+
+Niko Sonnenschein
 
 ## License
 
