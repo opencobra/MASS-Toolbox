@@ -9,7 +9,6 @@ Sincerely,
 Niko Sonnenschein
 
 PS: Please, restart Mathematica after running the installation code in Installer.nb. The documentation pages won't show up otherwise.
-PPS: We're not tracking any traffic on this site. Anyhow, we can higly recommend the [Tor browser bundel](https://www.torproject.org/projects/torbrowser.html.en) if your worrying about your anonymity.
 
 ## License
 
