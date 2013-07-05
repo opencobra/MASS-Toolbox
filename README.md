@@ -1,10 +1,4 @@
-----
-layout: page
------
-
 # MASS Toolbox
-
-
 
 ## License
 
