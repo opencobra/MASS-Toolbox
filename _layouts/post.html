@@ -2,13 +2,21 @@
 layout: default
 
 ---
-<div class="row">
-    <div class="span8 offest2">
+<div class="row-fluid">
+    <div class="span8">
     <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ page.title }}</a></h3>
   
 
         {{ content }}
 
+  </div>
+  <div class="span4">
+    <h3>Recent posts</h3>
+    <div class="well">
+      {% for post in site.posts %}
+        <li><a href="{{ site.baseurl }}{{ post.url }}"><i class="icon-post"></i> {{ post.title }}{{ post.date }}</a></li>
+      {% endfor %}
+    </div>
   </div>
 </div>
 
