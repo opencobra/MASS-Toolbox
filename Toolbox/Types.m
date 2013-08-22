@@ -249,7 +249,7 @@ Protect[r];
 Unprotect[reactionFromString];
 reactionFromString[rxn_String,rev_:"<=>",irev_:"-->"]:=Module[{id,rest,revQ,lhs,rhs,substrStoich,substr,prodStoich,prod,metsAndStoich,cleanUpRedundant},
 	metsAndStoich=If[#=={"0"},{{},{}},If[Length[#]==1,{1.,speciesFromString@#[[1]]},{ToExpression[#[[1]]],speciesFromString@#[[2]]}]]&/@(StringSplit[#,RegularExpression["\\s+"]]&/@StringSplit[#,RegularExpression["(?m)\\s*\\+\\s*"]])&;
-	cleanUpRedundant=Transpose[List@@@(List@@(#1.#2))]&;
+	cleanUpRedundant=Transpose[List@@@Flatten[{(#1.#2)/.Plus->List}]]&;
 	{id,rest}=StringSplit[rxn,":"];
 	revQ=StringMatchQ[rxn,RegularExpression[".+"<>If[MatchQ[rev,_RegularExpression],rev[[1]],rev]<>".+"]];
 	{lhs,rhs}=StringSplit[rest,(rev|irev)];

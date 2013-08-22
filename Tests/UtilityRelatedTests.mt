@@ -54,6 +54,14 @@ Test[
 ]
 
 Test[
+	str2mass["ID: 2 A + 0.5 A <=> 1/3 B"]
+	,
+	reaction["ID", {m["A"]}, {m["B"]}, {2.5, N[1/3]}, True]
+	,
+	TestID->"UtilityRelatedTests-20130822-P0R3E8"
+]
+
+Test[
 	str2mass["ID: 2 ADP_C + 1/2 Pi_C <=> 0"]
 	,
 	reaction["ID", {metabolite["ADP", "C"], metabolite["Pi", "C"]}, {}, {2, 1/2}, True]
