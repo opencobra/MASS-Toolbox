@@ -1,1 +1,1 @@
-jekyll --server --auto --base-url ''
+jekyll serve --watch --baseurl ''

@@ -10,7 +10,7 @@
                   </a>
                   <a class="brand" href="{{ site.baseurl }}/">MASS Toolbox</a>
                   <div class="nav-collapse collapse navbar-inverse-collapse">
-                    <a href="{{ site.baseurl }}/"><img style="position: absolute; top: -40px; right: -10%; border: 0;width: 130px;"
+                    <a href="{{ site.baseurl }}/"><img style="position: absolute; top: -40px; right: 0%; border: 0;width: 130px;"
                         src="{{ site.baseurl}}/img/MASS-Toolbox-Logo.png" alt="GitHub Logo"></a>    
                     <ul class="nav">
                       
@@ -19,9 +19,7 @@
                          About  <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                           <li><a href="{{ site.baseurl }}/About.html">About MASS Toolbox</a></li>
-                          <li class="divider"></li>
-                          <li class="nav-header">Follow on </li>
-                          <li><a href="https://twitter.com/intent/user?screen_name=masstbx"> <i class="icon-twitter"></i> Twitter</a></li>
+                          <li><a href="{{ site.baseurl }}/About.html#license_anchor">License</a></li>
                         </ul>
                       </li>
 
@@ -32,25 +30,32 @@
                           {% for post in site.posts %}
                           <li><a href="{{ site.baseurl }}{{ post.url }}"><i class="icon-post"></i> {{ post.title }}</a></li>
                           {% endfor %}
+                          <li class="divider"></li>
+                          <li class="nav-header">Follow on </li>
+                          <li><a href="https://twitter.com/intent/user?screen_name=masstbx"> <i class="icon-twitter"></i> Twitter</a></li>
                         </ul>
                       </li>
 
-                      <li class="dropdown">
+<!--                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                          Support  <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                           <li><a href="{{ site.baseurl }}/Toolbox-HTML/html/guide/Toolbox.html"><i class="icon-book"></i> Documentation</a></li>
                           <li><a href="https://groups.google.com/forum/#!forum/mass-toolbox"><i class="icon-question-sign"></i> Google group</a></li>
                           <li class="divider"></li>
-                          <li class="nav-header">Ask a</li>
-                          <li><a href="https://groups.google.com/forum/#!newtopic/mass-toolbox"> Question</a></li>
+                          <li><a href="https://groups.google.com/forum/#!newtopic/mass-toolbox">Ask a question</a>
                         </ul>
-                      </li>
+                      </li> -->
 
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                          Resources  <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                          <li><a href="https://github.com/SBRG/MASS-Toolbox/releases"><i class="icon-download"></i> Downloads</a></li>
+                          <li><a href="{{ site.baseurl }}/Toolbox-HTML/html/guide/Toolbox.html"><i class="icon-book"></i> Documentation</a></li>
+                          <li><a href="https://groups.google.com/forum/#!forum/mass-toolbox"><i class="icon-question-sign"></i> Google group</a></li>
+                          <!-- <li class="divider"></li>
+                          <li><a href="https://groups.google.com/forum/#!newtopic/mass-toolbox">Ask a question</a> -->
                           <li><a href="https://github.com/SBRG/MASS-Models"><i class="icon-database"></i> Models</a></li>
                           <li><a href="{{ site.baseurl }}/Screencasts.html"><i class="icon-youtube"></i> Screencasts</a></li>
                           <li><a href="https://github.com/SBRG/Bootcamp"><i class="icon-youtube"></i> Course materials</a></li>
