@@ -3,10 +3,15 @@ layout: page
 title: MASS Toolbox
 ---
 #### Overview
-The **M**ass-**A**ction **S**toichiometric **Simulation** (MASS) toolbox is a modeling software package that focuses on the construction and analysis of kinetic and constraint-based models of biochemical reactions systems. It has been developed in the [systems biology group](http://systemsbiology.ucsd.edu/) of [Bernhard Palsson](http://systemsbiology.ucsd.edu/Researchers/Palsson) at the [University of California, San Diego](http://ucsd.edu).
+The **M**ass-**A**ction **S**toichiometric **S**imulation (MASS) toolbox is a modeling software package that focuses on the construction and analysis of kinetic and constraint-based models of biochemical reactions systems. It has been developed in the [systems biology group](http://systemsbiology.ucsd.edu/) of [Bernhard Palsson](http://systemsbiology.ucsd.edu/Researchers/Palsson) at the [University of California, San Diego](http://ucsd.edu).
 
 #### Installation
-You can download the toolbox [here](https://github.com/SBRG/MASS-Toolbox/releases). Download the the binary package (MASS-Toolbox-vX.X.X, not the source distribution) and unzip the archive. Open the included installer notebook (Installer.nb) and execute the installation code block.
+You can download the toolbox [here](https://github.com/SBRG/MASS-Toolbox/releases). Download the binary package (MASS-Toolbox-vX.X.X, not the source distribution) and unzip the archive. Open the included installer notebook (Installer.nb) and execute the installation code.
+
+If you don't have access to *Mathematica*, but still would like to try out the toolbox, you can obtain a 30 day unlimited trial version [here](http://www.wolfram.com/mathematica/trial/).
+
+#### First steps
+The downloaded package contains a tutorial notebook that gives a broad overview over the most important functionality. Furthermore, the *Mathematica* documentation center provides access to documentation of most of the functions (which is accessible via the mouse context menu).
 
 #### [License](id:license_anchor)
 
