@@ -31,7 +31,7 @@ Test[
     ,
     TestID->"CobraRelatedTests-20120326-X3P9F2"
 ]
-
+Print["he2"]
 Test[
     !MemberQ[Chop[Abs[Subtract@@@Thread[{referenceFluxes[[All,2]],referenceFluxes[[All,1]]/.gurobiSol}]]],num_/;num>1*^-6]
     ,
@@ -115,6 +115,7 @@ Test[
 	TestID->"CobraRelatedTests-20120410-L5E5B7"
 ]
 
+(*
 Test[
     #[[1]]->GLPKStandalone[Sequence@@("def"/.#[[2]])]==("sol"/.#[[2]])&/@testProblems
     ,
@@ -130,3 +131,4 @@ Test[
     ,
     TestID->"CobraRelatedTests-20120410-J8N8S4"
 ]
+*)

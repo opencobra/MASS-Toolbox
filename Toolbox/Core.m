@@ -1154,9 +1154,18 @@ Unprotect[deleteReactions];
 deleteReactions::rxnNotInModel="Reaction(s) `1` does/do not exist in the model.";
 deleteReactions[model_MASSmodel,{}]:=model
 deleteReactions[model_MASSmodel,rxns:{_reaction..}]:=deleteReactions[model,getID/@rxns]
-deleteReactions[model_MASSmodel,rxnIDs:{(_String|_v)..}]:=Module[{modelTmp,notInModel,fixIDs},
+deleteReactions[model_MASSmodel,rxnIDs:{(_String|_v)..}]:=Module[{modelTmp,notInModel,fixIDs,fluxes,mets,pos,oldS,newS,obsoleteSpeciesPos},
 	If[notInModel=Complement[rxnIDs/.flux_v:>getID[flux],getID/@model["Fluxes"]];notInModel!={},Message[deleteReactions::rxnNotInModel,notInModel];];
-	modelTmp=constructModel[DeleteCases[model["Reactions"],r_reaction/;MemberQ[rxnIDs/.flux_v:>getID[flux],getID[r]]]];
+	(*modelTmp=constructModel[DeleteCases[model["Reactions"],r_reaction/;MemberQ[rxnIDs/.flux_v:>getID[flux],getID[r]]]];*)
+	fluxes=getID/@model["Fluxes"];
+	mets=model["Species"];
+	pos=Position[fluxes,Alternatives@@(rxnIDs/.flux_v:>getID[flux])];
+	oldS=model["SparseStoichiometry"];
+	newS=Transpose[Delete[Transpose[oldS],pos]]; (*TODO: figure out why newS is suddenly a list and not a sparse array anymore after this operation*)
+	newS=SparseArray[newS];
+	obsoleteSpeciesPos=Position[newS,{0..}];
+	newS=Delete[newS,obsoleteSpeciesPos];
+	modelTmp=MASSmodel[updateRules[model[[1]],{"Stoichiometry"->newS,"Fluxes"->v/@Delete[fluxes,pos],"Species"->Delete[mets,obsoleteSpeciesPos],"ReversibleColumnIndices"->deleteIndicesKeepConsistent[model["ReversibleColumnIndices"],Flatten[pos]]}]];
 	setModelAttribute[modelTmp,"Ignore",Select[model["Ignore"],MemberQ[modelTmp["Species"],#]&],"Sloppy"->True];
 	setModelAttribute[modelTmp,"ID",model["ID"],"Sloppy"->True];
 	setModelAttribute[modelTmp,"Name",model["Name"],"Sloppy"->True];
@@ -1375,7 +1384,6 @@ reactionList2model[reactionList:{_reaction...},opts:OptionsPattern[]]:=Block[{ma
 
 	,{col,1,Length[reactionList]}
 	];
-	
 	irrev=getID/@Cases[reactionList,r_reaction/;!reversibleQ[r]];
 	Return[constructModel[mat/.{}->{{}},mapping[[All,1]],getID/@reactionList,"Irreversible"->irrev,"CustomRateLaws"->updateRules[customRateLaws,OptionValue["CustomRateLaws"]],Sequence@@FilterRules[List[opts],Except["CustomRateLaws"]]]]
 ];

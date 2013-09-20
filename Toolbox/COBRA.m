@@ -24,7 +24,7 @@ Toolbox::badargs="There is no definition for '``' applicable to ``."
 (*COBRA methods*)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*FBA & FVA*)
 
 
@@ -374,7 +374,7 @@ calcConcentrationBounds[model_MASSmodel,opt:OptionsPattern[]]:=Module[{logDisEqR
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Utilities*)
 
 
@@ -441,7 +441,7 @@ def:model2LooplessFbaFormulation[___]:=(Message[Toolbox::badargs,model2LooplessF
 Protect[model2LooplessFbaFormulation];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Solvers (that provide a similar argument signature as LinearProgramming)*)
 
 

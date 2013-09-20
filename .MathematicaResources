@@ -1,7 +1,11 @@
 Resources[
     Version[1],
+    Sources[
+        Directory["~"]
+    ],
     ExecutionBuildCommand["<<Toolbox`"],
     Paclet[
+        PacletFolder["Toolbox"],
         FunctionPaclet[False]
     ]
 ]
