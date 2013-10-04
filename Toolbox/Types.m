@@ -173,7 +173,7 @@ reaction[id_String,substrates:{$MASS$speciesPattern...},products:{$MASS$speciesP
 	(*Check dimensions*)	
 	If[lenSub+lenProd!=lenStoich,Message[reaction::arglen,lenSub,lenProd,lenStoich];Abort[]];
 	Scan[If[Length[#[[2]]]!=Length[Union[#[[2]]]],Message[reaction::unique,#[[1]],#[[2]]];Abort[]]&,{{"substrates",substrates},{"products",products}}];
-	reaction[id,substrates,products,stoichiometry/. 1.->1,revQ]
+	reaction[id,substrates,products,integerChop@stoichiometry,revQ]
 ]/;!TrueQ[$preventRecursion];
 
 With[{pat=$MASS$speciesPattern},
