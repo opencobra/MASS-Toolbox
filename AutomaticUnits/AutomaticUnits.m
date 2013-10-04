@@ -577,7 +577,7 @@ ToObjectPower[a_]:={HeldPower[a,1]};
 
 CollectObjectPowers[obj_]:=
     Block[{ops=ToObjectPower[obj],gcd,reduced},
-    	gcd=Apply[GCD,Map[Last,ops]];
+    	Quiet[gcd=Apply[GCD,Map[Last,ops]],{GCD::exact}];
       	reduced=Map[#[[1]]^(#[[2]]/gcd)&,ops];
       	HeldPower[Apply[Times,reduced],gcd]
     ];
@@ -724,7 +724,7 @@ Unit/:#[a__Unit,b_?NumericQ,c___Unit]:=False;)&/@{Unequal,NotGreater,NotLess};
 (Unit/:#[a__Unit]/;DimensionCompatibleUnitQ[a]:=Block[
 										{converted=Convert[{a}]},
 										If[FreeQ[converted,Unit],#[converted],
-										#[Apply[Sequence,First/@converted]] Unit[1,converted[[1,2]]]
+										Quiet[#[Apply[Sequence,First/@converted]],{GCD::exact}] Unit[1,converted[[1,2]]]
 										]])&/@{GCD,LCM};
 										
 						
