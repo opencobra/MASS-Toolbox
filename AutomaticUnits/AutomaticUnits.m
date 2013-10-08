@@ -90,7 +90,7 @@ SyntaxInformation[UnitSet]={"ArgumentsPattern"->{_.}};
 (*FundamentalUnits is a core function for reducing a unit expression to its lowest units*)
 Unprotect[FundamentalUnits];
 FundamentalUnits[expr_]:=
-    expr/.Unit[n_,dims_]:>Unit[n,PowerExpand[dims/.$ToFundamental]];
+	expr/.Unit[n_,dims_]:>Unit[n,PowerExpand[dims/.$ToFundamental]];
 Protect[FundamentalUnits];
 
 (*Declare new unit in terms of old unit. User function but also used to create the intitial built in units*)
@@ -342,8 +342,8 @@ DimensionCompatibleUnitQ[Unit[_, un_]..]:=True;
 (*faster test when all the same unit*)
 
 (*General test*)
-DimensionCompatibleUnitQ[a__Unit]:=Block[{differentunits=Union[{a}/.Unit[_,un_]->Unit[1,un]]},
-        	Which[
+DimensionCompatibleUnitQ[a__Unit]:=Block[{differentunits=Union[{a}/.Unit[_,un_]->Unit[1,un]]},	
+		Which[
     		Apply[And,NumericQ/@#],True,
     		Apply[SameQ,Map[Last,#]],True,
     		True,Message[Unit::"incomp1",differentunits];False]&[
@@ -490,6 +490,11 @@ Unit[n_?NumericQ, Unit[m_?NumericQ,dims_]]:=Unit[n m, dims];
 Unit[n_?NumericQ,a__ Unit[m_?NumericQ,dims_]]:=Unit[n m,a dims];
 Unit[n_List,un_]:=Unit[#,un]&/@n;
 
+(* The following lines have been added by Niko on 07-10-2013*)
+SetAttributes[integerChop,Listable];
+integerChop[number_Real]:=If[Round@number==number,Round@number,number]
+integerChop[other_?NumberQ]:=other
+Unit[n_,stuff_]:=Block[{$preventRecursion=True},Unit[n,stuff/.Power[a_,b_Real]:>Power[a,integerChop[b]]]]/;!TrueQ[$preventRecursion]
 
 
 (*Dimensionless quantities discard their Unit head*)

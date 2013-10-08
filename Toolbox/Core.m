@@ -251,8 +251,8 @@ Protect[addExternalConcentration];
 reaction2rate[rxns:{_reaction..},ignore:{$MASS$speciesPattern...}:{}]:=reaction2rate[#,ignore]&/@rxns
 reaction2rate[r_reaction,ignore:{$MASS$speciesPattern...}:{}]:=Module[{rate},
 	rate=If[AtomQ[getCompartment[r]],parameter["Volume",getCompartment[r]],1]*k2keq[
-		rateconst[getID[r],True]*Replace[Times@@((#[t]&/@getSubstrates[r])^integerChop[getSubstrStoich[r]]), 1->Times@@(m[getID[#],"Xt"]&/@getProducts[r])] -
-		If[reversibleQ[r],rateconst[getID[r],False]*Replace[Times@@((#[t]&/@getProducts[r])^integerChop[getProdStoich[r]]), 1->Times@@(m[getID[#],"Xt"]&/@getSubstrates[r])],0]
+		rateconst[getID[r],True]*Replace[Times@@((#[t]&/@getSubstrates[r])^integerChop[getSubstrStoich[r]]), 1->Times@@Thread[(m[getID[#],"Xt"]&/@getProducts[r])^integerChop[getProdStoich[r]]]] -
+		If[reversibleQ[r],rateconst[getID[r],False]*Replace[Times@@((#[t]&/@getProducts[r])^integerChop[getProdStoich[r]]), 1->Times@@Thread[(m[getID[#],"Xt"]&/@getSubstrates[r])^integerChop[getSubstrStoich[r]]]],0]
 	];
 	(*If[Complement[getSpecies[r],ignore]!={},*)
 	If[Select[getSpecies[r],!MatchQ[#,Alternatives@@ignore]&]!={},
@@ -314,7 +314,7 @@ calcPERC::negativePERC="Negative PERC (`1`) detected for reaction `2`.";
 calcPERC::inconsistent="`1` is at equilbrium while the non-zero flux `2` indicates otherwise.";
 Options[calcPERC]={"SteadyStateConcentrations"->{},"SteadyStateFluxes"->{},"Parameters"->{},"AtEquilibriumDefault"->Undefined};
 calcPERC[rate_,opts:OptionsPattern[]]:=Module[{getFluxID,fluxID,ssFlux,solution,keq,rateClean,finalRate},
-	rateClean=rate(*/.parameter["Volume",_]->1*);
+	rateClean=rate;
 	getFluxID=Cases[#,p:(_Keq|_rateconst):>getID[p],\[Infinity]][[1]]&;
 	fluxID=Quiet[Check[getFluxID[rateClean],Return[{}],{Part::partw}],{Part::partw}];
 	ssFlux=(v[fluxID]/.Dispatch[OptionValue["SteadyStateFluxes"]]);
@@ -408,10 +408,12 @@ Protect[stripUnits];
 
 Unprotect[getReactionOrders];
 Options[getReactionOrders]={"Ignore"->{}};
-getReactionOrders[rxn_reaction,opts:OptionsPattern[]]:=Module[{},
+getReactionOrders[rxn_reaction,opts:OptionsPattern[]]:=Module[{fwdOrder,revOrder},
+	fwdOrder=Total[FilterRules[Thread[getSubstrates[rxn]->getSubstrStoich[rxn]],Except[OptionValue["Ignore"]]][[All,2]]];
+	revOrder=Total[FilterRules[Thread[getProducts[rxn]->getProdStoich[rxn]],Except[OptionValue["Ignore"]]][[All,2]]];
 	{
-	Total[FilterRules[Thread[getSubstrates[rxn]->getSubstrStoich[rxn]],Except[OptionValue["Ignore"]]][[All,2]]]/. 0->1(*For exchange reactions*),
-	Total[FilterRules[Thread[getProducts[rxn]->getProdStoich[rxn]],Except[OptionValue["Ignore"]]][[All,2]]]/. 0->1(*For exchange reactions*)
+	If[#==0,revOrder,#]&[fwdOrder],
+	If[#==0,fwdOrder,#]&[revOrder]
 	}
 ];
 def:getReactionOrders[___]:=(Message[Toolbox::badargs,getReactionOrders,Defer@def];Abort[])
@@ -422,7 +424,7 @@ spatialDimension[units_]:=Module[{si},
 	si={Quiet[Convert[units,"MKS"],{Unit::noavailableunit}]}/.Sign->Sequence;
 	Which[
 		MemberQ[si,Power["Meter",_],\[Infinity]],Cases[si,Power["Meter",exp_]:>exp,\[Infinity]][[1]],
-		MemberQ[si,Unit[_,"Meter"],\[Infinity]],1,
+		MemberQ[si,"Meter",\[Infinity]],1,
 		True,0
 	]
 ];
@@ -431,12 +433,14 @@ spatialDimension[units_]:=Module[{si},
 Options[spatialUnit]={"DefaultVolumeUnit"->Liter,"DefaultSurfaceUnit"->Meter^2,"DefaultLengthUnit"->Meter};
 spatialUnit[stuff_,rxnOrder_?NumberQ,opts:OptionsPattern[]]:=Module[{dim,correctedDim},
 	dim=spatialDimension[stuff];
-	correctedDim=If[dim==0,1,dim/(rxnOrder-1)];
+	(*correctedDim=If[dim==0,1,dim/(rxnOrder-1)];*)
+	correctedDim=If[dim==0,0,dim/(rxnOrder(*-1*))];
 	Which[
 		#==0,1,
 		Abs[#]==1,OptionValue["DefaultLengthUnit"],
 		Abs[#]==2,OptionValue["DefaultSurfaceUnit"],
-		Abs[#]>2,OptionValue["DefaultVolumeUnit"]
+		Abs[#]>2,OptionValue["DefaultVolumeUnit"],
+		True,None
 	]&[correctedDim]
 ];
 spatialUnit[stuff_,opts:OptionsPattern[]]:=Module[{dim},
@@ -484,21 +488,24 @@ adjustUnits[stuff:{_Rule...},rxns:{_reaction...}:{},opts:OptionsPattern[]]:=Modu
 
 	fwdRateConstHelper=(rxn=getID[#[[1]]]/.id2rxns;If[!MatchQ[rxn,_reaction],Message[adjustUnits::noRxnInfo,#];Abort[];];
 		rxnOrder=getReactionOrders[rxn,Ignore->OptionValue["Ignore"]][[1]];
+		compartmentFactor=If[MatchQ[getCompartment[rxn],(None|_List)],0,1];
 		Switch[#[[2]],
-			_?unitLessQ,(Message[adjustUnits::noUnitsProvidedRateConst,#[[1]],defaultAmountUnit,defaultVolumeUnit,defaultTimeUnit,#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-1+If[MatchQ[getCompartment[rxn],_List],1,0]) defaultTimeUnit^-1];#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-1+If[MatchQ[getCompartment[rxn],_List],1,0]) defaultTimeUnit^-1),
-			_,Convert[#[[2]],defaultAmountUnit^(1-rxnOrder) getVolumeUnit2[#[[2]],rxnOrder]^(rxnOrder-1+If[MatchQ[getCompartment[rxn],_List],1,0]) defaultTimeUnit^-1]
+			_?unitLessQ,(Message[adjustUnits::noUnitsProvidedRateConst,#[[1]],defaultAmountUnit,defaultVolumeUnit,defaultTimeUnit,#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-compartmentFactor) defaultTimeUnit^-1];#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-1+If[MatchQ[getCompartment[rxn],(None|_List)],1,0]) defaultTimeUnit^-1),
+			_,Convert[#[[2]],defaultAmountUnit^(1-rxnOrder) getVolumeUnit2[#[[2]],rxnOrder-compartmentFactor]^(rxnOrder-compartmentFactor) defaultTimeUnit^-1]
 		])&;
 
 	revRateConstHelper=(rxn=getID[#[[1]]]/.id2rxns;If[!MatchQ[rxn,_reaction],Message[adjustUnits::noRxnInfo,#];Abort[];];
-    rxnOrder=getReactionOrders[rxn,Ignore->OptionValue["Ignore"]][[2]];
-    Switch[#[[2]],
-        _?unitLessQ,(Message[adjustUnits::noUnitsProvidedRateConst,#[[1]],defaultAmountUnit,defaultVolumeUnit,defaultTimeUnit,#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-1+If[MatchQ[getCompartment[rxn],_List],1,0]) defaultTimeUnit^-1];#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-1+If[MatchQ[getCompartment[rxn],_List],1,0]) defaultTimeUnit^-1),
-        _,Convert[#[[2]],defaultAmountUnit^(1-rxnOrder) getVolumeUnit2[#[[2]],rxnOrder]^(rxnOrder-1+If[MatchQ[getCompartment[rxn],_List],1,0]) defaultTimeUnit^-1]])&;
+		rxnOrder=getReactionOrders[rxn,Ignore->OptionValue["Ignore"]][[2]];
+		compartmentFactor=If[MatchQ[getCompartment[rxn],(None|_List)],0,1];
+		Switch[#[[2]],
+			_?unitLessQ,(Message[adjustUnits::noUnitsProvidedRateConst,#[[1]],defaultAmountUnit,defaultVolumeUnit,defaultTimeUnit,#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-compartmentFactor) defaultTimeUnit^-1];#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-1+If[MatchQ[getCompartment[rxn],(None|_List)],1,0]) defaultTimeUnit^-1),
+			_,Convert[#[[2]],defaultAmountUnit^(1-rxnOrder) getVolumeUnit2[#[[2]],rxnOrder-compartmentFactor]^(rxnOrder-compartmentFactor) defaultTimeUnit^-1]
+		])&;
 
 	keqHelper=(rxn=getID[#[[1]]]/.id2rxns;If[!MatchQ[rxn,_reaction],Message[adjustUnits::noRxnInfo,#];Abort[];];keqExp=Subtract@@Reverse[getReactionOrders[rxn,Ignore->OptionValue["Ignore"]]];    
     Switch[#[[2]],
         _?unitLessQ,If[keqExp!=0,Message[adjustUnits::noUnitsProvidedKeq,#[[1]],defaultConcUnit,#[[2]] Convert[(defaultConcUnit)^keqExp,(defaultAmountUnit defaultVolumeUnit^-1)^keqExp]]; #[[2]] Convert[(defaultConcUnit)^keqExp,(defaultAmountUnit defaultVolumeUnit^-1)^keqExp],#[[2]]],
-        _,Convert[#[[2]],(defaultAmountUnit getVolumeUnit2[#[[2]],Abs[keqExp]+1]^-1)^keqExp]])&;
+        _,Convert[#[[2]],(defaultAmountUnit getVolumeUnit2[#[[2]],Abs[keqExp]]^-1)^keqExp]])&;
 
 	KmHelper=If[unitLessQ[#[[2]]],Message[adjustUnits::noUnitsProvidedKm,#[[1]],defaultConcUnit];#[[2]]defaultConcUnit,Convert[#[[2]],defaultAmountUnit getVolumeUnit1[#[[2]]]^-1]]&;
 	VmaxHelper=If[unitLessQ[#[[2]]],Message[adjustUnits::noUnitsProvidedVmax,#[[1]],defaultFluxUnit];#[[2]]defaultFluxUnit,Convert[#[[2]],defaultAmountUnit getVolumeUnit1[#[[2]]]^-1 defaultTimeUnit^-1]]&;

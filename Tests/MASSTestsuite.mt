@@ -27,9 +27,9 @@ TestSuite[
     "GPRRelatedTests.mt"
     (*,
     "SBMLrelatedTests.mt"*)
-(*    ,
-    "UnitCheckingRelatedTests"
-*)    ,
+   	,
+    "UnitCheckingRelatedTests.mt"
+    ,
     "ThermodynamicsTests.mt"
    }
 ]

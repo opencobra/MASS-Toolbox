@@ -157,7 +157,7 @@ Test[
 Test[
 	getStoichiometry[testRxn]
 	,
-	{1, 2., 1/2}
+	{1, 2, 1/2}
 	,
 	TestID->"ReactionRelatedTests-20110511-Y7P2R4"
 ]
@@ -173,7 +173,7 @@ Test[
 Test[
 	getProdStoich[testRxn]
 	,
-	{2., 1/2}
+	{2, 1/2}
 	,
 	TestID->"ReactionRelatedTests-20110511-H6P0K3"
 ]
