@@ -1170,7 +1170,8 @@ deleteReactions[model_MASSmodel,rxnIDs:{(_String|_v)..}]:=Module[{modelTmp,notIn
 	oldS=model["SparseStoichiometry"];
 	newS=Transpose[Delete[Transpose[oldS],pos]]; (*TODO: figure out why newS is suddenly a list and not a sparse array anymore after this operation*)
 	newS=SparseArray[newS];
-	obsoleteSpeciesPos=Position[newS,{0..}];
+	(*obsoleteSpeciesPos=Position[newS,{0..}];*)
+	obsoleteSpeciesPos=MapIndexed[If[Total[Abs[#]]==0.,{First@#2},Unevaluated[Sequence[]]]&,newS];
 	newS=Delete[newS,obsoleteSpeciesPos];
 	modelTmp=MASSmodel[updateRules[model[[1]],{"Stoichiometry"->newS,"Fluxes"->v/@Delete[fluxes,pos],"Species"->Delete[mets,obsoleteSpeciesPos],"ReversibleColumnIndices"->deleteIndicesKeepConsistent[model["ReversibleColumnIndices"],Flatten[pos]]}]];
 	setModelAttribute[modelTmp,"Ignore",Select[model["Ignore"],MemberQ[modelTmp["Species"],#]&],"Sloppy"->True];

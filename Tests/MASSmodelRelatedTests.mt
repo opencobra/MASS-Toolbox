@@ -359,6 +359,14 @@ Test[
 	TestID->"MASSmodelRelatedTests-20110525-O1G2R9"
 ]
 
+Test[
+	MemberQ[deleteReactions[model, {"vgluin", "vhk"}]["Species"], metabolite["glu", "c"]]
+	,
+	False
+	,
+	TestID->"MASSmodelRelatedTests-20131105-W1P8L2"
+]
+
 (*
 Retired: it is now possible to have empty models (no reactions)
 Test[
