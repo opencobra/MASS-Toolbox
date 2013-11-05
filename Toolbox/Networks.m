@@ -49,14 +49,15 @@ Protect[model2bipartite];
 
 Unprotect[gpr2graphs];
 gpr2graphs[gpr:{_Rule..}]:=Module[{prots,genes,gprGraph,gprGraphs,genes2complexes},
-genes2complexes=Flatten@Table[
-prots=List@@complex;
-genes=Flatten[ReplaceList[#,gpr]&/@prots];
-Thread[Rule[genes,complex]]
-,{complex,Union[Cases[gpr,_proteinComplex,\[Infinity]]]}];
-gprGraph=DeleteCases[#,r_Rule/;r[[1]]==None,\[Infinity]]&@Join[Flatten[(Reverse/@gpr)/.Rule[proteins_Or,id_String]:>Thread[Rule[List@@proteins,id]]],genes2complexes];
-gprGraph=DeleteCases[gprGraph,r_Rule/;Head[r[[2]]]===protein&&!MemberQ[gprGraph,Rule[r[[2]],_]]];gprGraphs=Cases[gprGraph,r_Rule/;MemberQ[#,r[[1]]]&&MemberQ[#,r[[2]]]]&/@ConnectedComponents[Graph[gprGraph/.r_Rule:>UndirectedEdge@@r]];
-gprGraphs
+	genes2complexes=Flatten@Table[
+		prots=List@@complex;
+		genes=Flatten[ReplaceList[#,gpr]&/@prots];
+		Thread[Rule[genes,complex]]
+		,{complex,Union[Cases[gpr,_proteinComplex,\[Infinity]]]}
+	];
+	gprGraph=Union@DeleteCases[#,r_Rule/;r[[1]]==None,\[Infinity]]&@Join[Flatten[(Reverse/@gpr)/.Rule[proteins_Or,id_String]:>Thread[Rule[List@@proteins,id]]],genes2complexes];
+	gprGraph=DeleteCases[gprGraph,r_Rule/;Head[r[[2]]]===protein&&!MemberQ[gprGraph,Rule[r[[2]],_]]];gprGraphs=Cases[gprGraph,r_Rule/;MemberQ[#,r[[1]]]&&MemberQ[#,r[[2]]]]&/@ConnectedComponents[Graph[gprGraph/.r_Rule:>UndirectedEdge@@r]];
+	gprGraphs
 ];
 gpr2graphs[model_MASSmodel]:=gpr2graphs[model["GPR"]]
 gpr2graphs[{}]:={}
