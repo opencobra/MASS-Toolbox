@@ -1306,7 +1306,7 @@ Protect[addReactions];
 
 Unprotect[deleteIndicesKeepConsistent];
 deleteIndicesKeepConsistent::usage="Remove indices from a list of indices and change the resulting list of indices appropriately."
-deleteIndicesKeepConsistent[indices_List,indices2delete_List]:=Fold[DeleteCases[#1,#2]/.i_Integer/;i>#2:>i-1&,Union@Sort[indices],Union@Sort[indices2delete]]
+deleteIndicesKeepConsistent[indices_List,indices2delete_List]:=Fold[DeleteCases[#1,#2]/.i_Integer/;i>#2:>i-1&,Sort@Union[indices],MapIndexed[#-(First@#2-1)&,Sort@Union@indices2delete]];
 def:deleteIndicesKeepConsistent[___]:=(Message[Toolbox::badargs,deleteIndicesKeepConsistent,Defer@def];Abort[])
 Protect[deleteIndicesKeepConsistent];
 
