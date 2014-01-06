@@ -431,16 +431,17 @@ spatialDimension[units_]:=Module[{si},
 
 
 Options[spatialUnit]={"DefaultVolumeUnit"->Liter,"DefaultSurfaceUnit"->Meter^2,"DefaultLengthUnit"->Meter};
+spatialUnit::spatialUnitRxnOrderMismatch="The ratio of detected spatial unit `1` and provided reaction order `2` is not a positive integer or 0.";
 spatialUnit[stuff_,rxnOrder_?NumberQ,opts:OptionsPattern[]]:=Module[{dim,correctedDim},
 	dim=spatialDimension[stuff];
 	(*correctedDim=If[dim==0,1,dim/(rxnOrder-1)];*)
 	correctedDim=If[dim==0,0,dim/(rxnOrder(*-1*))];
-	Which[
+		Which[
 		#==0,1,
 		Abs[#]==1,OptionValue["DefaultLengthUnit"],
 		Abs[#]==2,OptionValue["DefaultSurfaceUnit"],
 		Abs[#]>2,OptionValue["DefaultVolumeUnit"],
-		True,None
+		True,Message[spatialUnit::spatialUnitRxnOrderMismatch,dim,rxnOrder];Undefined
 	]&[correctedDim]
 ];
 spatialUnit[stuff_,opts:OptionsPattern[]]:=Module[{dim},
@@ -476,7 +477,7 @@ adjustUnits[stuff:{_Rule...},rxns:{_reaction...}:{},opts:OptionsPattern[]]:=Modu
 	defaultConcUnit=defaultAmountUnit defaultVolumeUnit^-1;
 	defaultFluxUnit=defaultAmountUnit (*defaultVolumeUnit^-1*) defaultTimeUnit^-1;
 
-	catchIncomp=Function[{expr,elem},Check[expr,Message[adjustUnits::incomp,elem];Abort[];,{Convert::incomp,Unit::incomp2}],{HoldFirst}];
+	catchIncomp=Function[{expr,elem},Check[expr,Message[adjustUnits::incomp,elem];Abort[];,{Convert::incomp,Unit::incomp2,spatialUnit::spatialUnitRxnOrderMismatch}],{HoldFirst}];
 	unitLessQ=(NumberQ[#]||#===\[Infinity])&;
 
 	getVolumeUnit1=spatialUnit[#,Sequence@@FilterRules[updateRules[Options[adjustUnits],List[opts]],Options[spatialUnit]]]&;
