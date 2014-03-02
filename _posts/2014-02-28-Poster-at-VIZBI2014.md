@@ -3,10 +3,10 @@ layout: post
 title: Poster and live demo at VIZBI 2014
 --- 
 
-The toolbox and its applications at the [Novo Nordisk Foundation Center for Biosustainability](http://www.biosustain.dtu.dk/) will be presented at [VIZBI 2014](http://www.vizbi.org/2014). Pass by [poster C15](http://www.vizbi.org/Posters/2014/C15) on Thursday, February 6 to experience interactive pathway visualizations and other live demos. 
+The toolbox and its applications at the [Novo Nordisk Foundation Center for Biosustainability](http://www.biosustain.dtu.dk/) will be presented at [VIZBI 2014](http://www.vizbi.org/2014). Pass by [poster C15](http://vizbi.org/Posters/2014/C15) on Thursday, February 6 to experience interactive pathway visualizations and other live demos. 
 
 [VIZBI 2014 poster website](http://www.vizbi.org/Posters/2014/C15)
-<iframe width="415" height="277" src="http://www.vizbi.org/Posters/Fullscreen/2014/C15" frameborder="0" allowfullscreen></iframe>
+<iframe width="415" height="277" src="http://vizbi.org/Posters/Fullscreen/2014/C15" frameborder="0" allowfullscreen></iframe>
 
 	Authors: Nikolaus Sonnenschein and Markus Herrgård
 
