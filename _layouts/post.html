@@ -4,7 +4,7 @@ layout: default
 ---
 <div class="row-fluid">
     <div class="span8">
-    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ page.title }}</a></h3>
+    <h3><a href="{{ site.url }}">{{ page.title }}</a></h3>
   
 
         {{ content }}
@@ -14,7 +14,7 @@ layout: default
     <h3>Recent posts</h3>
     <div class="well">
       {% for post in site.posts %}
-        <li><a href="{{ site.baseurl }}{{ post.url }}"> {{ post.title }} ({{ post.date | date_to_string }})</a></li>
+        <li><a href="{{ site.url }}{{ post.url }}"> {{ post.title }} ({{ post.date | date_to_string }} )</a></li>
       {% endfor %}
     </div>
   </div>
