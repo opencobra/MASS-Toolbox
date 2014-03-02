@@ -1,7 +1,7 @@
 markdown: rdiscount
-permalink: /MASS-Toolbox/:title.html
+# permalink: /:year-:month-:day-:title.html
+permalink: pretty
 destination: build
-auto: true
 exclude:
   - Rakefile
   - Gemfile
