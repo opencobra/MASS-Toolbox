@@ -7,7 +7,7 @@ title: MASS-Toolbox
 
 <div class="row">
 {% for post in site.posts limit:3 %}
-  <div class="span3"><p><h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>{{ post.date | date_to_string }} - {{site.author}}</p>
+  <div class="span4"><p><h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>{{ post.date | date_to_string }} - {{site.author}}</p>
         <p>{{ post.content | strip_html | truncatewords: 55 }}</p>
         <p><a href="{{ site.baseurl }}{{ post.url }}">Read more ...</a></p></div>
 {% endfor %}
