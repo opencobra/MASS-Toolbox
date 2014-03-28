@@ -495,8 +495,9 @@ Protect[p];
 
 
 Unprotect[complementParameters];
-complementParameters[param:{Rule[(_rateconst|_Keq|metabolite[_,"Xt"]|_parameter),_]..}]:=Module[{ids,completeSet},
+complementParameters[param:{_Rule...}]:=Module[{ids,completeSet},
 	ids=Union[getID/@DeleteCases[param[[All,1]],Append[$MASS$speciesPattern,_parameter]]];
+	If[ids==={},Return[param]]; (*Nothing to complement ...*)
 	completeSet=Thread[Rule[#,#]]&@Flatten[Transpose[Table[{rateconst[i,True],rateconst[i,False],Keq[i]},{i,ids}]]];
 	Join[
 		FixedPoint[#/.{Rule[a_Keq,b_]:>(a->keq2k[b/.param]),Rule[a:rateconst[_,True],b_]:>(a->kFwd2keq[b/.param]),Rule[a:rateconst[_,False],b_]:>(a->k2keq[b/.param])}&,completeSet],
