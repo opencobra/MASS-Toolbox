@@ -97,12 +97,15 @@ Protect[elementalComposition2formula];
 
 Unprotect[formula2elementalComposition];
 Options[formula2elementalComposition]=Options[elementalComposition2formula];
-formula2elementalComposition[formula_String,opts:OptionsPattern[]]:=Module[{tmp},
-	tmp=Sort[StringCases[StringReplace[formula,RegularExpression[OptionValue["EscapingCharacter"]<>".*?"<>OptionValue["EscapingCharacter"]<>"\\d*"]->""],RegularExpression["([\\D^"<>OptionValue["EscapingCharacter"]<>"]{1})(\\d*)"]:>Rule["$1",ToExpression["$2"/.""->"1"]]]];
-	If[OptionValue["PseudoElements"]===True,
-		tmp=Join[tmp,StringCases[formula,RegularExpression["("<>OptionValue["EscapingCharacter"]<>".+?"<>OptionValue["EscapingCharacter"]<>")"<>"(\\d*)"]:>Rule["$1",ToExpression["$2"/.""->"1"]]]]
+formula2elementalComposition[formula_String,opts:OptionsPattern[]]:=Module[{tmp,elems=chemicalElements,realElements,weirdElements},
+	realElements=StringCases[formula,RegularExpression["("<>StringJoin@@Riffle[Join[Reverse@SortBy[elems,StringLength],{OptionValue["EscapingCharacter"]<>".*?"<>OptionValue["EscapingCharacter"]}],"|"]<>")(\\d*)"]:>Rule["$1",ToExpression["$2"/.""->"1"]]];
+	If[OptionValue["PseudoElements"],
+		weirdElements=OptionValue["EscapingCharacter"]<>#[[1]]<>OptionValue["EscapingCharacter"]->#[[2]]&/@Complement[StringCases[formula,RegularExpression["("<>StringJoin@@Riffle[Join[Reverse@SortBy[elems,StringLength],{OptionValue["EscapingCharacter"]<>".*?"<>OptionValue["EscapingCharacter"],"\\D"}],"|"]<>")(\\d*)"]:>Rule["$1",ToExpression["$2"/.""->"1"]]],realElements];,
+		weirdElements={};
 	];
-	Plus@@Times@@@tmp
+	
+	tmp=Sort[Join[realElements,weirdElements]];
+	tmp=Plus@@Times@@@tmp
 ];
 def:formula2elementalComposition[___]:=(Message[Toolbox::badargs,formula2elementalComposition,Defer@def];Abort[])
 Protect[formula2elementalComposition];
