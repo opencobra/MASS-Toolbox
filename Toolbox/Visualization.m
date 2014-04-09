@@ -419,15 +419,44 @@ Graphics[graphicElements/.elem:(_Thickness|_PointSize|_ArrowHeads):>elem[[0]][el
 Protect[drawReactionMap];
 
 
+$SimphenyInternalIDsToNames={"252134"->"iMM904_COMBINED","294177"->"iJR904_Alternate_Carbon_Sources","133267"->"iJR904_Amino_Acid_Metabolism","225959"->"iJR904_Cell_Membrane_Constituents","224016"->"iJR904_Central_Metabolism","303020"->"iJR904_Cofactor_Biosynthesis","305120"->"iJR904_Nucleotide_Metabolism","234509"->"iJR904_COMBINED","1226614"->"iAF1260_Alternate_Carbon_Sources","1230565"->"iAF1260_Amino_Acid_Metabolism","1555394"->"iAF1260_Central_Metabolism","1240422"->"iAF1260_Cofactor_Biosynthesis","1233958"->"iAF1260_Fatty_Acid_Biosynthesis","861115"->"iAF1260_Inorganic_Ion_Transport_(Inner_Membrane)","1243392"->"iAF1260_Lipopolysaccharide_(LPS)_Biosynthesis","651224"->"iAF1260_Murein_Biosynthesis_and_Recycling","1237864"->"iAF1260_Nucleotide_Metabolism","1225142"->"iAF1260_tRNA_Charging","1276939"->"iAF1260_COMBINED","745364"->"Recon1_AMINO_ACID_METABOLISM","607474"->"Recon1_CARBOHYDRATE_METABOLISM","854888"->"Recon1_ENERGY_METABOLISM","681892"->"Recon1_GLYCAN_METABOLISM","1103958"->"Recon1_LIPID_METABOLISM","700994"->"Recon1_NUCLEOTIDE_METABOLISM","821108"->"Recon1_SECONDARY_METABOLITES","851235"->"Recon1_VITAMIN_&_COFACTOR_METABOLISM","1014133"->"Recon1_COMBINED","22199"->"iND750_Amino_Acid_Metabolism","35089"->"iND750_Cofactor_and_Vitamin_Biosynthesis","38537"->"iND750_Lipid_Metabolism","20179"->"iND750_Nucleotide_Metabolism","666364"->"iND750_COMBINED","382379"->"iAF692_Vitamin_and_Cofactor_Biosynthesis","441083"->"iAF692_Nucleotide_Metabolism","447592"->"iAF692_COMBINED","549"->"iIT341_Central_Metabolism","503671"->"iIT341_Co-set_Order","387841"->"iIT341_COMBINED","340794"->"iSB619_Amino_Acid_Metabolism","340815"->"iSB619_Biomass","340795"->"iSB619_Central_Metabolism","340806"->"iSB619_Cofactor_Biosynthesis","385801"->"iSB619_Heme_Biosynthesis","340797"->"iSB619_Oxidative_Phosphorylation","340798"->"iSB619_Pentose_Phosphate","340800"->"iSB619_Purine/Pyrimidine_Metabolism","390808"->"iSB619_COMBINED","1576807"->"EcoliCore_coreMap","1148996"->"iNJ661_COMBINED"};
+$AVAILABLEMAPS=StringSplit[FileNameSplit[#][[-1]],"_"][[1]]->#&/@FileNames["*.gz",{FileNameJoin[{$ToolboxPath,"maps","bigg_maps"}]}];
+$AVAILABLEMAPS=$AVAILABLEMAPS/.$SimphenyInternalIDsToNames;
+
+
 Unprotect[drawPathway];
-Options[drawPathway]={"PlotLegends"->None,"Tooltips"->True,"ColorFunctionScaling"->True,"Boundary"->True,"ReactionData"->{},"MetaboliteData"->{},ColorFunction->ColorData["Rainbow"],"MinSize"->0.005,"MaxSize"->0.01,"MinThickness"->0.001,"MaxThickness"->0.003,"TextStyle"->{FontFamily->"Arial",FontSize->Scaled[.008]},"MetaboliteStyle"->Options[drawMetaboliteMap],"ReactionStyle"->Options[drawReactionMap],ImageSize->350};
-drawPathway[metPos:{_Rule..},rxnPos:{_Rule..},textPos:({(_Text|_Rule|_Style)..}|{}),opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{map,fluxStyle,metStyle,cellMembrane,corners,aspectRatio,cleanRxnData,scalingFunction,cleanMetaboliteData},
-	scalingFunction=Switch[OptionValue["ColorFunctionScaling"],True,Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{0.,1.}]&,_Function,OptionValue["ColorFunctionScaling"],False,#&];
+Options[drawPathway]={"MinMaxHack"->False,"PlotLegends"->None,"Tooltips"->True,"ColorFunctionScaling"->True,"Boundary"->False,"ReactionData"->{},"MetaboliteData"->{},ColorFunction->ColorData["Rainbow"],"MinSize"->0.005,"MaxSize"->0.01,"MinThickness"->0.001,"MaxThickness"->0.003,"TextStyle"->{FontFamily->"Arial",FontSize->Scaled[.008]},"MetaboliteStyle"->Options[drawMetaboliteMap],"ReactionStyle"->Options[drawReactionMap],ImageSize->350};
+drawPathway::unknowmap="Map `1` is not available. Try drawPathway[] to see a list of available maps";
+drawPathway[]:=Sort[$AVAILABLEMAPS[[All,1]]]
+drawPathway[mapID_String,opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{cmpdPos,rxnPos,finalLabels,mapData},
+	If[MemberQ[$AVAILABLEMAPS[[All,1]],mapID], mapData=Import[mapID/.$AVAILABLEMAPS], Message[drawPathway,mapID];Abort[];];
+	cmpdPos=Flatten[query["cmpd_pos",mapData,{}]];
+	rxnPos=query["rxn_pos",mapData];
+	finalLabels={};
+	drawPathway[cmpdPos,rxnPos,finalLabels,opts]
+];
+drawPathway[metPos:{_Rule..},rxnPos:{_Rule..},textPos:({(_Text|_Rule|_Style)..}|{}),opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{refMin,refMax,helperFunc,min,max,directedQ,map,fluxStyle,metStyle,cellMembrane,corners,aspectRatio,cleanRxnData,scalingFunction,cleanMetaboliteData},
+	directedQ="Directed"/.(ToString[#[[1]]]->#[[2]]&/@OptionValue["ReactionStyle"]);
 	corners=getCorners[rxnPos];
 	aspectRatio=getAspectRatio[Sequence@@corners];
+	
 	cleanRxnData=FilterRules[OptionValue["ReactionData"]/.elem_v:>getID[elem],rxnPos[[All,1]]];
+	If[OptionValue["MinMaxHack"]===True,
+		refMax=Max[Abs[{Min[#],Max[#]}&[cleanRxnData[[All,2]]]]];
+		cleanRxnData=Join[cleanRxnData,{"Max"->refMax,"Moritz"->-refMax}];
+	];
+	If[MatchQ[OptionValue["MinMaxHack"],{_?NumberQ,_?NumberQ}],
+		{refMin,refMax}=OptionValue["MinMaxHack"];
+		cleanRxnData=Join[cleanRxnData,{"Max"->refMin,"Moritz"->refMax}];
+	];
+	
+	scalingFunction=Switch[OptionValue["ColorFunctionScaling"],True,If[directedQ,Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{0.,1.}]&,Rescale[#,{Min[#],Max[#]},{0.,1.}]&],_Function,OptionValue["ColorFunctionScaling"],False,#&];
 	cleanMetaboliteData=FilterRules[OptionValue["MetaboliteData"]/.elem:$MASS$speciesPattern:>getID[elem],metPos[[All,1]]];
-	fluxStyle=Thread[Rule[cleanRxnData[[All,1]]/.elem_v:>getID[elem],Thread[List[Arrowheads/@Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{OptionValue["MinThickness"]*5,OptionValue["MaxThickness"]*5}],Thickness/@Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{OptionValue["MinThickness"],OptionValue["MaxThickness"]}],OptionValue["ColorFunction"]/@scalingFunction[#],-1*Sign[#]]]]]&[cleanRxnData[[All,2]]];
+	If[directedQ,
+		fluxStyle=Thread[Rule[cleanRxnData[[All,1]]/.elem_v:>getID[elem],Thread[List[Arrowheads/@Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{OptionValue["MinThickness"]*(5/aspectRatio),OptionValue["MaxThickness"]*(5/aspectRatio)}],Thickness/@Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{OptionValue["MinThickness"],OptionValue["MaxThickness"]}],OptionValue["ColorFunction"]/@scalingFunction[#],-1*Sign[#]]]]]&[cleanRxnData[[All,2]]];,
+		fluxStyle=Thread[Rule[cleanRxnData[[All,1]]/.elem_v:>getID[elem],Thread[List[Thickness/@Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{OptionValue["MinThickness"],OptionValue["MaxThickness"]}],OptionValue["ColorFunction"]/@scalingFunction[#],-1*Sign[#]]]]]&[cleanRxnData[[All,2]]];
+	];
+
 	metStyle=Thread[Rule[cleanMetaboliteData[[All,1]],Thread[List[PointSize/@Rescale[#,{Min[#],Max[#]},{OptionValue["MinSize"],OptionValue["MaxSize"]}],OptionValue["ColorFunction"]/@scalingFunction[#](*Rescale[#,{Min[#],Max[#]},{0.,1.}]*)]]]]&[cleanMetaboliteData[[All,2]]];
 	If[OptionValue["Boundary"],
 		cellMembrane=Graphics[{Opacity[0.],EdgeForm[{Thin,Black}],Scale[#,.99]&@Rectangle[Sequence@@Partition[corners[[{1,3,2,4}]],2],RoundingRadius->Scaled[.1]]}];,
@@ -440,7 +469,10 @@ drawPathway[metPos:{_Rule..},rxnPos:{_Rule..},textPos:({(_Text|_Rule|_Style)..}|
 		drawMetaboliteMap[metPos,Sequence@@updateRules[OptionValue["MetaboliteStyle"],If[metStyle=!={},{"Style"->metStyle},{}]],Sequence@@FilterRules[{opts},Options[drawMetaboliteMap]]],Graphics@Style[textPos,Sequence@@(OptionValue["TextStyle"]/.elem:(_Scaled):>elem[[0]][elem[[1]]*(1/aspectRatio)])],
 		ImageSize->OptionValue["ImageSize"]
 	];
-	map=If[OptionValue["PlotLegends"]=!=None&&OptionValue["ReactionData"]=!={},Legended[map,BarLegend[{OptionValue["ColorFunction"][[1]],{0,Max@Abs@cleanRxnData[[All,2]]}},If[MatchQ[OptionValue["PlotLegends"],{_Rule..}],Sequence@@OptionValue["PlotLegends"],Unevaluated[Sequence[]]]]],map];
+	map=If[OptionValue["PlotLegends"]=!=None&&OptionValue["ReactionData"]=!={},
+		{min,max}={If[directedQ,0,Min[#]],If[directedQ,Max@Abs@#,Max@#]}&[cleanRxnData[[All,2]]];
+		helperFunc=Composition[#,With[{minn=min,maxx=max},Rescale[#,{minn,maxx},{0.,1.}]&]]&;
+		Legended[map,BarLegend[{If[MatchQ[OptionValue["ColorFunction"],_ColorDataFunction],OptionValue["ColorFunction"][[1]],helperFunc[OptionValue["ColorFunction"]][#]&],{min,max}},If[MatchQ[OptionValue["PlotLegends"],{_Rule..}],Sequence@@OptionValue["PlotLegends"],Unevaluated[Sequence[]]]]],map];
 	map
 ];
 def:drawPathway[___]:=(Message[Toolbox::badargs,drawPathway,Defer@def];Abort[])
@@ -477,7 +509,7 @@ nodeMapCoordinates[nodeMap:{{_Rule,(_?NumberQ|_Unit)}...}]:=Module[{sortedNodeMa
 
 Unprotect[drawNodeMaps];
 Options[drawNodeMaps]={"Fluxes"->{},"Metabolites"->{},ColorFunction->ColorData["Rainbow"],"Legend"->False};
-drawNodeMaps[model_MASSmodel,opts:OptionsPattern[{drawNodeMaps,GraphPlot}]]:=Module[{stoichRules,minFlux,maxFlux,colorFunction,activeFluxes,directions,bip,activeBip,nodeMapGraphs,edgeThicknesses,colorValues,edgeRenderingFunc,nodeRenderingFunc,metabolites,legendFunc,netFluxes},
+drawNodeMaps[model_MASSmodel,opts:OptionsPattern[{drawNodeMaps,GraphPlot}]]:=Module[{unitlessFluxes,stoichRules,minFlux,maxFlux,colorFunction,activeFluxes,directions,bip,activeBip,nodeMapGraphs,edgeThicknesses,colorValues,edgeRenderingFunc,nodeRenderingFunc,metabolites,legendFunc,netFluxes},
 	stoichRules={model["Species"][[#[[1,1]]]],model["Fluxes"][[#[[1,2]]]]}->Abs[#[[2]]]&/@ArrayRules[model["SparseStoichiometry"]][[;;-2]];
 	colorFunction=If[OptionValue["Fluxes"]==={},Black&,OptionValue["ColorFunction"]];
 	netFluxes=Thread[model["Species"]->model.model["Fluxes"]];

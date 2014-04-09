@@ -97,12 +97,15 @@ Protect[elementalComposition2formula];
 
 Unprotect[formula2elementalComposition];
 Options[formula2elementalComposition]=Options[elementalComposition2formula];
-formula2elementalComposition[formula_String,opts:OptionsPattern[]]:=Module[{tmp},
-	tmp=Sort[StringCases[StringReplace[formula,RegularExpression[OptionValue["EscapingCharacter"]<>".*?"<>OptionValue["EscapingCharacter"]<>"\\d*"]->""],RegularExpression["([\\D^"<>OptionValue["EscapingCharacter"]<>"]{1})(\\d*)"]:>Rule["$1",ToExpression["$2"/.""->"1"]]]];
-	If[OptionValue["PseudoElements"]===True,
-		tmp=Join[tmp,StringCases[formula,RegularExpression["("<>OptionValue["EscapingCharacter"]<>".+?"<>OptionValue["EscapingCharacter"]<>")"<>"(\\d*)"]:>Rule["$1",ToExpression["$2"/.""->"1"]]]]
+formula2elementalComposition[formula_String,opts:OptionsPattern[]]:=Module[{tmp,elems=chemicalElements,realElements,weirdElements},
+	realElements=StringCases[formula,RegularExpression["("<>StringJoin@@Riffle[Join[Reverse@SortBy[elems,StringLength],{OptionValue["EscapingCharacter"]<>".*?"<>OptionValue["EscapingCharacter"]}],"|"]<>")(\\d*)"]:>Rule["$1",ToExpression["$2"/.""->"1"]]];
+	If[OptionValue["PseudoElements"],
+		weirdElements=OptionValue["EscapingCharacter"]<>#[[1]]<>OptionValue["EscapingCharacter"]->#[[2]]&/@Complement[StringCases[formula,RegularExpression["("<>StringJoin@@Riffle[Join[Reverse@SortBy[elems,StringLength],{OptionValue["EscapingCharacter"]<>".*?"<>OptionValue["EscapingCharacter"],"\\D"}],"|"]<>")(\\d*)"]:>Rule["$1",ToExpression["$2"/.""->"1"]]],realElements];,
+		weirdElements={};
 	];
-	Plus@@Times@@@tmp
+	
+	tmp=Sort[Join[realElements,weirdElements]];
+	tmp=Plus@@Times@@@tmp
 ];
 def:formula2elementalComposition[___]:=(Message[Toolbox::badargs,formula2elementalComposition,Defer@def];Abort[])
 Protect[formula2elementalComposition];
@@ -492,8 +495,9 @@ Protect[p];
 
 
 Unprotect[complementParameters];
-complementParameters[param:{Rule[(_rateconst|_Keq|metabolite[_,"Xt"]|_parameter),_]..}]:=Module[{ids,completeSet},
+complementParameters[param:{_Rule...}]:=Module[{ids,completeSet},
 	ids=Union[getID/@DeleteCases[param[[All,1]],Append[$MASS$speciesPattern,_parameter]]];
+	If[ids==={},Return[param]]; (*Nothing to complement ...*)
 	completeSet=Thread[Rule[#,#]]&@Flatten[Transpose[Table[{rateconst[i,True],rateconst[i,False],Keq[i]},{i,ids}]]];
 	Join[
 		FixedPoint[#/.{Rule[a_Keq,b_]:>(a->keq2k[b/.param]),Rule[a:rateconst[_,True],b_]:>(a->kFwd2keq[b/.param]),Rule[a:rateconst[_,False],b_]:>(a->k2keq[b/.param])}&,completeSet],
