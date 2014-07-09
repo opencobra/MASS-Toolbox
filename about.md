@@ -6,7 +6,7 @@ title: MASS Toolbox
 The **M**ass-**A**ction **S**toichiometric **S**imulation (MASS) toolbox is a modeling software package that focuses on the construction and analysis of kinetic and constraint-based models of biochemical reactions systems. It has been developed in the [systems biology group](http://systemsbiology.ucsd.edu/) of [Bernhard Palsson](http://systemsbiology.ucsd.edu/Researchers/Palsson) at the [University of California, San Diego](http://ucsd.edu).
 
 #### Installation
-You can download the toolbox [here](https://github.com/SBRG/MASS-Toolbox/releases). Download the binary package (MASS-Toolbox-vX.X.X, not the source distribution) and unzip the archive. Open the included installer notebook (Installer.nb) and execute the installation code.
+You can download the toolbox [here](https://github.com/opencobra/MASS-Toolbox/releases). Download the binary package (MASS-Toolbox-vX.X.X, not the source distribution) and unzip the archive. Open the included installer notebook (Installer.nb) and execute the installation code.
 
 If you don't have access to *Mathematica*, but still would like to try out the toolbox, you can obtain a 30 day unlimited trial version [here](http://www.wolfram.com/mathematica/trial/).
 
