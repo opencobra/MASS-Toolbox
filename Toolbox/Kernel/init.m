@@ -64,7 +64,7 @@ Evaluate $ToolboxLicense for more information";
 progtext="";
 prog=0;
 icon=Show[Import[FileNameJoin[{DirectoryName[$InputFileName],"MASS-Toolbox-Logo.m"}]],ImageSize->150];
-delay=Pause[.03]&;
+delay=Pause[.02]&;
 If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	Monitor[ReleaseHold[#],Grid[{{Blur[icon,(*Log[23-prog]*)Max[{15-prog,0}]],progtext},{licenseInfo,SpanFromLeft}}]],
 	Monitor[ReleaseHold[#],Column[{progtext,licenseInfo}]]
@@ -107,6 +107,7 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	progtext="Loading Core ...";Get["Toolbox`Core`"];prog++;delay[];
 	progtext="Loading IO ...";Get["Toolbox`IO`"];prog++;delay[];
 	progtext="Loading COBRA ...";Get["Toolbox`COBRA`"];prog++;delay[];
+	progtext="Loading Design ...";Get["Toolbox`Design`"];prog++;delay[];
 	progtext="Loading Chemoinformatics ...";Get["Toolbox`Chemoinformatics`"];prog++;delay[];
 	progtext="Loading Visualization ...";Get["Toolbox`Visualization`"];prog++;delay[];
 	progtext="Loading Regulation ...";Get["Toolbox`Regulation`"];prog++;delay[];

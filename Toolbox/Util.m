@@ -11,6 +11,10 @@
 Begin["`Private`"]
 
 
+intervalOverlap[interval1:{_?NumberQ,_?NumberQ},interval2:{_?NumberQ,_?NumberQ}]:=Min[{interval1[[2]]-interval2[[1]],interval2[[2]]-interval1[[1]]}]
+intervalGaps[interval1:{_?NumberQ,_?NumberQ},interval2:{_?NumberQ,_?NumberQ}]:=If[#>=0,0,If[Abs@interval1[[2]]>Abs@interval2[[2]],1,-1]*#]&[intervalOverlap[interval1,interval2]]
+
+
 AutoCollapse[]:=(If[$FrontEnd=!=$Failed,SelectionMove[EvaluationNotebook[],All,GeneratedCell];FrontEndTokenExecute["SelectionCloseUnselectedCells"]])
 
 

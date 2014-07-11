@@ -46,18 +46,54 @@ fba[model_MASSmodel,bounds:({_Rule..}|{}):{},opts:OptionsPattern[{fba,LinearProg
 	fba[model,obj,bounds,opts]
 ];
 
-fba[model_MASSmodel,obj_,bounds:({_Rule..}|{}):{},opts:OptionsPattern[{fba,LinearProgramming}]]:=Module[{solution,internalObj,mat,rhs,internalBounds,objpos},
+(*fba[model_MASSmodel,obj_,bounds:({_Rule..}|{}):{},opts:OptionsPattern[{fba,LinearProgramming}]]:=Module[{solution,internalObj,mat,rhs,internalBounds,objpos},
 	{internalObj,mat,rhs,internalBounds}=model2LinearProgrammingData[model,obj,bounds,Sequence@@FilterRules[List@opts,Options[model2LinearProgrammingData]]];
 	
 	If[OptionValue["Loopless"],
 		solution=looplessFBA[model,obj,bounds,Sequence@@FilterRules[List@opts,Options[looplessFBA]]],
-		solution=Check[OptionValue["Solver"][Sequence@@model2LinearProgrammingData[model,obj,bounds,Sequence@@FilterRules[List@opts,Options[model2LinearProgrammingData]]],Sequence@@FilterRules[List@opts,Options[OptionValue["Solver"]]]],Indeterminate,{LinearProgramming::lpsnf,DualLinearProgramming::lpsnf}];
+		solution=Check[OptionValue["Solver"][Sequence@@model2LinearProgrammingData[model,obj,bounds,Sequence@@FilterRules[List@opts,Options[model2LinearProgrammingData]]],Sequence@@FilterRules[List@opts,Options[OptionValue["Solver"]]]],Indeterminate,{LinearProgramming::lpsnf,DualLinearProgramming::lpsnf,GurobiSolve::lowlevelmessage}];
 	];
 	If[OptionValue["Minimize"]=!=False&&OptionValue["Solver"]=!=GurobiSolve,Message[fba::MinimizeSolverNotSupported,OptionValue["Solver"]];Abort[];];
 	solution=Switch[OptionValue["Minimize"],
 		False, solution,
 		True|EuclideanDistance, objpos=Flatten@Position[internalObj,_?(#!=0&)]; OptionValue["Solver"][{Array[0&,Dimensions[model][[2]]],IdentityMatrix[Dimensions[model][[2]]]},mat,rhs,ReplacePart[internalBounds,Thread[objpos->({#,#}&/@solution[[objpos]])]],Sequence@@FilterRules[List@opts,Options[OptionValue["Solver"]]]],
-		ManhattanDistance, Message[Toolbox::NotImplemented,"Minimization of the Manhattan distance"];Abort[];,
+		(*ManhattanDistance, Message[Toolbox::NotImplemented,"Minimization of the Manhattan distance"];Abort[];,*)
+		ManhattanDistance, splitModel=splitReversible,
+		_,Message[fba::Minimize,OptionValue["Minimize"]];Abort[]; 
+	];
+	Switch[solution,
+		{(_?NumberQ|Indeterminate|\[Infinity]|-\[Infinity])..}|Indeterminate,Thread[Rule[model["Fluxes"],solution]],
+		dualSol:{{(_?NumberQ|Indeterminate|\[Infinity]|-\[Infinity])..}..}/;Length[dualSol]==4,{Thread[Rule[model["Fluxes"],solution[[1]]]],Thread[Rule[model["Species"],solution[[2]]]],Thread[Rule[model["Fluxes"],solution[[3]]]],Thread[Rule[model["Fluxes"],solution[[4]]]]},
+		_,Message[fba::solverSolutionProblem,Short@solution,OptionValue["Solver"]];Abort[];
+	]
+];*)
+fba[model_MASSmodel,obj_,bounds:({_Rule..}|{}):{},opts:OptionsPattern[{fba,LinearProgramming}]]:=Module[{fluxes,splitModel,firstSolution,revFluxes,revFluxesStripped,newFluxes,adjustedRevFluxes,solution,internalObj,mat,rhs,internalBounds,objpos},
+	
+	(*If[OptionValue["Minimize"]=!=False&&OptionValue["Solver"]=!=GurobiSolve,Message[fba::MinimizeSolverNotSupported,OptionValue["Solver"]];Abort[];];*)
+	(*{internalObj,mat,rhs,internalBounds}=model2LinearProgrammingData[model,obj,bounds,Sequence@@FilterRules[List@opts,Options[model2LinearProgrammingData]]];*)
+	Switch[OptionValue["Minimize"],
+		False,
+			
+			If[OptionValue["Loopless"],
+				solution=looplessFBA[model,obj,bounds,Sequence@@FilterRules[List@opts,Options[looplessFBA]]],
+				solution=Check[OptionValue["Solver"][Sequence@@model2LinearProgrammingData[model,obj,bounds,Sequence@@FilterRules[List@opts,Options[model2LinearProgrammingData]]],Sequence@@FilterRules[List@opts,Options[OptionValue["Solver"]]]],Indeterminate,{LinearProgramming::lpsnf,DualLinearProgramming::lpsnf,GurobiSolve::lowlevelmessage}];
+			];,
+		True|ManhattanDistance,
+			splitModel=splitReversible[model];
+			{internalObj,mat,rhs,internalBounds}=model2LinearProgrammingData[splitModel,obj,bounds,Sequence@@FilterRules[List@opts,Options[model2LinearProgrammingData]]];
+			firstSolution=OptionValue["Solver"][internalObj,mat,rhs,internalBounds,Sequence@@FilterRules[List@opts,Options[OptionValue["Solver"]]]];
+			solution=OptionValue["Solver"][Array[1&,Length[internalObj]],Append[mat,internalObj],Append[rhs,{internalObj.firstSolution*.99,-1}],internalBounds,Sequence@@FilterRules[List@opts,Options[OptionValue["Solver"]]]];
+			fluxes=Thread[Rule[splitModel["Fluxes"],solution]];
+			revFluxes=Select[fluxes,StringMatchQ[getID[#[[1]]],RegularExpression[".*_Rev$"]]&];
+			revFluxesStripped=v[StringTake[getID@#[[1]],{1,-5}]]->#[[2]]&/@revFluxes;
+			newFluxes=FilterRules[fluxes,Except[revFluxes]];
+			adjustedRevFluxes=#[[1]]->Subtract@@#[[2]]&/@scatterFromDicts[newFluxes,revFluxesStripped];
+			Return[Join[FilterRules[newFluxes,Except[#]],#]&[adjustedRevFluxes]]
+			,
+		EuclideanDistance,
+			{internalObj,mat,rhs,internalBounds}=model2LinearProgrammingData[model,obj,bounds,Sequence@@FilterRules[List@opts,Options[model2LinearProgrammingData]]];
+			objpos=Flatten@Position[internalObj,_?(#!=0&)];
+			solution=OptionValue["Solver"][{Array[0&,Dimensions[model][[2]]],IdentityMatrix[Dimensions[model][[2]]]},mat,rhs,ReplacePart[internalBounds,Thread[objpos->({#,#}&/@solution[[objpos]])]],Sequence@@FilterRules[List@opts,Options[OptionValue["Solver"]]]],
 		_,Message[fba::Minimize,OptionValue["Minimize"]];Abort[]; 
 	];
 	Switch[solution,
@@ -170,7 +206,7 @@ GurobiFVA[stoichiometry_?MatrixQ,colIDs_List,bounds:({_Rule..}|{}):{},opts:Optio
 	rhs=Table[{0,0},{Length[stoichiometry]}];
 	intrnlbnds=Replace[colIDs/.Dispatch[bounds],a_/;!MatchQ[a,{(_?NumberQ|-\[Infinity]),(_?NumberQ|\[Infinity])}]:>{-\[Infinity],\[Infinity]},1];
 	solution=GurobiML`GurobiML`GurobiSolveMinimaMaxima[stoichiometry,rhs,intrnlbnds];
-	Thread[Rule[colIDs,Transpose[solution]]]
+	Thread[Rule[v/@colIDs,Transpose[solution]]]
 ];
 GurobiFVA[model_MASSmodel,bounds:({_Rule..}|{}):{},opts:OptionsPattern[]]:=Module[{},GurobiFVA[model["Stoichiometry"],getID/@model["Fluxes"],updateRules[model["Constraints"],bounds]/.flux_v:>getID[flux],opts]]
 def:GurobiFVA[___]:=(Message[Toolbox::badargs,GurobiFVA,Defer@def];Abort[])
@@ -376,6 +412,27 @@ calcConcentrationBounds[model_MASSmodel,opt:OptionsPattern[]]:=Module[{logDisEqR
 
 (* ::Subsection:: *)
 (*Utilities*)
+
+
+Unprotect[productionEnvelope];
+Options[productionEnvelope]={"Points"->20};
+productionEnvelope[model_MASSmodel,controlFlux_v,targets__v,opts:OptionsPattern[{productionEnvelope,fba}]]:=Module[{minGrowth,maxGrowth,minFlux,maxFlux,npts,growth,target,tmpResult},
+	npts=OptionValue["Points"];
+	minGrowth=controlFlux/.fba[model,controlFlux,OptFlag->"Min",Sequence@@FilterRules[{opts},Options[fba]]];
+	maxGrowth=controlFlux/.fba[model,controlFlux,OptFlag->"Max",Sequence@@FilterRules[{opts},Options[fba]]];
+	target={targets}[[1]];
+	Monitor[
+		tmpResult=Table[
+		minFlux=target/.fba[model,target,{controlFlux->{growth,growth}},OptFlag->"Min",Sequence@@FilterRules[{opts},Options[fba]]];
+		maxFlux=target/.fba[model,target,{controlFlux->{growth,growth}},OptFlag->"Max",Sequence@@FilterRules[{opts},Options[fba]]];
+		{growth,minFlux,maxFlux}
+	,{growth,Rescale[Range[1,npts],{1,npts},{minGrowth,maxGrowth}]}];
+	,ProgressIndicator[growth,{minGrowth,maxGrowth}]
+	];
+	Transpose[tmpResult]
+];
+def:productionEnvelope[___]:=(Message[Toolbox::badargs,productionEnvelope,Defer@def];Abort[])
+Protect[productionEnvelope];
 
 
 Unprotect[model2LinearProgrammingData];
