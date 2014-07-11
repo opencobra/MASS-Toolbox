@@ -15,6 +15,26 @@ Begin["`Private`"]
 (*Util*)
 
 
+Unprotect[solveEnzymeSteadyStateEquations];
+solveEnzymeSteadyStateEquations[enzymeModule_MASSmodel]:=Module[{enzForms,ssEq,enzPool,sol},
+	enzForms=Cases[enzymeModule["Species"],_enzyme];
+	ssEq=getEnzymeSteadyStateEquations[enzymeModule][[All,2]];
+	enzPool=Total[enzForms]==p[getID[enzForms[[1]]]<>"_total"];
+	sol=anonymize[Solve[Join[ssEq,{enzPool}],enzForms]];
+	Switch[sol,{},sol,{_List},sol[[1]],{_List..},sol]
+];
+def:solveEnzymeSteadyStateEquations[___]:=(Message[Toolbox::badargs,solveEnzymeSteadyStateEquations,Defer@def];Abort[])
+Unprotect[solveEnzymeSteadyStateEquations];
+
+
+Unprotect[getEnzymeSteadyStateEquations];
+getEnzymeSteadyStateEquations[enzModule_MASSmodel]:=Module[{},
+	stripTime[FilterRules[Thread[enzModule["Species"]->enzModule["ODE"]],_enzyme]/._'[t]->0]
+];
+def:getEnzymeSteadyStateEquations[___]:=(Message[Toolbox::badargs,getEnzymeSteadyStateEquations,Defer@def];Abort[])
+Protect[getEnzymeSteadyStateEquations];
+
+
 haldaneRelation[rxnID_String,elementaryRxns:{_reaction..}]:=Keq[rxnID]==Times@@(rateconst[getID@#,True]&/@elementaryRxns)/Times@@(rateconst[getID@#,False]&/@elementaryRxns)
 
 
