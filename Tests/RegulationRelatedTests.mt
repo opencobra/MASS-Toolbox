@@ -35,3 +35,28 @@ Test[
 	,
 	TestID->"RegulationRelatedTests-20120529-O4Y3U2"
 ]
+
+enzymeModules = {"Sequential_Ordered_BiBi" -> 
+    constructEnzymeModule[
+     Mechanism -> {"E_E[c] + A[c] <=> E_E[c]&A", 
+       "E_E[c]&A + B[c] <=> E_E[c]&A&B", "E_E[c]&A&B <=> E_E[c]&Q&P", 
+       "E_E[c]&Q&P <=> E_E[c]&Q + P[c]", 
+       "E_E[c]&Q <=> E_E[c] + Q[c]"}, Activators -> {}, 
+     ActivationSites -> 0, Inhibitors -> {}, InhibitionSites -> 0]
+   };
+   
+Test[
+	getEnzymeSteadyStateEquations[enzymeModules[[1, 2]]]
+	,
+	Import["Tests/TestData/enzModuleSSequations.m"]
+	,
+	TestID->"RegulationRelatedTests-20140209-S6U4N2"
+]
+
+Test[
+	solveEnzymeSteadyStateEquations[enzymeModules[[1, 2]]]
+	,
+	Import["Tests/TestData/enzModuleSSsolution.m"]
+	,
+	TestID->"RegulationRelatedTests-20140209-A7L1C8"
+]

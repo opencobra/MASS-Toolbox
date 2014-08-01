@@ -4,9 +4,13 @@
 (*Usage strings*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Options*)
 
+
+BoundCatalytic::usage="BoundCatalytic is an option for enzyme that specifies other species that are bound to the enzyme.";
+
+Compartment::usage="Compartment is an option for enzyme that specifies the compartment the enzyme operates in.";
 
 Type::usage="Type is an option for getJacobian that specifies which type of Jacobian matrix to generate (either \"Concentration\" or \"Flux\")."
 
@@ -141,8 +145,11 @@ molconvert::usage="molconvert[input, outformat, cmdlineOpts] provides an interfa
 drawCompound::usage="Takes a InChI or SMILES description of a compounds and uses openbabel to draw it.";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*COBRA*)
+
+
+productionEnvelope::usage="productionEnvelope[model, fluxToBeControlled, ...] FIXME";
 
 
 minspan::usage="minspan[model] calculates the MINSPAN basis for model."
@@ -197,6 +204,16 @@ createWarmupPoints::usage="createWarmupPoints[model] will create warmup points f
 
 
 ACHRsampler::usage="ACHRsampler[model] will perform Monte Carlo sampling with model."
+
+
+(* ::Subsection:: *)
+(*Design*)
+
+
+differentialFVA::usage="";
+
+
+generateDiffFvaReport::usage="";
 
 
 (* ::Subsection::Closed:: *)
@@ -555,8 +572,14 @@ thermodynamicallyConsistentQ::usage="thermodynamicallyConsistentQ[model] will ch
 qcqa::usage="qcqa[model] will run a series of quality assessment and control tests on model and return a report.";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Regulation*)
+
+
+solveEnzymeSteadyStateEquations::usage="solveEnzymeSteadyStateEquations[enzymeModule] will try to find analytical solutions (in terms of parameters and ligand concentrations) for all enzyme forms in module.";
+
+
+getEnzymeSteadyStateEquations::usage="getEnzymeSteadyStateEquations[enzymeModule] will return the steady-state equations of all enzyme forms in module.";
 
 
 constructEnzymeModule::usage="constructEnzymeModule[reaction, activatingBindingSites, inhibitingBindingSites, activators, inhibitors] generates an enzyme module that replaces the provided elementary reaction. ###FIXME### More documentation needed.";
@@ -645,6 +668,10 @@ T::usage="Temperature";
 
 (* ::Subsection:: *)
 (*Util*)
+
+
+intervalOverlap::usage="FIXME!";
+intervalGaps::usage="FIXME!";
 
 
 AutoCollapse::usage="Check out http://mathematica.stackexchange.com/questions/680/how-to-keep-input-cells-hidden-after-evaluating-notebook/683#683"
