@@ -1,10 +1,9 @@
 # MASS Toolbox
 
-This is the source code repository of the biochemical network modeling package **MASS Toolbox**. All user relevant information can be found [here](http://sbrg.github.io/MASS-Toolbox).
+This is the source code repository of the biochemical network modeling package **MASS Toolbox**. All user relevant information can be found [here](http://opencobra.github.io/MASS-Toolbox).
 
-## Developers
-* Package structure
-* Unit testing
+## Cite
+A manuscript is in preparation for publication and will be proper for citing the MASS toolbox in the future. For now you can include [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.11099.png)](http://dx.doi.org/10.5281/zenodo.11099) to reference release v1.0.4.
 
 ## License
 
