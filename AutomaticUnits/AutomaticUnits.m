@@ -76,6 +76,11 @@ Gross=144; Dozen=12; BakersDozen=13; (*Mole=6.0221415*^23;*)
 
 Begin["`private`"];
 
+If[$VersionNumber > 9.,
+	dispatchify[dispatch_Dispatch]:=Normal[dispatch],
+	dispatchify[dispatch_Dispatch]:=dispatch[[1]]
+];	
+
 (*Lists that store the unit coversion rules*)
 $ToFundamental={};
 $ExactUnitRules={};
@@ -103,7 +108,7 @@ Block[{dispatchedq,existingrules,existingexactrules,msg},
 			OptionValue[UsageMessage]
 			];
 		Which[
-			Head[$ToFundamental]===Dispatch,existingrules=Normal[$ToFundamental];dispatchedq=True,
+			Head[$ToFundamental]===Dispatch,existingrules=dispatchify[$ToFundamental];dispatchedq=True,
 			Head[$ToFundamental]===List,existingrules=$ToFundamental,
 			True,existingrules={}];
 		(*If unit name is already decalared, issue warning and over-write definition*)
@@ -122,7 +127,7 @@ Block[{dispatchedq,existingrules,existingexactrules,msg},
 		(*If relationship is exact, store it explicitely *)
 		If[Precision[val[[1]]]===Infinity,
 			Which[
-				Head[$ExactUnitRules]===Dispatch,existingexactrules=Normal[$ExactUnitRules];dispatchedq=True,
+				Head[$ExactUnitRules]===Dispatch,existingexactrules=dispatchify[$ExactUnitRules];dispatchedq=True,
 				Head[$ExactUnitRules]===List,existingexactrules=$ExactUnitRules,
 				True,existingrules={}
 				];
@@ -155,9 +160,9 @@ DeclareUnit[name_String,opts:OptionsPattern[]]:=DeclareUnit[name,Unit[1,name],op
 application of Dispatch by doing it just once at the end. This gives much faster package initialization*)
 FastGroupDeclareUnit[expr_]:=Block[{$UnitInitialization=True,newfund,newexact,junk},
 	(*Make sure that the tables are plain lists*)
-					If[Head[$ToFundamental]===Dispatch,$ToFundamental=Normal[$ToFundamental]];
+					If[Head[$ToFundamental]===Dispatch,$ToFundamental=dispatchify[$ToFundamental]];
 					If[Head[$ToFundamental]===List,$ToFundamental={}];
-					If[Head[$ExactUnitRules]===Dispatch,$ExactUnitRules=Normal[$ExactUnitRules]];
+					If[Head[$ExactUnitRules]===Dispatch,$ExactUnitRules=dispatchify[$ExactUnitRules]];
 					If[Head[$ExactUnitRules]===List,$ExactUnitRules={}];
 					
 					(*expr should be a CompoundExpression of DeclareUnit expressions*)
@@ -1131,15 +1136,14 @@ UnitButton[tradform_] :=  Tooltip[
 										NotebookWrite[InputNotebook[], ToBoxes[#, 
 											If[tradform,TraditionalForm,StandardForm]]],Appearance -> "Palette"],
 									TraditionalForm[#]] &
-									
+
 End[];
 
-Quiet[
+
 DeclareUnit["Molecule"];
 DeclareUnit["Mole",Unit[6.0221415`*^23,"Molecule"]];
 AutomaticUnits`private`SIPrefixify["Mole","Substance amount","mol"];
 UnitSet["SI"]=Join[UnitSet["SI"]/.Meter^3->Liter,{Millimole,Millimole Liter^-1}];
-]
 	
 EndPackage[]
 
