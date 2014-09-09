@@ -4,7 +4,7 @@
 (*Usage strings*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Options*)
 
 
@@ -33,6 +33,12 @@ Legend::usage="Legend is an option for many plotting functions, e.g., plotSimula
 Category::usage="Category is an option for optimzation code e.g. GAMSForm or NEOS.";
 
 Output::usage="Output is an option for many functions specifying the amount of detail that should be provided in the results.";
+
+CompoundLabels::usage="Output is an option for specifying if compound labels should be included in a pathway visualizations."
+
+TextLabels::usage="Output is an option for specifying if generic text labels should be included in a pathway visualizations."
+
+ReactionLabels::usage="Output is an option for specifying if reaction labels should be included in a pathway visualizations."
 
 
 (* ::Subsection::Closed:: *)
@@ -704,7 +710,7 @@ query::usage="query[key, listOfRules] will return the corresponding value."(*## 
 filter::usage="filter[listOfRules, keys] behave like FilterRules with the exception that the filtered rules are returned in the order of keys.";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Visualization*)
 
 

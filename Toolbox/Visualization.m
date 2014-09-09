@@ -421,19 +421,25 @@ Protect[drawReactionMap];
 
 
 $SimphenyInternalIDsToNames={"252134"->"iMM904_COMBINED","294177"->"iJR904_Alternate_Carbon_Sources","133267"->"iJR904_Amino_Acid_Metabolism","225959"->"iJR904_Cell_Membrane_Constituents","224016"->"iJR904_Central_Metabolism","303020"->"iJR904_Cofactor_Biosynthesis","305120"->"iJR904_Nucleotide_Metabolism","234509"->"iJR904_COMBINED","1226614"->"iAF1260_Alternate_Carbon_Sources","1230565"->"iAF1260_Amino_Acid_Metabolism","1555394"->"iAF1260_Central_Metabolism","1240422"->"iAF1260_Cofactor_Biosynthesis","1233958"->"iAF1260_Fatty_Acid_Biosynthesis","861115"->"iAF1260_Inorganic_Ion_Transport_(Inner_Membrane)","1243392"->"iAF1260_Lipopolysaccharide_(LPS)_Biosynthesis","651224"->"iAF1260_Murein_Biosynthesis_and_Recycling","1237864"->"iAF1260_Nucleotide_Metabolism","1225142"->"iAF1260_tRNA_Charging","1276939"->"iAF1260_COMBINED","745364"->"Recon1_AMINO_ACID_METABOLISM","607474"->"Recon1_CARBOHYDRATE_METABOLISM","854888"->"Recon1_ENERGY_METABOLISM","681892"->"Recon1_GLYCAN_METABOLISM","1103958"->"Recon1_LIPID_METABOLISM","700994"->"Recon1_NUCLEOTIDE_METABOLISM","821108"->"Recon1_SECONDARY_METABOLITES","851235"->"Recon1_VITAMIN_&_COFACTOR_METABOLISM","1014133"->"Recon1_COMBINED","22199"->"iND750_Amino_Acid_Metabolism","35089"->"iND750_Cofactor_and_Vitamin_Biosynthesis","38537"->"iND750_Lipid_Metabolism","20179"->"iND750_Nucleotide_Metabolism","666364"->"iND750_COMBINED","382379"->"iAF692_Vitamin_and_Cofactor_Biosynthesis","441083"->"iAF692_Nucleotide_Metabolism","447592"->"iAF692_COMBINED","549"->"iIT341_Central_Metabolism","503671"->"iIT341_Co-set_Order","387841"->"iIT341_COMBINED","340794"->"iSB619_Amino_Acid_Metabolism","340815"->"iSB619_Biomass","340795"->"iSB619_Central_Metabolism","340806"->"iSB619_Cofactor_Biosynthesis","385801"->"iSB619_Heme_Biosynthesis","340797"->"iSB619_Oxidative_Phosphorylation","340798"->"iSB619_Pentose_Phosphate","340800"->"iSB619_Purine/Pyrimidine_Metabolism","390808"->"iSB619_COMBINED","1576807"->"EcoliCore_coreMap","1148996"->"iNJ661_COMBINED"};
-$AVAILABLEMAPS=StringSplit[FileNameSplit[#][[-1]],"_"][[1]]->#&/@FileNames["*.gz",{FileNameJoin[{$ToolboxPath,"maps","bigg_maps"}]}];
-$AVAILABLEMAPS=$AVAILABLEMAPS/.$SimphenyInternalIDsToNames;
+$AVAILABLEMAPS=StringReplace[FileNameSplit[#][[-1]],"_toolbox.json.gz"->""]->#&/@FileNames["*.gz",{FileNameJoin[{$ToolboxPath,"maps","bigg_maps"}]}];
+$AVAILABLEMAPS=Select[$AVAILABLEMAPS,!StringMatchQ[#[[1]],RegularExpression["^\\d+"]]&];
 
 
 Unprotect[drawPathway];
-Options[drawPathway]={"MinMaxHack"->False,"PlotLegends"->None,"Tooltips"->True,"ColorFunctionScaling"->True,"Boundary"->False,"ReactionData"->{},"MetaboliteData"->{},ColorFunction->ColorData["Rainbow"],"MinSize"->0.005,"MaxSize"->0.01,"MinThickness"->0.001,"MaxThickness"->0.003,"TextStyle"->{FontFamily->"Arial",FontSize->Scaled[.008]},"MetaboliteStyle"->Options[drawMetaboliteMap],"ReactionStyle"->Options[drawReactionMap],ImageSize->350};
-drawPathway::unknowmap="Map `1` is not available. Try drawPathway[] to see a list of available maps";
+Options[drawPathway]={"CompoundLabels"->True,"ReactionLabels"->True,"TextLabels"->False,"MinMaxHack"->False,"PlotLegends"->None,"Tooltips"->True,"ColorFunctionScaling"->True,"Boundary"->False,"ReactionData"->{},"MetaboliteData"->{},ColorFunction->ColorData["Rainbow"],"MinSize"->0.005,"MaxSize"->0.01,"MinThickness"->0.001,"MaxThickness"->0.003,"TextStyle"->{FontFamily->"Arial",FontSize->Scaled[.008]},"MetaboliteStyle"->Options[drawMetaboliteMap],"ReactionStyle"->Options[drawReactionMap],ImageSize->350};
+drawPathway::unknownmap="Map `1` is not available. Try drawPathway[] to see a list of available maps";
 drawPathway[]:=Sort[$AVAILABLEMAPS[[All,1]]]
-drawPathway[mapID_String,opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{cmpdPos,rxnPos,finalLabels,mapData},
-	If[MemberQ[$AVAILABLEMAPS[[All,1]],mapID], mapData=Import[mapID/.$AVAILABLEMAPS], Message[drawPathway,mapID];Abort[];];
+drawPathway[mapID_String,opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{cmpdPos,rxnPos,finalLabels,mapData,cmpdLabels,rxnLabels,textLabels},
+	If[MemberQ[$AVAILABLEMAPS[[All,1]],mapID], mapData=Import[mapID/.$AVAILABLEMAPS], Message[drawPathway::unknownmap,mapID];Abort[];];
 	cmpdPos=Flatten[query["cmpd_pos",mapData,{}]];
 	rxnPos=query["rxn_pos",mapData];
+	cmpdLabels = Text[#[[1]], #[[2,2]]]&/@Flatten[query["cmpd_label_pos", mapData, {}]];
+	rxnLabels = Text@@@query["rxn_label_pos", mapData, {}];
+	textLabels = Text@@@query["text_label_pos", mapData, {}];
 	finalLabels={};
+	If[OptionValue["CompoundLabels"]==True, finalLabels=Join[cmpdLabels,finalLabels];];
+	If[OptionValue["TextLabels"]==True, finalLabels=Join[textLabels,finalLabels];];
+	If[OptionValue["ReactionLabels"]==True, finalLabels=Join[rxnLabels,finalLabels];];
 	drawPathway[cmpdPos,DeleteCases[rxnPos,{"NaN","NaN"},\[Infinity]](*TODO: fix this in the maps*),finalLabels,opts]
 ];
 drawPathway[metPos:{_Rule..},rxnPos:{_Rule..},textPos:({(_Text|_Rule|_Style)..}|{}),opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{refMin,refMax,helperFunc,min,max,directedQ,map,fluxStyle,metStyle,cellMembrane,corners,aspectRatio,cleanRxnData,scalingFunction,cleanMetaboliteData},
