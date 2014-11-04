@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     17866,        512]
-NotebookOptionsPosition[     16735,        467]
-NotebookOutlinePosition[     17093,        483]
-CellTagsIndexPosition[     17050,        480]
+NotebookDataLength[     19432,        549]
+NotebookOptionsPosition[     18298,        504]
+NotebookOutlinePosition[     18656,        520]
+CellTagsIndexPosition[     18613,        517]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -68,6 +68,30 @@ Cell[BoxData[{
          StyleBox[
           RowBox[{"DeleteDirectory", "::", "nodir"}], "MessageName"], "}"}]}],
         "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Quiet", "[", 
+       RowBox[{
+        RowBox[{"DeleteDirectory", "[", 
+         RowBox[{
+          RowBox[{"FileNameJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{"path", ",", "\"\<Models\>\""}], "}"}], "]"}], ",", 
+          RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         StyleBox[
+          RowBox[{"DeleteDirectory", "::", "nodir"}], "MessageName"], "}"}]}],
+        "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Quiet", "[", 
+       RowBox[{
+        RowBox[{"DeleteDirectory", "[", 
+         RowBox[{
+          RowBox[{"FileNameJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{"path", ",", "\"\<Tests\>\""}], "}"}], "]"}], ",", 
+          RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         StyleBox[
+          RowBox[{"DeleteDirectory", "::", "nodir"}], "MessageName"], "}"}]}],
+        "]"}], ";", "\[IndentingNewLine]", 
       RowBox[{"CopyDirectory", "[", 
        RowBox[{"\"\<Toolbox\>\"", ",", 
         RowBox[{"FileNameJoin", "[", 
@@ -79,9 +103,22 @@ Cell[BoxData[{
         RowBox[{"FileNameJoin", "[", 
          RowBox[{"{", 
           RowBox[{"path", ",", "\"\<AutomaticUnits\>\""}], "}"}], "]"}]}], 
-       "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{"install", "[", "]"}]}], "Input"]
+       "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"CopyDirectory", "[", 
+       RowBox[{"\"\<Models\>\"", ",", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{"path", ",", "\"\<Models\>\""}], "}"}], "]"}]}], "]"}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"CopyDirectory", "[", 
+       RowBox[{"\"\<Tests\>\"", ",", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{"path", ",", "\"\<Tests\>\""}], "}"}], "]"}]}], "]"}], 
+      ";"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"install", "[", "]"}]}], "Input",
+ CellChangeTimes->{{3.624074264671877*^9, 3.6240742731735888`*^9}, {
+  3.624074650996521*^9, 3.6240746959425087`*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -465,10 +502,10 @@ file **)\"\>"], "Output"]
 }, Open  ]]
 }, Closed]]
 },
-WindowSize->{1414, 1099},
-WindowMargins->{{Automatic, 46}, {Automatic, 0}},
-FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 20, \
-2012)",
+WindowSize->{1196, 643},
+WindowMargins->{{Automatic, -5}, {Automatic, 7}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -485,32 +522,32 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[579, 22, 67, 0, 44, "Subsection"],
 Cell[649, 24, 109, 3, 30, "Text"],
-Cell[761, 29, 2079, 54, 148, "Input"]
+Cell[761, 29, 3642, 91, 216, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2877, 88, 69, 0, 44, "Subsection"],
-Cell[2949, 90, 129, 3, 30, "Text"],
-Cell[3081, 95, 3464, 94, 301, "Input"]
+Cell[4440, 125, 69, 0, 44, "Subsection"],
+Cell[4512, 127, 129, 3, 30, "Text"],
+Cell[4644, 132, 3464, 94, 352, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6582, 194, 97, 2, 44, "Subsection"],
-Cell[6682, 198, 6206, 149, 369, "Input"]
+Cell[8145, 231, 97, 2, 44, "Subsection"],
+Cell[8245, 235, 6206, 149, 403, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[12925, 352, 62, 0, 44, "Subsection"],
+Cell[14488, 389, 62, 0, 44, "Subsection"],
 Cell[CellGroupData[{
-Cell[13012, 356, 30, 0, 70, "Subsubsection"],
+Cell[14575, 393, 30, 0, 70, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[13067, 360, 1842, 50, 70, "Input"],
-Cell[14912, 412, 565, 8, 70, "Output"]
+Cell[14630, 397, 1842, 50, 70, "Input"],
+Cell[16475, 449, 565, 8, 70, "Output"]
 }, Open  ]],
-Cell[15492, 423, 56, 1, 70, "Input"]
+Cell[17055, 460, 56, 1, 70, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[15585, 429, 32, 0, 70, "Subsubsection"],
+Cell[17148, 466, 32, 0, 70, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[15642, 433, 946, 26, 70, "Input"],
-Cell[16591, 461, 104, 1, 70, "Output"]
+Cell[17205, 470, 946, 26, 70, "Input"],
+Cell[18154, 498, 104, 1, 70, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Closed]]
