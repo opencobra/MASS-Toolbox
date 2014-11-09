@@ -69,26 +69,26 @@ Flatten[tmp4]/.s_String:>StringReplace[s,{"\""->""}]
 ];
 
 
-Unprotect[parseJSON];
+
 parseJSON[path_?FileExistsQ]:=parseJSON[Import[path,"Text"]]
 parseJSON[json_String]:=Module[{cat,eval},
 cat=StringJoin@@(ToString/@{##})&;(*Like sprintf/strout in C/C++.*)
 eval=ToExpression;
 ToExpression@StringReplace[cat@FullForm@eval[StringReplace[json,{"["->"(*MAGIC[*){","]"->"(*MAGIC]*)}",":"->"(*MAGIC:*)->","true"->"(*MAGICt*)True","false"->"(*MAGICf*)False","null"->"(*MAGICn*)Null","e"->"(*MAGICe*)*10^","E"->"(*MAGICE*)*10^"}]],{"(*MAGIC[*){"->"[","(*MAGIC]*)}"->"]","(*MAGIC:*)->"->":","(*MAGICt*)True"->"true","(*MAGICf*)False"->"false","(*MAGICn*)Null"->"null","(*MAGICe*)*10^"->"e","(*MAGICE*)*10^"->"E"}]]
 def:parseJSON[___]:=(Message[Toolbox::badargs,parseJSON,Defer@def];Abort[])
-Protect[parseJSON];
 
 
-Unprotect[iwith];
+
+
 iwith[pat_List,l_List] := Module[{mark},
 iwith[mark, l /. Map[ (#-> mark)&,pat]]];
 iwith[pat_,l_List] := Map[First,Position[l,pat]] //Union;
 with[pat_,l_List] := l[[iwith[pat,l]]];
 def:with[___]:=(Message[Toolbox::badargs,with,Defer@def];Abort[])
-Protect[iwith];
 
 
-Unprotect[updateRules];
+
+
 updateRules[rules:{(_Rule|_RuleDelayed)..},newRules:{(_Rule|_RuleDelayed)..}]:=Module[{},
 (*Join[DeleteCases[rules,r_Rule/;MemberQ[newRules[[All,1]],r[[1]]]],newRules]*)
 Join[FilterRules[rules,Except[newRules/.pat_Blank:>Verbatim[pat]]],newRules]
@@ -101,19 +101,19 @@ updateRules[rule:(_Rule|_RuleDelayed),rules:{(_Rule|_RuleDelayed)..}]:=updateRul
 updateRules[rule1:(_Rule|_RuleDelayed),rule2:(_Rule|_RuleDelayed)]:=updateRules[{rule1},{rule2}]
 updateRules[rules__]:=Fold[updateRules[#1,#2]&,List[rules][[1]],List[rules][[2;;]]]
 def:updateRules[_,_]:=(Message[Toolbox::badargs,updateRules,Defer@def];Abort[])
-Protect[updateRules];
 
 
-Unprotect[scatterFromDicts];
+
+
 scatterFromDicts[dicts__]:=Module[{ldicts,commonkeys},
 ldicts=List[dicts];
 commonkeys=Union[Flatten@Intersection[Sequence@@ldicts[[All,All,1]]]];
 Table[k->(k/.#&/@ldicts),{k,commonkeys}]
 ];
-Protect[scatterFromDicts];
 
 
-Unprotect[calcLinkMatrix];
+
+
 calcLinkMatrix[s_?MatrixQ]:=Module[{Q,R,independent,tmp,dependent,newOrder,rank},
 	{Q,R}=QRDecomposition[N@Transpose[s]];
 	dependent=Flatten[Position[Chop@Tr[R,List],0]];
@@ -123,7 +123,7 @@ calcLinkMatrix[s_?MatrixQ]:=Module[{Q,R,independent,tmp,dependent,newOrder,rank}
 	{newOrder,s[[newOrder]],s[[independent]],Chop[s[[newOrder]].PseudoInverse[N@s[[independent]]]]}
 ];
 def:calcLinkMatrix[___]:=(Message[Toolbox::badargs,calcLinkMatrix,Defer@def];Abort[])
-Protect[calcLinkMatrix];
+
 
 
 (* ::Subsection::Closed:: *)
