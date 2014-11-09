@@ -100,6 +100,7 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	
 	BeginPackage["Toolbox`"];
 	Needs["AutomaticUnits`"];
+	Unprotect["Toolbox`*"];
 	progtext="Loading Config ...";Get["Toolbox`Config`"];prog++;delay[];
 	progtext="Loading Usage strings ...";Get["Toolbox`UsageStrings`"];prog++;delay[];
 	progtext="Loading Utilities ...";Get["Toolbox`Util`"];prog++;delay[];
@@ -117,6 +118,7 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	progtext="Loading Simulations ...";Get["Toolbox`Simulations`"];prog++;delay[];
 	progtext="Loading QCQA ...";Get["Toolbox`QCQA`"];prog++;delay[];
 	progtext="Loading ExampleData ...";Get["Toolbox`ExampleData`"];prog++;delay[];
+	Protect["Toolbox`*"]
 	EndPackage[];
 ]
 ]

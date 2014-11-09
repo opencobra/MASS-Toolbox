@@ -36,7 +36,6 @@ inhibitorStyle[stuff_]:=StyleBox[stuff,Background->None,StripOnInput->False,Show
 (*Fluxes*)
 
 
-
 v/:MakeBoxes[v[id_String],_]:=InterpretationBox[SubscriptBox[#1,#2],v[id],Selectable->False,Editable->False]&[simplyBlack["v"],Evaluate@simplyBlack[id]]
 v/:ToString[flux_v]:=StringJoin["v_"<>getID[flux]]
 v/:getID[flux_v]:=flux[[1]]
@@ -45,7 +44,6 @@ v/:getID[flux_v]:=flux[[1]]
 
 (* ::Subsection:: *)
 (*Compounds*)
-
 
 
 chemicalElements={"H","He","Li","Be","B","C","N","O","F","Ne","Na","Mg","Al","Si","P","S","Cl","Ar","K","Ca","Sc","Ti","V","Cr","Mn","Fe","Co","Ni","Cu","Zn","Ga","Ge","As","Se","Br","Kr","Rb","Sr","Y","Zr","Nb","Mo","Tc","Ru","Rh","Pd","Ag","Cd","In","Sn","Sb","Te","I","Xe","Cs","Ba","La","Ce","Pr","Nd","Pm","Sm","Eu","Gd","Tb","Dy","Ho","Er","Tm","Yb","Lu","Hf","Ta","W","Re","Os","Ir","Pt","Au","Hg","Tl","Pb","Bi","Po","At","Rn","Fr","Ra","Ac","Th","Pa","U","Np","Pu","Am","Cm","Bk","Cf","Es","Fm","Md","No","Lr","Rf","Db","Sg","Bh","Hs","Mt","Ds","Rg","Cn","Uut","Uuq","Uup","Uuh","Uus","Uuo"};
@@ -268,11 +266,12 @@ reactionFromString[rxn_String,rev_:"<=>",irev_:"-->"]:=Module[{id,rest,revQ,lhs,
 ];
 def:reactionFromString[___]:=(Message[Toolbox::badargs,reactionFromString,Defer@def];Abort[])
 
+*)
+
 
 
 (* ::Subsection:: *)
 (*GPRs*)
-
 
 
 gene[id_String,opts:OptionsPattern[]]:=gene[id,None,opts]
@@ -314,7 +313,6 @@ proteinComplex/:MakeBoxes[proteinComplex[proteins__/;MatchQ[List[proteins],{(Tru
 
 (* ::Subsection:: *)
 (*Enzymes*)
-
 
 
 enzyme::catalyticSitesFull="Catalytic sites full. Attempted binding of `1` ligand(s) to `2` free binding site(s).";
@@ -394,7 +392,6 @@ e[a___]:=enzyme[a]
 (*Complexes*)
 
 
-
 complex::multiCompartments="Multiple compartments encountered in complex `1`;";
 complex[elements__]:=Block[{$preventRecursion=True,comp},
 	comp=Union[Flatten[If[MatchQ[#,$MASS$speciesPattern],getCompartment[#],Unevaluated[Sequence[]]]&/@{elements}]];
@@ -416,7 +413,6 @@ complex/:ToString[complex[elem__]]:=StringJoin[Sequence@@Riffle[ToString/@(Times
 
 (* ::Subsection:: *)
 (*Parameters*)
-
 
 
 rateconst[fluxID_String]:=rateconst[fluxID,True]
