@@ -159,7 +159,7 @@ SMILES/:getID[cmpd_SMILES]:=cmpd[[1]];
 Union[args:PatternSequence[{_reaction..},{_reaction..}]..]:=Union[args,SameTest->SameQ]
 Intersection[args:PatternSequence[{_reaction..},{_reaction..}]..]:=Intersection[args,SameTest->SameQ]
 Complement[args:PatternSequence[{_reaction..},{_reaction..}]..]:=Complement[args,SameTest->SameQ]
-
+*)
 
 
 reaction::arglen="The number of substrates (`1`) and products (`2`) does not match the number of stoichiometric factors (`3`).";
@@ -265,9 +265,6 @@ reactionFromString[rxn_String,rev_:"<=>",irev_:"-->"]:=Module[{id,rest,revQ,lhs,
 	reaction[id,Flatten@substr,Flatten@prod,Flatten[Join[substrStoich,prodStoich]]/. 1.->1,revQ]
 ];
 def:reactionFromString[___]:=(Message[Toolbox::badargs,reactionFromString,Defer@def];Abort[])
-
-*)
-
 
 
 (* ::Subsection:: *)
