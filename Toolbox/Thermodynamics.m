@@ -8,7 +8,7 @@
 (*Definitions*)
 
 
-Protect[is,pH,T];
+Protect[is,pH,T]
 
 
 Begin["`Private`"]
@@ -34,7 +34,7 @@ defaults={"is"->is,"pH"->pH,"T"->298.15 Kelvin};
 equilibrator2albertyFormat[pseudoisomers:{{_Rule..}...}]:={"dG0_f","dH0_f","z","nH"}/.#&/@pseudoisomers
 
 
-Unprotect[calcDeltaG];
+
 calcDeltaG::inconcond="Inconsistent conditions encountered ###FIXME###.";
 calcDeltaG::pHandISandTrange="Warning! According to Alberty 2003, it is save to adjust for ionic strength in the range of 0. to 0.35 M, pH in the range 5 to 9, and Temperature in the range of 273.15 to 313.15 Kelvin. `1` lies out of these range specification.";
 calcDeltaG::noOrWrongUnitsDG="No (or incompatible) units have been specified for \!\(\*SubscriptBox[\(\[CapitalDelta]\), \(f\)]\)G in isomer `1`. Kilo Joule \!\(\*SuperscriptBox[\(Mole\), \(-1\)]\) are assumed.";
@@ -152,10 +152,10 @@ calcDeltaG[rxn_reaction,dGofFormation:{(_dGstd->_ )..},opts:OptionsPattern[]]:=M
 calcDeltaG[rxns:{_reaction..},dGofFormation:{(_dGstd->_ )..}]:=calcDeltaG[#,dGofFormation]&/@rxns
 
 def:calcDeltaG[___]:=(Message[Toolbox::badargs,calcDeltaG,Defer@def];Abort[])
-Protect[calcDeltaG];
 
 
-Unprotect[dG2keq];
+
+
 dG2keq::nounits="No units provided. Assuming Kilojoule \!\(\*SuperscriptBox[\(Mole\), \(-1\)]\).";
 Options[dG2keq]=Join[FilterRules[constants,{"R"}],FilterRules[defaults,{"T"}]];
 dG2keq[dgz_Unit,opts:OptionsPattern[]]:=Module[{dgzConverted},
@@ -171,21 +171,21 @@ dG2keq[dgz Kilojoule Mole^-1,opts]
 ];
 dG2keq[param:{_Rule..},opts:OptionsPattern[]]:=param/.r_Rule/;MatchQ[r[[1]],_dGstd]&&Head[getID[r[[1]]]]==String:>Keq[getID[r[[1]]]]->dG2keq[r[[2]]]
 def:dG2keq[___]:=(Message[Toolbox::badargs,dG2keq,Defer@def];Abort[])
-Protect[dG2keq]
+
 
 
 adjustKeqUnits=stripUnits[Convert[#,Table[Liter^-i Mole^i,{i,Join[Range[-5,-1],Range[1,5]]}]]]&;
-Unprotect[keq2dG];
+
 Options[keq2dG]=Join[Join[FilterRules[constants,{"R"}],FilterRules[defaults,{"T"}]],{"is"->Undefined,"pH"->Undefined}];
 keq2dG[keq_Keq,opts:OptionsPattern[]]:=Exp[-(dGstd[getID[keq],Sequence@@updateRules[FilterRules[Options[keq2dG],Options[dGstd][[All,1]]],FilterRules[List@opts,Options[dGstd][[All,1]]]]]/(OptionValue["R"]OptionValue["T"]))]
 keq2dG[keq:(_?NumberQ|_Unit),opts:OptionsPattern[]]:=-OptionValue["R"] OptionValue["T"] Log[adjustKeqUnits[keq]]
 keq2dG[param:{_Rule..},opts:OptionsPattern[]]:=param/.r_Rule/;r[[1,0]]==Keq&&Head[getID[r[[1]]]]==String:>(dGstd[getID[r[[1]]],Sequence@@updateRules[FilterRules[Options[keq2dG],Options[dGstd][[All,1]]],FilterRules[List@opts,Options[dGstd][[All,1]]]]]->-OptionValue["R"] OptionValue["T"] Log[adjustKeqUnits[r[[2]]]])
 keq2dG[stuff_,opts:OptionsPattern[]]:=stuff/.keq_Keq:>Exp[-(dGstd[getID[keq],Sequence@@updateRules[Options[dGstd],FilterRules[List@opts,Options[dGstd][[All,1]]]]]/(OptionValue["R"]OptionValue["T"]))]
 def:keq2dG[___]:=(Message[Toolbox::badargs,keq2dG,Defer@def];Abort[])
-Protect[keq2dG];
 
 
-Unprotect[dGstd];
+
+
 Options[dGstd]={"is"->0. Mole Liter^-1,"pH"->0.,"T"->298.15 Kelvin};
 
 dGstd[id:Prepend[$MASS$speciesPattern,_String],opts:OptionsPattern[]]:=Block[{$preventRecursion=True},
@@ -202,7 +202,7 @@ SubsuperscriptBox[#4,#,#2],#3
 dGstd/:getID[elem_dGstd]:=elem[[1]]
 dGstd/:getConditions[elem_dGstd]:=List@@elem[[2;;]]
 dGstd/:ToString[elem_dGstd]:="dGstd_"<>ToString[getID[elem]];
-Protect[dGstd];
+
 
 
 (* ::Input:: *)
@@ -210,7 +210,7 @@ Protect[dGstd];
 
 
 (* ::Input:: *)
-(*(*Unprotect[dGstd];*)
+(*(**)
 (*ClearAll[dGstd];*)
 (*Options[dGstd]={is->0.Millimole,pH->0.};*)
 (**)
@@ -228,14 +228,12 @@ Protect[dGstd];
 (*dGstd/:getID[elem_dGstd]:=elem[[1]]*)
 (*dGstd/:getConditions[elem_dGstd]:=List@@elem[[2;;]]*)
 (*dGstd/:ToString[elem_dGstd]:="dGstd_"<>ToString[getID[elem]];*)
-(*Protect[dGstd];*)*)
+(**)*)
 
 
-Unprotect[dG];
 dG/:MakeBoxes[dG[fluxID_String],StandardForm]:=InterpretationBox[SubscriptBox["\[CapitalDelta]G",fluxID],dG[fluxID]]
 dG/:getID[elem_dG]:=elem[[1]]
 dG/:ToString[elem_dG]:="dG_"<>ToString[getID[elem]];
-Protect[dG];
 
 
 (* ::Subsection::Closed:: *)

@@ -14,7 +14,7 @@ Begin["Private`"]
 Needs["DifferentialEquations`InterpolatingFunctionAnatomy`"]
 
 
-Unprotect[simulate];
+
 Options[simulate]={"InitialConditions"->{},"Parameters"->{},"Events"->{},"tFinal"->Infinity,"tStart"->0,"SpeciesProfiles"->"Concentrations"};
 simulate::missingIC="Missing initial conditions encountered for `1`.";
 simulate::missingParam="Missing parameter values encountered for `1`.";
@@ -73,10 +73,8 @@ simulate[model_MASSmodel,{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},opts:OptionsPatt
 	simulate[model,Sequence@@updateRules[List[opts],{"tStart"->tMin,"tFinal"->tMax}]]
 ];
 def:simulate[___]:=(Message[Toolbox::badargs,simulate,Defer@def];Abort[])
-Protect[simulate];
 
 
-Unprotect[findSteadyState];
 Options[findSteadyState]=updateRules[{"Strategy"->FindRoot,"CheckSteadyState"->True,"CheckStability"->False,"Parameters"->{},"InitialConditions"->{},Tolerance->1*^-6},Options[FindRoot],Options[simulate]];
 findSteadyState::noSsReached="The system didn't reach steady state. `1`";
 findSteadyState::unstable="The steady state found is unstable. The largest eigenvalue (by real part) is `1`.";
@@ -122,7 +120,6 @@ findSteadyState[model_MASSmodel,opts:OptionsPattern[]]:=Module[{eq,var,rosetta,p
 	sol
 ];
 def:findSteadyState[___]:=(Message[Toolbox::badargs,findSteadyState,Defer@def];Abort[])
-Protect[findSteadyState];
 
 
 Options[solveSteadyState]={"Numeric"->True};

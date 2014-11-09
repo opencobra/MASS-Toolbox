@@ -14,7 +14,7 @@ JLink`AddToClassPath["/Applications/ChemAxon/MarvinBeans/lib/"]
 Begin["`Private`"]
 
 
-Unprotect[cxcalc];
+
 Options[cxcalc]={"GeneralOptions"->"","Debug"->False};
 cxcalc[input:(_String|_InChI|_SMILES),plugin_String,pluginOptions_String,opts:OptionsPattern[]]:=Module[{cmd},
 	cmd=StringJoin[Sequence@@
@@ -27,10 +27,10 @@ cxcalc[input:(_String|_InChI|_SMILES),plugin_String,pluginOptions_String,opts:Op
 ];
 cxcalc[input:{(_InChI|_SMILES)..},plugin_String,pluginOptions_String,opts:OptionsPattern[]]:=cxcalc[ExportString[input[[All,1]],"Table"],plugin,pluginOptions,opts]
 def:cxcalc[___]:=(Message[Toolbox::badargs,cxcalc,Defer@def];Abort[])
-Protect[cxcalc];
 
 
-Unprotect[molconvert];
+
+
 molconvert[input:(_String|_InChI|_SMILES),outformat_String,options:_String:""]:=Module[{cmd,input2},
 	input2=Which[MatchQ[input,_InChI],input[[1]]<>"{inchi}",MatchQ[input,_SMILES],input[[1]],StringMatchQ[input,RegularExpression["^InChI.*"]],input<>"{inchi}",True,input];
 	cmd=StringJoin[Sequence@@
@@ -41,7 +41,7 @@ molconvert[input:(_String|_InChI|_SMILES),outformat_String,options:_String:""]:=
 	Import["!"<>$SystemCommandPrefix<>cmd,"Text"]
 ];
 def:molconvert[___]:=(Message[Toolbox::badargs,molconvert,Defer@def];Abort[])
-Protect[molconvert];
+
 
 
 drawCompoundOpenBabel::obabelNotInstalled="obabel seems to be not installed or not on your system path.";
@@ -77,7 +77,7 @@ drawCompoundChemAxon[cmpd:(_InChI|_SMILES),opts:OptionsPattern[]]:=Module[{tmpFi
 ];
 
 
-Unprotect[drawCompound];
+
 Options[drawCompound]=Join[{"Method"->"ChemAxon"(*or *)},Options[drawCompoundOpenBabel],Options[drawCompoundChemAxon]];
 drawCompound[cmpd:(_InChI|_SMILES),opts:OptionsPattern[]]:=
 	Switch[OptionValue["Method"],
@@ -85,7 +85,7 @@ drawCompound[cmpd:(_InChI|_SMILES),opts:OptionsPattern[]]:=
 		"ChemAxon",drawCompoundChemAxon[cmpd,Sequence@@FilterRules[List[opts],Options[drawCompoundChemAxon]]]
 	];
 def:drawCompound[___]:=(Message[Toolbox::badargs,drawCompound,Defer@def];Abort[])
-Protect[drawCompound];
+
 
 
 End[]
