@@ -4,6 +4,7 @@
 (*ExampleData*)
 
 
+Unprotect[ExampleData];
 ExampleData::notFound="`1` is not a known collection for ExampleData. Use ExampleData[] for a list of collections.";
 ExampleData[{"Toolbox", "Glycolysis"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","SB2","glycolysis.m.gz"}]];
 ExampleData[{"Toolbox", "PentosePhosphatePathway"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","SB2","ppp.m.gz"}]];
@@ -21,3 +22,4 @@ ExampleData[{"Toolbox", "iAB-RBC-238-Hemoglobin"}] := Import[FileNameJoin[{$Tool
 ExampleData[{"Toolbox", "bigg2equilibrator"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","eQuilibrator","bigg2equilibrator.m.gz"}]];
 ExampleData["Toolbox"]:=Cases[DownValues@ExampleData,{"Toolbox",_String},\[Infinity]];
 ExampleData[pat:{"Toolbox", _}]:=(Message[ExampleData::notFound,pat];Abort[];)
+Protect[ExampleData]

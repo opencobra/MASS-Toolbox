@@ -22,14 +22,11 @@ Begin["`Private`"];
 stripTime[expr_]:=expr/.(pat:Join[$MASS$speciesPattern,$MASS$parametersPattern])[t]:>pat
 
 
-
 conc2particles[concProfile:{(Join[$MASS$speciesPattern,$MASS$parametersPattern]->_)..},volumes:{(parameter["Volume",_]->_)...}]:=Module[{},
 	concProfile/.r_Rule/;MatchQ[r[[1]],$MASS$speciesPattern]:>r[[1]]->r[[2]]*(parameter["Volume",getCompartment[r[[1]]]]/.volumes(*compartments might be part of the solution*)/.concProfile)
 ];
 conc2particles[concProfile:{(Join[$MASS$speciesPattern,$MASS$parametersPattern]->_)..},model_MASSmodel]:=conc2particles[concProfile,FilterRules[model["Parameters"],parameter["Volume",_]]];
 def:conc2particles[___]:=(Message[Toolbox::badargs,conc2particles,Defer@def];Abort[])
-
-
 
 
 particles2conc[particleProfile:{($MASS$speciesPattern->_)..},volumes:{(parameter["Volume",_]->_)..}]:=Module[{},
@@ -39,15 +36,11 @@ particles2conc[particleProfile:{($MASS$speciesPattern->_)..},model_MASSmodel]:=p
 def:particles2conc[___]:=(Message[Toolbox::badargs,conc2particles,Defer@def];Abort[])
 
 
-
-
 symbolize[stuff_,opts___Rule]:=Module[{rules},
 	rules=#->Unique["var"]&/@Union[Cases[stuff,Join[$MASS$speciesPattern,$MASS$parametersPattern,Alternatives[_v]],\[Infinity],Heads->True]];
 	{stuff/.rules,Reverse/@rules}
 ];
 def:symbolize[___]:=(Message[Toolbox::badargs,symbolize,Defer@def];Abort[])
-
-
 
 
 SetAttributes[anonymize,HoldAll];
@@ -57,8 +50,6 @@ anonymize[f_[args__]]:=Module[{rosetta,args2},
 	f[Evaluate[Sequence@@args2]]/.rosetta
 ];
 def:anonymize[___]:=(Message[Toolbox::badargs,anonymize,Defer@def];Abort[])
-
-
 
 
 annotateCurrencyMetabolites[rxns:{_reaction...},previousAnnotation:{(_String->_List)...}]:=Join[previousAnnotation,annotateCurrencyMetabolites[Select[rxns,!MemberQ[previousAnnotation[[All,1]],getID[#]]&]]]
@@ -83,8 +74,6 @@ annotateCurrencyMetabolites[rxns:{_reaction...}]:=Module[{endResult,input,result
 def:annotateCurrencyMetabolites[___]:=(Message[Toolbox::badargs,annotateCurrencyMetabolites,Defer@def];Abort[]);
 
 
-
-
 pools2poolMatrix[model_MASSmodel,pools:{Rule[_,Join[_Plus|_Times,$MASS$speciesPattern]]..}]:=Module[{cmpds2indices,tmp},
 	cmpds2indices=Thread[Rule[#,Range[1,Length[#]]]]&@model["Species"];
 	Rationalize@Normal@SparseArray[
@@ -100,16 +89,12 @@ pools2poolMatrix[model_MASSmodel,pools:{Rule[_,Join[_Plus|_Times,$MASS$speciesPa
 def:pools2poolMatrix[___]:=(Message[Toolbox::badargs,pools2poolMatrix,Defer@def];Abort[])
 
 
-
 metaboliteFromString::usage="metaboliteFromString[\"id_compartment\"] will return metabolite[\"id\", \"compartment\"].";
-
 
 
 metaboliteFromString[met_String/;StringMatchQ[met,RegularExpression["^\\S+\\[\\S+\\]$"]]]:=StringCases[met,RegularExpression["^(.+)\\[(.+)\\]"]:>metabolite["$1","$2"]][[1]]
 metaboliteFromString[met_String/;StringMatchQ[met,RegularExpression["\\S+(_[\\S]+)?"]]]:=If[Length[#]==1,metabolite[#[[1]],None],metabolite[StringJoin[Sequence@@Riffle[#[[1;;-2]],"_"]],#[[-1]]]]&@StringSplit[StringReplace[met,RegularExpression["^M_"]->""],"_"];
 def:metaboliteFromString[___]:=(Message[Toolbox::badargs,metaboliteFromString,Defer@def];Abort[])
-
-
 
 
 speciesFromString[enz_String/;StringMatchQ[enz,RegularExpression["^E_.*"]]]:=Module[{tmp,enzID,allostericInhibitors,allostericActivators,catalyticBound,enzComp},
@@ -214,7 +199,6 @@ Toolbox::deprecated="`1` is deprecated and will be removed in the (very) near fu
 (*Old routines*)
 
 
-
 getGradient[rates_List,mets_List]:=Table[\!\(
 \*SubscriptBox[\(\[PartialD]\), \(mets[\([j]\)]\)]\(rates[\([i]\)]\)\),{i,1,Length[rates]},{j,1,Length[mets]}];
 def:getGradient[___]:=(Message[Toolbox::badargs,getGradient,Defer@def];Abort[])
@@ -238,7 +222,6 @@ def:getJacobian[___]:=(Message[Toolbox::badargs,getJacobian,Defer@def];Abort[])
 
 (* ::Subsection:: *)
 (*Rates*)
-
 
 
 addExternalConcentration=Switch[#,elem_/;MatchQ[elem,_rateconst],#,elem_/;MatchQ[elem,_Plus],Simplify@Replace[Expand[keq2k@#],pat:(-1_rateconst|_rateconst):>pat*Times@@Cases[#,m:$MASS$speciesPattern:>Head[m][getID[m],"Xt"],\[Infinity]],1],_,#]&;
@@ -304,7 +287,6 @@ def:kFwd2keq[___]:=(Message[Toolbox::badargs,kFwd2keq,Defer@def];Abort[])
 (*PERCs*)
 
 
-
 calcPERC::ZeroKeq="The equilibrium constant `1` of reaction `2` is zero, the PERC of the reverse rate constant `3` will be calculated.";
 calcPERC::atequilibrium="Reaction `1` is either at equlibrium or not active. Forward rate constant `2` is set to `3` (this value can be specified using the option \"AtEquilibriumDefault\").";
 calcPERC::negativePERC="Negative PERC (`1`) detected for reaction `2`.";
@@ -355,7 +337,6 @@ def:calcPERC[___]:=(Message[Toolbox::badargs,calcPERC,Defer@def];Abort[])
 (*Structural stuff*)
 
 
-
 Options[getMassActionRatios]={"Ignore"->{}};
 getMassActionRatios[r_reaction,opts:OptionsPattern[]]:=Module[{massActionRatio},
 	massActionRatio=Replace[Times@@(getProducts[r]^integerChop[getProdStoich[r]]), 1->Times@@(m[getID[#],"Xt"]&/@getSubstrates[r])]/Replace[Times@@(getSubstrates[r]^integerChop[getSubstrStoich[r]]), 1->Times@@(m[getID[#],"Xt"]&/@getProducts[r])];
@@ -396,7 +377,6 @@ def:calcKappa[___]:=(Message[Toolbox::badargs,calcKappa,Defer@def];Abort[])
 
 (* ::Subsection:: *)
 (*Unit support*)
-
 
 
 stripUnits[expr_]:=Module[{replacementRules=Thread[Rule[Symbol/@Names["Units`*"],1]]},DropUnits[expr/.Dispatch[replacementRules]]]
@@ -530,7 +510,7 @@ def:adjustUnits[___]:=(Message[Toolbox::badargs,adjustUnits,Defer@def];Abort[])
 (*Model construction and associated definitions*)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Attribute test patterns and callbacks*)
 
 
@@ -584,9 +564,8 @@ attributeCallBacks={
 };
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Model construction*)
-
 
 
 Options[constructModel]={"InitialConditions"->{},"Constraints"->{},"Parameters"->{},"Irreversible"->{},"GPR"->{},"CustomRateLaws"->{},
@@ -742,9 +721,8 @@ def:constructModel[___]:=(Message[Toolbox::badargs,constructModel,Defer@def];Abo
 
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Internal model attribute setter and updater functions*)
-
 
 
 SetAttributes[setModelAttribute,HoldFirst];
@@ -789,11 +767,8 @@ def:addModelAttribute[___]:=(Message[Toolbox::badargs,addModelAttribute,Defer@de
 
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Model attributes*)
-
-
-
 
 
 (*Attributes*)
@@ -893,6 +868,9 @@ MASSmodel/:ReplaceAll[stuff_,model_MASSmodel]:=stuff/.Join[model["Parameters"],m
 (*Model set operations*)
 
 
+Unprotect[Union,Intersection,Complement];
+
+
 MASSmodel/:Union[models__MASSmodel]:=Module[{listOfModels,commonAttributes,listOfAttributes,modelTmp,rhs},
 	listOfModels=List[models];
 	commonAttributes=Complement[Intersection[Union[Sequence@@(listOfModels[[All,1,All,1]])],Options[constructModel][[All,1]]],{"ID","Name"}];
@@ -962,8 +940,14 @@ MASSmodel/:Complement[model_MASSmodel, models__MASSmodel]:=Module[{listOfModels,
 ];
 
 
+Protect[Union,Intersection,Complement];
+
+
 (* ::Subsubsection:: *)
 (*Model overview*)
+
+
+Unprotect[MakeBoxes];
 
 
 width=800;height=450;
@@ -1007,6 +991,9 @@ MASSmodel/:MakeBoxes[model_MASSmodel,_]:=ToBoxes@MenuView[{
 	"Left Nullspace"->If[NullSpace[Transpose@model]=!={},specialPane2@TableForm[NullSpace[Transpose@model].model["Species"],TableHeadings->{None,model["Species"]}],"Left Nullspace empty"],
 	"Notes"->specialPane2@Style[model["Notes"],FontSize->10]},ImageSize->{{width},{height}}
 ]
+
+
+Protect[MakeBoxes];
 
 
 (* ::Subsubsection:: *)
@@ -1096,7 +1083,6 @@ MASSmodel/:splitReversible[model_MASSmodel]:=Module[{splitModel,splitStoich,newC
 
 (* ::Subsection:: *)
 (*Structural manipulations*)
-
 
 
 splitReversible[stoich_?MatrixQ,colIDs:{(_String|_v)..},reversibleColumnIndices:{_Integer..}]:=Module[{splitStoich,cleanColIDs},
@@ -1405,7 +1391,6 @@ def:subModel[___]:=(Message[Toolbox::badargs,subModel,Defer@def];Abort[])
 
 (* ::Subsection:: *)
 (*QC/QA*)
-
 
 
 Options[elementallyBalancedQ]={"ElementalComposition"->{},"RemoveExchanges"->True};
