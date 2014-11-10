@@ -126,6 +126,19 @@ def:calcLinkMatrix[___]:=(Message[Toolbox::badargs,calcLinkMatrix,Defer@def];Abo
 
 
 
+grep[file_,patt_]:=
+	With[{data=Import[FileNameJoin[{$ToolboxPath,file}],"Lines"]},
+		Pick[Transpose[{Range[Length[data]],data}],StringFreeQ[data,patt],False]
+	]
+
+grep[patt_]:=
+	With[{fileNames={"Chemoinformatics.m","COBRA.m","Config.m","Core.m","Design.m","ExampleData.m","IO.m","Networks.m","QCQA.m","Regulation.m","Sensitivity.m","Simulations.m","Style.m","Thermodynamics.m","Types.m","UsageStrings.m","Util.m","Visualization.m"}},
+		Flatten[Function[name,Prepend[#,name]&/@grep[name,patt]]/@fileNames,1]
+	]
+
+
+
+
 (* ::Subsection::Closed:: *)
 (*End*)
 
