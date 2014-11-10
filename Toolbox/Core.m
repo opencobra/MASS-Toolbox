@@ -868,9 +868,6 @@ MASSmodel/:ReplaceAll[stuff_,model_MASSmodel]:=stuff/.Join[model["Parameters"],m
 (*Model set operations*)
 
 
-Unprotect[Union,Intersection,Complement];
-
-
 MASSmodel/:Union[models__MASSmodel]:=Module[{listOfModels,commonAttributes,listOfAttributes,modelTmp,rhs},
 	listOfModels=List[models];
 	commonAttributes=Complement[Intersection[Union[Sequence@@(listOfModels[[All,1,All,1]])],Options[constructModel][[All,1]]],{"ID","Name"}];
@@ -940,14 +937,8 @@ MASSmodel/:Complement[model_MASSmodel, models__MASSmodel]:=Module[{listOfModels,
 ];
 
 
-Protect[Union,Intersection,Complement];
-
-
 (* ::Subsubsection:: *)
 (*Model overview*)
-
-
-Unprotect[MakeBoxes];
 
 
 width=800;height=450;
@@ -991,9 +982,6 @@ MASSmodel/:MakeBoxes[model_MASSmodel,_]:=ToBoxes@MenuView[{
 	"Left Nullspace"->If[NullSpace[Transpose@model]=!={},specialPane2@TableForm[NullSpace[Transpose@model].model["Species"],TableHeadings->{None,model["Species"]}],"Left Nullspace empty"],
 	"Notes"->specialPane2@Style[model["Notes"],FontSize->10]},ImageSize->{{width},{height}}
 ]
-
-
-Protect[MakeBoxes];
 
 
 (* ::Subsubsection:: *)
