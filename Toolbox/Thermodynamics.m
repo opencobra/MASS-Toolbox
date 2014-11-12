@@ -14,9 +14,6 @@ Protect[is,pH,T]
 Begin["`Private`"]
 
 
-Toolbox::badargs="There is no definition for '``' applicable to ``."
-
-
 (*Needs["Toolbox`ThirdParty`BiochemThermo`BasicBiochemData2`"]
 Needs["Toolbox`ThirdParty`BiochemThermo`BasicBiochemData3`"]*)
 (*$ContextPath=DeleteCases[$ContextPath,"BiochemThermo`BasicBiochemData2`"];*)

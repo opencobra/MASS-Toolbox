@@ -17,7 +17,6 @@ Quiet@Get["GurobiML`"]
 (*Warning and Error messages*)
 Toolbox::Exists="Entity `1` already exists.";
 Toolbox::NotImplemented="Function/Structure `1` has not been implemented yet.";
-Toolbox::badargs="There is no definition for '``' applicable to ``."
 
 
 (* ::Subsection:: *)
@@ -26,7 +25,6 @@ Toolbox::badargs="There is no definition for '``' applicable to ``."
 
 (* ::Subsubsection:: *)
 (*FBA & FVA*)
-
 
 
 (*Options[fba]=Join[{"OptFlag"->"Max","Solver"->LinearProgramming,"Loopless"->False,"Minimize"->False},Options[LinearProgramming]];*)
@@ -215,7 +213,6 @@ def:GurobiFVA[___]:=(Message[Toolbox::badargs,GurobiFVA,Defer@def];Abort[])
 
 (* ::Subsubsection:: *)
 (*Sampling*)
-
 
 
 Options[createWarmupPoints]={"NumberOfPoints"->Automatic,"ProgressBar"->True,"Solver"->LinearProgramming};
@@ -413,7 +410,6 @@ calcConcentrationBounds[model_MASSmodel,opt:OptionsPattern[]]:=Module[{logDisEqR
 (*Utilities*)
 
 
-
 Options[productionEnvelope]={"Points"->20};
 productionEnvelope[model_MASSmodel,controlFlux_v,targets__v,opts:OptionsPattern[{productionEnvelope,fba}]]:=Module[{minGrowth,maxGrowth,minFlux,maxFlux,npts,growth,target,tmpResult},
 	npts=OptionValue["Points"];
@@ -503,7 +499,6 @@ def:model2LooplessFbaFormulation[___]:=(Message[Toolbox::badargs,model2LooplessF
 
 (* ::Subsubsection:: *)
 (*GLPK*)
-
 
 
 GLPKStandalone::glpsolMissing="glpsol seems to be not installed or not on your system path.";
@@ -620,7 +615,6 @@ parseGlpkPlainOutput[tab_List/;Length[tab[[2]]]==2&&Length[tab[[3]]]==1,glpProbl
 (*CPLEX*)
 
 
-
 Options[CPLEXStandalone]={"OutputFormat"->Automatic};
 CPLEXStandalone::cplexMissing="cplex seems to be not installed or not on your system path.";
 CPLEXStandalone::failed="Probably no solution could be found.\n`1`";
@@ -681,7 +675,6 @@ def:CPLEXForm[___]:=(Message[Toolbox::badargs,CPLEXForm,Defer@def];Abort[])
 
 (* ::Subsection:: *)
 (*GAMS interface and code generation*)
-
 
 
 GAMSForm::straySymbols="Stray symbols `1` detected.";
@@ -882,7 +875,6 @@ NEOS[problem_String,opts:OptionsPattern[]]:=Module[{modelStatus,solverStatus,pro
 
 (* ::Subsection:: *)
 (*X3 interface*)
-
 
 
 model2X3[model_MASSmodel]:=Module[{rxns,external,internal,helpFunc,exchangeTab},

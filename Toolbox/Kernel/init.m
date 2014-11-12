@@ -57,7 +57,7 @@ GurobiML::notinstalled="GurobiML seems to be not installed. Advanced LP/MILP/QP 
 (*Column[{icon,progtext,If[$FrontEnd=!=Null,ProgressIndicator[prog,{1,22}],prog]}]*)
 
 
-Module[{licenseInfo,icon,delay,stubStream,bkupoutput,prog,progtext},
+Module[{licenseInfo,icon,delay,stubStream,bkupoutput,prog,progtext,names},
 licenseInfo="Copyright (c) 2013, Regents of the University of California
 All rights reserved.
 Evaluate $ToolboxLicense for more information";
@@ -118,7 +118,14 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	progtext="Loading Simulations ...";Get["Toolbox`Simulations`"];prog++;delay[];
 	progtext="Loading QCQA ...";Get["Toolbox`QCQA`"];prog++;delay[];
 	progtext="Loading ExampleData ...";Get["Toolbox`ExampleData`"];prog++;delay[];
-	Protect["Toolbox`*"]
+	
+	(* Display error message for all functions for incorrect inputs *)
+	Toolbox::badargs="There is no definition for '``' applicable to ``."
+	names = ToExpression[Select[Join[Names["Toolbox`*"],Names["Toolbox`Private`*"]],StringFreeQ[#,"$"]&]];
+	Do[def:func[___]:=(Message[Toolbox::badargs,func,Defer@def];Abort[]),{func,names}];
+
+	(* Protect all public function names *)
+	Protect["Toolbox`*"];
 	EndPackage[];
 ]
 ]

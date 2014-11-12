@@ -191,7 +191,6 @@ unwrapHead[stuff_]:=stuff/.w_wrap:>w[[1]]
 (*Warning and Error messages*)
 Toolbox::Exists="Entity `1` already exists.";
 Toolbox::NotImplemented="Function/Structure `1` has not been implemented yet.";
-Toolbox::badargs="There is no definition for '``' applicable to ``.";
 Toolbox::deprecated="`1` is deprecated and will be removed in the (very) near future. Please use `2` instead.";
 
 
