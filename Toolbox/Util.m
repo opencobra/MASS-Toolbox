@@ -69,29 +69,22 @@ Flatten[tmp4]/.s_String:>StringReplace[s,{"\""->""}]
 ];
 
 
-
 parseJSON[path_?FileExistsQ]:=parseJSON[Import[path,"Text"]]
 parseJSON[json_String]:=Module[{cat,eval},
 cat=StringJoin@@(ToString/@{##})&;(*Like sprintf/strout in C/C++.*)
 eval=ToExpression;
 ToExpression@StringReplace[cat@FullForm@eval[StringReplace[json,{"["->"(*MAGIC[*){","]"->"(*MAGIC]*)}",":"->"(*MAGIC:*)->","true"->"(*MAGICt*)True","false"->"(*MAGICf*)False","null"->"(*MAGICn*)Null","e"->"(*MAGICe*)*10^","E"->"(*MAGICE*)*10^"}]],{"(*MAGIC[*){"->"[","(*MAGIC]*)}"->"]","(*MAGIC:*)->"->":","(*MAGICt*)True"->"true","(*MAGICf*)False"->"false","(*MAGICn*)Null"->"null","(*MAGICe*)*10^"->"e","(*MAGICE*)*10^"->"E"}]]
-def:parseJSON[___]:=(Message[Toolbox::badargs,parseJSON,Defer@def];Abort[])
-
-
 
 
 iwith[pat_List,l_List] := Module[{mark},
 iwith[mark, l /. Map[ (#-> mark)&,pat]]];
 iwith[pat_,l_List] := Map[First,Position[l,pat]] //Union;
 with[pat_,l_List] := l[[iwith[pat,l]]];
-def:with[___]:=(Message[Toolbox::badargs,with,Defer@def];Abort[])
-
-
 
 
 updateRules[rules:{(_Rule|_RuleDelayed)..},newRules:{(_Rule|_RuleDelayed)..}]:=Module[{},
-(*Join[DeleteCases[rules,r_Rule/;MemberQ[newRules[[All,1]],r[[1]]]],newRules]*)
-Join[FilterRules[rules,Except[newRules/.pat_Blank:>Verbatim[pat]]],newRules]
+	(*Join[DeleteCases[rules,r_Rule/;MemberQ[newRules[[All,1]],r[[1]]]],newRules]*)
+	Join[FilterRules[rules,Except[newRules/.pat_Blank:>Verbatim[pat]]],newRules]
 ];
 updateRules[{},newRules:{(_Rule|_RuleDelayed)..}]:=newRules
 updateRules[rules:{(_Rule|_RuleDelayed)..},{}]:=rules
@@ -100,18 +93,13 @@ updateRules[rules:{(_Rule|_RuleDelayed)..},rule:(_Rule|_RuleDelayed)]:=updateRul
 updateRules[rule:(_Rule|_RuleDelayed),rules:{(_Rule|_RuleDelayed)..}]:=updateRules[{rule},rules]
 updateRules[rule1:(_Rule|_RuleDelayed),rule2:(_Rule|_RuleDelayed)]:=updateRules[{rule1},{rule2}]
 updateRules[rules__]:=Fold[updateRules[#1,#2]&,List[rules][[1]],List[rules][[2;;]]]
-def:updateRules[_,_]:=(Message[Toolbox::badargs,updateRules,Defer@def];Abort[])
-
-
 
 
 scatterFromDicts[dicts__]:=Module[{ldicts,commonkeys},
-ldicts=List[dicts];
-commonkeys=Union[Flatten@Intersection[Sequence@@ldicts[[All,All,1]]]];
-Table[k->(k/.#&/@ldicts),{k,commonkeys}]
+	ldicts=List[dicts];
+	commonkeys=Union[Flatten@Intersection[Sequence@@ldicts[[All,All,1]]]];
+	Table[k->(k/.#&/@ldicts),{k,commonkeys}]
 ];
-
-
 
 
 calcLinkMatrix[s_?MatrixQ]:=Module[{Q,R,independent,tmp,dependent,newOrder,rank},
@@ -122,16 +110,14 @@ calcLinkMatrix[s_?MatrixQ]:=Module[{Q,R,independent,tmp,dependent,newOrder,rank}
 	s[[newOrder]].PseudoInverse[N@s[[independent]]];
 	{newOrder,s[[newOrder]],s[[independent]],Chop[s[[newOrder]].PseudoInverse[N@s[[independent]]]]}
 ];
-def:calcLinkMatrix[___]:=(Message[Toolbox::badargs,calcLinkMatrix,Defer@def];Abort[])
 
 
-
-grep[file_,patt_]:=
+grep[file_String,patt_String]:=
 	With[{data=Import[FileNameJoin[{$ToolboxPath,file}],"Lines"]},
 		Pick[Transpose[{Range[Length[data]],data}],StringFreeQ[data,patt],False]
 	]
 
-grep[patt_]:=
+grep[patt_String]:=
 	With[{fileNames={"Chemoinformatics.m","COBRA.m","Config.m","Core.m","Design.m","ExampleData.m","IO.m","Networks.m","QCQA.m","Regulation.m","Sensitivity.m","Simulations.m","Style.m","Thermodynamics.m","Types.m","UsageStrings.m","Util.m","Visualization.m"}},
 		Flatten[Function[name,Prepend[#,name]&/@grep[name,patt]]/@fileNames,1]
 	]

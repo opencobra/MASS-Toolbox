@@ -18,7 +18,6 @@ Begin["`Private`"]
 Quiet@<<GraphUtilities`
 
 
-
 showNetwork[model_MASSmodel,opts:OptionsPattern[]]:=Module[{net,nodes,coords,tmp},
 	net=Replace[model2bipartite[model],s_String:>v[s],2];
 	showNetwork[net,model,opts]
@@ -36,7 +35,6 @@ showNetwork[net_List,model_MASSmodel,opts:OptionsPattern[]]:=Module[{nodes,coord
 ];
 
 
-
 (*Options[visualizePathways]=updateRules[Join[Options[LayeredGraphPlot],{"MetaboliteRenderingFunction"->({Green,Disk[#,.1]}&),"EnzymeRenderingFunction"->({Orange,Disk[#,.1]}&),"ReactionRenderingFunction"->({Red,Disk[#1,.1]}&),"PlotFunction"->LayeredGraphPlot}],{MultiedgeStyle->None,DirectedEdges->True,PlotStyle->{Gray,Arrowheads[Small]}}];*)
 Options[visualizePathways]=updateRules[Join[Options[LayeredGraphPlot],{"MetaboliteRenderingFunction"->(Text[#2,#1]&),"EnzymeRenderingFunction"->({Orange,Disk[#,.1]}&),"ReactionRenderingFunction"->(Text[#2,#1]&),"PlotFunction"->LayeredGraphPlot}],{MultiedgeStyle->None,DirectedEdges->True,PlotStyle->{Gray,Arrowheads[Small]},EdgeRenderingFunction->(Arrow[#,.3]&)}];
 visualizePathways[bipartiteNetwork:{_Rule..},opts:OptionsPattern[]]:=Module[{vertFunc},
@@ -50,9 +48,6 @@ OptionValue["PlotFunction"][bipartiteNetwork,VertexRenderingFunction->vertFunc,S
 ];
 visualizePathways[rxns:{_reaction..},opts:OptionsPattern[]]:=visualizePathways[reactions2bipartite[rxns],opts]
 visualizePathways[model_MASSmodel,opts:OptionsPattern[]]:=visualizePathways[model2bipartite[model],opts]
-def:visualizePathways[___]:=(Message[Toolbox::badargs,visualizePathways,Defer@def];Abort[])
-
-
 
 
 Options[visualizeGPR]=updateRules[Options[LayeredGraphPlot],{VertexRenderingFunction->({Inset[If[Head[#2]===String,Style[Framed[#2],Background->LightPurple,FontColor->Black],StandardForm@#2],#1]}&),DirectedEdges->False,PlotStyle->{Black},ImageSize->{{800},{300}}}];
@@ -60,13 +55,10 @@ visualizeGPR[model_MASSmodel]:=visualizeGPR/@gpr2graphs[model["GPR"]]
 visualizeGPR[gpr:{_Rule..},opts:OptionsPattern[]]:=Module[{},
 	LayeredGraphPlot[gpr,Sequence@@updateRules[Options[visualizeGPR],List[opts]]]
 ];
-def:visualizeGPR[___]:=(Message[Toolbox::badargs,visualizeGPR,Defer@def];Abort[])
-
 
 
 (* ::Subsection:: *)
 (*Dynamic visualization*)
-
 
 
 tooltipNDSolveSolution[solution_List]:=Module[{tmpSolution},
@@ -74,9 +66,6 @@ tmpSolution=solution;
 While[tmpSolution[[1,0]]===List,tmpSolution=tmpSolution[[1]]];
 Thread[Tooltip[tmpSolution[[All,2]],tmpSolution[[All,1]]]]
 ];
-def:tooltipNDSolveSolution[___]:=(Message[Toolbox::badargs,tooltipNDSolveSolution,Defer@def];Abort[])
-
-
 
 
 Options[legend]={Background->Directive[Opacity[.7,White]],Frame->True,FrameStyle->Thin};
@@ -93,8 +82,6 @@ legend[labels_List,directives_List,opts:OptionsPattern[]]:=Module[{grid},
 	]
 ];
 legend[labels_List,opts:OptionsPattern[]]:=legend[labels,Table[Directive@ColorData[1][i],{i,1,Length[labels]}],opts]
-
-
 
 
 Options[insetLegend]=Join[{"Position"->Right,"Size"->1},Options[legend]];
@@ -114,8 +101,6 @@ insetLegend[labels_List,directives:(_List|_Hold),opts:OptionsPattern[]]:=Module[
 	]
 ];
 insetLegend[labels_List,opts:OptionsPattern[]]:=insetLegend[labels,Hold@Sequence[],opts]
-
-
 
 
 (*Options[plotSimulation]=updateRules[Union[Options[LogLogPlot],Options[ListPlot]],{"PlotFunction"->LogLogPlot,"Tooltipped"->True,"ZeroFac"->1*^-6,Joined->True,"Legend"->False}];*)
@@ -150,16 +135,10 @@ plotSimulation[simulation:{_Rule..},opts:OptionsPattern[]]:=Module[{tStart,tEnd,
 	{tStart,tEnd}={Max[#[[1]]],Min[#[[2]]]}&@Transpose[Cases[adjusted,InterpolatingFunction[{{start_,end_}},___][_]:>{start,end},\[Infinity]]];
 	plotSimulation[adjusted,{t,tStart,tEnd},opts]
 ];
-def:plotSimulation[___]:=(Message[Toolbox::badargs,plotSimulation,Defer@def];Abort[])
-
-
 
 
 Options[ppAnnotate]={startColor->Blue,endColor->Red,size->.04};
 ppAnnotate[variables_List,solution_List,tfinal_,start_:0.,OptionsPattern[]]:={OptionValue[startColor],PointSize[OptionValue[size]],Point[variables/.solution/.t->start],OptionValue[endColor],Point[variables/.solution/.t->tfinal]}
-def:ppAnnotate[___]:=(Message[Toolbox::badargs,ppAnnotate,Defer@def];Abort[])
-
-
 
 
 ppAnnotate2[func1_,func2_,tfinal_,start_:0.]:=Module[{pt1,pt2,startPoint,endPoint},
@@ -169,9 +148,6 @@ startPoint=pt1+.07(pt2-pt1);
 endPoint=pt2+.07(pt1-pt2);
 {Style[Text["\!\(\*SubscriptBox[\(t\), \(0\)]\)",startPoint],FontSize->Scaled[.06]],Style[Text[Subscript["t","\[Infinity]"],endPoint],FontSize->Scaled[.06]]}
 ]
-def:ppAnnotate2[___]:=(Message[Toolbox::badargs,ppAnnotate2,Defer@def];Abort[])
-
-
 
 
 ppColorFunction[func1_,func2_,opts:OptionsPattern[]]:=Module[{endOfAction,min,max,funcs},
@@ -186,8 +162,6 @@ Function[{x,y,time},Black]
 ];
 
 
-
-
 Options[annotateStartEnd]={"StartMarker"->(Style[Text[Subscript["t",ToString[#]]],FontSize->Scaled[.06]]&),"EndMarker"->(Style[Text[Subscript["t",#]],FontSize->Scaled[.06]]&)};
 annotateStartEnd[func1_,func2_,start_?NumberQ,tfinal_?NumberQ,opts:OptionsPattern[]]:=Module[{pt1,pt2,startPoint,endPoint},
 pt1={func1,func2}/.t->start;
@@ -196,9 +170,6 @@ startPoint=pt1+.07(pt2-pt1);
 endPoint=pt2+.07(pt1-pt2);
 {Inset[OptionValue["StartMarker"][start],startPoint],Inset[OptionValue["EndMarker"][tfinal],endPoint]}
 ]
-def:annotateStartEnd[___]:=(Message[Toolbox::badargs,annotateStartEnd,Defer@def];Abort[])
-
-
 
 
 (*Options[plotPhasePortrait]=updateRules[Join[Options[ParametricPlot],Options[Manipulate]],{PlotRangePadding->Scaled[.1],AspectRatio->1,ColorFunctionScaling->False,PlotStyle->Directive[Black,Thickness[.007]],*)
@@ -235,10 +206,6 @@ plotPhasePortrait[simulation:{{_Rule,_Rule}..},{t_Symbol,tMin_?NumberQ,tMax_?Num
 	ParametricPlot[Evaluate[cleanSimulation/.r_Rule:>r[[2]]],{t,tMin,tMax},Evaluate[If[OptionValue["Annotate"]===True,Epilog->(annotateStartEnd[Sequence@@#[[All,2]],tMin,tMax,Sequence@@FilterRules[List@opts,Options[annotateStartEnd]]]&/@cleanSimulation),Unevaluated[Sequence[]]]],Evaluate[Sequence@@plotOpts]]
 ];
 
-def:plotPhasePortrait[___]:=(Message[Toolbox::badargs,plotPhasePortrait,Defer@def];Abort[])
-
-
-
 
 Options[plotTiledPhasePortraits]=updateRules[Options[plotPhasePortrait],{Frame->False,FrameTicks->False}];
 plotTiledPhasePortraits[simulation:{_Rule..},opts:OptionsPattern[]]:=Module[{interPolDat,numericalDat,plotFunction},
@@ -254,13 +221,10 @@ Piecewise[{
 {plotPhasePortrait[{simulation1[[i]],simulation2[[j]]},Frame->False,PlotPoints->1000,PerformanceGoal->"Quality",ImageSize->{Automatic,300}],i!=j},{Quiet@plotSimulation[{simulation1[[i]],simulation2[[j]]},Epilog->Style[Text[simulation1[[i,1,0,1]],ImageScaled@{.9,.85}],FontFamily->"Helvetica",FontSize->Scaled[0.07],Bold],BaseStyle->{FontSize->Scaled[.04]},ImageSize->{Automatic,300}],i==j}}
 ],{i,1,Length[simulation1]},{j,1,Length[simulation2]}],ImageSize->5*200,Frame->False]
 ];
-def:plotTiledPhasePortraits[___]:=(Message[Toolbox::badargs,plotTiledPhasePortraits,Defer@def];Abort[])
-
 
 
 (* ::Subsection:: *)
 (*COBRA*)
-
 
 
 (*Options[plotFVA]=updateRules[Options[Graphics],{BaseStyle->{FontFamily->"Helvetica",FontSize->Scaled[.02]},"Sort"->True}];*)
@@ -290,8 +254,6 @@ Switch[fvaResult[[i,2]],
 {Line[{{i,fvaResult[[i,2,1]]},{i,fvaResult[[i,2,2]]}}]}
 ],{i,1,Length[fvaResult]}],Sequence@@FilterRules[List[opts],Options[Graphics][[All,1]]],PlotRange->All(*PlotRange->{All,{min-EuclideanDistance[min,max]*.3,max+EuclideanDistance[min,max]*.3}}*),AspectRatio->1/6,Frame->True,FrameTicks->({{Automatic,None},{Thread[List[Range[1,Length[#]],Style[Rotate[stringShortener[#,10],90Degree],FontFamily->"Helvetica",FontSize->Scaled[0.005]]&/@#]]&[fvaResult[[All,1]]],None}})]
 ];
-def:plotFVA[___]:=(Message[Toolbox::badargs,plotFVA,Defer@def];Abort[])
-
 
 
 (* ::Subsection:: *)
@@ -325,10 +287,10 @@ getOtherLabels[blub_]:=ToExpression@StringCases[#[[2,1,2]],RegularExpression["(\
 
 
 getCorners[any_]:=Block[{tmp,xMin,xMax,yMin,yMax},
-tmp=Union@Cases[any,{x_?NumberQ,y_?NumberQ,___},\[Infinity]];
-{xMin,xMax}={Min[#],Max[#]}&@tmp[[All,1]];
-{yMin,yMax}={Min[#],Max[#]}&@tmp[[All,2]];
-{xMin,xMax,yMin,yMax}
+	tmp=Union@Cases[any,{x_?NumberQ,y_?NumberQ,___},\[Infinity]];
+	{xMin,xMax}={Min[#],Max[#]}&@tmp[[All,1]];
+	{yMin,yMax}={Min[#],Max[#]}&@tmp[[All,2]];
+	{xMin,xMax,yMin,yMax}
 ];
 
 
@@ -348,7 +310,6 @@ id2internalBIGGrxnID=Reverse/@internalBIGGrxnID2ID;
 id2internalBIGGmetID=Reverse/@internalBIGGmetID2ID;
 
 
-
 importBIGGmap::svgNotFound="`1` does not exist.";
 Options[importBIGGmap]={"MetaboliteMapping"->internalBIGGmetID2ID,"ReactionMapping"->internalBIGGrxnID2ID,"Mirror"->True};
 importBIGGmap[path_String,opts:OptionsPattern[]]:=Module[{xml,textLabels,metabolitePositions,reactionPositions},
@@ -362,7 +323,6 @@ If[OptionValue["Mirror"],#/.{x_?NumberQ,y_?NumberQ,other___}:>{-1*x,y,other},#]&
 ];
 
 
-
 drawMesh[xMin_Real,xMax_Real,yMin_Real,yMax_Real,part_:5,hLabels_List:CharacterRange["A","Z"],vLabels_List:(ToString/@Range[1,1000])]:=Block[{borders,vLines,hLines,labelCoordinates,labels},
 borders=Graphics[{EdgeForm[Directive[Black,Thin]],White,Rectangle[{xMin,yMin},{xMax,yMax}]}];
 vLines=Table[Line[{{pos,yMin},{pos,yMax}}],{pos,xMin,xMax,Abs[xMin-xMax]/part}];
@@ -371,7 +331,6 @@ labelCoordinates=Table[{posX,posY},{posX,xMin,xMax,Abs[xMin-xMax]/part},{posY,yM
 labels=Table[Style[Text[hLabels[[i]]<>vLabels[[j]],labelCoordinates[[i,j]]+{150,100}],10,Gray,FontFamily->"Helvetica"],{i,1,Length[labelCoordinates]-1},{j,1,Length[labelCoordinates[[1]]]-1}];
 Show[borders,Graphics[{Dashed,Thin,vLines[[2;;-2]]}],Graphics[{Dashed,Thin,hLines[[2;;-2]]}],Graphics[labels]]
 ];
-
 
 
 Options[drawMetaboliteMap]={"Style"->{},"DefaultStyle"->{Lighter@Gray,PointSize[0.01]},"Tooltips"->True,"Hyperlinks"->False};
@@ -386,8 +345,6 @@ url="http://bigg.ucsd.edu/bigg/view3.pl?type=metabolite&id="<>ToString[(mets[[Al
 Button[graphicElements[[i]],SystemOpen[#]]&[url],{i,1,Length[graphicElements]}]];
 Graphics[graphicElements/.elem:(_PointSize):>elem[[0]][elem[[1]]*(1/aspectRatio)]]
 ];
-
-
 
 
 Options[drawReactionMap]={"AbsentStyle"->{Dotted,Thickness[0.001],Lighter@Gray},"DefaultStyle"->{Thickness[0.002],Gray},"Tooltips"->True,"Style"->{},"Directed"->True,"Arrowheads"->0.01,"Hyperlinks"->False};
@@ -419,11 +376,9 @@ Graphics[graphicElements/.elem:(_Thickness|_PointSize|_ArrowHeads):>elem[[0]][el
 ];
 
 
-
 $SimphenyInternalIDsToNames={"252134"->"iMM904_COMBINED","294177"->"iJR904_Alternate_Carbon_Sources","133267"->"iJR904_Amino_Acid_Metabolism","225959"->"iJR904_Cell_Membrane_Constituents","224016"->"iJR904_Central_Metabolism","303020"->"iJR904_Cofactor_Biosynthesis","305120"->"iJR904_Nucleotide_Metabolism","234509"->"iJR904_COMBINED","1226614"->"iAF1260_Alternate_Carbon_Sources","1230565"->"iAF1260_Amino_Acid_Metabolism","1555394"->"iAF1260_Central_Metabolism","1240422"->"iAF1260_Cofactor_Biosynthesis","1233958"->"iAF1260_Fatty_Acid_Biosynthesis","861115"->"iAF1260_Inorganic_Ion_Transport_(Inner_Membrane)","1243392"->"iAF1260_Lipopolysaccharide_(LPS)_Biosynthesis","651224"->"iAF1260_Murein_Biosynthesis_and_Recycling","1237864"->"iAF1260_Nucleotide_Metabolism","1225142"->"iAF1260_tRNA_Charging","1276939"->"iAF1260_COMBINED","745364"->"Recon1_AMINO_ACID_METABOLISM","607474"->"Recon1_CARBOHYDRATE_METABOLISM","854888"->"Recon1_ENERGY_METABOLISM","681892"->"Recon1_GLYCAN_METABOLISM","1103958"->"Recon1_LIPID_METABOLISM","700994"->"Recon1_NUCLEOTIDE_METABOLISM","821108"->"Recon1_SECONDARY_METABOLITES","851235"->"Recon1_VITAMIN_&_COFACTOR_METABOLISM","1014133"->"Recon1_COMBINED","22199"->"iND750_Amino_Acid_Metabolism","35089"->"iND750_Cofactor_and_Vitamin_Biosynthesis","38537"->"iND750_Lipid_Metabolism","20179"->"iND750_Nucleotide_Metabolism","666364"->"iND750_COMBINED","382379"->"iAF692_Vitamin_and_Cofactor_Biosynthesis","441083"->"iAF692_Nucleotide_Metabolism","447592"->"iAF692_COMBINED","549"->"iIT341_Central_Metabolism","503671"->"iIT341_Co-set_Order","387841"->"iIT341_COMBINED","340794"->"iSB619_Amino_Acid_Metabolism","340815"->"iSB619_Biomass","340795"->"iSB619_Central_Metabolism","340806"->"iSB619_Cofactor_Biosynthesis","385801"->"iSB619_Heme_Biosynthesis","340797"->"iSB619_Oxidative_Phosphorylation","340798"->"iSB619_Pentose_Phosphate","340800"->"iSB619_Purine/Pyrimidine_Metabolism","390808"->"iSB619_COMBINED","1576807"->"EcoliCore_coreMap","1148996"->"iNJ661_COMBINED"};
 $AVAILABLEMAPS=StringReplace[FileNameSplit[#][[-1]],"_toolbox.json.gz"->""]->#&/@FileNames["*.gz",{FileNameJoin[{$ToolboxPath,"maps","bigg_maps"}]}];
 $AVAILABLEMAPS=Select[$AVAILABLEMAPS,!StringMatchQ[#[[1]],RegularExpression["^\\d+"]]&];
-
 
 
 Options[drawPathway]={"CompoundLabels"->True,"ReactionLabels"->True,"TextLabels"->False,"MinMaxHack"->False,"PlotLegends"->None,"Tooltips"->True,"ColorFunctionScaling"->True,"Boundary"->False,"ReactionData"->{},"MetaboliteData"->{},ColorFunction->ColorData["Rainbow"],"MinSize"->0.005,"MaxSize"->0.01,"MinThickness"->0.001,"MaxThickness"->0.003,"TextStyle"->{FontFamily->"Arial",FontSize->Scaled[.008]},"MetaboliteStyle"->Options[drawMetaboliteMap],"ReactionStyle"->Options[drawReactionMap],ImageSize->350};
@@ -482,8 +437,6 @@ drawPathway[metPos:{_Rule..},rxnPos:{_Rule..},textPos:({(_Text|_Rule|_Style)..}|
 		Legended[map,BarLegend[{If[MatchQ[OptionValue["ColorFunction"],_ColorDataFunction],OptionValue["ColorFunction"][[1]],helperFunc[OptionValue["ColorFunction"]][#]&],{min,max}},If[MatchQ[OptionValue["PlotLegends"],{_Rule..}],Sequence@@OptionValue["PlotLegends"],Unevaluated[Sequence[]]]]],map];
 	map
 ];
-def:drawPathway[___]:=(Message[Toolbox::badargs,drawPathway,Defer@def];Abort[])
-
 
 
 (* ::Subsection:: *)
@@ -537,8 +490,6 @@ drawNodeMaps[model_MASSmodel,opts:OptionsPattern[{drawNodeMaps,GraphPlot}]]:=Mod
 	legendFunc=If[OptionValue["Legend"]===True&&OptionValue["Fluxes"]=!={},Legended[#,Rasterize@BarLegend[{colorFunction[[1]],{0,maxFlux}},LegendLabel->"Flux\nmmol \!\(\*SuperscriptBox[\(h\), \(-1\)]\) \!\(\*SuperscriptBox[\(gDW\), \(-1\)]\)",LabelStyle->{FontFamily->"Helvetica"}]]&,#&];
 	#[[1]]->legendFunc[GraphPlot[#[[2]],VertexCoordinateRules->Join[N@nodeMapCoordinates[#[[2]]],{#[[1]]->{0,0}}],PlotStyle->Gray,VertexLabeling->True,ImageSize->600,EdgeRenderingFunction->edgeRenderingFunc,VertexRenderingFunction->nodeRenderingFunc,PlotLabel->Style[#,Which[#[[1,2,1]]<0,Red,#[[1,2,1]]>0,Green,True,Black],FontFamily->"Helvetica",FontSize->Scaled[.025]]&[Row[{"Net flux: ",ScientificForm@Chop[#[[1]]/.netFluxes/.activeFluxes/._v->0]}]],Sequence@@FilterRules[{opts},Options[GraphPlot]]]]&/@nodeMapGraphs
 ];
-def:drawNodeMaps[___]:=(Message[Toolbox::badargs,drawNodeMaps,Defer@def];Abort[])
-
 
 
 (* ::Subsection:: *)

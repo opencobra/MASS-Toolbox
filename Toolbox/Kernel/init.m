@@ -57,7 +57,7 @@ GurobiML::notinstalled="GurobiML seems to be not installed. Advanced LP/MILP/QP 
 (*Column[{icon,progtext,If[$FrontEnd=!=Null,ProgressIndicator[prog,{1,22}],prog]}]*)
 
 
-Module[{licenseInfo,icon,delay,stubStream,bkupoutput,prog,progtext,names},
+Module[{licenseInfo,icon,delay,stubStream,bkupoutput,prog,progtext,names,rules,messageCode},
 licenseInfo="Copyright (c) 2013, Regents of the University of California
 All rights reserved.
 Evaluate $ToolboxLicense for more information";
@@ -120,9 +120,12 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	progtext="Loading ExampleData ...";Get["Toolbox`ExampleData`"];prog++;delay[];
 	
 	(* Display error message for all functions for incorrect inputs *)
-	Toolbox::badargs="There is no definition for '``' applicable to ``."
-	names = ToExpression[Select[Join[Names["Toolbox`*"],Names["Toolbox`Private`*"]],StringFreeQ[#,"$"]&]];
-	Do[def:func[___]:=(Message[Toolbox::badargs,func,Defer@def];Abort[]),{func,names}];
+	Toolbox`Toolbox::badargs="There is no definition for '`1`' applicable to `2`.";
+	names = Complement[ToExpression[Select[Names["Toolbox`*"],StringFreeQ[#,"$"]&]],Join[Toolbox`$MASS$parameterTypes,Toolbox`$MASS$speciesTypes,{Toolbox`reaction,Toolbox`v}]];
+	Toolbox`$names = names;
+	rules={func->#}&/@names;
+	messageCode = Hold[def:func[___]:=(Message[Toolbox`Toolbox::badargs,Evaluate[func],Defer@def];Abort[])]/.rules;
+	ReleaseHold/@messageCode;
 
 	(* Protect all public function names *)
 	Protect["Toolbox`*"];
@@ -134,6 +137,8 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 (* ::Section:: *)
 (*Backwards compatibility*)
 
+
+(Unprotect[#];Evaluate[Symbol["MASStoolbox`MASS`"<>ToString[#]]]:=Evaluate[Symbol["Toolbox`"<>ToString[#]]];Protect[#])&/@(Join[$MASS$speciesTypes,$MASS$parameterTypes,{v,reaction,gene,geneComplex,protein,proteinComplex,enzyme}]);
 
 Toolbox`MASS`metabolite := metabolite
 Toolbox`MASS`v := v

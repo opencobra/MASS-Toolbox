@@ -28,7 +28,6 @@ RecurrenceTable[{\[Omega][t]==\[Omega][t-1]+d[numParameters+1-t],\[Omega][1]==\[
 ];
 
 
-
 Options[FASTsimul]={"Frequencies"->Automatic,"SearchFunction"->(#1 Exp[4.39*Sin[#2*#3]]&),"SampleNum"->Automatic,"Partitioning"->"Saltelli99","ProgressBar"->True};
 FASTsimul::freq="Provided frequencies `1` do not match the pattern of a list of integers `2`.";
 FASTsimul::samplenum="Provided sample number `1` do not match the pattern of a integer `2`.";

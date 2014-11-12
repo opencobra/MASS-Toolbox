@@ -41,7 +41,6 @@ v/:ToString[flux_v]:=StringJoin["v_"<>getID[flux]]
 v/:getID[flux_v]:=flux[[1]]
 
 
-
 (* ::Subsection:: *)
 (*Compounds*)
 
@@ -49,29 +48,18 @@ v/:getID[flux_v]:=flux[[1]]
 chemicalElements={"H","He","Li","Be","B","C","N","O","F","Ne","Na","Mg","Al","Si","P","S","Cl","Ar","K","Ca","Sc","Ti","V","Cr","Mn","Fe","Co","Ni","Cu","Zn","Ga","Ge","As","Se","Br","Kr","Rb","Sr","Y","Zr","Nb","Mo","Tc","Ru","Rh","Pd","Ag","Cd","In","Sn","Sb","Te","I","Xe","Cs","Ba","La","Ce","Pr","Nd","Pm","Sm","Eu","Gd","Tb","Dy","Ho","Er","Tm","Yb","Lu","Hf","Ta","W","Re","Os","Ir","Pt","Au","Hg","Tl","Pb","Bi","Po","At","Rn","Fr","Ra","Ac","Th","Pa","U","Np","Pu","Am","Cm","Bk","Cf","Es","Fm","Md","No","Lr","Rf","Db","Sg","Bh","Hs","Mt","Ds","Rg","Cn","Uut","Uuq","Uup","Uuh","Uus","Uuo"};
 
 
-
-
 smiles2elementalComposition[smiles_String]:=Module[{},
 inchi2elementalComposition[Import["!source ~/.bashrc ; echo '"<>smiles<>"' | obabel -i smi -o inchi","Text"]]
 ];
 smiles2elementalComposition[smiles_SMILES]:=smiles2elementalComposition[smiles[[1]]]
-def:smiles2elementalComposition[___]:=(Message[Toolbox::badargs,smiles2elementalComposition,Defer@def];Abort[])
-
-
 
 
 inchi2elementalComposition[inchi_String]:=formula2elementalComposition[StringSplit[inchi,"/"][[2]]]
 inchi2elementalComposition[inchi_InChI]:=inchi2elementalComposition[inchi[[1]]]
-def:inchi2elementalComposition[___]:=(Message[Toolbox::badargs,inchi2elementalComposition,Defer@def];Abort[])
-
-
 
 
 inchi2simpleInchi[inchi_String]:=StringJoin[Sequence@@Riffle[If[Length[#]>3,#[[1;;4]],#]&@StringSplit[inchi,"/"],"/"]]
 inchi2simpleInchi[inchi_InChI]:=InChI[inchi2simpleInchi[inchi[[1]]]]
-def:inchi2simpleInchi[___]:=(Message[Toolbox::badargs,inchi2simpleInchi,Defer@def];Abort[])
-
-
 
 
 Options[elementalComposition2formula]={"PseudoElements"->True,"EscapingCharacter"->"&"};
@@ -89,9 +77,6 @@ elementalComposition2formula[composition:_String,opts:OptionsPattern[]]:=Module[
 elementalComposition2formula[composition:_Times,opts:OptionsPattern[]]:=Module[{},
 	elementalComposition2formula[{Cases[#,_String][[1]]->Cases[#,_?NumberQ][[1]]},opts]&[composition]
 ];
-def:elementalComposition2formula[___]:=(Message[Toolbox::badargs,elementalComposition2formula,Defer@def];Abort[])
-
-
 
 
 Options[formula2elementalComposition]=Options[elementalComposition2formula];
@@ -105,9 +90,6 @@ formula2elementalComposition[formula_String,opts:OptionsPattern[]]:=Module[{tmp,
 	tmp=Sort[Join[realElements,weirdElements]];
 	tmp=Plus@@Times@@@tmp
 ];
-def:formula2elementalComposition[___]:=(Message[Toolbox::badargs,formula2elementalComposition,Defer@def];Abort[])
-
-
 
 
 metabolite[id_String]:=metabolite[id,None];
@@ -123,8 +105,6 @@ metabolite/:getCompartment[m_metabolite]:=m[[2]]
 metabolite/:setCompartment[m_metabolite,compartment:(_String|None)]:=metabolite[getID[m],compartment]
 
 
-
-
 species[id_String]:=species[id,None];
 species/:MakeBoxes[species[id_String,None],_]:=InterpretationBox[#,species[id,None],Editable->False,Selectable->False]&[simplyBlack[id]];
 species/:MakeBoxes[species[id_String,compartment_Blank],_]:=InterpretationBox[#,species[id,Blank[]],Editable->False,Selectable->False]&[simplyBlack[id],simplyBlack["_"]];
@@ -137,18 +117,13 @@ species/:getCompartment[m_species]:=m[[2]]
 species/:setCompartment[m_species,compartment:(_String|None)]:=metabolite[getID[m],compartment]
 
 
-
-
 m[a___]:=Evaluate@metabolite[a]
-
-
 
 
 InChI/:getID[cmpd_InChI]:=cmpd[[1]];
 
 
 SMILES/:getID[cmpd_SMILES]:=cmpd[[1]];
-
 
 
 (* ::Subsection:: *)
@@ -197,55 +172,37 @@ reaction/:Reverse[rxn_reaction]:=reaction[getID[rxn],getProducts[rxn],getSubstra
 
 
 reaction/:getID[rxn_reaction]:=rxn[[1]];
-def:getID[___]:=(Message[Toolbox::badargs,getID,Defer@def];Abort[])
 
 reaction/:getCompounds[rxn_reaction]:=Join[rxn[[2]],rxn[[3]]];
-def:getCompounds[___]:=(Message[Toolbox::badargs,getCompounds,Defer@def];Abort[])
 
 reaction/:getSpecies[rxn_reaction]:=Join[rxn[[2]],rxn[[3]]];
-def:getSpecies[___]:=(Message[Toolbox::badargs,getSpecies,Defer@def];Abort[])
 
 reaction/:getSubstrates[rxn_reaction]:=rxn[[2]];
-def:getSubstrates[___]:=(Message[Toolbox::badargs,getSubstrates,Defer@def];Abort[])
 
 reaction/:getProducts[rxn_reaction]:=rxn[[3]];
-def:getProducts[___]:=(Message[Toolbox::badargs,getProducts,Defer@def];Abort[])
 
 reaction/:getStoichiometry[rxn_reaction]:=rxn[[4]];
+
 reaction/:S[rxn_reaction]:=getStoichiometry[rxn]
-def:getStoichiometry[___]:=(Message[Toolbox::badargs,getStoichiometry,Defer@def];Abort[])
 
 reaction/:getSignedStoich[rxn_reaction]:=Join[-getSubstrStoich[rxn],getProdStoich[rxn]];
-def:getSignedStoich[___]:=(Message[Toolbox::badargs,getSignedStoich,Defer@def];Abort[])
 
 reaction/:getSubstrStoich[rxn_reaction]:=rxn[[4]][[1;;Length[rxn[[2]]]]];
-def:getSubstrStoich[___]:=(Message[Toolbox::badargs,getSubstrStoich,Defer@def];Abort[])
 
 reaction/:getProdStoich[rxn_reaction]:=rxn[[4]][[Length[rxn[[2]]]+1;;]];
-def:getProdStoich[___]:=(Message[Toolbox::badargs,getProdStoich,Defer@def];Abort[])
 
 reaction/:getCompartment[rxn_reaction]:=If[Length[#]==1,#[[1]],#]&[Union[getCompartment/@getCompounds[rxn]]];
-def:getCompartment[___]:=(Message[Toolbox::badargs,getCompartment,Defer@def];Abort[])
 
 reaction/:reversibleQ[rxn_reaction]:=rxn[[5]];
-def:reversibleQ[___]:=(Message[Toolbox::badargs,reversibleQ,Defer@def];Abort[])
 
 reaction/:makeReversible[rxn_reaction]:=ReplacePart[rxn,-1->True];
-def:makeReversible[___]:=(Message[Toolbox::badargs,makeReversible,Defer@def];Abort[])
 
 reaction/:makeIrreversible[rxn_reaction]:=ReplacePart[rxn,-1->False];
-def:makeIrreversible[___]:=(Message[Toolbox::badargs,makeIrreversible,Defer@def];Abort[])
 
 reactionQ[stuff_]:=MatchQ[stuff,reaction[__]];
 
 
-
-
-
-
 r[a___]:=reaction[a]
-
-
 
 
 reactionFromString[rxn_String,rev_:"<=>",irev_:"-->"]:=Module[{id,rest,revQ,lhs,rhs,substrStoich,substr,prodStoich,prod,metsAndStoich,cleanUpRedundant},
@@ -264,7 +221,6 @@ reactionFromString[rxn_String,rev_:"<=>",irev_:"-->"]:=Module[{id,rest,revQ,lhs,
 	];
 	reaction[id,Flatten@substr,Flatten@prod,Flatten[Join[substrStoich,prodStoich]]/. 1.->1,revQ]
 ];
-def:reactionFromString[___]:=(Message[Toolbox::badargs,reactionFromString,Defer@def];Abort[])
 
 
 (* ::Subsection:: *)
@@ -282,8 +238,6 @@ gene/:MakeBoxes[gene[id_String,blank_Blank,opts:OptionsPattern[]],_]:=Interpreta
 gene/:MakeBoxes[gene[id_String,comp_String,opts:OptionsPattern[]],_]:=InterpretationBox[#,gene[id,comp,opts],Selectable->False,Editable->False]&[geneStyle[FrameBox[SuperscriptBox[id,comp]]]];
 
 
-
-
 protein[id_String,opts:OptionsPattern[]]:=protein[id,None,opts]
 protein/:getID[p_protein]:=p[[1]]
 protein/:getCompartment[p_protein]:=p[[2]]
@@ -295,17 +249,12 @@ protein/:MakeBoxes[protein[id_String,blank_Blank,opts:OptionsPattern[]],_]:=Inte
 protein/:MakeBoxes[protein[id_String,comp_String,opts:OptionsPattern[]],_]:=InterpretationBox[#,protein[id,comp,opts],Selectable->False,Editable->False]&[proteinStyle[FrameBox[SuperscriptBox[id,comp]]]];
 
 
-
-
 geneComplex/:MakeBoxes[geneComplex[genes__/;MatchQ[List[genes],{(True|_gene)..}]],_]:=StyleBox[InterpretationBox[FrameBox[GridBox[#]],geneComplex[genes],Selectable->False,Editable->False],Background->LightGray]&[If[Length[#]<=4,Partition[#,2,2,1,""],Partition[#,3,3,1,""]]&[MakeBoxes[#,StandardForm]&/@List[genes]]];
 geneComplex[genes__/;MemberQ[List[genes],False]]:=False
 
 
-
-
 proteinComplex[proteins__/;MemberQ[List[proteins],False]]:=False
 proteinComplex/:MakeBoxes[proteinComplex[proteins__/;MatchQ[List[proteins],{(True|_protein)..}]],_]:=StyleBox[InterpretationBox[FrameBox[GridBox[#]],proteinComplex[proteins],Selectable->False,Editable->False],Background->LightGray]&[If[Length[#]<=4,Partition[#,2,2,1,""],Partition[#,3,3,1,""]]&[MakeBoxes[#,StandardForm]&/@List[proteins]]];
-
 
 
 (* ::Subsection:: *)
@@ -375,14 +324,8 @@ enzyme/:ToString[E_enzyme]:=Module[{adjustSpeciesCompartments,id,comp,catalytic,
 ];
 enzyme/:ToString[E_enzyme,"SBML"]:=makeIdXmlConform[ToString[E]]
 
-(*def:enzyme[___]:=(Message[Toolbox::badargs,enzyme,Defer@def];Abort[])*)
-
-
-
-
 
 e[a___]:=enzyme[a]
-
 
 
 (* ::Subsection:: *)
@@ -396,8 +339,6 @@ complex[elements__]:=Block[{$preventRecursion=True,comp},
 	complex[elements]
 ]/;!TrueQ[$preventRecursion]
 complex/:MakeBoxes[complex[elements__],_]:=StyleBox[InterpretationBox[FrameBox[GridBox[#]],complex[elements],Selectable->False,Editable->False],Background->LightGray]&[If[Length[#]<=4,Partition[#,2,2,1,""],Partition[#,3,3,1,""]]&[MakeBoxes[#,StandardForm]&/@List[elements]]];
-
-
 
 
 complex/:MakeBoxes[complex[elem__],_]:=InterpretationBox[GridBox[#,GridBoxDividers->{"Rows"->{{True}},"Columns"->{{True}}}],complex[elem],Selectable->False,Editable->False]&[If[Length[#]<=4,Partition[#,2,2,1,""],Partition[#,3,3,1,""]]&[MakeBoxes[#,StandardForm]&/@(Times@@@Tally[List[elem]])]]
@@ -426,14 +367,10 @@ rateconst/:ToString[k_rateconst,"SBML"]:=makeIdXmlConform[ToString[k]];
 k[a___]:=Evaluate@rateconst[a]
 
 
-
-
 Keq/:MakeBoxes[Keq[fluxID_String],_]:=InterpretationBox[UnderscriptBox["K",#],Keq[fluxID],Selectable->False,Editable->False]&[simplyBlack[fluxID]]
 Keq/:getID[k_Keq]:=k[[1]]
 Keq/:ToString[K_Keq]:="Keq_"<>getID[K];
 Keq/:ToString[K_Keq,"SBML"]:=makeIdXmlConform[ToString[K]];
-
-
 
 
 vmax/:MakeBoxes[vmax[rxnID_String],_]:=InterpretationBox[UnderscriptBox[SubscriptBox["v",#2],#],vmax[rxnID],Selectable->False,Editable->False]&[simplyBlack[rxnID],simplyBlack["max"]]
@@ -443,15 +380,11 @@ vmax/:ToString[param_vmax]:="vmax_"<>getID[param];
 vmax/:ToString[param_vmax,"SBML"]:=makeIdXmlConform[ToString[param]];
 
 
-
-
 Km[m:$MASS$speciesPattern,rxnID_String]:=Block[{$preventRecursion=True},Km[wrapHead[m],rxnID]]/;!TrueQ[$preventRecursion];
 Km/:MakeBoxes[Km[met_,rxnID_String],_]:=With[{m=ToBoxes@unwrapHead[met],r=simplyBlack[rxnID]},InterpretationBox[SubsuperscriptBox[SubscriptBox["K","m"],r,m],Km[met,rxnID],Selectable->False,Editable->False]]
 Km/:getID[param_Km]:={unwrapHead[param[[1]]],param[[2]]}
 Km/:ToString[param_Km]:="Km_"<>StringJoin[Sequence@@Riffle[ToString/@getID[param],"_"]];
 Km/:ToString[param_Km,"SBML"]:=makeIdXmlConform[ToString[param]];
-
-
 
 
 Ki[m:$MASS$speciesPattern,rxnID_String]:=Block[{$preventRecursion=True},Ki[wrapHead[m],rxnID]]/;!TrueQ[$preventRecursion];
@@ -461,15 +394,11 @@ Ki/:ToString[param_Ki]:="Ki_"<>StringJoin[Sequence@@Riffle[ToString/@getID[param
 Ki/:ToString[param_Ki,"SBML"]:=makeIdXmlConform[ToString[param]];
 
 
-
-
 Kd[m:$MASS$speciesPattern,rxnID_String]:=Block[{$preventRecursion=True},Kd[wrapHead[m],rxnID]]/;!TrueQ[$preventRecursion];
 Kd/:MakeBoxes[Kd[met_,rxnID_String],_]:=With[{m=ToBoxes@unwrapHead[met],r=simplyBlack[rxnID]},InterpretationBox[SubsuperscriptBox[SubscriptBox["K","d"],r,m],Kd[met,rxnID],Selectable->False,Editable->False]]
 Kd/:getID[param_Kd]:={unwrapHead[param[[1]]],param[[2]]}
 Kd/:ToString[param_Kd]:="Kd_"<>StringJoin[Sequence@@Riffle[ToString/@getID[param],"_"]];
 Kd/:ToString[param_Kd,"SBML"]:=makeIdXmlConform[ToString[param]];
-
-
 
 
 parameter/:MakeBoxes[parameter[paramID_String,rxnID_String],_]:=InterpretationBox[UnderscriptBox[#,#2],parameter[paramID,rxnID],Selectable->False,Editable->False]&[simplyBlack[paramID],simplyBlack[rxnID]]
@@ -481,11 +410,7 @@ parameter/:ToString[param_parameter,"SBML"]:=makeIdXmlConform[ToString[param]];
 parameter["Volume",None]:=1;
 
 
-
-
 p[a___]:=Evaluate@parameter[a]
-
-
 
 
 complementParameters[param:{_Rule...}]:=Module[{ids,completeSet},
@@ -498,8 +423,6 @@ complementParameters[param:{_Rule...}]:=Module[{ids,completeSet},
 	]
 ];
 complementParameters[{}]:={}
-def:complementParameters[___]:=(Message[Toolbox::badargs,complementParameters,Defer@def];Abort[])
-
 
 
 (* ::Subsection:: *)

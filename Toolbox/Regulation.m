@@ -15,7 +15,6 @@ Begin["`Private`"]
 (*Util*)
 
 
-
 solveEnzymeSteadyStateEquations[enzymeModule_MASSmodel]:=Module[{enzForms,ssEq,enzPool,sol},
 	enzForms=Cases[enzymeModule["Species"],_enzyme];
 	ssEq=getEnzymeSteadyStateEquations[enzymeModule][[All,2]];
@@ -23,16 +22,11 @@ solveEnzymeSteadyStateEquations[enzymeModule_MASSmodel]:=Module[{enzForms,ssEq,e
 	sol=anonymize[Solve[Join[ssEq,{enzPool}],enzForms]];
 	Switch[sol,{},sol,{_List},sol[[1]],{_List..},sol]
 ];
-def:solveEnzymeSteadyStateEquations[___]:=(Message[Toolbox::badargs,solveEnzymeSteadyStateEquations,Defer@def];Abort[])
-
-
 
 
 getEnzymeSteadyStateEquations[enzModule_MASSmodel]:=Module[{},
 	stripTime[FilterRules[Thread[enzModule["Species"]->enzModule["ODE"]],_enzyme]/._'[t]->0]
 ];
-def:getEnzymeSteadyStateEquations[___]:=(Message[Toolbox::badargs,getEnzymeSteadyStateEquations,Defer@def];Abort[])
-
 
 
 haldaneRelation[rxnID_String,elementaryRxns:{_reaction..}]:=Keq[rxnID]==Times@@(rateconst[getID@#,True]&/@elementaryRxns)/Times@@(rateconst[getID@#,False]&/@elementaryRxns)
@@ -40,7 +34,6 @@ haldaneRelation[rxnID_String,elementaryRxns:{_reaction..}]:=Keq[rxnID]==Times@@(
 
 (* ::Subsection:: *)
 (*Regulatory modules*)
-
 
 
 Options[constructEnzymeModule]={"ID"->"","Compartment"->_,"Substrates"->{},"Products"->{},"Mechanism"->"Ordered","ActivationSites"->0,"InhibitionSites"->0,"Activators"->{},"Inhibitors"->{},"Effectors"->{}};
@@ -80,15 +73,9 @@ If[OptionValue["ActivationSites"]==0||OptionValue["Activators"]=={},unifyRateCon
 
 constructEnzymeModule[rxn_reaction,activatingBindingSites_Integer,inhibitingBindingSites_Integer,activators:({_metabolite..}|{}):{},inhibitors:({_metabolite..}|{}):{},opts:OptionsPattern[]]:=
 	constructEnzymeModule[rxn,Sequence@@updateRules[{"ActivationSites"->activatingBindingSites,"InhibitionSites"->inhibitingBindingSites,"Activators"->activators,"Inhibitors"->inhibitors},List[opts]]];
-def:constructEnzymeModule[___]:=(Message[Toolbox::badargs,constructEnzymeModule,Defer@def];Abort[])
-
-
 
 
 unifyRateConstants[rates_,postfixRegEx_String:"\$\\d+"]:=rates/.s_String:>StringReplace[s,RegularExpression[postfixRegEx]->""]
-def:unifyRateConstants[___]:=(Message[Toolbox::badargs,unifyRateConstants,Defer@def];Abort[])
-
-
 
 
 correctRatesForBindingSites[rates:(_List|_Times)]:=Module[{correctingRules},
@@ -103,9 +90,6 @@ parameter["Volume",_]-e2_enzyme[t] kRev_rateconst+e1_enzyme[t] m:$MASS$speciesPa
 };
 rates/.correctingRules
 ];
-def:correctRatesForBindingSites[___]:=(Message[Toolbox::badargs,correctRatesForBindingSites,Defer@def];Abort[])
-
-
 
 
 generateCatalyticReactions::unknownMechanism="`1` is not a valid mechanism. Try \"Ordered\", \"Random\", \"Ping-Pong\".";
@@ -119,8 +103,6 @@ Switch[OptionValue["Mechanism"],
 _,Message[generateCatalyticReactions::unknownMechanism,OptionValue["Mechanism"]];Abort[];
 ]
 ];
-def:generateCatalyticReactions[___]:=(Message[Toolbox::badargs,generateCatalyticReactions,Defer@def];Abort[])
-
 
 
 Options[generateCatalyticReactionsOrdered]=Options[constructEnzymeModule];
@@ -248,15 +230,12 @@ isomerization[enzymeForms1:{_enzyme..},enzymeForms2:{_enzyme..},rxnIDprefix_Stri
 (*King-Altman Method*)
 
 
-
 kineticMatrix[model_MASSmodel]:=Module[{enzPos,enzForms,ssEquations},
 enzPos=Flatten[Position[model["Species"],_enzyme]];
 enzForms=model["Species"][[enzPos]];
 ssEquations=model["ODE"][[enzPos]][[All,2]]/.elem_[t]:>elem;
 {enzForms,Normal[CoefficientArrays[ssEquations,enzForms]][[2]]}
 ];
-def:kineticMatrix[___]:=(Message[Toolbox::badargs,kineticMatrix,Defer@def];Abort[])
-
 
 
 KingAltmanPatterns[model_MASSmodel]:=Module[{kMat,distributionTerms,kJJ,enzForms},
@@ -268,7 +247,6 @@ enzForms[[i]]->anonymize[Det[kJJ]],{i,1,Length[enzForms]}
 ];
 Table[enzForms[[i]]->(distributionTerms[[i,2]]/(Plus@@distributionTerms[[All,2]]))*parameter["Etot"],{i,1,Length[distributionTerms]}]
 ];
-def:KingAltmanPatterns[___]:=(Message[Toolbox::badargs,KingAltmanPatterns,Defer@def];Abort[])
 
 
 (* ::Subsection::Closed:: *)

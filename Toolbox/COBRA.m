@@ -100,9 +100,6 @@ fba[model_MASSmodel,obj_,bounds:({_Rule..}|{}):{},opts:OptionsPattern[{fba,Linea
 		_,Message[fba::solverSolutionProblem,Short@solution,OptionValue["Solver"]];Abort[];
 	]
 ];
-def:fba[stuff___]:=(Message[Toolbox::badargs,1,ToString@stuff];Abort[])
-
-
 
 
 Options[looplessFBA]=Options[fba];
@@ -113,8 +110,6 @@ looplessFBA[model_MASSmodel,obj_,bounds:({_Rule..}|{}):{},opts:OptionsPattern[]]
 			,LinearProgramming::lpip];
 	solution[[1;;Length[model["Fluxes"]]]]
 ];
-def:looplessFBA[___]:=(Message[Toolbox::badargs,fba,Defer@def];Abort[])
-
 
 
 (*
@@ -135,7 +130,7 @@ fva[model_MASSmodel,bounds:({_Rule..}|{}):{},opts:OptionsPattern[]]:=Module[{max
 	];
 	result
 ];
-def:fva[___]:=(Message[Toolbox::badargs,fva,Defer@def];Abort[])
+
 *)
 
 
@@ -158,9 +153,6 @@ fva[model_MASSmodel,bounds:({_Rule..}|{}):{},opts:OptionsPattern[]]:=Module[{max
 	];
 	result
 ];
-def:fva[___]:=(Message[Toolbox::badargs,fva,Defer@def];Abort[])
-
-
 
 
 Options[reduceModel]=Options[fva];
@@ -168,8 +160,6 @@ reduceModel[model_MASSmodel,bounds:({_Rule..}|{}):{},opts:OptionsPattern[]]:=Mod
 	blocked=Cases[Chop@fva[model,bounds,opts],r_Rule/;r[[2]]=={0,0}][[All,1]];
 	deleteReactions[model,blocked]
 ];
-def:reduceModel[___]:=(Message[Toolbox::badargs,reduceModel,Defer@def];Abort[])
-
 
 
 optiontest::wrngoption="The provided value `1` for option `2` does not pass the following test: `3`.";
@@ -195,7 +185,6 @@ gimme[model_MASSmodel,objective_,data:{_Rule...},opts:OptionsPattern[]]:=Module[
 ];
 
 
-
 Options[GurobiFVA]=updateRules[Options[LinearProgramming],{"Infinity"->1.*^10}];
 GurobiFVA::objdimension="Objective vector (size:`1`) should have a compatible shape with the provide matrix (`2`).";
 GurobiFVA::rxnnotexist="Reaction `1` in objective specification does not exist in problem description.";
@@ -207,8 +196,6 @@ GurobiFVA[stoichiometry_?MatrixQ,colIDs_List,bounds:({_Rule..}|{}):{},opts:Optio
 	Thread[Rule[v/@colIDs,Transpose[solution]]]
 ];
 GurobiFVA[model_MASSmodel,bounds:({_Rule..}|{}):{},opts:OptionsPattern[]]:=Module[{},GurobiFVA[model["Stoichiometry"],getID/@model["Fluxes"],updateRules[model["Constraints"],bounds]/.flux_v:>getID[flux],opts]]
-def:GurobiFVA[___]:=(Message[Toolbox::badargs,GurobiFVA,Defer@def];Abort[])
-
 
 
 (* ::Subsubsection:: *)
@@ -242,9 +229,6 @@ createWarmupPoints[model_MASSmodel,bounds:{_Rule...}:{},opts:OptionsPattern[]]:=
 	{obj,stoich,bees,bnds}=model2LinearProgrammingData[model,model["Fluxes"][[1]],bounds]/.{-\[Infinity]->-1000,\[Infinity]->1000};
 	createWarmupPoints[stoich,bnds,opts]
 ];
-def:createWarmupPoints[___]:=(Message[Toolbox::badargs,createWarmupPoints,Defer@def];Abort[])
-
-
 
 
 Options[ACHRsampler]={"StepsPerPoint"->10,"Iterations"->10,"EvaluationMonitor"->None,"MaxMinTol"->1*^-9,"uTol"->1*^-9,"ProgressBar"->True};
@@ -309,8 +293,6 @@ ACHRsampler[model_MASSmodel,warmupPoints_?MatrixQ,bounds:{_Rule...}:{},opts:Opti
 	{obj,stoich,bees,bnds}=model2LinearProgrammingData[model,model["Fluxes"][[1]],bounds]/.{-\[Infinity]->-1000,\[Infinity]->1000};
 	ACHRsampler[stoich,warmupPoints,bnds,opts]
 ];
-def:ACHRsampler[___]:=(Message[Toolbox::badargs,ACHRsampler,Defer@def];Abort[])
-
 
 
 (*
@@ -374,7 +356,7 @@ ACHRsampler[model_MASSmodel,warmupPoints_?MatrixQ,bounds:{_Rule...}:{},opts:Opti
 	{obj,stoich,bees,bnds}=model2LinearProgrammingData[model,model["Fluxes"][[1]],bounds]/.{-\[Infinity]->-1000,\[Infinity]->1000};
 	ACHRsampler[stoich,warmupPoints,bnds,opts]
 ];
-def:ACHRsampler[___]:=(Message[Toolbox::badargs,ACHRsampler,Defer@def];Abort[])*)
+*)
 
 
 (* ::Subsubsection::Closed:: *)
@@ -426,9 +408,6 @@ productionEnvelope[model_MASSmodel,controlFlux_v,targets__v,opts:OptionsPattern[
 	];
 	Transpose[tmpResult]
 ];
-def:productionEnvelope[___]:=(Message[Toolbox::badargs,productionEnvelope,Defer@def];Abort[])
-
-
 
 
 model2LinearProgrammingData::unknownObjectiveType="`1` is not a valid objective.";
@@ -447,9 +426,6 @@ model2LinearProgrammingData[model_MASSmodel,obj_,bounds:({_Rule..}|{}):{},opts:O
 	optFlag=If["MAX"==ToUpperCase[OptionValue["OptFlag"]],-1,1];
 	{Chop[optFlag*internlobj],stoich,rhs,intrnlbnds}
 ];
-def:model2LinearProgrammingData[___]:=(Message[Toolbox::badargs,model2LinearProgrammingData,Defer@def];Abort[])
-
-
 
 
 Options[model2LooplessFbaFormulation]=Join[{"UpperBoundOnG"->1000},Options[model2LinearProgrammingData]];
@@ -489,8 +465,6 @@ model2LooplessFbaFormulation[model_MASSmodel,obj_,bounds:{_Rule...}:{},opts:Opti
 	dom=Join[Table[Reals,{dim[[2]]}],Table[Integers,{intDim[[2]]}],Table[Reals,{intDim[[2]]}]];
 	{PadRight[lpObj,Dimensions[constrMat][[2]]],constrMat,looplessRhs,bnds,dom}
 ];
-def:model2LooplessFbaFormulation[___]:=(Message[Toolbox::badargs,model2LooplessFbaFormulation,Defer@def];Abort[])
-
 
 
 (* ::Subsection:: *)
@@ -533,8 +507,6 @@ GLPKStandalone[c_List,mat_?MatrixQ,b_List,bounds:((_?NumberQ|-Infinity)|{(_?Numb
 		},{solution,solution2,termOutput}
 	]
 ];
-def:GLPKStandalone[___]:=(Message[Toolbox::badargs,GLPKStandalone,Defer@def];Abort[])
-
 
 
 parseGlpkPlainOutput[tab_List/;Length[tab[[2]]]==3,glpProblemDefinition_String]:=Module[{status,probTab,rowIDs,colIDs,rowNum,colNum,ord,rowOrdering},
@@ -637,9 +609,6 @@ CPLEXStandalone[c_List,mat_?MatrixQ,b_List,bounds:((_?NumberQ|-Infinity)|{(_?Num
 		Full,{xmlOutput,termOutput}
 	]
 ];
-def:CPLEXStandalone[___]:=(Message[Toolbox::badargs,GLPKStandalone,Defer@def];Abort[]);
-
-
 
 
 CPLEXForm::wrongbnds="Something is wrong with the provided variable bounds `1`.";
@@ -669,8 +638,6 @@ CPLEXForm[c:{_?NumberQ..},mat_?MatrixQ,b:({(_?NumberQ|-Infinity|Infinity)..}|{{(
 CPLEXForm[model_MASSmodel,objective_,bounds:{_Rule...}:{}]:=Module[{objSection,boundsSection,subjecttoSection,fluxAliases,fluxAliases2,constr2str},
 CPLEXForm[Sequence@@model2LinearProgrammingData[model,objective,bounds]]
 ];
-def:CPLEXForm[___]:=(Message[Toolbox::badargs,CPLEXForm,Defer@def];Abort[])
-
 
 
 (* ::Subsection:: *)
@@ -728,8 +695,6 @@ Module[{straySymbols,objAndEquPrec,varsPrec,filterBounds,normalizeBounds,filterD
 	solveSection="Model problem / ALL /;\nSolve problem "<>OptionValue["OptFlag"]<>" Z USING "<>OptionValue["Category"]<>";";
 	StringJoin[Riffle[{variablesSection,equationsSection,boundsSection,initialPointsSection,solveSection},"\n\n"]]
 ];
-def:GAMSForm[___]:=(Message[Toolbox::badargs,GAMSForm,Defer@def];Abort[]);
-
 
 
 gdxDumpParser[gdxdump_String]:=Module[{stuff,varStuff},
@@ -740,7 +705,6 @@ gdxDumpParser[gdxdump_String]:=Module[{stuff,varStuff},
 	"LowerBound"->(Cases[{#},{__,"LO",num_,___}:>num]/.{}->{-Infinity})[[1]],
 	"UpperBound"->(Cases[{#},{__,"UP",num_,___}:>num]/.{}->{Infinity})[[1]]}&/@varStuff
 ];
-
 
 
 Scan[(MessageName[GAMS,"returnCode"<>ToString[#[[1]]]]=#[[2]])&,{0->"normal return",1->"solver is to be called; the system should never return this number",2->"there was a compilation error",3->"there was an execution error",
@@ -799,8 +763,6 @@ GAMS[problemDef_String,opts:OptionsPattern[]]:=Module[{outputFile,gdxFile,tmpFil
 		_,Message[GAMS::wrongOutputFormat,OptionValue["Output"]];Abort[];
 	]
 ];
-def:GAMS[___]:=(Message[Toolbox::badargs,GAMS,Defer@def];Abort[]);
-
 
 
 parseGAMSoutput[output_String]:=StringCases[output,RegularExpression["----\\sVAR\\s+(\\w+)~?\\s(.*)"]:>"$1"->Thread[Rule[{"LOWER","LEVEL","UPPER","MARGINAL"},ImportString["$2","Table"][[1]]]]]

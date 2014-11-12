@@ -11,7 +11,6 @@
 Begin["`Private`"]
 
 
-
 Options[thermodynamicallyConsistentQ]={"Fluxes"->{},"Concentrations"->{},"Parameters"->{},"Output"->Automatic};
 thermodynamicallyConsistentQ::incon="Conflicting thermodynamics detected:\n`1`\nSet the output options to Full to obtain a list of the inconsistent cases ...";
 thermodynamicallyConsistentQ[model_MASSmodel,opts:OptionsPattern[]]:=Module[{fluxes,ofInterest,deltaGees,table,inconsistent},
@@ -26,7 +25,6 @@ thermodynamicallyConsistentQ[model_MASSmodel,opts:OptionsPattern[]]:=Module[{flu
 		True
 	]
 ];
-def:thermodynamicallyConsistentQ[___]:=(Message[Toolbox::badargs,thermodynamicallyConsistentQ,Defer@def];Abort[])
 
 
 getMissingParameters[model_MASSmodel,rates_List]:=Union[Cases[rates/.model["Parameters"],$MASS$parametersPattern,\[Infinity]]];
@@ -95,7 +93,6 @@ qcqa[model_MASSmodel,opts:OptionsPattern[]]:=Module[{inconsistent,missingParamet
 		MenuView[report,ImageSize->Automatic]
 	]
 ];
-def:qcqa[___]:=(Message[Toolbox::badargs,qcqa,Defer@def];Abort[])
 
 
 (* ::Subsection:: *)
