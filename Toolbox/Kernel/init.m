@@ -64,9 +64,9 @@ Evaluate $ToolboxLicense for more information";
 progtext="";
 prog=0;
 icon=Show[Import[FileNameJoin[{DirectoryName[$InputFileName],"MASS-Toolbox-Logo.m"}]],ImageSize->150];
-delay=Pause[.02]&;
+delay=Pause[.01]&;
 If[$FrontEnd=!=Null&&$VersionNumber>=8,
-	Monitor[ReleaseHold[#],Grid[{{Blur[icon,(*Log[23-prog]*)Max[{15-prog,0}]],progtext},{licenseInfo,SpanFromLeft}}]],
+	Monitor[ReleaseHold[#],Grid[{{Blur[icon,(*Log[23-prog]*)Max[{16-prog,0}]],progtext},{licenseInfo,SpanFromLeft}}]],
 	Monitor[ReleaseHold[#],Column[{progtext,licenseInfo}]]
 ]&@Hold[
 	progtext="Loading MathSBML ...";
