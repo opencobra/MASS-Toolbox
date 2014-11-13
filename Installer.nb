@@ -502,8 +502,8 @@ file **)\"\>"], "Output"]
 }, Open  ]]
 }, Closed]]
 },
-WindowSize->{1196, 643},
-WindowMargins->{{Automatic, -5}, {Automatic, 7}},
+WindowSize->{967, 450},
+WindowMargins->{{29, Automatic}, {Automatic, 21}},
 FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
 2014)",
 StyleDefinitions->"Default.nb"
@@ -522,12 +522,12 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[579, 22, 67, 0, 44, "Subsection"],
 Cell[649, 24, 109, 3, 30, "Text"],
-Cell[761, 29, 3642, 91, 216, "Input"]
+Cell[761, 29, 3642, 91, 233, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[4440, 125, 69, 0, 44, "Subsection"],
 Cell[4512, 127, 129, 3, 30, "Text"],
-Cell[4644, 132, 3464, 94, 352, "Input"]
+Cell[4644, 132, 3464, 94, 369, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[8145, 231, 97, 2, 44, "Subsection"],

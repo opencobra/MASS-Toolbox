@@ -121,7 +121,7 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	
 	(* Display error message for all functions for incorrect inputs *)
 	Toolbox`Toolbox::badargs="There is no definition for '`1`' applicable to `2`.";
-	names = Complement[ToExpression[Select[Names["Toolbox`*"],StringFreeQ[#,"$"]&]],Join[Toolbox`$MASS$parameterTypes,Toolbox`$MASS$speciesTypes,{Toolbox`reaction,Toolbox`v}]];
+	names = Complement[ToExpression[Select[Names["Toolbox`*"],StringFreeQ[#,"$"]&]],Join[Toolbox`$MASS$parameterTypes,Toolbox`$MASS$speciesTypes,{Toolbox`reaction,Toolbox`v,Toolbox`MASSmodel,Toolbox`m,Toolbox`k,Toolbox`r,Toolbox`proteinComplex,Toolbox`geneComplex}]];
 	Toolbox`$names = names;
 	rules={func->#}&/@names;
 	messageCode = Hold[def:func[___]:=(Message[Toolbox`Toolbox::badargs,Evaluate[func],Defer@def];Abort[])]/.rules;
