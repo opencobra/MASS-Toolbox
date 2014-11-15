@@ -14,6 +14,8 @@ $MASS$speciesPattern=Alternatives@@(Blank/@$MASS$speciesTypes);
 $MASS$parameterTypes={rateconst,Keq,parameter,vmax,Km};
 $MASS$parametersPattern=Alternatives@@(Blank/@$MASS$parameterTypes);
 
+$MASS$headTypes={v,InChI,SMILES,metabolite,m,species,reaction,r,gene,protein,geneComplex,proteinComplex,enzyme,e,complex,rateconstk,Keq,vmax,Km,Ki,Kd,parameter,p};
+
 (*$MASS$unitsPattern=Alternatives@@Join[{_?NumberQ,\[Infinity],-\[Infinity]},Symbol/@Names["Units`*"],Power[Symbol[#],_]&/@Names["Units`*"]]*)
 $MASS$unitsPattern=Alternatives@@Join[{_?NumberQ,\[Infinity],-\[Infinity],_?(NumberQ[stripUnits[#]]&)}]
 
