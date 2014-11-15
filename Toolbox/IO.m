@@ -651,8 +651,8 @@ sbml2model[tmpFile[[1]],opts]
 
 
 eQuilibratorAPI::badRequest="Unable to process your query. Got following response: `1`";
-eQuilibratorAPI[query_,url_String]:=Module[{client,method,httpCode},client=JavaNew["org.apache.commons.httpclient.HttpClient"];
-method=JavaNew["org.apache.commons.httpclient.methods.PostMethod",url];
+eQuilibratorAPI[query_,url_String]:=Module[{client,method,httpCode},client=JLink`JavaNew["org.apache.commons.httpclient.HttpClient"];
+method=JLink`JavaNew["org.apache.commons.httpclient.methods.PostMethod",url];
 method@addRequestHeader["content-type","application/json"];
 method@setRequestBody[ExportString[query/.n_Real:>If[Mod[n,1]==0.,Round[n]],"JSON","Compact"->True]];
 httpCode=client@executeMethod[method];
