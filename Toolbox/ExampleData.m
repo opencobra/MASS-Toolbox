@@ -22,4 +22,4 @@ ExampleData[{"Toolbox", "iAB-RBC-238-Hemoglobin"}] := Import[FileNameJoin[{$Tool
 ExampleData[{"Toolbox", "bigg2equilibrator"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","eQuilibrator","bigg2equilibrator.m.gz"}]];
 ExampleData["Toolbox"]:=Cases[DownValues@ExampleData,{"Toolbox",_String},\[Infinity]];
 ExampleData[pat:{"Toolbox", _}]:=(Message[ExampleData::notFound,pat];Abort[];)
-Protect[ExampleData];
+Protect[ExampleData]
