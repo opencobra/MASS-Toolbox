@@ -1,0 +1,647 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     23906,        638]
+NotebookOptionsPosition[     23069,        608]
+NotebookOutlinePosition[     23425,        624]
+CellTagsIndexPosition[     23382,        621]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Thermodynamics Tests", "Title",
+ CellChangeTimes->{{3.624216049475128*^9, 3.6242160553623133`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"results", "=", 
+   RowBox[{"{", "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{3.6242025006550493`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{
+     RowBox[{"FileNameSplit", "[", 
+      RowBox[{"DirectoryName", "[", 
+       RowBox[{"FindFile", "[", "\"\<Toolbox`\>\"", "]"}], "]"}], "]"}], 
+     "\[LeftDoubleBracket]", 
+     RowBox[{"1", ";;", 
+      RowBox[{"-", "3"}]}], "\[RightDoubleBracket]"}], "]"}], "]"}], 
+  ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"File", " ", "no", " ", "longer", " ", "exists"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"int2keggRxnID", "=", 
+     RowBox[{
+      RowBox[{"\"\<R\>\"", "<>", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{"Sequence", "@@", 
+         RowBox[{"Table", "[", 
+          RowBox[{"\"\<0\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{"5", "-", 
+             RowBox[{"StringLength", "[", 
+              RowBox[{"ToString", "@", "#"}], "]"}]}], "}"}]}], "]"}]}], 
+        "]"}], "<>", 
+       RowBox[{"ToString", "[", "#", "]"}]}], "&"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"kegg2equilibrator", "=", 
+     RowBox[{
+     "Import", "[", "\"\<Tests/TestData/kegg2equilibrator.m.gz\>\"", "]"}]}], 
+    ";"}], "*)"}]}]], "Input",
+ CellChangeTimes->{{3.624928869630907*^9, 3.6249288696656313`*^9}, {
+  3.624929204541913*^9, 3.624929210126642*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"basicBiochemData3", "=", 
+   RowBox[{
+   "Import", "[", "\"\<Tests/TestData/AlbertyBasicBiochemData3.m\>\"", 
+    "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"oldFormat", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"#1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+       "\[Rule]", 
+       RowBox[{"equilibrator2albertyFormat", "[", 
+        RowBox[{"#1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+        "]"}]}], "&"}], ")"}], "/@", 
+    RowBox[{"stripUnits", "[", "basicBiochemData3", "]"}]}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"derivetrGibbsT", "[", "speciesmat_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "dGzero", ",", "dGzeroT", ",", "dHzero", ",", "zi", ",", "nH", ",", 
+       "gibbscoeff", ",", "pHterm", ",", "isterm", ",", "gpfnsp", ",", 
+       "istermG"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{
+       "This", " ", "program", " ", "derives", " ", "the", " ", "function", 
+        " ", "of", " ", "T", " ", 
+        RowBox[{"(", 
+         RowBox[{"in", " ", "Kelvin"}], ")"}]}], ",", "pH", ",", 
+       RowBox[{"and", " ", "ionic", " ", "strength", " ", 
+        RowBox[{"(", "is", ")"}], " ", "that", " ", "gives", " ", "the", " ", 
+        "standard", " ", "transformed", " ", "Gibbs", " ", "energy", " ", 
+        "of", " ", "formation", " ", "of", " ", "a", " ", "reactant", " ", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"sum", " ", "of", " ", "species"}], ")"}], ".", "The"}], 
+        " ", "input", " ", "speciesmat", " ", "is", " ", "a", " ", "matrix", 
+        " ", "that", " ", "gives", " ", "the", " ", "standard", " ", "Gibbs", 
+        " ", "energy", " ", "of", " ", "formation", " ", "in", " ", "kJ", " ", 
+        RowBox[{"mol", "^", 
+         RowBox[{"-", "1"}]}], " ", "at", " ", "298.15", " ", "K", " ", "and",
+         " ", "zero", " ", "ionic", " ", "strength"}], ",", 
+       RowBox[{
+       "the", " ", "standard", " ", "enthalpy", " ", "of", " ", "formation", 
+        " ", "in", " ", "kJ", " ", 
+        RowBox[{"mol", "^", 
+         RowBox[{"-", "1"}]}], " ", "at", " ", "298.15", " ", "K", " ", "and",
+         " ", "zero", " ", "ionic", " ", "strength"}], ",", 
+       RowBox[{"the", " ", "electric", " ", "charge"}], ",", 
+       RowBox[{
+       "and", " ", "the", " ", "number", " ", "of", " ", "hydrogen", " ", 
+        "atoms", " ", "in", " ", "each", " ", 
+        RowBox[{"species", ".", "There"}], " ", "is", " ", "a", " ", "row", 
+        " ", "in", " ", "the", " ", "matrix", " ", "for", " ", "each", " ", 
+        "species", " ", "of", " ", "the", " ", 
+        RowBox[{"reactant", ".", "gpfnsp"}], " ", "is", " ", "a", " ", "list",
+         " ", "of", " ", "the", " ", "functions", " ", "for", " ", "the", " ",
+         "standard", " ", "transformed", " ", "Gibbs", " ", "energies", " ", 
+        "of", " ", "the", " ", 
+        RowBox[{"species", ".", "The"}], " ", "corresponding", " ", 
+        "functions", " ", "for", " ", "other", " ", "transformed", " ", 
+        "properties", " ", "can", " ", "be", " ", "obtained", " ", "by", " ", 
+        "taking", " ", "partial", " ", 
+        RowBox[{"derivatives", ".", "The"}], " ", "standard", " ", 
+        "transformed", " ", "Gibbs", " ", "energy", " ", "of", " ", 
+        "formation", " ", "of", " ", "a", " ", "reactant", " ", "in", " ", 
+        "kJ", " ", 
+        RowBox[{"mol", "^", 
+         RowBox[{"-", "1"}]}], " ", "can", " ", "be", " ", "calculated", " ", 
+        "at", " ", "any", " ", "temperature", " ", "in", " ", "the", " ", 
+        "range", " ", "273.15", " ", "K", " ", "to", " ", "313.15", " ", 
+        "K"}], ",", 
+       RowBox[{
+       "any", " ", "pH", " ", "in", " ", "the", " ", "range", " ", "5", " ", 
+        "to", " ", "9"}], ",", 
+       RowBox[{
+       "and", " ", "any", " ", "ionic", " ", "strength", " ", "in", " ", 
+        "the", " ", "range", " ", "0", " ", "to", " ", "0.35", " ", "M", " ", 
+        "by", " ", "use", " ", "of", " ", "ReplaceAll", " ", 
+        RowBox[{
+         RowBox[{"(", "/.", ")"}], "."}]}]}], "*)"}], 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"dGzero", ",", "dHzero", ",", "zi", ",", "nH"}], "}"}], "=", 
+       RowBox[{"Transpose", "[", "speciesmat", "]"}]}], ";", 
+      RowBox[{"gibbscoeff", "=", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"9.20483`", " ", "T"}], 
+         SuperscriptBox["10", "3"]], "-", 
+        FractionBox[
+         RowBox[{"1.284668`", " ", 
+          SuperscriptBox["T", "2"]}], 
+         SuperscriptBox["10", "5"]], "+", 
+        FractionBox[
+         RowBox[{"4.95199`", " ", 
+          SuperscriptBox["T", "3"]}], 
+         SuperscriptBox["10", "8"]]}]}], ";", 
+      RowBox[{"dGzeroT", "=", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"dGzero", " ", "T"}], "298.15`"], "+", 
+        RowBox[{"dHzero", " ", 
+         RowBox[{"(", 
+          RowBox[{"1", "-", 
+           FractionBox["T", "298.15`"]}], ")"}]}]}]}], ";", 
+      RowBox[{"pHterm", "=", 
+       FractionBox[
+        RowBox[{"nH", " ", "8.31451`", " ", "T", " ", 
+         RowBox[{"Log", "[", 
+          SuperscriptBox["10", 
+           RowBox[{"-", "pH"}]], "]"}]}], "1000"]}], ";", 
+      RowBox[{"istermG", "=", 
+       FractionBox[
+        RowBox[{"gibbscoeff", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["zi", "2"], "-", "nH"}], ")"}], " ", 
+         SuperscriptBox["is", "0.5`"]}], 
+        RowBox[{"1", "+", 
+         RowBox[{"1.6`", " ", 
+          SuperscriptBox["is", "0.5`"]}]}]]}], ";", 
+      RowBox[{"gpfnsp", "=", 
+       RowBox[{"dGzeroT", "-", "pHterm", "-", "istermG"}]}], ";", 
+      RowBox[{"-", 
+       FractionBox[
+        RowBox[{"8.31451`", " ", "T", " ", 
+         RowBox[{"Log", "[", 
+          RowBox[{"Plus", "@@", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"-", 
+             FractionBox["gpfnsp", 
+              FractionBox[
+               RowBox[{"8.31451`", " ", "T"}], "1000"]]}]]}], "]"}]}], 
+        "1000"]}]}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.624925081623592*^9, 3.624925085231099*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Test", " ", "pH", " ", "invalid", " ", "range", " ", "warning"}],
+     ",", 
+    RowBox[{"upper", " ", "bound"}]}], "*)"}], " ", 
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{"calcDeltaG", "[", 
+        RowBox[{
+         RowBox[{"basicBiochemData3", "[", 
+          RowBox[{"[", 
+           RowBox[{"1", ",", "2"}], "]"}], "]"}], ",", 
+         RowBox[{"pH", "\[Rule]", "9.1"}], ",", 
+         RowBox[{"is", "\[Rule]", "0"}]}], "]"}], ",", 
+       RowBox[{"AutomaticUnits`Unit", "[", 
+        RowBox[{"68.77178033687645", ",", 
+         RowBox[{"\"\<Kilojoule\>\"", "/", "\"\<Mole\>\""}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"calcDeltaG", "::", "pHandISandTrange"}], "}"}], ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<ThermodynamicsTests-20121106-Z9H3B1\>\""}]}],
+       "]"}]}], "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{3.6249291651917677`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "Test", " ", "ionic", " ", "strength", " ", "invalid", " ", "range", " ", 
+     "warning"}], ",", 
+    RowBox[{"upper", " ", "bound"}]}], "*)"}], " ", 
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{"calcDeltaG", "[", 
+        RowBox[{
+         RowBox[{"basicBiochemData3", "[", 
+          RowBox[{"[", 
+           RowBox[{"1", ",", "2"}], "]"}], "]"}], ",", 
+         RowBox[{"is", "\[Rule]", "0.36"}], ",", 
+         RowBox[{"pH", "\[Rule]", "7"}]}], "]"}], ",", 
+       RowBox[{"AutomaticUnits`Unit", "[", 
+        RowBox[{"24.393698300677702`", ",", 
+         RowBox[{"\"\<Kilojoule\>\"", "/", "\"\<Mole\>\""}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"calcDeltaG", "::", "pHandISandTrange"}], "}"}], ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<ThermodynamicsTests-20121106-D6A7R4\>\""}]}],
+       "]"}]}], "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{3.62492916699792*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "Test", " ", "temperature", " ", "invalid", " ", "range", " ", 
+     "warning"}], ",", 
+    RowBox[{"lower", " ", "bound"}]}], "*)"}], " ", 
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{"calcDeltaG", "[", 
+        RowBox[{
+         RowBox[{"basicBiochemData3", "[", 
+          RowBox[{"[", 
+           RowBox[{"1", ",", "2"}], "]"}], "]"}], ",", 
+         RowBox[{"is", "\[Rule]", "0."}], ",", 
+         RowBox[{"pH", "\[Rule]", "7"}], ",", 
+         RowBox[{"T", "\[Rule]", "273.14"}]}], "]"}], ",", 
+       RowBox[{"AutomaticUnits`Unit", "[", 
+        RowBox[{"1.2749186424346133", ",", 
+         RowBox[{"\"\<Kilojoule\>\"", "/", "\"\<Mole\>\""}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"calcDeltaG", "::", "pHandISandTrange"}], "}"}], ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<ThermodynamicsTests-20121106-D7F2S0\>\""}]}],
+       "]"}]}], "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{3.624929168550029*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "Test", " ", "temperature", " ", "invalid", " ", "range", " ", 
+     "warning"}], ",", 
+    RowBox[{"upper", " ", "bound"}]}], "*)"}], " ", 
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{"calcDeltaG", "[", 
+        RowBox[{
+         RowBox[{"basicBiochemData3", "[", 
+          RowBox[{"[", 
+           RowBox[{"1", ",", "2"}], "]"}], "]"}], ",", 
+         RowBox[{"is", "\[Rule]", "0."}], ",", 
+         RowBox[{"pH", "\[Rule]", "7"}], ",", 
+         RowBox[{"T", "\[Rule]", "313.16"}]}], "]"}], ",", 
+       RowBox[{"AutomaticUnits`Unit", "[", 
+        RowBox[{"32.55728974908408", ",", 
+         RowBox[{"\"\<Kilojoule\>\"", "/", "\"\<Mole\>\""}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"calcDeltaG", "::", "pHandISandTrange"}], "}"}], ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<ThermodynamicsTests-20121106-C0J3M8\>\""}]}],
+       "]"}]}], "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{3.624929170334004*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"pH", " ", "and", " ", "is", " ", "corrections"}], " ", "*)"}], 
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"toolboxResult", "=", 
+         RowBox[{"stripUnits", "[", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+              "#1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              "\[Rule]", 
+              RowBox[{"calcDeltaG", "[", 
+               RowBox[{
+                RowBox[{
+                "#1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+                ",", 
+                RowBox[{"R", "\[Rule]", 
+                 FractionBox[
+                  RowBox[{"8.31451`", " ", 
+                   InterpretationBox["Joule",
+                    AutomaticUnits`Unit[1, "Joule"],
+                    AutoDelete->True]}], 
+                  RowBox[{
+                   InterpretationBox["Mole",
+                    AutomaticUnits`Unit[1, "Mole"],
+                    AutoDelete->True], " ", 
+                   InterpretationBox["Kelvin",
+                    AutomaticUnits`Unit[1, "Kelvin"],
+                    AutoDelete->True]}]]}], ",", 
+                RowBox[{"is", "\[Rule]", "0.25`"}], ",", 
+                RowBox[{"pH", "\[Rule]", "7.`"}]}], "]"}]}], "&"}], ")"}], "/@",
+            "basicBiochemData3"}], "]"}]}], ";", 
+        RowBox[{"albertyResult", "=", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+             "#1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+             "\[Rule]", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"derivetrGibbsT", "[", 
+                RowBox[{
+                "#1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+                "]"}], "/.", "\[VeryThinSpace]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"is", "\[Rule]", "0.25`"}], ",", 
+                 RowBox[{"pH", "\[Rule]", "7.`"}], ",", 
+                 RowBox[{"T", "\[Rule]", "298.15`"}]}], "}"}]}], ")"}]}], 
+            "&"}], ")"}], "/@", "oldFormat"}]}], ";", 
+        RowBox[{"scatter", "=", 
+         RowBox[{"Chop", "[", 
+          RowBox[{"scatterFromDicts", "[", 
+           RowBox[{"toolboxResult", ",", "albertyResult"}], "]"}], "]"}]}], 
+        ";", 
+        RowBox[{
+         RowBox[{"Total", "[", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"Abs", "[", 
+              RowBox[{"Subtract", "@@", 
+               RowBox[{
+               "#1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}],
+               "]"}], "&"}], ")"}], "/@", "scatter"}], "]"}], "<", 
+         FractionBox["1", "10000000000"]}]}], ",", "True", ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<ThermodynamicsTests-20121106-V5N3W7\>\""}]}],
+       "]"}]}], "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.624929054335413*^9, 3.624929062017001*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"toolboxResult", "=", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+            "#1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+            "\[Rule]", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"stripUnits", "[", 
+               RowBox[{"calcDeltaG", "[", 
+                RowBox[{
+                 RowBox[{
+                 "#1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}],
+                  ",", 
+                 RowBox[{"T", "\[Rule]", 
+                  RowBox[{"310", " ", 
+                   InterpretationBox["Kelvin",
+                    AutomaticUnits`Unit[1, "Kelvin"],
+                    AutoDelete->True]}]}], ",", 
+                 RowBox[{"R", "\[Rule]", 
+                  FractionBox[
+                   RowBox[{"8.31451`", " ", 
+                    InterpretationBox["Joule",
+                    AutomaticUnits`Unit[1, "Joule"],
+                    AutoDelete->True]}], 
+                   RowBox[{
+                    InterpretationBox["Mole",
+                    AutomaticUnits`Unit[1, "Mole"],
+                    AutoDelete->True], " ", 
+                    InterpretationBox["Kelvin",
+                    AutomaticUnits`Unit[1, "Kelvin"],
+                    AutoDelete->True]}]]}]}], "]"}], "]"}], "/.", 
+              "\[VeryThinSpace]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"is", "\[Rule]", "0"}], ",", 
+                RowBox[{"pH", "\[Rule]", "7.`"}]}], "}"}]}], ")"}]}], "&"}], 
+          ")"}], "/@", 
+         RowBox[{"stripUnits", "[", 
+          RowBox[{"Select", "[", 
+           RowBox[{"basicBiochemData3", ",", 
+            RowBox[{
+             RowBox[{"!", 
+              RowBox[{"MemberQ", "[", 
+               RowBox[{"#1", ",", "_Missing", ",", "\[Infinity]"}], "]"}]}], 
+             "&"}]}], "]"}], "]"}]}]}], ";", 
+       RowBox[{"albertyResult", "=", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+            "#1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+            "\[Rule]", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"derivetrGibbsT", "[", 
+               RowBox[{
+               "#1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+               "]"}], "/.", "\[VeryThinSpace]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"is", "\[Rule]", "0"}], ",", 
+                RowBox[{"pH", "\[Rule]", "7.`"}], ",", 
+                RowBox[{"T", "\[Rule]", "310"}]}], "}"}]}], ")"}]}], "&"}], 
+          ")"}], "/@", 
+         RowBox[{"Select", "[", 
+          RowBox[{"oldFormat", ",", 
+           RowBox[{
+            RowBox[{"!", 
+             RowBox[{"MemberQ", "[", 
+              RowBox[{"#1", ",", "_Missing", ",", "\[Infinity]"}], "]"}]}], 
+            "&"}]}], "]"}]}]}], ";", 
+       RowBox[{"scatter", "=", 
+        RowBox[{"scatterFromDicts", "[", 
+         RowBox[{"toolboxResult", ",", "albertyResult"}], "]"}]}], ";", 
+       RowBox[{
+        RowBox[{"Total", "[", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Abs", "[", 
+             RowBox[{"Subtract", "@@", 
+              RowBox[{
+              "#1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], 
+             "]"}], "&"}], ")"}], "/@", "scatter"}], "]"}], "<", 
+        FractionBox["1", "10000000000"]}]}], ",", "True", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<ThermodynamicsTests-20121106-M3C6L7\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"File", " ", "no", " ", "longer", " ", "exists"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"results", ",", 
+      RowBox[{"VerificationTest", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"rawImport", "=", 
+          RowBox[{
+          "Import", "[", "\"\<kegg_reactions_alberty_ph7.0.csv.gz\>\"", 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"referenceData", "=", 
+          RowBox[{"FilterRules", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"int2keggRxnID", "[", 
+                RowBox[{"#", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "]"}], "\[Rule]", 
+               RowBox[{
+                RowBox[{"#", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], "Kilo", " ", "Joule", " ", 
+                RowBox[{"Mole", "^", 
+                 RowBox[{"-", "1"}]}]}]}], "&"}], "/@", 
+             RowBox[{"DeleteCases", "[", 
+              RowBox[{
+               RowBox[{"rawImport", "[", 
+                RowBox[{"[", 
+                 RowBox[{"2", ";;"}], "]"}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"_", ",", "\"\<\>\"", ",", "__"}], "}"}]}], "]"}]}], 
+            ",", 
+            RowBox[{"keggRxns", "[", 
+             RowBox[{"[", 
+              RowBox[{"All", ",", "1"}], "]"}], "]"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"AbsoluteTiming", "[", 
+          RowBox[{"result", "=", 
+           RowBox[{"ParallelTable", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"referenceData", "[", 
+               RowBox[{"[", 
+                RowBox[{"i", ",", "1"}], "]"}], "]"}], "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"stripUnits", "@", 
+                 RowBox[{"referenceData", "[", 
+                  RowBox[{"[", 
+                   RowBox[{"i", ",", "2"}], "]"}], "]"}]}], ",", 
+                RowBox[{"stripUnits", "@", 
+                 RowBox[{
+                  RowBox[{"calcDeltaG", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"referenceData", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "1"}], "]"}], "]"}], "/.", "keggRxns"}],
+                     ",", "kegg2equilibrator", ",", 
+                    RowBox[{"IonicStrength", "\[Rule]", 
+                    RowBox[{".1", " ", "Mole", " ", 
+                    RowBox[{"Liter", "^", 
+                    RowBox[{"-", "1"}]}]}]}], ",", 
+                    RowBox[{"pH", "\[Rule]", "9."}]}], "]"}], "[", 
+                  RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "1", ",", 
+               RowBox[{"Length", "[", "referenceData", "]"}]}], "}"}], ",", 
+             RowBox[{"DistributedContexts", "\[Rule]", "Automatic"}]}], 
+            "]"}]}], "]"}]}], ",", "1", ",", 
+        RowBox[{
+        "TestID", "\[Rule]", 
+         "\"\<ThermodynamicsTests-20120322-R8K8K2\>\""}]}], "]"}]}], "]"}], 
+    ";"}], "*)"}]}]], "Input",
+ CellChangeTimes->{{3.62492891938284*^9, 3.624928919391523*^9}, {
+  3.624929068954103*^9, 3.624929128035454*^9}}],
+
+Cell[BoxData["results"], "Input"]
+}, Open  ]]
+},
+WindowSize->{808, 572},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 105, 1, 92, "Title"],
+Cell[688, 25, 136, 4, 28, "Input"],
+Cell[827, 31, 392, 11, 28, "Input"],
+Cell[1222, 44, 962, 26, 80, "Input"],
+Cell[2187, 72, 174, 5, 28, "Input"],
+Cell[2364, 79, 456, 12, 28, "Input"],
+Cell[2823, 93, 5641, 125, 572, "Input"],
+Cell[8467, 220, 1035, 27, 97, "Input"],
+Cell[9505, 249, 1061, 28, 97, "Input"],
+Cell[10569, 279, 1099, 29, 97, "Input"],
+Cell[11671, 310, 1098, 29, 97, "Input"],
+Cell[12772, 341, 3129, 79, 286, "Input"],
+Cell[15904, 422, 3779, 98, 294, "Input"],
+Cell[19686, 522, 3331, 81, 216, "Input"],
+Cell[23020, 605, 33, 0, 28, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

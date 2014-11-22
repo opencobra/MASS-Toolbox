@@ -1,0 +1,2847 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    103677,       2838]
+NotebookOptionsPosition[    102707,       2805]
+NotebookOutlinePosition[    103064,       2821]
+CellTagsIndexPosition[    103021,       2818]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Unit Checking Tests", "Title",
+ CellChangeTimes->{{3.624216065611908*^9, 3.624216069106791*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"results", "=", 
+   RowBox[{"{", "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{3.624205524828792*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"testRxns", "=", 
+   RowBox[{"str2mass", "/@", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<rxn1: a + b <-> c + d\>\"", ",", "\"\<rxn2: a + b <-> c\>\"", ",", 
+      "\"\<rxn3: a <-> b + c\>\"", ",", "\"\<rxn4: a <-> 0\>\"", ",", 
+      "\"\<rxn5: 0 <-> a\>\"", ",", 
+      "\"\<cmprt_rxn1: a_c + b_c <-> c_c + d_c\>\"", ",", 
+      "\"\<cmprt_rxn2: a_c + b_c <-> c_c\>\"", ",", 
+      "\"\<cmprt_rxn3: a_c <-> b_c + c_c\>\"", ",", 
+      "\"\<cmprt_rxn4: a_c <-> 0\>\"", ",", "\"\<cmprt_rxn5: 0 <-> a_c\>\"", 
+      ",", "\"\<trans1: a_c <=> a_e\>\"", ",", 
+      "\"\<trans2: a_c + b_d <=> a_e + 3.3 e_c\>\"", ",", 
+      "\"\<trans3: 0 <=> a_e + 3.3 e_c\>\"", ",", 
+      "\"\<cmprt_rxn_weird: a_c + b_c <-> c_c + 3.3 d_c\>\""}], "}"}]}]}], 
+  ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"model", "=", 
+   RowBox[{"constructModel", "[", 
+    RowBox[{"testRxns", ",", 
+     RowBox[{"UnitChecking", "\[Rule]", "True"}]}], "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"cmpds", "=", 
+   RowBox[{"Union", "[", 
+    RowBox[{"Flatten", "[", 
+     RowBox[{"getSpecies", "/@", "testRxns"}], "]"}], "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"metricPrefixes", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{"Sequence", "@@", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "1", ",", "Milli", ",", "Micro", ",", "Pico", ",", "Femto", ",", 
+         "Giga", ",", "Tera", ",", "Yotta"}], "}"}], ",", 
+       RowBox[{"{", "3", "}"}]}], "]"}]}], "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"conc", "=", 
+   RowBox[{"MapIndexed", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"#1", "\[Rule]", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"metricPrefixes", "\[LeftDoubleBracket]", 
+          RowBox[{"First", "[", "#2", "]"}], "\[RightDoubleBracket]"}], " ", 
+         InterpretationBox["Mole",
+          AutomaticUnits`Unit[1, "Mole"],
+          AutoDelete->True]}], 
+        InterpretationBox["Liter",
+         AutomaticUnits`Unit[1, "Liter"],
+         AutoDelete->True]]}], "&"}], ",", "cmpds"}], "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"param", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Keq", "[", 
+          RowBox[{"getID", "[", "#1", "]"}], "]"}], "\[Rule]", "1"}], "&"}], 
+       ")"}], "/@", "testRxns"}], ",", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"rateconst", "[", 
+          RowBox[{"getID", "[", "#1", "]"}], "]"}], "\[Rule]", "1"}], "&"}], 
+       ")"}], "/@", "testRxns"}], ",", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"rateconst", "[", 
+          RowBox[{
+           RowBox[{"getID", "[", "#1", "]"}], ",", "False"}], "]"}], 
+         "\[Rule]", "1"}], "&"}], ")"}], "/@", "testRxns"}]}], "]"}]}], 
+  ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"rates", "=", 
+   RowBox[{"stripTime", "[", 
+    RowBox[{"model", "[", "\"\<Rates\>\"", "]"}], "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"adjustUnits", "[", "conc", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         InterpretationBox[
+          SuperscriptBox[
+           StyleBox["a",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["c",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`metabolite["a", "c"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"1000", " ", 
+           RowBox[{"Millimole", 
+            SuperscriptBox["Liter", 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[1000, "Millimole"/"Liter"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SuperscriptBox[
+           StyleBox["a",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["e",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`metabolite["a", "e"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Millimole", 
+           SuperscriptBox["Liter", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Millimole"/"Liter"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          StyleBox["a",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]],
+          Toolbox`metabolite["a", None],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox["1", "1000"], " ", 
+           RowBox[{"Millimole", 
+            SuperscriptBox["Liter", 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[1/1000, "Millimole"/"Liter"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SuperscriptBox[
+           StyleBox["b",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["c",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`metabolite["b", "c"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox["1", "1000000000"], " ", 
+           RowBox[{"Millimole", 
+            SuperscriptBox["Liter", 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[1/1000000000, "Millimole"/"Liter"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SuperscriptBox[
+           StyleBox["b",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["d",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`metabolite["b", "d"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox["1", "1000000000000"], " ", 
+           RowBox[{"Millimole", 
+            SuperscriptBox["Liter", 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[1/1000000000000, "Millimole"/"Liter"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          StyleBox["b",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]],
+          Toolbox`metabolite["b", None],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"1000000000000", " ", 
+           RowBox[{"Millimole", 
+            SuperscriptBox["Liter", 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[1000000000000, "Millimole"/"Liter"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SuperscriptBox[
+           StyleBox["c",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["c",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`metabolite["c", "c"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"1000000000000000", " ", 
+           RowBox[{"Millimole", 
+            SuperscriptBox["Liter", 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[1000000000000000, "Millimole"/"Liter"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]],
+          Toolbox`metabolite["c", None],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"1000000000000000000000000000", " ", 
+           RowBox[{"Millimole", 
+            SuperscriptBox["Liter", 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[
+          1000000000000000000000000000, "Millimole"/"Liter"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SuperscriptBox[
+           StyleBox["d",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["c",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`metabolite["d", "c"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"1000", " ", 
+           RowBox[{"Millimole", 
+            SuperscriptBox["Liter", 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[1000, "Millimole"/"Liter"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          StyleBox["d",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]],
+          Toolbox`metabolite["d", None],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Millimole", 
+           SuperscriptBox["Liter", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Millimole"/"Liter"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SuperscriptBox[
+           StyleBox["e",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["c",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`metabolite["e", "c"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           FractionBox["1", "1000"], " ", 
+           RowBox[{"Millimole", 
+            SuperscriptBox["Liter", 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[1/1000, "Millimole"/"Liter"],
+          AutoDelete->True]}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<UnitCheckingRelatedTests-20120822-X4U4H1\>\""}]}], "]"}]}], "]"}],
+   ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"adjustUnits", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"m", "[", 
+          RowBox[{"\"\<atp\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+         FractionBox[
+          RowBox[{"Pico", " ", 
+           InterpretationBox["Mole",
+            AutomaticUnits`Unit[1, "Mole"],
+            AutoDelete->True]}], 
+          RowBox[{"Centi", " ", 
+           InterpretationBox["Meter",
+            AutomaticUnits`Unit[1, "Meter"],
+            AutoDelete->True]}]]}], "}"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        InterpretationBox[
+         SuperscriptBox[
+          StyleBox["atp",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Toolbox`metabolite["atp", "c"],
+         Editable->False,
+         Selectable->False], "\[Rule]", 
+        InterpretationBox[
+         RowBox[{
+          FractionBox["1", "10000000"], " ", 
+          RowBox[{"Millimole", 
+           SuperscriptBox["Meter", 
+            RowBox[{"-", "1"}]]}]}],
+         AutomaticUnits`Unit[1/10000000, "Millimole"/"Meter"],
+         AutoDelete->True]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<UnitCheckingRelatedTests-20120927-G1X3U0\>\""}]}], "]"}]}], "]"}],
+   ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"adjustUnits", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"m", "[", 
+          RowBox[{"\"\<atp\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+         FractionBox[
+          RowBox[{"Pico", " ", 
+           InterpretationBox["Mole",
+            AutomaticUnits`Unit[1, "Mole"],
+            AutoDelete->True]}], 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"Centi", " ", 
+             InterpretationBox["Meter",
+              AutomaticUnits`Unit[1, "Meter"],
+              AutoDelete->True]}], ")"}], "2"]]}], "}"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        InterpretationBox[
+         SuperscriptBox[
+          StyleBox["atp",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Toolbox`metabolite["atp", "c"],
+         Editable->False,
+         Selectable->False], "\[Rule]", 
+        InterpretationBox[
+         RowBox[{
+          FractionBox["1", "100000"], " ", 
+          RowBox[{"Millimole", 
+           SuperscriptBox[
+            SuperscriptBox["Meter", "2"], 
+            RowBox[{"-", "1"}]]}]}],
+         AutomaticUnits`Unit[1/100000, "Millimole"/"Meter"^2],
+         AutoDelete->True]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<UnitCheckingRelatedTests-20120927-E8P5U8\>\""}]}], "]"}]}], "]"}],
+   ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"adjustUnits", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"m", "[", 
+          RowBox[{"\"\<atp\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+         FractionBox[
+          RowBox[{"Pico", " ", 
+           InterpretationBox["Mole",
+            AutomaticUnits`Unit[1, "Mole"],
+            AutoDelete->True]}], 
+          SuperscriptBox[
+           InterpretationBox["Feet",
+            AutomaticUnits`Unit[1, "Feet"],
+            AutoDelete->True], "3"]]}], "}"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        InterpretationBox[
+         SuperscriptBox[
+          StyleBox["atp",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Toolbox`metabolite["atp", "c"],
+         Editable->False,
+         Selectable->False], "\[Rule]", 
+        InterpretationBox[
+         RowBox[{
+          FractionBox["1", "28316846592"], " ", 
+          RowBox[{"Millimole", 
+           SuperscriptBox["Liter", 
+            RowBox[{"-", "1"}]]}]}],
+         AutomaticUnits`Unit[1/28316846592, "Millimole"/"Liter"],
+         AutoDelete->True]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<UnitCheckingRelatedTests-20120927-E8P5U8\>\""}]}], "]"}]}], "]"}],
+   ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"Quiet", "[", 
+       RowBox[{
+        RowBox[{"adjustUnits", "[", 
+         RowBox[{"param", ",", "testRxns"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          StyleBox[
+           RowBox[{"adjustUnits", "::", "noUnitsProvidedKeq"}], "MessageName"],
+           ",", 
+          StyleBox[
+           RowBox[{"adjustUnits", "::", "noUnitsProvidedRateConst"}], 
+           "MessageName"]}], "}"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["rxn1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["rxn1"],
+          Editable->False,
+          Selectable->False], "\[Rule]", "1"}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["rxn2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["rxn2"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Liter", 
+           SuperscriptBox["Millimole", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"/"Millimole"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["rxn3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["rxn3"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Millimole", 
+           SuperscriptBox["Liter", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Millimole"/"Liter"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["rxn4",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["rxn4"],
+          Editable->False,
+          Selectable->False], "\[Rule]", "1"}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["rxn5",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["rxn5"],
+          Editable->False,
+          Selectable->False], "\[Rule]", "1"}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["cmprt_rxn1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["cmprt_rxn1"],
+          Editable->False,
+          Selectable->False], "\[Rule]", "1"}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["cmprt_rxn2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["cmprt_rxn2"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Liter", 
+           SuperscriptBox["Millimole", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"/"Millimole"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["cmprt_rxn3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["cmprt_rxn3"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Millimole", 
+           SuperscriptBox["Liter", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Millimole"/"Liter"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["cmprt_rxn4",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["cmprt_rxn4"],
+          Editable->False,
+          Selectable->False], "\[Rule]", "1"}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["cmprt_rxn5",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["cmprt_rxn5"],
+          Editable->False,
+          Selectable->False], "\[Rule]", "1"}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["trans1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["trans1"],
+          Editable->False,
+          Selectable->False], "\[Rule]", "1"}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["trans2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["trans2"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"1.`", " ", 
+           RowBox[{
+            SuperscriptBox["Millimole", "2.3`"], 
+            SuperscriptBox[
+             SuperscriptBox["Liter", "2.3`"], 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[1., "Millimole"^2.3/"Liter"^2.3],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["trans3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["trans3"],
+          Editable->False,
+          Selectable->False], "\[Rule]", "1"}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox[
+            RowBox[{"cmprt_rxn", "_weird"}],
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["cmprt_rxn_weird"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"1.`", " ", 
+           RowBox[{
+            SuperscriptBox["Millimole", "2.3`"], 
+            SuperscriptBox[
+             SuperscriptBox["Liter", "2.3`"], 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[1., "Millimole"^2.3/"Liter"^2.3],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["rxn1", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Liter", "2"], 
+           SuperscriptBox[
+            RowBox[{"Hour", " ", "Millimole"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"^2/("Hour" "Millimole")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["rxn2", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Liter", "2"], 
+           SuperscriptBox[
+            RowBox[{"Hour", " ", "Millimole"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"^2/("Hour" "Millimole")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["rxn3", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Liter", 
+           SuperscriptBox["Hour", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"/"Hour"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn4",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["rxn4", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Liter", 
+           SuperscriptBox["Hour", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"/"Hour"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn5",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["rxn5", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Liter", 
+           SuperscriptBox["Hour", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"/"Hour"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["cmprt_rxn1", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Liter", 
+           SuperscriptBox[
+            RowBox[{"Hour", " ", "Millimole"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"/("Hour" "Millimole")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["cmprt_rxn2", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Liter", 
+           SuperscriptBox[
+            RowBox[{"Hour", " ", "Millimole"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"/("Hour" "Millimole")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["cmprt_rxn3", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          SuperscriptBox["Hour", 
+           RowBox[{"-", "1"}]],
+          AutomaticUnits`Unit[1, "Hour"^(-1)],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn4",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["cmprt_rxn4", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          SuperscriptBox["Hour", 
+           RowBox[{"-", "1"}]],
+          AutomaticUnits`Unit[1, "Hour"^(-1)],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn5",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["cmprt_rxn5", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          SuperscriptBox["Hour", 
+           RowBox[{"-", "1"}]],
+          AutomaticUnits`Unit[1, "Hour"^(-1)],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["trans1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["trans1", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Liter", 
+           SuperscriptBox["Hour", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"/"Hour"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["trans2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["trans2", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Liter", "2"], 
+           SuperscriptBox[
+            RowBox[{"Hour", " ", "Millimole"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"^2/("Hour" "Millimole")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["trans3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["trans3", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"1.`", " ", 
+           RowBox[{
+            SuperscriptBox["Liter", "4.3`"], 
+            SuperscriptBox[
+             RowBox[{"Hour", 
+              SuperscriptBox["Millimole", "3.3`"]}], 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[1., "Liter"^4.3/("Hour" "Millimole"^3.3)],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox[
+            RowBox[{"cmprt_rxn", "_weird"}],
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["cmprt_rxn_weird", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Liter", 
+           SuperscriptBox[
+            RowBox[{"Hour", " ", "Millimole"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"/("Hour" "Millimole")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["rxn1", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Liter", "2"], 
+           SuperscriptBox[
+            RowBox[{"Hour", " ", "Millimole"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"^2/("Hour" "Millimole")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["rxn2", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Liter", 
+           SuperscriptBox["Hour", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"/"Hour"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["rxn3", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Liter", "2"], 
+           SuperscriptBox[
+            RowBox[{"Hour", " ", "Millimole"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"^2/("Hour" "Millimole")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn4",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["rxn4", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Liter", 
+           SuperscriptBox["Hour", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"/"Hour"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn5",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["rxn5", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Liter", 
+           SuperscriptBox["Hour", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"/"Hour"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["cmprt_rxn1", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Liter", 
+           SuperscriptBox[
+            RowBox[{"Hour", " ", "Millimole"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"/("Hour" "Millimole")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["cmprt_rxn2", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          SuperscriptBox["Hour", 
+           RowBox[{"-", "1"}]],
+          AutomaticUnits`Unit[1, "Hour"^(-1)],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["cmprt_rxn3", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Liter", 
+           SuperscriptBox[
+            RowBox[{"Hour", " ", "Millimole"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"/("Hour" "Millimole")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn4",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["cmprt_rxn4", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          SuperscriptBox["Hour", 
+           RowBox[{"-", "1"}]],
+          AutomaticUnits`Unit[1, "Hour"^(-1)],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn5",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["cmprt_rxn5", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          SuperscriptBox["Hour", 
+           RowBox[{"-", "1"}]],
+          AutomaticUnits`Unit[1, "Hour"^(-1)],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["trans1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["trans1", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Liter", 
+           SuperscriptBox["Hour", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Liter"/"Hour"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["trans2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["trans2", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"1.`", " ", 
+           RowBox[{
+            SuperscriptBox["Liter", "4.3`"], 
+            SuperscriptBox[
+             RowBox[{"Hour", 
+              SuperscriptBox["Millimole", "3.3`"]}], 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[1., "Liter"^4.3/("Hour" "Millimole"^3.3)],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["trans3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["trans3", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"1.`", " ", 
+           RowBox[{
+            SuperscriptBox["Liter", "4.3`"], 
+            SuperscriptBox[
+             RowBox[{"Hour", 
+              SuperscriptBox["Millimole", "3.3`"]}], 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[1., "Liter"^4.3/("Hour" "Millimole"^3.3)],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox[
+            RowBox[{"cmprt_rxn", "_weird"}],
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["cmprt_rxn_weird", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"1.`", " ", 
+           RowBox[{
+            SuperscriptBox["Liter", "3.3`"], 
+            SuperscriptBox[
+             RowBox[{"Hour", 
+              SuperscriptBox["Millimole", "3.3`"]}], 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[1., "Liter"^3.3/("Hour" "Millimole"^3.3)],
+          AutoDelete->True]}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<UnitCheckingRelatedTests-20120822-I8U2C3\>\""}]}], "]"}]}], "]"}],
+   ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"SetOptions", "[", 
+        RowBox[{"adjustUnits", ",", 
+         RowBox[{"\"\<DefaultAmountUnit\>\"", "\[Rule]", 
+          InterpretationBox["Mole",
+           AutomaticUnits`Unit[1, "Mole"],
+           AutoDelete->True]}], ",", 
+         RowBox[{"\"\<DefaultVolumeUnit\>\"", "\[Rule]", 
+          SuperscriptBox[
+           InterpretationBox["Meter",
+            AutomaticUnits`Unit[1, "Meter"],
+            AutoDelete->True], "3"]}], ",", 
+         RowBox[{"\"\<DefaultTimeUnit\>\"", "\[Rule]", 
+          InterpretationBox["Second",
+           AutomaticUnits`Unit[1, "Second"],
+           AutoDelete->True]}]}], "]"}], ";", 
+       RowBox[{"Quiet", "[", 
+        RowBox[{
+         RowBox[{"adjustUnits", "[", 
+          RowBox[{"param", ",", "testRxns"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           StyleBox[
+            RowBox[{"adjustUnits", "::", "noUnitsProvidedKeq"}], 
+            "MessageName"], ",", 
+           StyleBox[
+            RowBox[{"adjustUnits", "::", "noUnitsProvidedRateConst"}], 
+            "MessageName"]}], "}"}]}], "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["rxn1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["rxn1"],
+          Editable->False,
+          Selectable->False], "\[Rule]", "1"}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["rxn2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["rxn2"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "3"], 
+           SuperscriptBox["Mole", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^3/"Mole"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["rxn3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["rxn3"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Mole", 
+           SuperscriptBox[
+            SuperscriptBox["Meter", "3"], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Mole"/"Meter"^3],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["rxn4",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["rxn4"],
+          Editable->False,
+          Selectable->False], "\[Rule]", "1"}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["rxn5",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["rxn5"],
+          Editable->False,
+          Selectable->False], "\[Rule]", "1"}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["cmprt_rxn1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["cmprt_rxn1"],
+          Editable->False,
+          Selectable->False], "\[Rule]", "1"}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["cmprt_rxn2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["cmprt_rxn2"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "3"], 
+           SuperscriptBox["Mole", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^3/"Mole"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["cmprt_rxn3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["cmprt_rxn3"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"Mole", 
+           SuperscriptBox[
+            SuperscriptBox["Meter", "3"], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Mole"/"Meter"^3],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["cmprt_rxn4",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["cmprt_rxn4"],
+          Editable->False,
+          Selectable->False], "\[Rule]", "1"}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["cmprt_rxn5",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["cmprt_rxn5"],
+          Editable->False,
+          Selectable->False], "\[Rule]", "1"}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["trans1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["trans1"],
+          Editable->False,
+          Selectable->False], "\[Rule]", "1"}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["trans2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["trans2"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"1.`", " ", 
+           RowBox[{
+            SuperscriptBox["Mole", "2.3`"], 
+            SuperscriptBox[
+             SuperscriptBox["Meter", "6.8999999999999995`"], 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[1., "Mole"^2.3/"Meter"^6.8999999999999995`],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox["trans3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["trans3"],
+          Editable->False,
+          Selectable->False], "\[Rule]", "1"}], ",", 
+        RowBox[{
+         InterpretationBox[
+          UnderscriptBox["K", 
+           StyleBox[
+            RowBox[{"cmprt_rxn", "_weird"}],
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`Keq["cmprt_rxn_weird"],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"1.`", " ", 
+           RowBox[{
+            SuperscriptBox["Mole", "2.3`"], 
+            SuperscriptBox[
+             SuperscriptBox["Meter", "6.8999999999999995`"], 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[1., "Mole"^2.3/"Meter"^6.8999999999999995`],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["rxn1", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "6"], 
+           SuperscriptBox[
+            RowBox[{"Mole", " ", "Second"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^6/("Mole" "Second")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["rxn2", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "6"], 
+           SuperscriptBox[
+            RowBox[{"Mole", " ", "Second"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^6/("Mole" "Second")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["rxn3", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "3"], 
+           SuperscriptBox["Second", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^3/"Second"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn4",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["rxn4", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "3"], 
+           SuperscriptBox["Second", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^3/"Second"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn5",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["rxn5", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "3"], 
+           SuperscriptBox["Second", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^3/"Second"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["cmprt_rxn1", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "3"], 
+           SuperscriptBox[
+            RowBox[{"Mole", " ", "Second"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^3/("Mole" "Second")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["cmprt_rxn2", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "3"], 
+           SuperscriptBox[
+            RowBox[{"Mole", " ", "Second"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^3/("Mole" "Second")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["cmprt_rxn3", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          SuperscriptBox["Second", 
+           RowBox[{"-", "1"}]],
+          AutomaticUnits`Unit[1, "Second"^(-1)],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn4",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["cmprt_rxn4", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          SuperscriptBox["Second", 
+           RowBox[{"-", "1"}]],
+          AutomaticUnits`Unit[1, "Second"^(-1)],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn5",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["cmprt_rxn5", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          SuperscriptBox["Second", 
+           RowBox[{"-", "1"}]],
+          AutomaticUnits`Unit[1, "Second"^(-1)],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["trans1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["trans1", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "3"], 
+           SuperscriptBox["Second", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^3/"Second"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["trans2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["trans2", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "6"], 
+           SuperscriptBox[
+            RowBox[{"Mole", " ", "Second"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^6/("Mole" "Second")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["trans3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["trans3", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"1.`", " ", 
+           RowBox[{
+            SuperscriptBox["Meter", "12.899999999999999`"], 
+            SuperscriptBox[
+             RowBox[{"Second", 
+              SuperscriptBox["Mole", "3.3`"]}], 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[
+          1., "Meter"^12.899999999999999`/("Mole"^3.3 "Second")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox[
+            RowBox[{"cmprt_rxn", "_weird"}],
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+          Toolbox`rateconst["cmprt_rxn_weird", True],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "3"], 
+           SuperscriptBox[
+            RowBox[{"Mole", " ", "Second"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^3/("Mole" "Second")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["rxn1", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "6"], 
+           SuperscriptBox[
+            RowBox[{"Mole", " ", "Second"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^6/("Mole" "Second")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["rxn2", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "3"], 
+           SuperscriptBox["Second", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^3/"Second"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["rxn3", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "6"], 
+           SuperscriptBox[
+            RowBox[{"Mole", " ", "Second"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^6/("Mole" "Second")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn4",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["rxn4", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "3"], 
+           SuperscriptBox["Second", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^3/"Second"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["rxn5",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["rxn5", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "3"], 
+           SuperscriptBox["Second", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^3/"Second"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["cmprt_rxn1", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "3"], 
+           SuperscriptBox[
+            RowBox[{"Mole", " ", "Second"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^3/("Mole" "Second")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["cmprt_rxn2", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          SuperscriptBox["Second", 
+           RowBox[{"-", "1"}]],
+          AutomaticUnits`Unit[1, "Second"^(-1)],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["cmprt_rxn3", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "3"], 
+           SuperscriptBox[
+            RowBox[{"Mole", " ", "Second"}], 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^3/("Mole" "Second")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn4",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["cmprt_rxn4", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          SuperscriptBox["Second", 
+           RowBox[{"-", "1"}]],
+          AutomaticUnits`Unit[1, "Second"^(-1)],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["cmprt_rxn5",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["cmprt_rxn5", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          SuperscriptBox["Second", 
+           RowBox[{"-", "1"}]],
+          AutomaticUnits`Unit[1, "Second"^(-1)],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["trans1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["trans1", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{
+           SuperscriptBox["Meter", "3"], 
+           SuperscriptBox["Second", 
+            RowBox[{"-", "1"}]]}],
+          AutomaticUnits`Unit[1, "Meter"^3/"Second"],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["trans2",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["trans2", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"1.`", " ", 
+           RowBox[{
+            SuperscriptBox["Meter", "12.899999999999999`"], 
+            SuperscriptBox[
+             RowBox[{"Second", 
+              SuperscriptBox["Mole", "3.3`"]}], 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[
+          1., "Meter"^12.899999999999999`/("Mole"^3.3 "Second")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox["trans3",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["trans3", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"1.`", " ", 
+           RowBox[{
+            SuperscriptBox["Meter", "12.899999999999999`"], 
+            SuperscriptBox[
+             RowBox[{"Second", 
+              SuperscriptBox["Mole", "3.3`"]}], 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[
+          1., "Meter"^12.899999999999999`/("Mole"^3.3 "Second")],
+          AutoDelete->True]}], ",", 
+        RowBox[{
+         InterpretationBox[
+          SubsuperscriptBox["k", 
+           StyleBox[
+            RowBox[{"cmprt_rxn", "_weird"}],
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+          Toolbox`rateconst["cmprt_rxn_weird", False],
+          Editable->False,
+          Selectable->False], "\[Rule]", 
+         InterpretationBox[
+          RowBox[{"1.`", " ", 
+           RowBox[{
+            SuperscriptBox["Meter", "9.899999999999999`"], 
+            SuperscriptBox[
+             RowBox[{"Second", 
+              SuperscriptBox["Mole", "3.3`"]}], 
+             RowBox[{"-", "1"}]]}]}],
+          AutomaticUnits`Unit[
+          1., "Meter"^9.899999999999999/("Mole"^3.3 "Second")],
+          AutoDelete->True]}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<UnitCheckingRelatedTests-20120822-U7R3N3\>\""}]}], "]"}]}], "]"}],
+   ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "The", " ", "following", " ", "combinatorial", " ", "code", " ", "tests", 
+     " ", "that", " ", "rate", " ", "and", " ", "equilibrium", " ", 
+     "constants", " ", "always", " ", "have", " ", "the", " ", "correct", " ",
+      "units", " ", "regardless", " ", "of", " ", "the", " ", "spatial", " ", 
+     "dimension", " ", "or", " ", "compartimentalization", " ", "of", " ", 
+     "the", " ", "model"}], "..."}], "*)"}], 
+  RowBox[{
+   RowBox[{"combinatorialRxns", "=", 
+    RowBox[{"str2mass", "/@", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<1: a <=> p\>\"", ",", "\"\<2: a + b <=> p\>\"", ",", 
+       "\"\<3: a <=> p + q\>\"", ",", "\"\<4: a[c] <=> p[c]\>\"", ",", 
+       "\"\<5: a[c] + b[c] <=> p[c]\>\"", ",", 
+       "\"\<6: a[c] <=> p[c] + q[c]\>\"", ",", "\"\<7: a[c] <=> p[e]\>\"", 
+       ",", "\"\<8: a[e] + b[c] <=> p[d]\>\"", ",", 
+       "\"\<9: a[c] <=> p[e] + q[e]\>\"", ",", 
+       "\"\<9: a[c] <=> p[e] + q[e] + z[g]\>\"", ",", 
+       "\"\<10: a <=> p[e] + q + z[g]\>\""}], "}"}]}]}], ";"}]}]], "Input",
+ CellChangeTimes->{3.624929317130781*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"SetOptions", "[", 
+      RowBox[{"adjustUnits", ",", 
+       RowBox[{"\"\<DefaultAmountUnit\>\"", "\[Rule]", 
+        InterpretationBox["Millimole",
+         AutomaticUnits`Unit[1, "Millimole"],
+         AutoDelete->True]}], ",", 
+       RowBox[{"\"\<DefaultVolumeUnit\>\"", "\[Rule]", "volumeUnit"}], ",", 
+       RowBox[{"\"\<DefaultTimeUnit\>\"", "\[Rule]", 
+        InterpretationBox["Hour",
+         AutomaticUnits`Unit[1, "Hour"],
+         AutoDelete->True]}]}], "]"}], ";", 
+     RowBox[{"adjustedParam", "=", 
+      RowBox[{"Quiet", "[", 
+       RowBox[{
+        RowBox[{"adjustUnits", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"k", "[", 
+              RowBox[{"getID", "[", "rxn", "]"}], "]"}], "\[Rule]", "1"}], 
+            ",", 
+            RowBox[{
+             RowBox[{"Keq", "[", 
+              RowBox[{"getID", "[", "rxn", "]"}], "]"}], "\[Rule]", "2"}], 
+            ",", 
+            RowBox[{
+             RowBox[{"k", "[", 
+              RowBox[{
+               RowBox[{"getID", "[", "rxn", "]"}], ",", "False"}], "]"}], 
+             "\[Rule]", "0.1`"}]}], "}"}], ",", 
+          RowBox[{"{", "rxn", "}"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          StyleBox[
+           RowBox[{"adjustUnits", "::", "noUnitsProvidedKeq"}], "MessageName"],
+           ",", 
+          StyleBox[
+           RowBox[{"adjustUnits", "::", "noUnitsProvidedRateConst"}], 
+           "MessageName"]}], "}"}]}], "]"}]}], ";", 
+     RowBox[{"units", "=", 
+      RowBox[{"Quiet", "[", 
+       RowBox[{
+        RowBox[{"adjustUnits", "[", 
+         RowBox[{"adjustedParam", ",", 
+          RowBox[{"{", "rxn", "}"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          StyleBox[
+           RowBox[{"adjustUnits", "::", "noUnitsProvidedKeq"}], "MessageName"],
+           ",", 
+          StyleBox[
+           RowBox[{"adjustUnits", "::", "noUnitsProvidedRateConst"}], 
+           "MessageName"]}], "}"}]}], "]"}]}], ";", 
+     RowBox[{"rate", "=", 
+      RowBox[{"stripTime", "[", 
+       RowBox[{"Toolbox`Private`reaction2rate", "[", "rxn", "]"}], "]"}]}], 
+     ";", 
+     RowBox[{"kkRate", "=", 
+      RowBox[{"keq2k", "[", "rate", "]"}]}], ";", 
+     RowBox[{"numRate", "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"rate", "/.", "\[VeryThinSpace]", 
+         RowBox[{"m_metabolite", "\[RuleDelayed]", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"RandomReal", "[", "]"}], " ", 
+            InterpretationBox["Millimole",
+             AutomaticUnits`Unit[1, "Millimole"],
+             AutoDelete->True]}], "volumeUnit"]}]}], "/.", "\[VeryThinSpace]",
+         "units"}], "/.", "\[VeryThinSpace]", 
+       RowBox[{
+        InterpretationBox[
+         UnderscriptBox[
+          StyleBox["Volume",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Toolbox`parameter["Volume", "c"],
+         Editable->False,
+         Selectable->False], "\[Rule]", 
+        RowBox[{"1.5`", " ", "volumeUnit"}]}]}]}], ";", 
+     RowBox[{"numRate2", "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"kkRate", "/.", "\[VeryThinSpace]", 
+         RowBox[{"m_metabolite", "\[RuleDelayed]", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"RandomReal", "[", "]"}], " ", 
+            InterpretationBox["Millimole",
+             AutomaticUnits`Unit[1, "Millimole"],
+             AutoDelete->True]}], "volumeUnit"]}]}], "/.", "\[VeryThinSpace]",
+         "units"}], "/.", "\[VeryThinSpace]", 
+       RowBox[{
+        InterpretationBox[
+         UnderscriptBox[
+          StyleBox["Volume",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Toolbox`parameter["Volume", "c"],
+         Editable->False,
+         Selectable->False], "\[Rule]", 
+        RowBox[{"1.5`", " ", "volumeUnit"}]}]}]}], ";", 
+     RowBox[{"With", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"testID", "=", 
+         RowBox[{"\"\<UnitCheckingRelatedTests-\>\"", "<>", 
+          RowBox[{"(", 
+           RowBox[{"volumeUnit", "/.", "\[VeryThinSpace]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               InterpretationBox["Meter",
+                AutomaticUnits`Unit[1, "Meter"],
+                AutoDelete->True], "\[Rule]", "\"\<m\>\""}], ",", 
+              RowBox[{
+               SuperscriptBox[
+                InterpretationBox["Meter",
+                 AutomaticUnits`Unit[1, "Meter"],
+                 AutoDelete->True], "2"], "\[Rule]", "\"\<m^2\>\""}], ",", 
+              RowBox[{
+               SuperscriptBox[
+                InterpretationBox["Meter",
+                 AutomaticUnits`Unit[1, "Meter"],
+                 AutoDelete->True], "3"], "\[Rule]", "\"\<m^3\>\""}], ",", 
+              RowBox[{
+               InterpretationBox["Liter",
+                AutomaticUnits`Unit[1, "Liter"],
+                AutoDelete->True], "\[Rule]", "\"\<l\>\""}]}], "}"}]}], ")"}],
+           "<>", "\"\<-\>\"", "<>", 
+          RowBox[{"ToString", "[", "rxn", "]"}]}]}], "}"}], ",", 
+       RowBox[{"AppendTo", "[", 
+        RowBox[{"results", ",", 
+         RowBox[{"VerificationTest", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"MatchQ", "[", 
+             RowBox[{"numRate", ",", 
+              InterpretationBox[
+               RowBox[{
+                RowBox[{"_", "?", "NumberQ"}], " ", 
+                RowBox[{"Millimole", 
+                 SuperscriptBox["Hour", 
+                  RowBox[{"-", "1"}]]}]}],
+               AutomaticUnits`Unit[
+                PatternTest[
+                 Blank[], NumberQ], "Millimole"/"Hour"],
+               AutoDelete->True]}], "]"}], "&&", 
+            RowBox[{"MatchQ", "[", 
+             RowBox[{"numRate2", ",", 
+              InterpretationBox[
+               RowBox[{
+                RowBox[{"_", "?", "NumberQ"}], " ", 
+                RowBox[{"Millimole", 
+                 SuperscriptBox["Hour", 
+                  RowBox[{"-", "1"}]]}]}],
+               AutomaticUnits`Unit[
+                PatternTest[
+                 Blank[], NumberQ], "Millimole"/"Hour"],
+               AutoDelete->True]}], "]"}]}], ",", "True", ",", 
+           RowBox[{"TestID", "\[Rule]", "testID"}]}], "]"}]}], "]"}]}], "]"}],
+      ";"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"rxn", ",", "combinatorialRxns"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"volumeUnit", ",", 
+      RowBox[{"{", 
+       RowBox[{"Meter", ",", 
+        SuperscriptBox[
+         InterpretationBox["Meter",
+          AutomaticUnits`Unit[1, "Meter"],
+          AutoDelete->True], "2"], ",", 
+        SuperscriptBox[
+         InterpretationBox["Meter",
+          AutomaticUnits`Unit[1, "Meter"],
+          AutoDelete->True], "3"], ",", "Liter"}], "}"}]}], "}"}]}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.624202736222774*^9, 3.624202747261737*^9}}],
+
+Cell[BoxData["results"], "Input"]
+}, Open  ]]
+},
+WindowSize->{640, 676},
+WindowMargins->{{0, Automatic}, {Automatic, -1}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 102, 1, 92, "Title"],
+Cell[685, 25, 134, 4, 28, "Input"],
+Cell[822, 31, 795, 17, 182, "Input"],
+Cell[1620, 50, 191, 5, 28, "Input"],
+Cell[1814, 57, 183, 5, 28, "Input"],
+Cell[2000, 64, 396, 11, 80, "Input"],
+Cell[2399, 77, 578, 16, 49, "Input"],
+Cell[2980, 95, 806, 27, 63, "Input"],
+Cell[3789, 124, 154, 4, 28, "Input"],
+Cell[3946, 130, 12229, 334, 289, "Input"],
+Cell[16178, 466, 2039, 58, 145, "Input"],
+Cell[18220, 526, 2143, 61, 150, "Input"],
+Cell[20366, 589, 2040, 58, 148, "Input"],
+Cell[22409, 649, 34699, 933, 655, "Input"],
+Cell[57111, 1584, 36110, 970, 714, "Input"],
+Cell[93224, 2556, 1142, 24, 199, "Input"],
+Cell[94369, 2582, 8286, 218, 574, "Input"],
+Cell[102658, 2802, 33, 0, 28, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

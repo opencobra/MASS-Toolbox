@@ -1,0 +1,1242 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     42088,       1233]
+NotebookOptionsPosition[     40632,       1188]
+NotebookOutlinePosition[     40989,       1204]
+CellTagsIndexPosition[     40946,       1201]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Utility Tests", "Title",
+ CellChangeTimes->{{3.624216075180266*^9, 3.624216086827299*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"results", "=", 
+   RowBox[{"{", "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{3.6242054467942657`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"testRxn", "=", 
+   RowBox[{"reaction", "[", 
+    RowBox[{"\"\<test\>\"", ",", 
+     RowBox[{"{", 
+      InterpretationBox[
+       SuperscriptBox[
+        StyleBox["atp",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], 
+        StyleBox["c",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`metabolite["atp", "c"],
+       Editable->False,
+       Selectable->False], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       InterpretationBox[
+        SuperscriptBox[
+         StyleBox["adp",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], 
+         StyleBox["c",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]],
+        Toolbox`metabolite["adp", "c"],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SuperscriptBox[
+         StyleBox["amp",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], 
+         StyleBox["periplasm",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]],
+        Toolbox`metabolite["amp", "periplasm"],
+        Editable->False,
+        Selectable->False]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "2"}], "}"}]}], "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"testRxn1", "=", 
+   RowBox[{"r", "[", 
+    RowBox[{"\"\<test\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{"m", "[", 
+       RowBox[{"\"\<atp\>\"", ",", "\"\<c\>\""}], "]"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"m", "[", 
+        RowBox[{"\"\<adp\>\"", ",", "\"\<c\>\""}], "]"}], ",", 
+       RowBox[{"m", "[", 
+        RowBox[{"\"\<amp\>\"", ",", "\"\<periplasm\>\""}], "]"}]}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "2"}], "}"}], ",", "False"}], "]"}]}], 
+  ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"testRxnSink", "=", 
+   RowBox[{"reaction", "[", 
+    RowBox[{"\"\<ID\>\"", ",", 
+     RowBox[{"{", "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       InterpretationBox[
+        SuperscriptBox[
+         StyleBox["ADP",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], 
+         StyleBox["C",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]],
+        Toolbox`metabolite["ADP", "C"],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SuperscriptBox[
+         StyleBox["Pi",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], 
+         StyleBox["C",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]],
+        Toolbox`metabolite["Pi", "C"],
+        Editable->False,
+        Selectable->False]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2.`", ",", 
+       FractionBox["1", "2"]}], "}"}]}], "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"testRxnSink2", "=", 
+   RowBox[{"reaction", "[", 
+    RowBox[{"\"\<ID\>\"", ",", 
+     RowBox[{"{", "}"}], ",", 
+     RowBox[{"{", 
+      InterpretationBox[
+       SuperscriptBox[
+        StyleBox["ATP",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], 
+        StyleBox["C",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`metabolite["ATP", "C"],
+       Editable->False,
+       Selectable->False], "}"}], ",", 
+     RowBox[{"{", "1", "}"}]}], "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"str2mass", "[", "\"\<k_fba_fwd\>\"", "]"}], ",", 
+      InterpretationBox[
+       SubsuperscriptBox["k", 
+        StyleBox["fba",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       Toolbox`rateconst["fba", True],
+       Editable->False,
+       Selectable->False], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20120119-M7N1E4\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"str2mass", "[", "\"\<Keq_fba\>\"", "]"}], ",", 
+      InterpretationBox[
+       UnderscriptBox["K", 
+        StyleBox["fba",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`Keq["fba"],
+       Editable->False,
+       Selectable->False], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20120119-M1C4P9\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"str2mass", "[", "\"\<atp_c\>\"", "]"}], ",", 
+      RowBox[{"m", "[", 
+       RowBox[{"\"\<atp\>\"", ",", "\"\<c\>\""}], "]"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20120119-D2E3O3\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{
+      "str2mass", "[", "\"\<test: atp_c <=> adp_c + 2 amp_perisplasm\>\"", 
+       "]"}], ",", 
+      InterpretationBox[
+       OverscriptBox[
+        RowBox[{
+         InterpretationBox[
+          SuperscriptBox[
+           StyleBox["atp",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["c",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`metabolite["atp", "c"],
+          Editable->False,
+          Selectable->False], "\[Equilibrium]", 
+         RowBox[{
+          InterpretationBox[
+           SuperscriptBox[
+            StyleBox["adp",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]], 
+            StyleBox["c",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]]],
+           Toolbox`metabolite["adp", "c"],
+           Editable->False,
+           Selectable->False], "+", 
+          RowBox[{"2", " ", 
+           InterpretationBox[
+            SuperscriptBox[
+             StyleBox["amp",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]], 
+             StyleBox["perisplasm",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]]],
+            Toolbox`metabolite["amp", "perisplasm"],
+            Editable->False,
+            Selectable->False]}]}]}], 
+        StyleBox["test",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`reaction["test", {
+         Toolbox`metabolite["atp", "c"]}, {
+         Toolbox`metabolite["adp", "c"], 
+         Toolbox`metabolite["amp", "perisplasm"]}, {1, 1, 2}, True],
+       Editable->False,
+       Selectable->False], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20120119-G5B1K0\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{
+      "str2mass", "[", "\"\<test: atp_c --> adp_c + 2 amp_perisplasm\>\"", 
+       "]"}], ",", 
+      InterpretationBox[
+       OverscriptBox[
+        RowBox[{
+         InterpretationBox[
+          SuperscriptBox[
+           StyleBox["atp",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["c",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`metabolite["atp", "c"],
+          Editable->False,
+          Selectable->False], "\[RightArrow]", 
+         RowBox[{
+          InterpretationBox[
+           SuperscriptBox[
+            StyleBox["adp",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]], 
+            StyleBox["c",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]]],
+           Toolbox`metabolite["adp", "c"],
+           Editable->False,
+           Selectable->False], "+", 
+          RowBox[{"2", " ", 
+           InterpretationBox[
+            SuperscriptBox[
+             StyleBox["amp",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]], 
+             StyleBox["perisplasm",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]]],
+            Toolbox`metabolite["amp", "perisplasm"],
+            Editable->False,
+            Selectable->False]}]}]}], 
+        StyleBox["test",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`reaction["test", {
+         Toolbox`metabolite["atp", "c"]}, {
+         Toolbox`metabolite["adp", "c"], 
+         Toolbox`metabolite["amp", "perisplasm"]}, {1, 1, 2}, False],
+       Editable->False,
+       Selectable->False], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20120119-G4F4N7\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"str2mass", "[", "\"\<ID: 2 ADP_C + .5 Pi_C <=> 0\>\"", "]"}], 
+      ",", 
+      InterpretationBox[
+       OverscriptBox[
+        RowBox[{
+         RowBox[{
+          RowBox[{"2", " ", 
+           InterpretationBox[
+            SuperscriptBox[
+             StyleBox["ADP",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]], 
+             StyleBox["C",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]]],
+            Toolbox`metabolite["ADP", "C"],
+            Editable->False,
+            Selectable->False]}], "+", 
+          RowBox[{"0.5`", " ", 
+           InterpretationBox[
+            SuperscriptBox[
+             StyleBox["Pi",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]], 
+             StyleBox["C",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]]],
+            Toolbox`metabolite["Pi", "C"],
+            Editable->False,
+            Selectable->False]}]}], "\[Equilibrium]", 
+         StyleBox["\[EmptySet]",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontColor->GrayLevel[0]]}], 
+        StyleBox["ID",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`reaction["ID", {
+         Toolbox`metabolite["ADP", "C"], 
+         Toolbox`metabolite["Pi", "C"]}, {}, {2, 0.5}, True],
+       Editable->False,
+       Selectable->False], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20120119-W1K8E7\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"str2mass", "[", "\"\<ID: 2 A + 0.5 A <=> 1/3 B\>\"", "]"}], 
+      ",", 
+      RowBox[{"reaction", "[", 
+       RowBox[{"\"\<ID\>\"", ",", 
+        RowBox[{"{", 
+         RowBox[{"m", "[", "\"\<A\>\"", "]"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"m", "[", "\"\<B\>\"", "]"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"2.5`", ",", 
+          RowBox[{"N", "[", 
+           FractionBox["1", "3"], "]"}]}], "}"}], ",", "True"}], "]"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20130822-P0R3E8\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"str2mass", "[", "\"\<ID: 2 ADP_C + 1/2 Pi_C <=> 0\>\"", "]"}], 
+      ",", 
+      InterpretationBox[
+       OverscriptBox[
+        RowBox[{
+         RowBox[{
+          RowBox[{"2", " ", 
+           InterpretationBox[
+            SuperscriptBox[
+             StyleBox["ADP",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]], 
+             StyleBox["C",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]]],
+            Toolbox`metabolite["ADP", "C"],
+            Editable->False,
+            Selectable->False]}], "+", 
+          FractionBox[
+           InterpretationBox[
+            SuperscriptBox[
+             StyleBox["Pi",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]], 
+             StyleBox["C",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]]],
+            Toolbox`metabolite["Pi", "C"],
+            Editable->False,
+            Selectable->False], "2"]}], "\[Equilibrium]", 
+         StyleBox["\[EmptySet]",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontColor->GrayLevel[0]]}], 
+        StyleBox["ID",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`reaction["ID", {
+         Toolbox`metabolite["ADP", "C"], 
+         Toolbox`metabolite["Pi", "C"]}, {}, {2, 1/2}, True],
+       Editable->False,
+       Selectable->False], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20120312-S0H5L0\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"str2mass", "[", "\"\<ID: 2 ADP + 1/2 Pi_C <=> 0\>\"", "]"}], 
+      ",", 
+      InterpretationBox[
+       OverscriptBox[
+        RowBox[{
+         RowBox[{
+          RowBox[{"2", " ", 
+           InterpretationBox[
+            StyleBox["ADP",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]],
+            Toolbox`metabolite["ADP", None],
+            Editable->False,
+            Selectable->False]}], "+", 
+          FractionBox[
+           InterpretationBox[
+            SuperscriptBox[
+             StyleBox["Pi",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]], 
+             StyleBox["C",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]]],
+            Toolbox`metabolite["Pi", "C"],
+            Editable->False,
+            Selectable->False], "2"]}], "\[Equilibrium]", 
+         StyleBox["\[EmptySet]",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontColor->GrayLevel[0]]}], 
+        StyleBox["ID",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`reaction["ID", {
+         Toolbox`metabolite["ADP", None], 
+         Toolbox`metabolite["Pi", "C"]}, {}, {2, 1/2}, True],
+       Editable->False,
+       Selectable->False], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20120312-L6E0S5\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"str2mass", "[", "\"\<ID: 0 <=> ATP_C\>\"", "]"}], ",", 
+      InterpretationBox[
+       OverscriptBox[
+        RowBox[{
+         StyleBox["\[EmptySet]",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontColor->GrayLevel[0]], "\[Equilibrium]", 
+         InterpretationBox[
+          SuperscriptBox[
+           StyleBox["ATP",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["C",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Toolbox`metabolite["ATP", "C"],
+          Editable->False,
+          Selectable->False]}], 
+        StyleBox["ID",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`reaction["ID", {}, {
+         Toolbox`metabolite["ATP", "C"]}, {1}, True],
+       Editable->False,
+       Selectable->False], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20120119-D2A3B5\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"str2mass", "[", "\"\<ID: 0 <=> ATP\>\"", "]"}], ",", 
+      InterpretationBox[
+       OverscriptBox[
+        RowBox[{
+         StyleBox["\[EmptySet]",
+          StripOnInput->False,
+          LineColor->GrayLevel[0],
+          FrontFaceColor->GrayLevel[0],
+          BackFaceColor->GrayLevel[0],
+          GraphicsColor->GrayLevel[0],
+          FontColor->GrayLevel[0]], "\[Equilibrium]", 
+         InterpretationBox[
+          StyleBox["ATP",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]],
+          Toolbox`metabolite["ATP", None],
+          Editable->False,
+          Selectable->False]}], 
+        StyleBox["ID",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`reaction["ID", {}, {
+         Toolbox`metabolite["ATP", None]}, {1}, True],
+       Editable->False,
+       Selectable->False], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20120312-K1U0N0\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"Sort", "[", 
+       RowBox[{"updateRules", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"1", "\[Rule]", "3"}], ",", 
+           RowBox[{"4", "\[Rule]", "5"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", "\[Rule]", "666"}], "}"}]}], "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"1", "\[Rule]", "666"}], ",", 
+        RowBox[{"4", "\[Rule]", "5"}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20110907-X3U5C1\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"Sort", "[", 
+       RowBox[{"updateRules", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"1", "\[Rule]", "3"}], ",", 
+           RowBox[{"4", "\[Rule]", "5"}]}], "}"}], ",", 
+         RowBox[{"{", "}"}]}], "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"1", "\[Rule]", "3"}], ",", 
+        RowBox[{"4", "\[Rule]", "5"}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20110907-H5E0H1\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"Sort", "[", 
+       RowBox[{"updateRules", "[", 
+        RowBox[{
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"1", "\[Rule]", "\"\<a\>\""}], ",", 
+           RowBox[{"4", "\[Rule]", "83.88`"}]}], "}"}]}], "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"1", "\[Rule]", "\"\<a\>\""}], ",", 
+        RowBox[{"4", "\[Rule]", "83.88`"}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20110907-M0V4Y2\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"Sort", "[", 
+       RowBox[{"updateRules", "[", 
+        RowBox[{
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", "}"}]}], "]"}], "]"}], ",", 
+      RowBox[{"{", "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20110907-P8X3R7\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"updateRules", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1.`", "\[Rule]", "4.`"}], "}"}], ",", 
+        RowBox[{"{", "}"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1.`", "\[Rule]", "4.`"}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20110907-E1A5M4\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"updateRules", "[", 
+       RowBox[{
+        RowBox[{"{", "}"}], ",", 
+        RowBox[{"{", "}"}], ",", 
+        RowBox[{"{", "}"}]}], "]"}], ",", 
+      RowBox[{"{", "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20111201-M2J7D9\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"updateRules", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", "\[Rule]", "2"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"3", "\[Rule]", "4"}], ",", 
+          RowBox[{"1", "\[Rule]", "3"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"1", "\[Rule]", "4"}], ",", 
+          RowBox[{"5", "\[Rule]", "6"}]}], "}"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"3", "\[Rule]", "4"}], ",", 
+        RowBox[{"1", "\[Rule]", "4"}], ",", 
+        RowBox[{"5", "\[Rule]", "6"}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20111201-A5P8S5\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"str2mass", "[", "\"\<k_vtpi_fwd\>\"", "]"}], ",", 
+      InterpretationBox[
+       SubsuperscriptBox["k", 
+        StyleBox["vtpi",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       Toolbox`rateconst["vtpi", True],
+       Editable->False,
+       Selectable->False], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20110907-U2N3R4\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"str2mass", "[", "\"\<k_vtpi_multiUnderScore_rev\>\"", "]"}], 
+      ",", 
+      InterpretationBox[
+       SubsuperscriptBox["k", 
+        StyleBox["vtpi_multiUnderScore",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+       Toolbox`rateconst["vtpi_multiUnderScore", False],
+       Editable->False,
+       Selectable->False], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20110907-S7J3Z3\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"str2mass", "[", "\"\<k_2_dr-Y_fwd\>\"", "]"}], ",", 
+      InterpretationBox[
+       SubsuperscriptBox["k", 
+        StyleBox[
+         RowBox[{
+          RowBox[{"2", "_dr"}], "-", "Y"}],
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       Toolbox`rateconst["2_dr-Y", True],
+       Editable->False,
+       Selectable->False], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20110907-G1B9T2\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"str2mass", "[", "\"\<Keq_2_dr-Y_fwd\>\"", "]"}], ",", 
+      InterpretationBox[
+       UnderscriptBox["K", 
+        StyleBox[
+         RowBox[{
+          RowBox[{"2", "_dr"}], "-", "Y_fwd"}],
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`Keq["2_dr-Y_fwd"],
+       Editable->False,
+       Selectable->False], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20110907-A6M3W3\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{"Symbol", "@", 
+        RowBox[{"makeConform", "[", "\"\<2_dr-Y(e)\>\"", "]"}]}], ",", 
+       "$2\[UnderBracket]dr\[OverBracket]Y\[LeftGuillemet]e\[RightGuillemet]",
+        ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20110907-Q6K5T2\>\""}]}],
+       "]"}]}], "]"}], ";", " ", 
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{"undoMakeConform", "[", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"Symbol", "@", 
+          RowBox[{"makeConform", "[", "\"\<2_dr-Y(e)\>\"", "]"}]}], "]"}], 
+        "]"}], ",", "\"\<2_dr-Y(e)\>\"", ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<UtilityRelatedTests-20110907-H5B8T4\>\""}]}],
+       "]"}]}], "]"}], ";"}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.624929463594743*^9, 3.62492949653802*^9}}],
+
+Cell[BoxData["results"], "Input"]
+}, Open  ]]
+},
+WindowSize->{640, 676},
+WindowMargins->{{0, Automatic}, {Automatic, -1}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 96, 1, 92, "Title"],
+Cell[679, 25, 136, 4, 28, "Input"],
+Cell[818, 31, 2917, 84, 36, "Input"],
+Cell[3738, 117, 570, 17, 46, "Input"],
+Cell[4311, 136, 2066, 60, 48, "Input"],
+Cell[6380, 198, 1089, 32, 35, "Input"],
+Cell[7472, 232, 859, 24, 48, "Input"],
+Cell[8334, 258, 821, 24, 69, "Input"],
+Cell[9158, 284, 412, 11, 46, "Input"],
+Cell[9573, 297, 3996, 107, 146, "Input"],
+Cell[13572, 406, 3996, 107, 146, "Input"],
+Cell[17571, 515, 3285, 88, 127, "Input"],
+Cell[20859, 605, 742, 20, 134, "Input"],
+Cell[21604, 627, 3281, 88, 119, "Input"],
+Cell[24888, 717, 2836, 77, 119, "Input"],
+Cell[27727, 796, 2104, 58, 76, "Input"],
+Cell[29834, 856, 1681, 47, 73, "Input"],
+Cell[31518, 905, 723, 21, 63, "Input"],
+Cell[32244, 928, 677, 20, 63, "Input"],
+Cell[32924, 950, 703, 20, 80, "Input"],
+Cell[33630, 972, 462, 14, 46, "Input"],
+Cell[34095, 988, 511, 15, 46, "Input"],
+Cell[34609, 1005, 457, 14, 46, "Input"],
+Cell[35069, 1021, 864, 25, 80, "Input"],
+Cell[35936, 1048, 862, 24, 56, "Input"],
+Cell[36801, 1074, 917, 25, 98, "Input"],
+Cell[37721, 1101, 921, 26, 56, "Input"],
+Cell[38645, 1129, 895, 26, 72, "Input"],
+Cell[39543, 1157, 1037, 26, 131, "Input"],
+Cell[40583, 1185, 33, 0, 28, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

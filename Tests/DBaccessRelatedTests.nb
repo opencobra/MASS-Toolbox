@@ -1,0 +1,466 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21223,        457]
+NotebookOptionsPosition[     20772,        438]
+NotebookOutlinePosition[     21131,        454]
+CellTagsIndexPosition[     21088,        451]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"results", "=", 
+   RowBox[{"{", "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{3.624919914674986*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"cmpdRequest", "=", 
+   RowBox[{"{", 
+    RowBox[{"\"\<InChI_identifiers\>\"", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<InChI=1S/C10H16N5O13P3/c11-8-5-9(13-2-12-8)15(3-14-5)10-7(17)6(16)\
+4(26-10)1-25-30(21,22)28-31(23,24)27-29(18,19)20/h2-4,6-7,10,16-17H,1H2,(H,21,\
+22)(H,23,24)(H2,11,12,13)(H2,18,19,20)/t4-,6-,7-,10-/m1/s1\>\"", ",", 
+       "\"\<InChI=1S/C10H15N5O10P2/c11-8-5-9(13-2-12-8)15(3-14-5)10-7(17)6(16)\
+4(24-10)1-23-27(21,22)25-26(18,19)20/h2-4,6-7,10,16-17H,1H2,(H,21,22)(H2,11,\
+12,13)(H2,18,19,20)/t4-,6-,7-,10-/m1/s1\>\""}], "}"}]}], "}"}]}], 
+  ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"rxnRequest", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<ionic_strength\>\"", "\[Rule]", "1.`"}], ",", 
+     RowBox[{"\"\<KEGG_reactions\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<R00002\>\"", ",", "\"\<R00022\>\""}], "}"}]}], ",", 
+     RowBox[{"\"\<pH\>\"", "\[Rule]", "7.`"}]}], "}"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"eQuilibratorCompoundData", "[", "cmpdRequest", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<compounds\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"\"\<formula\>\"", "\[Rule]", "\"\<C10H16N5O13P3\>\""}], 
+             ",", 
+             RowBox[{
+             "\"\<InChI\>\"", "\[Rule]", 
+              "\"\<InChI=1S/C10H16N5O13P3/c11-8-5-9(13-2-12-8)15(3-14-5)10-7(\
+17)6(16)4(26-10)1-25-30(21,22)28-31(23,24)27-29(18,19)20/h2-4,6-7,10,16-17H,\
+1H2,(H,21,22)(H,23,24)(H2,11,12,13)(H2,18,19,20)/t4-,6-,7-,10-/m1/s1\>\""}], 
+             ",", 
+             RowBox[{"\"\<KEGG_ID\>\"", "\[Rule]", "\"\<C00002\>\""}], ",", 
+             RowBox[{"\"\<mass\>\"", "\[Rule]", "506.9957`"}], ",", 
+             RowBox[{"\"\<name\>\"", "\[Rule]", "\"\<ATP\>\""}], ",", 
+             RowBox[{"\"\<note\>\"", "\[Rule]", "Null"}], ",", 
+             RowBox[{"\"\<num_electrons\>\"", "\[Rule]", "260"}], ",", 
+             RowBox[{"\"\<thermodynamic_data\>\"", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                   RowBox[{"-", "2838.2`"}]}], ",", 
+                  RowBox[{"\"\<dgzero_tag\>\"", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<ionic_strength\>\"", "\[Rule]", "0.`"}], ",", 
+                    RowBox[{"\"\<pH\>\"", "\[Rule]", "7.`"}], ",", 
+                    RowBox[{"\"\<value\>\"", "\[Rule]", 
+                    RowBox[{"-", "2292.9`"}]}]}], "}"}]}], ",", 
+                  RowBox[{
+                  "\"\<source\>\"", "\[Rule]", "\"\<Alberty (2006)\>\""}], 
+                  ",", 
+                  RowBox[{"\"\<species\>\"", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "2768.1`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", 
+                    RowBox[{"-", "4"}]}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "12"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "2811.48`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", 
+                    RowBox[{"-", "3"}]}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "13"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "2838.18`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", 
+                    RowBox[{"-", "2"}]}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "14"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}]}], 
+                    "}"}]}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                   RowBox[{"-", "2902.9`"}]}], ",", 
+                  RowBox[{"\"\<dgzero_tag\>\"", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<ionic_strength\>\"", "\[Rule]", "0.`"}], ",", 
+                    RowBox[{"\"\<pH\>\"", "\[Rule]", "7.`"}], ",", 
+                    RowBox[{"\"\<value\>\"", "\[Rule]", 
+                    RowBox[{"-", "2301.5`"}]}]}], "}"}]}], ",", 
+                  RowBox[{
+                  "\"\<source\>\"", "\[Rule]", "\"\<Group Contribution\>\""}],
+                   ",", 
+                  RowBox[{"\"\<species\>\"", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "2705.66293461725`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", 
+                    RowBox[{"-", "5"}]}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "11"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "2777.54525226308`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", 
+                    RowBox[{"-", "4"}]}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "12"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "2819.76185151539`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", 
+                    RowBox[{"-", "3"}]}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "13"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "2849.02822369976`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", 
+                    RowBox[{"-", "2"}]}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "14"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "2868.31094065555`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", 
+                    RowBox[{"-", "1"}]}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "15"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "2884.45593739664`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", "0"}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "16"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "2897.63436229837`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", "1"}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "17"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "2902.59766518344`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", "2"}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "18"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}]}], 
+                    "}"}]}]}], "}"}]}], "}"}]}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"\"\<formula\>\"", "\[Rule]", "\"\<C10H15N5O10P2\>\""}], 
+             ",", 
+             RowBox[{
+             "\"\<InChI\>\"", "\[Rule]", 
+              "\"\<InChI=1S/C10H15N5O10P2/c11-8-5-9(13-2-12-8)15(3-14-5)10-7(\
+17)6(16)4(24-10)1-23-27(21,22)25-26(18,19)20/h2-4,6-7,10,16-17H,1H2,(H,21,22)(\
+H2,11,12,13)(H2,18,19,20)/t4-,6-,7-,10-/m1/s1\>\""}], ",", 
+             RowBox[{"\"\<KEGG_ID\>\"", "\[Rule]", "\"\<C00008\>\""}], ",", 
+             RowBox[{"\"\<mass\>\"", "\[Rule]", "427.0294`"}], ",", 
+             RowBox[{"\"\<name\>\"", "\[Rule]", "\"\<ADP\>\""}], ",", 
+             RowBox[{"\"\<note\>\"", "\[Rule]", "Null"}], ",", 
+             RowBox[{"\"\<num_electrons\>\"", "\[Rule]", "220"}], ",", 
+             RowBox[{"\"\<thermodynamic_data\>\"", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                   RowBox[{"-", "1972.`"}]}], ",", 
+                  RowBox[{"\"\<dgzero_tag\>\"", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<ionic_strength\>\"", "\[Rule]", "0.`"}], ",", 
+                    RowBox[{"\"\<pH\>\"", "\[Rule]", "7.`"}], ",", 
+                    RowBox[{"\"\<value\>\"", "\[Rule]", 
+                    RowBox[{"-", "1429.2`"}]}]}], "}"}]}], ",", 
+                  RowBox[{
+                  "\"\<source\>\"", "\[Rule]", "\"\<Alberty (2006)\>\""}], 
+                  ",", 
+                  RowBox[{"\"\<species\>\"", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "1906.13`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", 
+                    RowBox[{"-", "3"}]}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "12"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "1947.1`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", 
+                    RowBox[{"-", "2"}]}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "13"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "1971.98`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", 
+                    RowBox[{"-", "1"}]}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "14"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}]}], 
+                    "}"}]}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                   RowBox[{"-", "2022.5`"}]}], ",", 
+                  RowBox[{"\"\<dgzero_tag\>\"", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<ionic_strength\>\"", "\[Rule]", "0.`"}], ",", 
+                    RowBox[{"\"\<pH\>\"", "\[Rule]", "7.`"}], ",", 
+                    RowBox[{"\"\<value\>\"", "\[Rule]", 
+                    RowBox[{"-", "1431.`"}]}]}], "}"}]}], ",", 
+                  RowBox[{
+                  "\"\<source\>\"", "\[Rule]", "\"\<Group Contribution\>\""}],
+                   ",", 
+                  RowBox[{"\"\<species\>\"", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "1756.2390365626`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", 
+                    RowBox[{"-", "5"}]}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "10"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "1835.9941794744`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", 
+                    RowBox[{"-", "4"}]}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "11"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "1907.07780470194`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", 
+                    RowBox[{"-", "3"}]}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "12"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "1949.3514534127`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", 
+                    RowBox[{"-", "2"}]}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "13"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "1978.61782559707`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", 
+                    RowBox[{"-", "1"}]}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "14"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "1997.55824580216`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", "0"}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "15"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "2012.67635229117`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", "1"}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "16"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+                    RowBox[{"-", "2022.43180968596`"}]}], ",", 
+                    RowBox[{"\"\<nc\>\"", "\[Rule]", "2"}], ",", 
+                    RowBox[{"\"\<nh\>\"", "\[Rule]", "17"}], ",", 
+                    RowBox[{"\"\<nmg\>\"", "\[Rule]", "0"}]}], "}"}]}], 
+                    "}"}]}]}], "}"}]}], "}"}]}]}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"\"\<ionic_strength\>\"", "\[Rule]", "0.`"}], ",", 
+        RowBox[{"\"\<pH\>\"", "\[Rule]", "7.`"}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<DBaccessRelatedTests-20120102-E3X3Y6\>\""}]}],
+      "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"eQuilibratorReactionData", "[", "rxnRequest", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<ionic_strength\>\"", "\[Rule]", "1"}], ",", 
+        RowBox[{"\"\<pH\>\"", "\[Rule]", "7"}], ",", 
+        RowBox[{"\"\<reactions\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<chemically_balanced\>\"", "\[Rule]", "True"}], ",", 
+            RowBox[{"\"\<dgzero\>\"", "\[Rule]", 
+             RowBox[{"-", "14.`"}]}], ",", 
+            RowBox[{"\"\<dgzero_tag\>\"", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\"\<ionic_strength\>\"", "\[Rule]", "1"}], ",", 
+               RowBox[{"\"\<pH\>\"", "\[Rule]", "7"}], ",", 
+               RowBox[{"\"\<value\>\"", "\[Rule]", 
+                RowBox[{"-", "14.`"}]}]}], "}"}]}], ",", 
+            RowBox[{"\"\<enzymes\>\"", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"\"\<EC\>\"", "\[Rule]", "\"\<3.2.1.52\>\""}], ",", 
+                RowBox[{
+                "\"\<name\>\"", "\[Rule]", 
+                 "\"\<beta-N-acetylhexosaminidase\>\""}]}], "}"}], "}"}]}], 
+            ",", 
+            RowBox[{"\"\<KEGG_ID\>\"", "\[Rule]", "\"\<R00022\>\""}], ",", 
+            RowBox[{"\"\<keq_tag\>\"", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\"\<ionic_strength\>\"", "\[Rule]", "1"}], ",", 
+               RowBox[{"\"\<pH\>\"", "\[Rule]", "7"}], ",", 
+               RowBox[{"\"\<value\>\"", "\[Rule]", "280.03137956115563`"}]}], 
+              "}"}]}], ",", 
+            RowBox[{"\"\<products\>\"", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"\"\<coeff\>\"", "\[Rule]", "2"}], ",", 
+                RowBox[{"\"\<concentration\>\"", "\[Rule]", "1.`"}], ",", 
+                RowBox[{"\"\<KEGG_ID\>\"", "\[Rule]", "\"\<C00140\>\""}], ",", 
+                RowBox[{
+                "\"\<name\>\"", "\[Rule]", "\"\<N-Acetyl-D-glucosamine\>\""}],
+                 ",", 
+                RowBox[{
+                "\"\<source_used\>\"", "\[Rule]", 
+                 "\"\<Group Contribution\>\""}]}], "}"}], "}"}]}], ",", 
+            RowBox[{
+            "\"\<reaction_string\>\"", "\[Rule]", 
+             "\"\<1 H2O + 1 Chitobiose <=> 2 N-Acetyl-D-glucosamine\>\""}], 
+            ",", 
+            RowBox[{"\"\<redox_balanced\>\"", "\[Rule]", "True"}], ",", 
+            RowBox[{"\"\<substrates\>\"", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"\"\<coeff\>\"", "\[Rule]", "1"}], ",", 
+                 RowBox[{"\"\<concentration\>\"", "\[Rule]", "1.`"}], ",", 
+                 RowBox[{"\"\<KEGG_ID\>\"", "\[Rule]", "\"\<C00001\>\""}], 
+                 ",", 
+                 RowBox[{"\"\<name\>\"", "\[Rule]", "\"\<H2O\>\""}], ",", 
+                 RowBox[{
+                 "\"\<source_used\>\"", "\[Rule]", 
+                  "\"\<Alberty (2006)\>\""}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"\"\<coeff\>\"", "\[Rule]", "1"}], ",", 
+                 RowBox[{"\"\<concentration\>\"", "\[Rule]", "1.`"}], ",", 
+                 RowBox[{"\"\<KEGG_ID\>\"", "\[Rule]", "\"\<C01674\>\""}], 
+                 ",", 
+                 RowBox[{"\"\<name\>\"", "\[Rule]", "\"\<Chitobiose\>\""}], 
+                 ",", 
+                 RowBox[{
+                 "\"\<source_used\>\"", "\[Rule]", 
+                  "\"\<Group Contribution\>\""}]}], "}"}]}], "}"}]}]}], "}"}],
+           "}"}]}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<DBaccessRelatedTests-20120102-E3X3Y6\>\""}]}],
+      "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData["results"], "Input"]
+},
+WindowSize->{808, 572},
+WindowMargins->{{236, Automatic}, {Automatic, 50}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 134, 4, 28, "Input"],
+Cell[695, 26, 632, 13, 148, "Input"],
+Cell[1330, 41, 367, 9, 28, "Input"],
+Cell[1700, 52, 15042, 293, 811, "Input"],
+Cell[16745, 347, 3987, 87, 284, "Input"],
+Cell[20735, 436, 33, 0, 28, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

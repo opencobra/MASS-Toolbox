@@ -1,0 +1,251 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7673,        242]
+NotebookOptionsPosition[      6930,        214]
+NotebookOutlinePosition[      7289,        230]
+CellTagsIndexPosition[      7246,        227]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ChemoInformatics Tests", "Title",
+ CellChangeTimes->{{3.6242158915328712`*^9, 3.6242159138954973`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"results", "=", 
+   RowBox[{"{", "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{3.6242054654588003`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"elementalComposition2formula", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"\"\<C\>\"", "\[Rule]", "10"}], ",", 
+         RowBox[{"\"\<H\>\"", "\[Rule]", "16"}], ",", 
+         RowBox[{"\"\<N\>\"", "\[Rule]", "1"}], ",", 
+         RowBox[{"\"\<O\>\"", "\[Rule]", "13"}], ",", 
+         RowBox[{"\"\<P\>\"", "\[Rule]", "3"}]}], "}"}], "]"}], ",", 
+      "\"\<H16C10NO13P3\>\"", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<ChemoInformaticsRelatedTests-20110914-E8N4Z6\>\""}]}], "]"}]}], 
+   "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Test", " ", "correct", " ", "treatment", " ", "of", " ", "pseudo", " ", 
+    "elements"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{"elementalComposition2formula", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<C\>\"", "\[Rule]", "10"}], ",", 
+          RowBox[{"\"\<H\>\"", "\[Rule]", "16"}], ",", 
+          RowBox[{"\"\<N\>\"", "\[Rule]", "1"}], ",", 
+          RowBox[{"\"\<O\>\"", "\[Rule]", "13"}], ",", 
+          RowBox[{"\"\<P\>\"", "\[Rule]", "3"}], ",", 
+          RowBox[{"\"\<NAD\>\"", "\[Rule]", "2"}]}], "}"}], "]"}], ",", 
+       "\"\<H16C10NO13P3&NAD&2\>\"", ",", 
+       RowBox[{
+       "TestID", "\[Rule]", 
+        "\"\<ChemoInformaticsRelatedTests-20110914-K6Q4V3\>\""}]}], "]"}]}], 
+    "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.624924270182539*^9, 3.624924271241205*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Test", " ", "that", " ", "compounds", " ", "like", " ", "H2O", " ", "are",
+     " ", "treated", " ", "correctly"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{"elementalComposition2formula", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<H\>\"", "\[Rule]", "2"}], ",", 
+          RowBox[{"\"\<O\>\"", "\[Rule]", "1"}]}], "}"}], "]"}], ",", 
+       "\"\<H2O\>\"", ",", 
+       RowBox[{
+       "TestID", "\[Rule]", 
+        "\"\<ChemoInformaticsRelatedTests-20110914-Y5B9V8\>\""}]}], "]"}]}], 
+    "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.6249242789027443`*^9, 3.624924279697104*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{
+      "formula2elementalComposition", "[", "\"\<P3C10H16N1O13\>\"", "]"}], 
+      ",", 
+      RowBox[{
+       RowBox[{"10", " ", "\"\<C\>\""}], "+", 
+       RowBox[{"16", " ", "\"\<H\>\""}], "+", "\"\<N\>\"", "+", 
+       RowBox[{"13", " ", "\"\<O\>\""}], "+", 
+       RowBox[{"3", " ", "\"\<P\>\""}]}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<ChemoInformaticsRelatedTests-20110914-O5G7W5\>\""}]}], "]"}]}], 
+   "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Test", " ", "that", " ", "pseudo", " ", "elements", " ", "are", " ", 
+    "treated", " ", "correctly"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{
+       "formula2elementalComposition", "[", "\"\<H16C10NO13P3&NAD&&Bl&3\>\"", 
+        "]"}], ",", 
+       RowBox[{
+        RowBox[{"3", " ", "\"\<&Bl&\>\""}], "+", 
+        RowBox[{"10", " ", "\"\<C\>\""}], "+", 
+        RowBox[{"16", " ", "\"\<H\>\""}], "+", "\"\<N\>\"", "+", 
+        "\"\<&NAD&\>\"", "+", 
+        RowBox[{"13", " ", "\"\<O\>\""}], "+", 
+        RowBox[{"3", " ", "\"\<P\>\""}]}], ",", 
+       RowBox[{
+       "TestID", "\[Rule]", 
+        "\"\<ChemoInformaticsRelatedTests-20110914-W6Y5D4\>\""}]}], "]"}]}], 
+    "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.624924290887472*^9, 3.624924291633401*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"elementalComposition2formula", "[", 
+       RowBox[{
+        RowBox[{"10", " ", "\"\<C\>\""}], "+", 
+        RowBox[{"13", " ", "\"\<H\>\""}], "+", 
+        RowBox[{"5", " ", "\"\<N\>\""}], "+", 
+        RowBox[{"10", " ", "\"\<O\>\""}], "+", 
+        RowBox[{"2", " ", "\"\<P\>\""}]}], "]"}], ",", 
+      "\"\<H13C10N5O10P2\>\"", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<ChemoInformaticsRelatedTests-20120213-F0M4T1\>\""}]}], "]"}]}], 
+   "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"elementalComposition2formula", "[", 
+       RowBox[{"\"\<H\>\"", "+", 
+        RowBox[{"3", " ", "\"\<NAD\>\""}]}], "]"}], ",", "\"\<H&NAD&3\>\"", 
+      ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<ChemoInformaticsRelatedTests-20120213-Z7N8V2\>\""}]}], "]"}]}], 
+   "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"elementalComposition2formula", "[", "\"\<H\>\"", "]"}], ",", 
+      "\"\<H\>\"", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<ChemoInformaticsRelatedTests-20120213-M7K5P1\>\""}]}], "]"}]}], 
+   "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"elementalComposition2formula", "[", 
+       RowBox[{"2", " ", "\"\<NAD\>\""}], "]"}], ",", "\"\<&NAD&2\>\"", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<ChemoInformaticsRelatedTests-20120213-U7P0U2\>\""}]}], "]"}]}], 
+   "]"}], ";"}]], "Input"],
+
+Cell[BoxData["results"], "Input"]
+}, Open  ]]
+},
+WindowSize->{808, 572},
+WindowMargins->{{236, Automatic}, {Automatic, 50}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 109, 1, 92, "Title"],
+Cell[692, 25, 136, 4, 28, "Input"],
+Cell[831, 31, 91, 2, 28, "Input"],
+Cell[925, 35, 693, 18, 80, "Input"],
+Cell[1621, 55, 1008, 25, 97, "Input"],
+Cell[2632, 82, 795, 21, 63, "Input"],
+Cell[3430, 105, 603, 17, 63, "Input"],
+Cell[4036, 124, 959, 25, 97, "Input"],
+Cell[4998, 151, 630, 17, 63, "Input"],
+Cell[5631, 170, 453, 13, 46, "Input"],
+Cell[6087, 185, 380, 11, 46, "Input"],
+Cell[6470, 198, 408, 11, 46, "Input"],
+Cell[6881, 211, 33, 0, 28, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

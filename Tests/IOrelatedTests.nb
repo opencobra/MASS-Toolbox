@@ -1,0 +1,89 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2248,         80]
+NotebookOptionsPosition[      1846,         62]
+NotebookOutlinePosition[      2204,         78]
+CellTagsIndexPosition[      2161,         75]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"results", " ", "=", " ", 
+   RowBox[{"{", "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.624922240309881*^9, 3.624922243372938*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{
+     RowBox[{"FileNameSplit", "[", 
+      RowBox[{"DirectoryName", "[", 
+       RowBox[{"FindFile", "[", "\"\<Toolbox`\>\"", "]"}], "]"}], "]"}], "[", 
+     
+     RowBox[{"[", 
+      RowBox[{";;", 
+       RowBox[{"-", "3"}]}], "]"}], "]"}], "]"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.624922198844307*^9, 3.624922215932629*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"modelsFromMatlab", "=", 
+   RowBox[{
+   "mat2model", "[", "\"\<Tests/TestData/110831-forNiko.mat\>\"", "]"}]}], 
+  ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{"modelsFromMatlab", ",", "result", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<IOrelatedTests-20120704-U9R1U9\>\""}]}], 
+     "]"}]}], "]"}], "*)"}]], "Input",
+ CellChangeTimes->{{3.62492221971837*^9, 3.6249222454379797`*^9}, 
+   3.624932949569625*^9}],
+
+Cell[BoxData["results"], "Input",
+ CellChangeTimes->{{3.6249222463874817`*^9, 3.624922247004963*^9}}]
+},
+WindowSize->{808, 576},
+WindowMargins->{{12, Automatic}, {Automatic, 24}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 168, 4, 28, "Input"],
+Cell[729, 26, 439, 12, 28, "Input"],
+Cell[1171, 40, 166, 5, 28, "Input"],
+Cell[1340, 47, 398, 10, 46, "Input"],
+Cell[1741, 59, 101, 1, 28, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

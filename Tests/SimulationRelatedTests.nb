@@ -1,0 +1,408 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     15496,        399]
+NotebookOptionsPosition[     14820,        373]
+NotebookOutlinePosition[     15179,        389]
+CellTagsIndexPosition[     15136,        386]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Simulation Tests", "Title",
+ CellChangeTimes->{{3.624216037826645*^9, 3.624216041193818*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"results", "=", 
+   RowBox[{"{", "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.624212530367083*^9, 3.624212534753645*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.624212274470933*^9, 3.624212276167467*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{
+     RowBox[{"FileNameSplit", "[", 
+      RowBox[{"DirectoryName", "[", 
+       RowBox[{"FindFile", "[", "\"\<Toolbox`\>\"", "]"}], "]"}], "]"}], "[", 
+     
+     RowBox[{"[", 
+      RowBox[{";;", 
+       RowBox[{"-", "3"}]}], "]"}], "]"}], "]"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.6242122816972303`*^9, 3.624212282991866*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"model", "=", 
+   RowBox[{"Import", "[", "\"\<Models/Glycolysis.m\>\"", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"referenceConcSolution", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.28999999999999926", ",", "0.08672812499999963", ",", 
+     "1.5999999999999996", ",", "0.16000000000000028", ",", 
+     "0.01980000000000001", ",", "0.014600000000000057", ",", 
+     "0.04860000000000002", ",", "0.0072800000000000165", ",", 
+     "1.0000000000000002", ",", "0.00008997573444801929", ",", "1.", ",", 
+     "1.36", ",", "0.058899999999999994", ",", "0.01700000000000004", ",", 
+     "0.000243000000000001", ",", "0.011300000000000022", ",", 
+     "0.07730000000000015", ",", "0.060301", ",", "0.030099999999999995", ",",
+      "2.4999999999999982"}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"referenceFluxSolution", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "1.1200000000000006", ",", "1.1200000000000254", ",", "1.12", ",", "1.12",
+      ",", "1.1200000000000099", ",", "2.2400000000000007", ",", 
+     "2.239999999999966", ",", "2.24", ",", "2.239999999999997", ",", 
+     "2.2400000000000007", ",", "2.0160000000000013", ",", 
+     "0.013999999999999829", ",", 
+     RowBox[{"-", "2.636779683484747*^-16"}], ",", "0.22400000000000003", ",",
+      "2.0160000000000013", ",", "2.2400000000000007", ",", 
+     "0.22400000000000017", ",", "1.12", ",", "0.014", ",", 
+     "2.6880000000000015", ",", "0."}], "}"}]}], ";"}], "\n"}], "Input",
+ CellChangeTimes->{{3.624212291862892*^9, 3.624212302980483*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Chop", "[", 
+        RowBox[{"EuclideanDistance", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"model", "[", "\"\<Species\>\"", "]"}], "/.", 
+            RowBox[{"stripUnits", "[", 
+             RowBox[{
+              RowBox[{"simulate", "[", 
+               RowBox[{"model", ",", 
+                RowBox[{"{", 
+                 RowBox[{"t", ",", "0", ",", "1000"}], "}"}]}], "]"}], "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "/.", 
+           RowBox[{"t", "\[Rule]", "10."}]}], ",", "referenceConcSolution"}], 
+         "]"}], "]"}], "\[Equal]", "0."}], ",", "True", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<SimulationRelatedTests-20120213-N7U1Q6\>\""}]}], "]"}]}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.624212318538506*^9, 3.624212321458049*^9}, {
+  3.624212380379264*^9, 3.62421239665131*^9}, {3.624212539299341*^9, 
+  3.6242125467304363`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Chop", "[", 
+        RowBox[{"EuclideanDistance", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"stripUnits", "[", 
+            RowBox[{
+             RowBox[{"simulate", "[", 
+              RowBox[{"model", ",", 
+               RowBox[{"{", 
+                RowBox[{"t", ",", "0", ",", "1000"}], "}"}]}], "]"}], "[", 
+             RowBox[{"[", 
+              RowBox[{"2", ",", "All", ",", "2"}], "]"}], "]"}], "]"}], "/.", 
+           
+           RowBox[{"t", "\[Rule]", "10."}]}], ",", "referenceFluxSolution"}], 
+         "]"}], "]"}], "\[Equal]", "0."}], ",", "True", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<SimulationRelatedTests-20120213-K9U6M4\>\""}]}], "]"}]}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.624212330403296*^9, 3.624212330427857*^9}, {
+  3.624212398355822*^9, 3.624212399627337*^9}, {3.6242125482343483`*^9, 
+  3.6242125567708178`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"model2", "=", "model"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"setInitialConditions", "[", 
+   RowBox[{"model2", ",", 
+    RowBox[{
+     RowBox[{"model", "[", "\"\<InitialConditions\>\"", "]"}], "[", 
+     RowBox[{"[", 
+      RowBox[{";;", 
+       RowBox[{"-", "5"}]}], "]"}], "]"}]}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6242123399957533`*^9, 3.624212347151947*^9}, {
+  3.6242125663313093`*^9, 3.624212569963108*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Originally", " ", "commented", " ", "out"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"model3", "=", "model"}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Toolbox`Private`setModelAttribute", "[", 
+      RowBox[{"model3", ",", "\"\<Parameters\>\"", ",", 
+       RowBox[{
+        RowBox[{"model2", "[", "\"\<Parameters\>\"", "]"}], "[", 
+        RowBox[{"[", 
+         RowBox[{";;", 
+          RowBox[{"-", "10"}]}], "]"}], "]"}]}], "]"}], " ", 
+     RowBox[{"Print", "[", "\"\<Hey\>\"", "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"simulate", "[", "model3", "]"}], " ", 
+     RowBox[{"Print", "[", "\"\<Hey2\>\"", "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"results", ",", 
+      RowBox[{"VerificationTest", "[", 
+       RowBox[{
+        RowBox[{"CheckAbort", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"simulate", "[", "model3", "]"}], ";"}], ",", "True"}], 
+         "]"}], ",", "True", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"NDSolve", "::", "ndnum"}], ",", 
+          RowBox[{"simulate", "::", "missingParam"}]}], "}"}], ",", 
+        RowBox[{
+        "TestID", "\[Rule]", 
+         "\"\<SimulationRelatedTests-20120213-F7J6J3\>\""}]}], "]"}]}], "]"}],
+     ";"}], "*)"}]}]], "Input",
+ CellChangeTimes->{{3.624212356515953*^9, 3.6242123565387897`*^9}, {
+  3.624924933076518*^9, 3.6249249354511337`*^9}, {3.624924979350881*^9, 
+  3.624925028106995*^9}, {3.624930933625599*^9, 3.624930936312026*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Originally", " ", "commented", " ", "out"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"results", ",", 
+      RowBox[{"VerificationTest", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"concSol", ",", "fluxSol"}], "}"}], "=", 
+          RowBox[{"randomSimulation", "[", 
+           RowBox[{"model", ",", 
+            RowBox[{"Seed", "\[Rule]", "1"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"#", "[", 
+                RowBox[{"[", 
+                 RowBox[{"1", ",", "0"}], "]"}], "]"}], "\[Rule]", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}], "/.", 
+              RowBox[{"t", "\[Rule]", ".66"}]}], "&"}], "/@", "concSol"}], 
+           ",", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"#", "[", 
+                RowBox[{"[", "1", "]"}], "]"}], "\[Rule]", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}], "/.", 
+              RowBox[{"t", "\[Rule]", ".66"}]}], "&"}], "/@", "fluxSol"}]}], 
+          "}"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<glu\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "178.64522006536194"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<g6p\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "0.000998586317820776"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<f6p\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "0.7821041432182982"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<fdp\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "1.0250040001525384*^-8"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<dhap\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "5.2350002356748286*^-9"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<gap\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "8.351882218243867*^-8"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<pg13\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "0.0069777891737488286"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<pg3\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "0.000027157429342513525"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<pg2\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "0.00004326710580197233"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<pep\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "0.2115792271718952"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<pyr\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "0.004808598258951891"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<lac\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "0.0018655142310083253"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<nad\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "0.05898923875539543"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<amp\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "2.3257410311523548"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<adp\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "0.003852931377584693"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<atp\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "1.368470179626957*^-7"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<h\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "0.002635635638643225"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<h2o\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "0.0014544329816703191"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<nadh\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "7.369790525155212*^-7"}], ",", 
+            RowBox[{
+             RowBox[{"metabolite", "[", 
+              RowBox[{"\"\<phos\>\"", ",", "\"\<c\>\""}], "]"}], "\[Rule]", 
+             "1.0251328510838191"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<vhk\>\"", "\[Rule]", "0.019732674465111504"}], ",", 
+            RowBox[{"\"\<vpgi\>\"", "\[Rule]", "0.019864512292178605"}], ",", 
+            
+            RowBox[{"\"\<vpfk\>\"", "\[Rule]", "1.2819894298633704*^-6"}], 
+            ",", 
+            RowBox[{"\"\<vtpi\>\"", "\[Rule]", "1.3403345240076332*^-6"}], 
+            ",", 
+            RowBox[{"\"\<vald\>\"", "\[Rule]", "1.3204187080049617*^-6"}], 
+            ",", 
+            RowBox[{"\"\<vgapdh\>\"", "\[Rule]", "2.9962661535859663*^-6"}], 
+            ",", 
+            RowBox[{"\"\<vpgk\>\"", "\[Rule]", "0.012337558784995753"}], ",", 
+            
+            RowBox[{"\"\<vpglm\>\"", "\[Rule]", "0.012426703263753567"}], ",", 
+            RowBox[{"\"\<veno\>\"", "\[Rule]", "0.012554024197187933"}], ",", 
+            
+            RowBox[{"\"\<vpk\>\"", "\[Rule]", "0.0015631196982612116"}], ",", 
+            
+            RowBox[{"\"\<vldh\>\"", "\[Rule]", 
+             RowBox[{"-", "0.0000824628274050399"}]}], ",", 
+            RowBox[{"\"\<vamp\>\"", "\[Rule]", "709.9205203545574"}], ",", 
+            RowBox[{"\"\<vapk\>\"", "\[Rule]", "0.005797557284830727"}], ",", 
+            
+            RowBox[{"\"\<vpyr\>\"", "\[Rule]", "0.0016490960124027605"}], ",", 
+            RowBox[{"\"\<vlac\>\"", "\[Rule]", "0.006270296197698227"}], ",", 
+            
+            RowBox[{"\"\<vatp\>\"", "\[Rule]", 
+             RowBox[{"-", "0.00003520282367697554"}]}], ",", 
+            RowBox[{"\"\<vnadh\>\"", "\[Rule]", "0.00008592077580137712"}], 
+            ",", 
+            RowBox[{"\"\<vgluin\>\"", "\[Rule]", "117.84525354530767"}], ",", 
+            
+            RowBox[{"\"\<vampin\>\"", "\[Rule]", "709.914665180556"}], ",", 
+            RowBox[{"\"\<vh\>\"", "\[Rule]", "0.018662737472193398"}], ",", 
+            RowBox[{"\"\<vh2o\>\"", "\[Rule]", "0.01267788363772583"}]}], 
+           "}"}]}], "}"}], ",", 
+        RowBox[{
+        "TestID", "\[Rule]", 
+         "\"\<SimulationRelatedTests-20110907-I5P3A9\>\""}]}], "]"}]}], "]"}],
+     ";"}], "*)"}]}]], "Input",
+ CellChangeTimes->{{3.624212367226851*^9, 3.624212367235561*^9}, {
+  3.624924937133625*^9, 3.624924974607088*^9}, {3.624925031132512*^9, 
+  3.62492503718895*^9}, {3.6249309439719276`*^9, 3.62493094925696*^9}}],
+
+Cell[BoxData["results"], "Input",
+ CellChangeTimes->{{3.624212577357069*^9, 3.624212578028*^9}}]
+}, Open  ]]
+},
+WindowSize->{717, 572},
+WindowMargins->{{Automatic, 154}, {Automatic, 36}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 99, 1, 92, "Title"],
+Cell[682, 25, 158, 4, 28, "Input"],
+Cell[843, 31, 139, 2, 28, "Input"],
+Cell[985, 35, 441, 12, 63, "Input"],
+Cell[1429, 49, 1538, 30, 267, "Input"],
+Cell[2970, 81, 1097, 28, 114, "Input"],
+Cell[4070, 111, 1063, 28, 114, "Input"],
+Cell[5136, 141, 462, 12, 46, "Input"],
+Cell[5601, 155, 1619, 40, 148, "Input"],
+Cell[7223, 197, 7482, 170, 624, "Input"],
+Cell[14708, 369, 96, 1, 28, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

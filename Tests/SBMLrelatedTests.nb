@@ -1,0 +1,688 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     25059,        679]
+NotebookOptionsPosition[     24295,        652]
+NotebookOutlinePosition[     24652,        668]
+CellTagsIndexPosition[     24609,        665]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"results", "=", 
+   RowBox[{"{", "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{3.624933091047364*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.625415108628289*^9, 3.625415117753819*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Options", "[", "runSBMLTestSuiteTest", "]"}], "=", 
+   RowBox[{"{", 
+    RowBox[{"\"\<LevelVersion\>\"", "\[Rule]", "\"\<l2v1\>\""}], "}"}]}], 
+  ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   StyleBox[
+    RowBox[{"runSBMLTestSuiteTest", "::", "lvNotFound"}], "MessageName"], 
+   "=", "\"\<SBML XML with version/level `1` not found in test data.\>\""}], 
+  ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   StyleBox[
+    RowBox[{"runSBMLTestSuiteTest", "::", "noODE"}], "MessageName"], "=", 
+   "\"\<Model contains no ODE.\>\""}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"runSBMLTestSuiteTest", "[", 
+    RowBox[{"cachedStuff_Rule", ",", 
+     RowBox[{"opts", ":", 
+      RowBox[{"OptionsPattern", "[", 
+       RowBox[{"{", 
+        RowBox[{"runSBMLTestSuiteTest", ",", "NDSolve"}], "}"}], "]"}]}]}], 
+    "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "start", ",", "stop", ",", "fluxSol", ",", "results", ",", "settings", 
+       ",", "sPecies", ",", "comparison", ",", "model", ",", "amountVars", 
+       ",", "anticipatedResults", ",", "concVar", ",", "concSol", ",", 
+       "paramIni", ",", "anicipatedResults"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"compareResults", "[", 
+        RowBox[{
+         RowBox[{"reference", ":", 
+          RowBox[{"{", 
+           RowBox[{"_Rule", ".."}], "}"}]}], ",", 
+         RowBox[{"result", ":", 
+          RowBox[{"{", 
+           RowBox[{"_Rule", ".."}], "}"}]}]}], "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"c", ",", "u"}], "}"}], ",", 
+         RowBox[{
+          RowBox[{"c", "=", 
+           RowBox[{"Transpose", "[", 
+            RowBox[{"reference", "\[LeftDoubleBracket]", 
+             RowBox[{"All", ",", "2"}], "\[RightDoubleBracket]"}], "]"}]}], 
+          ";", 
+          RowBox[{"u", "=", 
+           RowBox[{"Transpose", "[", 
+            RowBox[{
+             RowBox[{"reference", "\[LeftDoubleBracket]", 
+              RowBox[{"All", ",", "1"}], "\[RightDoubleBracket]"}], "/.", 
+             "\[VeryThinSpace]", "result"}], "]"}]}], ";", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"Thread", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"reference", "\[LeftDoubleBracket]", 
+                 RowBox[{"All", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+                "#1"}], "}"}], "]"}], "&"}], ")"}], "/@", 
+           RowBox[{"Thread", "/@", 
+            RowBox[{"Thread", "[", 
+             RowBox[{
+              RowBox[{"Abs", "[", 
+               RowBox[{"c", "-", "u"}], "]"}], "<", 
+              RowBox[{
+               RowBox[{"\"\<absolute\>\"", " ", "10"}], "+", 
+               RowBox[{"\"\<relative\>\"", " ", 
+                RowBox[{"Abs", "[", "c", "]"}]}]}]}], "]"}]}]}]}]}], "]"}]}], 
+      ";", 
+      RowBox[{"settings", "=", 
+       RowBox[{"cachedStuff", "\[LeftDoubleBracket]", 
+        RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}]}], ";", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"anticipatedResults", ",", "sPecies"}], "}"}], "=", 
+       RowBox[{"cachedStuff", "\[LeftDoubleBracket]", 
+        RowBox[{"2", ",", "3"}], "\[RightDoubleBracket]"}]}], ";", 
+      RowBox[{"anicipatedResults", "=", 
+       RowBox[{"Thread", "[", 
+        RowBox[{"sPecies", "\[Rule]", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Thread", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"anticipatedResults", "\[LeftDoubleBracket]", 
+                RowBox[{"All", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+               "#1"}], "}"}], "]"}], "&"}], ")"}], "/@", 
+          RowBox[{"Transpose", "[", 
+           RowBox[{"anticipatedResults", "\[LeftDoubleBracket]", 
+            RowBox[{"All", ",", "2"}], "\[RightDoubleBracket]"}], "]"}]}]}], 
+        "]"}]}], ";", 
+      RowBox[{"start", "=", 
+       RowBox[{"\"\<start\>\"", "/.", "\[VeryThinSpace]", "settings"}]}], ";", 
+      RowBox[{"stop", "=", 
+       RowBox[{"start", "+", 
+        RowBox[{"(", 
+         RowBox[{"\"\<duration\>\"", "/.", "\[VeryThinSpace]", "settings"}], 
+         ")"}]}]}], ";", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"MatchQ", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"OptionValue", "[", "\"\<LevelVersion\>\"", "]"}], "/.", 
+           "\[VeryThinSpace]", 
+           RowBox[{"cachedStuff", "\[LeftDoubleBracket]", 
+            RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}]}], ",", 
+          RowBox[{
+           RowBox[{"OptionValue", "[", "\"\<LevelVersion\>\"", "]"}], "|", 
+           "$Failed"}]}], "]"}], ",", 
+        RowBox[{
+         RowBox[{"Message", "[", 
+          RowBox[{
+           StyleBox[
+            RowBox[{"runSBMLTestSuiteTest", "::", "lvNotFound"}], 
+            "MessageName"], ",", 
+           RowBox[{"OptionValue", "[", "\"\<LevelVersion\>\"", "]"}]}], "]"}],
+          ";", 
+         RowBox[{"Abort", "[", "]"}], ";"}]}], "]"}], ";", 
+      RowBox[{"model", "=", 
+       RowBox[{"sbml2model", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"OptionValue", "[", "\"\<LevelVersion\>\"", "]"}], "/.", 
+          "\[VeryThinSpace]", 
+          RowBox[{"cachedStuff", "\[LeftDoubleBracket]", 
+           RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}]}], ",", 
+         RowBox[{"UnitChecking", "\[Rule]", "False"}]}], "]"}]}], ";", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"model", "[", "\"\<ODE\>\"", "]"}], "\[Equal]", 
+         RowBox[{"{", "}"}]}], ",", 
+        RowBox[{
+         RowBox[{"Message", "[", 
+          StyleBox[
+           RowBox[{"runSBMLTestSuiteTest", "::", "noODE"}], "MessageName"], 
+          "]"}], ";", 
+         RowBox[{"Abort", "[", "]"}], ";"}]}], "]"}], ";", 
+      RowBox[{"amountVars", "=", 
+       RowBox[{"ToString", "/@", 
+        RowBox[{"(", 
+         RowBox[{"\"\<amount\>\"", "/.", "\[VeryThinSpace]", "settings"}], 
+         ")"}]}]}], ";", 
+      RowBox[{"concVar", "=", 
+       RowBox[{
+        RowBox[{"ToString", "/@", 
+         RowBox[{"(", 
+          RowBox[{
+          "\"\<concentration\>\"", "/.", "\[VeryThinSpace]", "settings"}], 
+          ")"}]}], "/.", "\[VeryThinSpace]", 
+        RowBox[{
+         RowBox[{"{", "\"\<Null\>\"", "}"}], "\[Rule]", 
+         RowBox[{"{", "}"}]}]}]}], ";", 
+      RowBox[{"Check", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"concVar", "=!=", 
+            RowBox[{"{", "}"}]}], ",", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"concSol", ",", "fluxSol"}], "}"}], "=", 
+             RowBox[{
+              RowBox[{"stripUnits", "[", 
+               RowBox[{"simulate", "[", 
+                RowBox[{"model", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"t", ",", "start", ",", "stop"}], "}"}], ",", 
+                 RowBox[{"Sequence", "@@", 
+                  RowBox[{"updateRules", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "\"\<SpeciesProfiles\>\"", "\[Rule]", 
+                    "\"\<Concentrations\>\""}], "}"}], ",", 
+                    RowBox[{"FilterRules", "[", 
+                    RowBox[{
+                    RowBox[{"{", "opts", "}"}], ",", 
+                    RowBox[{"Options", "[", "NDSolve", "]"}]}], "]"}]}], 
+                   "]"}]}]}], "]"}], "]"}], "/.", "\[VeryThinSpace]", 
+              RowBox[{
+               RowBox[{"m", ":", 
+                RowBox[{"_species", "|", "_parameter"}]}], "\[RuleDelayed]", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"getID", "[", "m", "]"}], "/.", "\[VeryThinSpace]", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"\"\<Volume\>\"", ",", "elem_"}], "}"}], 
+                  "\[RuleDelayed]", "elem"}]}], ")"}]}]}]}], ";"}], ",", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"concSol", ",", "fluxSol"}], "}"}], "=", 
+             RowBox[{
+              RowBox[{"stripUnits", "[", 
+               RowBox[{"simulate", "[", 
+                RowBox[{"model", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"t", ",", "start", ",", "stop"}], "}"}], ",", 
+                 RowBox[{"Sequence", "@@", 
+                  RowBox[{"updateRules", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "\"\<SpeciesProfiles\>\"", "\[Rule]", 
+                    "\"\<Particles\>\""}], "}"}], ",", 
+                    RowBox[{"FilterRules", "[", 
+                    RowBox[{
+                    RowBox[{"{", "opts", "}"}], ",", 
+                    RowBox[{"Options", "[", "NDSolve", "]"}]}], "]"}]}], 
+                   "]"}]}]}], "]"}], "]"}], "/.", "\[VeryThinSpace]", 
+              RowBox[{
+               RowBox[{"m", ":", 
+                RowBox[{"_species", "|", "_parameter"}]}], "\[RuleDelayed]", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"getID", "[", "m", "]"}], "/.", "\[VeryThinSpace]", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"\"\<Volume\>\"", ",", "elem_"}], "}"}], 
+                  "\[RuleDelayed]", "elem"}]}], ")"}]}]}]}], ";"}]}], "]"}], 
+         ";"}], ",", 
+        RowBox[{
+         RowBox[{"paramIni", "=", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"getID", "[", 
+               RowBox[{
+               "#1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+               "]"}], "\[Rule]", 
+              RowBox[{
+              "#1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], 
+             "&"}], ")"}], "/@", 
+           RowBox[{"Join", "[", 
+            RowBox[{
+             RowBox[{"model", "[", "\"\<Parameters\>\"", "]"}], ",", 
+             RowBox[{"model", "[", "\"\<InitialConditions\>\"", "]"}]}], 
+            "]"}]}]}], ";", 
+         RowBox[{"concSol", "=", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+              "#1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              "\[Rule]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"NumberQ", "[", 
+                 RowBox[{
+                 "#1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}],
+                  "]"}], ",", 
+                RowBox[{"With", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"x", "=", 
+                    RowBox[{
+                    "#1", "\[LeftDoubleBracket]", "2", 
+                    "\[RightDoubleBracket]"}]}], "}"}], ",", 
+                  RowBox[{"FunctionInterpolation", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"x", "&"}], ")"}], "[", "t", "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"t", ",", "start", ",", "stop"}], "}"}]}], 
+                   "]"}]}], "]"}]}], "]"}]}], "&"}], ")"}], "/@", 
+           RowBox[{"FilterRules", "[", 
+            RowBox[{"paramIni", ",", 
+             RowBox[{"{", "\"\<k1\>\"", "}"}]}], "]"}]}]}], ";"}], ",", 
+        RowBox[{"{", 
+         StyleBox[
+          RowBox[{"NDSolve", "::", "nodv"}], "MessageName"], "}"}]}], "]"}], 
+      ";", 
+      RowBox[{"concSol", "=", 
+       RowBox[{"Thread", "[", 
+        RowBox[{"amountVars", "\[Rule]", 
+         RowBox[{"(", 
+          RowBox[{"amountVars", "/.", "\[VeryThinSpace]", "concSol"}], 
+          ")"}]}], "]"}]}], ";", 
+      RowBox[{"results", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"t", "\[Rule]", 
+          RowBox[{"(", 
+           RowBox[{"amountVars", "/.", "\[VeryThinSpace]", "concSol"}], 
+           ")"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", 
+           RowBox[{"anticipatedResults", "\[LeftDoubleBracket]", 
+            RowBox[{"All", ",", "1"}], "\[RightDoubleBracket]"}]}], "}"}]}], 
+        "]"}]}], ";", 
+      RowBox[{"comparison", "=", 
+       RowBox[{
+        RowBox[{"Thread", "[", 
+         RowBox[{"amountVars", "\[Rule]", 
+          RowBox[{"compareResults", "[", 
+           RowBox[{"anticipatedResults", ",", "results"}], "]"}]}], "]"}], "/.",
+         "\[VeryThinSpace]", "settings"}]}], ";", 
+      RowBox[{"!", 
+       RowBox[{"MemberQ", "[", 
+        RowBox[{"comparison", ",", "False", ",", "\[Infinity]"}], "]"}]}]}]}],
+     "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.625414457624069*^9, 3.6254144652005444`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{
+     RowBox[{"FileNameSplit", "[", 
+      RowBox[{"DirectoryName", "[", 
+       RowBox[{"FindFile", "[", "\"\<Toolbox`\>\"", "]"}], "]"}], "]"}], 
+     "\[LeftDoubleBracket]", 
+     RowBox[{"1", ";;", 
+      RowBox[{"-", "3"}]}], "\[RightDoubleBracket]"}], "]"}], "]"}], 
+  ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"cachedSBMLnew", "=", 
+   RowBox[{
+   "Import", "[", "\"\<Tests/TestData/cachedSBMLTestSuite_2.0.2.wdx.gz\>\"", 
+    "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"CheckAbort", "[", 
+   RowBox[{
+    RowBox[{"Check", "[", 
+     RowBox[{
+      RowBox[{"runSBMLTestSuiteTest", "[", 
+       RowBox[{
+        RowBox[{"cachedSBMLnew", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], ",", 
+        RowBox[{"\"\<LevelVersion\>\"", "\[Rule]", "\"\<l2v3\>\""}]}], "]"}], 
+      ",", 
+      RowBox[{
+       RowBox[{"Abort", "[", "]"}], ";"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+        "Toolbox`Private`parseReactionXML", "::", "fastReactionDetected"}], 
+        ",", 
+        RowBox[{"runSBMLTestSuiteTest3", "::", "lvNotFound"}], ",", 
+        RowBox[{"runSBMLTestSuiteTest3", "::", "noODE"}]}], "}"}]}], "]"}], 
+    ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{"Print", "[", "i", "]"}], ";"}], "*)"}], 
+    RowBox[{"$MessageList", "[", 
+     RowBox[{"[", 
+      RowBox[{"-", "1"}], "]"}], "]"}]}], "]"}], "*)"}]], "Input",
+ CellChangeTimes->{{3.624931744788533*^9, 3.624931744823999*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"$VersionNumber", "\[GreaterEqual]", "9"}], ",", 
+    RowBox[{
+     RowBox[{"doNotTest", "=", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<00028\>\"", ",", "\"\<00173\>\"", ",", "\"\<00197\>\"", ",", 
+        "\"\<00269\>\"", ",", "\"\<00954\>\"", ",", "\"\<00955\>\"", ",", 
+        "\"\<00956\>\""}], "}"}]}], ";", 
+     RowBox[{"options", "=", 
+      RowBox[{"{", 
+       RowBox[{"_", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"Method", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"\"\<DiscontinuityProcessing\>\"", "\[Rule]", "False"}], 
+           "}"}]}], "}"}]}], "}"}]}], ";"}], ",", 
+    RowBox[{
+     RowBox[{"doNotTest", "=", 
+      RowBox[{"{", "}"}]}], ";", 
+     RowBox[{"options", "=", 
+      RowBox[{"{", "}"}]}], ";"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"MemberQ", "[", 
+       RowBox[{"doNotTest", ",", 
+        RowBox[{"testCase", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ",", 
+      RowBox[{"Continue", "[", "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"testResult", "=", 
+     RowBox[{"Check", "[", 
+      RowBox[{
+       RowBox[{"CheckAbort", "[", 
+        RowBox[{
+         RowBox[{"runSBMLTestSuiteTest", "[", 
+          RowBox[{"testCase", ",", 
+           RowBox[{"\"\<LevelVersion\>\"", "\[Rule]", "\"\<l3v1\>\""}], ",", 
+           RowBox[{"Sequence", "@@", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"testCase", "[", 
+               RowBox[{"[", "1", "]"}], "]"}], "/.", "options"}], ")"}]}]}], 
+          "]"}], ",", 
+         RowBox[{
+          RowBox[{"Print", "[", 
+           RowBox[{"testCase", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "]"}], ";", "None"}]}], "]"}], 
+       ",", 
+       RowBox[{
+        RowBox[{"Print", "[", 
+         RowBox[{"$MessageList", "[", 
+          RowBox[{"[", 
+           RowBox[{"-", "1"}], "]"}], "]"}], "]"}], ";", 
+        RowBox[{"Print", "[", 
+         RowBox[{"\"\<Skipping \>\"", "<>", 
+          RowBox[{"testCase", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "<>", "\"\<!\>\""}], "]"}], ";", 
+        RowBox[{"Continue", "[", "]"}], ";"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"sbml2model", "::", "conversionFactorDetected"}], ",", 
+         RowBox[{"sbml2model", "::", "eventProblem"}], ",", 
+         RowBox[{"sbml2model", "::", "variableStoichiometry"}], ",", 
+         RowBox[{"sbml2model", "::", "eventDelayDetected"}], ",", 
+         RowBox[{
+         "Toolbox`Private`reactionList2model", "::", "autoCatalyticRxn"}], 
+         ",", 
+         RowBox[{
+         "Toolbox`Private`parseReactionXML", "::", "fastReactionDetected"}], 
+         ",", 
+         RowBox[{"runSBMLTestSuiteTest", "::", "lvNotFound"}], ",", 
+         RowBox[{"runSBMLTestSuiteTest", "::", "noODE"}]}], "}"}]}], "]"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"With", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"id", "=", 
+        RowBox[{"\"\<SBMLTestSuite_\>\"", "<>", 
+         RowBox[{"First", "[", "testCase", "]"}]}]}], "}"}], ",", 
+      RowBox[{"AppendTo", "[", 
+       RowBox[{"results", ",", 
+        RowBox[{"VerificationTest", "[", 
+         RowBox[{"testResult", ",", "True", ",", 
+          RowBox[{"TestID", "\[Rule]", "id"}]}], "]"}]}], "]"}]}], "]"}]}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"testCase", ",", "cachedSBMLnew"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.625433272099551*^9, 3.6254332721184797`*^9}, {
+  3.6254333090955667`*^9, 3.625433333782613*^9}, {3.625433574174238*^9, 
+  3.6254335964328747`*^9}, {3.6254569254506598`*^9, 3.6254569381387587`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{"Test", "[", 
+     RowBox[{
+      RowBox[{"RandomChoice", "[", 
+       RowBox[{"{", 
+        RowBox[{"True", ",", "False"}], "}"}], "]"}], ",", "True", ",", 
+      RowBox[{"TestID", "\[Rule]", 
+       RowBox[{"\"\<SBMLTestSuite\>\"", "<>", 
+        RowBox[{"ToString", "[", "testCase", "]"}]}]}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"testCase", ",", "1", ",", "1000"}], "}"}]}], "]"}], 
+  "*)"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"Test", "[", 
+      RowBox[{
+       RowBox[{"CheckAbort", "[", 
+        RowBox[{
+         RowBox[{"sbml2model", "[", "\"\<wrong/path/toFile.sbml\>\"", "]"}], 
+         ",", "True"}], "]"}], ",", "True", ",", 
+       RowBox[{"{", 
+        RowBox[{"sbml2model", "::", "NotExistFile"}], "}"}], ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<SBMLrelatedTests-20110907-U7S4O0\>\""}]}], 
+      "]"}], " ", "model"}], "=", 
+    RowBox[{"sbml2model", "[", "\"\<Models/Ec_core_flux1.xml.gz\>\"", "]"}]}],
+    ";", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Test", "[", 
+      RowBox[{
+       RowBox[{"getID", "[", "model", "]"}], ",", "\"\<Ec_core\>\"", ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<SBMLrelatedTests-20110907-A2I6V5\>\""}]}], 
+      "]"}], " ", 
+     RowBox[{"Test", "[", 
+      RowBox[{
+       RowBox[{"Head", "[", "model", "]"}], ",", "MASSmodel", ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<SBMLrelatedTests-20110511-M3A2C3\>\""}]}], 
+      "]"}], " ", 
+     RowBox[{"Test", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"model", "[", "\"\<ID\>\"", "]"}], ",", 
+         RowBox[{"model", "[", "\"\<Name\>\"", "]"}], ",", 
+         RowBox[{"Dimensions", "[", "model", "]"}], ",", 
+         RowBox[{"Length", "[", 
+          RowBox[{"model", "[", "\"\<Fluxes\>\"", "]"}], "]"}], ",", 
+         RowBox[{"Length", "[", 
+          RowBox[{"model", "[", "\"\<Variables\>\"", "]"}], "]"}]}], "}"}], 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Ec_core\>\"", ",", "\"\<Ec_core\>\"", ",", 
+         RowBox[{"{", 
+          RowBox[{"63", ",", "77"}], "}"}], ",", "77", ",", "63"}], "}"}], 
+       ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<SBMLrelatedTests-20110511-W4W6W9\>\""}]}], 
+      "]"}], "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"glycolysis", "=", 
+        RowBox[{
+        "sbml2model", "[", "\"\<../../Models/Glycolysis.sbml\>\"", "]"}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"Test", "[", 
+        RowBox[{
+         RowBox[{"model2sbml", "[", "glycolysis", "]"}], ",", 
+         RowBox[{"Import", "[", 
+          RowBox[{"\"\<../../Models/glycolysis\>\"", ",", "\"\<Text\>\""}], 
+          "]"}], ",", 
+         RowBox[{
+         "TestID", "\[Rule]", "\"\<SBMLrelatedTests-20110926-L4O2C8\>\""}]}], 
+        "]"}]}], "*)"}], " ", "nielsenModel"}], "=", 
+    RowBox[{
+    "sbml2model", "[", "\"\<Models/BIOMD0000000042.xml.gz\>\"", "]"}]}], ";", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Test", "[", 
+     RowBox[{
+      RowBox[{"Head", "[", "nielsenModel", "]"}], ",", "MASSmodel", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<SBMLrelatedTests-20110525-F0V1C1\>\""}]}], 
+     "]"}], " ", 
+    RowBox[{"Test", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"nielsenModel", "[", "\"\<ID\>\"", "]"}], ",", 
+        RowBox[{"nielsenModel", "[", "\"\<Name\>\"", "]"}], ",", 
+        RowBox[{"Dimensions", "[", "nielsenModel", "]"}], ",", 
+        RowBox[{"Length", "[", 
+         RowBox[{"nielsenModel", "[", "\"\<Fluxes\>\"", "]"}], "]"}], ",", 
+        RowBox[{"Length", "[", 
+         RowBox[{"nielsenModel", "[", "\"\<Variables\>\"", "]"}], "]"}]}], 
+       "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Glycolysis_Nielsen\>\"", ",", "\"\<Nielsen1998_Glycolysis\>\"", 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"15", ",", "25"}], "}"}], ",", "25", ",", "15"}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<SBMLrelatedTests-20110525-X9R0D1\>\""}]}], 
+     "]"}], "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+     "Test", " ", "model", " ", "import", " ", "via", " ", "Biomodels", " ", 
+      "web", " ", "services"}], "*)"}], " ", 
+    RowBox[{"Test", "[", 
+     RowBox[{
+      RowBox[{"modelFromBiomodelsDB", "=", 
+       RowBox[{"biomodel2model", "[", "\"\<BIOMD0000000042\>\"", "]"}]}], ",",
+       "nielsenModel", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<SBMLrelatedTests-20110525-W7Y1D7\>\""}]}], 
+     "]"}], " ", 
+    RowBox[{"Test", "[", 
+     RowBox[{
+      RowBox[{"CheckAbort", "[", 
+       RowBox[{
+        RowBox[{"biomodel2model", "[", "\"\<NotAbiomodelsId\>\"", "]"}], ",", 
+        "True"}], "]"}], ",", "True", ",", 
+      RowBox[{"{", 
+       RowBox[{"biomodel2model", "::", "wrngid"}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<SBMLrelatedTests-20110525-F8B1V2\>\""}]}], 
+     "]"}]}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.6249317047074347`*^9, 3.624931704726581*^9}, 
+   3.624931754119574*^9}],
+
+Cell[BoxData["results"], "Input"]
+},
+WindowSize->{640, 676},
+WindowMargins->{{Automatic, 0}, {Automatic, -1}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 134, 4, 28, "Input"],
+Cell[695, 26, 157, 3, 28, "Input"],
+Cell[855, 31, 209, 6, 28, "Input"],
+Cell[1067, 39, 219, 6, 46, "Input"],
+Cell[1289, 47, 178, 5, 28, "Input"],
+Cell[1470, 54, 12282, 305, 967, "Input"],
+Cell[13755, 361, 392, 11, 63, "Input"],
+Cell[14150, 374, 176, 5, 46, "Input"],
+Cell[14329, 381, 988, 28, 114, "Input"],
+Cell[15320, 411, 856, 24, 114, "Input"],
+Cell[16179, 437, 2894, 71, 301, "Input"],
+Cell[19076, 510, 492, 14, 46, "Input"],
+Cell[19571, 526, 4684, 122, 522, "Input"],
+Cell[24258, 650, 33, 0, 28, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,0 +1,345 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11413,        336]
+NotebookOptionsPosition[     10885,        315]
+NotebookOutlinePosition[     11241,        331]
+CellTagsIndexPosition[     11198,        328]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"results", " ", "=", " ", 
+   RowBox[{"{", "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.624921677454144*^9, 3.6249216787804317`*^9}, {
+  3.624921887934792*^9, 3.624921891212118*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"rxns", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"r", "[", 
+      RowBox[{"\"\<1\>\"", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"e", "[", "\"\<E1\>\"", "]"}], ",", 
+         RowBox[{"m", "[", 
+          RowBox[{"\"\<A\>\"", ",", "\"\<c\>\""}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"e", "[", "\"\<E3\>\"", "]"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", "True"}], "]"}], ",", 
+     RowBox[{"r", "[", 
+      RowBox[{"\"\<6\>\"", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"e", "[", "\"\<E1\>\"", "]"}], ",", 
+         RowBox[{"m", "[", 
+          RowBox[{"\"\<P\>\"", ",", "\"\<c\>\""}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"e", "[", "\"\<E2\>\"", "]"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", "True"}], "]"}], ",", 
+     RowBox[{"r", "[", 
+      RowBox[{"\"\<3\>\"", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"e", "[", "\"\<E1\>\"", "]"}], ",", 
+         RowBox[{"m", "[", 
+          RowBox[{"\"\<B\>\"", ",", "\"\<c\>\""}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"e", "[", "\"\<E5\>\"", "]"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", "True"}], "]"}], ",", 
+     RowBox[{"r", "[", 
+      RowBox[{"\"\<2\>\"", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"e", "[", "\"\<E3\>\"", "]"}], ",", 
+         RowBox[{"m", "[", 
+          RowBox[{"\"\<B\>\"", ",", "\"\<c\>\""}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"e", "[", "\"\<E4\>\"", "]"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", "True"}], "]"}], ",", 
+     RowBox[{"r", "[", 
+      RowBox[{"\"\<5\>\"", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"e", "[", "\"\<E2\>\"", "]"}], ",", 
+         RowBox[{"m", "[", 
+          RowBox[{"\"\<C\>\"", ",", "\"\<c\>\""}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"e", "[", "\"\<E4\>\"", "]"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", "True"}], "]"}], ",", 
+     RowBox[{"r", "[", 
+      RowBox[{"\"\<4\>\"", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"e", "[", "\"\<E5\>\"", "]"}], ",", 
+         RowBox[{"m", "[", 
+          RowBox[{"\"\<A\>\"", ",", "\"\<c\>\""}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"e", "[", "\"\<E4\>\"", "]"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", "True"}], "]"}]}], 
+    "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.624921685599243*^9, 3.624921687295484*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"enz", "=", 
+   RowBox[{"constructModel", "[", "rxns", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Toolbox`Private`setModelAttribute", "[", 
+   RowBox[{"enz", ",", "\"\<Parameters\>\"", ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"#", "\[Rule]", 
+       RowBox[{"RandomReal", "[", "]"}]}], "&"}], "/@", 
+     RowBox[{"Join", "[", 
+      RowBox[{
+       RowBox[{"enz", "[", "\"\<ForwardRateConstants\>\"", "]"}], ",", 
+       RowBox[{"enz", "[", "\"\<ReverseRateConstants\>\"", "]"}]}], "]"}]}]}],
+    "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"eForms", "=", 
+   RowBox[{"Cases", "[", 
+    RowBox[{
+     RowBox[{"enz", "[", "\"\<Species\>\"", "]"}], ",", "_enzyme"}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"mets", "=", 
+   RowBox[{"Complement", "[", 
+    RowBox[{
+     RowBox[{"enz", "[", "\"\<Species\>\"", "]"}], ",", "eForms"}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Toolbox`Private`setModelAttribute", "[", 
+   RowBox[{"enz", ",", "\"\<InitialConditions\>\"", ",", 
+    RowBox[{"Join", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"eForms", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "\[Rule]", "1"}], "}"}], ",", 
+      RowBox[{"Thread", "[", 
+       RowBox[{"Rule", "[", 
+        RowBox[{
+         RowBox[{"eForms", "[", 
+          RowBox[{"[", 
+           RowBox[{"2", ";;"}], "]"}], "]"}], ",", "0"}], "]"}], "]"}], ",", 
+      RowBox[{"Thread", "[", 
+       RowBox[{"Rule", "[", 
+        RowBox[{"mets", ",", "1"}], "]"}], "]"}]}], "]"}]}], "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"ic", "=", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"#", "\[Rule]", 
+       RowBox[{"RandomReal", "[", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "1"}], "}"}], "]"}]}], "&"}], "/@", 
+     RowBox[{"enz", "[", "\"\<Species\>\"", "]"}]}], ")"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"param", "=", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"#", "\[Rule]", 
+        RowBox[{"RandomReal", "[", "]"}]}], "&"}], "/@", 
+      RowBox[{"Join", "[", 
+       RowBox[{
+        RowBox[{"enz", "[", "\"\<ForwardRateConstants\>\"", "]"}], ",", 
+        RowBox[{"enz", "[", "\"\<ReverseRateConstants\>\"", "]"}]}], "]"}]}], 
+     ")"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"ss", "=", 
+     RowBox[{
+      RowBox[{"findSteadyState", "[", 
+       RowBox[{"enz", ",", 
+        RowBox[{"InitialConditions", "\[Rule]", "ic"}], ",", 
+        RowBox[{"Parameters", "\[Rule]", "param"}], ",", 
+        RowBox[{"Strategy", "\[Rule]", "simulate"}]}], "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ";"}], " ", "*)"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"numEtot", "=", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"Plus", "@@", "eForms"}], "/.", "ic"}], ")"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"kaPatterns", "=", 
+    RowBox[{"KingAltmanPatterns", "[", "enz", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"ssKA", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"#", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "\[Rule]", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"#", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], "/.", "param"}], "/.", "ss"}], 
+          ")"}], "*", "numEtot"}]}], "&"}], "/@", "kaPatterns"}]}], ";"}], 
+   " ", "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.624921697008381*^9, 3.624921697032527*^9}, {
+  3.624921777895129*^9, 3.624921830886166*^9}, {3.624932540689933*^9, 
+  3.624932555849126*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{"Chop", "[", 
+        RowBox[{
+         RowBox[{"Abs", "[", 
+          RowBox[{"Thread", "[", 
+           RowBox[{"Subtract", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"ssKA", "[", 
+               RowBox[{"[", 
+                RowBox[{"All", ",", "1"}], "]"}], "]"}], "/.", 
+              RowBox[{"FilterRules", "[", 
+               RowBox[{"ss", ",", "_enzyme"}], "]"}]}], ",", 
+             RowBox[{"ssKA", "[", 
+              RowBox[{"[", 
+               RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "]"}], "]"}], "]"}],
+          ",", "1*^-6"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{
+       "TestID", "\[Rule]", 
+        "\"\<RegulationRelatedTests-20120529-O4Y3U2\>\""}]}], "]"}]}], "]"}], 
+   ";"}], "*)"}]], "Input",
+ CellChangeTimes->{{3.62492175397057*^9, 3.624921755283749*^9}, {
+  3.624921896452792*^9, 3.624921903821271*^9}, {3.6249325649785643`*^9, 
+  3.6249325680203037`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"enzymeModules", "=", 
+   RowBox[{"{", 
+    RowBox[{"\"\<Sequential_Ordered_BiBi\>\"", "\[Rule]", 
+     RowBox[{"constructEnzymeModule", "[", 
+      RowBox[{
+       RowBox[{"Mechanism", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<E_E[c] + A[c] <=> E_E[c]&A\>\"", ",", 
+          "\"\<E_E[c]&A + B[c] <=> E_E[c]&A&B\>\"", ",", 
+          "\"\<E_E[c]&A&B <=> E_E[c]&Q&P\>\"", ",", 
+          "\"\<E_E[c]&Q&P <=> E_E[c]&Q + P[c]\>\"", ",", 
+          "\"\<E_E[c]&Q <=> E_E[c] + Q[c]\>\""}], "}"}]}], ",", 
+       RowBox[{"Activators", "\[Rule]", 
+        RowBox[{"{", "}"}]}], ",", 
+       RowBox[{"ActivationSites", "\[Rule]", "0"}], ",", 
+       RowBox[{"Inhibitors", "\[Rule]", 
+        RowBox[{"{", "}"}]}], ",", 
+       RowBox[{"InhibitionSites", "\[Rule]", "0"}]}], "]"}]}], "}"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.624921717486257*^9, 3.624921738148286*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"getEnzymeSteadyStateEquations", "[", 
+       RowBox[{"enzymeModules", "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", "2"}], "]"}], "]"}], "]"}], ",", 
+      RowBox[{
+      "Import", "[", "\"\<Tests/TestData/enzModuleSSequations.m\>\"", "]"}], 
+      ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<RegulationRelatedTests-20140209-S6U4N2\>\""}]}], "]"}]}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.624921744357333*^9, 3.624921746875393*^9}, {
+  3.624921907100546*^9, 3.624921913249178*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"Simplify", "@", 
+       RowBox[{"solveEnzymeSteadyStateEquations", "[", 
+        RowBox[{"enzymeModules", "[", 
+         RowBox[{"[", 
+          RowBox[{"1", ",", "2"}], "]"}], "]"}], "]"}]}], ",", 
+      RowBox[{"Simplify", "@", 
+       RowBox[{
+       "Import", "[", "\"\<Tests/TestData/enzModuleSSsolution.m\>\"", "]"}]}],
+       ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<RegulationRelatedTests-20140209-A7L1C8\>\""}]}], "]"}]}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.624921742132039*^9, 3.624921751516411*^9}, 
+   3.624921849330697*^9, 3.624921879410808*^9, {3.624921915246632*^9, 
+   3.6249219228072243`*^9}, {3.625182387373817*^9, 3.625182393572728*^9}}],
+
+Cell[BoxData["results"], "Input",
+ CellChangeTimes->{{3.624921924518548*^9, 3.624921925311831*^9}}]
+},
+WindowSize->{808, 572},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 219, 5, 28, "Input"],
+Cell[780, 27, 2750, 72, 114, "Input"],
+Cell[3533, 101, 3631, 109, 301, "Input"],
+Cell[7167, 212, 1173, 31, 80, "Input"],
+Cell[8343, 245, 928, 22, 131, "Input"],
+Cell[9274, 269, 665, 18, 63, "Input"],
+Cell[9942, 289, 837, 21, 80, "Input"],
+Cell[10782, 312, 99, 1, 28, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

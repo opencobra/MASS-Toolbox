@@ -1,0 +1,700 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     23297,        691]
+NotebookOptionsPosition[     22262,        657]
+NotebookOutlinePosition[     22620,        673]
+CellTagsIndexPosition[     22577,        670]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"results", " ", "=", " ", 
+   RowBox[{"{", "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.624923046789865*^9, 3.624923050957943*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{
+     RowBox[{"FileNameSplit", "[", 
+      RowBox[{"DirectoryName", "[", 
+       RowBox[{"FindFile", "[", "\"\<Toolbox`\>\"", "]"}], "]"}], "]"}], "[", 
+     
+     RowBox[{"[", 
+      RowBox[{";;", 
+       RowBox[{"-", "3"}]}], "]"}], "]"}], "]"}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"referenceFluxesPlusBounds", "=", 
+   RowBox[{
+   "getReferenceFluxesAndBoundsFromXML", "[", 
+    "\"\<Models/Ec_core_flux1.xml.gz\>\"", "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"referenceBounds", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"#", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "\[Rule]", 
+      RowBox[{"#", "[", 
+       RowBox[{"[", 
+        RowBox[{"2", ",", 
+         RowBox[{"1", ";;", "2"}]}], "]"}], "]"}]}], "&"}], "/@", 
+    "referenceFluxesPlusBounds"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"referenceFluxes", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"#", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "\[Rule]", 
+      RowBox[{"#", "[", 
+       RowBox[{"[", 
+        RowBox[{"2", ",", 
+         RowBox[{"-", "1"}]}], "]"}], "]"}]}], "&"}], "/@", 
+    "referenceFluxesPlusBounds"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"referenceBounds", "=", 
+   RowBox[{"referenceBounds", "/.", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "999999."}], "\[Rule]", 
+       RowBox[{"-", "100000"}]}], ",", 
+      RowBox[{"999999.", "\[Rule]", "100000"}]}], "}"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"ecolicore", "=", 
+     RowBox[{
+     "Import", "[", "\"\<../Models/EcoliCoreLikeDanielPlusGPR.m\>\"", "]"}]}],
+     ";"}], "*)"}]}]}], "Input"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ecolicore", "=", 
+   RowBox[{"sbml2model", "[", 
+    RowBox[{"\"\<Models/Ec_core_flux1.xml.gz\>\"", ",", 
+     RowBox[{"\"\<Method\>\"", "\[Rule]", "\"\<Light\>\""}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"updateConstraints", "[", 
+   RowBox[{"ecolicore", ",", "referenceBounds"}], "]"}], ";"}]}], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"lpSol", "=", 
+   RowBox[{
+    RowBox[{"fba", "[", 
+     RowBox[{"ecolicore", ",", "\"\<R_Biomass_Ecoli_core_N__w_GAM_\>\""}], 
+     "]"}], "//", "Chop"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6249231007494907`*^9, 3.624923101947138*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"gurobiSol", "=", 
+   RowBox[{
+    RowBox[{"fba", "[", 
+     RowBox[{
+     "ecolicore", ",", "\"\<R_Biomass_Ecoli_core_N__w_GAM_\>\"", ",", 
+      RowBox[{"Solver", "\[Rule]", "GurobiSolve"}], ",", 
+      RowBox[{"Loopless", "\[Rule]", "True"}]}], "]"}], "//", "Chop"}]}], 
+  ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"MemberQ", "[", 
+        RowBox[{
+         RowBox[{"Chop", "[", 
+          RowBox[{"Abs", "[", 
+           RowBox[{"Subtract", "@@@", 
+            RowBox[{"Thread", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"lpSol", "[", 
+                RowBox[{"[", 
+                 RowBox[{"All", ",", "2"}], "]"}], "]"}], ",", 
+               RowBox[{
+                RowBox[{"lpSol", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"All", ",", "1"}], "]"}], "]"}], "/.", 
+                "gurobiSol"}]}], "}"}], "]"}]}], "]"}], "]"}], ",", 
+         RowBox[{"num_", "/;", 
+          RowBox[{"num", ">", "1*^-6"}]}]}], "]"}]}], ",", "True", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<CobraRelatedTests-20120326-X3P9F2\>\""}]}], 
+     "]"}]}], "\n", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.6249231234451733`*^9, 3.6249231308337717`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"MemberQ", "[", 
+        RowBox[{
+         RowBox[{"Chop", "[", 
+          RowBox[{"Abs", "[", 
+           RowBox[{"Subtract", "@@@", 
+            RowBox[{"Thread", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"referenceFluxes", "[", 
+                RowBox[{"[", 
+                 RowBox[{"All", ",", "2"}], "]"}], "]"}], ",", 
+               RowBox[{
+                RowBox[{"referenceFluxes", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"All", ",", "1"}], "]"}], "]"}], "/.", 
+                "gurobiSol"}]}], "}"}], "]"}]}], "]"}], "]"}], ",", 
+         RowBox[{"num_", "/;", 
+          RowBox[{"num", ">", "1*^-6"}]}]}], "]"}]}], ",", "True", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<CobraRelatedTests-20120326-X4A8B2\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"MemberQ", "[", 
+        RowBox[{
+         RowBox[{"Chop", "[", 
+          RowBox[{"Abs", "[", 
+           RowBox[{"Subtract", "@@@", 
+            RowBox[{"Thread", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"referenceFluxes", "[", 
+                RowBox[{"[", 
+                 RowBox[{"All", ",", "2"}], "]"}], "]"}], ",", 
+               RowBox[{
+                RowBox[{"referenceFluxes", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"All", ",", "1"}], "]"}], "]"}], "/.", "lpSol"}]}], 
+              "}"}], "]"}]}], "]"}], "]"}], ",", 
+         RowBox[{"num_", "/;", 
+          RowBox[{"num", ">", "1*^-6"}]}]}], "]"}]}], ",", "True", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<CobraRelatedTests-20120326-S5D4G3\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"fva1", "=", 
+   RowBox[{"Chop", "@", 
+    RowBox[{"fva", "[", 
+     RowBox[{"ecolicore", ",", 
+      RowBox[{"Solver", "\[Rule]", "LinearProgramming"}], ",", 
+      RowBox[{"\"\<ProgressBar\>\"", "\[Rule]", "False"}]}], "]"}]}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"fva2", "=", 
+   RowBox[{"Chop", "@", 
+    RowBox[{"fva", "[", 
+     RowBox[{"ecolicore", ",", 
+      RowBox[{"Solver", "\[Rule]", "GurobiSolve"}], ",", 
+      RowBox[{"\"\<ProgressBar\>\"", "\[Rule]", "False"}]}], "]"}]}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"fva3", "=", 
+   RowBox[{"Chop", "@", 
+    RowBox[{"GurobiFVA", "[", "ecolicore", "]"}]}]}], ";"}]}], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"MemberQ", "[", 
+        RowBox[{
+         RowBox[{"Abs", "[", 
+          RowBox[{
+           RowBox[{"fva1", "[", 
+            RowBox[{"[", 
+             RowBox[{"All", ",", "2", ",", "1"}], "]"}], "]"}], "-", 
+           RowBox[{"fva2", "[", 
+            RowBox[{"[", 
+             RowBox[{"All", ",", "2", ",", "1"}], "]"}], "]"}]}], "]"}], ",", 
+         
+         RowBox[{"num_", "/;", 
+          RowBox[{"num", ">", "1*^-6"}]}]}], "]"}]}], ",", "True", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<CobraRelatedTests-20120326-V7X5D6\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{3.6249232376073*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"MemberQ", "[", 
+        RowBox[{
+         RowBox[{"Abs", "[", 
+          RowBox[{
+           RowBox[{"fva1", "[", 
+            RowBox[{"[", 
+             RowBox[{"All", ",", "2", ",", "2"}], "]"}], "]"}], "-", 
+           RowBox[{"fva2", "[", 
+            RowBox[{"[", 
+             RowBox[{"All", ",", "2", ",", "2"}], "]"}], "]"}]}], "]"}], ",", 
+         
+         RowBox[{"num_", "/;", 
+          RowBox[{"num", ">", "1*^-6"}]}]}], "]"}]}], ",", "True", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<CobraRelatedTests-20120326-Y2V8X7\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{"!", 
+        RowBox[{"MemberQ", "[", 
+         RowBox[{
+          RowBox[{"Abs", "[", 
+           RowBox[{
+            RowBox[{"fva1", "[", 
+             RowBox[{"[", 
+              RowBox[{"All", ",", "2", ",", "1"}], "]"}], "]"}], "-", 
+            RowBox[{"fva3", "[", 
+             RowBox[{"[", 
+              RowBox[{"All", ",", "2", ",", "1"}], "]"}], "]"}]}], "]"}], ",", 
+          RowBox[{"num_", "/;", 
+           RowBox[{"num", ">", "1*^-6"}]}]}], "]"}]}], ",", "True", ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<CobraRelatedTests-20120410-K8E1Q2\>\""}]}], 
+      "]"}]}], "]"}], ";"}], "\n"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"MemberQ", "[", 
+        RowBox[{
+         RowBox[{"Abs", "[", 
+          RowBox[{
+           RowBox[{"fva1", "[", 
+            RowBox[{"[", 
+             RowBox[{"All", ",", "2", ",", "2"}], "]"}], "]"}], "-", 
+           RowBox[{"fva3", "[", 
+            RowBox[{"[", 
+             RowBox[{"All", ",", "2", ",", "2"}], "]"}], "]"}]}], "]"}], ",", 
+         
+         RowBox[{"num_", "/;", 
+          RowBox[{"num", ">", "1*^-6"}]}]}], "]"}]}], ",", "True", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<CobraRelatedTests-20120410-R2C9V4\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{3.6249232594497747`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ecolicore", "=", 
+   RowBox[{
+   "Import", "[", "\"\<Models/EcoliCoreLikeDanielPlusGPR.m\>\"", "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{3.6249232611520243`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"testProblems", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<prob1\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<def\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "2"}], "}"}], "}"}], ",", 
+           RowBox[{"{", "3", "}"}]}], "}"}]}], ",", 
+        RowBox[{"\"\<sol\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", 
+           RowBox[{"3", "/", "2"}]}], "}"}]}]}], "}"}]}], ",", 
+     RowBox[{"\"\<prob2\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<def\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "2"}], "}"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"3", ",", "0"}], "}"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"\"\<sol\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", 
+           RowBox[{"3", "/", "2"}]}], "}"}]}]}], "}"}]}], ",", 
+     RowBox[{"\"\<prob3\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<def\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "2"}], "}"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"3", ",", 
+              RowBox[{"-", "1"}]}], "}"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"\"\<sol\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0"}], "}"}]}]}], "}"}]}], ",", 
+     RowBox[{"\"\<prob4\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<def\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "2"}], "}"}], "}"}], ",", 
+           RowBox[{"{", "3", "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", 
+             RowBox[{"-", "1"}]}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"\"\<sol\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1"}], ",", "2"}], "}"}]}]}], "}"}]}], ",", 
+     RowBox[{"\"\<prob5\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<def\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "2"}], "}"}], "}"}], ",", 
+           RowBox[{"{", "3", "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "1"}], ",", "2"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"\"\<sol\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "1"}], "}"}]}]}], "}"}]}], ",", 
+     RowBox[{"\"\<prob6\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<def\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"2", ",", 
+             RowBox[{"-", "3"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "1"}], ",", 
+              RowBox[{"-", "2"}]}], "}"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"3", ",", 
+              RowBox[{"-", "1"}]}], "}"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "Infinity"}], ",", "1"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "Infinity"}], ",", "1"}], "}"}]}], "}"}]}], 
+          "}"}]}], ",", 
+        RowBox[{"\"\<sol\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "5"}], ",", "1"}], "}"}]}]}], "}"}]}], ",", 
+     RowBox[{"\"\<prob7\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<def\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1.", ",", "1."}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"5.", ",", "2."}], "}"}], "}"}], ",", 
+           RowBox[{"{", "3.", "}"}]}], "}"}]}], ",", 
+        RowBox[{"\"\<sol\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"0.6`", ",", "0.`"}], "}"}]}]}], "}"}]}], ",", 
+     RowBox[{"\"\<prob8\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<def\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1.", ",", "1."}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"5.", ",", "2."}], "}"}], "}"}], ",", 
+           RowBox[{"{", "3.", "}"}], ",", "Automatic", ",", "Integers"}], 
+          "}"}]}], ",", 
+        RowBox[{"\"\<sol\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "0"}], "}"}]}]}], "}"}]}], ",", 
+     RowBox[{"\"\<prob9\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<def\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1.", ",", "1."}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"5.", ",", "2."}], "}"}], "}"}], ",", 
+           RowBox[{"{", "3.", "}"}], ",", "Automatic", ",", 
+           RowBox[{"{", 
+            RowBox[{"Integers", ",", "Reals"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"\"\<sol\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "0.`"}], "}"}]}]}], "}"}]}], ",", 
+     RowBox[{"\"\<prob10\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<def\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1", ",", "2"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"3", ",", "4"}], "}"}], "}"}], ",", 
+           RowBox[{"{", "5", "}"}]}], "}"}]}], ",", 
+        RowBox[{"\"\<sol\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"5", "/", "3"}], ",", "0"}], "}"}]}]}], "}"}]}]}], "}"}]}],
+   ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"#", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "\[Rule]", 
+         RowBox[{
+          RowBox[{"LinearProgramming", "[", 
+           RowBox[{"Sequence", "@@", 
+            RowBox[{"(", 
+             RowBox[{"\"\<def\>\"", "/.", 
+              RowBox[{"#", "[", 
+               RowBox[{"[", "2", "]"}], "]"}]}], ")"}]}], "]"}], "\[Equal]", 
+          RowBox[{"(", 
+           RowBox[{"\"\<sol\>\"", "/.", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], ")"}]}]}], "&"}], "/@", 
+       "testProblems"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<prob1\>\"", "\[Rule]", "True"}], ",", 
+        RowBox[{"\"\<prob2\>\"", "\[Rule]", "True"}], ",", 
+        RowBox[{"\"\<prob3\>\"", "\[Rule]", "True"}], ",", 
+        RowBox[{"\"\<prob4\>\"", "\[Rule]", "True"}], ",", 
+        RowBox[{"\"\<prob5\>\"", "\[Rule]", "True"}], ",", 
+        RowBox[{"\"\<prob6\>\"", "\[Rule]", "True"}], ",", 
+        RowBox[{"\"\<prob7\>\"", "\[Rule]", "True"}], ",", 
+        RowBox[{"\"\<prob8\>\"", "\[Rule]", "True"}], ",", 
+        RowBox[{"\"\<prob9\>\"", "\[Rule]", "True"}], ",", 
+        RowBox[{"\"\<prob10\>\"", "\[Rule]", "True"}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<CobraRelatedTests-20120410-L5E5B7\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"#", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "\[Rule]", 
+          RowBox[{
+           RowBox[{"GLPKStandalone", "[", 
+            RowBox[{"Sequence", "@@", 
+             RowBox[{"(", 
+              RowBox[{"\"\<def\>\"", "/.", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}], ")"}]}], "]"}], "\[Equal]", 
+           
+           RowBox[{"(", 
+            RowBox[{"\"\<sol\>\"", "/.", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", "2", "]"}], "]"}]}], ")"}]}]}], "&"}], "/@", 
+        "testProblems"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"\"\<prob1\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob2\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob3\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob4\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob5\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob6\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob7\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob8\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob9\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob10\>\"", "\[Rule]", "True"}]}], "}"}], ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<CobraRelatedTests-20120410-L9M7F9\>\""}]}], 
+      "]"}]}], "]"}], ";", " ", 
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"#", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "\[Rule]", 
+          RowBox[{
+           RowBox[{"CPLEXStandalone", "[", 
+            RowBox[{"Sequence", "@@", 
+             RowBox[{"(", 
+              RowBox[{"\"\<def\>\"", "/.", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}], ")"}]}], "]"}], "\[Equal]", 
+           
+           RowBox[{"(", 
+            RowBox[{"\"\<sol\>\"", "/.", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", "2", "]"}], "]"}]}], ")"}]}]}], "&"}], "/@", 
+        "testProblems"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"\"\<prob1\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob2\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob3\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob4\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob5\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob6\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob7\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob8\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob9\>\"", "\[Rule]", "True"}], ",", 
+         RowBox[{"\"\<prob10\>\"", "\[Rule]", "True"}]}], "}"}], ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<CobraRelatedTests-20120410-J8N8S4\>\""}]}], 
+      "]"}]}], "]"}], ";"}], "*)"}]], "Input",
+ CellChangeTimes->{{3.624923039374515*^9, 3.624923278744247*^9}}],
+
+Cell[BoxData["results"], "Input",
+ CellChangeTimes->{{3.624923478811067*^9, 3.6249234807467318`*^9}}]
+},
+WindowSize->{808, 576},
+WindowMargins->{{20, Automatic}, {Automatic, 44}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 168, 4, 28, "Input"],
+Cell[729, 26, 73, 1, 28, "Input"],
+Cell[805, 29, 373, 11, 28, "Input"],
+Cell[1181, 42, 196, 5, 46, "Input"],
+Cell[1380, 49, 1215, 41, 80, "Input"],
+Cell[2598, 92, 352, 9, 46, "Input"],
+Cell[2953, 103, 276, 7, 28, "Input"],
+Cell[3232, 112, 326, 9, 46, "Input"],
+Cell[3561, 123, 1059, 28, 97, "Input"],
+Cell[4623, 153, 1003, 27, 131, "Input"],
+Cell[5629, 182, 997, 27, 131, "Input"],
+Cell[6629, 211, 677, 20, 63, "Input"],
+Cell[7309, 233, 801, 23, 63, "Input"],
+Cell[8113, 258, 761, 22, 63, "Input"],
+Cell[8877, 282, 790, 22, 80, "Input"],
+Cell[9670, 306, 805, 23, 63, "Input"],
+Cell[10478, 331, 202, 6, 28, "Input"],
+Cell[10683, 339, 6761, 195, 182, "Input"],
+Cell[17447, 536, 1517, 37, 114, "Input"],
+Cell[18967, 575, 3187, 77, 182, "Input"],
+Cell[22157, 654, 101, 1, 28, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
