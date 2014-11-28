@@ -383,21 +383,21 @@ vmax/:ToString[param_vmax,"SBML"]:=makeIdXmlConform[ToString[param]];
 
 
 Km[m:$MASS$speciesPattern,rxnID_String]:=Block[{$preventRecursion=True},Km[wrapHead[m],rxnID]]/;!TrueQ[$preventRecursion];
-Km/:MakeBoxes[Km[met_,rxnID_String],_]:=With[{m=ToBoxes@unwrapHead[met],r=simplyBlack[rxnID]},InterpretationBox[SubsuperscriptBox[SubscriptBox["K","m"],r,m],Km[met,rxnID],Selectable->False,Editable->False]]
+Km/:MakeBoxes[Km[met_,rxnID_String],_]:=With[{m=simplyBlack@unwrapHead[met],r=simplyBlack[rxnID]},InterpretationBox[SubsuperscriptBox[SubscriptBox["K","m"],r,m],Km[met,rxnID],Selectable->False,Editable->False]]
 Km/:getID[param_Km]:={unwrapHead[param[[1]]],param[[2]]}
 Km/:ToString[param_Km]:="Km_"<>StringJoin[Sequence@@Riffle[ToString/@getID[param],"_"]];
 Km/:ToString[param_Km,"SBML"]:=makeIdXmlConform[ToString[param]];
 
 
 Ki[m:$MASS$speciesPattern,rxnID_String]:=Block[{$preventRecursion=True},Ki[wrapHead[m],rxnID]]/;!TrueQ[$preventRecursion];
-Ki/:MakeBoxes[Ki[met_,rxnID_String],_]:=With[{m=ToBoxes@unwrapHead[met],r=simplyBlack[rxnID]},InterpretationBox[SubsuperscriptBox[SubscriptBox["K","i"],r,m],Ki[met,rxnID],Selectable->False,Editable->False]]
+Ki/:MakeBoxes[Ki[met_,rxnID_String],_]:=With[{m=simplyBlack@unwrapHead[met],r=simplyBlack[rxnID]},InterpretationBox[SubsuperscriptBox[SubscriptBox["K","i"],r,m],Ki[met,rxnID],Selectable->False,Editable->False]]
 Ki/:getID[param_Ki]:={unwrapHead[param[[1]]],param[[2]]}
 Ki/:ToString[param_Ki]:="Ki_"<>StringJoin[Sequence@@Riffle[ToString/@getID[param],"_"]];
 Ki/:ToString[param_Ki,"SBML"]:=makeIdXmlConform[ToString[param]];
 
 
 Kd[m:$MASS$speciesPattern,rxnID_String]:=Block[{$preventRecursion=True},Kd[wrapHead[m],rxnID]]/;!TrueQ[$preventRecursion];
-Kd/:MakeBoxes[Kd[met_,rxnID_String],_]:=With[{m=ToBoxes@unwrapHead[met],r=simplyBlack[rxnID]},InterpretationBox[SubsuperscriptBox[SubscriptBox["K","d"],r,m],Kd[met,rxnID],Selectable->False,Editable->False]]
+Kd/:MakeBoxes[Kd[met_,rxnID_String],_]:=With[{m=simplyBlack@unwrapHead[met],r=simplyBlack[rxnID]},InterpretationBox[SubsuperscriptBox[SubscriptBox["K","d"],r,m],Kd[met,rxnID],Selectable->False,Editable->False]]
 Kd/:getID[param_Kd]:={unwrapHead[param[[1]]],param[[2]]}
 Kd/:ToString[param_Kd]:="Kd_"<>StringJoin[Sequence@@Riffle[ToString/@getID[param],"_"]];
 Kd/:ToString[param_Kd,"SBML"]:=makeIdXmlConform[ToString[param]];
