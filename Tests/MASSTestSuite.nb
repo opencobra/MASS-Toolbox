@@ -10,14 +10,19 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     25031,        665]
-NotebookOptionsPosition[     24580,        645]
-NotebookOutlinePosition[     24937,        661]
-CellTagsIndexPosition[     24894,        658]
+NotebookDataLength[     57879,       1394]
+NotebookOptionsPosition[     57124,       1363]
+NotebookOutlinePosition[     57482,       1379]
+CellTagsIndexPosition[     57439,       1376]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+
+Cell[CellGroupData[{
+Cell["Setup", "Section",
+ CellChangeTimes->{{3.6261993596174583`*^9, 3.626199365096266*^9}}],
+
 Cell[BoxData[
  RowBox[{"Quit", "[", "]"}]], "Input",
  CellChangeTimes->{{3.6239482288267508`*^9, 3.623948229956398*^9}}],
@@ -25,30 +30,62 @@ Cell[BoxData[
 Cell[BoxData[{
  RowBox[{"<<", "Toolbox`"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"displayTest", "[", "testName_String", "]"}], ":=", 
-  RowBox[{"Module", "[", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{"notebookName", ",", "nb"}], "}"}], ",", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"displayTest", "[", "testName_String", "]"}], ":=", 
+   RowBox[{"Module", "[", 
     RowBox[{
-     RowBox[{"notebookName", "=", 
-      RowBox[{"First", "[", 
-       RowBox[{"StringSplit", "[", 
-        RowBox[{"testName", ",", "\"\<-\>\""}], "]"}], "]"}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"nb", "=", 
-      RowBox[{"NotebookOpen", "[", 
-       RowBox[{"FileNameJoin", "[", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"NotebookDirectory", "[", "]"}], ",", 
-          RowBox[{"notebookName", "<>", "\"\<.nb\>\""}]}], "}"}], "]"}], 
-       "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"SetSelectedNotebook", "[", "nb", "]"}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"NotebookFind", "[", 
-      RowBox[{"nb", ",", "testName", ",", "All"}], "]"}], ";"}]}], 
-   "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]"}], "Input",
+     RowBox[{"{", 
+      RowBox[{"notebookName", ",", "nb"}], "}"}], ",", "\[IndentingNewLine]", 
+     
+     RowBox[{
+      RowBox[{"notebookName", "=", 
+       RowBox[{"First", "[", 
+        RowBox[{"StringSplit", "[", 
+         RowBox[{"testName", ",", "\"\<-\>\""}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"nb", "=", 
+       RowBox[{"NotebookOpen", "[", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+           RowBox[{"notebookName", "<>", "\"\<.nb\>\""}]}], "}"}], "]"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"SetSelectedNotebook", "[", "nb", "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"NotebookFind", "[", 
+       RowBox[{"nb", ",", "testName", ",", "All"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"viewOutput", "[", "test_TestResultObject", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"expected", ",", "actual"}], "}"}], ",", "\[IndentingNewLine]", 
+     
+     RowBox[{
+      RowBox[{"expected", "=", 
+       RowBox[{"test", "[", "\"\<ExpectedOutput\>\"", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"CreateDocument", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"TextCell", "[", 
+          RowBox[{"\"\<Actual Output\>\"", ",", "\"\<Section\>\""}], "]"}], 
+         ",", 
+         RowBox[{"ExpressionCell", "[", 
+          RowBox[{
+           RowBox[{"test", "[", "\"\<ActualOutput\>\"", "]"}], ",", 
+           "\"\<Input\>\""}], "]"}], ",", 
+         RowBox[{"TextCell", "[", 
+          RowBox[{"\"\<Expected Output\>\"", ",", "\"\<Section\>\""}], "]"}], 
+         ",", 
+         RowBox[{"ExpressionCell", "[", 
+          RowBox[{
+           RowBox[{"test", "[", "\"\<ExpectedOutput\>\"", "]"}], ",", 
+           "\"\<Input\>\""}], "]"}]}], "}"}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.623786242096077*^9, 3.623786247281707*^9}, {
    3.623786306185534*^9, 3.623786412932946*^9}, {3.623861700358221*^9, 
    3.6238617008056173`*^9}, {3.62386174074115*^9, 3.623861741667169*^9}, {
@@ -80,7 +117,9 @@ Cell[BoxData[{
    3.6242031918070183`*^9}, {3.624203457610832*^9, 3.624203466088065*^9}, {
    3.624205565607074*^9, 3.62420557597816*^9}, {3.624212924576597*^9, 
    3.624212953502713*^9}, {3.6242130294142237`*^9, 3.624213079674864*^9}, {
-   3.624547582591302*^9, 3.624547618004697*^9}}],
+   3.624547582591302*^9, 3.624547618004697*^9}, {3.6261974114501534`*^9, 
+   3.626197462101013*^9}, {3.626197499221789*^9, 3.626197511932768*^9}, {
+   3.6261975695482388`*^9, 3.6261975874705887`*^9}, 3.6261983016985807`*^9}],
 
 Cell[BoxData[{
  RowBox[{
@@ -102,13 +141,9 @@ Cell[BoxData[{
        RowBox[{"\"\<CobraRelatedTests.nb\>\"", ","}], "*)"}], 
       "\"\<DBAccessRelatedTests.nb\>\"", ",", "\"\<IORelatedTests.nb\>\"", 
       ",", "\"\<RegulationRelatedTests.nb\>\"", ",", 
-      RowBox[{"(*", 
-       RowBox[{"\"\<SBMLrelatedTests.nb\>\"", ","}], "*)"}], 
       "\"\<GPRRelatedTests.nb\>\"", ",", 
-      "\"\<UnitCheckingRelatedTests.nb\>\""}], 
-     RowBox[{"(*", 
-      RowBox[{",", "\"\<ThermodynamicsTests.nb\>\""}], "*)"}], "}"}]}], ";"}],
-   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+      "\"\<UnitCheckingRelatedTests.nb\>\""}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"rawResults", " ", "=", " ", 
    RowBox[{
@@ -123,13 +158,7 @@ Cell[BoxData[{
         ",", 
         RowBox[{"InsertResults", "\[Rule]", "False"}], ",", 
         RowBox[{"EvaluationElements", "\[Rule]", "All"}]}], "]"}], "]"}], 
-     "&"}], "/@", "testNotebooks"}]}], ";"}]}], "Input",
- CellChangeTimes->{{3.625457091719592*^9, 3.6254571129678*^9}, {
-  3.625457185317789*^9, 3.625457191534223*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[{
+     "&"}], "/@", "testNotebooks"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"results", "=", 
    RowBox[{"Last", "/@", "rawResults"}]}], ";", 
@@ -165,8 +194,7 @@ Cell[BoxData[{
        RowBox[{
         RowBox[{
          RowBox[{"#", "[", "\"\<Outcome\>\"", "]"}], "=!=", 
-         "\"\<Success\>\""}], ",", 
-        RowBox[{"#", "[", "\"\<TestID\>\"", "]"}], ",", 
+         "\"\<Success\>\""}], ",", "#", ",", 
         RowBox[{
          RowBox[{"##", "&"}], "[", "]"}]}], "]"}], "&"}], ",", "results", ",", 
      RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
@@ -176,27 +204,72 @@ Cell[BoxData[{
     RowBox[{
      RowBox[{
       RowBox[{"Button", "[", 
-       RowBox[{"#", ",", 
-        RowBox[{"displayTest", "[", "#", "]"}]}], "]"}], "&"}], ",", 
-     "failedTests", ",", 
+       RowBox[{
+        RowBox[{"\"\<View \>\"", "<>", 
+         RowBox[{"#", "[", "\"\<TestID\>\"", "]"}]}], ",", 
+        RowBox[{"displayTest", "[", 
+         RowBox[{"#", "[", "\"\<TestID\>\"", "]"}], "]"}]}], "]"}], "&"}], 
+     ",", "failedTests", ",", 
      RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"time", "=", 
    RowBox[{"First", "/@", "rawResults"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"testNotebookButtons", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Button", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"NotebookOpen", "[", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"NotebookDirectory", "[", "]"}], ",", "#"}], "}"}], "]"}], 
+        "]"}]}], "]"}], "&"}], "/@", "testNotebooks"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"outputButton", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<View Outcome\>\"", ",", 
+        RowBox[{"viewOutput", "[", "#", "]"}]}], "]"}], "&"}], ",", 
+     "failedTests", ",", 
+     RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.625457091719592*^9, 3.6254571129678*^9}, {
+  3.625457185317789*^9, 3.625457191534223*^9}, {3.626199433508198*^9, 
+  3.626199468702689*^9}, {3.626199547445424*^9, 3.626199547918448*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Test Results", "Section",
+ CellChangeTimes->{{3.626199376106031*^9, 3.626199377856846*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
  RowBox[{"TableForm", "[", 
   RowBox[{
    RowBox[{"Transpose", "[", 
     RowBox[{"{", 
-     RowBox[{"testNotebooks", ",", "outcome", ",", "time", ",", 
-      RowBox[{"Column", "/@", "testButtons"}]}], "}"}], "]"}], ",", 
+     RowBox[{"testNotebookButtons", ",", "outcome", ",", "time", ",", 
+      RowBox[{"Row", "/@", 
+       RowBox[{"Transpose", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Column", "/@", "outputButton"}], ",", 
+          RowBox[{"Column", "/@", "testButtons"}]}], "}"}], "]"}]}]}], "}"}], 
+    "]"}], ",", 
    RowBox[{"TableHeadings", "\[Rule]", 
     RowBox[{"{", 
      RowBox[{"None", ",", 
       RowBox[{"{", 
        RowBox[{
        "\"\<Test Package\>\"", ",", "\"\<Outcome\>\"", ",", 
-        "\"\<Test Timing\>\"", ",", "\"\<Failed Test IDs\>\""}], "}"}]}], 
-     "}"}]}]}], "]"}]}], "Input",
+        "\"\<Test Timing\>\"", ",", "\"\<Failed Tests\>\""}], "}"}]}], 
+     "}"}]}]}], "]"}]], "Input",
  CellChangeTimes->{{3.624161403550104*^9, 3.6241614414957123`*^9}, {
    3.624161495546268*^9, 3.6241615086744137`*^9}, {3.624161545980329*^9, 
    3.624161654947135*^9}, {3.6241616962782583`*^9, 3.624161696646761*^9}, {
@@ -235,7 +308,15 @@ Cell[BoxData[{
    3.62493298705737*^9, 3.624932989247271*^9}, {3.624933036903082*^9, 
    3.624933069287115*^9}, {3.6254174915214167`*^9, 3.625417499328843*^9}, {
    3.625457033173987*^9, 3.6254570698756533`*^9}, {3.625457177160965*^9, 
-   3.625457182742885*^9}, 3.625457242777705*^9}],
+   3.625457182742885*^9}, 3.625457242777705*^9, {3.626196424512941*^9, 
+   3.626196525279051*^9}, {3.626196711135647*^9, 3.6261967533991423`*^9}, {
+   3.626196786716901*^9, 3.62619681627861*^9}, {3.6261968566723957`*^9, 
+   3.626196941124593*^9}, {3.6261972106880617`*^9, 3.626197211733952*^9}, {
+   3.62619724748519*^9, 3.626197278468136*^9}, {3.626197337526153*^9, 
+   3.626197404007183*^9}, {3.626198427281818*^9, 3.6261984836874533`*^9}, 
+   3.626198657667252*^9, {3.626198691082868*^9, 3.626198729197015*^9}, {
+   3.6261987687032833`*^9, 3.626198790663313*^9}, {3.626199465306004*^9, 
+   3.626199490335678*^9}}],
 
 Cell[BoxData[
  TagBox[
@@ -247,9 +328,16 @@ Cell[BoxData[
        HoldForm], 
       TagBox["\<\"Test Timing\"\>",
        HoldForm], 
-      TagBox["\<\"Failed Test IDs\"\>",
+      TagBox["\<\"Failed Tests\"\>",
        HoldForm]},
-     {"\<\"MASSmodelRelatedTests.nb\"\>", 
+     {
+      ButtonBox["\<\"MASSmodelRelatedTests.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "MASSmodelRelatedTests.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
       StyleBox["\<\"Success\"\>",
        StripOnInput->False,
        LineColor->RGBColor[0, 
@@ -262,18 +350,33 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "1.51212999999999997413624441833235323429`6.2001890429737", 
-      InterpretationBox[
-       TagBox[GridBox[{
-          {""}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"],
-       Column[{}]]},
-     {"\<\"ReactionRelatedTests.nb\"\>", 
+      "1.72582799999999991769072948954999446869`6.257597424025511", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"ReactionRelatedTests.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "ReactionRelatedTests.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
       StyleBox["\<\"Success\"\>",
        StripOnInput->False,
        LineColor->RGBColor[0, 
@@ -286,18 +389,33 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.55260600000000004161648803346906788647`5.763015509301204", 
-      InterpretationBox[
-       TagBox[GridBox[{
-          {""}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"],
-       Column[{}]]},
-     {"\<\"MetaboliteRelatedTests.nb\"\>", 
+      "0.74056800000000000405719902119017206132`5.8901648555006485", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"MetaboliteRelatedTests.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "MetaboliteRelatedTests.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
       StyleBox["\<\"Success\"\>",
        StripOnInput->False,
        LineColor->RGBColor[0, 
@@ -310,18 +428,33 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.13248599999999999266009353959816507995`5.1427699014091806", 
-      InterpretationBox[
-       TagBox[GridBox[{
-          {""}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"],
-       Column[{}]]},
-     {"\<\"EquationConstructionRelatedTests.nb\"\>", 
+      "0.23846899999999998653876787102490197867`5.3980318438088934", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"EquationConstructionRelatedTests.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "EquationConstructionRelatedTests.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
       StyleBox["\<\"Success\"\>",
        StripOnInput->False,
        LineColor->RGBColor[0, 
@@ -334,18 +467,33 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.45885300000000001086064571609313134104`5.682273488764654", 
-      InterpretationBox[
-       TagBox[GridBox[{
-          {""}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"],
-       Column[{}]]},
-     {"\<\"ParameterRelatedTests.nb\"\>", 
+      "0.51312400000000002453504066579625941813`5.730822241370609", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"ParameterRelatedTests.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "ParameterRelatedTests.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
       StyleBox["\<\"Success\"\>",
        StripOnInput->False,
        LineColor->RGBColor[0, 
@@ -358,18 +506,33 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.34153499999999997749355884479882661253`5.554035129431838", 
-      InterpretationBox[
-       TagBox[GridBox[{
-          {""}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"],
-       Column[{}]]},
-     {"\<\"SensitivityAnalysisRelatedTests.nb\"\>", 
+      "0.44592900000000001980993147299159318209`5.669865629922654", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"SensitivityAnalysisRelatedTests.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "SensitivityAnalysisRelatedTests.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
       StyleBox["\<\"Success\"\>",
        StripOnInput->False,
        LineColor->RGBColor[0, 
@@ -382,18 +545,33 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.22531599999999998851230031959858024493`5.373391945948798", 
-      InterpretationBox[
-       TagBox[GridBox[{
-          {""}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"],
-       Column[{}]]},
-     {"\<\"UtilityRelatedTests.nb\"\>", 
+      "0.27339200000000002388489406257576774806`5.4573857153669945", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"UtilityRelatedTests.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "UtilityRelatedTests.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
       StyleBox["\<\"Success\"\>",
        StripOnInput->False,
        LineColor->RGBColor[0, 
@@ -406,18 +584,33 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.50974900000000000765965069149388000369`5.727956295753523", 
-      InterpretationBox[
-       TagBox[GridBox[{
-          {""}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"],
-       Column[{}]]},
-     {"\<\"SimulationRelatedTests.nb\"\>", 
+      "0.79551700000000002965805379062658175826`5.921249378126216", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"SimulationRelatedTests.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "SimulationRelatedTests.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
       StyleBox["\<\"Success\"\>",
        StripOnInput->False,
        LineColor->RGBColor[0, 
@@ -430,18 +623,33 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.64791900000000002268762955281999893486`5.832120628946772", 
-      InterpretationBox[
-       TagBox[GridBox[{
-          {""}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"],
-       Column[{}]]},
-     {"\<\"ChemoInformaticsRelatedTests.nb\"\>", 
+      "0.70517399999999996751398612104821950197`5.868896204620053", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"ChemoInformaticsRelatedTests.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "ChemoInformaticsRelatedTests.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
       StyleBox["\<\"Success\"\>",
        StripOnInput->False,
        LineColor->RGBColor[0, 
@@ -454,18 +662,33 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.29500999999999999445776666107121855021`5.490436650855114", 
-      InterpretationBox[
-       TagBox[GridBox[{
-          {""}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"],
-       Column[{}]]},
-     {"\<\"QcQaRelatedTests.nb\"\>", 
+      "0.40098499999999998033572978783922735602`5.623728040166459", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"QcQaRelatedTests.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "QcQaRelatedTests.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
       StyleBox["\<\"Success\"\>",
        StripOnInput->False,
        LineColor->RGBColor[0, 
@@ -478,18 +701,33 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.88902800000000004043698709210730157793`5.969515352600791", 
-      InterpretationBox[
-       TagBox[GridBox[{
-          {""}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"],
-       Column[{}]]},
-     {"\<\"DBAccessRelatedTests.nb\"\>", 
+      "0.96347400000000005260147872832021676004`6.004439912697786", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"DBAccessRelatedTests.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "DBAccessRelatedTests.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
       StyleBox["\<\"Failure\"\>",
        StripOnInput->False,
        LineColor->RGBColor[1, 0, 0],
@@ -497,31 +735,301 @@ Cell[BoxData[
        BackFaceColor->RGBColor[1, 0, 0],
        GraphicsColor->RGBColor[1, 0, 0],
        FontColor->RGBColor[1, 0, 0]], 
-      "0.66474599999999994803800973386387340724`5.843255645995295", 
-      TagBox[GridBox[{
-         {
-          ButtonBox["\<\"DBaccessRelatedTests-20120102-E3X3Y6\"\>",
-           Appearance->Automatic,
-           
-           ButtonFunction:>$CellContext`displayTest[
-            "DBaccessRelatedTests-20120102-E3X3Y6"],
-           Evaluator->Automatic,
-           Method->"Preemptive"]},
-         {
-          ButtonBox["\<\"DBaccessRelatedTests-20120102-E3X3Y6\"\>",
-           Appearance->Automatic,
-           
-           ButtonFunction:>$CellContext`displayTest[
-            "DBaccessRelatedTests-20120102-E3X3Y6"],
-           Evaluator->Automatic,
-           Method->"Preemptive"]}
-        },
-        DefaultBaseStyle->"Column",
-        GridBoxAlignment->{"Columns" -> {{Left}}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-       "Column"]},
-     {"\<\"IORelatedTests.nb\"\>", 
+      "0.73884799999999994923882695729844272137`5.8891550153401555", 
+      TemplateBox[{TagBox[
+         GridBox[{{
+            ButtonBox[
+            "\"View Outcome\"", ButtonFunction :> $CellContext`viewOutput[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 278, "TestID" -> 
+                 "DBaccessRelatedTests-20120102-E3X3Y6", "Outcome" -> 
+                 "Failure", "ExpectedOutput" -> 
+                 HoldForm[{
+                   "compounds" -> {{
+                    "formula" -> "C10H16N5O13P3", "InChI" -> 
+                    "InChI=1S/C10H16N5O13P3/c11-8-5-9(13-2-12-8)15(3-14-5)10-\
+7(17)6(16)4(26-10)1-25-30(21,22)28-31(23,24)27-29(18,19)20/h2-4,6-7,10,16-17H,\
+1H2,(H,21,22)(H,23,24)(H2,11,12,13)(H2,18,19,20)/t4-,6-,7-,10-/m1/s1", 
+                    "KEGG_ID" -> "C00002", "mass" -> 506.9957, "name" -> 
+                    "ATP", "note" -> Null, "num_electrons" -> 260, 
+                    "thermodynamic_data" -> {{
+                    "dgzero" -> -2838.2, 
+                    "dgzero_tag" -> {
+                    "ionic_strength" -> 0., "pH" -> 7., "value" -> -2292.9}, 
+                    "source" -> "Alberty (2006)", 
+                    "species" -> {{
+                    "dgzero" -> -2768.1, "nc" -> -4, "nh" -> 12, "nmg" -> 
+                    0}, {"dgzero" -> -2811.48, "nc" -> -3, "nh" -> 13, "nmg" -> 
+                    0}, {"dgzero" -> -2838.18, "nc" -> -2, "nh" -> 14, "nmg" -> 
+                    0}}}, {"dgzero" -> -2902.9, 
+                    "dgzero_tag" -> {
+                    "ionic_strength" -> 0., "pH" -> 7., "value" -> -2301.5}, 
+                    "source" -> "Group Contribution", 
+                    "species" -> {{
+                    "dgzero" -> -2705.66293461725, "nc" -> -5, "nh" -> 11, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2777.54525226308, "nc" -> -4, "nh" -> 12, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2819.76185151539, "nc" -> -3, "nh" -> 13, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2849.02822369976, "nc" -> -2, "nh" -> 14, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2868.31094065555, "nc" -> -1, "nh" -> 15, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2884.45593739664, "nc" -> 0, "nh" -> 16, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2897.63436229837, "nc" -> 1, "nh" -> 17, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2902.59766518344, "nc" -> 2, "nh" -> 18, 
+                    "nmg" -> 0}}}}}, {
+                    "formula" -> "C10H15N5O10P2", "InChI" -> 
+                    "InChI=1S/C10H15N5O10P2/c11-8-5-9(13-2-12-8)15(3-14-5)10-\
+7(17)6(16)4(24-10)1-23-27(21,22)25-26(18,19)20/h2-4,6-7,10,16-17H,1H2,(H,21,\
+22)(H2,11,12,13)(H2,18,19,20)/t4-,6-,7-,10-/m1/s1", "KEGG_ID" -> "C00008", 
+                    "mass" -> 427.0294, "name" -> "ADP", "note" -> Null, 
+                    "num_electrons" -> 220, 
+                    "thermodynamic_data" -> {{
+                    "dgzero" -> -1972., 
+                    "dgzero_tag" -> {
+                    "ionic_strength" -> 0., "pH" -> 7., "value" -> -1429.2}, 
+                    "source" -> "Alberty (2006)", 
+                    "species" -> {{
+                    "dgzero" -> -1906.13, "nc" -> -3, "nh" -> 12, "nmg" -> 
+                    0}, {"dgzero" -> -1947.1, "nc" -> -2, "nh" -> 13, "nmg" -> 
+                    0}, {"dgzero" -> -1971.98, "nc" -> -1, "nh" -> 14, "nmg" -> 
+                    0}}}, {"dgzero" -> -2022.5, 
+                    "dgzero_tag" -> {
+                    "ionic_strength" -> 0., "pH" -> 7., "value" -> -1431.}, 
+                    "source" -> "Group Contribution", 
+                    "species" -> {{
+                    "dgzero" -> -1756.2390365626, "nc" -> -5, "nh" -> 10, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -1835.9941794744, "nc" -> -4, "nh" -> 11, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -1907.07780470194, "nc" -> -3, "nh" -> 12, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -1949.3514534127, "nc" -> -2, "nh" -> 13, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -1978.61782559707, "nc" -> -1, "nh" -> 14, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -1997.55824580216, "nc" -> 0, "nh" -> 15, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2012.67635229117, "nc" -> 1, "nh" -> 16, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2022.43180968596, "nc" -> 2, "nh" -> 17, 
+                    "nmg" -> 0}}}}}}, "ionic_strength" -> 0., "pH" -> 7.}], 
+                 "ActualOutput" -> HoldForm[Null], "ExpectedMessages" -> {}, 
+                 "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[
+                    Toolbox`Private`eQuilibratorAPI, "badRequest"], 500]]}, 
+                 "AbsoluteTimeUsed" -> 
+                 Quantity[0.319221`5.654606451576247, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.07903000000000304, "Seconds"], 
+                 "MemoryUsed" -> Quantity[15032, "Bytes"]]]], Appearance -> 
+             Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}, {
+            ButtonBox[
+            "\"View Outcome\"", ButtonFunction :> $CellContext`viewOutput[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 279, "TestID" -> 
+                 "DBaccessRelatedTests-20120102-E3X3Y6", "Outcome" -> 
+                 "Failure", "ExpectedOutput" -> 
+                 HoldForm[{
+                   "ionic_strength" -> 1, "pH" -> 7, 
+                    "reactions" -> {{
+                    "chemically_balanced" -> True, "dgzero" -> -14., 
+                    "dgzero_tag" -> {
+                    "ionic_strength" -> 1, "pH" -> 7, "value" -> -14.}, 
+                    "enzymes" -> {{
+                    "EC" -> "3.2.1.52", "name" -> 
+                    "beta-N-acetylhexosaminidase"}}, "KEGG_ID" -> "R00022", 
+                    "keq_tag" -> {
+                    "ionic_strength" -> 1, "pH" -> 7, "value" -> 
+                    280.03137956115563`}, 
+                    "products" -> {{
+                    "coeff" -> 2, "concentration" -> 1., "KEGG_ID" -> 
+                    "C00140", "name" -> "N-Acetyl-D-glucosamine", 
+                    "source_used" -> "Group Contribution"}}, 
+                    "reaction_string" -> 
+                    "1 H2O + 1 Chitobiose <=> 2 N-Acetyl-D-glucosamine", 
+                    "redox_balanced" -> True, 
+                    "substrates" -> {{
+                    "coeff" -> 1, "concentration" -> 1., "KEGG_ID" -> 
+                    "C00001", "name" -> "H2O", "source_used" -> 
+                    "Alberty (2006)"}, {
+                    "coeff" -> 1, "concentration" -> 1., "KEGG_ID" -> 
+                    "C01674", "name" -> "Chitobiose", "source_used" -> 
+                    "Group Contribution"}}}}}], "ActualOutput" -> 
+                 HoldForm[Null], "ExpectedMessages" -> {}, "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[
+                    Toolbox`Private`eQuilibratorAPI, "badRequest"], 403]]}, 
+                 "AbsoluteTimeUsed" -> 
+                 Quantity[0.221682`5.4962454287992655, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.013487999999998834`, "Seconds"], 
+                 "MemoryUsed" -> Quantity[15096, "Bytes"]]]], Appearance -> 
+             Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+          "Column", 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
+        TagBox[
+         GridBox[{{
+            ButtonBox[
+            "\"View DBaccessRelatedTests-20120102-E3X3Y6\"", 
+             ButtonFunction :> $CellContext`displayTest[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 278, "TestID" -> 
+                 "DBaccessRelatedTests-20120102-E3X3Y6", "Outcome" -> 
+                 "Failure", "ExpectedOutput" -> 
+                 HoldForm[{
+                   "compounds" -> {{
+                    "formula" -> "C10H16N5O13P3", "InChI" -> 
+                    "InChI=1S/C10H16N5O13P3/c11-8-5-9(13-2-12-8)15(3-14-5)10-\
+7(17)6(16)4(26-10)1-25-30(21,22)28-31(23,24)27-29(18,19)20/h2-4,6-7,10,16-17H,\
+1H2,(H,21,22)(H,23,24)(H2,11,12,13)(H2,18,19,20)/t4-,6-,7-,10-/m1/s1", 
+                    "KEGG_ID" -> "C00002", "mass" -> 506.9957, "name" -> 
+                    "ATP", "note" -> Null, "num_electrons" -> 260, 
+                    "thermodynamic_data" -> {{
+                    "dgzero" -> -2838.2, 
+                    "dgzero_tag" -> {
+                    "ionic_strength" -> 0., "pH" -> 7., "value" -> -2292.9}, 
+                    "source" -> "Alberty (2006)", 
+                    "species" -> {{
+                    "dgzero" -> -2768.1, "nc" -> -4, "nh" -> 12, "nmg" -> 
+                    0}, {"dgzero" -> -2811.48, "nc" -> -3, "nh" -> 13, "nmg" -> 
+                    0}, {"dgzero" -> -2838.18, "nc" -> -2, "nh" -> 14, "nmg" -> 
+                    0}}}, {"dgzero" -> -2902.9, 
+                    "dgzero_tag" -> {
+                    "ionic_strength" -> 0., "pH" -> 7., "value" -> -2301.5}, 
+                    "source" -> "Group Contribution", 
+                    "species" -> {{
+                    "dgzero" -> -2705.66293461725, "nc" -> -5, "nh" -> 11, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2777.54525226308, "nc" -> -4, "nh" -> 12, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2819.76185151539, "nc" -> -3, "nh" -> 13, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2849.02822369976, "nc" -> -2, "nh" -> 14, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2868.31094065555, "nc" -> -1, "nh" -> 15, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2884.45593739664, "nc" -> 0, "nh" -> 16, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2897.63436229837, "nc" -> 1, "nh" -> 17, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2902.59766518344, "nc" -> 2, "nh" -> 18, 
+                    "nmg" -> 0}}}}}, {
+                    "formula" -> "C10H15N5O10P2", "InChI" -> 
+                    "InChI=1S/C10H15N5O10P2/c11-8-5-9(13-2-12-8)15(3-14-5)10-\
+7(17)6(16)4(24-10)1-23-27(21,22)25-26(18,19)20/h2-4,6-7,10,16-17H,1H2,(H,21,\
+22)(H2,11,12,13)(H2,18,19,20)/t4-,6-,7-,10-/m1/s1", "KEGG_ID" -> "C00008", 
+                    "mass" -> 427.0294, "name" -> "ADP", "note" -> Null, 
+                    "num_electrons" -> 220, 
+                    "thermodynamic_data" -> {{
+                    "dgzero" -> -1972., 
+                    "dgzero_tag" -> {
+                    "ionic_strength" -> 0., "pH" -> 7., "value" -> -1429.2}, 
+                    "source" -> "Alberty (2006)", 
+                    "species" -> {{
+                    "dgzero" -> -1906.13, "nc" -> -3, "nh" -> 12, "nmg" -> 
+                    0}, {"dgzero" -> -1947.1, "nc" -> -2, "nh" -> 13, "nmg" -> 
+                    0}, {"dgzero" -> -1971.98, "nc" -> -1, "nh" -> 14, "nmg" -> 
+                    0}}}, {"dgzero" -> -2022.5, 
+                    "dgzero_tag" -> {
+                    "ionic_strength" -> 0., "pH" -> 7., "value" -> -1431.}, 
+                    "source" -> "Group Contribution", 
+                    "species" -> {{
+                    "dgzero" -> -1756.2390365626, "nc" -> -5, "nh" -> 10, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -1835.9941794744, "nc" -> -4, "nh" -> 11, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -1907.07780470194, "nc" -> -3, "nh" -> 12, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -1949.3514534127, "nc" -> -2, "nh" -> 13, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -1978.61782559707, "nc" -> -1, "nh" -> 14, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -1997.55824580216, "nc" -> 0, "nh" -> 15, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2012.67635229117, "nc" -> 1, "nh" -> 16, 
+                    "nmg" -> 0}, {
+                    "dgzero" -> -2022.43180968596, "nc" -> 2, "nh" -> 17, 
+                    "nmg" -> 0}}}}}}, "ionic_strength" -> 0., "pH" -> 7.}], 
+                 "ActualOutput" -> HoldForm[Null], "ExpectedMessages" -> {}, 
+                 "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[
+                    Toolbox`Private`eQuilibratorAPI, "badRequest"], 500]]}, 
+                 "AbsoluteTimeUsed" -> 
+                 Quantity[0.319221`5.654606451576247, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.07903000000000304, "Seconds"], 
+                 "MemoryUsed" -> Quantity[15032, "Bytes"]]]["TestID"]], 
+             Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+             "Preemptive"]}, {
+            ButtonBox[
+            "\"View DBaccessRelatedTests-20120102-E3X3Y6\"", 
+             ButtonFunction :> $CellContext`displayTest[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 279, "TestID" -> 
+                 "DBaccessRelatedTests-20120102-E3X3Y6", "Outcome" -> 
+                 "Failure", "ExpectedOutput" -> 
+                 HoldForm[{
+                   "ionic_strength" -> 1, "pH" -> 7, 
+                    "reactions" -> {{
+                    "chemically_balanced" -> True, "dgzero" -> -14., 
+                    "dgzero_tag" -> {
+                    "ionic_strength" -> 1, "pH" -> 7, "value" -> -14.}, 
+                    "enzymes" -> {{
+                    "EC" -> "3.2.1.52", "name" -> 
+                    "beta-N-acetylhexosaminidase"}}, "KEGG_ID" -> "R00022", 
+                    "keq_tag" -> {
+                    "ionic_strength" -> 1, "pH" -> 7, "value" -> 
+                    280.03137956115563`}, 
+                    "products" -> {{
+                    "coeff" -> 2, "concentration" -> 1., "KEGG_ID" -> 
+                    "C00140", "name" -> "N-Acetyl-D-glucosamine", 
+                    "source_used" -> "Group Contribution"}}, 
+                    "reaction_string" -> 
+                    "1 H2O + 1 Chitobiose <=> 2 N-Acetyl-D-glucosamine", 
+                    "redox_balanced" -> True, 
+                    "substrates" -> {{
+                    "coeff" -> 1, "concentration" -> 1., "KEGG_ID" -> 
+                    "C00001", "name" -> "H2O", "source_used" -> 
+                    "Alberty (2006)"}, {
+                    "coeff" -> 1, "concentration" -> 1., "KEGG_ID" -> 
+                    "C01674", "name" -> "Chitobiose", "source_used" -> 
+                    "Group Contribution"}}}}}], "ActualOutput" -> 
+                 HoldForm[Null], "ExpectedMessages" -> {}, "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[
+                    Toolbox`Private`eQuilibratorAPI, "badRequest"], 403]]}, 
+                 "AbsoluteTimeUsed" -> 
+                 Quantity[0.221682`5.4962454287992655, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.013487999999998834`, "Seconds"], 
+                 "MemoryUsed" -> Quantity[15096, "Bytes"]]]["TestID"]], 
+             Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+             "Preemptive"]}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+          DefaultBaseStyle -> "Column", 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"IORelatedTests.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "IORelatedTests.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
       StyleBox["\<\"Success\"\>",
        StripOnInput->False,
        LineColor->RGBColor[0, 
@@ -534,18 +1042,33 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.79291900000000004045119794682250358164`5.919828737861093", 
-      InterpretationBox[
-       TagBox[GridBox[{
-          {""}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"],
-       Column[{}]]},
-     {"\<\"RegulationRelatedTests.nb\"\>", 
+      "0.78109600000000001251976300409296527505`5.9133043270648376", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"RegulationRelatedTests.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "RegulationRelatedTests.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
       StyleBox["\<\"Success\"\>",
        StripOnInput->False,
        LineColor->RGBColor[0, 
@@ -558,18 +1081,33 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.86088500000000001133315663537359796464`5.955545054046743", 
-      InterpretationBox[
-       TagBox[GridBox[{
-          {""}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"],
-       Column[{}]]},
-     {"\<\"GPRRelatedTests.nb\"\>", 
+      "0.87700000000000000177635683940025046468`5.963599506645665", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"GPRRelatedTests.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "GPRRelatedTests.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
       StyleBox["\<\"Failure\"\>",
        StripOnInput->False,
        LineColor->RGBColor[1, 0, 0],
@@ -577,23 +1115,53 @@ Cell[BoxData[
        BackFaceColor->RGBColor[1, 0, 0],
        GraphicsColor->RGBColor[1, 0, 0],
        FontColor->RGBColor[1, 0, 0]], 
-      "1.16482700000000005680078629666240885854`6.08686134205414", 
-      TagBox[GridBox[{
-         {
-          ButtonBox["\<\"GPRRelatedTests-20120326-V3J1L4\"\>",
-           Appearance->Automatic,
-           
-           ButtonFunction:>$CellContext`displayTest[
-            "GPRRelatedTests-20120326-V3J1L4"],
-           Evaluator->Automatic,
-           Method->"Preemptive"]}
-        },
-        DefaultBaseStyle->"Column",
-        GridBoxAlignment->{"Columns" -> {{Left}}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-       "Column"]},
-     {"\<\"UnitCheckingRelatedTests.nb\"\>", 
+      "1.30422700000000002518163455533795058727`6.135953099972745", 
+      TemplateBox[{TagBox[
+         GridBox[{{
+            ButtonBox[
+            "\"View Outcome\"", ButtonFunction :> $CellContext`viewOutput[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 294, "TestID" -> 
+                 "GPRRelatedTests-20120326-V3J1L4", "Outcome" -> "Error", 
+                 "ExpectedOutput" -> "Error", "ActualOutput" -> "Error", 
+                 "ExpectedMessages" -> "Error", "ActualMessages" -> "Error", 
+                 "AbsoluteTimeUsed" -> Quantity[0, "Seconds"], "CPUTimeUsed" -> 
+                 Quantity[0, "Seconds"], "MemoryUsed" -> 
+                 Quantity[0, "Bytes"]]]], Appearance -> Automatic, Evaluator -> 
+             Automatic, Method -> "Preemptive"]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+          "Column", 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
+        TagBox[
+         GridBox[{{
+            ButtonBox[
+            "\"View GPRRelatedTests-20120326-V3J1L4\"", 
+             ButtonFunction :> $CellContext`displayTest[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 294, "TestID" -> 
+                 "GPRRelatedTests-20120326-V3J1L4", "Outcome" -> "Error", 
+                 "ExpectedOutput" -> "Error", "ActualOutput" -> "Error", 
+                 "ExpectedMessages" -> "Error", "ActualMessages" -> "Error", 
+                 "AbsoluteTimeUsed" -> Quantity[0, "Seconds"], "CPUTimeUsed" -> 
+                 Quantity[0, "Seconds"], "MemoryUsed" -> 
+                 Quantity[0, "Bytes"]]]["TestID"]], Appearance -> Automatic, 
+             Evaluator -> Automatic, Method -> "Preemptive"]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+          "Column", 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"UnitCheckingRelatedTests.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "UnitCheckingRelatedTests.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
       StyleBox["\<\"Success\"\>",
        StripOnInput->False,
        LineColor->RGBColor[0, 
@@ -606,17 +1174,25 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "7.26848700000000036425262806005775928497`6.882043931300193", 
-      InterpretationBox[
-       TagBox[GridBox[{
-          {""}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"],
-       Column[{}]]}
+      "6.77421900000000043462478060973808169365`6.851459145882616", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]}
     },
     GridBoxAlignment->{
      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
@@ -637,13 +1213,155 @@ Cell[BoxData[
    BoxForm`e$, 
     TableHeadings -> {
      None, {"Test Package", "Outcome", "Test Timing", 
-       "Failed Test IDs"}}]]]], "Output",
- CellChangeTimes->{3.6250761541103783`*^9, 3.62507701967948*^9, 
-  3.6251820601399097`*^9, 3.625182442128901*^9, 3.625263518738364*^9, 
-  3.625457275716309*^9}]
+       "Failed Tests"}}]]]], "Output",
+ CellChangeTimes->{
+  3.6250761541103783`*^9, 3.62507701967948*^9, 3.6251820601399097`*^9, 
+   3.625182442128901*^9, 3.625263518738364*^9, 3.625457275716309*^9, 
+   3.626014710408122*^9, 3.62601478704846*^9, 3.6260542969596567`*^9, {
+   3.626196504057373*^9, 3.626196528278206*^9}, 3.626196942151505*^9, 
+   3.626197212578989*^9, 3.626198344609625*^9, 3.626198515604001*^9, 
+   3.6261986587473*^9, 3.6261986927755613`*^9, 3.62619873013231*^9, {
+   3.6261987782638683`*^9, 3.626198791751021*^9}, 3.626199520715438*^9, 
+   3.626199569519929*^9}]
 }, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Slow Test Results", "Section",
+ CellChangeTimes->{{3.626199388001237*^9, 3.6261993913534718`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"slowTestNotebooks", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<SBMLrelatedTests.nb\>\"", ",", "\"\<ThermodynamicsTests.nb\>\""}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"slowrawResults", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"AbsoluteTiming", "[", 
+      RowBox[{"NotebookEvaluate", "[", 
+       RowBox[{
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"NotebookDirectory", "[", "]"}], ",", "#"}], "}"}], "]"}], 
+        ",", 
+        RowBox[{"InsertResults", "\[Rule]", "False"}], ",", 
+        RowBox[{"EvaluationElements", "\[Rule]", "All"}]}], "]"}], "]"}], 
+     "&"}], "/@", "slowTestNotebooks"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"slowresults", "=", 
+   RowBox[{"Last", "/@", "slowrawResults"}]}], ";", 
+  RowBox[{"slowoutcome", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"And", "@@", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"MatchQ", "[", 
+           RowBox[{
+            RowBox[{"#", "[", "\"\<Outcome\>\"", "]"}], ",", 
+            "\"\<Success\>\""}], "]"}], "&"}], "/@", "#"}], ")"}]}], "&"}], "/@",
+      "slowresults"}], "/.", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"True", "\[Rule]", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<Success\>\"", ",", 
+         RowBox[{"Darker", "[", "Green", "]"}]}], "]"}]}], ",", 
+      RowBox[{"False", "\[Rule]", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<Failure\>\"", ",", "Red"}], "]"}]}]}], "}"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"slowfailedTests", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"#", "[", "\"\<Outcome\>\"", "]"}], "=!=", 
+         "\"\<Success\>\""}], ",", "#", ",", 
+        RowBox[{
+         RowBox[{"##", "&"}], "[", "]"}]}], "]"}], "&"}], ",", "slowresults", 
+     ",", 
+     RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"slowtestButtons", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Button", "[", 
+       RowBox[{
+        RowBox[{"\"\<View \>\"", "<>", 
+         RowBox[{"#", "[", "\"\<TestID\>\"", "]"}]}], ",", 
+        RowBox[{"displayTest", "[", 
+         RowBox[{"#", "[", "\"\<TestID\>\"", "]"}], "]"}]}], "]"}], "&"}], 
+     ",", "slowfailedTests", ",", 
+     RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"slowtime", "=", 
+   RowBox[{"First", "/@", "slowrawResults"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"slowtestNotebookButtons", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Button", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"NotebookOpen", "[", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"NotebookDirectory", "[", "]"}], ",", "#"}], "}"}], "]"}], 
+        "]"}]}], "]"}], "&"}], "/@", "slowTestNotebooks"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"slowoutputButton", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<View Outcome\>\"", ",", 
+        RowBox[{"viewOutput", "[", "#", "]"}]}], "]"}], "&"}], ",", 
+     "slowfailedTests", ",", 
+     RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6261995441135483`*^9, 3.626199544846629*^9}, {
+  3.626199598087723*^9, 3.6261996886581383`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"TableForm", "[", 
+  RowBox[{
+   RowBox[{"Transpose", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "slowtestNotebookButtons", ",", "slowoutcome", ",", "slowtime", ",", 
+      RowBox[{"Row", "/@", 
+       RowBox[{"Transpose", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Column", "/@", "slowoutputButton"}], ",", 
+          RowBox[{"Column", "/@", "slowtestButtons"}]}], "}"}], "]"}]}]}], 
+     "}"}], "]"}], ",", 
+   RowBox[{"TableHeadings", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"None", ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Test Package\>\"", ",", "\"\<Outcome\>\"", ",", 
+        "\"\<Test Timing\>\"", ",", "\"\<Failed Tests\>\""}], "}"}]}], 
+     "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.626199723413827*^9, 3.626199742271573*^9}}]
+}, Closed]]
 },
-WindowSize->{759, 572},
+WindowSize->{1063, 572},
 WindowMargins->{{44, Automatic}, {Automatic, 0}},
 FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
 2014)",
@@ -660,13 +1378,24 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 120, 2, 28, "Input"],
-Cell[681, 24, 3388, 58, 148, "Input"],
-Cell[4072, 84, 1797, 43, 216, "Input"],
 Cell[CellGroupData[{
-Cell[5894, 131, 5119, 106, 182, "Input"],
-Cell[11016, 239, 13548, 403, 360, "Output"]
+Cell[580, 22, 92, 1, 64, "Section"],
+Cell[675, 25, 120, 2, 28, "Input"],
+Cell[798, 29, 4751, 92, 233, "Input"],
+Cell[5552, 123, 4308, 118, 301, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9897, 246, 97, 1, 64, "Section"],
+Cell[CellGroupData[{
+Cell[10019, 251, 4144, 67, 46, "Input"],
+Cell[14166, 320, 38445, 904, 556, "Output"]
 }, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52660, 1230, 104, 1, 64, "Section"],
+Cell[52767, 1233, 3531, 103, 216, "Input"],
+Cell[56301, 1338, 807, 22, 80, "Input"]
+}, Closed]]
 }
 ]
 *)
