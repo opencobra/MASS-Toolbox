@@ -125,6 +125,121 @@ grep[patt_String]:=
 
 
 
+(* ::Subsection:: *)
+(*Update code*)
+
+
+Needs["JLink`"];
+Needs["Utilities`URLTools`"];
+InstallJava[];
+
+
+httpGet[url_String]:=
+	JavaBlock@Module[{http,get},
+		http=JavaNew["org.apache.commons.httpclient.HttpClient"];
+		get=JavaNew["org.apache.commons.httpclient.methods.GetMethod",url];
+		http@executeMethod[get];
+		get@addRequestHeader["content-type","application/json"];
+		get@getResponseBodyAsString[]
+	];
+
+
+latestRelease[]:=
+	Module[{code,tags},
+		code = httpGet["https://api.github.com/repos/opencobra/MASS-Toolbox/releases"];
+		tags = StringTake[Select[StringSplit[code,","],StringMatchQ[#,"\"tag_name"~~___]&],14;;-2];
+		First[tags]
+	];
+
+
+updateRequired[]:=
+	Module[{newVersion,currentVersion},
+		newVersion=latestRelease[];
+		currentVersion=$ToolboxVersion;
+		newVersion!=currentVersion
+	];
+
+
+
+updateToolbox::InvalidDirectory = "The selected folder is not the MASS Toolbox directory, or the directory has been renamed.";
+
+updateToolbox::InvalidVersion = "Version must be of the format \"X.X.X\" where X is a number.";
+
+Options[updateToolbox]={Install->True};
+
+updateToolbox[ops:OptionsPattern[]]:=
+	Module[{version},
+		(* Check that an update is required *)
+		Print["Checking version..."];
+		version=latestRelease[];
+		If[version==$ToolboxVersion,
+			Return["No update necessary"],
+			updateToolbox[version,ops]
+		];
+	];
+
+updateToolbox[version_String,OptionsPattern[]]:=
+	Module[{oldDirectory,newDirectory,directory,fileName,url,task1,task2,progFunction},
+
+		(* Check that the version is correctly formatted *)
+		If[!StringMatchQ[version,DigitCharacter..~~"."~~DigitCharacter..~~"."~~DigitCharacter..],
+			Message[updateToolbox::InvalidVersion];Abort[]
+		];
+
+		(* Allow user to select old MASS-Toolbox Folder, wherever it is on their system *)
+		DialogInput[
+			DialogNotebook[{
+				TextCell["Please select the old MASS-Toolbox Folder:"],
+				TextCell["e.g. MASS-Toolbox-1.0.6"],
+				Button["Proceed",
+				DialogReturn[1]]
+			}]
+		];
+		oldDirectory=Quiet[SystemDialogInput["Directory"]];
+		Which[
+			Head[oldDirectory]=!=String,Abort[],
+			!StringMatchQ[oldDirectory,___~~"MASS-Toolbox-"~~$ToolboxVersion~~"/"],Message[updateToolbox::InvalidDirectory];Abort[]
+		];
+		directory=FileNameDrop[oldDirectory,-1];
+
+		(* Download new version *)
+		fileName=directory<>"/MASS-Toolbox-"<>version<>".tar.gz";
+		Print["Please wait. Downloading Toolbox v"<>version<>"..."];
+		url="https://github.com/opencobra/MASS-Toolbox/archive/v"<>version<>".tar.gz";
+		progress= 0.;
+		progFunction[_, "progress", {dlnow_, dltotal_, _, _}]:= Quiet[progress = dlnow/dltotal];
+		task1=URLSaveAsynchronous[url, fileName, progFunction, "Progress"->True];
+		Monitor[WaitAsynchronousTask[task1],Dynamic[ProgressIndicator[progress]]];
+		Print["Download Complete!"];
+
+		(* Extract Archive *)
+		Print["Please wait. Extracting Files..."];
+		task2=ExtractArchive[fileName,directory];
+		WaitAsynchronousTask[task2];
+		DeleteFile[fileName];
+		DeleteFile[FileNameJoin[{directory,"pax_global_header"}]];
+
+		(* Delete old folder *)
+		Print["Removing old folder..."];
+		DeleteDirectory[oldDirectory,DeleteContents->True];
+
+		(* Install new version of mathematica *)
+		If[OptionValue[Install]==True,
+			Module[{installNotebook,nb,cell},
+				newDirectory=FileNameJoin[{directory,"MASS-Toolbox-"<>version}];
+				installNotebook=FileNameJoin[{newDirectory,"Installer.nb"}];
+				nb=NotebookOpen[installNotebook,Visible->False];
+				cell=NotebookLocate[{installNotebook,"InstallCode"}];
+				SelectionEvaluateCreateCell[nb];
+				NotebookClose[nb];
+				Print["The MASS Toolbox was successfully updated and installed!"];
+			],
+			Print["The MASS Toolbox was successfully updated!"];
+			Print["Note: Manual installation is required."];
+		];
+	]
+
+
 (* ::Subsection::Closed:: *)
 (*End*)
 
