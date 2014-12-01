@@ -206,10 +206,10 @@ updateToolbox[version_String,OptionsPattern[]]:=
 		fileName=directory<>"/MASS-Toolbox-"<>version<>".tar.gz";
 		Print["Please wait. Downloading Toolbox v"<>version<>"..."];
 		url="https://github.com/opencobra/MASS-Toolbox/archive/v"<>version<>".tar.gz";
-		progress= 0.;
-		progFunction[_, "progress", {dlnow_, dltotal_, _, _}]:= Quiet[progress = dlnow/dltotal];
+		Global`progress= 0.;
+		progFunction[_, "progress", {dlnow_, dltotal_, _, _}]:= Quiet[Global`progress = dlnow/dltotal];
 		task1=URLSaveAsynchronous[url, fileName, progFunction, "Progress"->True];
-		Monitor[WaitAsynchronousTask[task1],Dynamic[ProgressIndicator[progress]]];
+		Monitor[WaitAsynchronousTask[task1],Dynamic[ProgressIndicator[Global`progress]]];
 		Print["Download Complete!"];
 
 		(* Extract Archive *)
