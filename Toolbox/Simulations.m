@@ -20,12 +20,17 @@ simulate::missingParam="Missing parameter values encountered for `1`.";
 simulate::specProfile="The option \"SpeciesProfiles\" can be specified either as \"Concentrations\" or \"Particles\" but not as `1`";
 simulate::NDSolveProblem="Something unexpected happend. Manual inspection of the ODE might be necessary.";
 simulate::ignrevents="Mathematica `1` does not provide support for events. Events will be ignored.";
+simulate::plld="The start time (`1`) and final time (`2`) must have distinct machine-precision numerical values.";
 simulate[model_MASSmodel,opts:OptionsPattern[{simulate,NDSolve}]]:=Module[{repl,ode,events,initialConditions,allConstants,parameters,equations,solution,fluxSolution,tStart,tFinal,vars,units,ic,catchMissingDerivs},
 	parameters=updateRules[model["Parameters"],adjustUnits[OptionValue["Parameters"],model]];
 	ode=getODE[model,"Parameters"->parameters];
 	If[$VersionNumber>8,events=updateRules[getEvents[model],OptionValue["Events"]][[All,2]],If[getEvents[model]=!={},Message[simulate::ignrevents,$VersionNumber]];events={}];
 	tStart=OptionValue["tStart"];
 	tFinal=OptionValue["tFinal"];
+	(*Check that tStart does not equal tFinal*)
+	If[tStart==tFinal,
+		Message[simulate::plld,tStart,tFinal]; Abort[];
+	];
 	(*Check if all initial conditions are provided*)
 	ic=FilterRules[updateRules[model["InitialConditions"],adjustUnits[OptionValue["InitialConditions"],model]],model["Variables"][[All,0]]];
 	{ic,parameters}=If[model["UnitChecking"],{ic,parameters},stripUnits[{ic,parameters}]];
