@@ -18,7 +18,6 @@ Table[2*Sum[pwerspec[[harmonic*f]],{harmonic,1,order}],{f,frequ}]/(2*Sum[pwerspe
 ];
 
 
-Unprotect[calcLinIndependentFreq];
 calcLinIndependentFreq::dim="Sorry, so far we're only able to provide frequency sets up to dimension 50 (they have been determined empirically; see Cukier et al. 1975).";
 calcLinIndependentFreq[numParameters_]:=Module[{tmpD,d,\[CapitalOmega]},
 If[numParameters>50,Message[calcLinIndependentFreq::dim];Abort[]];
@@ -27,10 +26,8 @@ Do[d[n]=tmpD[[n]],{n,1,Length[tmpD]}];
 \[CapitalOmega]={Indeterminate,Indeterminate,1,5,11,1,17,23,19,25,41,31,23,87,67,73,85,143,149,99,119,237,267,283,151,385,157,215,449,163,337,253,375,441,673,773,875,873,587,849,623,637,891,943,1171,1225,1335,1725,1663,2019};
 RecurrenceTable[{\[Omega][t]==\[Omega][t-1]+d[numParameters+1-t],\[Omega][1]==\[CapitalOmega][[numParameters]]},\[Omega],{t,1,numParameters}]
 ];
-Protect[calcLinIndependentFreq];
 
 
-Unprotect[FASTsimul];
 Options[FASTsimul]={"Frequencies"->Automatic,"SearchFunction"->(#1 Exp[4.39*Sin[#2*#3]]&),"SampleNum"->Automatic,"Partitioning"->"Saltelli99","ProgressBar"->True};
 FASTsimul::freq="Provided frequencies `1` do not match the pattern of a list of integers `2`.";
 FASTsimul::samplenum="Provided sample number `1` do not match the pattern of a integer `2`.";
@@ -62,7 +59,6 @@ FASTsimul[func_Function,parametersOfInterest:{_Rule..},opts:OptionsPattern[]]:=M
 				,{s,sdivisions},DistributedContexts->{"Toolbox`","Toolbox`Private`","Global`","AutomaticUnits`"}];
 	{output,Thread[Rule[parametersOfInterest[[All,1]],freq]],sdivisions}
 ];
-Protect[FASTsimul];
 
 
 computeFourierSineAmplitude[data_List,frequ_,sdivisions_List]:=Block[{n},
@@ -71,11 +67,9 @@ n=Length[sdivisions];
 ];
 
 
-Unprotect[FASTcalcSensitivities];
 FASTcalcSensitivities[timeSeries_List,paramFreqDict_List,sdivisions_List]:=Module[{},
 	#[[1]]->computeFourierSineAmplitude[timeSeries,#[[2]],sdivisions]&/@paramFreqDict
 ];
-Protect[FASTcalcSensitivities];
 
 
 (* ::Subsection::Closed:: *)

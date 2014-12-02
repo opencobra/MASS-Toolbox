@@ -69,29 +69,22 @@ Flatten[tmp4]/.s_String:>StringReplace[s,{"\""->""}]
 ];
 
 
-Unprotect[parseJSON];
 parseJSON[path_?FileExistsQ]:=parseJSON[Import[path,"Text"]]
 parseJSON[json_String]:=Module[{cat,eval},
 cat=StringJoin@@(ToString/@{##})&;(*Like sprintf/strout in C/C++.*)
 eval=ToExpression;
 ToExpression@StringReplace[cat@FullForm@eval[StringReplace[json,{"["->"(*MAGIC[*){","]"->"(*MAGIC]*)}",":"->"(*MAGIC:*)->","true"->"(*MAGICt*)True","false"->"(*MAGICf*)False","null"->"(*MAGICn*)Null","e"->"(*MAGICe*)*10^","E"->"(*MAGICE*)*10^"}]],{"(*MAGIC[*){"->"[","(*MAGIC]*)}"->"]","(*MAGIC:*)->"->":","(*MAGICt*)True"->"true","(*MAGICf*)False"->"false","(*MAGICn*)Null"->"null","(*MAGICe*)*10^"->"e","(*MAGICE*)*10^"->"E"}]]
-def:parseJSON[___]:=(Message[Toolbox::badargs,parseJSON,Defer@def];Abort[])
-Protect[parseJSON];
 
 
-Unprotect[iwith];
 iwith[pat_List,l_List] := Module[{mark},
 iwith[mark, l /. Map[ (#-> mark)&,pat]]];
 iwith[pat_,l_List] := Map[First,Position[l,pat]] //Union;
 with[pat_,l_List] := l[[iwith[pat,l]]];
-def:with[___]:=(Message[Toolbox::badargs,with,Defer@def];Abort[])
-Protect[iwith];
 
 
-Unprotect[updateRules];
 updateRules[rules:{(_Rule|_RuleDelayed)..},newRules:{(_Rule|_RuleDelayed)..}]:=Module[{},
-(*Join[DeleteCases[rules,r_Rule/;MemberQ[newRules[[All,1]],r[[1]]]],newRules]*)
-Join[FilterRules[rules,Except[newRules/.pat_Blank:>Verbatim[pat]]],newRules]
+	(*Join[DeleteCases[rules,r_Rule/;MemberQ[newRules[[All,1]],r[[1]]]],newRules]*)
+	Join[FilterRules[rules,Except[newRules/.pat_Blank:>Verbatim[pat]]],newRules]
 ];
 updateRules[{},newRules:{(_Rule|_RuleDelayed)..}]:=newRules
 updateRules[rules:{(_Rule|_RuleDelayed)..},{}]:=rules
@@ -100,20 +93,15 @@ updateRules[rules:{(_Rule|_RuleDelayed)..},rule:(_Rule|_RuleDelayed)]:=updateRul
 updateRules[rule:(_Rule|_RuleDelayed),rules:{(_Rule|_RuleDelayed)..}]:=updateRules[{rule},rules]
 updateRules[rule1:(_Rule|_RuleDelayed),rule2:(_Rule|_RuleDelayed)]:=updateRules[{rule1},{rule2}]
 updateRules[rules__]:=Fold[updateRules[#1,#2]&,List[rules][[1]],List[rules][[2;;]]]
-def:updateRules[_,_]:=(Message[Toolbox::badargs,updateRules,Defer@def];Abort[])
-Protect[updateRules];
 
 
-Unprotect[scatterFromDicts];
 scatterFromDicts[dicts__]:=Module[{ldicts,commonkeys},
-ldicts=List[dicts];
-commonkeys=Union[Flatten@Intersection[Sequence@@ldicts[[All,All,1]]]];
-Table[k->(k/.#&/@ldicts),{k,commonkeys}]
+	ldicts=List[dicts];
+	commonkeys=Union[Flatten@Intersection[Sequence@@ldicts[[All,All,1]]]];
+	Table[k->(k/.#&/@ldicts),{k,commonkeys}]
 ];
-Protect[scatterFromDicts];
 
 
-Unprotect[calcLinkMatrix];
 calcLinkMatrix[s_?MatrixQ]:=Module[{Q,R,independent,tmp,dependent,newOrder,rank},
 	{Q,R}=QRDecomposition[N@Transpose[s]];
 	dependent=Flatten[Position[Chop@Tr[R,List],0]];
@@ -122,8 +110,134 @@ calcLinkMatrix[s_?MatrixQ]:=Module[{Q,R,independent,tmp,dependent,newOrder,rank}
 	s[[newOrder]].PseudoInverse[N@s[[independent]]];
 	{newOrder,s[[newOrder]],s[[independent]],Chop[s[[newOrder]].PseudoInverse[N@s[[independent]]]]}
 ];
-def:calcLinkMatrix[___]:=(Message[Toolbox::badargs,calcLinkMatrix,Defer@def];Abort[])
-Protect[calcLinkMatrix];
+
+
+grep[file_String,patt_String]:=
+	With[{data=Import[FileNameJoin[{$ToolboxPath,file}],"Lines"]},
+		Pick[Transpose[{Range[Length[data]],data}],StringFreeQ[data,patt],False]
+	]
+
+grep[patt_String]:=
+	With[{fileNames={"Chemoinformatics.m","COBRA.m","Config.m","Core.m","Design.m","ExampleData.m","IO.m","Networks.m","QCQA.m","Regulation.m","Sensitivity.m","Simulations.m","Style.m","Thermodynamics.m","Types.m","UsageStrings.m","Util.m","Visualization.m"}},
+		Flatten[Function[name,Prepend[#,name]&/@grep[name,patt]]/@fileNames,1]
+	]
+
+
+
+
+(* ::Subsection:: *)
+(*Update code*)
+
+
+Needs["JLink`"];
+Needs["Utilities`URLTools`"];
+InstallJava[];
+
+
+httpGet[url_String]:=
+	JavaBlock@Module[{http,get},
+		http=JavaNew["org.apache.commons.httpclient.HttpClient"];
+		get=JavaNew["org.apache.commons.httpclient.methods.GetMethod",url];
+		http@executeMethod[get];
+		get@addRequestHeader["content-type","application/json"];
+		get@getResponseBodyAsString[]
+	];
+
+
+latestRelease[]:=
+	Module[{code,tags},
+		code = httpGet["https://api.github.com/repos/opencobra/MASS-Toolbox/releases"];
+		tags = StringTake[Select[StringSplit[code,","],StringMatchQ[#,"\"tag_name"~~___]&],14;;-2];
+		First[tags]
+	];
+
+
+updateRequired[]:=
+	Module[{newVersion,currentVersion},
+		newVersion=latestRelease[];
+		currentVersion=$ToolboxVersion;
+		newVersion!=currentVersion
+	];
+
+
+
+updateToolbox::InvalidDirectory = "The selected folder is not the MASS Toolbox directory, or the directory has been renamed.";
+
+updateToolbox::InvalidVersion = "Version must be of the format \"X.X.X\" where X is a number.";
+
+Options[updateToolbox]={Install->True};
+
+updateToolbox[ops:OptionsPattern[]]:=
+	Module[{version},
+		(* Check that an update is required *)
+		Print["Checking version..."];
+		version=latestRelease[];
+		If[version==$ToolboxVersion,
+			Return["No update necessary"],
+			updateToolbox[version,ops]
+		];
+	];
+
+updateToolbox[version_String,OptionsPattern[]]:=
+	Module[{oldDirectory,newDirectory,directory,fileName,url,task1,task2,progFunction},
+
+		(* Check that the version is correctly formatted *)
+		If[!StringMatchQ[version,DigitCharacter..~~"."~~DigitCharacter..~~"."~~DigitCharacter..],
+			Message[updateToolbox::InvalidVersion];Abort[]
+		];
+
+		(* Allow user to select old MASS-Toolbox Folder, wherever it is on their system *)
+		DialogInput[
+			DialogNotebook[{
+				TextCell["Please select the old MASS-Toolbox Folder:"],
+				TextCell["e.g. MASS-Toolbox-1.0.6"],
+				Button["Proceed",
+				DialogReturn[1]]
+			}]
+		];
+		oldDirectory=Quiet[SystemDialogInput["Directory"]];
+		Which[
+			Head[oldDirectory]=!=String,Abort[],
+			!StringMatchQ[oldDirectory,___~~"MASS-Toolbox-"~~$ToolboxVersion~~"/"],Message[updateToolbox::InvalidDirectory];Abort[]
+		];
+		directory=FileNameDrop[oldDirectory,-1];
+
+		(* Download new version *)
+		fileName=directory<>"/MASS-Toolbox-"<>version<>".tar.gz";
+		Print["Please wait. Downloading Toolbox v"<>version<>"..."];
+		url="https://github.com/opencobra/MASS-Toolbox/archive/v"<>version<>".tar.gz";
+		Global`progress= 0.;
+		progFunction[_, "progress", {dlnow_, dltotal_, _, _}]:= Quiet[Global`progress = dlnow/dltotal];
+		task1=URLSaveAsynchronous[url, fileName, progFunction, "Progress"->True];
+		Monitor[WaitAsynchronousTask[task1],Dynamic[ProgressIndicator[Global`progress]]];
+		Print["Download Complete!"];
+
+		(* Extract Archive *)
+		Print["Please wait. Extracting Files..."];
+		task2=ExtractArchive[fileName,directory];
+		WaitAsynchronousTask[task2];
+		DeleteFile[fileName];
+		DeleteFile[FileNameJoin[{directory,"pax_global_header"}]];
+
+		(* Delete old folder *)
+		Print["Removing old folder..."];
+		DeleteDirectory[oldDirectory,DeleteContents->True];
+
+		(* Install new version of mathematica *)
+		If[OptionValue[Install]==True,
+			Module[{installNotebook,nb,cell},
+				newDirectory=FileNameJoin[{directory,"MASS-Toolbox-"<>version}];
+				installNotebook=FileNameJoin[{newDirectory,"Installer.nb"}];
+				nb=NotebookOpen[installNotebook,Visible->False];
+				cell=NotebookLocate[{installNotebook,"InstallCode"}];
+				SelectionEvaluateCreateCell[nb];
+				NotebookClose[nb];
+				Print["The MASS Toolbox was successfully updated and installed!"];
+			],
+			Print["The MASS Toolbox was successfully updated!"];
+			Print["Note: Manual installation is required."];
+		];
+	]
 
 
 (* ::Subsection::Closed:: *)

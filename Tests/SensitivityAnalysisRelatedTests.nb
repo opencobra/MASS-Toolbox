@@ -1,0 +1,176 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5420,        167]
+NotebookOptionsPosition[      4830,        143]
+NotebookOutlinePosition[      5189,        159]
+CellTagsIndexPosition[      5146,        156]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Sensitivity Analysis Tests", "Title",
+ CellChangeTimes->{{3.6242160228022547`*^9, 3.624216031217359*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"results", "=", 
+   RowBox[{"{", "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{3.624205417344902*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"calcLinIndependentFreq", "[", "5", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"11", ",", "21", ",", "27", ",", "35", ",", "39"}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<SensitivityAnalysisRelatedTests-20110526-X0U9V8\>\""}]}], "]"}]}],
+    "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"calcLinIndependentFreq", "[", "10", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "25", ",", "63", ",", "103", ",", "135", ",", "157", ",", "177", ",", 
+        "187", ",", "193", ",", "201", ",", "205"}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<SensitivityAnalysisRelatedTests-20110526-J2R9T8\>\""}]}], "]"}]}],
+    "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"calcLinIndependentFreq", "[", "14", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "87", ",", "133", ",", "195", ",", "251", ",", "277", ",", "315", ",", 
+        "355", ",", "387", ",", "409", ",", "429", ",", "439", ",", "445", 
+        ",", "453", ",", "457"}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<SensitivityAnalysisRelatedTests-20110526-R9W5I8\>\""}]}], "]"}]}],
+    "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"calcLinIndependentFreq", "[", "19", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "149", ",", "275", ",", "361", ",", "421", ",", "517", ",", "593", ",",
+         "639", ",", "701", ",", "757", ",", "783", ",", "821", ",", "861", 
+        ",", "893", ",", "915", ",", "935", ",", "945", ",", "951", ",", 
+        "959", ",", "963"}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<SensitivityAnalysisRelatedTests-20110526-V8P8Q3\>\""}]}], "]"}]}],
+    "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"calcLinIndependentFreq", "[", "50", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "2019", ",", "2185", ",", "2673", ",", "2773", ",", "2989", ",", 
+        "3585", ",", "3973", ",", "4421", ",", "4669", ",", "5079", ",", 
+        "5517", ",", "5819", ",", "6387", ",", "6671", ",", "6841", ",", 
+        "6981", ",", "7167", ",", "7515", ",", "7603", ",", "7985", ",", 
+        "8183", ",", "8511", ",", "8719", ",", "8825", ",", "9241", ",", 
+        "9275", ",", "9471", ",", "9625", ",", "9753", ",", "9845", ",", 
+        "9957", ",", "10091", ",", "10217", ",", "10303", ",", "10363", ",", 
+        "10459", ",", "10535", ",", "10581", ",", "10643", ",", "10699", ",", 
+        "10725", ",", "10763", ",", "10803", ",", "10835", ",", "10857", ",", 
+        "10877", ",", "10887", ",", "10893", ",", "10901", ",", "10905"}], 
+       "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<SensitivityAnalysisRelatedTests-20110526-O6A1F3\>\""}]}], "]"}]}],
+    "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"CheckAbort", "[", 
+       RowBox[{
+        RowBox[{"calcLinIndependentFreq", "[", "51", "]"}], ",", "True"}], 
+       "]"}], ",", "True", ",", 
+      RowBox[{"{", 
+       StyleBox[
+        RowBox[{"calcLinIndependentFreq", "::", "dim"}], "MessageName"], 
+       "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<SensitivityAnalysisRelatedTests-20110526-I5X9X6\>\""}]}], "]"}]}],
+    "]"}], ";"}]], "Input"],
+
+Cell[BoxData["results"], "Input"]
+}, Open  ]]
+},
+WindowSize->{808, 572},
+WindowMargins->{{236, Automatic}, {Automatic, 50}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 111, 1, 92, "Title"],
+Cell[694, 25, 134, 4, 28, "Input"],
+Cell[831, 31, 444, 12, 46, "Input"],
+Cell[1278, 45, 525, 14, 63, "Input"],
+Cell[1806, 61, 583, 15, 63, "Input"],
+Cell[2392, 78, 653, 16, 63, "Input"],
+Cell[3048, 96, 1156, 23, 114, "Input"],
+Cell[4207, 121, 571, 17, 63, "Input"],
+Cell[4781, 140, 33, 0, 28, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,0 +1,143 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3547,        134]
+NotebookOptionsPosition[      2967,        109]
+NotebookOutlinePosition[      3326,        125]
+CellTagsIndexPosition[      3283,        122]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Metabolite Tests", "Title",
+ CellChangeTimes->{{3.624215966521431*^9, 3.6242159710324183`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"results", "=", 
+   RowBox[{"{", "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{3.624202946939208*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{3.624202944079461*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"testMetabolite", "=", 
+   InterpretationBox[
+    SuperscriptBox[
+     StyleBox["ATP",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], 
+     StyleBox["Cytosol",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`metabolite["ATP", "Cytosol"],
+    Editable->False,
+    Selectable->False]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"getID", "[", "testMetabolite", "]"}], ",", "\"\<ATP\>\"", ",", 
+      
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<MetaboliteRelatedTests-20110613-A2C9H4\>\""}]}], "]"}]}], "]"}], 
+  ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"getCompartment", "[", "testMetabolite", "]"}], ",", 
+      "\"\<Cytosol\>\"", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<MetaboliteRelatedTests-20110613-V5O3F2\>\""}]}], "]"}]}], "]"}], 
+  ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"ToString", "[", "testMetabolite", "]"}], ",", 
+      "\"\<ATP[Cytosol]\>\"", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<MetaboliteRelatedTests-20110613-A5B7Y5\>\""}]}], "]"}]}], "]"}], 
+  ";"}]], "Input"],
+
+Cell[BoxData["results"], "Input"]
+}, Open  ]]
+},
+WindowSize->{808, 572},
+WindowMargins->{{236, Automatic}, {Automatic, 50}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 101, 1, 92, "Title"],
+Cell[CellGroupData[{
+Cell[706, 27, 134, 4, 28, "Input"],
+Cell[843, 33, 87, 2, 28, "Output"]
+}, Open  ]],
+Cell[945, 38, 865, 27, 32, "Input"],
+Cell[1813, 67, 357, 11, 46, "Input"],
+Cell[2173, 80, 370, 11, 46, "Input"],
+Cell[2546, 93, 369, 11, 46, "Input"],
+Cell[2918, 106, 33, 0, 28, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

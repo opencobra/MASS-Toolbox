@@ -17,7 +17,6 @@ Quiet@Get["GurobiML`"]
 (*Warning and Error messages*)
 Toolbox::Exists="Entity `1` already exists.";
 Toolbox::NotImplemented="Function/Structure `1` has not been implemented yet.";
-Toolbox::badargs="There is no definition for '``' applicable to ``."
 
 
 (* ::Subsection:: *)
@@ -28,7 +27,6 @@ Toolbox::badargs="There is no definition for '``' applicable to ``."
 (*FBA & FVA*)
 
 
-Unprotect[fba];
 (*Options[fba]=Join[{"OptFlag"->"Max","Solver"->LinearProgramming,"Loopless"->False,"Minimize"->False},Options[LinearProgramming]];*)
 Options[fba]={"OptFlag"->"Max","Solver"->LinearProgramming,"Loopless"->False,"Minimize"->False};
 fba::noObjProvided="No objective provided. Optimizing `1`. An objective can be provided via fba[model, objective].";
@@ -102,11 +100,8 @@ fba[model_MASSmodel,obj_,bounds:({_Rule..}|{}):{},opts:OptionsPattern[{fba,Linea
 		_,Message[fba::solverSolutionProblem,Short@solution,OptionValue["Solver"]];Abort[];
 	]
 ];
-def:fba[stuff___]:=(Message[Toolbox::badargs,1,ToString@stuff];Abort[])
-Protect[fba];
 
 
-Unprotect[looplessFBA];
 Options[looplessFBA]=Options[fba];
 looplessFBA[model_MASSmodel,obj_,bounds:({_Rule..}|{}):{},opts:OptionsPattern[]]:=Module[{solution},
 	solution=Quiet[Check[
@@ -115,11 +110,9 @@ looplessFBA[model_MASSmodel,obj_,bounds:({_Rule..}|{}):{},opts:OptionsPattern[]]
 			,LinearProgramming::lpip];
 	solution[[1;;Length[model["Fluxes"]]]]
 ];
-def:looplessFBA[___]:=(Message[Toolbox::badargs,fba,Defer@def];Abort[])
-Protect[looplessFBA];
 
 
-(*Unprotect[fva];
+(*
 Options[fva]=updateRules[FilterRules[Options[fba],Except[{"OptFlag"}]],{"ProgressBar"->True}];
 fva[model_MASSmodel,bounds:({_Rule..}|{}):{},opts:OptionsPattern[]]:=Module[{maxTmp,minTmp,result,progressBarQ,rxns,i},
 	If[OptionValue["Solver"]===GurobiFVA,
@@ -137,10 +130,10 @@ fva[model_MASSmodel,bounds:({_Rule..}|{}):{},opts:OptionsPattern[]]:=Module[{max
 	];
 	result
 ];
-def:fva[___]:=(Message[Toolbox::badargs,fva,Defer@def];Abort[])
-Protect[fva];*)
 
-Unprotect[fva];
+*)
+
+
 Options[fva]=updateRules[FilterRules[Options[fba],Except[{"OptFlag"}]],{"ProgressBar"->True}];
 fva[model_MASSmodel,bounds:({_Rule..}|{}):{},opts:OptionsPattern[]]:=Module[{maxTmp,minTmp,result,progressBarQ,rxns,i,j},
 	If[OptionValue["Solver"]===GurobiFVA,
@@ -160,18 +153,13 @@ fva[model_MASSmodel,bounds:({_Rule..}|{}):{},opts:OptionsPattern[]]:=Module[{max
 	];
 	result
 ];
-def:fva[___]:=(Message[Toolbox::badargs,fva,Defer@def];Abort[])
-Protect[fva];
 
 
-Unprotect[reduceModel];
 Options[reduceModel]=Options[fva];
 reduceModel[model_MASSmodel,bounds:({_Rule..}|{}):{},opts:OptionsPattern[]]:=Module[{blocked},
 	blocked=Cases[Chop@fva[model,bounds,opts],r_Rule/;r[[2]]=={0,0}][[All,1]];
 	deleteReactions[model,blocked]
 ];
-def:reduceModel[___]:=(Message[Toolbox::badargs,reduceModel,Defer@def];Abort[])
-Protect[reduceModel];
 
 
 optiontest::wrngoption="The provided value `1` for option `2` does not pass the following test: `3`.";
@@ -197,7 +185,6 @@ gimme[model_MASSmodel,objective_,data:{_Rule...},opts:OptionsPattern[]]:=Module[
 ];
 
 
-Unprotect[GurobiFVA];
 Options[GurobiFVA]=updateRules[Options[LinearProgramming],{"Infinity"->1.*^10}];
 GurobiFVA::objdimension="Objective vector (size:`1`) should have a compatible shape with the provide matrix (`2`).";
 GurobiFVA::rxnnotexist="Reaction `1` in objective specification does not exist in problem description.";
@@ -209,15 +196,12 @@ GurobiFVA[stoichiometry_?MatrixQ,colIDs_List,bounds:({_Rule..}|{}):{},opts:Optio
 	Thread[Rule[v/@colIDs,Transpose[solution]]]
 ];
 GurobiFVA[model_MASSmodel,bounds:({_Rule..}|{}):{},opts:OptionsPattern[]]:=Module[{},GurobiFVA[model["Stoichiometry"],getID/@model["Fluxes"],updateRules[model["Constraints"],bounds]/.flux_v:>getID[flux],opts]]
-def:GurobiFVA[___]:=(Message[Toolbox::badargs,GurobiFVA,Defer@def];Abort[])
-Protect[GurobiFVA];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Sampling*)
 
 
-Unprotect[createWarmupPoints];
 Options[createWarmupPoints]={"NumberOfPoints"->Automatic,"ProgressBar"->True,"Solver"->LinearProgramming};
 createWarmupPoints[m_?MatrixQ,bounds_?MatrixQ,opts:OptionsPattern[]]:=Module[{b,obj,minSol,maxSol,nColumns,centerPoint,points,nPoints,i},
 	nColumns=Dimensions[m][[2]];
@@ -245,11 +229,8 @@ createWarmupPoints[model_MASSmodel,bounds:{_Rule...}:{},opts:OptionsPattern[]]:=
 	{obj,stoich,bees,bnds}=model2LinearProgrammingData[model,model["Fluxes"][[1]],bounds]/.{-\[Infinity]->-1000,\[Infinity]->1000};
 	createWarmupPoints[stoich,bnds,opts]
 ];
-def:createWarmupPoints[___]:=(Message[Toolbox::badargs,createWarmupPoints,Defer@def];Abort[])
-Protect[createWarmupPoints];
 
 
-Unprotect[ACHRsampler];
 Options[ACHRsampler]={"StepsPerPoint"->10,"Iterations"->10,"EvaluationMonitor"->None,"MaxMinTol"->1*^-9,"uTol"->1*^-9,"ProgressBar"->True};
 ACHRsampler::tooCloseToBoundary="";
 ACHRsampler[m_?MatrixQ,warmupPoints_?MatrixQ,bounds:{{_?NumberQ,_?NumberQ}..},opts:OptionsPattern[]]:=Module[{uTol,maxMinTol,stepsPerPoints,lb,ub,u,null,points,centerPoint,positiveDir,negativeDir,distUB,distLB,maxStepTemp,ptCnt,minStepTemp,maxStepVec,minStepVec,maxStep,minStep,stepDist,newPoint,n,s,i,again,rndPointOrder,prevPoint,gotoCount},
@@ -312,11 +293,9 @@ ACHRsampler[model_MASSmodel,warmupPoints_?MatrixQ,bounds:{_Rule...}:{},opts:Opti
 	{obj,stoich,bees,bnds}=model2LinearProgrammingData[model,model["Fluxes"][[1]],bounds]/.{-\[Infinity]->-1000,\[Infinity]->1000};
 	ACHRsampler[stoich,warmupPoints,bnds,opts]
 ];
-def:ACHRsampler[___]:=(Message[Toolbox::badargs,ACHRsampler,Defer@def];Abort[])
-Protect[ACHRsampler];
 
 
-(*Unprotect[ACHRsampler];
+(*
 Options[ACHRsampler]={"StepsPerPoint"->10,"Iterations"->10,"EvaluationMonitor"->None,"MaxMinTol"->1*^-9,"uTol"->1*^-9};
 ACHRsampler::tooCloseToBoundary="";
 ACHRsampler[m_?MatrixQ,warmupPoints_?MatrixQ,bounds:{{_?NumberQ,_?NumberQ}..},opts:OptionsPattern[]]:=Module[{lb,ub,u,null,points,centerPoint,positiveDir,negativeDir,distUB,distLB,maxStepTemp,ptCnt,minStepTemp,maxStepVec,minStepVec,maxStep,minStep,stepDist,newPoint,n,s,i,again,rndPointOrder,prevPoint,gotoCount},
@@ -377,8 +356,7 @@ ACHRsampler[model_MASSmodel,warmupPoints_?MatrixQ,bounds:{_Rule...}:{},opts:Opti
 	{obj,stoich,bees,bnds}=model2LinearProgrammingData[model,model["Fluxes"][[1]],bounds]/.{-\[Infinity]->-1000,\[Infinity]->1000};
 	ACHRsampler[stoich,warmupPoints,bnds,opts]
 ];
-def:ACHRsampler[___]:=(Message[Toolbox::badargs,ACHRsampler,Defer@def];Abort[])
-Protect[ACHRsampler];*)
+*)
 
 
 (* ::Subsubsection::Closed:: *)
@@ -414,7 +392,6 @@ calcConcentrationBounds[model_MASSmodel,opt:OptionsPattern[]]:=Module[{logDisEqR
 (*Utilities*)
 
 
-Unprotect[productionEnvelope];
 Options[productionEnvelope]={"Points"->20};
 productionEnvelope[model_MASSmodel,controlFlux_v,targets__v,opts:OptionsPattern[{productionEnvelope,fba}]]:=Module[{minGrowth,maxGrowth,minFlux,maxFlux,npts,growth,target,tmpResult},
 	npts=OptionValue["Points"];
@@ -431,11 +408,8 @@ productionEnvelope[model_MASSmodel,controlFlux_v,targets__v,opts:OptionsPattern[
 	];
 	Transpose[tmpResult]
 ];
-def:productionEnvelope[___]:=(Message[Toolbox::badargs,productionEnvelope,Defer@def];Abort[])
-Protect[productionEnvelope];
 
 
-Unprotect[model2LinearProgrammingData];
 model2LinearProgrammingData::unknownObjectiveType="`1` is not a valid objective.";
 Options[model2LinearProgrammingData]={"OptFlag"->"MAX"};
 model2LinearProgrammingData[model_MASSmodel,obj_,bounds:({_Rule..}|{}):{},opts:OptionsPattern[]]:=Module[{stoich,intrnlbnds,internlobj,rhs,optFlag,pos,cleanObj},
@@ -452,11 +426,8 @@ model2LinearProgrammingData[model_MASSmodel,obj_,bounds:({_Rule..}|{}):{},opts:O
 	optFlag=If["MAX"==ToUpperCase[OptionValue["OptFlag"]],-1,1];
 	{Chop[optFlag*internlobj],stoich,rhs,intrnlbnds}
 ];
-def:model2LinearProgrammingData[___]:=(Message[Toolbox::badargs,model2LinearProgrammingData,Defer@def];Abort[])
-Protect[model2LinearProgrammingData];
 
 
-Unprotect[model2LooplessFbaFormulation];
 Options[model2LooplessFbaFormulation]=Join[{"UpperBoundOnG"->1000},Options[model2LinearProgrammingData]];
 model2LooplessFbaFormulation[model_MASSmodel,obj_,bounds:{_Rule...}:{},opts:OptionsPattern[]]:=Module[{lpObj,stoich,lpRhs,lpBnds,dim,internalModel,exchPos,intDim,nullInt,vIdentity,vNull,sNull,aDiagonalMat1,aDiagonalMat2,aNull,gNull,gIdentity,constrMat,looplessRhs,bnds,dom},
 	{lpObj,stoich,lpRhs,lpBnds}=model2LinearProgrammingData[model,obj,bounds,Sequence@@FilterRules[updateRules[Options[model2LinearProgrammingData],List[opts]],Options[model2LinearProgrammingData]]];
@@ -494,8 +465,6 @@ model2LooplessFbaFormulation[model_MASSmodel,obj_,bounds:{_Rule...}:{},opts:Opti
 	dom=Join[Table[Reals,{dim[[2]]}],Table[Integers,{intDim[[2]]}],Table[Reals,{intDim[[2]]}]];
 	{PadRight[lpObj,Dimensions[constrMat][[2]]],constrMat,looplessRhs,bnds,dom}
 ];
-def:model2LooplessFbaFormulation[___]:=(Message[Toolbox::badargs,model2LooplessFbaFormulation,Defer@def];Abort[])
-Protect[model2LooplessFbaFormulation];
 
 
 (* ::Subsection:: *)
@@ -506,7 +475,6 @@ Protect[model2LooplessFbaFormulation];
 (*GLPK*)
 
 
-Unprotect[GLPKStandalone];
 GLPKStandalone::glpsolMissing="glpsol seems to be not installed or not on your system path.";
 GLPKStandalone::GLP\[UnderBracket]UNDEF="Solution is undefined (GLP_UNDEF).";
 GLPKStandalone::GLP\[UnderBracket]FEAS="Solution is feasable (GLP_FEAS).";
@@ -539,8 +507,6 @@ GLPKStandalone[c_List,mat_?MatrixQ,b_List,bounds:((_?NumberQ|-Infinity)|{(_?Numb
 		},{solution,solution2,termOutput}
 	]
 ];
-def:GLPKStandalone[___]:=(Message[Toolbox::badargs,GLPKStandalone,Defer@def];Abort[])
-Protect[GLPKStandalone];
 
 
 parseGlpkPlainOutput[tab_List/;Length[tab[[2]]]==3,glpProblemDefinition_String]:=Module[{status,probTab,rowIDs,colIDs,rowNum,colNum,ord,rowOrdering},
@@ -621,7 +587,6 @@ parseGlpkPlainOutput[tab_List/;Length[tab[[2]]]==2&&Length[tab[[3]]]==1,glpProbl
 (*CPLEX*)
 
 
-Unprotect[CPLEXStandalone];
 Options[CPLEXStandalone]={"OutputFormat"->Automatic};
 CPLEXStandalone::cplexMissing="cplex seems to be not installed or not on your system path.";
 CPLEXStandalone::failed="Probably no solution could be found.\n`1`";
@@ -644,11 +609,8 @@ CPLEXStandalone[c_List,mat_?MatrixQ,b_List,bounds:((_?NumberQ|-Infinity)|{(_?Num
 		Full,{xmlOutput,termOutput}
 	]
 ];
-def:CPLEXStandalone[___]:=(Message[Toolbox::badargs,GLPKStandalone,Defer@def];Abort[]);
-Protect[CPLEXStandalone];
 
 
-Unprotect[CPLEXForm];
 CPLEXForm::wrongbnds="Something is wrong with the provided variable bounds `1`.";
 CPLEXForm[c:{_?NumberQ..},mat_?MatrixQ,b:({(_?NumberQ|-Infinity|Infinity)..}|{{(_?NumberQ|-Infinity|Infinity),(-1|0|1)}..}),bounds:((_?NumberQ|-Infinity)|{(_?NumberQ|-Infinity)...}|{{(_?NumberQ|-Infinity),(_?NumberQ|Infinity)}..}|Automatic):{},dom:((Integers|Reals)|{(Integers|Reals)..}):Reals]:=Module[{constr2str,vars,strVars,bClean,boundsClean,senses,objSection,subjectToSection,boundsSection,domainSection},
 	constr2str=Switch[#[[2]],{-Infinity,Infinity},"-inf <= "<>#[[1]]<>" <= +inf",{-Infinity,_?NumberQ},"-inf <= "<>#[[1]]<>" <= "<>ToString[#[[2,2]],CForm],{_?NumberQ,Infinity},ToString[#[[2,1]],CForm]<>" <= "<>#[[1]]<>" <= +inf",{_?NumberQ,_?NumberQ},ToString[#[[2,1]],CForm]<>" <= "<>#[[1]]<>" <= "<>ToString[#[[2,2]],CForm]]&;
@@ -676,15 +638,12 @@ CPLEXForm[c:{_?NumberQ..},mat_?MatrixQ,b:({(_?NumberQ|-Infinity|Infinity)..}|{{(
 CPLEXForm[model_MASSmodel,objective_,bounds:{_Rule...}:{}]:=Module[{objSection,boundsSection,subjecttoSection,fluxAliases,fluxAliases2,constr2str},
 CPLEXForm[Sequence@@model2LinearProgrammingData[model,objective,bounds]]
 ];
-def:CPLEXForm[___]:=(Message[Toolbox::badargs,CPLEXForm,Defer@def];Abort[])
-Protect[CPLEXForm];
 
 
 (* ::Subsection:: *)
 (*GAMS interface and code generation*)
 
 
-Unprotect[GAMSForm];
 GAMSForm::straySymbols="Stray symbols `1` detected.";
 Options[GAMSForm]={"OptFlag"->"Minimizing","Category"->"NLP"};
 GAMSForm[objAndEqu_/;!ListQ[objAndEqu],var_?AtomQ,opts:OptionsPattern[]]:=GAMSForm[{objAndEqu},{var},opts]
@@ -736,8 +695,6 @@ Module[{straySymbols,objAndEquPrec,varsPrec,filterBounds,normalizeBounds,filterD
 	solveSection="Model problem / ALL /;\nSolve problem "<>OptionValue["OptFlag"]<>" Z USING "<>OptionValue["Category"]<>";";
 	StringJoin[Riffle[{variablesSection,equationsSection,boundsSection,initialPointsSection,solveSection},"\n\n"]]
 ];
-def:GAMSForm[___]:=(Message[Toolbox::badargs,GAMSForm,Defer@def];Abort[]);
-Protect[GAMSForm];
 
 
 gdxDumpParser[gdxdump_String]:=Module[{stuff,varStuff},
@@ -750,7 +707,6 @@ gdxDumpParser[gdxdump_String]:=Module[{stuff,varStuff},
 ];
 
 
-Unprotect[GAMS];
 Scan[(MessageName[GAMS,"returnCode"<>ToString[#[[1]]]]=#[[2]])&,{0->"normal return",1->"solver is to be called; the system should never return this number",2->"there was a compilation error",3->"there was an execution error",
 		4->"system limits were reached",5->"there was a file error",6->"there was a parameter error",7->"there was a licensing error",8->"there was a GAMS system error",
 		9->"GAMS cold not be started",10->"user interrupt"}];
@@ -807,14 +763,12 @@ GAMS[problemDef_String,opts:OptionsPattern[]]:=Module[{outputFile,gdxFile,tmpFil
 		_,Message[GAMS::wrongOutputFormat,OptionValue["Output"]];Abort[];
 	]
 ];
-def:GAMS[___]:=(Message[Toolbox::badargs,GAMS,Defer@def];Abort[]);
-Protect[GAMS];
 
 
 parseGAMSoutput[output_String]:=StringCases[output,RegularExpression["----\\sVAR\\s+(\\w+)~?\\s(.*)"]:>"$1"->Thread[Rule[{"LOWER","LEVEL","UPPER","MARGINAL"},ImportString["$2","Table"][[1]]]]]
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*NEOS interface*)
 
 
@@ -837,7 +791,7 @@ getNEOSstatuses[log_String]:=Module[{modelStatus,solverStatus},
 ];
 
 
-Unprotect[NEOS];
+
 NEOS::neosMissing="NeosClient.py seems to be not installed or not on your system path. Check out http://www.neos-server.org/neos/downloads.html";
 NEOS::wrongOutputFormat="Output format `1` not recognized. Try \"Full\" or Minimize, Maximize, etc. intstead (to achieve a similar output as Mathematica's own optimization routins).";
 Options[NEOS]={"GAMSForm"->{},"ID"->Hold["Model"<>StringReplace[ToString[Unique[]],"$"->"_"]],"Translation"->{},"Options"->"","Category"->"nco","Solver"->"CONOPT","InputMethod"->"GAMS","Comments"->"","Output"->Minimize};
@@ -878,14 +832,13 @@ NEOS[problem_String,opts:OptionsPattern[]]:=Module[{modelStatus,solverStatus,pro
 	]
 	
 ];
-Protect[NEOS];
 
 
-(* ::Subsection::Closed:: *)
+
+(* ::Subsection:: *)
 (*X3 interface*)
 
 
-Unprotect[model2X3];
 model2X3[model_MASSmodel]:=Module[{rxns,external,internal,helpFunc,exchangeTab},
 helpFunc=Piecewise[{
 	{"Free",MatchQ[v[getID@#]/.#2,_v]},
@@ -904,7 +857,7 @@ helpFunc=Piecewise[{
 	exchangeTab=If[MemberQ[exchangeTab,{#[[1]],"Input"},\[Infinity]]&&MemberQ[exchangeTab,{#[[1]],"Output"},\[Infinity]],{#[[1]],"Free"},#]&/@exchangeTab;
 	"(Internal fluxes)\n"<>ExportString[Table[reaction2x3reaction[r],{r,internal}],"TSV"]<>"\n(Exchange fluxes)\n"<>ExportString[exchangeTab,"TSV"]
 ];
-Protect[model2X3];
+
 
 
 reaction2x3reaction[rxn_reaction]:=Module[{substrStoich,prodStoich,gcd},
@@ -919,7 +872,7 @@ reaction2x3reaction[rxn_reaction]:=Module[{substrStoich,prodStoich,gcd},
 ];
 
 
-Unprotect[parseX3output];
+
 parseX3output::nffil = "X3 output file `1` could not be found. Check the console output.";
 parseX3output[path_String] := Module[{rxnIDs,tmp,pos,expas,typeIII},
 	expas=Quiet[Check[Import[path <> "_myPaths.txt", "Table"], Message[parseX3output::nffil, path <> "_myPaths.txt"]; {}, {Import::nffil}],{Import::nffil}];
@@ -931,10 +884,10 @@ parseX3output[path_String] := Module[{rxnIDs,tmp,pos,expas,typeIII},
 	, Message[parseX3output::nffil, path <> "_myRxnMet.txt"]; {}, {Import::nffil}];
 	{If[expas!={},expas.rxnIDs,{}],If[typeIII!={},DeleteCases[typeIII.rxnIDs,a_String+b_String/;StringReplace[a,RegularExpression["_R$"]->""]==StringReplace[b,RegularExpression["_R$"]->""]],{}]}
 ];
-Protect[parseX3output];
 
 
-Unprotect[X3];
+
+
 Options[X3]={"x3path"->"X3"};
 X3[model_MASSmodel,opts:OptionsPattern[]]:=Module[{tmpFile,x3Format,termOutput,cmd,files},
 	x3Format=model2X3[model];
@@ -945,7 +898,7 @@ X3[model_MASSmodel,opts:OptionsPattern[]]:=Module[{tmpFile,x3Format,termOutput,c
 	termOutput=Import[cmd,"Text"];
 	{Sequence@@Thread[Rule[{"Expa","T3"},parseX3output[tmpFile[[1]]]]],"Terminal"->termOutput,"Input"->x3Format}
 ];
-Protect[X3];
+
 
 
 (* ::Subsection::Closed:: *)

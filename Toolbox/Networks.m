@@ -11,17 +11,13 @@
 Begin["`Private`"]
 
 
-Unprotect[stoich2bipartite];
 stoich2bipartite[stoich_?MatrixQ,rxns_List,mets_List]:=Block[{productPos,substratePos},
 productPos=Position[stoich,a_/;a>0];
 substratePos=Position[stoich,a_/;a<0];
 Join[Table[Rule[rxns[[elem[[2]]]],mets[[elem[[1]]]]],{elem,productPos}],Table[Rule[mets[[elem[[1]]]],rxns[[elem[[2]]]]],{elem,substratePos}]]
 ];
-def:stoich2bipartite[___]:=(Message[Toolbox::badargs,stoich2bipartite,Defer@def];Abort[])
-Protect[stoich2bipartite];
 
 
-Unprotect[reactions2bipartite];
 Options[reactions2bipartite]={"AliasingRules"->{},"DeletionRules"->{},"EdgeDirections"->False};
 reactions2bipartite[reactions:{_reaction..},opts:OptionsPattern[]]:=Module[{id,aliasing,substr,prod,revQ,tmpRxns},
 If[OptionValue["EdgeDirections"]===True,#,#[[All,1]]]&@Flatten[Table[
@@ -34,20 +30,14 @@ If[OptionValue["EdgeDirections"]===True,#,#[[All,1]]]&@Flatten[Table[
 	If[revQ,Join[tmpRxns,Thread[{Reverse/@tmpRxns[[All,1]],"Reverse"}]],tmpRxns]
 ,{rxn,reactions}],1]
 ];
-def:reactions2bipartite[___]:=(Message[Toolbox::badargs,reactions2bipartite,Defer@def];Abort[])
-Protect[reactions2bipartite];
 
 
-Unprotect[model2bipartite];
 Options[model2bipartite]=Options[reactions2bipartite];
 model2bipartite[model_MASSmodel,opts:OptionsPattern[]]:=Module[{id,aliasing,substr,prod},
 reactions2bipartite[model["Reactions"],opts]
 ];
-def:model2bipartite[___]:=(Message[Toolbox::badargs,model2bipartite,Defer@def];Abort[])
-Protect[model2bipartite];
 
 
-Unprotect[gpr2graphs];
 gpr2graphs[gpr:{_Rule..}]:=Module[{prots,genes,gprGraph,gprGraphs,genes2complexes},
 	genes2complexes=Flatten@Table[
 		prots=List@@complex;
@@ -61,11 +51,8 @@ gpr2graphs[gpr:{_Rule..}]:=Module[{prots,genes,gprGraph,gprGraphs,genes2complexe
 ];
 gpr2graphs[model_MASSmodel]:=gpr2graphs[model["GPR"]]
 gpr2graphs[{}]:={}
-def:gpr2graphs[___]:=(Message[Toolbox::badargs,gpr2graphs,Defer@def];Abort[])
-Protect[gpr2graphs];
 
 
-Unprotect[pathwaytize];
 Options[pathwaytize]={"Method"->"Mask"};
 pathwaytize::wrngmethod="`1` is not suitable method for the function pathwaytize. Choose between 'Mask' and 'Remove'.";
 pathwaytize::notenoughhubs="You are attempting to remove/mask more nodes from/in the network as have been identified as suitable hubs. Removing all hubs instead ...";
@@ -78,8 +65,6 @@ Switch[OptionValue["Method"],
 _,Message[pathwaytize::wrngmethod,OptionValue["Method"]];Abort[];
 ]
 ];
-def:pathwaytize[___]:=(Message[Toolbox::badargs,pathwaytize,Defer@def];Abort[])
-Protect[pathwaytize];
 
 
 (* ::Subsection:: *)
@@ -87,4 +72,3 @@ Protect[pathwaytize];
 
 
 End[]
-

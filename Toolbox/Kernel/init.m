@@ -57,16 +57,16 @@ GurobiML::notinstalled="GurobiML seems to be not installed. Advanced LP/MILP/QP 
 (*Column[{icon,progtext,If[$FrontEnd=!=Null,ProgressIndicator[prog,{1,22}],prog]}]*)
 
 
-Module[{licenseInfo,icon,delay,stubStream,bkupoutput,prog,progtext},
+Module[{licenseInfo,icon,delay,stubStream,bkupoutput,prog,progtext,names,rules,messageCode},
 licenseInfo="Copyright (c) 2013, Regents of the University of California
 All rights reserved.
 Evaluate $ToolboxLicense for more information";
 progtext="";
 prog=0;
 icon=Show[Import[FileNameJoin[{DirectoryName[$InputFileName],"MASS-Toolbox-Logo.m"}]],ImageSize->150];
-delay=Pause[.02]&;
+delay=Pause[.01]&;
 If[$FrontEnd=!=Null&&$VersionNumber>=8,
-	Monitor[ReleaseHold[#],Grid[{{Blur[icon,(*Log[23-prog]*)Max[{15-prog,0}]],progtext},{licenseInfo,SpanFromLeft}}]],
+	Monitor[ReleaseHold[#],Grid[{{Blur[icon,(*Log[23-prog]*)Max[{16-prog,0}]],progtext},{licenseInfo,SpanFromLeft}}]],
 	Monitor[ReleaseHold[#],Column[{progtext,licenseInfo}]]
 ]&@Hold[
 	progtext="Loading MathSBML ...";
@@ -100,6 +100,7 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	
 	BeginPackage["Toolbox`"];
 	Needs["AutomaticUnits`"];
+	Unprotect["Toolbox`*"];
 	progtext="Loading Config ...";Get["Toolbox`Config`"];prog++;delay[];
 	progtext="Loading Usage strings ...";Get["Toolbox`UsageStrings`"];prog++;delay[];
 	progtext="Loading Utilities ...";Get["Toolbox`Util`"];prog++;delay[];
@@ -117,6 +118,16 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	progtext="Loading Simulations ...";Get["Toolbox`Simulations`"];prog++;delay[];
 	progtext="Loading QCQA ...";Get["Toolbox`QCQA`"];prog++;delay[];
 	progtext="Loading ExampleData ...";Get["Toolbox`ExampleData`"];prog++;delay[];
+	
+	(* Display error message for all functions for incorrect inputs *)
+	Toolbox`Toolbox::badargs="There is no definition for '`1`' applicable to `2`.";
+	names = Complement[ToExpression[Select[Names["Toolbox`*"],StringFreeQ[#,"$"]&]],Toolbox`$MASS$headTypes];
+	rules={func->#}&/@names;
+	messageCode = Hold[def:func[___]:=(Message[Toolbox`Toolbox::badargs,Evaluate[func],Defer@def];Abort[])]/.rules;
+	ReleaseHold/@messageCode;
+
+	(* Protect all public function names *)
+	Protect["Toolbox`*"];
 	EndPackage[];
 ]
 ]
@@ -125,6 +136,8 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 (* ::Section:: *)
 (*Backwards compatibility*)
 
+
+(Unprotect[#];Evaluate[Symbol["MASStoolbox`MASS`"<>ToString[#]]]:=Evaluate[Symbol["Toolbox`"<>ToString[#]]];Protect[#])&/@(Join[$MASS$speciesTypes,$MASS$parameterTypes,{v,reaction,gene,geneComplex,protein,proteinComplex,enzyme}]);
 
 Toolbox`MASS`metabolite := metabolite
 Toolbox`MASS`v := v

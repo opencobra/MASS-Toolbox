@@ -4,7 +4,7 @@
 (*Usage strings*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Options*)
 
 
@@ -151,7 +151,7 @@ molconvert::usage="molconvert[input, outformat, cmdlineOpts] provides an interfa
 drawCompound::usage="Takes a InChI or SMILES description of a compounds and uses openbabel to draw it.";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*COBRA*)
 
 
@@ -212,7 +212,7 @@ createWarmupPoints::usage="createWarmupPoints[model] will create warmup points f
 ACHRsampler::usage="ACHRsampler[model] will perform Monte Carlo sampling with model."
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Design*)
 
 
@@ -578,7 +578,7 @@ thermodynamicallyConsistentQ::usage="thermodynamicallyConsistentQ[model] will ch
 qcqa::usage="qcqa[model] will run a series of quality assessment and control tests on model and return a report.";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Regulation*)
 
 
@@ -692,7 +692,7 @@ expandAllLog::usage="Check http://mathematica.stackexchange.com/questions/22705/
 getReferenceFluxesAndBoundsFromXML::usage="getReferenceFluxesAndBoundsFromXML[path2xml] returns reference fluxe and bounds from files like Ec_iJR904_flux1.xml.gz"
 
 
-parseJSON::usage="parseJSON[string] parses a JSON ojbect structure. parseJSON[path] reads from path.";
+parseJSON::usage="parseJSON[string] parses a JSON object structure. parseJSON[path] reads from path.";
 
 
 scatterFromDicts::usage="scatterFromDicts[dict, ...] constructs a scatter representation of the data associated with the the common keys of dicts."
@@ -708,6 +708,12 @@ query::usage="query[key, listOfRules] will return the corresponding value."(*## 
 
 
 filter::usage="filter[listOfRules, keys] behave like FilterRules with the exception that the filtered rules are returned in the order of keys.";
+
+
+updateToolbox::usage="updateToolbox[] searches for the newest release of the MASS Toolbox and downloads it. Use Install->False to prevent automatic installation.";
+
+
+updateRequired::usage="updateRequired[] returns True if there is a newer release of the MASS Toolbox than the one currently installed.";
 
 
 (* ::Subsection:: *)

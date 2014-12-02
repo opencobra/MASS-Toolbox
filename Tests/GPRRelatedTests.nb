@@ -1,0 +1,4186 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    180508,       4177]
+NotebookOptionsPosition[    179046,       4132]
+NotebookOutlinePosition[    179403,       4148]
+CellTagsIndexPosition[    179360,       4145]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["GPR Tests", "Title",
+ CellChangeTimes->{{3.624215945289233*^9, 3.624215946943451*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"results", "=", 
+   RowBox[{"{", "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{3.62420550928472*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{
+     RowBox[{"FileNameSplit", "[", 
+      RowBox[{"DirectoryName", "[", 
+       RowBox[{"FindFile", "[", "\"\<Toolbox`\>\"", "]"}], "]"}], "]"}], 
+     "\[LeftDoubleBracket]", 
+     RowBox[{"1", ";;", 
+      RowBox[{"-", "3"}]}], "\[RightDoubleBracket]"}], "]"}], "]"}], 
+  ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ecolicore", "=", 
+   RowBox[{
+   "Import", "[", "\"\<Models/EcoliCoreLikeDanielPlusGPR.m\>\"", "]"}]}], 
+  ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"testGene", "=", 
+   RowBox[{"gene", "[", "\"\<b0002\>\"", "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"testGene2", "=", 
+   RowBox[{"gene", "[", 
+    RowBox[{"\"\<b0001\>\"", ",", 
+     RowBox[{"\"\<Locus\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"190", ",", "255"}], "}"}]}], ",", 
+     RowBox[{"\"\<Synonyns\>\"", "\[Rule]", 
+      RowBox[{"{", "\"\<thrL\>\"", "}"}]}]}], "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"testProtein", "=", 
+   RowBox[{"protein", "[", "\"\<ThrL\>\"", "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"testProtein2", "=", 
+   RowBox[{"protein", "[", 
+    RowBox[{"\"\<ThrL\>\"", ",", 
+     RowBox[{"\"\<EC\>\"", "\[Rule]", "\"\<1.2.3.11\>\""}]}], "]"}]}], 
+  ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"getID", "[", "testProtein", "]"}], ",", "\"\<ThrL\>\"", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-C1A3V8\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"getCompartment", "[", "testProtein", "]"}], ",", "None", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-C1A3V8\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"getMetaData", "[", "testProtein", "]"}], ",", 
+      RowBox[{"{", "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-D4G5Y7\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"getID", "[", "testProtein2", "]"}], ",", "\"\<ThrL\>\"", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-M3M9D8\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"getMetaData", "[", "testProtein2", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\"\<EC\>\"", "\[Rule]", "\"\<1.2.3.11\>\""}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-G9C4S1\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"getID", "[", "testGene", "]"}], ",", "\"\<b0002\>\"", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-R4O0H9\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"getMetaData", "[", "testGene", "]"}], ",", 
+      RowBox[{"{", "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-Y1K4G8\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"getID", "[", "testGene2", "]"}], ",", "\"\<b0001\>\"", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-B9D5B5\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"getMetaData", "[", "testGene2", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<Locus\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"190", ",", "255"}], "}"}]}], ",", 
+        RowBox[{"\"\<Synonyns\>\"", "\[Rule]", 
+         RowBox[{"{", "\"\<thrL\>\"", "}"}]}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-O4I3X4\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"ecolicore", "[", "\"\<Genes\>\"", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"gene", "[", "\"\<b0008\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0114\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0115\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0116\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0118\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0351\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0356\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0451\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0474\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0485\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0720\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0721\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0722\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0723\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0724\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0726\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0727\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0728\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0729\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0733\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0734\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0755\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0767\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0809\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0810\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0811\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0875\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0902\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0903\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0904\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0978\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b0979\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1101\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1136\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1241\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1276\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1297\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1380\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1478\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1479\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1524\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1602\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1603\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1611\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1612\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1621\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1676\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1702\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1723\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1761\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1773\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1779\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1812\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1817\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1818\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1819\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1849\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1852\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b1854\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2029\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2097\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2133\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2276\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2277\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2278\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2279\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2280\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2281\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2282\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2283\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2284\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2285\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2286\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2287\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2288\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2296\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2297\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2415\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2416\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2417\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2458\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2463\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2464\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2465\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2492\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2579\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2587\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2779\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2914\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2925\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2926\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2935\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2975\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2976\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b2987\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3114\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3115\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3212\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3213\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3236\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3386\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3403\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3493\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3528\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3603\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3612\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3731\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3732\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3733\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3734\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3735\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3736\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3737\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3738\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3739\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3870\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3916\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3919\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3925\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3951\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3952\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3956\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b3962\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b4014\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b4015\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b4025\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b4077\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b4090\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b4122\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b4151\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b4152\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b4153\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b4154\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b4232\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b4301\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<b4395\>\"", "]"}], ",", 
+        RowBox[{"gene", "[", "\"\<s0001\>\"", "]"}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-Z1H8X7\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"ecolicore", "[", "\"\<Proteins\>\"", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"protein", "[", "\"\<AceA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<AceB\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<AceEec\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<AceFec\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<AckA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<AcnA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<AcnB\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<AdhE\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<AdhP\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Adk\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<AmtB\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<AqpZ\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<AtpF0\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<AtpF1\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<AtpI\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<B1773\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<CbdAB\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Crr\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<CydA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<DctA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Dld\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Eno\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<EutD\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<FbaA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<FbaB\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Fbp\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<FocA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<FocB\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Frd\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<FrmA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<FumA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<FumB\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<FumCec\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<GapA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<GdhA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<GlcA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<GlcB\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<GlnA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<GlnHec\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<GlnPec\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<GlnQec\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<GlpX\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<GltA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<GltB\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<GltP\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Gnd\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<GpmA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<GpmB\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Icd\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<KgtPec\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Ldh\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<LldP\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<LpdA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Mae\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<MalX\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<ManX\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<ManY\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<ManZ\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Mdh\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<MhpF\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Nuo\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<PabBec\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Pck\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<PfkA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<PfkB\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<PflBec\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<PflDec\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Pgi\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Pgk\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Pgl\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<PitA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<PitBec\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Pnt\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Ppc\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Ppsa\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Pta\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<PtsG\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<PurT\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Pyka\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Pykf\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Rpeec\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<RpiA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<RpiB\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Sdh\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Sfc\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<SgcE\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<SPONTANEOUS\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<SthA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<SucAec\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<SucBec\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<SucCD\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<TalA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<TalB\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<TdcD\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<TdcEec\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<TktA\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<TktB\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Tpi\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<YbaS\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<YcjK\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<YfiD\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<YibO\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<YneH\>\"", "]"}], ",", 
+        RowBox[{"protein", "[", "\"\<Zwf\>\"", "]"}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-L3H9N8\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"ecolicore", "[", "\"\<GPR\>\"", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<ACALD\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<MhpF\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<AdhE\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ACALDt\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<SPONTANEOUS\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ACKr\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<AckA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<TdcD\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<PurT\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ACONTa\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<AcnB\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<AcnA\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ACONTb\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<AcnB\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<AcnA\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ADK1\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Adk\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<AKGDH\>\"", "\[Rule]", 
+         StyleBox[
+          InterpretationBox[
+           FrameBox[GridBox[{
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["LpdA"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[1, 0.5, 0]],
+                Toolbox`protein["LpdA", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["SucAec"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[1, 0.5, 0]],
+                Toolbox`protein["SucAec", None],
+                Editable->False,
+                Selectable->False]},
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["SucBec"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[1, 0.5, 0]],
+                Toolbox`protein["SucBec", None],
+                Editable->False,
+                Selectable->False], ""}
+             }]],
+           Toolbox`proteinComplex[
+            Toolbox`protein["LpdA"], 
+            Toolbox`protein["SucAec"], 
+            Toolbox`protein["SucBec"]],
+           Editable->False,
+           Selectable->False],
+          Background->GrayLevel[0.85]]}], ",", 
+        RowBox[{"\"\<AKGt2r\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<KgtPec\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ALCD2x\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<FrmA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<AdhP\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<AdhE\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ATPS4r\>\"", "\[Rule]", 
+         RowBox[{
+          StyleBox[
+           InterpretationBox[
+            FrameBox[GridBox[{
+               {
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["AtpF0"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["AtpF0", None],
+                 Editable->False,
+                 Selectable->False], 
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["AtpF1"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["AtpF1", None],
+                 Editable->False,
+                 Selectable->False]},
+               {
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["AtpI"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["AtpI", None],
+                 Editable->False,
+                 Selectable->False], ""}
+              }]],
+            Toolbox`proteinComplex[
+             Toolbox`protein["AtpF0"], 
+             Toolbox`protein["AtpF1"], 
+             Toolbox`protein["AtpI"]],
+            Editable->False,
+            Selectable->False],
+           Background->GrayLevel[0.85]], "||", 
+          StyleBox[
+           InterpretationBox[
+            FrameBox[GridBox[{
+               {
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["AtpF0"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["AtpF0", None],
+                 Editable->False,
+                 Selectable->False], 
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["AtpF1"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["AtpF1", None],
+                 Editable->False,
+                 Selectable->False]}
+              }]],
+            Toolbox`proteinComplex[
+             Toolbox`protein["AtpF0"], 
+             Toolbox`protein["AtpF1"]],
+            Editable->False,
+            Selectable->False],
+           Background->GrayLevel[0.85]]}]}], ",", 
+        RowBox[{"\"\<CO2t\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<SPONTANEOUS\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<CS\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<GltA\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<CYTBD\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<CbdAB\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<CydA\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<D_LACt2\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<GlcA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<LldP\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ENO\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Eno\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<FBA\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<FbaA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<FbaB\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<B1773\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FBP\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<Fbp\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<GlpX\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FORt2\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<FocA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<FocB\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FORti\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<FocA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<FocB\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FRD7\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Frd\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<FRUpts2\>\"", "\[Rule]", 
+         StyleBox[
+          InterpretationBox[
+           FrameBox[GridBox[{
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["ManX"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[1, 0.5, 0]],
+                Toolbox`protein["ManX", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["ManY"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[1, 0.5, 0]],
+                Toolbox`protein["ManY", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["ManZ"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[1, 0.5, 0]],
+                Toolbox`protein["ManZ", None],
+                Editable->False,
+                Selectable->False]},
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["PtsH"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[1, 0.5, 0]],
+                Toolbox`protein["PtsH", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["PtsI"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[1, 0.5, 0]],
+                Toolbox`protein["PtsI", None],
+                Editable->False,
+                Selectable->False], ""}
+             }]],
+           Toolbox`proteinComplex[
+            Toolbox`protein["ManX"], 
+            Toolbox`protein["ManY"], 
+            Toolbox`protein["ManZ"], 
+            Toolbox`protein["PtsH"], 
+            Toolbox`protein["PtsI"]],
+           Editable->False,
+           Selectable->False],
+          Background->GrayLevel[0.85]]}], ",", 
+        RowBox[{"\"\<FUM\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<FumA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<FumB\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<FumCec\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FUMt2_2\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<DctA\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<G6PDH2r\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Zwf\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<GAPD\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<GapA\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<GLCpts\>\"", "\[Rule]", 
+         RowBox[{
+          StyleBox[
+           InterpretationBox[
+            FrameBox[GridBox[{
+               {
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["Crr"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["Crr", None],
+                 Editable->False,
+                 Selectable->False], 
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["MalX"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["MalX", None],
+                 Editable->False,
+                 Selectable->False]},
+               {
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["PtsH"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["PtsH", None],
+                 Editable->False,
+                 Selectable->False], 
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["PtsI"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["PtsI", None],
+                 Editable->False,
+                 Selectable->False]}
+              }]],
+            Toolbox`proteinComplex[
+             Toolbox`protein["Crr"], 
+             Toolbox`protein["MalX"], 
+             Toolbox`protein["PtsH"], 
+             Toolbox`protein["PtsI"]],
+            Editable->False,
+            Selectable->False],
+           Background->GrayLevel[0.85]], "||", 
+          StyleBox[
+           InterpretationBox[
+            FrameBox[GridBox[{
+               {
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["Crr"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["Crr", None],
+                 Editable->False,
+                 Selectable->False], 
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["PtsG"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["PtsG", None],
+                 Editable->False,
+                 Selectable->False]},
+               {
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["PtsH"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["PtsH", None],
+                 Editable->False,
+                 Selectable->False], 
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["PtsI"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["PtsI", None],
+                 Editable->False,
+                 Selectable->False]}
+              }]],
+            Toolbox`proteinComplex[
+             Toolbox`protein["Crr"], 
+             Toolbox`protein["PtsG"], 
+             Toolbox`protein["PtsH"], 
+             Toolbox`protein["PtsI"]],
+            Editable->False,
+            Selectable->False],
+           Background->GrayLevel[0.85]], "||", 
+          StyleBox[
+           InterpretationBox[
+            FrameBox[GridBox[{
+               {
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["ManX"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["ManX", None],
+                 Editable->False,
+                 Selectable->False], 
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["ManY"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["ManY", None],
+                 Editable->False,
+                 Selectable->False], 
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["ManZ"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["ManZ", None],
+                 Editable->False,
+                 Selectable->False]},
+               {
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["PtsH"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["PtsH", None],
+                 Editable->False,
+                 Selectable->False], 
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["PtsI"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["PtsI", None],
+                 Editable->False,
+                 Selectable->False], ""}
+              }]],
+            Toolbox`proteinComplex[
+             Toolbox`protein["ManX"], 
+             Toolbox`protein["ManY"], 
+             Toolbox`protein["ManZ"], 
+             Toolbox`protein["PtsH"], 
+             Toolbox`protein["PtsI"]],
+            Editable->False,
+            Selectable->False],
+           Background->GrayLevel[0.85]]}]}], ",", 
+        RowBox[{"\"\<GLNabc\>\"", "\[Rule]", 
+         StyleBox[
+          InterpretationBox[
+           FrameBox[GridBox[{
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["GlnHec"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[1, 0.5, 0]],
+                Toolbox`protein["GlnHec", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["GlnPec"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[1, 0.5, 0]],
+                Toolbox`protein["GlnPec", None],
+                Editable->False,
+                Selectable->False]},
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["GlnQec"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[1, 0.5, 0]],
+                Toolbox`protein["GlnQec", None],
+                Editable->False,
+                Selectable->False], ""}
+             }]],
+           Toolbox`proteinComplex[
+            Toolbox`protein["GlnHec"], 
+            Toolbox`protein["GlnPec"], 
+            Toolbox`protein["GlnQec"]],
+           Editable->False,
+           Selectable->False],
+          Background->GrayLevel[0.85]]}], ",", 
+        RowBox[{"\"\<GLNS\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<GlnA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<YcjK\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<GLUDy\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<GdhA\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<GLUN\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<PabBec\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<YbaS\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<YneH\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<GLUSy\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<GltB\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<GLUt2r\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<GltP\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<GND\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Gnd\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<H2Ot\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<AqpZ\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ICDHyr\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Icd\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ICL\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<AceA\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<LDH_D\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<Ldh\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<Dld\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<MALS\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<GlcB\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<AceB\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<MALt2_2\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<DctA\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<MDH\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Mdh\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ME1\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Sfc\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ME2\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Mae\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<NADH16\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Nuo\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<NADTRHD\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<Pnt\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<SthA\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<NH4t\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<AmtB\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<O2t\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<SPONTANEOUS\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PDH\>\"", "\[Rule]", 
+         StyleBox[
+          InterpretationBox[
+           FrameBox[GridBox[{
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["AceEec"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[1, 0.5, 0]],
+                Toolbox`protein["AceEec", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["AceFec"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[1, 0.5, 0]],
+                Toolbox`protein["AceFec", None],
+                Editable->False,
+                Selectable->False]},
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["LpdA"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[1, 0.5, 0]],
+                Toolbox`protein["LpdA", None],
+                Editable->False,
+                Selectable->False], ""}
+             }]],
+           Toolbox`proteinComplex[
+            Toolbox`protein["AceEec"], 
+            Toolbox`protein["AceFec"], 
+            Toolbox`protein["LpdA"]],
+           Editable->False,
+           Selectable->False],
+          Background->GrayLevel[0.85]]}], ",", 
+        RowBox[{"\"\<PFK\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<PfkA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<PfkB\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<PFL\>\"", "\[Rule]", 
+         RowBox[{
+          StyleBox[
+           InterpretationBox[
+            FrameBox[GridBox[{
+               {
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["PflBec"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["PflBec", None],
+                 Editable->False,
+                 Selectable->False], 
+                InterpretationBox[
+                 StyleBox[
+                  FrameBox["YfiD"],
+                  StripOnInput->False,
+                  ShowSyntaxStyles->False,
+                  AutoSpacing->False,
+                  ZeroWidthTimes->True,
+                  Background->RGBColor[1, 0.5, 0]],
+                 Toolbox`protein["YfiD", None],
+                 Editable->False,
+                 Selectable->False]}
+              }]],
+            Toolbox`proteinComplex[
+             Toolbox`protein["PflBec"], 
+             Toolbox`protein["YfiD"]],
+            Editable->False,
+            Selectable->False],
+           Background->GrayLevel[0.85]], "||", 
+          RowBox[{"protein", "[", "\"\<PflBec\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<TdcEec\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<PflDec\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<PGI\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Pgi\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PGK\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Pgk\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PGL\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Pgl\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PGM\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<GpmB\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<GpmA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<YibO\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<PIt2r\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<PitBec\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<PitA\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<PPC\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Ppc\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PPCK\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Pck\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PPS\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Ppsa\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PTAr\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<Pta\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<EutD\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<PYK\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<Pyka\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<Pykf\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<RPE\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<Rpeec\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<SgcE\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<RPI\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<RpiA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<RpiB\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<SUCCt2_2\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<DctA\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<SUCDi\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Sdh\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<SUCOAS\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<SucCD\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<TALA\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<TalB\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<TalA\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<THD2\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Pnt\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<TKT1\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<TktA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<TktB\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<TKT2\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<TktA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<TktB\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<TPI\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Tpi\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<AceA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b4015\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<AceB\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b4014\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<AceEec\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0114\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<AceFec\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0115\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<AckA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2296\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<AcnA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1276\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<AcnB\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0118\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<AdhE\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1241\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<AdhP\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1478\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Adk\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0474\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<AmtB\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0451\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<AqpZ\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0875\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<AtpF0\>\"", "]"}], "\[Rule]", 
+         StyleBox[
+          InterpretationBox[
+           FrameBox[GridBox[{
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b3736"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b3736", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b3737"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b3737", None],
+                Editable->False,
+                Selectable->False]},
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b3738"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b3738", None],
+                Editable->False,
+                Selectable->False], ""}
+             }]],
+           Toolbox`geneComplex[
+            Toolbox`gene["b3736"], 
+            Toolbox`gene["b3737"], 
+            Toolbox`gene["b3738"]],
+           Editable->False,
+           Selectable->False],
+          Background->GrayLevel[0.85]]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<AtpF1\>\"", "]"}], "\[Rule]", 
+         StyleBox[
+          InterpretationBox[
+           FrameBox[GridBox[{
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b3731"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b3731", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b3732"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b3732", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b3733"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b3733", None],
+                Editable->False,
+                Selectable->False]},
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b3734"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b3734", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b3735"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b3735", None],
+                Editable->False,
+                Selectable->False], ""}
+             }]],
+           Toolbox`geneComplex[
+            Toolbox`gene["b3731"], 
+            Toolbox`gene["b3732"], 
+            Toolbox`gene["b3733"], 
+            Toolbox`gene["b3734"], 
+            Toolbox`gene["b3735"]],
+           Editable->False,
+           Selectable->False],
+          Background->GrayLevel[0.85]]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<AtpI\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3739\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<B1773\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1773\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<CbdAB\>\"", "]"}], "\[Rule]", 
+         StyleBox[
+          InterpretationBox[
+           FrameBox[GridBox[{
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b0978"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b0978", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b0979"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b0979", None],
+                Editable->False,
+                Selectable->False]}
+             }]],
+           Toolbox`geneComplex[
+            Toolbox`gene["b0978"], 
+            Toolbox`gene["b0979"]],
+           Editable->False,
+           Selectable->False],
+          Background->GrayLevel[0.85]]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Crr\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2417\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<CydA\>\"", "]"}], "\[Rule]", 
+         StyleBox[
+          InterpretationBox[
+           FrameBox[GridBox[{
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b0733"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b0733", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b0734"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b0734", None],
+                Editable->False,
+                Selectable->False]}
+             }]],
+           Toolbox`geneComplex[
+            Toolbox`gene["b0733"], 
+            Toolbox`gene["b0734"]],
+           Editable->False,
+           Selectable->False],
+          Background->GrayLevel[0.85]]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<DctA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3528\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Dld\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2133\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Eno\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2779\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<EutD\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2458\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<FbaA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2925\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<FbaB\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2097\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Fbp\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b4232\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<FocA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0904\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<FocB\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2492\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Frd\>\"", "]"}], "\[Rule]", 
+         StyleBox[
+          InterpretationBox[
+           FrameBox[GridBox[{
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b4151"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b4151", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b4152"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b4152", None],
+                Editable->False,
+                Selectable->False]},
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b4153"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b4153", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b4154"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b4154", None],
+                Editable->False,
+                Selectable->False]}
+             }]],
+           Toolbox`geneComplex[
+            Toolbox`gene["b4151"], 
+            Toolbox`gene["b4152"], 
+            Toolbox`gene["b4153"], 
+            Toolbox`gene["b4154"]],
+           Editable->False,
+           Selectable->False],
+          Background->GrayLevel[0.85]]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<FrmA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0356\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<FumA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1612\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<FumB\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b4122\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<FumCec\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1611\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<GapA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1779\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<GdhA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1761\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<GlcA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2975\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<GlcB\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2976\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<GlnA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3870\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<GlnHec\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0811\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<GlnPec\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0810\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<GlnQec\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0809\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<GlpX\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3925\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<GltA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0720\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<GltB\>\"", "]"}], "\[Rule]", 
+         StyleBox[
+          InterpretationBox[
+           FrameBox[GridBox[{
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b3212"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b3212", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b3213"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b3213", None],
+                Editable->False,
+                Selectable->False]}
+             }]],
+           Toolbox`geneComplex[
+            Toolbox`gene["b3212"], 
+            Toolbox`gene["b3213"]],
+           Editable->False,
+           Selectable->False],
+          Background->GrayLevel[0.85]]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<GltP\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b4077\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Gnd\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2029\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<GpmA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0755\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<GpmB\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b4395\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Icd\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1136\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<KgtPec\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2587\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Ldh\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1380\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<LldP\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3603\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<LpdA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0116\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Mae\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2463\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<MalX\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1621\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<ManX\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1817\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<ManY\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1818\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<ManZ\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1819\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Mdh\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3236\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<MhpF\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0351\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Nuo\>\"", "]"}], "\[Rule]", 
+         StyleBox[
+          InterpretationBox[
+           FrameBox[GridBox[{
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b2276"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b2276", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b2277"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b2277", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b2278"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b2278", None],
+                Editable->False,
+                Selectable->False]},
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b2279"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b2279", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b2280"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b2280", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b2281"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b2281", None],
+                Editable->False,
+                Selectable->False]},
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b2282"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b2282", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b2283"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b2283", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b2284"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b2284", None],
+                Editable->False,
+                Selectable->False]},
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b2285"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b2285", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b2286"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b2286", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b2287"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b2287", None],
+                Editable->False,
+                Selectable->False]},
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b2288"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b2288", None],
+                Editable->False,
+                Selectable->False], "", ""}
+             }]],
+           Toolbox`geneComplex[
+            Toolbox`gene["b2276"], 
+            Toolbox`gene["b2277"], 
+            Toolbox`gene["b2278"], 
+            Toolbox`gene["b2279"], 
+            Toolbox`gene["b2280"], 
+            Toolbox`gene["b2281"], 
+            Toolbox`gene["b2282"], 
+            Toolbox`gene["b2283"], 
+            Toolbox`gene["b2284"], 
+            Toolbox`gene["b2285"], 
+            Toolbox`gene["b2286"], 
+            Toolbox`gene["b2287"], 
+            Toolbox`gene["b2288"]],
+           Editable->False,
+           Selectable->False],
+          Background->GrayLevel[0.85]]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<PabBec\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1812\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Pck\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3403\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<PfkA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3916\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<PfkB\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1723\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<PflBec\>\"", "]"}], "\[Rule]", 
+         StyleBox[
+          InterpretationBox[
+           FrameBox[GridBox[{
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b0902"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b0902", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b0903"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b0903", None],
+                Editable->False,
+                Selectable->False]}
+             }]],
+           Toolbox`geneComplex[
+            Toolbox`gene["b0902"], 
+            Toolbox`gene["b0903"]],
+           Editable->False,
+           Selectable->False],
+          Background->GrayLevel[0.85]]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<PflDec\>\"", "]"}], "\[Rule]", 
+         StyleBox[
+          InterpretationBox[
+           FrameBox[GridBox[{
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b3951"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b3951", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b3952"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b3952", None],
+                Editable->False,
+                Selectable->False]}
+             }]],
+           Toolbox`geneComplex[
+            Toolbox`gene["b3951"], 
+            Toolbox`gene["b3952"]],
+           Editable->False,
+           Selectable->False],
+          Background->GrayLevel[0.85]]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Pgi\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b4025\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Pgk\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2926\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Pgl\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0767\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<PitA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3493\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<PitBec\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2987\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Pnt\>\"", "]"}], "\[Rule]", 
+         StyleBox[
+          InterpretationBox[
+           FrameBox[GridBox[{
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b1602"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b1602", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b1603"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b1603", None],
+                Editable->False,
+                Selectable->False]}
+             }]],
+           Toolbox`geneComplex[
+            Toolbox`gene["b1602"], 
+            Toolbox`gene["b1603"]],
+           Editable->False,
+           Selectable->False],
+          Background->GrayLevel[0.85]]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Ppc\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3956\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Ppsa\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1702\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Pta\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2297\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<PtsG\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1101\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2415\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2416\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<PurT\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1849\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Pyka\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1854\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Pykf\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1676\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Rpeec\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3386\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<RpiA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2914\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<RpiB\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b4090\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Sdh\>\"", "]"}], "\[Rule]", 
+         StyleBox[
+          InterpretationBox[
+           FrameBox[GridBox[{
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b0721"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b0721", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b0722"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b0722", None],
+                Editable->False,
+                Selectable->False]},
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b0723"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b0723", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b0724"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b0724", None],
+                Editable->False,
+                Selectable->False]}
+             }]],
+           Toolbox`geneComplex[
+            Toolbox`gene["b0721"], 
+            Toolbox`gene["b0722"], 
+            Toolbox`gene["b0723"], 
+            Toolbox`gene["b0724"]],
+           Editable->False,
+           Selectable->False],
+          Background->GrayLevel[0.85]]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Sfc\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1479\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<SgcE\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b4301\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<SPONTANEOUS\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<s0001\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<SthA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3962\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<SucAec\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0726\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<SucBec\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0727\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<SucCD\>\"", "]"}], "\[Rule]", 
+         StyleBox[
+          InterpretationBox[
+           FrameBox[GridBox[{
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b0728"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b0728", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b0729"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b0729", None],
+                Editable->False,
+                Selectable->False]}
+             }]],
+           Toolbox`geneComplex[
+            Toolbox`gene["b0728"], 
+            Toolbox`gene["b0729"]],
+           Editable->False,
+           Selectable->False],
+          Background->GrayLevel[0.85]]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<TalA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2464\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<TalB\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0008\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<TdcD\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3115\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<TdcEec\>\"", "]"}], "\[Rule]", 
+         StyleBox[
+          InterpretationBox[
+           FrameBox[GridBox[{
+              {
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b0902"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b0902", None],
+                Editable->False,
+                Selectable->False], 
+               InterpretationBox[
+                StyleBox[
+                 FrameBox["b3114"],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 AutoSpacing->False,
+                 ZeroWidthTimes->True,
+                 Background->RGBColor[0, 1, 1]],
+                Toolbox`gene["b3114", None],
+                Editable->False,
+                Selectable->False]}
+             }]],
+           Toolbox`geneComplex[
+            Toolbox`gene["b0902"], 
+            Toolbox`gene["b3114"]],
+           Editable->False,
+           Selectable->False],
+          Background->GrayLevel[0.85]]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<TktA\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2935\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<TktB\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2465\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Tpi\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3919\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<YbaS\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0485\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<YcjK\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1297\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<YfiD\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2579\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<YibO\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3612\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<YneH\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1524\>\"", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"protein", "[", "\"\<Zwf\>\"", "]"}], "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1852\>\"", "]"}]}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-B6V3F5\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"Sort", "[", 
+       RowBox[{"gpr2graphs", "[", "ecolicore", "]"}], "]"}], ",", 
+      RowBox[{"Sort", "@", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<MhpF\>\"", "]"}], "\[Rule]", 
+            "\"\<ACALD\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<AdhE\>\"", "]"}], "\[Rule]", 
+            "\"\<ACALD\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<FrmA\>\"", "]"}], "\[Rule]", 
+            "\"\<ALCD2x\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<AdhP\>\"", "]"}], "\[Rule]", 
+            "\"\<ALCD2x\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<AdhE\>\"", "]"}], "\[Rule]", 
+            "\"\<ALCD2x\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1241\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<AdhE\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1478\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<AdhP\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0356\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<FrmA\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0351\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<MhpF\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<SPONTANEOUS\>\"", "]"}], "\[Rule]", 
+            "\"\<ACALDt\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<SPONTANEOUS\>\"", "]"}], "\[Rule]", 
+            "\"\<CO2t\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<SPONTANEOUS\>\"", "]"}], "\[Rule]", 
+            "\"\<O2t\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<s0001\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<SPONTANEOUS\>\"", "]"}]}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<AckA\>\"", "]"}], "\[Rule]", 
+            "\"\<ACKr\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<TdcD\>\"", "]"}], "\[Rule]", 
+            "\"\<ACKr\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<PurT\>\"", "]"}], "\[Rule]", 
+            "\"\<ACKr\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2296\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<AckA\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1849\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<PurT\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3115\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<TdcD\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<AcnB\>\"", "]"}], "\[Rule]", 
+            "\"\<ACONTa\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<AcnA\>\"", "]"}], "\[Rule]", 
+            "\"\<ACONTa\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<AcnB\>\"", "]"}], "\[Rule]", 
+            "\"\<ACONTb\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<AcnA\>\"", "]"}], "\[Rule]", 
+            "\"\<ACONTb\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1276\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<AcnA\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0118\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<AcnB\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Adk\>\"", "]"}], "\[Rule]", 
+            "\"\<ADK1\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0474\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Adk\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<LpdA\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<SucAec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<SucBec\>\"", "]"}]}], "]"}], 
+            "\[Rule]", "\"\<AKGDH\>\""}], ",", 
+           RowBox[{
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<AceEec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<AceFec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<LpdA\>\"", "]"}]}], "]"}], 
+            "\[Rule]", "\"\<PDH\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0114\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<AceEec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<AceFec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<LpdA\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0115\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<AceEec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<AceFec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<LpdA\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0116\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<AceEec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<AceFec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<LpdA\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0116\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<LpdA\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<SucAec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<SucBec\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0726\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<LpdA\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<SucAec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<SucBec\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0727\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<LpdA\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<SucAec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<SucBec\>\"", "]"}]}], "]"}]}]}], 
+          "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<KgtPec\>\"", "]"}], "\[Rule]", 
+            "\"\<AKGt2r\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2587\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<KgtPec\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<AtpF0\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<AtpF1\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<AtpI\>\"", "]"}]}], "]"}], 
+            "\[Rule]", "\"\<ATPS4r\>\""}], ",", 
+           RowBox[{
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<AtpF0\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<AtpF1\>\"", "]"}]}], "]"}], 
+            "\[Rule]", "\"\<ATPS4r\>\""}], ",", 
+           RowBox[{
+            RowBox[{"geneComplex", "[", 
+             RowBox[{
+              RowBox[{"gene", "[", "\"\<b3736\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b3737\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b3738\>\"", "]"}]}], "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<AtpF0\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<AtpF1\>\"", "]"}]}], "]"}]}], ",", 
+           
+           RowBox[{
+            RowBox[{"geneComplex", "[", 
+             RowBox[{
+              RowBox[{"gene", "[", "\"\<b3731\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b3732\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b3733\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b3734\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b3735\>\"", "]"}]}], "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<AtpF0\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<AtpF1\>\"", "]"}]}], "]"}]}], ",", 
+           
+           RowBox[{
+            RowBox[{"geneComplex", "[", 
+             RowBox[{
+              RowBox[{"gene", "[", "\"\<b3736\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b3737\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b3738\>\"", "]"}]}], "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<AtpF0\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<AtpF1\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<AtpI\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"geneComplex", "[", 
+             RowBox[{
+              RowBox[{"gene", "[", "\"\<b3731\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b3732\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b3733\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b3734\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b3735\>\"", "]"}]}], "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<AtpF0\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<AtpF1\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<AtpI\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3739\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<AtpF0\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<AtpF1\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<AtpI\>\"", "]"}]}], "]"}]}]}], 
+          "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<GltA\>\"", "]"}], "\[Rule]", 
+            "\"\<CS\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0720\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<GltA\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<CbdAB\>\"", "]"}], "\[Rule]", 
+            "\"\<CYTBD\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<CydA\>\"", "]"}], "\[Rule]", 
+            "\"\<CYTBD\>\""}], ",", 
+           RowBox[{
+            RowBox[{"geneComplex", "[", 
+             RowBox[{
+              RowBox[{"gene", "[", "\"\<b0978\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b0979\>\"", "]"}]}], "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<CbdAB\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"geneComplex", "[", 
+             RowBox[{
+              RowBox[{"gene", "[", "\"\<b0733\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b0734\>\"", "]"}]}], "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<CydA\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<GlcA\>\"", "]"}], "\[Rule]", 
+            "\"\<D_LACt2\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<LldP\>\"", "]"}], "\[Rule]", 
+            "\"\<D_LACt2\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2975\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<GlcA\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3603\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<LldP\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Eno\>\"", "]"}], "\[Rule]", 
+            "\"\<ENO\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2779\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Eno\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<FbaA\>\"", "]"}], "\[Rule]", 
+            "\"\<FBA\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<FbaB\>\"", "]"}], "\[Rule]", 
+            "\"\<FBA\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<B1773\>\"", "]"}], "\[Rule]", 
+            "\"\<FBA\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1773\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<B1773\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2925\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<FbaA\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2097\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<FbaB\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Fbp\>\"", "]"}], "\[Rule]", 
+            "\"\<FBP\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<GlpX\>\"", "]"}], "\[Rule]", 
+            "\"\<FBP\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b4232\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Fbp\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3925\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<GlpX\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<FocA\>\"", "]"}], "\[Rule]", 
+            "\"\<FORt2\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<FocB\>\"", "]"}], "\[Rule]", 
+            "\"\<FORt2\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<FocA\>\"", "]"}], "\[Rule]", 
+            "\"\<FORti\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<FocB\>\"", "]"}], "\[Rule]", 
+            "\"\<FORti\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0904\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<FocA\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2492\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<FocB\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Frd\>\"", "]"}], "\[Rule]", 
+            "\"\<FRD7\>\""}], ",", 
+           RowBox[{
+            RowBox[{"geneComplex", "[", 
+             RowBox[{
+              RowBox[{"gene", "[", "\"\<b4151\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b4152\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b4153\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b4154\>\"", "]"}]}], "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Frd\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<ManX\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<ManY\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<ManZ\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], "]"}], 
+            "\[Rule]", "\"\<FRUpts2\>\""}], ",", 
+           RowBox[{
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<Crr\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<MalX\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], "]"}], 
+            "\[Rule]", "\"\<GLCpts\>\""}], ",", 
+           RowBox[{
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<Crr\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsG\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], "]"}], 
+            "\[Rule]", "\"\<GLCpts\>\""}], ",", 
+           RowBox[{
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<ManX\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<ManY\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<ManZ\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], "]"}], 
+            "\[Rule]", "\"\<GLCpts\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2417\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<Crr\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<MalX\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1621\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<Crr\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<MalX\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2415\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<Crr\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<MalX\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2416\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<Crr\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<MalX\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2417\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<Crr\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsG\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1101\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<Crr\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsG\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2415\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<Crr\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsG\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2416\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<Crr\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsG\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1817\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<ManX\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<ManY\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<ManZ\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1818\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<ManX\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<ManY\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<ManZ\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1819\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<ManX\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<ManY\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<ManZ\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2415\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<ManX\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<ManY\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<ManZ\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2416\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<ManX\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<ManY\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<ManZ\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], "]"}]}]}], 
+          "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<FumA\>\"", "]"}], "\[Rule]", 
+            "\"\<FUM\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<FumB\>\"", "]"}], "\[Rule]", 
+            "\"\<FUM\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<FumCec\>\"", "]"}], "\[Rule]", 
+            "\"\<FUM\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1612\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<FumA\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b4122\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<FumB\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1611\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<FumCec\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<DctA\>\"", "]"}], "\[Rule]", 
+            "\"\<FUMt2_2\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<DctA\>\"", "]"}], "\[Rule]", 
+            "\"\<MALt2_2\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<DctA\>\"", "]"}], "\[Rule]", 
+            "\"\<SUCCt2_2\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3528\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<DctA\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Zwf\>\"", "]"}], "\[Rule]", 
+            "\"\<G6PDH2r\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1852\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Zwf\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<GapA\>\"", "]"}], "\[Rule]", 
+            "\"\<GAPD\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1779\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<GapA\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<GlnHec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<GlnPec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<GlnQec\>\"", "]"}]}], "]"}], 
+            "\[Rule]", "\"\<GLNabc\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0811\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<GlnHec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<GlnPec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<GlnQec\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0810\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<GlnHec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<GlnPec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<GlnQec\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0809\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<GlnHec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<GlnPec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<GlnQec\>\"", "]"}]}], "]"}]}]}], 
+          "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<GlnA\>\"", "]"}], "\[Rule]", 
+            "\"\<GLNS\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<YcjK\>\"", "]"}], "\[Rule]", 
+            "\"\<GLNS\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3870\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<GlnA\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1297\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<YcjK\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<GdhA\>\"", "]"}], "\[Rule]", 
+            "\"\<GLUDy\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1761\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<GdhA\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<PabBec\>\"", "]"}], "\[Rule]", 
+            "\"\<GLUN\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<YbaS\>\"", "]"}], "\[Rule]", 
+            "\"\<GLUN\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<YneH\>\"", "]"}], "\[Rule]", 
+            "\"\<GLUN\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1812\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<PabBec\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0485\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<YbaS\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1524\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<YneH\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<GltB\>\"", "]"}], "\[Rule]", 
+            "\"\<GLUSy\>\""}], ",", 
+           RowBox[{
+            RowBox[{"geneComplex", "[", 
+             RowBox[{
+              RowBox[{"gene", "[", "\"\<b3212\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b3213\>\"", "]"}]}], "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<GltB\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<GltP\>\"", "]"}], "\[Rule]", 
+            "\"\<GLUt2r\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b4077\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<GltP\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Gnd\>\"", "]"}], "\[Rule]", 
+            "\"\<GND\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2029\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Gnd\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<AqpZ\>\"", "]"}], "\[Rule]", 
+            "\"\<H2Ot\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0875\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<AqpZ\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Icd\>\"", "]"}], "\[Rule]", 
+            "\"\<ICDHyr\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1136\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Icd\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<AceA\>\"", "]"}], "\[Rule]", 
+            "\"\<ICL\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b4015\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<AceA\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Ldh\>\"", "]"}], "\[Rule]", 
+            "\"\<LDH_D\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Dld\>\"", "]"}], "\[Rule]", 
+            "\"\<LDH_D\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2133\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Dld\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1380\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Ldh\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<GlcB\>\"", "]"}], "\[Rule]", 
+            "\"\<MALS\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<AceB\>\"", "]"}], "\[Rule]", 
+            "\"\<MALS\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b4014\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<AceB\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2976\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<GlcB\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Mdh\>\"", "]"}], "\[Rule]", 
+            "\"\<MDH\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3236\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Mdh\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Sfc\>\"", "]"}], "\[Rule]", 
+            "\"\<ME1\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1479\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Sfc\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Mae\>\"", "]"}], "\[Rule]", 
+            "\"\<ME2\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2463\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Mae\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Nuo\>\"", "]"}], "\[Rule]", 
+            "\"\<NADH16\>\""}], ",", 
+           RowBox[{
+            RowBox[{"geneComplex", "[", 
+             RowBox[{
+              RowBox[{"gene", "[", "\"\<b2276\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b2277\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b2278\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b2279\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b2280\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b2281\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b2282\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b2283\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b2284\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b2285\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b2286\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b2287\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b2288\>\"", "]"}]}], "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Nuo\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Pnt\>\"", "]"}], "\[Rule]", 
+            "\"\<NADTRHD\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<SthA\>\"", "]"}], "\[Rule]", 
+            "\"\<NADTRHD\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Pnt\>\"", "]"}], "\[Rule]", 
+            "\"\<THD2\>\""}], ",", 
+           RowBox[{
+            RowBox[{"geneComplex", "[", 
+             RowBox[{
+              RowBox[{"gene", "[", "\"\<b1602\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b1603\>\"", "]"}]}], "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Pnt\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3962\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<SthA\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<AmtB\>\"", "]"}], "\[Rule]", 
+            "\"\<NH4t\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0451\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<AmtB\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<PfkA\>\"", "]"}], "\[Rule]", 
+            "\"\<PFK\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<PfkB\>\"", "]"}], "\[Rule]", 
+            "\"\<PFK\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3916\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<PfkA\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1723\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<PfkB\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<PflBec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<YfiD\>\"", "]"}]}], "]"}], 
+            "\[Rule]", "\"\<PFL\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<PflBec\>\"", "]"}], "\[Rule]", 
+            "\"\<PFL\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<TdcEec\>\"", "]"}], "\[Rule]", 
+            "\"\<PFL\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<PflDec\>\"", "]"}], "\[Rule]", 
+            "\"\<PFL\>\""}], ",", 
+           RowBox[{
+            RowBox[{"geneComplex", "[", 
+             RowBox[{
+              RowBox[{"gene", "[", "\"\<b0902\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b0903\>\"", "]"}]}], "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<PflBec\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"geneComplex", "[", 
+             RowBox[{
+              RowBox[{"gene", "[", "\"\<b3951\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b3952\>\"", "]"}]}], "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<PflDec\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"geneComplex", "[", 
+             RowBox[{
+              RowBox[{"gene", "[", "\"\<b0902\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b3114\>\"", "]"}]}], "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<TdcEec\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"geneComplex", "[", 
+             RowBox[{
+              RowBox[{"gene", "[", "\"\<b0902\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b0903\>\"", "]"}]}], "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<PflBec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<YfiD\>\"", "]"}]}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2579\>\"", "]"}], "\[Rule]", 
+            RowBox[{"proteinComplex", "[", 
+             RowBox[{
+              RowBox[{"protein", "[", "\"\<PflBec\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<YfiD\>\"", "]"}]}], "]"}]}]}], 
+          "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Pgi\>\"", "]"}], "\[Rule]", 
+            "\"\<PGI\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b4025\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Pgi\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Pgk\>\"", "]"}], "\[Rule]", 
+            "\"\<PGK\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2926\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Pgk\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Pgl\>\"", "]"}], "\[Rule]", 
+            "\"\<PGL\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0767\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Pgl\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<GpmB\>\"", "]"}], "\[Rule]", 
+            "\"\<PGM\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<GpmA\>\"", "]"}], "\[Rule]", 
+            "\"\<PGM\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<YibO\>\"", "]"}], "\[Rule]", 
+            "\"\<PGM\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0755\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<GpmA\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b4395\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<GpmB\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3612\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<YibO\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<PitBec\>\"", "]"}], "\[Rule]", 
+            "\"\<PIt2r\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<PitA\>\"", "]"}], "\[Rule]", 
+            "\"\<PIt2r\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3493\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<PitA\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2987\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<PitBec\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Ppc\>\"", "]"}], "\[Rule]", 
+            "\"\<PPC\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3956\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Ppc\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Pck\>\"", "]"}], "\[Rule]", 
+            "\"\<PPCK\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3403\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Pck\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Ppsa\>\"", "]"}], "\[Rule]", 
+            "\"\<PPS\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1702\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Ppsa\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Pta\>\"", "]"}], "\[Rule]", 
+            "\"\<PTAr\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<EutD\>\"", "]"}], "\[Rule]", 
+            "\"\<PTAr\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2458\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<EutD\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2297\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Pta\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Pyka\>\"", "]"}], "\[Rule]", 
+            "\"\<PYK\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Pykf\>\"", "]"}], "\[Rule]", 
+            "\"\<PYK\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1854\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Pyka\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1676\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Pykf\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Rpeec\>\"", "]"}], "\[Rule]", 
+            "\"\<RPE\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<SgcE\>\"", "]"}], "\[Rule]", 
+            "\"\<RPE\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3386\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Rpeec\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b4301\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<SgcE\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<RpiA\>\"", "]"}], "\[Rule]", 
+            "\"\<RPI\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<RpiB\>\"", "]"}], "\[Rule]", 
+            "\"\<RPI\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2914\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<RpiA\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b4090\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<RpiB\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Sdh\>\"", "]"}], "\[Rule]", 
+            "\"\<SUCDi\>\""}], ",", 
+           RowBox[{
+            RowBox[{"geneComplex", "[", 
+             RowBox[{
+              RowBox[{"gene", "[", "\"\<b0721\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b0722\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b0723\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b0724\>\"", "]"}]}], "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Sdh\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<SucCD\>\"", "]"}], "\[Rule]", 
+            "\"\<SUCOAS\>\""}], ",", 
+           RowBox[{
+            RowBox[{"geneComplex", "[", 
+             RowBox[{
+              RowBox[{"gene", "[", "\"\<b0728\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b0729\>\"", "]"}]}], "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<SucCD\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<TalB\>\"", "]"}], "\[Rule]", 
+            "\"\<TALA\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<TalA\>\"", "]"}], "\[Rule]", 
+            "\"\<TALA\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2464\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<TalA\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0008\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<TalB\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<TktA\>\"", "]"}], "\[Rule]", 
+            "\"\<TKT1\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<TktB\>\"", "]"}], "\[Rule]", 
+            "\"\<TKT1\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<TktA\>\"", "]"}], "\[Rule]", 
+            "\"\<TKT2\>\""}], ",", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<TktB\>\"", "]"}], "\[Rule]", 
+            "\"\<TKT2\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2935\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<TktA\>\"", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2465\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<TktB\>\"", "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Tpi\>\"", "]"}], "\[Rule]", 
+            "\"\<TPI\>\""}], ",", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3919\>\"", "]"}], "\[Rule]", 
+            RowBox[{"protein", "[", "\"\<Tpi\>\"", "]"}]}]}], "}"}]}], 
+        "}"}]}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-V3J1L4\>\""}], ",", 
+      RowBox[{"SameTest", "\[Rule]", "Equal"}]}], "]"}]}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.624924427764327*^9, 3.62492442777185*^9}, {
+  3.624924478244336*^9, 3.6249244879173927`*^9}, {3.624924519765843*^9, 
+  3.624924558972156*^9}, {3.6249299818636827`*^9, 3.624929992270297*^9}, {
+  3.625262999215847*^9, 3.625263024513619*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"ecolicore", "[", "\"\<GeneAssociations\>\"", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<ACALD\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b0351\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b1241\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ACALDt\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<s0001\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ACKr\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b2296\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b3115\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b1849\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ACONTa\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b0118\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b1276\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ACONTb\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b0118\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b1276\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ADK1\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0474\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<AKGDH\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b0116\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b0726\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b0727\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<AKGt2r\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2587\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ALCD2x\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b0356\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b1478\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b1241\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ATPS4r\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3736\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b3737\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b3738\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b3731\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b3732\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b3733\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b3734\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b3735\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b3739\>\"", "]"}]}], ")"}], "||", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3736\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b3737\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b3738\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b3731\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b3732\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b3733\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b3734\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b3735\>\"", "]"}]}], ")"}]}]}], ",", 
+        RowBox[{"\"\<CO2t\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<s0001\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<CS\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0720\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<CYTBD\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0978\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b0979\>\"", "]"}]}], ")"}], "||", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0733\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b0734\>\"", "]"}]}], ")"}]}]}], ",", 
+        RowBox[{"\"\<D_LACt2\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b2975\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b3603\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ENO\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2779\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<FBA\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b2925\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b2097\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b1773\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FBP\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b4232\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b3925\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FORt2\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b0904\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b2492\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FORti\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b0904\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b2492\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FRD7\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b4151\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b4152\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b4153\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b4154\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FRUpts2\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b1817\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b1818\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b1819\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b2415\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b2416\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FUM\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b1612\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b4122\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b1611\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FUMt2_2\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3528\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<G6PDH2r\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1852\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<GAPD\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1779\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<GLCpts\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2417\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b1621\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b2415\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b2416\>\"", "]"}]}], ")"}], "||", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b2417\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b1101\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b2415\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b2416\>\"", "]"}]}], ")"}], "||", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1817\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b1818\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b1819\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b2415\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b2416\>\"", "]"}]}], ")"}]}]}], ",", 
+        RowBox[{"\"\<GLNabc\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b0811\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b0810\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b0809\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<GLNS\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b3870\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b1297\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<GLUDy\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1761\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<GLUN\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b1812\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b0485\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b1524\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<GLUSy\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b3212\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b3213\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<GLUt2r\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b4077\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<GND\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2029\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<H2Ot\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0875\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ICDHyr\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1136\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ICL\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b4015\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<LDH_D\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b1380\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b2133\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<MALS\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b2976\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b4014\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<MALt2_2\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3528\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<MDH\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3236\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ME1\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1479\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ME2\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2463\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<NADH16\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b2276\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b2277\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b2278\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b2279\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b2280\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b2281\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b2282\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b2283\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b2284\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b2285\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b2286\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b2287\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b2288\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<NADTRHD\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1602\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b1603\>\"", "]"}]}], ")"}], "||", 
+          RowBox[{"gene", "[", "\"\<b3962\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<NH4t\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0451\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<O2t\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<s0001\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PDH\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b0114\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b0115\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b0116\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<PFK\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b3916\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b1723\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<PFL\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0902\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b0903\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b2579\>\"", "]"}]}], ")"}], "||", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0902\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b0903\>\"", "]"}]}], ")"}], "||", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b0902\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b3114\>\"", "]"}]}], ")"}], "||", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b3951\>\"", "]"}], "&&", 
+            RowBox[{"gene", "[", "\"\<b3952\>\"", "]"}]}], ")"}]}]}], ",", 
+        RowBox[{"\"\<PGI\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b4025\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PGK\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b2926\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PGL\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b0767\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PGM\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b4395\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b0755\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b3612\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<PIt2r\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b2987\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b3493\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<PPC\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3956\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PPCK\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3403\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PPS\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b1702\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PTAr\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b2297\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b2458\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<PYK\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b1854\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b1676\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<RPE\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b3386\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b4301\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<RPI\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b2914\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b4090\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<SUCCt2_2\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3528\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<SUCDi\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b0721\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b0722\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b0723\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b0724\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<SUCOAS\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b0728\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b0729\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<TALA\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b0008\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b2464\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<THD2\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b1602\>\"", "]"}], "&&", 
+          RowBox[{"gene", "[", "\"\<b1603\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<TKT1\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b2935\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b2465\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<TKT2\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"gene", "[", "\"\<b2935\>\"", "]"}], "||", 
+          RowBox[{"gene", "[", "\"\<b2465\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<TPI\>\"", "\[Rule]", 
+         RowBox[{"gene", "[", "\"\<b3919\>\"", "]"}]}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-V2C8N1\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"ecolicore", "[", "\"\<ProteinAssociations\>\"", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<ACALD\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<MhpF\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<AdhE\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ACALDt\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<SPONTANEOUS\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ACKr\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<AckA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<TdcD\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<PurT\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ACONTa\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<AcnB\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<AcnA\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ACONTb\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<AcnB\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<AcnA\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ADK1\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Adk\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<AKGDH\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<LpdA\>\"", "]"}], "&&", 
+          RowBox[{"protein", "[", "\"\<SucAec\>\"", "]"}], "&&", 
+          RowBox[{"protein", "[", "\"\<SucBec\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<AKGt2r\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<KgtPec\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ALCD2x\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<FrmA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<AdhP\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<AdhE\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ATPS4r\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<AtpF0\>\"", "]"}], "&&", 
+            RowBox[{"protein", "[", "\"\<AtpF1\>\"", "]"}], "&&", 
+            RowBox[{"protein", "[", "\"\<AtpI\>\"", "]"}]}], ")"}], "||", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<AtpF0\>\"", "]"}], "&&", 
+            RowBox[{"protein", "[", "\"\<AtpF1\>\"", "]"}]}], ")"}]}]}], ",", 
+        
+        RowBox[{"\"\<CO2t\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<SPONTANEOUS\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<CS\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<GltA\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<CYTBD\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<CbdAB\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<CydA\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<D_LACt2\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<GlcA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<LldP\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<ENO\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Eno\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<FBA\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<FbaA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<FbaB\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<B1773\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FBP\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<Fbp\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<GlpX\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FORt2\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<FocA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<FocB\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FORti\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<FocA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<FocB\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FRD7\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Frd\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<FRUpts2\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<ManX\>\"", "]"}], "&&", 
+          RowBox[{"protein", "[", "\"\<ManY\>\"", "]"}], "&&", 
+          RowBox[{"protein", "[", "\"\<ManZ\>\"", "]"}], "&&", 
+          RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], "&&", 
+          RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FUM\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<FumA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<FumB\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<FumCec\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<FUMt2_2\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<DctA\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<G6PDH2r\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Zwf\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<GAPD\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<GapA\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<GLCpts\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Crr\>\"", "]"}], "&&", 
+            RowBox[{"protein", "[", "\"\<MalX\>\"", "]"}], "&&", 
+            RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], "&&", 
+            RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], ")"}], "||", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Crr\>\"", "]"}], "&&", 
+            RowBox[{"protein", "[", "\"\<PtsG\>\"", "]"}], "&&", 
+            RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], "&&", 
+            RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], ")"}], "||", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<ManX\>\"", "]"}], "&&", 
+            RowBox[{"protein", "[", "\"\<ManY\>\"", "]"}], "&&", 
+            RowBox[{"protein", "[", "\"\<ManZ\>\"", "]"}], "&&", 
+            RowBox[{"protein", "[", "\"\<PtsH\>\"", "]"}], "&&", 
+            RowBox[{"protein", "[", "\"\<PtsI\>\"", "]"}]}], ")"}]}]}], ",", 
+        RowBox[{"\"\<GLNabc\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<GlnHec\>\"", "]"}], "&&", 
+          RowBox[{"protein", "[", "\"\<GlnPec\>\"", "]"}], "&&", 
+          RowBox[{"protein", "[", "\"\<GlnQec\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<GLNS\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<GlnA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<YcjK\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<GLUDy\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<GdhA\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<GLUN\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<PabBec\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<YbaS\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<YneH\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<GLUSy\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<GltB\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<GLUt2r\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<GltP\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<GND\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Gnd\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<H2Ot\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<AqpZ\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ICDHyr\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Icd\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ICL\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<AceA\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<LDH_D\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<Ldh\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<Dld\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<MALS\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<GlcB\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<AceB\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<MALt2_2\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<DctA\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<MDH\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Mdh\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ME1\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Sfc\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<ME2\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Mae\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<NADH16\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Nuo\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<NADTRHD\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<Pnt\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<SthA\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<NH4t\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<AmtB\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<O2t\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<SPONTANEOUS\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PDH\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<AceEec\>\"", "]"}], "&&", 
+          RowBox[{"protein", "[", "\"\<AceFec\>\"", "]"}], "&&", 
+          RowBox[{"protein", "[", "\"\<LpdA\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<PFK\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<PfkA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<PfkB\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<PFL\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<PflBec\>\"", "]"}], "&&", 
+            RowBox[{"protein", "[", "\"\<YfiD\>\"", "]"}]}], ")"}], "||", 
+          RowBox[{"protein", "[", "\"\<PflBec\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<TdcEec\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<PflDec\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<PGI\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Pgi\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PGK\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Pgk\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PGL\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Pgl\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PGM\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<GpmB\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<GpmA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<YibO\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<PIt2r\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<PitBec\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<PitA\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<PPC\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Ppc\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PPCK\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Pck\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PPS\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Ppsa\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<PTAr\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<Pta\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<EutD\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<PYK\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<Pyka\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<Pykf\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<RPE\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<Rpeec\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<SgcE\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<RPI\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<RpiA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<RpiB\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<SUCCt2_2\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<DctA\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<SUCDi\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Sdh\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<SUCOAS\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<SucCD\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<TALA\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<TalB\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<TalA\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<THD2\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Pnt\>\"", "]"}]}], ",", 
+        RowBox[{"\"\<TKT1\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<TktA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<TktB\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<TKT2\>\"", "\[Rule]", 
+         RowBox[{
+          RowBox[{"protein", "[", "\"\<TktA\>\"", "]"}], "||", 
+          RowBox[{"protein", "[", "\"\<TktB\>\"", "]"}]}]}], ",", 
+        RowBox[{"\"\<TPI\>\"", "\[Rule]", 
+         RowBox[{"protein", "[", "\"\<Tpi\>\"", "]"}]}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-I8P6E1\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "KO", " ", "of", " ", "one", " ", "of", " ", "the", " ", "PYK", " ", 
+     "isozymes"}], ";", " ", 
+    RowBox[{
+    "No", " ", "reactions", " ", "should", " ", "be", " ", "affected"}], 
+    ";"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Dimensions", "[", "#1", "]"}], ",", 
+            RowBox[{"Length", "[", 
+             RowBox[{"#1", "[", "\"\<Genes\>\"", "]"}], "]"}], ",", 
+            RowBox[{"Length", "[", 
+             RowBox[{"#1", "[", "\"\<Proteins\>\"", "]"}], "]"}]}], "}"}], 
+          "&"}], ")"}], "[", 
+        RowBox[{"deleteGene", "[", 
+         RowBox[{"ecolicore", ",", 
+          RowBox[{"gene", "[", "\"\<b1854\>\"", "]"}]}], "]"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Dimensions", "[", "ecolicore", "]"}], ",", 
+         RowBox[{
+          RowBox[{"Length", "[", 
+           RowBox[{"ecolicore", "[", "\"\<Genes\>\"", "]"}], "]"}], "-", 
+          "1"}], ",", 
+         RowBox[{
+          RowBox[{"Length", "[", 
+           RowBox[{"ecolicore", "[", "\"\<Proteins\>\"", "]"}], "]"}], "-", 
+          "1"}]}], "}"}], ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-V0K6P2\>\""}]}], 
+      "]"}]}], "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.624929864369246*^9, 3.6249298693507833`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "KO", " ", "of", " ", "both", " ", "of", " ", "the", " ", "PYK", " ", 
+     "isozymes"}], ";", 
+    RowBox[{"1", " ", "reaction", " ", "should", " ", "be", " ", "affected"}],
+     ";"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Dimensions", "[", "#1", "]"}], ",", 
+            RowBox[{"Length", "[", 
+             RowBox[{"#1", "[", "\"\<Genes\>\"", "]"}], "]"}], ",", 
+            RowBox[{"Length", "[", 
+             RowBox[{"#1", "[", "\"\<Proteins\>\"", "]"}], "]"}]}], "}"}], 
+          "&"}], ")"}], "[", 
+        RowBox[{"deleteGenes", "[", 
+         RowBox[{"ecolicore", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"gene", "[", "\"\<b1854\>\"", "]"}], ",", 
+            RowBox[{"gene", "[", "\"\<b1676\>\"", "]"}]}], "}"}]}], "]"}], 
+        "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"74", ",", "97"}], "}"}], ",", 
+         RowBox[{
+          RowBox[{"Length", "[", 
+           RowBox[{"ecolicore", "[", "\"\<Genes\>\"", "]"}], "]"}], "-", 
+          "2"}], ",", 
+         RowBox[{
+          RowBox[{"Length", "[", 
+           RowBox[{"ecolicore", "[", "\"\<Proteins\>\"", "]"}], "]"}], "-", 
+          "2"}]}], "}"}], ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-O6W1W1\>\""}]}], 
+      "]"}]}], "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.6249298769285517`*^9, 3.6249298777334213`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "Protein", " ", "KO", " ", "of", " ", "one", " ", "of", " ", "the", " ", 
+     "PYK", " ", "isozymes"}], ";", 
+    RowBox[{
+    "No", " ", "reactions", " ", "should", " ", "be", " ", "affected"}]}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Dimensions", "[", "#1", "]"}], ",", 
+            RowBox[{"Length", "[", 
+             RowBox[{"#1", "[", "\"\<Genes\>\"", "]"}], "]"}], ",", 
+            RowBox[{"Length", "[", 
+             RowBox[{"#1", "[", "\"\<Proteins\>\"", "]"}], "]"}]}], "}"}], 
+          "&"}], ")"}], "[", 
+        RowBox[{"deleteProtein", "[", 
+         RowBox[{"ecolicore", ",", 
+          RowBox[{"protein", "[", "\"\<Pyka\>\"", "]"}]}], "]"}], "]"}], ",", 
+       
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Dimensions", "[", "ecolicore", "]"}], ",", 
+         RowBox[{
+          RowBox[{"Length", "[", 
+           RowBox[{"ecolicore", "[", "\"\<Genes\>\"", "]"}], "]"}], "-", 
+          "1"}], ",", 
+         RowBox[{
+          RowBox[{"Length", "[", 
+           RowBox[{"ecolicore", "[", "\"\<Proteins\>\"", "]"}], "]"}], "-", 
+          "1"}]}], "}"}], ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-X8N7M1\>\""}]}], 
+      "]"}]}], "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.624929884968642*^9, 3.6249298856749496`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "Protein", " ", "KO", " ", "of", " ", "both", " ", "of", " ", "the", " ", 
+     "PYK", " ", "isozymes"}], ";", 
+    RowBox[{"1", " ", "reaction", " ", "should", " ", "be", " ", "affected"}],
+     ";"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Dimensions", "[", "#1", "]"}], ",", 
+            RowBox[{"Length", "[", 
+             RowBox[{"#1", "[", "\"\<Genes\>\"", "]"}], "]"}], ",", 
+            RowBox[{"Length", "[", 
+             RowBox[{"#1", "[", "\"\<Proteins\>\"", "]"}], "]"}]}], "}"}], 
+          "&"}], ")"}], "[", 
+        RowBox[{"deleteProteins", "[", 
+         RowBox[{"ecolicore", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<Pyka\>\"", "]"}], ",", 
+            RowBox[{"protein", "[", "\"\<Pykf\>\"", "]"}]}], "}"}]}], "]"}], 
+        "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"74", ",", "97"}], "}"}], ",", 
+         RowBox[{
+          RowBox[{"Length", "[", 
+           RowBox[{"ecolicore", "[", "\"\<Genes\>\"", "]"}], "]"}], "-", 
+          "2"}], ",", 
+         RowBox[{
+          RowBox[{"Length", "[", 
+           RowBox[{"ecolicore", "[", "\"\<Proteins\>\"", "]"}], "]"}], "-", 
+          "2"}]}], "}"}], ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-U8J8R5\>\""}]}], 
+      "]"}]}], "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.6249298919201*^9, 3.624929892547628*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Deletion", " ", "of", " ", "AtpF0", " ", "and", " ", "AtpF1"}], 
+    ";", 
+    RowBox[{
+    "ATPS4r", " ", "should", " ", "be", " ", "gone", " ", "but", " ", "AtpI", 
+     " ", "and", " ", "b3739", " ", "should", " ", "be", " ", "still", " ", 
+     "in", " ", "the", " ", "model", " ", 
+     RowBox[{"(", 
+      RowBox[{
+      "not", " ", "connect", " ", "to", " ", "any", " ", "reaction", " ", 
+       "though"}], ")"}]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"results", ",", 
+     RowBox[{"VerificationTest", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Length", "[", 
+             RowBox[{"#1", "[", "\"\<Fluxes\>\"", "]"}], "]"}], ",", 
+            RowBox[{"Length", "[", 
+             RowBox[{"#1", "[", "\"\<Genes\>\"", "]"}], "]"}], ",", 
+            RowBox[{"Length", "[", 
+             RowBox[{"#1", "[", "\"\<Proteins\>\"", "]"}], "]"}], ",", 
+            RowBox[{"MemberQ", "[", 
+             RowBox[{
+              RowBox[{"#1", "[", "\"\<Genes\>\"", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b3739\>\"", "]"}]}], "]"}], ",", 
+            RowBox[{"MemberQ", "[", 
+             RowBox[{
+              RowBox[{"#1", "[", "\"\<Proteins\>\"", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<AtpI\>\"", "]"}]}], "]"}], ",", 
+            RowBox[{"MemberQ", "[", 
+             RowBox[{
+              RowBox[{"gpr2graphs", "[", "#1", "]"}], ",", 
+              RowBox[{"gene", "[", "\"\<b3739\>\"", "]"}], ",", 
+              "\[Infinity]"}], "]"}], ",", 
+            RowBox[{"MemberQ", "[", 
+             RowBox[{
+              RowBox[{"gpr2graphs", "[", "#1", "]"}], ",", 
+              RowBox[{"protein", "[", "\"\<AtpI\>\"", "]"}], ",", 
+              "\[Infinity]"}], "]"}], ",", 
+            RowBox[{"Complement", "[", 
+             RowBox[{
+              RowBox[{"ecolicore", "[", "\"\<Genes\>\"", "]"}], ",", 
+              RowBox[{"#1", "[", "\"\<Genes\>\"", "]"}]}], "]"}], ",", 
+            RowBox[{"Complement", "[", 
+             RowBox[{
+              RowBox[{"ecolicore", "[", "\"\<Proteins\>\"", "]"}], ",", 
+              RowBox[{"#1", "[", "\"\<Proteins\>\"", "]"}]}], "]"}]}], "}"}], 
+          "&"}], ")"}], "[", 
+        RowBox[{"deleteProteins", "[", 
+         RowBox[{"ecolicore", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"protein", "[", "\"\<AtpF0\>\"", "]"}], ",", 
+            RowBox[{"protein", "[", "\"\<AtpF1\>\"", "]"}]}], "}"}]}], "]"}], 
+        "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"97", ",", 
+         RowBox[{
+          RowBox[{"Length", "[", 
+           RowBox[{"ecolicore", "[", "\"\<Genes\>\"", "]"}], "]"}], "-", 
+          "8"}], ",", 
+         RowBox[{
+          RowBox[{"Length", "[", 
+           RowBox[{"ecolicore", "[", "\"\<Proteins\>\"", "]"}], "]"}], "-", 
+          "2"}], ",", "True", ",", "True", ",", "False", ",", "False", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"gene", "[", "\"\<b3731\>\"", "]"}], ",", 
+           RowBox[{"gene", "[", "\"\<b3732\>\"", "]"}], ",", 
+           RowBox[{"gene", "[", "\"\<b3733\>\"", "]"}], ",", 
+           RowBox[{"gene", "[", "\"\<b3734\>\"", "]"}], ",", 
+           RowBox[{"gene", "[", "\"\<b3735\>\"", "]"}], ",", 
+           RowBox[{"gene", "[", "\"\<b3736\>\"", "]"}], ",", 
+           RowBox[{"gene", "[", "\"\<b3737\>\"", "]"}], ",", 
+           RowBox[{"gene", "[", "\"\<b3738\>\"", "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"protein", "[", "\"\<AtpF0\>\"", "]"}], ",", 
+           RowBox[{"protein", "[", "\"\<AtpF1\>\"", "]"}]}], "}"}]}], "}"}], 
+       ",", 
+       RowBox[{
+       "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-H7Z8L0\>\""}]}], 
+      "]"}]}], "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.624929900337532*^9, 3.624929901004116*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Dimensions", "[", "#1", "]"}], ",", 
+           RowBox[{"Length", "[", 
+            RowBox[{"#1", "[", "\"\<Genes\>\"", "]"}], "]"}], ",", 
+           RowBox[{"Length", "[", 
+            RowBox[{"#1", "[", "\"\<Proteins\>\"", "]"}], "]"}], ",", 
+           RowBox[{"MemberQ", "[", 
+            RowBox[{
+             RowBox[{"#1", "[", "\"\<Proteins\>\"", "]"}], ",", 
+             RowBox[{"protein", "[", "\"\<GlnHec\>\"", "]"}]}], "]"}], ",", 
+           RowBox[{"MemberQ", "[", 
+            RowBox[{
+             RowBox[{"gpr2graphs", "[", "#1", "]"}], ",", 
+             RowBox[{"protein", "[", "\"\<GlnHec\>\"", "]"}], ",", 
+             "\[Infinity]"}], "]"}], ",", 
+           RowBox[{"MemberQ", "[", 
+            RowBox[{
+             RowBox[{"#1", "[", "\"\<Proteins\>\"", "]"}], ",", 
+             RowBox[{"protein", "[", "\"\<GlnQec\>\"", "]"}]}], "]"}], ",", 
+           RowBox[{"MemberQ", "[", 
+            RowBox[{
+             RowBox[{"gpr2graphs", "[", "#1", "]"}], ",", 
+             RowBox[{"protein", "[", "\"\<GlnQec\>\"", "]"}], ",", 
+             "\[Infinity]"}], "]"}], ",", 
+           RowBox[{"MemberQ", "[", 
+            RowBox[{
+             RowBox[{"#1", "[", "\"\<Proteins\>\"", "]"}], ",", 
+             RowBox[{"protein", "[", "\"\<GlnPec\>\"", "]"}]}], "]"}], ",", 
+           RowBox[{"MemberQ", "[", 
+            RowBox[{
+             RowBox[{"gpr2graphs", "[", "#1", "]"}], ",", 
+             RowBox[{"protein", "[", "\"\<GlnPec\>\"", "]"}], ",", 
+             "\[Infinity]"}], "]"}]}], "}"}], "&"}], ")"}], "[", 
+       RowBox[{"deleteGene", "[", 
+        RowBox[{"ecolicore", ",", 
+         RowBox[{"gene", "[", "\"\<b0810\>\"", "]"}]}], "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"74", ",", "97"}], "}"}], ",", 
+        RowBox[{
+         RowBox[{"Length", "[", 
+          RowBox[{"ecolicore", "[", "\"\<Genes\>\"", "]"}], "]"}], "-", "1"}],
+         ",", 
+        RowBox[{
+         RowBox[{"Length", "[", 
+          RowBox[{"ecolicore", "[", "\"\<Proteins\>\"", "]"}], "]"}], "-", 
+         "1"}], ",", "True", ",", "False", ",", "True", ",", "False", ",", 
+        "False", ",", "False"}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", "\"\<GPRRelatedTests-20120326-T4B6K0\>\""}]}], 
+     "]"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData["results"], "Input"]
+}, Open  ]]
+},
+WindowSize->{640, 676},
+WindowMargins->{{0, Automatic}, {Automatic, -1}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 92, 1, 92, "Title"],
+Cell[675, 25, 133, 4, 28, "Input"],
+Cell[811, 31, 392, 11, 63, "Input"],
+Cell[1206, 44, 158, 5, 28, "Input"],
+Cell[1367, 51, 118, 3, 28, "Input"],
+Cell[1488, 56, 342, 9, 46, "Input"],
+Cell[1833, 67, 123, 3, 28, "Input"],
+Cell[1959, 72, 208, 6, 28, "Input"],
+Cell[2170, 80, 336, 9, 46, "Input"],
+Cell[2509, 91, 337, 9, 46, "Input"],
+Cell[2849, 102, 353, 10, 46, "Input"],
+Cell[3205, 114, 337, 9, 46, "Input"],
+Cell[3545, 125, 417, 11, 46, "Input"],
+Cell[3965, 138, 334, 9, 46, "Input"],
+Cell[4302, 149, 350, 10, 46, "Input"],
+Cell[4655, 161, 335, 9, 46, "Input"],
+Cell[4993, 172, 587, 16, 63, "Input"],
+Cell[5583, 190, 8449, 148, 624, "Input"],
+Cell[14035, 340, 6853, 117, 641, "Input"],
+Cell[20891, 459, 67443, 1684, 3587, "Input"],
+Cell[88337, 2145, 48738, 1057, 3854, "Input"],
+Cell[137078, 3204, 15674, 316, 1321, "Input"],
+Cell[152755, 3522, 13010, 259, 1219, "Input"],
+Cell[165768, 3783, 1587, 43, 182, "Input"],
+Cell[167358, 3828, 1717, 47, 182, "Input"],
+Cell[169078, 3877, 1605, 44, 182, "Input"],
+Cell[170686, 3923, 1734, 47, 182, "Input"],
+Cell[172423, 3972, 4002, 92, 352, "Input"],
+Cell[176428, 4066, 2566, 61, 250, "Input"],
+Cell[178997, 4129, 33, 0, 28, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
