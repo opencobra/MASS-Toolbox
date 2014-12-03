@@ -84,7 +84,7 @@ mat2model[]:=mat2model[SystemDialogInput["FileOpen"]];
 (*SBML import*)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Utilities*)
 
 
@@ -100,10 +100,10 @@ cleanUpMathML[math:XMLElement["math",_,_]]:=Module[{adjustments},
 ];
 
 (*mathML2mass=Replace[XML`MathML`SymbolicMathMLToExpression[cleanUpMathML[#]],s:(_Symbol):>StringReplace[ToString[s],"$UNDRSCR$"->"_"],{0,\[Infinity]},Heads->False]/.Complex[0,a_]:>Sign[a]"I"(*/.Dispatch[{"Pi"->Pi,"E"->E,"avogadro"->6.0221415`*^23,Global`avogadro->6.0221415`*^23}]*)&;*)
-mathML2mass=XML`MathML`SymbolicMathMLToExpression[cleanUpMathML[#]]&;
+mathML2mass=XML`MathML`SymbolicMathMLToExpression[cleanUpMathML[#(*/.s_String\[RuleDelayed]StringReplace[s,"_"\[Rule]"$UNDRSCR$s"]*)]]&;
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfEvents*)
 
 
@@ -123,7 +123,7 @@ getListOfEvents[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_p
 ]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfInitialAssignments*)
 
 
@@ -131,7 +131,7 @@ parseInitialAssignmentXML[initialAssignment_XMLElement,id2massID:{_Rule..}]:=(("
 getListOfInitialAssignments[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseInitialAssignmentXML[#,id2massID]&/@extractXMLelement[xml,"listOfInitialAssignments",2]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfRules*)
 
 
@@ -148,11 +148,12 @@ Switch[#[[1]],
 getListOfRules[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseRuleXML[#,id2massID]&/@extractXMLelement[xml,"listOfRules",2]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfFunctionDefinitions*)
 
 
-parseFunctionXML[XMLElement["functionDefinition",attrVal:{_Rule..},mathML_List]]:=("id"/.Dispatch[attrVal])->XML`MathML`SymbolicMathMLToExpression[extractXMLelement[mathML,"math",0][[1]]]
+(*parseFunctionXML[XMLElement["functionDefinition",attrVal:{_Rule..},mathML_List]]:=("id"/.Dispatch[attrVal])->mathML2mass[extractXMLelement[mathML,"math",0][[1]]]*)
+parseFunctionXML[XMLElement["functionDefinition",attrVal:{_Rule..},mathML_List]]:=("id"/.Dispatch[attrVal])->XML`MathML`SymbolicMathMLToExpression[extractXMLelement[mathML,"math",0][[1]]/.s_String:>StringReplace[s,"_"->"$UNDRSCR$s"]]
 
 getListOfFunctionDefinitions[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:=Module[{},
 parseFunctionXML/@extractXMLelement[xml,"listOfFunctionDefinitions",2]
@@ -236,7 +237,7 @@ getListOfCompartments[xml_/;Head[xml]===XMLObject["Document"]]:=Module[{},
 getCompartmentVolumes[listOfCompartments:{((parameter["Volume",_String]|parameter["Volume",_String][t])->_List)...},unitDefinitions:{(_Rule|_RuleDelayed)...}]:=#[[1]]->sbmlString2Number[query["size",#[[2]],"1"]]*(query["units",#[[2]],"volume"]/.Dispatch[unitDefinitions])&/@listOfCompartments
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfReactions*)
 
 
