@@ -161,8 +161,6 @@ updateRequired[]:=
 
 
 
-updateToolbox::InvalidDirectory = "The selected folder is not the MASS Toolbox directory, or the directory has been renamed.";
-
 updateToolbox::InvalidVersion = "Version must be of the format \"X.X.X\" where X is a number.";
 
 Options[updateToolbox]={Install->True};
@@ -173,36 +171,21 @@ updateToolbox[ops:OptionsPattern[]]:=
 		Print["Checking version..."];
 		version=latestRelease[];
 		If[version==$ToolboxVersion,
-			Return["No update necessary"],
+			Print["No update necessary"],
 			updateToolbox[version,ops]
 		];
 	];
 
 updateToolbox[version_String,OptionsPattern[]]:=
-	Module[{oldDirectory,newDirectory,directory,fileName,url,task1,task2,progFunction},
+	Module[{directory,newDirectory,fileName,url,task1,task2,progFunction},
 
 		(* Check that the version is correctly formatted *)
 		If[!StringMatchQ[version,DigitCharacter..~~"."~~DigitCharacter..~~"."~~DigitCharacter..],
 			Message[updateToolbox::InvalidVersion];Abort[]
 		];
 
-		(* Allow user to select old MASS-Toolbox Folder, wherever it is on their system *)
-		DialogInput[
-			DialogNotebook[{
-				TextCell["Please select the old MASS-Toolbox Folder:"],
-				TextCell["e.g. MASS-Toolbox-1.0.6"],
-				Button["Proceed",
-				DialogReturn[1]]
-			}]
-		];
-		oldDirectory=Quiet[SystemDialogInput["Directory"]];
-		Which[
-			Head[oldDirectory]=!=String,Abort[],
-			!StringMatchQ[oldDirectory,___~~"MASS-Toolbox-"~~$ToolboxVersion~~"/"],Message[updateToolbox::InvalidDirectory];Abort[]
-		];
-		directory=FileNameDrop[oldDirectory,-1];
-
 		(* Download new version *)
+		directory = $UserDocumentsDirectory;
 		fileName=directory<>"/MASS-Toolbox-"<>version<>".tar.gz";
 		Print["Please wait. Downloading Toolbox v"<>version<>"..."];
 		url="https://github.com/opencobra/MASS-Toolbox/archive/v"<>version<>".tar.gz";
@@ -218,10 +201,6 @@ updateToolbox[version_String,OptionsPattern[]]:=
 		WaitAsynchronousTask[task2];
 		DeleteFile[fileName];
 		DeleteFile[FileNameJoin[{directory,"pax_global_header"}]];
-
-		(* Delete old folder *)
-		Print["Removing old folder..."];
-		DeleteDirectory[oldDirectory,DeleteContents->True];
 
 		(* Install new version of mathematica *)
 		If[OptionValue[Install]==True,
