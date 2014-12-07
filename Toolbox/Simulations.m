@@ -23,7 +23,7 @@ simulate::ignrevents="Mathematica `1` does not provide support for events. Event
 simulate::plld="The start time (`1`) and final time (`2`) must have distinct machine-precision numerical values.";
 
 simulate[model_MASSmodel,opts:OptionsPattern[{simulate,NDSolve}]]:=
-	Module[{repl,ode,events,initialConditions,allConstants,parameters,equations,solution,fluxSolution,tStart,tFinal,vars,units,ic,catchMissingDerivs},
+	Module[{repl,ode,events,initialConditions,allConstants,missingParam,parameters,equations,solution,fluxSolution,tStart,tFinal,vars,units,ic,dsolveSol,rawSolution},
 		
 		(* Get model information *)
 		parameters=updateRules[model["Parameters"],adjustUnits[OptionValue["Parameters"],model]];
@@ -54,31 +54,50 @@ simulate[model_MASSmodel,opts:OptionsPattern[{simulate,NDSolve}]]:=
 		]&[stripUnits@ic];
 
 		(* Substitute parameters *)
-		{ode,initialConditions,events}={ode,initialConditions,events}//.parameters;
+		equations={ode,initialConditions,events}//.parameters;
 
 		(*Set initial history functions for variables that are involved with delays*)
-		repl=(#[0]==val_)->#[t/;t<=0]==val&/@Union[Cases[{ode,initialConditions,events},_[t+_],\[Infinity]][[All,0]]];
+		repl=(#[0]==val_)->#[t/;t<=0]==val&/@Union[Cases[equations,_[t+_],\[Infinity]][[All,0]]];
 		(*repl={};*)
-		{ode,initialConditions,events}=stripUnits[{ode,initialConditions,events}/.repl];
+		equations=stripUnits[equations/.repl];
+
+		(* Try DSolve *)
+		dsolveSol=Quiet@Check[
+				DSolve[equations,model["Variables"],t,FilterRules[{opts}, Options[DSolve]]],
+				DSolve[]
+		];
+
+		(* If DSolve fails, use NDSolve or ParametricNDSolve *)
+		If[Head[dsolveSol]===DSolve,
+			rawSolution = nSimulate[model,equations,tStart,tFinal,opts],
+			rawSolution = dsolveSol
+		];
+
+(*
+		(* Find missing parameters *)
+		allConstants=Union[Cases[equations,(_Keq|_rateconst|_parameter|metabolite[_,"Xt"]),\[Infinity]]];
+		missingParam=Complement[allConstants,First/@model["Parameters"]];
+
+		(* Run ParametricNDSolve if there are missing parameters *)
+		If[missingParam\[NotEqual]{},
+			ParametricNDSolve[],
+		]*)
 
 		(*Run NDSolve and check for missing parameter values if NDSolve::ndnum is raised*)
 		(*catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;*)
 		(*catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;*)
-		Check[
-			solution=#[[1]]->(#[[2]] (#[[1]][[0]]/.Dispatch[units]))&/@
-				Check[
+
+		solution=#[[1]]->(#[[2]] (#[[1]][[0]]/.Dispatch[units]))&/@rawSolution[[1]];
+				(*Check[
 					(*catchMissingDerivs@Hold[NDSolve[stripUnits@equations,model["Variables"],{t,tStart,tFinal},FilterRules[{opts}, Options[NDSolve]]]],*)
 					Quiet[Check[
-						NDSolve[{ode,initialConditions,events},model["Variables"],{t,tStart,tFinal},FilterRules[{opts}, Options[NDSolve]]],
-						NDSolve[{D[ode,t],initialConditions,events},model["Variables"],{t,tStart,tFinal},FilterRules[{opts}, Options[NDSolve]]],
+						NDSolve[equations,model["Variables"],{t,tStart,tFinal},FilterRules[{opts}, Options[NDSolve]]],
+						NDSolve[Join[D[First[equations],t],Rest[equations]],model["Variables"],{t,tStart,tFinal},FilterRules[{opts}, Options[NDSolve]]],
 						{NDSolve::derivs}
 					],{NDSolve::derivs}],
 					Message[simulate::NDSolveProblem];Abort[];,
-					{NDSolve::ndode,NDSolve::idelay,NDSolve::icfail,NDSolve::nderr,NDSolve::underdet,NDSolve::nlnum,NDSolve::overdet,NDSolve::ndinnt}
-				][[1]],
-		Message[simulate::missingParam,Union[Cases[equations,(_Keq|_rateconst|_parameter|metabolite[_,"Xt"]),\[Infinity]]]];Abort[],
-		{NDSolve::ndnum}
-	];
+					{NDSolve::ndode,NDSolve::idelay,NDSolve::icfail,NDSolve::nderr,NDSolve::underdet,NDSolve::overdet,NDSolve::ndinnt}
+				][[1]],*)
 	fluxSolution=Thread[Rule[model["Fluxes"],getRates[model,"Parameters"->parameters]/.parameters/.solution]];
 	solution=#[[1]]/.m_[t]:>m->#[[2]]&/@solution;
 	solution=Switch[OptionValue["SpeciesProfiles"],
