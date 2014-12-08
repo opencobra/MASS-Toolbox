@@ -70,15 +70,15 @@ simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve,Parametric
 		(* If DSolve fails, use NDSolve or ParametricNDSolve *)
 		If[Head[dsolveSol]===DSolve,
 			rawSolution = nSimulate[model,equations,tStart,tFinal,opts],
-			rawSolution = dsolveSol
+			rawSolution = dsolveSol[[1]]
 		];
 
 		(*Run NDSolve and check for missing parameter values if NDSolve::ndnum is raised*)
 		(*catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;*)
 		(*catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;*)
-
+		
 		(* Format Solution *)
-		solution=#[[1]]->(#[[2]] (#[[1]][[0]]/.Dispatch[units]))&/@rawSolution[[1]];
+		solution=#[[1]]->(#[[2]] (#[[1]][[0]]/.Dispatch[units]))&/@rawSolution;
 		fluxSolution=Thread[Rule[model["Fluxes"],getRates[model,"Parameters"->parameters]/.parameters/.solution]];
 		solution=#[[1]]/.m_[t]:>m->#[[2]]&/@solution;
 		solution=Switch[OptionValue["SpeciesProfiles"],
@@ -120,7 +120,7 @@ nSimulate[model_MASSmodel,equations_List,tStart_?NumberQ,tFinal_?NumberQ,opts:Op
 			],{NDSolve::derivs}],
 			Message[simulate::NDSolveProblem];Abort[];,
 			{NDSolve::ndode,NDSolve::idelay,NDSolve::icfail,NDSolve::nderr,NDSolve::underdet,NDSolve::overdet,NDSolve::ndinnt}
-		]
+		][[1]]
 	]
 ]
 
