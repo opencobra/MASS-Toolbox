@@ -22,7 +22,7 @@ simulate::NDSolveProblem="Something unexpected happend. Manual inspection of the
 simulate::ignrevents="Mathematica `1` does not provide support for events. Events will be ignored.";
 simulate::plld="The start time (`1`) and final time (`2`) must have distinct machine-precision numerical values.";
 
-simulate[model_MASSmodel,opts:OptionsPattern[{simulate,NDSolve}]]:=
+simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve,ParametricNDSolve}]]:=
 	Module[{repl,ode,events,initialConditions,allConstants,missingParam,parameters,equations,solution,fluxSolution,tStart,tFinal,vars,units,ic,dsolveSol,rawSolution},
 		
 		(* Get model information *)
@@ -73,45 +73,56 @@ simulate[model_MASSmodel,opts:OptionsPattern[{simulate,NDSolve}]]:=
 			rawSolution = dsolveSol
 		];
 
-(*
-		(* Find missing parameters *)
-		allConstants=Union[Cases[equations,(_Keq|_rateconst|_parameter|metabolite[_,"Xt"]),\[Infinity]]];
-		missingParam=Complement[allConstants,First/@model["Parameters"]];
-
-		(* Run ParametricNDSolve if there are missing parameters *)
-		If[missingParam\[NotEqual]{},
-			ParametricNDSolve[],
-		]*)
-
 		(*Run NDSolve and check for missing parameter values if NDSolve::ndnum is raised*)
 		(*catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;*)
 		(*catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;*)
 
+		(* Format Solution *)
 		solution=#[[1]]->(#[[2]] (#[[1]][[0]]/.Dispatch[units]))&/@rawSolution[[1]];
-				(*Check[
-					(*catchMissingDerivs@Hold[NDSolve[stripUnits@equations,model["Variables"],{t,tStart,tFinal},FilterRules[{opts}, Options[NDSolve]]]],*)
-					Quiet[Check[
-						NDSolve[equations,model["Variables"],{t,tStart,tFinal},FilterRules[{opts}, Options[NDSolve]]],
-						NDSolve[Join[D[First[equations],t],Rest[equations]],model["Variables"],{t,tStart,tFinal},FilterRules[{opts}, Options[NDSolve]]],
-						{NDSolve::derivs}
-					],{NDSolve::derivs}],
-					Message[simulate::NDSolveProblem];Abort[];,
-					{NDSolve::ndode,NDSolve::idelay,NDSolve::icfail,NDSolve::nderr,NDSolve::underdet,NDSolve::overdet,NDSolve::ndinnt}
-				][[1]],*)
-	fluxSolution=Thread[Rule[model["Fluxes"],getRates[model,"Parameters"->parameters]/.parameters/.solution]];
-	solution=#[[1]]/.m_[t]:>m->#[[2]]&/@solution;
-	solution=Switch[OptionValue["SpeciesProfiles"],
-		"Concentrations",solution(*/.r_Rule/;MatchQ[r[[1]],$MASS$speciesPattern]:>r[[1]]->r[[2]]*),
-		(*"Particles",solution/.r_Rule/;MatchQ[r[[1]],$MASS$speciesPattern]:>r[[1]]->r[[2]]*(parameter["Volume",getCompartment[r[[1]]]]/.parameters/.solution),*)
-		"Particles",conc2particles[solution,model],
-		_,Message[simulate::specProfile,OptionValue["SpeciesProfiles"]];Abort[];
+		fluxSolution=Thread[Rule[model["Fluxes"],getRates[model,"Parameters"->parameters]/.parameters/.solution]];
+		solution=#[[1]]/.m_[t]:>m->#[[2]]&/@solution;
+		solution=Switch[OptionValue["SpeciesProfiles"],
+			"Concentrations",solution(*/.r_Rule/;MatchQ[r[[1]],$MASS$speciesPattern]:>r[[1]]->r[[2]]*),
+			(*"Particles",solution/.r_Rule/;MatchQ[r[[1]],$MASS$speciesPattern]:>r[[1]]->r[[2]]*(parameter["Volume",getCompartment[r[[1]]]]/.parameters/.solution),*)
+			"Particles",conc2particles[solution,model],
+			_,Message[simulate::specProfile,OptionValue["SpeciesProfiles"]];Abort[];
+		];
+		{solution,fluxSolution}
 	];
-	{solution,fluxSolution}
-];
 
 simulate[model_MASSmodel,{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},opts:OptionsPattern[]]:=Module[{},
 	simulate[model,Sequence@@updateRules[List[opts],{"tStart"->tMin,"tFinal"->tMax}]]
 ];
+
+
+nSimulate[model_MASSmodel,equations_List,tStart_?NumberQ,tFinal_?NumberQ,opts:OptionsPattern[{simulate,DSolve,NDSolve,ParametricNDSolve}]]:=
+	Module[{allConstants,missingParam,solution},
+
+	(* Find missing parameters *)
+	allConstants=Union[Cases[equations,(_Keq|_rateconst|_parameter|metabolite[_,"Xt"]),\[Infinity]]];
+	missingParam=Complement[allConstants,First/@model["Parameters"]];
+	
+	(* Run ParametricNDSolve if there are missing parameters *)
+	solution=If[missingParam!={},
+		Check[
+			Quiet[Check[
+				ParametricNDSolve[equations,model["Variables"],{t,tStart,tFinal},missingParam,FilterRules[{opts}, Options[ParametricNDSolve]]],
+				ParametricNDSolve[Join[D[First[equations],t],Rest[equations]],model["Variables"],{t,tStart,tFinal},missingParam,FilterRules[{opts}, Options[ParametricNDSolve]]],
+				{ParametricNDSolve::derivs}
+			],{ParametricNDSolve::derivs}],
+			Message[simulate::ParametricNDSolveProblem];Abort[]
+		],
+		Check[
+			Quiet[Check[
+				NDSolve[equations,model["Variables"],{t,tStart,tFinal},FilterRules[{opts}, Options[NDSolve]]],
+				NDSolve[Join[D[First[equations],t],Rest[equations]],model["Variables"],{t,tStart,tFinal},FilterRules[{opts}, Options[NDSolve]]],
+				{NDSolve::derivs}
+			],{NDSolve::derivs}],
+			Message[simulate::NDSolveProblem];Abort[];,
+			{NDSolve::ndode,NDSolve::idelay,NDSolve::icfail,NDSolve::nderr,NDSolve::underdet,NDSolve::overdet,NDSolve::ndinnt}
+		]
+	]
+]
 
 
 Options[findSteadyState]=updateRules[{"Strategy"->FindRoot,"CheckSteadyState"->True,"CheckStability"->False,"Parameters"->{},"InitialConditions"->{},Tolerance->1*^-6},Options[FindRoot],Options[simulate]];
