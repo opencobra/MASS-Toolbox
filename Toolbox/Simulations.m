@@ -135,7 +135,6 @@ solveSimulate[model_MASSmodel,equations_List,parameters_List,missingParam_List,t
 formatSimulation[rawSolution_,model_,parameters_,units_,opts:OptionsPattern[{simulate}]]:=
 	Module[{solution,fluxSolution},
 		(* Format Solution *)
-		Print[units];
 		solution=#[[1]]->(#[[2]] (#[[1]][[0]]/.Dispatch[units]))&/@rawSolution;
 		fluxSolution=Thread[Rule[model["Fluxes"],getRates[model,"Parameters"->parameters]/.parameters/.solution]];
 		solution=#[[1]]/.m_[t]:>m->#[[2]]&/@solution;
@@ -151,33 +150,34 @@ formatSimulation[rawSolution_,model_,parameters_,units_,opts:OptionsPattern[{sim
 
 
 setSimulationParameters::badargs = "The `1` in the simulation input (simulation[[`2`]]) are not formatted correctly.";
-setSimulationParameters[sim:{{___},{___},{___}},parameters:{((_Keq|_rateconst|_parameter|metabolite[_,"Xt"])->_Unit)..}]:=
+setSimulationParameters::fpct = "Too many parameters in `1` to be filled from `2`.";
+
+setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_rateconst|_parameter|metabolite[_,"Xt"])->(_Unit|_?NumberQ))...},model_MASSmodel]:=
 	
-	(* TODO: Enable unit checking *)
-	Module[{equations,values,abort,remainingParam,newEquations},
-		If[!MatchQ[sim[[1]],{(_metabolite->Times[_ParametricFunction,_Unit])..}],
+	Module[{equations,values,abort,remainingParam,newEquations,adjustedParam,rules},
+		
+		If[!MatchQ[sim[[1]],{(_metabolite->Times[_ParametricFunction,_Unit])...}],
 			Message[setSimulationParameters::badargs,"metabolite equations",1];abort=True;
 		];
-		If[!MatchQ[sim[[2]],{(_v->___)..}],
+		If[!MatchQ[sim[[2]],{(_v->___)...}],
 			Message[setSimulationParameters::badargs,"flux equations",2];abort=True;
 		];
-		If[!MatchQ[sim[[3]],{(_Keq|_rateconst|_parameter|metabolite[_,"Xt"])..}],
+		If[!MatchQ[sim[[3]],{(_Keq|_rateconst|_parameter|metabolite[_,"Xt"])...}],
 			Message[setSimulationParameters::badargs,"variables",3];abort=True;
+		];
+		If[Length[sim[[3]]]!=Length[parameters],
+			Message[setSimulationParameters::fpct,sim[[3]],parameters];abort=True;
 		];
 		(* Abort if any input is incorrect *)
 		If[abort,Abort[]];
-
-
-
-		remainingParam = Complement[sim[[3]],First/@parameters];
+		
+		adjustedParam=Check[adjustUnits[parameters,model],Abort[]];
+		
 		equations=sim[[1;;2]];
 		(* TODO: Strip units *)
-		values = sim[[3]]/.parameters;
-		newEquations = equations/.Join[{f_ParametricFunction->f[Sequence@@values]},parameters]
-		If[remainingParam=={},
-			newEquations,
-			Join[newEquations,{remainingParam}]
-		]	
+		values = stripUnits[sim[[3]]/.adjustedParam];
+		rules=Join[{func_ParametricFunction->(func@@values)},stripUnits@adjustedParam];
+		newEquations = equations/.rules	
 	]
 
 
