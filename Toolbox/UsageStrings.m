@@ -622,7 +622,7 @@ FASTsimul::usage="FASTsimul[func_Function,searchFunc_Function,parametersOfIntere
 FASTcalcSensitivities::usage="###FIXME###"
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Simulations*)
 
 
@@ -630,6 +630,9 @@ findSteadyState::usage="findSteadyState[model, opts] tries to find a steady-stat
 
 
 simulate::usage="simulate[model_MASSmodel, opts___] simulates model.";
+
+
+setSimulationParameters::usage="setSimulationParameters[simulation:{metabolites,fluxes,variables},parameterValues:{parameter->value..}] substitues the parameter values for parametric functions in the simulation.";
 
 
 solveSteadyState::usage="solveSteadyState[model_MASSmodel] will attempt to solve for species concentrations assuming that the system is at steady state."
