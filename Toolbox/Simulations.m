@@ -23,10 +23,11 @@ simulate::missingIC="Missing initial conditions encountered for `1`.";
 simulate::missingParam="Missing parameter values encountered for `1`.";
 simulate::specProfile="The option \"SpeciesProfiles\" can be specified either as \"Concentrations\" or \"Particles\" but not as `1`";
 simulate::NDSolveProblem="Something unexpected happend. Manual inspection of the ODE might be necessary.";
+simulate::ParametricNDSolveProblem="Something unexpected happend. Manual inspection of the ODE might be necessary.";
 simulate::ignrevents="Mathematica `1` does not provide support for events. Events will be ignored.";
 simulate::plld="The start time (`1`) and final time (`2`) must have distinct machine-precision numerical values.";
 
-simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve}]]:=
+simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve,ParametricNDSolve}]]:=
 	Module[{repl,ode,events,initialConditions,allConstants,missingParam,parameters,equations,solution,fluxSolution,tStart,tFinal,vars,units,ic,dsolveSol,rawSolution},
 		
 		(* Get model information *)
@@ -77,7 +78,7 @@ simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve}]]:=
 	];
 
 
-simulate[model_MASSmodel,{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},opts:OptionsPattern[]]:=Module[{},
+simulate[model_MASSmodel,{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},opts:OptionsPattern[{simulate,DSolve,NDSolve,ParametricNDSolve}]]:=Module[{},
 	simulate[model,Sequence@@updateRules[List[opts],{"tStart"->tMin,"tFinal"->tMax}]]
 ];
 
@@ -151,6 +152,17 @@ formatResults[rawSolution_,model_,parameters_,units_,opts:OptionsPattern[{simula
 		{solution,fluxSolution}
 	]
 
+
+
+simulate[model_MASSmodel,parameters:{((_Keq|_rateconst|_parameter|metabolite[_,"Xt"])->(_Unit|_?NumberQ))},opts:OptionsPattern[{simulate,DSolve,NDSolve,ParametricNDSolve}]]:=
+	Module[{newModel,oldParameters,newParameters,sim},
+		oldParameters = model["Parameters"];
+		newParameters = Select[model["Parameters"],!MemberQ[parameters,First[#]]&];
+		setParameters[model,newParameters];
+		sim=simulate[model,opts,"ParametricSolve"->True];
+		setParameters[model,oldParameters];
+		sim
+]
 
 
 setSimulationParameters::badargs = "The `1` in the simulation input (simulation[[`2`]]) are not formatted correctly.";
