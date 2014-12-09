@@ -69,6 +69,7 @@ simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve}]]:=
 		allConstants=Union[Cases[equations,(_Keq|_rateconst|_parameter|metabolite[_,"Xt"]),\[Infinity]]];
 		missingParam=Complement[allConstants,First/@model["Parameters"]];
 
+		(* Use ParametricNDSolve or DSolve/NDSolve based on the option value *)
 		If[OptionValue["ParametricSolve"],
 			parametricSimulate[model,equations,parameters,missingParam,tStart,tFinal,units,opts],
 			solveSimulate[model,equations,parameters,missingParam,tStart,tFinal,units,opts]
@@ -83,16 +84,18 @@ simulate[model_MASSmodel,{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},opts:OptionsPatt
 
 parametricSimulate[model_MASSmodel,equations_List,parameters_List,missingParam_List,tStart_?NumericQ,tFinal_?NumericQ,units_,opts:OptionsPattern[{simulate,ParametricNDSolve}]]:=
 	Module[{rawSolution},
+		(* Solve equations using ParametricNDSolve. If error occurs abort *)
 		rawSolution = Check[
 			Quiet[Check[
+				(* Solve equations using normally. If derivs message appears, solve the derivative of the ODEs? *)
 				ParametricNDSolve[equations,model["Variables"],{t,tStart,tFinal},missingParam,FilterRules[{opts}, Options[ParametricNDSolve]]],
 				ParametricNDSolve[Join[D[First[equations],t],Rest[equations]],model["Variables"],{t,tStart,tFinal},missingParam,FilterRules[{opts}, Options[ParametricNDSolve]]],
 				{ParametricNDSolve::derivs}
 			],{ParametricNDSolve::derivs}],
 			Message[simulate::ParametricNDSolveProblem];Abort[];
 		];
-
-		Append[formatSimulation[rawSolution,model,parameters,units],missingParam]
+		(* Format the results into a simulation output, and add the parameters to the end *)
+		Append[formatResults[rawSolution,model,parameters,units],missingParam]
 
 	]
 
@@ -127,14 +130,15 @@ solveSimulate[model_MASSmodel,equations_List,parameters_List,missingParam_List,t
 		(*catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;*)
 		(*catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;*)
 
-		formatSimulation[rawSolution[[1]],model,parameters,units]
+		formatResults[rawSolution[[1]],model,parameters,units]
 	];
 
 
 
-formatSimulation[rawSolution_,model_,parameters_,units_,opts:OptionsPattern[{simulate}]]:=
+(* Helper function that standardizes the output of the simulations *)
+formatResults[rawSolution_,model_,parameters_,units_,opts:OptionsPattern[{simulate}]]:=
 	Module[{solution,fluxSolution},
-		(* Format Solution *)
+		(* Format output of Solver into simulation output *)
 		solution=#[[1]]->(#[[2]] (#[[1]][[0]]/.Dispatch[units]))&/@rawSolution;
 		fluxSolution=Thread[Rule[model["Fluxes"],getRates[model,"Parameters"->parameters]/.parameters/.solution]];
 		solution=#[[1]]/.m_[t]:>m->#[[2]]&/@solution;
@@ -150,12 +154,12 @@ formatSimulation[rawSolution_,model_,parameters_,units_,opts:OptionsPattern[{sim
 
 
 setSimulationParameters::badargs = "The `1` in the simulation input (simulation[[`2`]]) are not formatted correctly.";
-setSimulationParameters::fpct = "Too many parameters in `1` to be filled from `2`.";
+setSimulationParameters::fpct = "The parameters in `1` cannot be filled from `2`.";
 
-setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_rateconst|_parameter|metabolite[_,"Xt"])->(_Unit|_?NumberQ))...},model_MASSmodel]:=
+setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_rateconst|_parameter|metabolite[_,"Xt"])->(_Unit|_?NumberQ))...},rxns:{_reaction...}]:=
 	
 	Module[{equations,values,abort,remainingParam,newEquations,adjustedParam,rules},
-		
+		(* Check input format *)
 		If[!MatchQ[sim[[1]],{(_metabolite->Times[_ParametricFunction,_Unit])...}],
 			Message[setSimulationParameters::badargs,"metabolite equations",1];abort=True;
 		];
@@ -165,20 +169,29 @@ setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_ratecons
 		If[!MatchQ[sim[[3]],{(_Keq|_rateconst|_parameter|metabolite[_,"Xt"])...}],
 			Message[setSimulationParameters::badargs,"variables",3];abort=True;
 		];
-		If[Length[sim[[3]]]!=Length[parameters],
+		If[Sort[sim[[3]]]=!=Sort[First/@parameters],
 			Message[setSimulationParameters::fpct,sim[[3]],parameters];abort=True;
 		];
+
 		(* Abort if any input is incorrect *)
 		If[abort,Abort[]];
 		
-		adjustedParam=Check[adjustUnits[parameters,model],Abort[]];
+		(* Get parameters in proper units *)
+		adjustedParam=Check[adjustUnits[parameters,rxns],Abort[]];
 		
+		(* Extract equations from simulation input *)
 		equations=sim[[1;;2]];
-		(* TODO: Strip units *)
+		
+		(* Get the values of the parameters *)
 		values = stripUnits[sim[[3]]/.adjustedParam];
+
+		(* Substitute parameter values in parametric functions, and as free parameters *)
 		rules=Join[{func_ParametricFunction->(func@@values)},stripUnits@adjustedParam];
 		newEquations = equations/.rules	
 	]
+
+
+setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_rateconst|_parameter|metabolite[_,"Xt"])->(_Unit|_?NumberQ))...},model_MASSmodel]:=setSimulationParameters[sim,parameters,model["Reactions"]];
 
 
 (* ::Subsection:: *)
