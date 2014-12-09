@@ -170,53 +170,6 @@ keq2dG[param:{_Rule..},opts:OptionsPattern[]]:=param/.r_Rule/;r[[1,0]]==Keq&&Hea
 keq2dG[stuff_,opts:OptionsPattern[]]:=stuff/.keq_Keq:>Exp[-(dGstd[getID[keq],Sequence@@updateRules[Options[dGstd],FilterRules[List@opts,Options[dGstd][[All,1]]]]]/(OptionValue["R"]OptionValue["T"]))]
 
 
-Options[dGstd]={"is"->0. Mole Liter^-1,"pH"->0.,"T"->298.15 Kelvin};
-
-dGstd[id:Prepend[$MASS$speciesPattern,_String],opts:OptionsPattern[]]:=Block[{$preventRecursion=True},
-dGstd[id,Sequence@@updateRules[Options[dGstd],ToString[#[[1]]]->#[[2]]&/@List@opts]]
-]/;!TrueQ[$preventRecursion]
-
-dGstd/:MakeBoxes[dGstd[fluxID_String,conditions:OptionsPattern[]],_]:=InterpretationBox[TooltipBox[SubsuperscriptBox[#3,#4,#],#2],dGstd[fluxID,conditions]]&[simplyBlack[If[Complement[List@conditions,Options[dGstd]]==={},"\[SmallCircle]","\[SmallCircle]'"]],GridBox[Partition[ToBoxes/@List[conditions],1]],simplyBlack["\[CapitalDelta]G"],simplyBlack[fluxID]]       
-
-With[{pat=$MASS$speciesPattern},dGstd/:MakeBoxes[dGstd[met:pat,conditions:OptionsPattern[]],StandardForm]:=
-InterpretationBox[TooltipBox[
-SubsuperscriptBox[#4,#,#2],#3
-],dGstd[met,conditions]]&[ToBoxes@met,simplyBlack[If[Complement[List@conditions,Options[dGstd]]==={},"\[SmallCircle]","\[SmallCircle]'"]],GridBox[Partition[ToBoxes/@List[conditions],1]],simplyBlack["\[CapitalDelta]G"]]]
-
-dGstd/:getID[elem_dGstd]:=elem[[1]]
-dGstd/:getConditions[elem_dGstd]:=List@@elem[[2;;]]
-dGstd/:ToString[elem_dGstd]:="dGstd_"<>ToString[getID[elem]];
-
-
-(*simplyBlack[str_String]:=StyleBox[str,RGBColor[0,0,0],StripOnInput->False,ShowSyntaxStyles->False,AutoSpacing->False,ZeroWidthTimes->True]*)
-
-
-(*
-ClearAll[dGstd];
-Options[dGstd]={is->0.Millimole,pH->0.};
-
-dGstd[id:Prepend[$MASS$speciesPattern,_String],opts:OptionsPattern[]]:=Block[{$preventRecursion=True},
-	dGstd[id,Sequence@@updateRules[Options[dGstd],List@opts]]
-]/;!TrueQ[$preventRecursion]
-
-(*dGstd/:MakeBoxes[dGstd[fluxID_String,conditions:OptionsPattern[]],_]:=InterpretationBox[TooltipBox[SubsuperscriptBox[#3,#4,#],#2],dGstd[fluxID,conditions]]&[If[Complement[List@conditions,Options[dGstd]]==={},simplyBlack@"\[SmallCircle]",simplyBlack@"\[SmallCircle]'"],GridBox[Partition[ToBoxes/@List[conditions],1]],simplyBlack["\[CapitalDelta]G"],simplyBlack[fluxID]]       *)
-
-With[{pat=$MASS$speciesPattern},dGstd/:MakeBoxes[dGstd[met:pat,conditions:OptionsPattern[]],_]:=
-InterpretationBox[
-RowBox[{SubsuperscriptBox[#3,#,#2],"(",##4,")"}],
-dGstd[met,conditions]]&[ToBoxes@met,If[Complement[List@conditions,Options[dGstd]]==={},simplyBlack@"\[SmallCircle]",simplyBlack@"\[SmallCircle]'"],simplyBlack["\[CapitalDelta]G"],Sequence@@(Riffle[ToBoxes[Equal@@#,TraditionalForm]&/@List[conditions],","])]]
-
-dGstd/:getID[elem_dGstd]:=elem[[1]]
-dGstd/:getConditions[elem_dGstd]:=List@@elem[[2;;]]
-dGstd/:ToString[elem_dGstd]:="dGstd_"<>ToString[getID[elem]];
-*)
-
-
-dG/:MakeBoxes[dG[fluxID_String],StandardForm]:=InterpretationBox[SubscriptBox["\[CapitalDelta]G",fluxID],dG[fluxID]]
-dG/:getID[elem_dG]:=elem[[1]]
-dG/:ToString[elem_dG]:="dG_"<>ToString[getID[elem]];
-
-
 (* ::Subsection::Closed:: *)
 (*End*)
 
