@@ -83,7 +83,7 @@ simulate[model_MASSmodel,{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},opts:OptionsPatt
 ];
 
 
-parametricSimulate[model_MASSmodel,equations_List,parameters_List,missingParam_List,tStart_?NumericQ,tFinal_?NumericQ,units_,opts:OptionsPattern[{simulate,ParametricNDSolve}]]:=
+parametricSimulate[model_MASSmodel,equations_List,parameters_List,missingParam_List,tStart_?NumericQ,tFinal:(_?NumericQ|Infinity),units_,opts:OptionsPattern[{simulate,ParametricNDSolve}]]:=
 	Module[{rawSolution},
 		(* Solve equations using ParametricNDSolve. If error occurs abort *)
 		rawSolution = Check[
@@ -101,7 +101,7 @@ parametricSimulate[model_MASSmodel,equations_List,parameters_List,missingParam_L
 	]
 
 
-solveSimulate[model_MASSmodel,equations_List,parameters_List,missingParam_List,tStart_?NumericQ,tFinal_?NumericQ,units_,opts:OptionsPattern[{simulate,DSolve,NDSolve}]]:=
+solveSimulate[model_MASSmodel,equations_List,parameters_List,missingParam_List,tStart_?NumericQ,tFinal:(_?NumericQ|Infinity),units_,opts:OptionsPattern[{simulate,DSolve,NDSolve}]]:=
 	Module[{dsolveSol,rawSolution,solution,fluxSolution},
 		If[missingParam!={},
 			Message[simulate::missingParam,missingParam];Abort[];
@@ -154,15 +154,22 @@ formatResults[rawSolution_,model_,parameters_,units_,opts:OptionsPattern[{simula
 
 
 
-simulate[model_MASSmodel,parameters:{((_Keq|_rateconst|_parameter|metabolite[_,"Xt"])->(_Unit|_?NumberQ))},opts:OptionsPattern[{simulate,DSolve,NDSolve,ParametricNDSolve}]]:=
+(*simulate[model_MASSmodel,parameters:{(_Keq|_rateconst|_parameter|metabolite[_,"Xt"])},opts:OptionsPattern[{simulate,DSolve,NDSolve,ParametricNDSolve}]]:=
 	Module[{newModel,oldParameters,newParameters,sim},
 		oldParameters = model["Parameters"];
 		newParameters = Select[model["Parameters"],!MemberQ[parameters,First[#]]&];
+		Print[newParameters];
 		setParameters[model,newParameters];
+		Print[model["Parameters"]];
 		sim=simulate[model,opts,"ParametricSolve"->True];
 		setParameters[model,oldParameters];
 		sim
-]
+];*)
+
+
+simulate[model_MASSmodel,{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},parameters:{(_Keq|_rateconst|_parameter|metabolite[_,"Xt"])},opts:OptionsPattern[{simulate,DSolve,NDSolve,ParametricNDSolve}]]:=Module[{},
+	simulate[model,parameters,Sequence@@updateRules[List[opts],{"tStart"->tMin,"tFinal"->tMax}]]
+];
 
 
 setSimulationParameters::badargs = "The `1` in the simulation input (simulation[[`2`]]) are not formatted correctly.";
