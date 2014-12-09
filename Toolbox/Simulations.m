@@ -18,7 +18,7 @@ Needs["DifferentialEquations`InterpolatingFunctionAnatomy`"]
 (*simulate*)
 
 
-Options[simulate]={"InitialConditions"->{},"Parameters"->{},"Events"->{},"tFinal"->Infinity,"tStart"->0,"SpeciesProfiles"->"Concentrations","ParametricSolve"->False};
+Options[simulate]={"InitialConditions"->{},"Parameters"->{},"Events"->{},"tFinal"->Infinity,"tStart"->0,"SpeciesProfiles"->"Concentrations","ParametricSolve"->False,"SimulationParameters"->{}};
 simulate::missingIC="Missing initial conditions encountered for `1`.";
 simulate::missingParam="Missing parameter values encountered for `1`.";
 simulate::specProfile="The option \"SpeciesProfiles\" can be specified either as \"Concentrations\" or \"Particles\" but not as `1`";
@@ -28,8 +28,8 @@ simulate::ignrevents="Mathematica `1` does not provide support for events. Event
 simulate::plld="The start time (`1`) and final time (`2`) must have distinct machine-precision numerical values.";
 
 simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve,ParametricNDSolve}]]:=
-	Module[{repl,ode,events,initialConditions,allConstants,missingParam,parameters,equations,solution,fluxSolution,tStart,tFinal,vars,units,ic,dsolveSol,rawSolution},
-		
+	Module[{repl,ode,events,initialConditions,allConstants,missingParam,parameters,equations,solution,fluxSolution,tStart,tFinal,vars,units,ic,dsolveSol,rawSolution,simParam},
+
 		(* Get model information *)
 		parameters=updateRules[model["Parameters"],adjustUnits[OptionValue["Parameters"],model]];
 		ode=getODE[model,"Parameters"->parameters];
@@ -41,6 +41,12 @@ simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve,Parametric
 		];
 		tStart=OptionValue["tStart"];
 		tFinal=OptionValue["tFinal"];
+
+		(* Set Simulation Parameters *)
+		simParam = OptionValue["SimulationParameters"];		
+		If[simParam!={},
+			parameters = Select[model["Parameters"],!MemberQ[simParam,First[#]]&]
+		];
 
 		(*Check that tStart does not equal tFinal*)
 		If[tStart==tFinal,
@@ -66,12 +72,12 @@ simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve,Parametric
 		(*repl={};*)
 		equations=stripUnits[equations/.repl];
 
-		(* Find missing parameters *)
+		(* Find missing parameters and join with simulation parameters *)
 		allConstants=Union[Cases[equations,(_Keq|_rateconst|_parameter|metabolite[_,"Xt"]),\[Infinity]]];
-		missingParam=Complement[allConstants,First/@model["Parameters"]];
+		missingParam=Join[Complement[allConstants,First/@model["Parameters"]],simParam];
 
 		(* Use ParametricNDSolve or DSolve/NDSolve based on the option value *)
-		If[OptionValue["ParametricSolve"],
+		If[OptionValue["ParametricSolve"]||OptionValue["SimulationParameters"]!={},
 			parametricSimulate[model,equations,parameters,missingParam,tStart,tFinal,units,opts],
 			solveSimulate[model,equations,parameters,missingParam,tStart,tFinal,units,opts]
 		]
@@ -150,25 +156,17 @@ formatResults[rawSolution_,model_,parameters_,units_,opts:OptionsPattern[{simula
 			_,Message[simulate::specProfile,OptionValue["SpeciesProfiles"]];Abort[];
 		];
 		{solution,fluxSolution}
-	]
+	];
 
 
 
-(*simulate[model_MASSmodel,parameters:{(_Keq|_rateconst|_parameter|metabolite[_,"Xt"])},opts:OptionsPattern[{simulate,DSolve,NDSolve,ParametricNDSolve}]]:=
-	Module[{newModel,oldParameters,newParameters,sim},
-		oldParameters = model["Parameters"];
-		newParameters = Select[model["Parameters"],!MemberQ[parameters,First[#]]&];
-		Print[newParameters];
-		setParameters[model,newParameters];
-		Print[model["Parameters"]];
-		sim=simulate[model,opts,"ParametricSolve"->True];
-		setParameters[model,oldParameters];
-		sim
-];*)
+simulate[model_MASSmodel,parameters:{(_Keq|_rateconst|_parameter|metabolite[_,"Xt"])},opts:OptionsPattern[{simulate,DSolve,NDSolve,ParametricNDSolve}]]:=
+	simulate[model,Sequence@@updateRules[List[opts],{"SimulationParameters"->parameters,"ParametricSolve"->True}]
+];
 
 
 simulate[model_MASSmodel,{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},parameters:{(_Keq|_rateconst|_parameter|metabolite[_,"Xt"])},opts:OptionsPattern[{simulate,DSolve,NDSolve,ParametricNDSolve}]]:=Module[{},
-	simulate[model,parameters,Sequence@@updateRules[List[opts],{"tStart"->tMin,"tFinal"->tMax}]]
+	simulate[model,Sequence@@updateRules[List[opts],{"tStart"->tMin,"tFinal"->tMax,"SimulationParameters"->parameters,"ParametricSolve"->True}]]
 ];
 
 
@@ -207,7 +205,7 @@ setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_ratecons
 		(* Substitute parameter values in parametric functions, and as free parameters *)
 		rules=Join[{func_ParametricFunction->(func@@values)},stripUnits@adjustedParam];
 		newEquations = equations/.rules	
-	]
+	];
 
 
 setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_rateconst|_parameter|metabolite[_,"Xt"])->(_Unit|_?NumberQ))...},model_MASSmodel]:=setSimulationParameters[sim,parameters,model["Reactions"]];
