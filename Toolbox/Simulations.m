@@ -114,9 +114,12 @@ solveSimulate[model_MASSmodel,equations_List,parameters_List,missingParam_List,t
 		];
 
 		(* Try DSolve *)
-		dsolveSol=Quiet@Check[
-			DSolve[equations,model["Variables"],t,FilterRules[{opts}, Options[DSolve]]],
-			DSolve[]
+		dsolveSol=TimeConstrained[
+			Quiet@Check[
+				DSolve[equations,model["Variables"],t,FilterRules[{opts}, Options[DSolve]]],
+				DSolve[]
+			],
+			2, Quiet@DSolve[]
 		];
 
 		(* If DSolve fails, use NDSolve *)
