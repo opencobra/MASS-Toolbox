@@ -14,7 +14,7 @@ $MASS$speciesPattern=Alternatives@@(Blank/@$MASS$speciesTypes);
 $MASS$parameterTypes={rateconst,Keq,parameter,vmax,Km};
 $MASS$parametersPattern=Alternatives@@(Blank/@$MASS$parameterTypes);
 
-$MASS$headTypes={v,InChI,SMILES,metabolite,m,species,reaction,r,gene,protein,geneComplex,proteinComplex,enzyme,e,complex,rateconst,k,Keq,vmax,Km,Ki,Kd,parameter,p,MASSmodel};
+$MASS$headTypes={v,InChI,SMILES,metabolite,m,species,reaction,r,gene,protein,geneComplex,proteinComplex,enzyme,e,complex,rateconst,k,Keq,vmax,Km,Ki,Kd,parameter,p,MASSmodel,dGstd,dG};
 
 (*$MASS$unitsPattern=Alternatives@@Join[{_?NumberQ,\[Infinity],-\[Infinity]},Symbol/@Names["Units`*"],Power[Symbol[#],_]&/@Names["Units`*"]]*)
 $MASS$unitsPattern=Alternatives@@Join[{_?NumberQ,\[Infinity],-\[Infinity],_?(NumberQ[stripUnits[#]]&)}]
@@ -349,6 +349,33 @@ complex/:bind[c_complex,species__]:=complex[Sequence@@c,species]
 complex/:getCompartment[complex[elem__]]:=If[MatchQ[#,{_}],#[[1]],#]&[Union[getCompartment/@List[elem]]]
 complex/:getID[complex[elem__]]:=ToString[complex[elem]]
 complex/:ToString[complex[elem__]]:=StringJoin[Sequence@@Riffle[ToString/@(Times@@@Tally[ToString/@List[elem]])," & "]]
+
+
+(* ::Subsection:: *)
+(*Thermodynamics*)
+
+
+Options[dGstd]={"is"->0. Mole Liter^-1,"pH"->0.,"T"->298.15 Kelvin};
+
+dGstd[id:Prepend[$MASS$speciesPattern,_String],opts:OptionsPattern[]]:=Block[{$preventRecursion=True},
+dGstd[id,Sequence@@updateRules[Options[dGstd],ToString[#[[1]]]->#[[2]]&/@List@opts]]
+]/;!TrueQ[$preventRecursion]
+
+dGstd/:MakeBoxes[dGstd[fluxID_String,conditions:OptionsPattern[]],_]:=InterpretationBox[TooltipBox[SubsuperscriptBox[#3,#4,#],#2],dGstd[fluxID,conditions]]&[simplyBlack[If[Complement[List@conditions,Options[dGstd]]==={},"\[SmallCircle]","\[SmallCircle]'"]],GridBox[Partition[ToBoxes/@List[conditions],1]],simplyBlack["\[CapitalDelta]G"],simplyBlack[fluxID]]       
+
+With[{pat=$MASS$speciesPattern},dGstd/:MakeBoxes[dGstd[met:pat,conditions:OptionsPattern[]],StandardForm]:=
+InterpretationBox[TooltipBox[
+SubsuperscriptBox[#4,#,#2],#3
+],dGstd[met,conditions]]&[ToBoxes@met,simplyBlack[If[Complement[List@conditions,Options[dGstd]]==={},"\[SmallCircle]","\[SmallCircle]'"]],GridBox[Partition[ToBoxes/@List[conditions],1]],simplyBlack["\[CapitalDelta]G"]]]
+
+dGstd/:getID[elem_dGstd]:=elem[[1]]
+dGstd/:getConditions[elem_dGstd]:=List@@elem[[2;;]]
+dGstd/:ToString[elem_dGstd]:="dGstd_"<>ToString[getID[elem]];
+
+
+dG/:MakeBoxes[dG[fluxID_String],StandardForm]:=InterpretationBox[SubscriptBox["\[CapitalDelta]G",fluxID],dG[fluxID]]
+dG/:getID[elem_dG]:=elem[[1]]
+dG/:ToString[elem_dG]:="dG_"<>ToString[getID[elem]];
 
 
 (* ::Subsection:: *)
