@@ -186,7 +186,7 @@ updateToolbox[version_String,OptionsPattern[]]:=
 
 		(* Download new version *)
 		Clear[Global`progress];
-		directory = $UserDocumentsDirectory;
+		directory = $TemporaryDirectory;
 		fileName=directory<>"/MASS-Toolbox-"<>version<>".tar.gz";
 		Print["Please wait. Downloading Toolbox v"<>version<>"..."];
 		url="https://github.com/opencobra/MASS-Toolbox/archive/v"<>version<>".tar.gz";
