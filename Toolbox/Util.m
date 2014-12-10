@@ -193,7 +193,7 @@ updateToolbox[version_String,OptionsPattern[]]:=
 		Global`progress= 0.;
 		progFunction[_, "progress", {dlnow_, dltotal_, _, _}]:= Quiet[Global`progress = dlnow/dltotal];
 		task1=URLSaveAsynchronous[url, fileName, progFunction, "Progress"->True];
-		Monitor[WaitAsynchronousTask[task1],Dynamic[ProgressIndicator[Global`progress]]];
+		Monitor[WaitAsynchronousTask[task1],Dynamic[If[!NumberQ[Global`progress],"",ProgressIndicator[Global`progress]]]];
 		Print["Download Complete!"];
 
 		(* Extract Archive *)
