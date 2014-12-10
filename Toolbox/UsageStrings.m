@@ -629,10 +629,10 @@ FASTcalcSensitivities::usage="###FIXME###"
 findSteadyState::usage="findSteadyState[model, opts] tries to find a steady-state for model, either by using Newton's method (Strategy->FindRoot) or forward integration (Strategy->simulate).";
 
 
-simulate::usage="simulate[model_MASSmodel, opts___] simulates model.";
+simulate::usage="simulate[model_MASSmodel, opts___] simulates model. simulate[model_MASSmodel,parameters_List,opts___] returns a simulation leaving 'parameters' as the simulation parameters.";
 
 
-setSimulationParameters::usage="setSimulationParameters[simulation:{metabolites,fluxes,variables},parameterValues:{parameter->value..}] substitues the parameter values for parametric functions in the simulation.";
+setSimulationParameters::usage="setSimulationParameters[simulation:{metabolites,fluxes,variables},parameterValues:{parameter->value..},model_MASSmodel] substitues the parameter values for parametric functions in the simulation.";
 
 
 solveSteadyState::usage="solveSteadyState[model_MASSmodel] will attempt to solve for species concentrations assuming that the system is at steady state."
