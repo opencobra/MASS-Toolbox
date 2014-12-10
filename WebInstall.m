@@ -33,7 +33,7 @@ Module[{version,directory,fileName,url,progFunction,task1,task2,newDirectory,ins
 	version = latestRelease[];
 
 	(* Download tar file *)
-	directory = $UserDocumentsDirectory;
+	directory = $TemporaryDirectory;
 	fileName=directory<>"/MASS-Toolbox-"<>version<>".tar.gz";
 	Print["Please wait. Downloading Toolbox v"<>version<>"..."];
 	url="https://github.com/opencobra/MASS-Toolbox/archive/v"<>version<>".tar.gz";
