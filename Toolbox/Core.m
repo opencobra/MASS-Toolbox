@@ -374,7 +374,8 @@ calcKappa[rateconstants_List]:=DiagonalMatrix[rateconstants]
 (*Unit support*)
 
 
-stripUnits[expr_]:=Module[{replacementRules=Thread[Rule[Symbol/@Names["Units`*"],1]]},DropUnits[expr/.Dispatch[replacementRules]]]
+stripUnits[expr_] := Module[{replacementRules = (Quantity[x_,_] -> x)}, 
+   expr /. Dispatch[replacementRules]]
 
 
 Options[getReactionOrders]={"Ignore"->{}};
@@ -588,18 +589,18 @@ constructModel[modelID_String:"",S:(_?MatrixQ|{{}}),compounds:{$MASS$speciesPatt
 			{newRowOrder,indepDepS}={Range[1,Length[S]],SparseArray[S]};
 		];
 	];
-
+	
 	initialConditions=OptionValue["InitialConditions"];
 	pat="InitialConditions"/.attributeTestPatterns;
 	If[!MatchQ[initialConditions,pat],Message[constructModel::malformedarg,"Initial conditions",Short[initialConditions,30],pat];Abort[]];
 	initialConditions=initialConditions/.(s_String->val_):>v[s]->val;
-
+	
 	parameters=OptionValue["Parameters"];
 	pat="Parameters"/.attributeTestPatterns;
 	If[!MatchQ[parameters,pat],Message[constructModel::malformedarg,"Parameter(s)",Short[parameters],pat];Abort[]];
 	(*Silently setting compartment volumes to 1 Liter if not provided*)
 	variableComp=Union[Cases[OptionValue["CustomODE"],parameter["Volume",_][t]|Derivative[_][parameter["Volume",_]][t],\[Infinity]][[All,0]]/.Derivative[_]:>Sequence];
-	parameters=updateRules[If[OptionValue["UnitChecking"],#,stripUnits[#]]&[parameter["Volume",#]->1 Liter&/@Complement[getCompartment/@Union[Select[compounds,getCompartment[#]=!=None&]],getID[#][[2]]&/@variableComp]],parameters];
+	parameters=updateRules[If[OptionValue["UnitChecking"],#,stripUnits[#]]&[parameter["Volume",#]->1 Quantity["Liters"]&/@Complement[getCompartment/@Union[Select[compounds,getCompartment[#]=!=None&]],getID[#][[2]]&/@variableComp]],parameters];
 	
 	gpr=OptionValue["GPR"];
 	pat="GPR"/.attributeTestPatterns;
@@ -615,7 +616,7 @@ constructModel[modelID_String:"",S:(_?MatrixQ|{{}}),compounds:{$MASS$speciesPatt
 	pat="Constant"/.attributeTestPatterns;
 	If[!MatchQ[constant,pat],Message[constructModel::malformedarg,"Constant",Short[constant],pat];Abort[]];
 	constant=("Constant"/.attributeCallBacks)[constant];
-
+	
 	name=OptionValue["Name"];
 	If[!MatchQ[name,(Automatic|_String)],Message[constructModel::malformedarg,"Name",Short[name],Automatic|_String];Abort[]];
 	If[name==Automatic,name=modelIDtmp];
@@ -631,11 +632,11 @@ constructModel[modelID_String:"",S:(_?MatrixQ|{{}}),compounds:{$MASS$speciesPatt
 	ignore=OptionValue["Ignore"];
 	pat="Ignore"/.attributeTestPatterns;
 	If[!MatchQ[ignore,pat],Message[constructModel::malformedarg,"Ignore",Short[ignore],pat];Abort[]];
-
+	
 	units=OptionValue["UnitChecking"];
 	pat="UnitChecking"/.attributeTestPatterns;
 	If[!MatchQ[units,pat],Message[constructModel::malformedarg,"UnitChecking",Short[units],pat];Abort[]];
-
+	
 	modelIDtmp=modelID;
 	modelIDtmp=If[OptionValue["ID"]===Automatic,modelIDtmp,OptionValue["ID"]];
 	If[modelIDtmp==="",modelIDtmp="MASSmodel"<>ToString[Unique[]]];
@@ -676,7 +677,7 @@ constructModel[modelID_String:"",S:(_?MatrixQ|{{}}),compounds:{$MASS$speciesPatt
 	objective=OptionValue["Objective"];
 	pat="Objective"/.attributeTestPatterns;
 	If[!MatchQ[objective,pat],Message[constructModel::malformedarg,"Objective",objective,pat];Abort[]];
-
+	
 	model=MASSmodel[
 			{
 			"ID"->modelIDtmp,
