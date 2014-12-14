@@ -498,7 +498,7 @@ adjustUnits[stuff:{_Rule...},model_MASSmodel,opts:OptionsPattern[]]:=If[model["U
 (*Model construction and associated definitions*)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Attribute test patterns and callbacks*)
 
 
@@ -506,7 +506,7 @@ attributeTestPatterns={
 	"Stoichiometry"->_?MatrixQ,
 	"InitialConditions"->{((_String|_v|_species|_metabolite|_enzyme|_parameter|_complex)->(_|_?NumberQ|\[Infinity]|-\[Infinity]|NaN|Indeterminate|$MASS$unitsPattern|With[{pat=$MASS$unitsPattern},HoldPattern@Times[(pat)..]]))..}|{},
 	"Constraints"->{((_String|_v|_species|_metabolite|_enzyme)->{(_?NumberQ|-\[Infinity]),(_?NumberQ|\[Infinity])})..}|{},
-	"Parameters"->{(Join[$MASS$speciesPattern,$MASS$parametersPattern]->(_?NumberQ|Indeterminate|\[Infinity]|-\[Infinity]|NaN|_Unit))..}|{},
+	"Parameters"->{(Join[$MASS$speciesPattern,$MASS$parametersPattern]->(_?NumberQ|Indeterminate|\[Infinity]|-\[Infinity]|NaN|_Quantity))..}|{},
 	"GPR"->{((_String|_protein|_proteinComplex)->(_protein|_proteinComplex|_gene|_geneComplex|_Or))..}|{},
 	"BoundaryConditions"->{(_species|_metabolite|_enzyme)...},
 	"Constant"->{(_species|_metabolite|_enzyme)...},
