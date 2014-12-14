@@ -164,11 +164,13 @@ parseFunctionXML/@extractXMLelement[xml,"listOfFunctionDefinitions",2]
 (*listOfUnitDefinitions*)
 
 
-sbmlBaseUnit2mathematica={"ampere"->Ampere,"avogadro"->Mole,"becquerel"->Becquerel,"candela"->Candela,"coulomb"->Coulomb,"dimensionless"->1,
-"farad"->Farad,"joule"->Joule,"lux"->Lux,"gram"->Gram,"katal"->Mole/Second,"metre"->Meter,"gray"->GrayLevel[0.5`],"kelvin"->Kelvin,"mole"->Mole,
-"henry"->Henry,"kilogram"->Gram Kilo,"newton"->Newton,"hertz"->Hertz,"litre"->Liter,"ohm"->Ohm,"item"->Quiet[DeclareUnit["item"],{Unit::exists}],"lumen"->Lumen,"pascal"->Pascal,"radian"->Radian,
-"volt"->Volt,"second"->Second,"watt"->Watt,"siemens"->Siemens,"weber"->Weber,"sievert"->Joule/(Gram Kilo),"steradian"->Steradian,"tesla"->Tesla};
-sbmlDefaultUnits={"substance"->Mole,"volume"->Liter,"area"->Meter^2,"length"->Meter,"time"->Second};
+sbmlBaseUnit2mathematica={"ampere"->Quantity[1,"Amperes"],"avogadro"->Quantity[1,"Moles"],"becquerel"->Quantity[1,"Becquerels"],"candela"->Quantity[1,"Candelas"],
+	"coulomb"->Quantity[1,"Coulombs"],"dimensionless"->1,"farad"->Quantity[1,"Farads"],"joule"->Quantity[1,"Joules"],"lux"->Quantity[1,"Lux"],"gram"->Quantity[1,"Grams"],
+	"katal"->Quantity[1,("Moles")/("Seconds")],"metre"->Quantity[1,"Meters"],"gray"->GrayLevel[0.5],"kelvin"->Quantity[1,"Kelvins"],"mole"->Quantity[1,"Moles"],"henry"->Quantity[1,"Henries"],
+	"kilogram"->Quantity[1,"Kilograms"],"newton"->Quantity[1,"Newtons"],"hertz"->Quantity[1,"Hertz"],"litre"->Quantity[1,"Liters"],"ohm"->Quantity[1,"Ohms"],"item"->Quantity[1,"Items"],
+	"lumen"->Quantity[1,"Lumens"],"pascal"->Quantity[1,"Pascals"],"radian"->Quantity[1,"Radians"],"volt"->Quantity[1,"Volts"],"second"->Quantity[1,"Seconds"],"watt"->Quantity[1,"Watts"],"siemens"->Quantity[1,"Siemens"],
+	"weber"->Quantity[1,"Webers"],"sievert"->Quantity[1,("Joules")/("Kilograms")],"steradian"->Quantity[1,"Steradians"],"tesla"->Quantity[1,"Teslas"]};
+sbmlDefaultUnits={"substance"->Quantity[1,"Moles"],"volume"->Quantity[1,"Liters"],"area"->Quantity[1,("Meters")^2],"length"->Quantity[1,"Meters"],"time"->Quantity[1,"Seconds"]};
 unitDefDefaults={"scale"->"0","multiplier"->"1","exponent"->"1"};
 
 (*parseUnitXML[XMLElement["unit",attrVal:{_Rule..},_]]:=(10^sbmlString2Number["scale"/.attrVal/.unitDefDefaults]*sbmlString2Number["multiplier"/.attrVal/.unitDefDefaults]*("kind"/.attrVal)^sbmlString2Number["exponent"/.attrVal/.unitDefDefaults])/.Dispatch[sbmlBaseUnit2mathematica]*)
