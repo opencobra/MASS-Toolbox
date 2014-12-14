@@ -4,6 +4,9 @@
 (*Units*)
 
 
+Begin["`Units`"];
+
+
 (* ::Section:: *)
 (*Definitions*)
 
@@ -72,3 +75,9 @@ Private`prefixify[name_String]:=Module[{unitName},
 
 
 ToExpression/@Private`prefixify[#]&/@{"ampere","mole","becquerel","candela","coulomb","farad","joule","gram","meter","kelvin","mole","newton","liter","ohm","lumen","pascal","volt","second","watt","weber","steradian","tesla"}
+
+
+End[]
+
+
+$ContextPath = Append[$ContextPath,"Toolbox`Units`"];

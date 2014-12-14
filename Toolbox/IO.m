@@ -11,9 +11,6 @@
 Begin["`Private`"]
 
 
-Needs["AutomaticUnits`"]
-
-
 (* ::Subsection::Closed:: *)
 (*IO*)
 
