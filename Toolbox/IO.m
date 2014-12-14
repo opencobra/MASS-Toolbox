@@ -180,7 +180,8 @@ parseUnitXML[XMLElement["unit",attrVal:{_Rule..},_]]:=(10^sbmlString2Number["sca
 parseListOfUnitsXML[XMLElement["listOfUnits",_,units_List]]:=Times@@(parseUnitXML/@units)
 
 makeValidSymbol=StringReplace[#,RegularExpression["([^a-zA-Z0-9])"]:>("$"<>ToString[ToCharacterCode["$1"][[1]]]<>"$")]&
-parseUnitDefinitionXML[XMLElement["unitDefinition",attrVal:{_Rule..},listOfUnits_List]]:=("id"/.attrVal)->Quiet[Check[DeclareUnit[StringReplace[makeValidSymbol[query["name", attrVal, "id"/.attrVal]],{"(new default)"->"","(default)"->"","_"->"",Whitespace->""}],(parseListOfUnitsXML[extractXMLelement[listOfUnits,"listOfUnits",0][[1]]])],DeclareUnit["stub"<>ToString[Unique[]],(parseListOfUnitsXML[extractXMLelement[listOfUnits,"listOfUnits",0][[1]]])],{Symbol::symname}],{Unit::exists}]
+parseUnitDefinitionXML[XMLElement["unitDefinition",attrVal:{_Rule..},listOfUnits_List]]:=
+	("id"/.attrVal)->(parseListOfUnitsXML[extractXMLelement[listOfUnits,"listOfUnits",0][[1]]])
 
 getListOfUnitDefinitions[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:=Module[{},
 	(*Join[updateRules[sbmlDefaultUnits,parseUnitDefinitionXML/@extractXMLelement[xml,"listOfUnitDefinitions",2]],sbmlBaseUnit2mathematica,{elem_String:>Unit[1,elem]}]*)
