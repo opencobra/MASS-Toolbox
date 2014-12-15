@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     23906,        638]
-NotebookOptionsPosition[     23069,        608]
-NotebookOutlinePosition[     23425,        624]
-CellTagsIndexPosition[     23382,        621]
+NotebookDataLength[     86530,       2270]
+NotebookOptionsPosition[     85573,       2236]
+NotebookOutlinePosition[     85929,       2252]
+CellTagsIndexPosition[     85886,       2249]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -40,7 +40,8 @@ Cell[BoxData[
      "\[LeftDoubleBracket]", 
      RowBox[{"1", ";;", 
       RowBox[{"-", "3"}]}], "\[RightDoubleBracket]"}], "]"}], "]"}], 
-  ";"}]], "Input"],
+  ";"}]], "Input",
+ CellChangeTimes->{{3.627628282068061*^9, 3.6276282885069838`*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -101,66 +102,7 @@ Cell[BoxData[
       RowBox[{
       "dGzero", ",", "dGzeroT", ",", "dHzero", ",", "zi", ",", "nH", ",", 
        "gibbscoeff", ",", "pHterm", ",", "isterm", ",", "gpfnsp", ",", 
-       "istermG"}], "}"}], ",", "\[IndentingNewLine]", 
-     RowBox[{"(*", 
-      RowBox[{
-       RowBox[{
-       "This", " ", "program", " ", "derives", " ", "the", " ", "function", 
-        " ", "of", " ", "T", " ", 
-        RowBox[{"(", 
-         RowBox[{"in", " ", "Kelvin"}], ")"}]}], ",", "pH", ",", 
-       RowBox[{"and", " ", "ionic", " ", "strength", " ", 
-        RowBox[{"(", "is", ")"}], " ", "that", " ", "gives", " ", "the", " ", 
-        "standard", " ", "transformed", " ", "Gibbs", " ", "energy", " ", 
-        "of", " ", "formation", " ", "of", " ", "a", " ", "reactant", " ", 
-        RowBox[{
-         RowBox[{"(", 
-          RowBox[{"sum", " ", "of", " ", "species"}], ")"}], ".", "The"}], 
-        " ", "input", " ", "speciesmat", " ", "is", " ", "a", " ", "matrix", 
-        " ", "that", " ", "gives", " ", "the", " ", "standard", " ", "Gibbs", 
-        " ", "energy", " ", "of", " ", "formation", " ", "in", " ", "kJ", " ", 
-        RowBox[{"mol", "^", 
-         RowBox[{"-", "1"}]}], " ", "at", " ", "298.15", " ", "K", " ", "and",
-         " ", "zero", " ", "ionic", " ", "strength"}], ",", 
-       RowBox[{
-       "the", " ", "standard", " ", "enthalpy", " ", "of", " ", "formation", 
-        " ", "in", " ", "kJ", " ", 
-        RowBox[{"mol", "^", 
-         RowBox[{"-", "1"}]}], " ", "at", " ", "298.15", " ", "K", " ", "and",
-         " ", "zero", " ", "ionic", " ", "strength"}], ",", 
-       RowBox[{"the", " ", "electric", " ", "charge"}], ",", 
-       RowBox[{
-       "and", " ", "the", " ", "number", " ", "of", " ", "hydrogen", " ", 
-        "atoms", " ", "in", " ", "each", " ", 
-        RowBox[{"species", ".", "There"}], " ", "is", " ", "a", " ", "row", 
-        " ", "in", " ", "the", " ", "matrix", " ", "for", " ", "each", " ", 
-        "species", " ", "of", " ", "the", " ", 
-        RowBox[{"reactant", ".", "gpfnsp"}], " ", "is", " ", "a", " ", "list",
-         " ", "of", " ", "the", " ", "functions", " ", "for", " ", "the", " ",
-         "standard", " ", "transformed", " ", "Gibbs", " ", "energies", " ", 
-        "of", " ", "the", " ", 
-        RowBox[{"species", ".", "The"}], " ", "corresponding", " ", 
-        "functions", " ", "for", " ", "other", " ", "transformed", " ", 
-        "properties", " ", "can", " ", "be", " ", "obtained", " ", "by", " ", 
-        "taking", " ", "partial", " ", 
-        RowBox[{"derivatives", ".", "The"}], " ", "standard", " ", 
-        "transformed", " ", "Gibbs", " ", "energy", " ", "of", " ", 
-        "formation", " ", "of", " ", "a", " ", "reactant", " ", "in", " ", 
-        "kJ", " ", 
-        RowBox[{"mol", "^", 
-         RowBox[{"-", "1"}]}], " ", "can", " ", "be", " ", "calculated", " ", 
-        "at", " ", "any", " ", "temperature", " ", "in", " ", "the", " ", 
-        "range", " ", "273.15", " ", "K", " ", "to", " ", "313.15", " ", 
-        "K"}], ",", 
-       RowBox[{
-       "any", " ", "pH", " ", "in", " ", "the", " ", "range", " ", "5", " ", 
-        "to", " ", "9"}], ",", 
-       RowBox[{
-       "and", " ", "any", " ", "ionic", " ", "strength", " ", "in", " ", 
-        "the", " ", "range", " ", "0", " ", "to", " ", "0.35", " ", "M", " ", 
-        "by", " ", "use", " ", "of", " ", "ReplaceAll", " ", 
-        RowBox[{
-         RowBox[{"(", "/.", ")"}], "."}]}]}], "*)"}], 
+       "istermG"}], "}"}], ",", 
      RowBox[{
       RowBox[{
        RowBox[{"{", 
@@ -169,27 +111,27 @@ Cell[BoxData[
       RowBox[{"gibbscoeff", "=", 
        RowBox[{
         FractionBox[
-         RowBox[{"9.20483`", " ", "T"}], 
+         RowBox[{"9.20483", " ", "T"}], 
          SuperscriptBox["10", "3"]], "-", 
         FractionBox[
-         RowBox[{"1.284668`", " ", 
+         RowBox[{"1.284668", " ", 
           SuperscriptBox["T", "2"]}], 
          SuperscriptBox["10", "5"]], "+", 
         FractionBox[
-         RowBox[{"4.95199`", " ", 
+         RowBox[{"4.95199", " ", 
           SuperscriptBox["T", "3"]}], 
          SuperscriptBox["10", "8"]]}]}], ";", 
       RowBox[{"dGzeroT", "=", 
        RowBox[{
         FractionBox[
-         RowBox[{"dGzero", " ", "T"}], "298.15`"], "+", 
+         RowBox[{"dGzero", " ", "T"}], "298.15"], "+", 
         RowBox[{"dHzero", " ", 
          RowBox[{"(", 
           RowBox[{"1", "-", 
-           FractionBox["T", "298.15`"]}], ")"}]}]}]}], ";", 
+           FractionBox["T", "298.15"]}], ")"}]}]}]}], ";", 
       RowBox[{"pHterm", "=", 
        FractionBox[
-        RowBox[{"nH", " ", "8.31451`", " ", "T", " ", 
+        RowBox[{"nH", " ", "8.31451", " ", "T", " ", 
          RowBox[{"Log", "[", 
           SuperscriptBox["10", 
            RowBox[{"-", "pH"}]], "]"}]}], "1000"]}], ";", 
@@ -199,24 +141,42 @@ Cell[BoxData[
          RowBox[{"(", 
           RowBox[{
            SuperscriptBox["zi", "2"], "-", "nH"}], ")"}], " ", 
-         SuperscriptBox["is", "0.5`"]}], 
+         SuperscriptBox["is", "0.5"]}], 
         RowBox[{"1", "+", 
-         RowBox[{"1.6`", " ", 
-          SuperscriptBox["is", "0.5`"]}]}]]}], ";", 
+         RowBox[{"1.6", " ", 
+          SuperscriptBox["is", "0.5"]}]}]]}], ";", 
       RowBox[{"gpfnsp", "=", 
        RowBox[{"dGzeroT", "-", "pHterm", "-", "istermG"}]}], ";", 
       RowBox[{"-", 
        FractionBox[
-        RowBox[{"8.31451`", " ", "T", " ", 
+        RowBox[{"8.31451", " ", "T", " ", 
          RowBox[{"Log", "[", 
           RowBox[{"Plus", "@@", 
            SuperscriptBox["\[ExponentialE]", 
             RowBox[{"-", 
              FractionBox["gpfnsp", 
               FractionBox[
-               RowBox[{"8.31451`", " ", "T"}], "1000"]]}]]}], "]"}]}], 
+               RowBox[{"8.31451", " ", "T"}], "1000"]]}]]}], "]"}]}], 
         "1000"]}]}]}], "]"}]}], ";"}]], "Input",
- CellChangeTimes->{{3.624925081623592*^9, 3.624925085231099*^9}}],
+ CellChangeTimes->{{3.624925081623592*^9, 3.624925085231099*^9}, {
+  3.6276273729673986`*^9, 3.6276273897464*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"almostEqual", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Abs", "[", 
+       RowBox[{
+        RowBox[{"QuantityMagnitude", "[", "#1", "]"}], "-", 
+        RowBox[{"QuantityMagnitude", "[", 
+         RowBox[{"#2", ",", 
+          RowBox[{"QuantityUnit", "[", "#1", "]"}]}], "]"}]}], "]"}], "<", 
+      ".01"}], ")"}], "&"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.627629749394722*^9, 3.627629775603847*^9}, {
+  3.627630182167742*^9, 3.627630183612516*^9}, {3.627630300157189*^9, 
+  3.627630304903572*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -236,16 +196,25 @@ Cell[BoxData[
           RowBox[{"[", 
            RowBox[{"1", ",", "2"}], "]"}], "]"}], ",", 
          RowBox[{"pH", "\[Rule]", "9.1"}], ",", 
-         RowBox[{"is", "\[Rule]", "0"}]}], "]"}], ",", 
-       RowBox[{"AutomaticUnits`Unit", "[", 
+         RowBox[{"is", "\[Rule]", 
+          RowBox[{"Quantity", "[", 
+           RowBox[{"0", ",", 
+            RowBox[{"\"\<Moles\>\"", "/", "\"\<Liters\>\""}]}], "]"}]}]}], 
+        "]"}], ",", 
+       RowBox[{"Quantity", "[", 
         RowBox[{"68.77178033687645", ",", 
-         RowBox[{"\"\<Kilojoule\>\"", "/", "\"\<Mole\>\""}]}], "]"}], ",", 
+         RowBox[{"\"\<Kilojoules\>\"", "/", "\"\<Moles\>\""}]}], "]"}], ",", 
        RowBox[{"{", 
         RowBox[{"calcDeltaG", "::", "pHandISandTrange"}], "}"}], ",", 
+       RowBox[{"SameTest", "\[Rule]", "almostEqual"}], ",", 
        RowBox[{
        "TestID", "\[Rule]", "\"\<ThermodynamicsTests-20121106-Z9H3B1\>\""}]}],
        "]"}]}], "]"}], ";"}]}]], "Input",
- CellChangeTimes->{3.6249291651917677`*^9}],
+ CellChangeTimes->{
+  3.6249291651917677`*^9, {3.6276272506760283`*^9, 3.627627274707358*^9}, 
+   3.627627311587521*^9, {3.627629105759569*^9, 3.627629106255836*^9}, {
+   3.6276297796116047`*^9, 3.6276297845246487`*^9}, {3.627630395786627*^9, 
+   3.6276304056025457`*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -265,17 +234,25 @@ Cell[BoxData[
          RowBox[{"basicBiochemData3", "[", 
           RowBox[{"[", 
            RowBox[{"1", ",", "2"}], "]"}], "]"}], ",", 
-         RowBox[{"is", "\[Rule]", "0.36"}], ",", 
+         RowBox[{"is", "\[Rule]", 
+          RowBox[{"Quantity", "[", 
+           RowBox[{"0.36", ",", 
+            RowBox[{"\"\<Moles\>\"", "/", "\"\<Liters\>\""}]}], "]"}]}], ",", 
+         
          RowBox[{"pH", "\[Rule]", "7"}]}], "]"}], ",", 
-       RowBox[{"AutomaticUnits`Unit", "[", 
+       RowBox[{"Quantity", "[", 
         RowBox[{"24.393698300677702`", ",", 
-         RowBox[{"\"\<Kilojoule\>\"", "/", "\"\<Mole\>\""}]}], "]"}], ",", 
+         RowBox[{"\"\<Kilojoules\>\"", "/", "\"\<Moles\>\""}]}], "]"}], ",", 
        RowBox[{"{", 
         RowBox[{"calcDeltaG", "::", "pHandISandTrange"}], "}"}], ",", 
+       RowBox[{"SameTest", "\[Rule]", "almostEqual"}], ",", 
        RowBox[{
        "TestID", "\[Rule]", "\"\<ThermodynamicsTests-20121106-D6A7R4\>\""}]}],
        "]"}]}], "]"}], ";"}]}]], "Input",
- CellChangeTimes->{3.62492916699792*^9}],
+ CellChangeTimes->{
+  3.62492916699792*^9, {3.627627250681473*^9, 3.627627274713583*^9}, {
+   3.627629116223867*^9, 3.627629124229618*^9}, {3.627630499341593*^9, 
+   3.627630514225075*^9}, {3.627631038275139*^9, 3.627631043957616*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -295,18 +272,26 @@ Cell[BoxData[
          RowBox[{"basicBiochemData3", "[", 
           RowBox[{"[", 
            RowBox[{"1", ",", "2"}], "]"}], "]"}], ",", 
-         RowBox[{"is", "\[Rule]", "0."}], ",", 
+         RowBox[{"is", "\[Rule]", 
+          RowBox[{"Quantity", "[", 
+           RowBox[{"0.", ",", 
+            RowBox[{"\"\<Moles\>\"", "/", "\"\<Liters\>\""}]}], "]"}]}], ",", 
+         
          RowBox[{"pH", "\[Rule]", "7"}], ",", 
          RowBox[{"T", "\[Rule]", "273.14"}]}], "]"}], ",", 
-       RowBox[{"AutomaticUnits`Unit", "[", 
+       RowBox[{"Quantity", "[", 
         RowBox[{"1.2749186424346133", ",", 
-         RowBox[{"\"\<Kilojoule\>\"", "/", "\"\<Mole\>\""}]}], "]"}], ",", 
+         RowBox[{"\"\<Kilojoules\>\"", "/", "\"\<Moles\>\""}]}], "]"}], ",", 
        RowBox[{"{", 
         RowBox[{"calcDeltaG", "::", "pHandISandTrange"}], "}"}], ",", 
+       RowBox[{"SameTest", "\[Rule]", "almostEqual"}], ",", 
        RowBox[{
        "TestID", "\[Rule]", "\"\<ThermodynamicsTests-20121106-D7F2S0\>\""}]}],
        "]"}]}], "]"}], ";"}]}]], "Input",
- CellChangeTimes->{3.624929168550029*^9}],
+ CellChangeTimes->{
+  3.624929168550029*^9, {3.627627250687813*^9, 3.62762727466405*^9}, {
+   3.627630521281406*^9, 3.627630531698626*^9}, {3.62763105197598*^9, 
+   3.627631053205716*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -326,18 +311,25 @@ Cell[BoxData[
          RowBox[{"basicBiochemData3", "[", 
           RowBox[{"[", 
            RowBox[{"1", ",", "2"}], "]"}], "]"}], ",", 
-         RowBox[{"is", "\[Rule]", "0."}], ",", 
+         RowBox[{"is", "\[Rule]", 
+          RowBox[{"Quantity", "[", 
+           RowBox[{"0.", ",", 
+            RowBox[{"\"\<Moles\>\"", "/", "\"\<Liters\>\""}]}], "]"}]}], ",", 
+         
          RowBox[{"pH", "\[Rule]", "7"}], ",", 
          RowBox[{"T", "\[Rule]", "313.16"}]}], "]"}], ",", 
-       RowBox[{"AutomaticUnits`Unit", "[", 
+       RowBox[{"Quantity", "[", 
         RowBox[{"32.55728974908408", ",", 
-         RowBox[{"\"\<Kilojoule\>\"", "/", "\"\<Mole\>\""}]}], "]"}], ",", 
+         RowBox[{"\"\<Kilojoules\>\"", "/", "\"\<Moles\>\""}]}], "]"}], ",", 
        RowBox[{"{", 
         RowBox[{"calcDeltaG", "::", "pHandISandTrange"}], "}"}], ",", 
+       RowBox[{"SameTest", "\[Rule]", "almostEqual"}], ",", 
        RowBox[{
        "TestID", "\[Rule]", "\"\<ThermodynamicsTests-20121106-C0J3M8\>\""}]}],
        "]"}]}], "]"}], ";"}]}]], "Input",
- CellChangeTimes->{3.624929170334004*^9}],
+ CellChangeTimes->{
+  3.624929170334004*^9, {3.627627250693779*^9, 3.627627274669372*^9}, 
+   3.627630538916133*^9, {3.627631055335327*^9, 3.627631055958777*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -364,19 +356,16 @@ Cell[BoxData[
                 "#1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
                 ",", 
                 RowBox[{"R", "\[Rule]", 
-                 FractionBox[
-                  RowBox[{"8.31451`", " ", 
-                   InterpretationBox["Joule",
-                    AutomaticUnits`Unit[1, "Joule"],
-                    AutoDelete->True]}], 
-                  RowBox[{
-                   InterpretationBox["Mole",
-                    AutomaticUnits`Unit[1, "Mole"],
-                    AutoDelete->True], " ", 
-                   InterpretationBox["Kelvin",
-                    AutomaticUnits`Unit[1, "Kelvin"],
-                    AutoDelete->True]}]]}], ",", 
-                RowBox[{"is", "\[Rule]", "0.25`"}], ",", 
+                 RowBox[{"Quantity", "[", 
+                  RowBox[{"8.31451", ",", 
+                   RowBox[{
+                    RowBox[{"\"\<Joules\>\"", "/", "\"\<Moles\>\""}], "/", 
+                    "\"\<Kelvins\>\""}]}], "]"}]}], ",", 
+                RowBox[{"is", "\[Rule]", 
+                 RowBox[{"Quantity", "[", 
+                  RowBox[{"0.25`", ",", 
+                   RowBox[{"\"\<Moles\>\"", "/", "\"\<Liters\>\""}]}], 
+                  "]"}]}], ",", 
                 RowBox[{"pH", "\[Rule]", "7.`"}]}], "]"}]}], "&"}], ")"}], "/@",
             "basicBiochemData3"}], "]"}]}], ";", 
         RowBox[{"albertyResult", "=", 
@@ -418,7 +407,9 @@ Cell[BoxData[
        RowBox[{
        "TestID", "\[Rule]", "\"\<ThermodynamicsTests-20121106-V5N3W7\>\""}]}],
        "]"}]}], "]"}], ";"}]}]], "Input",
- CellChangeTimes->{{3.624929054335413*^9, 3.624929062017001*^9}}],
+ CellChangeTimes->{{3.624929054335413*^9, 3.624929062017001*^9}, {
+  3.627630542818901*^9, 3.627630574212801*^9}, {3.627631063288678*^9, 
+  3.627631069825992*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -444,37 +435,27 @@ Cell[BoxData[
                  "#1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}],
                   ",", 
                  RowBox[{"T", "\[Rule]", 
-                  RowBox[{"310", " ", 
-                   InterpretationBox["Kelvin",
-                    AutomaticUnits`Unit[1, "Kelvin"],
-                    AutoDelete->True]}]}], ",", 
+                  RowBox[{"Quantity", "[", 
+                   RowBox[{"310", ",", "\"\<Kelvins\>\""}], "]"}]}], ",", 
                  RowBox[{"R", "\[Rule]", 
-                  FractionBox[
-                   RowBox[{"8.31451`", " ", 
-                    InterpretationBox["Joule",
-                    AutomaticUnits`Unit[1, "Joule"],
-                    AutoDelete->True]}], 
-                   RowBox[{
-                    InterpretationBox["Mole",
-                    AutomaticUnits`Unit[1, "Mole"],
-                    AutoDelete->True], " ", 
-                    InterpretationBox["Kelvin",
-                    AutomaticUnits`Unit[1, "Kelvin"],
-                    AutoDelete->True]}]]}]}], "]"}], "]"}], "/.", 
+                  RowBox[{"Quantity", "[", 
+                   RowBox[{"8.31451", ",", 
+                    RowBox[{
+                    RowBox[{"\"\<Joules\>\"", "/", "\"\<Moles\>\""}], "/", 
+                    "\"\<Kelvins\>\""}]}], "]"}]}]}], "]"}], "]"}], "/.", 
               "\[VeryThinSpace]", 
               RowBox[{"{", 
                RowBox[{
                 RowBox[{"is", "\[Rule]", "0"}], ",", 
                 RowBox[{"pH", "\[Rule]", "7.`"}]}], "}"}]}], ")"}]}], "&"}], 
           ")"}], "/@", 
-         RowBox[{"stripUnits", "[", 
-          RowBox[{"Select", "[", 
-           RowBox[{"basicBiochemData3", ",", 
-            RowBox[{
-             RowBox[{"!", 
-              RowBox[{"MemberQ", "[", 
-               RowBox[{"#1", ",", "_Missing", ",", "\[Infinity]"}], "]"}]}], 
-             "&"}]}], "]"}], "]"}]}]}], ";", 
+         RowBox[{"Select", "[", 
+          RowBox[{"basicBiochemData3", ",", 
+           RowBox[{
+            RowBox[{"!", 
+             RowBox[{"MemberQ", "[", 
+              RowBox[{"#1", ",", "_Missing", ",", "\[Infinity]"}], "]"}]}], 
+            "&"}]}], "]"}]}]}], ";", 
        RowBox[{"albertyResult", "=", 
         RowBox[{
          RowBox[{"(", 
@@ -518,7 +499,9 @@ Cell[BoxData[
         FractionBox["1", "10000000000"]}]}], ",", "True", ",", 
       RowBox[{
       "TestID", "\[Rule]", "\"\<ThermodynamicsTests-20121106-M3C6L7\>\""}]}], 
-     "]"}]}], "]"}], ";"}]], "Input"],
+     "]"}]}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.62762947201093*^9, 3.6276295645858517`*^9}, {
+  3.627631279923746*^9, 3.6276312825711603`*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -548,7 +531,7 @@ Cell[BoxData[
                RowBox[{
                 RowBox[{"#", "[", 
                  RowBox[{"[", "2", "]"}], "]"}], "Kilo", " ", "Joule", " ", 
-                RowBox[{"Mole", "^", 
+                RowBox[{"Moles", "^", 
                  RowBox[{"-", "1"}]}]}]}], "&"}], "/@", 
              RowBox[{"DeleteCases", "[", 
               RowBox[{
@@ -586,7 +569,7 @@ Cell[BoxData[
                     RowBox[{"i", ",", "1"}], "]"}], "]"}], "/.", "keggRxns"}],
                      ",", "kegg2equilibrator", ",", 
                     RowBox[{"IonicStrength", "\[Rule]", 
-                    RowBox[{".1", " ", "Mole", " ", 
+                    RowBox[{".1", " ", "Moles", " ", 
                     RowBox[{"Liter", "^", 
                     RowBox[{"-", "1"}]}]}]}], ",", 
                     RowBox[{"pH", "\[Rule]", "9."}]}], "]"}], "[", 
@@ -601,9 +584,1654 @@ Cell[BoxData[
          "\"\<ThermodynamicsTests-20120322-R8K8K2\>\""}]}], "]"}]}], "]"}], 
     ";"}], "*)"}]}]], "Input",
  CellChangeTimes->{{3.62492891938284*^9, 3.624928919391523*^9}, {
-  3.624929068954103*^9, 3.624929128035454*^9}}],
+  3.624929068954103*^9, 3.624929128035454*^9}, {3.627627274695808*^9, 
+  3.627627274700852*^9}}],
 
-Cell[BoxData["results"], "Input"]
+Cell[CellGroupData[{
+
+Cell[BoxData["results"], "Input"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    RowBox[{
+     TagBox["TestResultObject",
+      "SummaryHead"], "[", 
+     DynamicModuleBox[{Typeset`open$$ = False}, 
+      PanelBox[
+       PaneSelectorBox[{False->GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquarePlusIconMedium"],
+              ImageSizeCache->{12., {0., 12.}}],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = True),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"],
+               ImageSizeCache->{16., {4., 8.}}],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"ThermodynamicsTests-20121106-Z9H3B1\"\>",
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+        GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquareMinusIconMedium"]],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = False),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"]],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"ThermodynamicsTests-20121106-Z9H3B1\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Expected output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  TemplateBox[{"68.77178033687645`"},
+                   "QuantityUnit",
+                   DisplayFunction->(TooltipBox[
+                    StyleBox[
+                    RowBox[{#, "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{" ", 
+                    
+                    RowBox[{"\"kJ\"", "\[InvisibleSpace]", "\"/\"", 
+                    "\[InvisibleSpace]", "\"mol\""}]}], 
+                    "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> 
+                    False], "Unit: kilojoules per mole"]& ),
+                   InterpretationFunction->(RowBox[{"Quantity", "[", 
+                    RowBox[{#, ",", 
+                    FractionBox["\"Kilojoules\"", "\"Moles\""]}], "]"}]& )],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Actual output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  TemplateBox[{"68.77153294406237`"},
+                   "QuantityUnit",
+                   DisplayFunction->(TooltipBox[
+                    StyleBox[
+                    RowBox[{#, "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{" ", 
+                    
+                    RowBox[{"\"kJ\"", "\[InvisibleSpace]", "\"/\"", 
+                    "\[InvisibleSpace]", "\"mol\""}]}], 
+                    "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> 
+                    False], "Unit: kilojoules per mole"]& ),
+                   InterpretationFunction->(RowBox[{"Quantity", "[", 
+                    RowBox[{#, ",", 
+                    FractionBox["\"Kilojoules\"", "\"Moles\""]}], "]"}]& )],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Expected messages: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  RowBox[{"{", 
+                   StyleBox[
+                    RowBox[{"calcDeltaG", "::", "pHandISandTrange"}], 
+                    "MessageName"], "}"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Actual messages: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  RowBox[{"{", 
+                   RowBox[{"Message", "[", 
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"calcDeltaG", "::", 
+                    RowBox[{"\[LeftSkeleton]", "16", "\[RightSkeleton]"}]}], 
+                    "MessageName"], ",", "\<\"pH\"\>"}], "]"}], "}"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Time Taken: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  TemplateBox[{"0.006166`3.940518518222483"},
+                   "QuantityUnit",
+                   DisplayFunction->(TooltipBox[
+                    StyleBox[
+                    RowBox[{#, "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{" ", "\"s\""}], "QuantityUnitTraditionalLabel"]}],
+                     ShowStringCharacters -> False], "Unit: seconds"]& ),
+                   InterpretationFunction->(RowBox[{"Quantity", "[", 
+                    RowBox[{#, ",", "\"Seconds\""}], "]"}]& )],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+        Typeset`open$$],
+        ImageSize->Automatic],
+       BaselinePosition->Baseline],
+      DynamicModuleValues:>{}], "]"}],
+    TestResultObject[
+     Association[
+     "TestIndex" -> 16, "TestID" -> "ThermodynamicsTests-20121106-Z9H3B1", 
+      "Outcome" -> "Success", "ExpectedOutput" -> HoldForm[
+        Quantity[68.77178033687645, "Kilojoules"/"Moles"]], "ActualOutput" -> 
+      HoldForm[
+        Quantity[68.77153294406237, "Kilojoules"/"Moles"]], 
+      "ExpectedMessages" -> {
+        HoldForm[
+         MessageName[Toolbox`calcDeltaG, "pHandISandTrange"]]}, 
+      "ActualMessages" -> {
+        HoldForm[
+         Message[
+          MessageName[Toolbox`calcDeltaG, "pHandISandTrange"], "pH"]]}, 
+      "AbsoluteTimeUsed" -> Quantity[0.006166`3.940518518222483, "Seconds"], 
+      "CPUTimeUsed" -> Quantity[0.006140000000002033, "Seconds"], 
+      "MemoryUsed" -> Quantity[1392, "Bytes"]]],
+    Editable->False,
+    SelectWithContents->True,
+    Selectable->False], ",", 
+   InterpretationBox[
+    RowBox[{
+     TagBox["TestResultObject",
+      "SummaryHead"], "[", 
+     DynamicModuleBox[{Typeset`open$$ = False}, 
+      PanelBox[
+       PaneSelectorBox[{False->GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquarePlusIconMedium"],
+              ImageSizeCache->{12., {0., 12.}}],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = True),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"],
+               ImageSizeCache->{16., {4., 8.}}],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"ThermodynamicsTests-20121106-D6A7R4\"\>",
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+        GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquareMinusIconMedium"]],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = False),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"]],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"ThermodynamicsTests-20121106-D6A7R4\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Expected output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  TemplateBox[{"24.393698300677702`"},
+                   "QuantityUnit",
+                   DisplayFunction->(TooltipBox[
+                    StyleBox[
+                    RowBox[{#, "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{" ", 
+                    
+                    RowBox[{"\"kJ\"", "\[InvisibleSpace]", "\"/\"", 
+                    "\[InvisibleSpace]", "\"mol\""}]}], 
+                    "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> 
+                    False], "Unit: kilojoules per mole"]& ),
+                   InterpretationFunction->(RowBox[{"Quantity", "[", 
+                    RowBox[{#, ",", 
+                    FractionBox["\"Kilojoules\"", "\"Moles\""]}], "]"}]& )],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Actual output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  TemplateBox[{"24.39350799851306`"},
+                   "QuantityUnit",
+                   DisplayFunction->(TooltipBox[
+                    StyleBox[
+                    RowBox[{#, "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{" ", 
+                    
+                    RowBox[{"\"kJ\"", "\[InvisibleSpace]", "\"/\"", 
+                    "\[InvisibleSpace]", "\"mol\""}]}], 
+                    "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> 
+                    False], "Unit: kilojoules per mole"]& ),
+                   InterpretationFunction->(RowBox[{"Quantity", "[", 
+                    RowBox[{#, ",", 
+                    FractionBox["\"Kilojoules\"", "\"Moles\""]}], "]"}]& )],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Expected messages: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  RowBox[{"{", 
+                   StyleBox[
+                    RowBox[{"calcDeltaG", "::", "pHandISandTrange"}], 
+                    "MessageName"], "}"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Actual messages: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  RowBox[{"{", 
+                   RowBox[{"Message", "[", 
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"calcDeltaG", "::", 
+                    RowBox[{"\[LeftSkeleton]", "16", "\[RightSkeleton]"}]}], 
+                    "MessageName"], ",", 
+                    
+                    RowBox[{"\<\"ioni\"\>", 
+                    "\[Ellipsis]", "\<\"ength\"\>"}]}], "]"}], "}"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Time Taken: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  TemplateBox[{"0.009742`4.139163123067744"},
+                   "QuantityUnit",
+                   DisplayFunction->(TooltipBox[
+                    StyleBox[
+                    RowBox[{#, "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{" ", "\"s\""}], "QuantityUnitTraditionalLabel"]}],
+                     ShowStringCharacters -> False], "Unit: seconds"]& ),
+                   InterpretationFunction->(RowBox[{"Quantity", "[", 
+                    RowBox[{#, ",", "\"Seconds\""}], "]"}]& )],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+        Typeset`open$$],
+        ImageSize->Automatic],
+       BaselinePosition->Baseline],
+      DynamicModuleValues:>{}], "]"}],
+    TestResultObject[
+     Association[
+     "TestIndex" -> 17, "TestID" -> "ThermodynamicsTests-20121106-D6A7R4", 
+      "Outcome" -> "Success", "ExpectedOutput" -> HoldForm[
+        Quantity[24.393698300677702`, "Kilojoules"/"Moles"]], "ActualOutput" -> 
+      HoldForm[
+        Quantity[24.39350799851306, "Kilojoules"/"Moles"]], 
+      "ExpectedMessages" -> {
+        HoldForm[
+         MessageName[Toolbox`calcDeltaG, "pHandISandTrange"]]}, 
+      "ActualMessages" -> {
+        HoldForm[
+         Message[
+          MessageName[Toolbox`calcDeltaG, "pHandISandTrange"], 
+          "ionic strength"]]}, "AbsoluteTimeUsed" -> 
+      Quantity[0.009742`4.139163123067744, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.00972099999999898, "Seconds"], "MemoryUsed" -> 
+      Quantity[41968, "Bytes"]]],
+    Editable->False,
+    SelectWithContents->True,
+    Selectable->False], ",", 
+   InterpretationBox[
+    RowBox[{
+     TagBox["TestResultObject",
+      "SummaryHead"], "[", 
+     DynamicModuleBox[{Typeset`open$$ = False}, 
+      PanelBox[
+       PaneSelectorBox[{False->GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquarePlusIconMedium"],
+              ImageSizeCache->{12., {0., 12.}}],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = True),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"],
+               ImageSizeCache->{16., {4., 8.}}],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"ThermodynamicsTests-20121106-D7F2S0\"\>",
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+        GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquareMinusIconMedium"]],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = False),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"]],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"ThermodynamicsTests-20121106-D7F2S0\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Expected output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  TemplateBox[{"1.2749186424346133`"},
+                   "QuantityUnit",
+                   DisplayFunction->(TooltipBox[
+                    StyleBox[
+                    RowBox[{#, "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{" ", 
+                    
+                    RowBox[{"\"kJ\"", "\[InvisibleSpace]", "\"/\"", 
+                    "\[InvisibleSpace]", "\"mol\""}]}], 
+                    "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> 
+                    False], "Unit: kilojoules per mole"]& ),
+                   InterpretationFunction->(RowBox[{"Quantity", "[", 
+                    RowBox[{#, ",", 
+                    FractionBox["\"Kilojoules\"", "\"Moles\""]}], "]"}]& )],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Actual output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  TemplateBox[{"1.2747443035674169`"},
+                   "QuantityUnit",
+                   DisplayFunction->(TooltipBox[
+                    StyleBox[
+                    RowBox[{#, "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{" ", 
+                    
+                    RowBox[{"\"kJ\"", "\[InvisibleSpace]", "\"/\"", 
+                    "\[InvisibleSpace]", "\"mol\""}]}], 
+                    "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> 
+                    False], "Unit: kilojoules per mole"]& ),
+                   InterpretationFunction->(RowBox[{"Quantity", "[", 
+                    RowBox[{#, ",", 
+                    FractionBox["\"Kilojoules\"", "\"Moles\""]}], "]"}]& )],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Expected messages: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  RowBox[{"{", 
+                   StyleBox[
+                    RowBox[{"calcDeltaG", "::", "pHandISandTrange"}], 
+                    "MessageName"], "}"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Actual messages: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  RowBox[{"{", 
+                   RowBox[{"Message", "[", 
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"calcDeltaG", "::", 
+                    RowBox[{"\[LeftSkeleton]", "16", "\[RightSkeleton]"}]}], 
+                    "MessageName"], ",", "\<\"T\"\>"}], "]"}], "}"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Time Taken: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  TemplateBox[{"0.010744`4.181680997492653"},
+                   "QuantityUnit",
+                   DisplayFunction->(TooltipBox[
+                    StyleBox[
+                    RowBox[{#, "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{" ", "\"s\""}], "QuantityUnitTraditionalLabel"]}],
+                     ShowStringCharacters -> False], "Unit: seconds"]& ),
+                   InterpretationFunction->(RowBox[{"Quantity", "[", 
+                    RowBox[{#, ",", "\"Seconds\""}], "]"}]& )],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+        Typeset`open$$],
+        ImageSize->Automatic],
+       BaselinePosition->Baseline],
+      DynamicModuleValues:>{}], "]"}],
+    TestResultObject[
+     Association[
+     "TestIndex" -> 18, "TestID" -> "ThermodynamicsTests-20121106-D7F2S0", 
+      "Outcome" -> "Success", "ExpectedOutput" -> HoldForm[
+        Quantity[1.2749186424346133`, "Kilojoules"/"Moles"]], "ActualOutput" -> 
+      HoldForm[
+        Quantity[1.2747443035674169`, "Kilojoules"/"Moles"]], 
+      "ExpectedMessages" -> {
+        HoldForm[
+         MessageName[Toolbox`calcDeltaG, "pHandISandTrange"]]}, 
+      "ActualMessages" -> {
+        HoldForm[
+         Message[
+          MessageName[Toolbox`calcDeltaG, "pHandISandTrange"], "T"]]}, 
+      "AbsoluteTimeUsed" -> Quantity[0.010744`4.181680997492653, "Seconds"], 
+      "CPUTimeUsed" -> Quantity[0.010564000000002238`, "Seconds"], 
+      "MemoryUsed" -> Quantity[656, "Bytes"]]],
+    Editable->False,
+    SelectWithContents->True,
+    Selectable->False], ",", 
+   InterpretationBox[
+    RowBox[{
+     TagBox["TestResultObject",
+      "SummaryHead"], "[", 
+     DynamicModuleBox[{Typeset`open$$ = False}, 
+      PanelBox[
+       PaneSelectorBox[{False->GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquarePlusIconMedium"],
+              ImageSizeCache->{12., {0., 12.}}],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = True),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"],
+               ImageSizeCache->{16., {4., 8.}}],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"ThermodynamicsTests-20121106-C0J3M8\"\>",
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+        GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquareMinusIconMedium"]],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = False),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"]],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"ThermodynamicsTests-20121106-C0J3M8\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Expected output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  TemplateBox[{"32.55728974908408`"},
+                   "QuantityUnit",
+                   DisplayFunction->(TooltipBox[
+                    StyleBox[
+                    RowBox[{#, "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{" ", 
+                    
+                    RowBox[{"\"kJ\"", "\[InvisibleSpace]", "\"/\"", 
+                    "\[InvisibleSpace]", "\"mol\""}]}], 
+                    "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> 
+                    False], "Unit: kilojoules per mole"]& ),
+                   InterpretationFunction->(RowBox[{"Quantity", "[", 
+                    RowBox[{#, ",", 
+                    FractionBox["\"Kilojoules\"", "\"Moles\""]}], "]"}]& )],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Actual output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  TemplateBox[{"32.557089866387834`"},
+                   "QuantityUnit",
+                   DisplayFunction->(TooltipBox[
+                    StyleBox[
+                    RowBox[{#, "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{" ", 
+                    
+                    RowBox[{"\"kJ\"", "\[InvisibleSpace]", "\"/\"", 
+                    "\[InvisibleSpace]", "\"mol\""}]}], 
+                    "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> 
+                    False], "Unit: kilojoules per mole"]& ),
+                   InterpretationFunction->(RowBox[{"Quantity", "[", 
+                    RowBox[{#, ",", 
+                    FractionBox["\"Kilojoules\"", "\"Moles\""]}], "]"}]& )],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Expected messages: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  RowBox[{"{", 
+                   StyleBox[
+                    RowBox[{"calcDeltaG", "::", "pHandISandTrange"}], 
+                    "MessageName"], "}"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Actual messages: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  RowBox[{"{", 
+                   RowBox[{"Message", "[", 
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"calcDeltaG", "::", 
+                    RowBox[{"\[LeftSkeleton]", "16", "\[RightSkeleton]"}]}], 
+                    "MessageName"], ",", "\<\"T\"\>"}], "]"}], "}"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Time Taken: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  TemplateBox[{"0.009503`4.128375727096691"},
+                   "QuantityUnit",
+                   DisplayFunction->(TooltipBox[
+                    StyleBox[
+                    RowBox[{#, "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{" ", "\"s\""}], "QuantityUnitTraditionalLabel"]}],
+                     ShowStringCharacters -> False], "Unit: seconds"]& ),
+                   InterpretationFunction->(RowBox[{"Quantity", "[", 
+                    RowBox[{#, ",", "\"Seconds\""}], "]"}]& )],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+        Typeset`open$$],
+        ImageSize->Automatic],
+       BaselinePosition->Baseline],
+      DynamicModuleValues:>{}], "]"}],
+    TestResultObject[
+     Association[
+     "TestIndex" -> 19, "TestID" -> "ThermodynamicsTests-20121106-C0J3M8", 
+      "Outcome" -> "Success", "ExpectedOutput" -> HoldForm[
+        Quantity[32.55728974908408, "Kilojoules"/"Moles"]], "ActualOutput" -> 
+      HoldForm[
+        Quantity[32.557089866387834`, "Kilojoules"/"Moles"]], 
+      "ExpectedMessages" -> {
+        HoldForm[
+         MessageName[Toolbox`calcDeltaG, "pHandISandTrange"]]}, 
+      "ActualMessages" -> {
+        HoldForm[
+         Message[
+          MessageName[Toolbox`calcDeltaG, "pHandISandTrange"], "T"]]}, 
+      "AbsoluteTimeUsed" -> Quantity[0.009503`4.128375727096691, "Seconds"], 
+      "CPUTimeUsed" -> Quantity[0.009394000000000347, "Seconds"], 
+      "MemoryUsed" -> Quantity[656, "Bytes"]]],
+    Editable->False,
+    SelectWithContents->True,
+    Selectable->False], ",", 
+   InterpretationBox[
+    RowBox[{
+     TagBox["TestResultObject",
+      "SummaryHead"], "[", 
+     DynamicModuleBox[{Typeset`open$$ = False}, 
+      PanelBox[
+       PaneSelectorBox[{False->GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquarePlusIconMedium"],
+              ImageSizeCache->{12., {0., 12.}}],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = True),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"],
+               ImageSizeCache->{16., {4., 8.}}],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"ThermodynamicsTests-20121106-V5N3W7\"\>",
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+        GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquareMinusIconMedium"]],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = False),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"]],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"ThermodynamicsTests-20121106-V5N3W7\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Expected output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox["True",
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Actual output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox["True",
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Time Taken: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  TemplateBox[{"0.720991`6.008444841365941"},
+                   "QuantityUnit",
+                   DisplayFunction->(TooltipBox[
+                    StyleBox[
+                    RowBox[{#, "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{" ", "\"s\""}], "QuantityUnitTraditionalLabel"]}],
+                     ShowStringCharacters -> False], "Unit: seconds"]& ),
+                   InterpretationFunction->(RowBox[{"Quantity", "[", 
+                    RowBox[{#, ",", "\"Seconds\""}], "]"}]& )],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+        Typeset`open$$],
+        ImageSize->Automatic],
+       BaselinePosition->Baseline],
+      DynamicModuleValues:>{}], "]"}],
+    TestResultObject[
+     Association[
+     "TestIndex" -> 20, "TestID" -> "ThermodynamicsTests-20121106-V5N3W7", 
+      "Outcome" -> "Success", "ExpectedOutput" -> HoldForm[True], 
+      "ActualOutput" -> HoldForm[True], "ExpectedMessages" -> {}, 
+      "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+      Quantity[0.720991`6.008444841365941, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.7148520000000005, "Seconds"], "MemoryUsed" -> 
+      Quantity[309352, "Bytes"]]],
+    Editable->False,
+    SelectWithContents->True,
+    Selectable->False], ",", 
+   InterpretationBox[
+    RowBox[{
+     TagBox["TestResultObject",
+      "SummaryHead"], "[", 
+     DynamicModuleBox[{Typeset`open$$ = False}, 
+      PanelBox[
+       PaneSelectorBox[{False->GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquarePlusIconMedium"],
+              ImageSizeCache->{12., {0., 12.}}],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = True),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"],
+               ImageSizeCache->{16., {4., 8.}}],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"ThermodynamicsTests-20121106-M3C6L7\"\>",
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+        GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquareMinusIconMedium"]],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = False),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"]],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"ThermodynamicsTests-20121106-M3C6L7\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Expected output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox["True",
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Actual output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox["True",
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Time Taken: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  TemplateBox[{"0.3291`5.667842880126368"},
+                   "QuantityUnit",
+                   DisplayFunction->(TooltipBox[
+                    StyleBox[
+                    RowBox[{#, "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{" ", "\"s\""}], "QuantityUnitTraditionalLabel"]}],
+                     ShowStringCharacters -> False], "Unit: seconds"]& ),
+                   InterpretationFunction->(RowBox[{"Quantity", "[", 
+                    RowBox[{#, ",", "\"Seconds\""}], "]"}]& )],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+        Typeset`open$$],
+        ImageSize->Automatic],
+       BaselinePosition->Baseline],
+      DynamicModuleValues:>{}], "]"}],
+    TestResultObject[
+     Association[
+     "TestIndex" -> 21, "TestID" -> "ThermodynamicsTests-20121106-M3C6L7", 
+      "Outcome" -> "Success", "ExpectedOutput" -> HoldForm[True], 
+      "ActualOutput" -> HoldForm[True], "ExpectedMessages" -> {}, 
+      "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+      Quantity[0.3291`5.667842880126368, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.3284339999999979, "Seconds"], "MemoryUsed" -> 
+      Quantity[-83560, "Bytes"]]],
+    Editable->False,
+    SelectWithContents->True,
+    Selectable->False]}], "}"}]], "Output",
+ CellChangeTimes->{3.627629459016429*^9, 3.627629574477268*^9, 
+  3.6276301975703363`*^9, 3.627630348604957*^9, 3.6276306098395977`*^9, 
+  3.6276310814751997`*^9, 3.6276312883275347`*^9}]
+}, Open  ]]
 }, Open  ]]
 },
 WindowSize->{808, 572},
@@ -626,19 +2254,23 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 105, 1, 92, "Title"],
 Cell[688, 25, 136, 4, 28, "Input"],
-Cell[827, 31, 392, 11, 28, "Input"],
-Cell[1222, 44, 962, 26, 80, "Input"],
-Cell[2187, 72, 174, 5, 28, "Input"],
-Cell[2364, 79, 456, 12, 28, "Input"],
-Cell[2823, 93, 5641, 125, 572, "Input"],
-Cell[8467, 220, 1035, 27, 97, "Input"],
-Cell[9505, 249, 1061, 28, 97, "Input"],
-Cell[10569, 279, 1099, 29, 97, "Input"],
-Cell[11671, 310, 1098, 29, 97, "Input"],
-Cell[12772, 341, 3129, 79, 286, "Input"],
-Cell[15904, 422, 3779, 98, 294, "Input"],
-Cell[19686, 522, 3331, 81, 216, "Input"],
-Cell[23020, 605, 33, 0, 28, "Input"]
+Cell[827, 31, 460, 12, 28, "Input"],
+Cell[1290, 45, 962, 26, 80, "Input"],
+Cell[2255, 73, 174, 5, 28, "Input"],
+Cell[2432, 80, 456, 12, 28, "Input"],
+Cell[2891, 94, 2424, 67, 332, "Input"],
+Cell[5318, 163, 562, 15, 46, "Input"],
+Cell[5883, 180, 1458, 36, 114, "Input"],
+Cell[7344, 218, 1451, 36, 114, "Input"],
+Cell[8798, 256, 1441, 37, 114, "Input"],
+Cell[10242, 295, 1414, 36, 114, "Input"],
+Cell[11659, 333, 3113, 78, 270, "Input"],
+Cell[14775, 413, 3486, 90, 270, "Input"],
+Cell[18264, 505, 3382, 82, 216, "Input"],
+Cell[CellGroupData[{
+Cell[21671, 591, 33, 0, 28, "Input"],
+Cell[21707, 593, 63838, 1639, 353, "Output"]
+}, Open  ]]
 }, Open  ]]
 }
 ]

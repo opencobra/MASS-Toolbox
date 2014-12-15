@@ -63,7 +63,7 @@ calcDeltaG[pseudoIsomers:{_?(MatchQ[#,{_Rule..}&&MemberQ[Quiet@#[[All,1]],"dG0_f
 	Tstd=298.15;
 	T=If[MatchQ[OptionValue["T"],_Quantity],stripUnits[UnitConvert[OptionValue["T"],"Kelvins"]],OptionValue["T"]];
 	If[NumberQ[T]&&!(273.15<=T<=313.15),Message[calcDeltaG::pHandISandTrange,"T"]];
-	R=Quiet[Check[stripUnits@UnitConvert[OptionValue["R"],Quantity[1, "Joules"/("KelvinsDifference"*"Moles")]],Message[calcDeltaG::inconcond](*/.Quantity[a_,Times[Power["Kelvin",-1],"Kilojoule",Power["Mole",-1]]]:>a*),{Quantity::compat}],{Quantity::compat}];
+	R=Quiet[Check[stripUnits@UnitConvert[OptionValue["R"],Quantity[1, "Joules"/("Kelvins"*"Moles")]],Message[calcDeltaG::inconcond];Abort[](*/.Quantity[a_,Times[Power["Kelvin",-1],"Kilojoule",Power["Mole",-1]]]:>a*),{Quantity::compat}],{Quantity::compat}];
 	(*
 	dG=dH - Tstd dS
 	dS->(-dG+dH)/Tstd;
@@ -71,6 +71,7 @@ calcDeltaG[pseudoIsomers:{_?(MatchQ[#,{_Rule..}&&MemberQ[Quiet@#[[All,1]],"dG0_f
 	dGnewT=(dG*T)/Tstd+dH-(dH*T)/Tstd;
 	dGnewT=(dG*T)/Tstd+dH(1-T/Tstd);
 	*)
+	
 	dGzeroT=(dGzero*T)/Tstd+dHzero*(1-T/Tstd);
 	dGzeroT=(dGzero*T)/298.15+dHzero*(1-T/298.15);
 	pHterm=(nH*R*T*Log[10^-pH])/1000;

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     57879,       1394]
-NotebookOptionsPosition[     57124,       1363]
-NotebookOutlinePosition[     57482,       1379]
-CellTagsIndexPosition[     57439,       1376]
+NotebookDataLength[     63464,       1518]
+NotebookOptionsPosition[     62633,       1484]
+NotebookOutlinePosition[     62991,       1500]
+CellTagsIndexPosition[     62948,       1497]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -350,7 +350,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "1.72582799999999991769072948954999446869`6.257597424025511", 
+      "1.85742399999999996396127244224771857262`6.289510966099384", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -389,7 +389,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.74056800000000000405719902119017206132`5.8901648555006485", 
+      "0.6915470000000000228013163905416149646`5.860421614929586", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -428,7 +428,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.23846899999999998653876787102490197867`5.3980318438088934", 
+      "0.23817299999999999582378507057001115754`5.397492440301989", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -467,7 +467,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.51312400000000002453504066579625941813`5.730822241370609", 
+      "0.54826299999999994483346199558582156897`5.759588851415467", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -506,7 +506,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.44592900000000001980993147299159318209`5.669865629922654", 
+      "0.42661500000000002197353410338109824806`5.6506360346759745", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -545,7 +545,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.27339200000000002388489406257576774806`5.4573857153669945", 
+      "0.26227600000000000912692144083848688751`5.439358464851903", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -584,7 +584,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.79551700000000002965805379062658175826`5.921249378126216", 
+      "0.65688199999999996592237039294559508562`5.8380872746940735", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -611,36 +611,76 @@ Cell[BoxData[
            NotebookDirectory[], "SimulationRelatedTests.nb"}]],
        Evaluator->Automatic,
        Method->"Preemptive"], 
-      StyleBox["\<\"Success\"\>",
+      StyleBox["\<\"Failure\"\>",
        StripOnInput->False,
-       LineColor->RGBColor[0, 
-         Rational[2, 3], 0],
-       FrontFaceColor->RGBColor[0, 
-         Rational[2, 3], 0],
-       BackFaceColor->RGBColor[0, 
-         Rational[2, 3], 0],
-       GraphicsColor->RGBColor[0, 
-         Rational[2, 3], 0],
-       FontColor->RGBColor[0, 
-         Rational[2, 3], 0]], 
-      "0.70517399999999996751398612104821950197`5.868896204620053", 
-      TemplateBox[{InterpretationBox[
-         TagBox[
-          
-          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-           DefaultBaseStyle -> "Column", 
-           GridBoxItemSize -> {
-            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
-         
-         Column[{}]],InterpretationBox[
-         TagBox[
-          
-          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-           DefaultBaseStyle -> "Column", 
-           GridBoxItemSize -> {
-            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
-         
-         Column[{}]]},
+       LineColor->RGBColor[1, 0, 0],
+       FrontFaceColor->RGBColor[1, 0, 0],
+       BackFaceColor->RGBColor[1, 0, 0],
+       GraphicsColor->RGBColor[1, 0, 0],
+       FontColor->RGBColor[1, 0, 0]], 
+      "1.50163099999999993805488429643446579576`6.197163138656081", 
+      TemplateBox[{TagBox[
+         GridBox[{{
+            ButtonBox[
+            "\"View Outcome\"", ButtonFunction :> $CellContext`viewOutput[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 118, "TestID" -> 
+                 "SimulationRelatedTests-20120213-N7U1Q6", "Outcome" -> 
+                 "Error", "ExpectedOutput" -> "Error", "ActualOutput" -> 
+                 "Error", "ExpectedMessages" -> "Error", "ActualMessages" -> 
+                 "Error", "AbsoluteTimeUsed" -> Quantity[0, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0, "Seconds"], "MemoryUsed" -> 
+                 Quantity[0, "Bytes"]]]], Appearance -> Automatic, Evaluator -> 
+             Automatic, Method -> "Preemptive"]}, {
+            ButtonBox[
+            "\"View Outcome\"", ButtonFunction :> $CellContext`viewOutput[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 119, "TestID" -> 
+                 "SimulationRelatedTests-20120213-K9U6M4", "Outcome" -> 
+                 "Error", "ExpectedOutput" -> "Error", "ActualOutput" -> 
+                 "Error", "ExpectedMessages" -> "Error", "ActualMessages" -> 
+                 "Error", "AbsoluteTimeUsed" -> Quantity[0, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0, "Seconds"], "MemoryUsed" -> 
+                 Quantity[0, "Bytes"]]]], Appearance -> Automatic, Evaluator -> 
+             Automatic, Method -> "Preemptive"]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+          "Column", 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
+        TagBox[
+         GridBox[{{
+            ButtonBox[
+            "\"View SimulationRelatedTests-20120213-N7U1Q6\"", 
+             ButtonFunction :> $CellContext`displayTest[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 118, "TestID" -> 
+                 "SimulationRelatedTests-20120213-N7U1Q6", "Outcome" -> 
+                 "Error", "ExpectedOutput" -> "Error", "ActualOutput" -> 
+                 "Error", "ExpectedMessages" -> "Error", "ActualMessages" -> 
+                 "Error", "AbsoluteTimeUsed" -> Quantity[0, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0, "Seconds"], "MemoryUsed" -> 
+                 Quantity[0, "Bytes"]]]["TestID"]], Appearance -> Automatic, 
+             Evaluator -> Automatic, Method -> "Preemptive"]}, {
+            ButtonBox[
+            "\"View SimulationRelatedTests-20120213-K9U6M4\"", 
+             ButtonFunction :> $CellContext`displayTest[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 119, "TestID" -> 
+                 "SimulationRelatedTests-20120213-K9U6M4", "Outcome" -> 
+                 "Error", "ExpectedOutput" -> "Error", "ActualOutput" -> 
+                 "Error", "ExpectedMessages" -> "Error", "ActualMessages" -> 
+                 "Error", "AbsoluteTimeUsed" -> Quantity[0, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0, "Seconds"], "MemoryUsed" -> 
+                 Quantity[0, "Bytes"]]]["TestID"]], Appearance -> Automatic, 
+             Evaluator -> Automatic, Method -> "Preemptive"]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+          "Column", 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"]},
        "RowDefault"]},
      {
       ButtonBox["\<\"ChemoInformaticsRelatedTests.nb\"\>",
@@ -662,7 +702,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.40098499999999998033572978783922735602`5.623728040166459", 
+      "0.317937999999999998390620703503373079`5.52294235124171", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -701,7 +741,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.96347400000000005260147872832021676004`6.004439912697786", 
+      "1.31020000000000003126388037344440817833`6.137937508375545", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -735,14 +775,14 @@ Cell[BoxData[
        BackFaceColor->RGBColor[1, 0, 0],
        GraphicsColor->RGBColor[1, 0, 0],
        FontColor->RGBColor[1, 0, 0]], 
-      "0.73884799999999994923882695729844272137`5.8891550153401555", 
+      "3.3248639999999998195789885357953608036`6.542373798931529", 
       TemplateBox[{TagBox[
          GridBox[{{
             ButtonBox[
             "\"View Outcome\"", ButtonFunction :> $CellContext`viewOutput[
                TestResultObject[
                 Association[
-                "TestIndex" -> 278, "TestID" -> 
+                "TestIndex" -> 133, "TestID" -> 
                  "DBaccessRelatedTests-20120102-E3X3Y6", "Outcome" -> 
                  "Failure", "ExpectedOutput" -> 
                  HoldForm[{
@@ -826,15 +866,15 @@ Cell[BoxData[
                     MessageName[
                     Toolbox`Private`eQuilibratorAPI, "badRequest"], 500]]}, 
                  "AbsoluteTimeUsed" -> 
-                 Quantity[0.319221`5.654606451576247, "Seconds"], 
-                 "CPUTimeUsed" -> Quantity[0.07903000000000304, "Seconds"], 
-                 "MemoryUsed" -> Quantity[15032, "Bytes"]]]], Appearance -> 
+                 Quantity[2.874297`6.609046639430091, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.7714580000000009, "Seconds"], 
+                 "MemoryUsed" -> Quantity[621912, "Bytes"]]]], Appearance -> 
              Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}, {
             ButtonBox[
             "\"View Outcome\"", ButtonFunction :> $CellContext`viewOutput[
                TestResultObject[
                 Association[
-                "TestIndex" -> 279, "TestID" -> 
+                "TestIndex" -> 134, "TestID" -> 
                  "DBaccessRelatedTests-20120102-E3X3Y6", "Outcome" -> 
                  "Failure", "ExpectedOutput" -> 
                  HoldForm[{
@@ -869,9 +909,9 @@ Cell[BoxData[
                     MessageName[
                     Toolbox`Private`eQuilibratorAPI, "badRequest"], 403]]}, 
                  "AbsoluteTimeUsed" -> 
-                 Quantity[0.221682`5.4962454287992655, "Seconds"], 
-                 "CPUTimeUsed" -> Quantity[0.013487999999998834`, "Seconds"], 
-                 "MemoryUsed" -> Quantity[15096, "Bytes"]]]], Appearance -> 
+                 Quantity[0.191485`5.432649756959739, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.012187999999998311`, "Seconds"], 
+                 "MemoryUsed" -> Quantity[16672, "Bytes"]]]], Appearance -> 
              Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}}, 
           GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
           "Column", 
@@ -884,7 +924,7 @@ Cell[BoxData[
              ButtonFunction :> $CellContext`displayTest[
                TestResultObject[
                 Association[
-                "TestIndex" -> 278, "TestID" -> 
+                "TestIndex" -> 133, "TestID" -> 
                  "DBaccessRelatedTests-20120102-E3X3Y6", "Outcome" -> 
                  "Failure", "ExpectedOutput" -> 
                  HoldForm[{
@@ -968,9 +1008,9 @@ Cell[BoxData[
                     MessageName[
                     Toolbox`Private`eQuilibratorAPI, "badRequest"], 500]]}, 
                  "AbsoluteTimeUsed" -> 
-                 Quantity[0.319221`5.654606451576247, "Seconds"], 
-                 "CPUTimeUsed" -> Quantity[0.07903000000000304, "Seconds"], 
-                 "MemoryUsed" -> Quantity[15032, "Bytes"]]]["TestID"]], 
+                 Quantity[2.874297`6.609046639430091, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.7714580000000009, "Seconds"], 
+                 "MemoryUsed" -> Quantity[621912, "Bytes"]]]["TestID"]], 
              Appearance -> Automatic, Evaluator -> Automatic, Method -> 
              "Preemptive"]}, {
             ButtonBox[
@@ -978,7 +1018,7 @@ Cell[BoxData[
              ButtonFunction :> $CellContext`displayTest[
                TestResultObject[
                 Association[
-                "TestIndex" -> 279, "TestID" -> 
+                "TestIndex" -> 134, "TestID" -> 
                  "DBaccessRelatedTests-20120102-E3X3Y6", "Outcome" -> 
                  "Failure", "ExpectedOutput" -> 
                  HoldForm[{
@@ -1013,9 +1053,9 @@ Cell[BoxData[
                     MessageName[
                     Toolbox`Private`eQuilibratorAPI, "badRequest"], 403]]}, 
                  "AbsoluteTimeUsed" -> 
-                 Quantity[0.221682`5.4962454287992655, "Seconds"], 
-                 "CPUTimeUsed" -> Quantity[0.013487999999998834`, "Seconds"], 
-                 "MemoryUsed" -> Quantity[15096, "Bytes"]]]["TestID"]], 
+                 Quantity[0.191485`5.432649756959739, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.012187999999998311`, "Seconds"], 
+                 "MemoryUsed" -> Quantity[16672, "Bytes"]]]["TestID"]], 
              Appearance -> Automatic, Evaluator -> Automatic, Method -> 
              "Preemptive"]}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
           DefaultBaseStyle -> "Column", 
@@ -1042,7 +1082,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.78109600000000001251976300409296527505`5.9133043270648376", 
+      "0.97990999999999994773958178484463132918`6.011786102953477", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -1081,7 +1121,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.87700000000000000177635683940025046468`5.963599506645665", 
+      "3.57581499999999996575184013636317104101`6.573974955126802", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -1115,14 +1155,14 @@ Cell[BoxData[
        BackFaceColor->RGBColor[1, 0, 0],
        GraphicsColor->RGBColor[1, 0, 0],
        FontColor->RGBColor[1, 0, 0]], 
-      "1.30422700000000002518163455533795058727`6.135953099972745", 
+      "1.8795539999999999469793010575813241303`6.294654720884725", 
       TemplateBox[{TagBox[
          GridBox[{{
             ButtonBox[
             "\"View Outcome\"", ButtonFunction :> $CellContext`viewOutput[
                TestResultObject[
                 Association[
-                "TestIndex" -> 294, "TestID" -> 
+                "TestIndex" -> 149, "TestID" -> 
                  "GPRRelatedTests-20120326-V3J1L4", "Outcome" -> "Error", 
                  "ExpectedOutput" -> "Error", "ActualOutput" -> "Error", 
                  "ExpectedMessages" -> "Error", "ActualMessages" -> "Error", 
@@ -1141,7 +1181,7 @@ Cell[BoxData[
              ButtonFunction :> $CellContext`displayTest[
                TestResultObject[
                 Association[
-                "TestIndex" -> 294, "TestID" -> 
+                "TestIndex" -> 149, "TestID" -> 
                  "GPRRelatedTests-20120326-V3J1L4", "Outcome" -> "Error", 
                  "ExpectedOutput" -> "Error", "ActualOutput" -> "Error", 
                  "ExpectedMessages" -> "Error", "ActualMessages" -> "Error", 
@@ -1174,7 +1214,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "6.77421900000000043462478060973808169365`6.851459145882616", 
+      "34.16371900000000039199221646413207054138`7.554165054373417", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -1222,7 +1262,9 @@ Cell[BoxData[
    3.626197212578989*^9, 3.626198344609625*^9, 3.626198515604001*^9, 
    3.6261986587473*^9, 3.6261986927755613`*^9, 3.62619873013231*^9, {
    3.6261987782638683`*^9, 3.626198791751021*^9}, 3.626199520715438*^9, 
-   3.626199569519929*^9}]
+   3.626199569519929*^9, 3.627624920970604*^9, 3.627625363736207*^9, 
+   3.6276271464862127`*^9, 3.627628144270997*^9, 3.627628902427033*^9, 
+   3.627629004954207*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -1235,9 +1277,9 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"slowTestNotebooks", " ", "=", " ", 
    RowBox[{"{", 
-    RowBox[{
-    "\"\<SBMLrelatedTests.nb\>\"", ",", "\"\<ThermodynamicsTests.nb\>\""}], 
-    "}"}]}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{"\"\<SBMLrelatedTests.nb\>\"", ","}], "*)"}], 
+    "\"\<ThermodynamicsTests.nb\>\"", "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"slowrawResults", " ", "=", " ", 
    RowBox[{
@@ -1334,7 +1376,10 @@ Cell[BoxData[{
      "slowfailedTests", ",", 
      RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.6261995441135483`*^9, 3.626199544846629*^9}, {
-  3.626199598087723*^9, 3.6261996886581383`*^9}}],
+  3.626199598087723*^9, 3.6261996886581383`*^9}, {3.627627204970739*^9, 
+  3.62762721125911*^9}}],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"TableForm", "[", 
@@ -1358,8 +1403,84 @@ Cell[BoxData[
        "\"\<Test Package\>\"", ",", "\"\<Outcome\>\"", ",", 
         "\"\<Test Timing\>\"", ",", "\"\<Failed Tests\>\""}], "}"}]}], 
      "}"}]}]}], "]"}]], "Input",
- CellChangeTimes->{{3.626199723413827*^9, 3.626199742271573*^9}}]
-}, Closed]]
+ CellChangeTimes->{{3.626199723413827*^9, 3.626199742271573*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      TagBox["\<\"Test Package\"\>",
+       HoldForm], 
+      TagBox["\<\"Outcome\"\>",
+       HoldForm], 
+      TagBox["\<\"Test Timing\"\>",
+       HoldForm], 
+      TagBox["\<\"Failed Tests\"\>",
+       HoldForm]},
+     {
+      ButtonBox["\<\"ThermodynamicsTests.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "ThermodynamicsTests.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      StyleBox["\<\"Success\"\>",
+       StripOnInput->False,
+       LineColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       FrontFaceColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       BackFaceColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       GraphicsColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       FontColor->RGBColor[0, 
+         Rational[2, 3], 0]], 
+      "1.48790299999999997559996245399815961719`6.193174532703274", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxDividers->{
+     "Columns" -> {{False}}, "ColumnsIndexed" -> {}, 
+      "Rows" -> {False, True, {False}, False}, "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   {None, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, 
+    TableHeadings -> {
+     None, {"Test Package", "Outcome", "Test Timing", 
+       "Failed Tests"}}]]]], "Output",
+ CellChangeTimes->{3.627627218931929*^9, 3.627627300640232*^9, 
+  3.6276281614362707`*^9, 3.627628914053748*^9, 3.627631310555091*^9}]
+}, Open  ]]
+}, Open  ]]
 },
 WindowSize->{1063, 572},
 WindowMargins->{{44, Automatic}, {Automatic, 0}},
@@ -1388,14 +1509,17 @@ Cell[CellGroupData[{
 Cell[9897, 246, 97, 1, 64, "Section"],
 Cell[CellGroupData[{
 Cell[10019, 251, 4144, 67, 46, "Input"],
-Cell[14166, 320, 38445, 904, 556, "Output"]
+Cell[14166, 320, 41301, 946, 588, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[52660, 1230, 104, 1, 64, "Section"],
-Cell[52767, 1233, 3531, 103, 216, "Input"],
-Cell[56301, 1338, 807, 22, 80, "Input"]
-}, Closed]]
+Cell[55516, 1272, 104, 1, 64, "Section"],
+Cell[55623, 1275, 3602, 104, 216, "Input"],
+Cell[CellGroupData[{
+Cell[59250, 1383, 807, 22, 80, "Input"],
+Cell[60060, 1407, 2545, 73, 74, "Output"]
+}, Open  ]]
+}, Open  ]]
 }
 ]
 *)
