@@ -18,7 +18,7 @@ Needs["Toolbox`ThirdParty`BiochemThermo`BasicBiochemData3`"]*)
 
 
 (*constants={"T"->298.15(*Temperature*),"R"->8.31*^-3(*Gas constant (mM)*)};*)
-(*constants={"T"\[Rule]Quantity[298.15,"Kelvins"](*Temperature*),"R"->Quiet[UnitConvert[Quantity["MolarGasConstant"],Quantity[1, ("Joules"*"Millimoles")/"Kelvins"]],{UnitConvert::compat}](*Gas constant (mM)*),"F"->Quiet[Convert[Quantity[1, "FaradayConstant"],Quantity[1, "Coulombs"/"Millimoles"]]]};*)
+(*constants={"T"\[Rule]Quantity[298.15,"Kelvins"](*Temperature*),"R"->UnitConvert[Quantity["MolarGasConstant"],Quantity[1, ("Joules"*"Millimoles")/"Kelvins"]](*Gas constant (mM)*),"F"\[Rule]UnitConvert[Quantity[1, "FaradayConstant"],Quantity[1, "Coulombs"/"Millimoles"]]};*)
 constants={"R"->Quantity["MolarGasConstant"]};
 
 
@@ -51,8 +51,7 @@ calcDeltaG[pseudoIsomers:{_?(MatchQ[#,{_Rule..}&&MemberQ[Quiet@#[[All,1]],"dG0_f
 		,{isomer,pseudoIsomers}
 		]//stripUnits;
 	dHzero=Table[
-		(*Quiet[,{Quantity::compat}]*)
-		Check[stub=UnitConvert["dH0_f"/.Dispatch[isomer],Quantity["Kilojoules"/"Moles"]],Message[calcDeltaG::noOrWrongUnitsDH,isomer];stub,{Quantity::compat}]
+		Quiet[Check[stub=UnitConvert["dH0_f"/.Dispatch[isomer],Quantity["Kilojoules"/"Moles"]],Message[calcDeltaG::noOrWrongUnitsDH,isomer];stub,{Quantity::compat}],{Quantity::compat}]
 		,{isomer,pseudoIsomers}
 		]//stripUnits;
 	is=If[MatchQ[OptionValue["is"],_Symbol],OptionValue["is"],Quiet[Check[stub=stripUnits@UnitConvert[OptionValue["is"],Quantity["Moles"/"Liters"]],Message[calcDeltaG::noOrWrongUnitsIonicStrength];stub,{Quantity::compat}],{Quantity::compat}]];
@@ -64,7 +63,7 @@ calcDeltaG[pseudoIsomers:{_?(MatchQ[#,{_Rule..}&&MemberQ[Quiet@#[[All,1]],"dG0_f
 	Tstd=298.15;
 	T=If[MatchQ[OptionValue["T"],_Quantity],stripUnits[UnitConvert[OptionValue["T"],"Kelvins"]],OptionValue["T"]];
 	If[NumberQ[T]&&!(273.15<=T<=313.15),Message[calcDeltaG::pHandISandTrange,"T"]];
-	R=Quiet[stripUnits@UnitConvert[OptionValue["R"],Quantity[1, "Joules"/("KelvinsDifference"*"Moles")]](*/.Quantity[a_,Times[Power["Kelvin",-1],"Kilojoule",Power["Mole",-1]]]:>a*),{Quantity::compat}];
+	R=Quiet[Check[stripUnits@UnitConvert[OptionValue["R"],Quantity[1, "Joules"/("KelvinsDifference"*"Moles")]],Message[calcDeltaG::inconcond],(*/.Quantity[a_,Times[Power["Kelvin",-1],"Kilojoule",Power["Mole",-1]]]:>a*),{Quantity::compat}],{Quantity::compat}];
 	(*
 	dG=dH - Tstd dS
 	dS->(-dG+dH)/Tstd;
