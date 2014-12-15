@@ -78,6 +78,3 @@ ToExpression/@Private`prefixify[#]&/@{"ampere","mole","becquerel","candela","cou
 
 
 End[]
-
-
-$ContextPath = Append[$ContextPath,"Toolbox`Units`"];

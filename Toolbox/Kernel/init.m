@@ -57,6 +57,9 @@ GurobiML::notinstalled="GurobiML seems to be not installed. Advanced LP/MILP/QP 
 (*Column[{icon,progtext,If[$FrontEnd=!=Null,ProgressIndicator[prog,{1,22}],prog]}]*)
 
 
+System`$ContextPath = Append[$ContextPath,"Toolbox`Units`"];
+
+
 Module[{licenseInfo,icon,delay,stubStream,bkupoutput,prog,progtext,names,rules,messageCode},
 licenseInfo="Copyright (c) 2013, Regents of the University of California
 All rights reserved.
