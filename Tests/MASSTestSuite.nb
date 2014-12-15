@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     63464,       1518]
-NotebookOptionsPosition[     62633,       1484]
-NotebookOutlinePosition[     62991,       1500]
-CellTagsIndexPosition[     62948,       1497]
+NotebookDataLength[     63547,       1519]
+NotebookOptionsPosition[     62716,       1485]
+NotebookOutlinePosition[     63074,       1501]
+CellTagsIndexPosition[     63031,       1498]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -142,7 +142,8 @@ Cell[BoxData[{
       "\"\<DBAccessRelatedTests.nb\>\"", ",", "\"\<IORelatedTests.nb\>\"", 
       ",", "\"\<RegulationRelatedTests.nb\>\"", ",", 
       "\"\<GPRRelatedTests.nb\>\"", ",", 
-      "\"\<UnitCheckingRelatedTests.nb\>\""}], "}"}]}], ";"}], 
+      "\"\<UnitCheckingRelatedTests.nb\>\"", ",", 
+      "\"\<ThermodynamicsTests.nb\>\""}], "}"}]}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"rawResults", " ", "=", " ", 
@@ -239,7 +240,8 @@ Cell[BoxData[{
      RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.625457091719592*^9, 3.6254571129678*^9}, {
   3.625457185317789*^9, 3.625457191534223*^9}, {3.626199433508198*^9, 
-  3.626199468702689*^9}, {3.626199547445424*^9, 3.626199547918448*^9}}]
+  3.626199468702689*^9}, {3.626199547445424*^9, 3.626199547918448*^9}, {
+  3.627631683015834*^9, 3.627631683351824*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1276,10 +1278,8 @@ Cell["Slow Test Results", "Section",
 Cell[BoxData[{
  RowBox[{
   RowBox[{"slowTestNotebooks", " ", "=", " ", 
-   RowBox[{"{", 
-    RowBox[{"(*", 
-     RowBox[{"\"\<SBMLrelatedTests.nb\>\"", ","}], "*)"}], 
-    "\"\<ThermodynamicsTests.nb\>\"", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"{", "\"\<SBMLrelatedTests.nb\>\"", "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"slowrawResults", " ", "=", " ", 
    RowBox[{
@@ -1377,7 +1377,7 @@ Cell[BoxData[{
      RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.6261995441135483`*^9, 3.626199544846629*^9}, {
   3.626199598087723*^9, 3.6261996886581383`*^9}, {3.627627204970739*^9, 
-  3.62762721125911*^9}}],
+  3.62762721125911*^9}, {3.6276316869524603`*^9, 3.62763168974273*^9}}],
 
 Cell[CellGroupData[{
 
@@ -1437,7 +1437,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "1.48790299999999997559996245399815961719`6.193174532703274", 
+      "1.53035300000000007436540272465208545327`6.205391532508686", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -1478,7 +1478,8 @@ Cell[BoxData[
      None, {"Test Package", "Outcome", "Test Timing", 
        "Failed Tests"}}]]]], "Output",
  CellChangeTimes->{3.627627218931929*^9, 3.627627300640232*^9, 
-  3.6276281614362707`*^9, 3.627628914053748*^9, 3.627631310555091*^9}]
+  3.6276281614362707`*^9, 3.627628914053748*^9, 3.627631310555091*^9, 
+  3.627631659358233*^9}]
 }, Open  ]]
 }, Open  ]]
 },
@@ -1503,21 +1504,21 @@ Cell[CellGroupData[{
 Cell[580, 22, 92, 1, 64, "Section"],
 Cell[675, 25, 120, 2, 28, "Input"],
 Cell[798, 29, 4751, 92, 233, "Input"],
-Cell[5552, 123, 4308, 118, 301, "Input"]
+Cell[5552, 123, 4403, 120, 301, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9897, 246, 97, 1, 64, "Section"],
+Cell[9992, 248, 97, 1, 64, "Section"],
 Cell[CellGroupData[{
-Cell[10019, 251, 4144, 67, 46, "Input"],
-Cell[14166, 320, 41301, 946, 588, "Output"]
+Cell[10114, 253, 4144, 67, 46, "Input"],
+Cell[14261, 322, 41301, 946, 577, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[55516, 1272, 104, 1, 64, "Section"],
-Cell[55623, 1275, 3602, 104, 216, "Input"],
+Cell[55611, 1274, 104, 1, 64, "Section"],
+Cell[55718, 1277, 3565, 102, 216, "Input"],
 Cell[CellGroupData[{
-Cell[59250, 1383, 807, 22, 80, "Input"],
-Cell[60060, 1407, 2545, 73, 74, "Output"]
+Cell[59308, 1383, 807, 22, 80, "Input"],
+Cell[60118, 1407, 2570, 74, 74, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
