@@ -164,7 +164,7 @@ parseFunctionXML/@extractXMLelement[xml,"listOfFunctionDefinitions",2]
 sbmlBaseUnit2mathematica={"ampere"->Quantity[1,"Amperes"],"avogadro"->Quantity[1,"Moles"],"becquerel"->Quantity[1,"Becquerels"],"candela"->Quantity[1,"Candelas"],
 	"coulomb"->Quantity[1,"Coulombs"],"dimensionless"->1,"farad"->Quantity[1,"Farads"],"joule"->Quantity[1,"Joules"],"lux"->Quantity[1,"Lux"],"gram"->Quantity[1,"Grams"],
 	"katal"->Quantity[1,("Moles")/("Seconds")],"metre"->Quantity[1,"Meters"],"gray"->GrayLevel[0.5],"kelvin"->Quantity[1,"Kelvins"],"mole"->Quantity[1,"Moles"],"henry"->Quantity[1,"Henries"],
-	"kilogram"->Quantity[1,"Kilograms"],"newton"->Quantity[1,"Newtons"],"hertz"->Quantity[1,"Hertz"],"litre"->Quantity[1,"Liters"],"ohm"->Quantity[1,"Ohms"],"item"->Quantity[1,"Items"],
+	"kilogram"->Quantity[1,"Kilograms"],"newton"->Quantity[1,"Newtons"],"hertz"->Quantity[1,"Hertz"],"litre"->Quantity[1,"Liters"],"ohm"->Quantity[1,"Ohms"],"item"->Quantity[1,IndependentUnit["Items"]],
 	"lumen"->Quantity[1,"Lumens"],"pascal"->Quantity[1,"Pascals"],"radian"->Quantity[1,"Radians"],"volt"->Quantity[1,"Volts"],"second"->Quantity[1,"Seconds"],"watt"->Quantity[1,"Watts"],"siemens"->Quantity[1,"Siemens"],
 	"weber"->Quantity[1,"Webers"],"sievert"->Quantity[1,("Joules")/("Kilograms")],"steradian"->Quantity[1,"Steradians"],"tesla"->Quantity[1,"Teslas"]};
 sbmlDefaultUnits={"substance"->Quantity[1,"Moles"],"volume"->Quantity[1,"Liters"],"area"->Quantity[1,("Meters")^2],"length"->Quantity[1,"Meters"],"time"->Quantity[1,"Seconds"]};
@@ -181,8 +181,8 @@ parseUnitDefinitionXML[XMLElement["unitDefinition",attrVal:{_Rule..},listOfUnits
 	("id"/.attrVal)->(parseListOfUnitsXML[extractXMLelement[listOfUnits,"listOfUnits",0][[1]]])
 
 getListOfUnitDefinitions[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:=Module[{},
-	(*Join[updateRules[sbmlDefaultUnits,parseUnitDefinitionXML/@extractXMLelement[xml,"listOfUnitDefinitions",2]],sbmlBaseUnit2mathematica,{elem_String:>Unit[1,elem]}]*)
-	Join[updateRules[sbmlDefaultUnits,parseUnitDefinitionXML/@extractXMLelement[xml,"listOfUnitDefinitions",2]],sbmlBaseUnit2mathematica,{elem_String:>Unit[1,elem]}]
+	(*Join[updateRules[sbmlDefaultUnits,parseUnitDefinitionXML/@extractXMLelement[xml,"listOfUnitDefinitions",2]],sbmlBaseUnit2mathematica,{elem_String\[RuleDelayed]Quantity[1,elem]}]*)
+	Join[updateRules[sbmlDefaultUnits,parseUnitDefinitionXML/@extractXMLelement[xml,"listOfUnitDefinitions",2]],sbmlBaseUnit2mathematica,{elem_String:>Quantity[1,elem]}]
 ]
 
 

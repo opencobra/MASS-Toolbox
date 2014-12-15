@@ -41,7 +41,7 @@ calcDeltaG[model_MASSmodel,opts:OptionsPattern[]]:=Module[{fluxes,conc,tmpParam,
 	tmpParam=updateRules[model["Parameters"],OptionValue["Parameters"]];
 	keq=FilterRules[tmpParam,_Keq];
 	speciesParam=FilterRules[tmpParam,$MASS$speciesPattern];
-	dissEqRatios=SimplifyUnits[Chop[getDisequilibriumRatios[model]/.keq/.conc/.speciesParam]];
+	dissEqRatios=UnitSimplify[Chop[getDisequilibriumRatios[model]/.keq/.conc/.speciesParam]];
 	Thread[(dG[getID[#]]&/@model["Fluxes"])->Quantity["MolarGasConstant"]*Quantity[298.15,"Kelvins"]*Chop[Log[dissEqRatios]]]
 ];
 

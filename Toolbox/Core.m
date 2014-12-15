@@ -302,7 +302,7 @@ calcPERC[rate_,opts:OptionsPattern[]]:=Module[{getFluxID,fluxID,ssFlux,solution,
 			solution=Solve[ssFlux==finalRate,rateconst[fluxID,False]][[1,1]];
 			solution,
 			
-			finalRate=k2keq[rateClean]/.elem_[t]:>elem/.Dispatch@OptionValue["SteadyStateConcentrations"]/.Dispatch@FilterRules[OptionValue["Parameters"],Except[_rateconst]]/.Unit[0.,_]->0;
+			finalRate=k2keq[rateClean]/.elem_[t]:>elem/.Dispatch@OptionValue["SteadyStateConcentrations"]/.Dispatch@FilterRules[OptionValue["Parameters"],Except[_rateconst]]/.Quantity[0.,_]->0;
 			If[(ssFlux==finalRate)===False,
 				Message[calcPERC::inconsistent,fluxID,ssFlux];Abort[];
 			];
