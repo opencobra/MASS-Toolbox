@@ -67,15 +67,11 @@ Zepto=1/1000000000000000000000;
 Yocto=1/1000000000000000000000000;
 
 
-Private`prefixify[name_String]:=Module[{unitName},
-	unitName= ToUpperCase[First[Characters[name]]]<>Rest[Characters[name]]<>"s";
-	(#<>name<>" = "<>ToString[Quantity[ToExpression[#],unitName],InputForm])&/@
-		{"Yotta","Zetta","Exa","Peta","Tera","Giga","Mega","Kilo","Hecto","Deca",
-		"Deci","Centi","Milli","Micro","Nano","Pico","Femto","Atto","Zepto","Yocto"}
-]
+Toolbox`Private`prefixify[name_String]:=(#<>name<>" = "<>ToString[Quantity[#<>name<>"s"],InputForm])&/@
+		{"Kilo","Centi","Milli","Micro","Nano","Pico"}
 
 
-ToExpression/@Private`prefixify[#]&/@{"ampere","mole","becquerel","candela","coulomb","farad","joule","gram","meter","kelvin","mole","newton","liter","ohm","lumen","pascal","volt","second","watt","weber","steradian","tesla"}
+ToExpression/@Toolbox`Private`prefixify[#]&/@{"mole","coulomb","farad","joule","gram","meter","mole","newton","liter","second"}
 
 
 End[]
