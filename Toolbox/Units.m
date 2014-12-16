@@ -33,6 +33,7 @@ Pascal = Quantity["Pascals"];
 Radian = Quantity["Radians"];
 Volt = Quantity["Volts"];
 Second = Quantity["Seconds"];
+Hour = Quantity["Hours"];
 Watt = Quantity["Watts"];
 Siemens = Quantity["Siemens"];
 Weber = Quantity[1,"Webers"];
