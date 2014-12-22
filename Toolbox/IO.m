@@ -170,7 +170,7 @@ sbmlBaseUnit2mathematica={"ampere"->Quantity[1,"Amperes"],"avogadro"->Quantity[1
 sbmlDefaultUnits={"substance"->Quantity[1,"Moles"],"volume"->Quantity[1,"Liters"],"area"->Quantity[1,("Meters")^2],"length"->Quantity[1,"Meters"],"time"->Quantity[1,"Seconds"]};
 unitDefDefaults={"scale"->"0","multiplier"->"1","exponent"->"1"};
 
-sbmlUnitPrefixes={Quantity[10^3,unit_]:>Quantity[1,"Kilo"<>ToLowerCase[unit]],Quantity[10^-3,unit_]:>Quantity[1,"Milli"<>ToLowerCase[unit]],Quantity[10^-6,unit_]:>Quantity[1,"Micro"<>ToLowerCase[unit]],Quantity[10^-9,unit_]:>Quantity[1,"Nano"<>ToLowerCase[unit]],Quantity[60,"Seconds"]:>Quantity[1,"Minutes"],Quantity[3600,"Seconds"]:>Quantity[1,"Hours"]};
+sbmlUnitPrefixes={Quantity[10^3,unit_]:>Quantity[1,"Kilo"<>ToLowerCase[unit]],Quantity[10^-3,unit_]:>Quantity[1,"Milli"<>ToLowerCase[unit]],Quantity[10^-6,unit_]:>Quantity[1,"Micro"<>ToLowerCase[unit]],Quantity[10^-9,unit_]:>Quantity[1,"Nano"<>ToLowerCase[unit]],Quantity[60,"Seconds"]:>Quantity[1,"Minutes"],Quantity[3600,"Seconds"]:>Quantity[1,"Hours"],Quantity[10^-15,"Liters"]:>Quantity[1,"Microns"^3]};
 
 (*parseUnitXML[XMLElement["unit",attrVal:{_Rule..},_]]:=(10^sbmlString2Number["scale"/.attrVal/.unitDefDefaults]*sbmlString2Number["multiplier"/.attrVal/.unitDefDefaults]*("kind"/.attrVal)^sbmlString2Number["exponent"/.attrVal/.unitDefDefaults])/.Dispatch[sbmlBaseUnit2mathematica]*)
 
