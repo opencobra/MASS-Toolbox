@@ -81,8 +81,8 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	Quiet[Check[Remove[stubStream,bkupoutput],None,{Remove::rmptc}],{Remove::rmptc}];
 	prog++;
 	
-	progtext="Loading GurobiML ...";
-	Quiet@Needs["GurobiML`"];Quiet@ParallelNeeds["GurobiML`"];prog++;delay[];
+(*	progtext="Loading GurobiML ...";
+	Quiet@Needs["GurobiML`"];Quiet@ParallelNeeds["GurobiML`"];prog++;delay[];*)
 
 	progtext="Loading AutomaticUnits ...";
 	Unprotect[BeginPackage];
