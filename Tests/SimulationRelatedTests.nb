@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     28747,        758]
-NotebookOptionsPosition[     27739,        724]
-NotebookOutlinePosition[     28097,        740]
-CellTagsIndexPosition[     28054,        737]
+NotebookDataLength[     30531,        807]
+NotebookOptionsPosition[     29443,        771]
+NotebookOutlinePosition[     29800,        787]
+CellTagsIndexPosition[     29757,        784]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -419,7 +419,8 @@ Cell[BoxData[
       RowBox[{"simulate", "[", 
        RowBox[{"model4", ",", 
         RowBox[{"{", 
-         RowBox[{"t", ",", "0", ",", "10"}], "}"}]}], "]"}], ",", 
+         RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", 
+        RowBox[{"ExactSolve", "\[Rule]", "True"}]}], "]"}], ",", 
       RowBox[{"{", 
        RowBox[{
         RowBox[{"{", 
@@ -530,20 +531,19 @@ Cell[BoxData[
        "\"\<SimulationRelatedTests-simulate-DSolve\>\""}]}], "]"}]}], "]"}], 
   ";"}]], "Input",
  CellChangeTimes->{{3.627063443157958*^9, 3.627063452379849*^9}, {
-  3.627063583169106*^9, 3.627063650275531*^9}}],
+  3.627063583169106*^9, 3.627063650275531*^9}, {3.6282728220798473`*^9, 
+  3.628272826360511*^9}}],
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"sim4", "=", 
+  RowBox[{"sim4", " ", "=", " ", 
    RowBox[{"simulate", "[", 
     RowBox[{"model4", ",", 
      RowBox[{"{", 
       RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"rateconst", "[", 
-       RowBox[{"\"\<b1\>\"", ",", "True"}], "]"}], "}"}]}], "]"}]}], 
-  ";"}]], "Input",
- CellChangeTimes->{{3.627240049735989*^9, 3.627240059003976*^9}}],
+     RowBox[{"ExactSolve", "\[Rule]", "False"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6282735095197983`*^9, 3.628273517934574*^9}, 
+   3.628273566971747*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -553,6 +553,52 @@ Cell[BoxData[
      RowBox[{
       RowBox[{"MatchQ", "[", 
        RowBox[{"sim4", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"_metabolite", "->", 
+              RowBox[{"Times", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"InterpolatingFunction", "[", "___", "]"}], "[", "t",
+                  "]"}], ",", "_Unit"}], "]"}]}], ")"}], ".."}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"_v", "->", "___"}], ")"}], ".."}], "}"}]}], "}"}]}], 
+       "]"}], ",", "True", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<SimulationRelatedTests-simulate-NDSolve\>\""}]}], "]"}]}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.628272891132621*^9, 3.628272942479985*^9}, {
+  3.6282730182792807`*^9, 3.628273131222487*^9}, {3.628273550370825*^9, 
+  3.6282735596736794`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"paramSim4", "=", 
+   RowBox[{"simulate", "[", 
+    RowBox[{"model4", ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"rateconst", "[", 
+       RowBox[{"\"\<b1\>\"", ",", "True"}], "]"}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.627240049735989*^9, 3.627240059003976*^9}, {
+  3.628273519623336*^9, 3.628273523479141*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"MatchQ", "[", 
+       RowBox[{"paramSim4", ",", 
         RowBox[{"{", 
          RowBox[{
           RowBox[{"{", 
@@ -579,7 +625,7 @@ Cell[BoxData[
     "]"}], ";"}]], "Input",
  CellChangeTimes->{{3.6272400217089443`*^9, 3.627240075329957*^9}, {
   3.627240140762793*^9, 3.6272401649579268`*^9}, {3.627240212666081*^9, 
-  3.627240223710676*^9}}],
+  3.627240223710676*^9}, {3.628273532603897*^9, 3.628273534256459*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -612,7 +658,8 @@ Cell[BoxData[
           RowBox[{"Mole", "/", "Liter"}]}]}]}], "}"}]}], ",", 
      RowBox[{"UnitChecking", "\[Rule]", "True"}]}], "]"}]}], ";"}]], "Input",
  CellChangeTimes->{{3.6270636619404297`*^9, 3.6270636621720867`*^9}, {
-   3.627063723146646*^9, 3.627063723774241*^9}, 3.62723880292206*^9}],
+   3.627063723146646*^9, 3.627063723774241*^9}, 3.62723880292206*^9, {
+   3.628272979236032*^9, 3.6282729800130587`*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -724,7 +771,7 @@ Cell[BoxData["results"], "Input",
 },
 WindowSize->{717, 572},
 WindowMargins->{{11, Automatic}, {Automatic, 30}},
-FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 4, \
 2014)",
 StyleDefinitions->"Default.nb"
 ]
@@ -751,14 +798,16 @@ Cell[5136, 141, 462, 12, 46, "Input"],
 Cell[5601, 155, 1619, 40, 148, "Input"],
 Cell[7223, 197, 7482, 170, 624, "Input"],
 Cell[14708, 369, 1644, 41, 114, "Input"],
-Cell[16355, 412, 4498, 120, 127, "Input"],
-Cell[20856, 534, 385, 11, 28, "Input"],
-Cell[21244, 547, 1264, 34, 115, "Input"],
-Cell[22511, 583, 1259, 31, 114, "Input"],
-Cell[23773, 616, 387, 10, 28, "Input"],
-Cell[24163, 628, 1454, 36, 98, "Input"],
-Cell[25620, 666, 1999, 52, 115, "Input"],
-Cell[27622, 720, 101, 1, 28, "Input"]
+Cell[16355, 412, 4606, 122, 148, "Input"],
+Cell[20964, 536, 359, 9, 28, "Input"],
+Cell[21326, 547, 1074, 30, 114, "Input"],
+Cell[22403, 579, 439, 12, 28, "Input"],
+Cell[22845, 593, 1315, 34, 115, "Input"],
+Cell[24163, 629, 1311, 32, 114, "Input"],
+Cell[25477, 663, 387, 10, 28, "Input"],
+Cell[25867, 675, 1454, 36, 98, "Input"],
+Cell[27324, 713, 1999, 52, 115, "Input"],
+Cell[29326, 767, 101, 1, 28, "Input"]
 }, Open  ]]
 }
 ]
