@@ -4,7 +4,7 @@
 (*Usage strings*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Options*)
 
 
@@ -34,11 +34,15 @@ Category::usage="Category is an option for optimzation code e.g. GAMSForm or NEO
 
 Output::usage="Output is an option for many functions specifying the amount of detail that should be provided in the results.";
 
-CompoundLabels::usage="Output is an option for specifying if compound labels should be included in a pathway visualizations."
+CompoundLabels::usage="CompoundLabels is an option for specifying if compound labels should be included in a pathway visualizations.";
 
-TextLabels::usage="Output is an option for specifying if generic text labels should be included in a pathway visualizations."
+TextLabels::usage="TextLabels is an option for specifying if generic text labels should be included in a pathway visualizations.";
 
-ReactionLabels::usage="Output is an option for specifying if reaction labels should be included in a pathway visualizations."
+ReactionLabels::usage="ReactionLabels is an option for specifying if reaction labels should be included in a pathway visualizations.";
+
+ParametricSolve::usage="ParametricSolve is an option for specifying that a simulation should be run leaving some parameters unsolved.";
+
+ExactSolve::usage="ExactSolve is an option for specifying that a simulation should be solved exactly, rather than using interpolation.";
 
 
 (* ::Subsection::Closed:: *)
@@ -622,7 +626,7 @@ FASTsimul::usage="FASTsimul[func_Function,searchFunc_Function,parametersOfIntere
 FASTcalcSensitivities::usage="###FIXME###"
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Simulations*)
 
 
@@ -675,7 +679,7 @@ pH::usage="pH";
 T::usage="Temperature";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Util*)
 
 
@@ -719,7 +723,7 @@ updateToolbox::usage="updateToolbox[] searches for the newest release of the MAS
 updateRequired::usage="updateRequired[] returns True if there is a newer release of the MASS Toolbox than the one currently installed.";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Visualization*)
 
 

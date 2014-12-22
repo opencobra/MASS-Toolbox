@@ -23,6 +23,7 @@ simulate::missingIC="Missing initial conditions encountered for `1`.";
 simulate::missingParam="Missing parameter values encountered for `1`.";
 simulate::specProfile="The option \"SpeciesProfiles\" can be specified either as \"Concentrations\" or \"Particles\" but not as `1`";
 simulate::NDSolveProblem="Something unexpected happend. Manual inspection of the ODE might be necessary.";
+simulate::DSolveProblem="Something unexpected happend. Manual inspection of the ODE might be necessary.";
 simulate::ParametricNDSolveProblem="Something unexpected happend. Manual inspection of the ODE might be necessary.";
 simulate::ignrevents="Mathematica `1` does not provide support for events. Events will be ignored.";
 simulate::plld="The start time (`1`) and final time (`2`) must have distinct machine-precision numerical values.";
@@ -135,7 +136,7 @@ solveSimulate[model_MASSmodel,equations_List,parameters_List,missingParam_List,t
 		];
 		
 		If[Head[rawSolution]===DSolve,
-			Message[simulate::DSolveProblem;Abort[]
+			Message[simulate::DSolveProblem];Abort[]
 		];
 		(*Run NDSolve and check for missing parameter values if NDSolve::ndnum is raised*)
 		(*catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;*)
@@ -213,6 +214,10 @@ setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_ratecons
 
 
 setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_rateconst|_parameter|metabolite[_,"Xt"])->(_Unit|_?NumberQ))...},model_MASSmodel]:=setSimulationParameters[sim,parameters,model["Reactions"]];
+
+
+
+
 
 
 (* ::Subsection:: *)
