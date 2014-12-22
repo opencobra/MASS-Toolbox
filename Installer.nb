@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     18208,        523]
-NotebookOptionsPosition[     16931,        471]
-NotebookOutlinePosition[     17409,        493]
-CellTagsIndexPosition[     17335,        488]
+NotebookDataLength[     15298,        443]
+NotebookOptionsPosition[     14019,        391]
+NotebookOutlinePosition[     14496,        413]
+CellTagsIndexPosition[     14422,        408]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -55,36 +55,16 @@ Cell[BoxData[{
          StyleBox[
           RowBox[{"DeleteDirectory", "::", "nodir"}], "MessageName"], "}"}]}],
         "]"}], ";", "\[IndentingNewLine]", 
-      RowBox[{"Quiet", "[", 
-       RowBox[{
-        RowBox[{"DeleteDirectory", "[", 
-         RowBox[{
-          RowBox[{"FileNameJoin", "[", 
-           RowBox[{"{", 
-            RowBox[{"path", ",", "\"\<AutomaticUnits\>\""}], "}"}], "]"}], 
-          ",", 
-          RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}], ",", 
-        RowBox[{"{", 
-         StyleBox[
-          RowBox[{"DeleteDirectory", "::", "nodir"}], "MessageName"], "}"}]}],
-        "]"}], ";", "\[IndentingNewLine]", 
       RowBox[{"CopyDirectory", "[", 
        RowBox[{"\"\<Toolbox\>\"", ",", 
         RowBox[{"FileNameJoin", "[", 
          RowBox[{"{", 
           RowBox[{"path", ",", "\"\<Toolbox\>\""}], "}"}], "]"}]}], "]"}], 
-      ";", "\[IndentingNewLine]", 
-      RowBox[{"CopyDirectory", "[", 
-       RowBox[{"\"\<AutomaticUnits\>\"", ",", 
-        RowBox[{"FileNameJoin", "[", 
-         RowBox[{"{", 
-          RowBox[{"path", ",", "\"\<AutomaticUnits\>\""}], "}"}], "]"}]}], 
-       "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+      ";"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{"install", "[", "]"}]}], "Input",
  CellChangeTimes->{{3.624074264671877*^9, 3.6240742731735888`*^9}, {
   3.624074650996521*^9, 3.6240746959425087`*^9}, {3.6256129091812162`*^9, 
-  3.625612912606317*^9}},
+  3.625612912606317*^9}, {3.628267099491096*^9, 3.6282671069533854`*^9}},
  CellTags->"InstallCode"]
 }, Open  ]],
 
@@ -149,49 +129,8 @@ installation of the Toolbox. It will not be removed.\>\""}],
        RowBox[{"installationDirectory", ",", 
         RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}]}], 
      "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"installationDirectory", "=", 
-   RowBox[{"FileNameJoin", "[", 
-    RowBox[{
-     RowBox[{"FileNameSplit", "[", 
-      RowBox[{"DirectoryName", "[", 
-       RowBox[{"FindFile", "[", "\"\<AutomaticUnits`\>\"", "]"}], "]"}], 
-      "]"}], "[", 
-     RowBox[{"[", 
-      RowBox[{";;", 
-       RowBox[{"-", "2"}]}], "]"}], "]"}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"If", "[", 
-   RowBox[{
-    RowBox[{"MemberQ", "[", 
-     RowBox[{
-      RowBox[{"FileNameTake", "/@", 
-       RowBox[{"FileNames", "[", 
-        RowBox[{"\"\<.*\>\"", ",", 
-         RowBox[{"{", 
-          RowBox[{"DirectoryName", "[", "installationDirectory", "]"}], 
-          "}"}]}], "]"}]}], ",", "\"\<.git\>\""}], "]"}], ",", 
-    "\[IndentingNewLine]", 
-    RowBox[{"Message", "[", 
-     RowBox[{
-      RowBox[{"Toolbox", "::", "gitrepository"}], ",", 
-      "installationDirectory"}], "]"}], ",", "\[IndentingNewLine]", 
-    RowBox[{"If", "[", 
-     RowBox[{
-      RowBox[{"ChoiceDialog", "[", 
-       RowBox[{"StringJoin", "[", 
-        RowBox[{
-        "\"\<Are you sure that you want to delete the following directory:\\n\
-\>\"", ",", "installationDirectory", ",", 
-         "\"\<\\nThis action cannot be undone.\>\""}], "]"}], "]"}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{"DeleteDirectory", "[", 
-       RowBox[{"installationDirectory", ",", 
-        RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}]}], 
-     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], 
-  ";"}]}], "Input"]
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.628267132443421*^9, 3.628267135314639*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -266,19 +205,6 @@ Cell[BoxData[{
          StyleBox[
           RowBox[{"DeleteDirectory", "::", "nodir"}], "MessageName"], "}"}]}],
         "]"}], ";", "\[IndentingNewLine]", 
-      RowBox[{"Quiet", "[", 
-       RowBox[{
-        RowBox[{"DeleteDirectory", "[", 
-         RowBox[{
-          RowBox[{"FileNameJoin", "[", 
-           RowBox[{"{", 
-            RowBox[{"path2", ",", "\"\<AutomaticUnits\>\""}], "}"}], "]"}], 
-          ",", 
-          RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}], ",", 
-        RowBox[{"{", 
-         StyleBox[
-          RowBox[{"DeleteDirectory", "::", "nodir"}], "MessageName"], "}"}]}],
-        "]"}], ";", "\[IndentingNewLine]", 
       RowBox[{"CopyDirectory", "[", 
        RowBox[{"\"\<Toolbox\>\"", ",", 
         RowBox[{"FileNameJoin", "[", 
@@ -293,12 +219,6 @@ Cell[BoxData[{
          "]"}], ",", 
         RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}], ";", 
       "\[IndentingNewLine]", 
-      RowBox[{"CopyDirectory", "[", 
-       RowBox[{"\"\<AutomaticUnits\>\"", ",", 
-        RowBox[{"FileNameJoin", "[", 
-         RowBox[{"{", 
-          RowBox[{"path2", ",", "\"\<AutomaticUnits\>\""}], "}"}], "]"}]}], 
-       "]"}], ";", "\[IndentingNewLine]", 
       RowBox[{"CopyDirectory", "[", 
        RowBox[{"\"\<build/Toolbox/Documentation\>\"", ",", 
         RowBox[{"FileNameJoin", "[", 
@@ -349,7 +269,7 @@ Cell[BoxData[{
  RowBox[{"deploy", "[", "\"\</Users/niko/tmp/\>\"", "]"}]}], "Input",
  CellChangeTimes->{{3.581985596844112*^9, 3.581985649162616*^9}, {
   3.581985714758624*^9, 3.5819857820525*^9}, {3.581985898542766*^9, 
-  3.5819859256030207`*^9}}]
+  3.5819859256030207`*^9}, {3.628267143997563*^9, 3.628267155460804*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -467,11 +387,11 @@ Cell[BoxData["\<\"(* ::Package:: *)\\n\\n(** User Mathematica initialization \
 file **)\"\>"], "Output"]
 }, Open  ]]
 }, Open  ]]
-}, Closed]]
+}, Open  ]]
 },
 WindowSize->{967, 450},
 WindowMargins->{{29, Automatic}, {Automatic, 21}},
-FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 4, \
 2014)",
 StyleDefinitions->"Default.nb"
 ]
@@ -481,13 +401,13 @@ StyleDefinitions->"Default.nb"
 (*CellTagsOutline
 CellTagsIndex->{
  "InstallCode"->{
-  Cell[761, 29, 2275, 58, 165, "Input",
+  Cell[761, 29, 1559, 38, 114, "Input",
    CellTags->"InstallCode"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"InstallCode", 17242, 482}
+ {"InstallCode", 14329, 402}
  }
 *)
 (*NotebookFileOutline
@@ -495,36 +415,36 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[579, 22, 67, 0, 44, "Subsection"],
 Cell[649, 24, 109, 3, 30, "Text"],
-Cell[761, 29, 2275, 58, 165, "Input",
+Cell[761, 29, 1559, 38, 114, "Input",
  CellTags->"InstallCode"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3073, 92, 69, 0, 44, "Subsection"],
-Cell[3145, 94, 129, 3, 30, "Text"],
-Cell[3277, 99, 3464, 94, 369, "Input"]
+Cell[2357, 72, 69, 0, 44, "Subsection"],
+Cell[2429, 74, 129, 3, 30, "Text"],
+Cell[2561, 79, 1985, 53, 233, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6778, 198, 97, 2, 44, "Subsection"],
-Cell[6878, 202, 6206, 149, 403, "Input"]
+Cell[4583, 137, 97, 2, 44, "Subsection"],
+Cell[4683, 141, 5489, 130, 403, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13121, 356, 62, 0, 44, "Subsection"],
+Cell[10209, 276, 62, 0, 44, "Subsection"],
 Cell[CellGroupData[{
-Cell[13208, 360, 30, 0, 70, "Subsubsection"],
+Cell[10296, 280, 30, 0, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[13263, 364, 1842, 50, 70, "Input"],
-Cell[15108, 416, 565, 8, 70, "Output"]
+Cell[10351, 284, 1842, 50, 199, "Input"],
+Cell[12196, 336, 565, 8, 199, "Output"]
 }, Open  ]],
-Cell[15688, 427, 56, 1, 70, "Input"]
+Cell[12776, 347, 56, 1, 28, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[15781, 433, 32, 0, 70, "Subsubsection"],
+Cell[12869, 353, 32, 0, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[15838, 437, 946, 26, 70, "Input"],
-Cell[16787, 465, 104, 1, 70, "Output"]
+Cell[12926, 357, 946, 26, 131, "Input"],
+Cell[13875, 385, 104, 1, 63, "Output"]
 }, Open  ]]
 }, Open  ]]
-}, Closed]]
+}, Open  ]]
 }
 ]
 *)
