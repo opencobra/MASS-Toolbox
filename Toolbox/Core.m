@@ -1135,7 +1135,7 @@ deleteReactions[model_MASSmodel,rxnIDs:{(_String|_v)..}]:=Module[{modelTmp,notIn
 	setModelAttribute[modelTmp,"Ignore",Select[model["Ignore"],MemberQ[modelTmp["Species"],#]&],"Sloppy"->True];
 	setModelAttribute[modelTmp,"ID",model["ID"],"Sloppy"->True];
 	setModelAttribute[modelTmp,"Name",model["Name"],"Sloppy"->True];
-	setModelAttribute[modelTmp,"InitialConditions",DeleteCases[model["InitialConditions"],r_Rule/;!MemberQ[modelTmp["Species"],r[[1]]]&&!MemberQ[modelTmp["Fluxes"],r[[1]]]],"Sloppy"->True];
+	setModelAttribute[modelTmp,"InitialConditions",DeleteCases[model["InitialConditions"],r_Rule/;!MemberQ[modelTmp["Species"],r[[1]]]&&!MemberQ[modelTmp["Fluxes"],r[[1]]]&&!MatchQ[r[[1]],_parameter]],"Sloppy"->True];
 	setModelAttribute[modelTmp,"Constraints",DeleteCases[model["Constraints"],r_Rule/;!MemberQ[modelTmp["Fluxes"],r[[1]]]],"Sloppy"->True];
 	setModelAttribute[modelTmp,"CustomRateLaws",DeleteCases[model["CustomRateLaws"],r_Rule/;!MemberQ[modelTmp["Fluxes"],r[[1]]]],"Sloppy"->True];
 	setModelAttribute[modelTmp,"CustomODE",model["CustomODE"],"Sloppy"->True];
