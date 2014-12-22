@@ -18,7 +18,7 @@ Needs["DifferentialEquations`InterpolatingFunctionAnatomy`"]
 (*simulate*)
 
 
-Options[simulate]={"InitialConditions"->{},"Parameters"->{},"Events"->{},"tFinal"->Infinity,"tStart"->0,"SpeciesProfiles"->"Concentrations","ParametricSolve"->False,"SimulationParameters"->{}};
+Options[simulate]={"InitialConditions"->{},"Parameters"->{},"Events"->{},"tFinal"->Infinity,"tStart"->0,"SpeciesProfiles"->"Concentrations","ExactSolve"->False,"ParametricSolve"->False,"SimulationParameters"->{}};
 simulate::missingIC="Missing initial conditions encountered for `1`.";
 simulate::missingParam="Missing parameter values encountered for `1`.";
 simulate::specProfile="The option \"SpeciesProfiles\" can be specified either as \"Concentrations\" or \"Particles\" but not as `1`";
@@ -26,6 +26,8 @@ simulate::NDSolveProblem="Something unexpected happend. Manual inspection of the
 simulate::ParametricNDSolveProblem="Something unexpected happend. Manual inspection of the ODE might be necessary.";
 simulate::ignrevents="Mathematica `1` does not provide support for events. Events will be ignored.";
 simulate::plld="The start time (`1`) and final time (`2`) must have distinct machine-precision numerical values.";
+simulate::BadOptions="ParametricSolve cannot be run at the same time as ExactSolve. Setting ExactSolve->False and continuing evaluation.";
+
 
 simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve,ParametricNDSolve}]]:=
 	Module[{repl,ode,events,initialConditions,allConstants,missingParam,parameters,equations,solution,fluxSolution,tStart,tFinal,vars,units,ic,dsolveSol,rawSolution,simParam},
@@ -76,6 +78,8 @@ simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve,Parametric
 		allConstants=Union[Cases[equations,(_Keq|_rateconst|_parameter|metabolite[_,"Xt"]),\[Infinity]]];
 		missingParam=Join[Complement[allConstants,First/@model["Parameters"]],simParam];
 
+		If[OptionValue["ParametricSolve"]&&OptionValue["ExactSolve"],Message[simulate::BadOptions]];
+
 		(* Use ParametricNDSolve or DSolve/NDSolve based on the option value *)
 		If[OptionValue["ParametricSolve"]||OptionValue["SimulationParameters"]!={},
 			parametricSimulate[model,equations,parameters,missingParam,tStart,tFinal,units,opts],
@@ -113,17 +117,12 @@ solveSimulate[model_MASSmodel,equations_List,parameters_List,missingParam_List,t
 			Message[simulate::missingParam,missingParam];Abort[];
 		];
 
-		(* Try DSolve, but time out after 2 seconds *)
-		dsolveSol=TimeConstrained[
+		(* Use DSolve only if explicitly asked for *)
+		rawSolution = If[OptionValue["ExactSolve"],
 			Quiet@Check[
 				DSolve[equations,model["Variables"],t,FilterRules[{opts}, Options[DSolve]]],
-				DSolve[]
+				Message[simulate::DSolveProblem];DSolve[]
 			],
-			2, Quiet@DSolve[]
-		];
-
-		(* If DSolve fails, use NDSolve *)
-		rawSolution=If[Head[dsolveSol]===DSolve,
 			Check[
 				Quiet[Check[
 					NDSolve[equations,model["Variables"],{t,tStart,tFinal},FilterRules[{opts}, Options[NDSolve]]],
@@ -132,10 +131,12 @@ solveSimulate[model_MASSmodel,equations_List,parameters_List,missingParam_List,t
 					],{NDSolve::derivs}],
 				Message[simulate::NDSolveProblem];Abort[];,
 				{NDSolve::ndode,NDSolve::idelay,NDSolve::icfail,NDSolve::nderr,NDSolve::underdet,NDSolve::overdet,NDSolve::ndinnt}
-			],
-			dsolveSol
+			]
 		];
-
+		
+		If[Head[rawSolution]===DSolve,
+			Message[simulate::DSolveProblem;Abort[]
+		];
 		(*Run NDSolve and check for missing parameter values if NDSolve::ndnum is raised*)
 		(*catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;*)
 		(*catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;*)
