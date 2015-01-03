@@ -105,14 +105,13 @@ insetLegend[labels_List,opts:OptionsPattern[]]:=insetLegend[labels,Hold@Sequence
 
 (*Options[plotSimulation]=updateRules[Union[Options[LogLogPlot],Options[ListPlot]],{"PlotFunction"->LogLogPlot,"Tooltipped"->True,"ZeroFac"->1*^-6,Joined->True,"Legend"->False}];*)
 Options[plotSimulation]={"PlotFunction"->LogLogPlot,"Tooltipped"->True,"ZeroFac"->1*^-6,Joined->True,"Legend"->False,"PlotLegends"->None};
-plotSimulation[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ,tStep_:.1},opts:OptionsPattern[{plotSimulation,LogLogPlot,ListPlot}]]:=Module[{interPolDat,numericalDat,plotFunction,plotOpts,fac,interPolPlot,numericalPlotFunction,numericalPlot,legend},
+plotSimulation[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ,tStep_:.1},opts:OptionsPattern[{plotSimulation,LogLogPlot,ListPlot}]]:=Module[{interPolDat,exactDat,plotFunction,plotOpts,fac,interPolPlot,exactPlot,legend},
 	interPolDat=Cases[simulation,r_Rule/;MemberQ[r,InterpolatingFunction[__][_],\[Infinity]]||NumberQ[r[[2]]],\[Infinity]];
-	numericalDat=DeleteCases[Complement[simulation,interPolDat],r_Rule/;r[[2]]==0.];
-	numericalDat=If[OptionValue["Tooltipped"],MapIndexed[Tooltip[#,ToString[#2//First]]&,numericalDat[[All,2]]],numericalDat[[All,2]]];
+	exactDat=Complement[simulation,interPolDat];
 	interPolDat=interPolDat/.{elem:InterpolatingFunction[__][t]:>elem,elem:InterpolatingFunction[__]:>elem[t]};
 	interPolDat=If[OptionValue["Tooltipped"],Thread[Tooltip[stripUnits@interPolDat[[All,2]],(interPolDat[[All,1]]*(interPolDat[[All,2]]/.InterpolatingFunction[___][t]:>1)/.{u_Unit:>u[[2]],_?NumberQ:>1})]],stripUnits@interPolDat[[All,2]]];
+	exactDat=If[OptionValue["Tooltipped"],Thread[Tooltip[stripUnits@exactDat[[All,2]],(exactDat[[All,1]]*(exactDat[[All,2]])/.{u_Unit:>u[[2]],_?NumberQ:>1})]],stripUnits@exactDat[[All,2]]];
 	plotFunction=OptionValue["PlotFunction"];
-	numericalPlotFunction=ToExpression["List"<>ToString[plotFunction]];
 	If[$VersionNumber<9,
 	legend=If[OptionValue["Legend"]===True||MatchQ[OptionValue["PlotLegends"],Automatic|"Expressions"],
 		Epilog->If[OptionQ[OptionValue["Legend"]],
@@ -120,16 +119,20 @@ plotSimulation[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ,tStep_
 			insetLegend[StandardForm/@simulation[[All,1]],If[OptionValue["PlotStyle"]===Automatic,Hold@Sequence[],Directive/@OptionValue["PlotStyle"]]]],Epilog->{}];,
 	legend=If[OptionValue["Legend"]===True||MatchQ[OptionValue["PlotLegends"],Automatic|"Expressions"],PlotLegends->simulation[[All,1]],PlotLegends->OptionValue["PlotLegends"]];
 	];
+	fac=If[tMin==0&&(plotFunction===LogLogPlot||plotFunction===LogLinearPlot),OptionValue["ZeroFac"],0.];
+	plotOpts=FilterRules[{opts},Options[plotFunction]];
 	If[interPolDat!={},
-		plotOpts=FilterRules[{opts},Options[plotFunction]];
-		fac=If[tMin==0&&(plotFunction===LogLogPlot||plotFunction===LogLinearPlot),OptionValue["ZeroFac"],0.];
 		Quiet@Check[interPolPlot=plotFunction[Evaluate[interPolDat],{t,Evaluate[tMin+fac],tMax},Evaluate[legend],Evaluate[Sequence@@plotOpts]],None,InterpolatingFunction::dmval];,
 		interPolPlot={};
 	];
-	If[numericalDat!={},
-		numericalPlot=numericalPlotFunction[numericalDat,Sequence@@FilterRules[{opts},Options[numericalPlotFunction]],Joined->True,PlotRange->{{Evaluate[tMin+fac],tMax},All}],numericalPlot={}];
-		Show[Sequence@@Flatten[{interPolPlot,numericalPlot}]]
+	If[exactDat!={},
+		exactPlot=plotFunction[exactDat,{t,Evaluate[tMin+fac],tMax},Evaluate[legend],Evaluate[Sequence@@plotOpts]];,
+		exactPlot={};
 	];
+	
+	Show[Sequence@@Flatten[{interPolPlot,exactPlot}]]
+];
+
 plotSimulation[simulation:{_Rule..},opts:OptionsPattern[]]:=Module[{tStart,tEnd,adjusted},
 	adjusted=simulation/.{elem:InterpolatingFunction[__][t]:>elem,elem:InterpolatingFunction[__]:>elem[t]};
 	{tStart,tEnd}={Max[#[[1]]],Min[#[[2]]]}&@Transpose[Cases[adjusted,InterpolatingFunction[{{start_,end_}},___][_]:>{start,end},\[Infinity]]];
