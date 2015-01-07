@@ -28,7 +28,7 @@ latestRelease[]:=
 
 
 Clear[Global`progress];
-Module[{version,directory,fileName,url,progFunction,task1,task2,newDirectory,installNotebook,nb,cell},
+Module[{version,directory,fileName,url,progFunction,task1,task2,newDirectory,installNotebook,nb},
 	(* Find latest version *)
 	version = latestRelease[];
 
@@ -47,14 +47,12 @@ Module[{version,directory,fileName,url,progFunction,task1,task2,newDirectory,ins
 	Print["Please wait. Extracting Files..."];
 	task2=ExtractArchive[fileName,directory];
 	WaitAsynchronousTask[task2];
-	DeleteFile[fileName];
-	DeleteFile[FileNameJoin[{directory,"pax_global_header"}]];
 
 	(* Install new Toolbox *)
 	newDirectory=FileNameJoin[{directory,"MASS-Toolbox-"<>version}];
 	installNotebook=FileNameJoin[{newDirectory,"Installer.nb"}];
-	nb=NotebookOpen[installNotebook,Visible->False];
-	cell=NotebookLocate[{installNotebook,"InstallCode"}];
+	nb=NotebookOpen[installNotebook,Visible->True];
+	SelectionMove[nb,Next,Cell,3];
 	SelectionEvaluateCreateCell[nb];
 	NotebookClose[nb];
 	Print["The MASS Toolbox was successfully installed! To load the Toolbox, quit the kernel and run \"<<Toolbox`\""];
