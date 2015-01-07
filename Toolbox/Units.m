@@ -74,4 +74,14 @@ Toolbox`Private`prefixify[name_String]:=(#<>name<>" = "<>ToString[Quantity[#<>na
 ToExpression/@Toolbox`Private`prefixify[#]&/@{"mole","coulomb","farad","joule","gram","meter","mole","newton","liter","second"}
 
 
+(* ::Subsubsection:: *)
+(*Backwards Compatibility*)
+
+
+AutomaticUnits`Unit[number_,unit_]:=Quantity[number,unit/.(string_String:>(ToUpperCase[StringTake[string,1]]<>StringDrop[string,1]<>"s"))];
+
+
+Unit[number_,unit_]:=Quantity[number,unit/.(string_String:>(ToUpperCase[StringTake[string,1]]<>StringDrop[string,1]<>"s"))];
+
+
 End[]
