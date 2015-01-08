@@ -49,12 +49,13 @@ Module[{version,directory,fileName,url,progFunction,task1,task2,newDirectory,ins
 	WaitAsynchronousTask[task2];
 
 	(* Install new Toolbox *)
+	Print["Installing Toolbox..."];
 	newDirectory=FileNameJoin[{directory,"MASS-Toolbox-"<>version}];
 	installNotebook=FileNameJoin[{newDirectory,"Installer.nb"}];
 	nb=NotebookOpen[installNotebook,Visible->False];
 	SelectionMove[nb,Next,Cell,3];
 	SelectionEvaluate[nb];
-	Pause[1];
+	Pause[2];
 	NotebookClose[nb];
 	Print["The MASS Toolbox was successfully installed! To load the Toolbox, quit the kernel and run \"<<Toolbox`\""];
 ];
