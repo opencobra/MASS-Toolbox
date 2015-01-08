@@ -206,11 +206,13 @@ updateToolbox[version_String,OptionsPattern[]]:=
 		(* Install new version of mathematica *)
 		If[OptionValue[Install]==True,
 			Module[{installNotebook,nb,cell},
+				Print["Installing Toolbox..."];
 				newDirectory=FileNameJoin[{directory,"MASS-Toolbox-"<>version}];
 				installNotebook=FileNameJoin[{newDirectory,"Installer.nb"}];
 				nb=NotebookOpen[installNotebook,Visible->False];
-				cell=NotebookLocate[{installNotebook,"InstallCode"}];
-				SelectionEvaluateCreateCell[nb];
+				SelectionMove[nb,Next,Cell,3];
+				SelectionEvaluate[nb];
+				Pause[2];
 				NotebookClose[nb];
 				Print["The MASS Toolbox was successfully updated and installed!"];
 			],
