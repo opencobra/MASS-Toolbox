@@ -117,7 +117,7 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	Toolbox`Toolbox::badargs="There is no definition for '`1`' applicable to `2`.";
 	names = Complement[ToExpression[Select[Names["Toolbox`*"],StringFreeQ[#,"$"]&]],Toolbox`$MASS$headTypes];
 	rules={func->#}&/@names;
-	messageCode = Hold[def:func[___]:=(Message[Toolbox`Toolbox::badargs,Evaluate[func],Defer@def];Abort[])]/.rules;
+	messageCode = Hold[def:func[___]:=(Off[LessEqual::nord];Message[Toolbox`Toolbox::badargs,Evaluate[func],Defer@def];On[LessEqual::nord];Abort[])]/.rules;
 	ReleaseHold/@messageCode;
 
 	(* Protect all public function names *)
