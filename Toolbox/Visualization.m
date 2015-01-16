@@ -110,7 +110,7 @@ plotSimulation[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ,tStep_
 	numericalDat=DeleteCases[Complement[simulation,interPolDat],r_Rule/;r[[2]]==0.];
 	numericalDat=If[OptionValue["Tooltipped"],MapIndexed[Tooltip[#,ToString[#2//First]]&,numericalDat[[All,2]]],numericalDat[[All,2]]];
 	interPolDat=interPolDat/.{elem:InterpolatingFunction[__][t]:>elem,elem:InterpolatingFunction[__]:>elem[t]};
-	interPolDat=If[OptionValue["Tooltipped"],Thread[Tooltip[stripUnits@interPolDat[[All,2]],(interPolDat[[All,1]]*(interPolDat[[All,2]]/.InterpolatingFunction[___][t]:>1)/.{u_Quantity:>u[[2]],_?NumberQ:>1})]],stripUnits@interPolDat[[All,2]]];
+	interPolDat=If[OptionValue["Tooltipped"],Thread[Tooltip[stripUnits@interPolDat[[All,2]],(interPolDat[[All,1]]*(interPolDat[[All,2]]/.InterpolatingFunction[___][t]:>1)/.{u_Quantity:>Quantity["",u[[2]]],_?NumberQ:>1})]],stripUnits@interPolDat[[All,2]]];
 	plotFunction=OptionValue["PlotFunction"];
 	numericalPlotFunction=ToExpression["List"<>ToString[plotFunction]];
 	If[$VersionNumber<9,
