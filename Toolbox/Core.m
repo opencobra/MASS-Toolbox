@@ -302,7 +302,7 @@ calcPERC[rate_,opts:OptionsPattern[]]:=Module[{getFluxID,fluxID,ssFlux,solution,
 			solution=Solve[ssFlux==finalRate,rateconst[fluxID,False]][[1,1]];
 			solution,
 			
-			finalRate=k2keq[rateClean]/.elem_[t]:>elem/.Dispatch@OptionValue["SteadyStateConcentrations"]/.Dispatch@FilterRules[OptionValue["Parameters"],Except[_rateconst]]/.Unit[0.,_]->0;
+			finalRate=k2keq[rateClean]/.elem_[t]:>elem/.Dispatch@OptionValue["SteadyStateConcentrations"]/.Dispatch@FilterRules[OptionValue["Parameters"],Except[_rateconst]]/.Quantity[0.,_]->0;
 			If[(ssFlux==finalRate)===False,
 				Message[calcPERC::inconsistent,fluxID,ssFlux];Abort[];
 			];
@@ -374,7 +374,8 @@ calcKappa[rateconstants_List]:=DiagonalMatrix[rateconstants]
 (*Unit support*)
 
 
-stripUnits[expr_]:=Module[{replacementRules=Thread[Rule[Symbol/@Names["Units`*"],1]]},DropUnits[expr/.Dispatch[replacementRules]]]
+stripUnits[expr_] := Module[{replacementRules = (Quantity[x_,_] -> x)}, 
+   expr /. Dispatch[replacementRules]]
 
 
 Options[getReactionOrders]={"Ignore"->{}};
@@ -389,16 +390,16 @@ getReactionOrders[rxn_reaction,opts:OptionsPattern[]]:=Module[{fwdOrder,revOrder
 
 
 spatialDimension[units_]:=Module[{si},
-	si={Quiet[Convert[units,"MKS"],{Unit::noavailableunit}]}/.Sign->Sequence;
+	si={UnitConvert[units]}/.Sign->Sequence;
 	Which[
-		MemberQ[si,Power["Meter",_],\[Infinity]],Cases[si,Power["Meter",exp_]:>exp,\[Infinity]][[1]],
-		MemberQ[si,"Meter",\[Infinity]],1,
+		MemberQ[si,Power["Meters",_],\[Infinity]],Cases[si,Power["Meters",exp_]:>exp,\[Infinity]][[1]],
+		MemberQ[si,"Meters",\[Infinity]],1,
 		True,0
 	]
 ];
 
 
-Options[spatialUnit]={"DefaultVolumeUnit"->Liter,"DefaultSurfaceUnit"->Meter^2,"DefaultLengthUnit"->Meter};
+Options[spatialUnit]={"DefaultVolumeUnit"->Quantity["Liters"],"DefaultSurfaceUnit"->Quantity["Meters"^2],"DefaultLengthUnit"->Quantity["Meters"]};
 spatialUnit::spatialUnitRxnOrderMismatch="The ratio of detected spatial unit `1` and provided reaction order `2` is not a positive integer or 0.";
 spatialUnit[stuff_,rxnOrder_?NumberQ,opts:OptionsPattern[]]:=Module[{dim,correctedDim},
 	dim=spatialDimension[stuff];
@@ -423,7 +424,7 @@ spatialUnit[stuff_,opts:OptionsPattern[]]:=Module[{dim},
 ];
 
 
-Options[adjustUnits]={"Ignore"->{},"DefaultAmountUnit"->Millimole,"DefaultVolumeUnit"->Liter,"DefaultSurfaceUnit"->Meter^2,"DefaultLengthUnit"->Meter,"DefaultMassUnit"->Gram,"DefaultTimeUnit"->Hour};
+Options[adjustUnits]={"Ignore"->{},"DefaultAmountUnit"->Quantity["Millimoles"],"DefaultVolumeUnit"->Quantity["Liters"],"DefaultSurfaceUnit"->Quantity["Meters"^2],"DefaultLengthUnit"->Quantity["Meters"],"DefaultMassUnit"->Quantity["Grams"],"DefaultTimeUnit"->Quantity["Hours"]};
 adjustUnits::unknownParmeterOrSpeciesType="No unit adjustment rules available for `1`.";
 adjustUnits::noUnitsProvidedCompartment="No units provided for `1`. `2` assumed: `3`";
 adjustUnits::noUnitsProvidedSpecies="No units provided for `1`. `2` assumed: `3`";
@@ -444,22 +445,22 @@ adjustUnits[stuff:{_Rule...},rxns:{_reaction...}:{},opts:OptionsPattern[]]:=Modu
 	defaultConcUnit=defaultAmountUnit defaultVolumeUnit^-1;
 	defaultFluxUnit=defaultAmountUnit (*defaultVolumeUnit^-1*) defaultTimeUnit^-1;
 
-	catchIncomp=Function[{expr,elem},Check[expr,Message[adjustUnits::incomp,elem];Abort[];,{Convert::incomp,Unit::incomp2,spatialUnit::spatialUnitRxnOrderMismatch}],{HoldFirst}];
+	catchIncomp=Function[{expr,elem},Check[expr,Message[adjustUnits::incomp,elem];Abort[];,{Quantity::compat,spatialUnit::spatialUnitRxnOrderMismatch}],{HoldFirst}];
 	unitLessQ=(NumberQ[#]||#===\[Infinity])&;
 
 	getVolumeUnit1=spatialUnit[#,Sequence@@FilterRules[updateRules[Options[adjustUnits],List[opts]],Options[spatialUnit]]]&;
 	getVolumeUnit2=spatialUnit[#1,#2,Sequence@@FilterRules[updateRules[Options[adjustUnits],List[opts]],Options[spatialUnit]]]&;
 
-	volumeHelper=If[unitLessQ[#[[2]]],Message[adjustUnits::noUnitsProvidedCompartment,#[[1]],OptionValue["DefaultVolumeUnit"],#[[2]]OptionValue["DefaultVolumeUnit"]];#[[2]]OptionValue["DefaultVolumeUnit"],Convert[#[[2]],getVolumeUnit1[#[[2]]]]]&;
-	speciesHelper=If[unitLessQ[#[[2]]],Message[adjustUnits::noUnitsProvidedSpecies,#[[1]],defaultConcUnit,#[[2]]defaultConcUnit];#[[2]]defaultConcUnit,Convert[#[[2]],defaultAmountUnit/getVolumeUnit1[#[[2]]]]]&;
-	fluxHelper=If[unitLessQ[#[[2]]],Message[adjustUnits::noUnitsProvidedFlux,#[[1]],defaultFluxUnit,#[[2]]defaultFluxUnit];#[[2]]defaultFluxUnit,Convert[#[[2]],defaultAmountUnit getVolumeUnit1[#[[2]]]^-1 defaultTimeUnit^-1]]&;
+	volumeHelper=If[unitLessQ[#[[2]]],Message[adjustUnits::noUnitsProvidedCompartment,#[[1]],OptionValue["DefaultVolumeUnit"],#[[2]]OptionValue["DefaultVolumeUnit"]];#[[2]]OptionValue["DefaultVolumeUnit"],UnitConvert[#[[2]],getVolumeUnit1[#[[2]]]]]&;
+	speciesHelper=If[unitLessQ[#[[2]]],Message[adjustUnits::noUnitsProvidedSpecies,#[[1]],defaultConcUnit,#[[2]]defaultConcUnit];#[[2]]defaultConcUnit,UnitConvert[#[[2]],defaultAmountUnit/getVolumeUnit1[#[[2]]]]]&;
+	fluxHelper=If[unitLessQ[#[[2]]],Message[adjustUnits::noUnitsProvidedFlux,#[[1]],defaultFluxUnit,#[[2]]defaultFluxUnit];#[[2]]defaultFluxUnit,UnitConvert[#[[2]],defaultAmountUnit getVolumeUnit1[#[[2]]]^-1 defaultTimeUnit^-1]]&;
 
 	fwdRateConstHelper=(rxn=getID[#[[1]]]/.id2rxns;If[!MatchQ[rxn,_reaction],Message[adjustUnits::noRxnInfo,#];Abort[];];
 		rxnOrder=getReactionOrders[rxn,Ignore->OptionValue["Ignore"]][[1]];
 		compartmentFactor=If[MatchQ[getCompartment[rxn],(None|_List)],0,1];
 		Switch[#[[2]],
 			_?unitLessQ,(Message[adjustUnits::noUnitsProvidedRateConst,#[[1]],defaultAmountUnit,defaultVolumeUnit,defaultTimeUnit,#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-compartmentFactor) defaultTimeUnit^-1];#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-1+If[MatchQ[getCompartment[rxn],(None|_List)],1,0]) defaultTimeUnit^-1),
-			_,Convert[#[[2]],defaultAmountUnit^(1-rxnOrder) getVolumeUnit2[#[[2]],rxnOrder-compartmentFactor]^(rxnOrder-compartmentFactor) defaultTimeUnit^-1]
+			_,UnitConvert[#[[2]],defaultAmountUnit^(1-rxnOrder) getVolumeUnit2[#[[2]],rxnOrder-compartmentFactor]^(rxnOrder-compartmentFactor) defaultTimeUnit^-1]
 		])&;
 
 	revRateConstHelper=(rxn=getID[#[[1]]]/.id2rxns;If[!MatchQ[rxn,_reaction],Message[adjustUnits::noRxnInfo,#];Abort[];];
@@ -467,16 +468,16 @@ adjustUnits[stuff:{_Rule...},rxns:{_reaction...}:{},opts:OptionsPattern[]]:=Modu
 		compartmentFactor=If[MatchQ[getCompartment[rxn],(None|_List)],0,1];
 		Switch[#[[2]],
 			_?unitLessQ,(Message[adjustUnits::noUnitsProvidedRateConst,#[[1]],defaultAmountUnit,defaultVolumeUnit,defaultTimeUnit,#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-compartmentFactor) defaultTimeUnit^-1];#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-1+If[MatchQ[getCompartment[rxn],(None|_List)],1,0]) defaultTimeUnit^-1),
-			_,Convert[#[[2]],defaultAmountUnit^(1-rxnOrder) getVolumeUnit2[#[[2]],rxnOrder-compartmentFactor]^(rxnOrder-compartmentFactor) defaultTimeUnit^-1]
+			_,UnitConvert[#[[2]],defaultAmountUnit^(1-rxnOrder) getVolumeUnit2[#[[2]],rxnOrder-compartmentFactor]^(rxnOrder-compartmentFactor) defaultTimeUnit^-1]
 		])&;
 
 	keqHelper=(rxn=getID[#[[1]]]/.id2rxns;If[!MatchQ[rxn,_reaction],Message[adjustUnits::noRxnInfo,#];Abort[];];keqExp=Subtract@@Reverse[getReactionOrders[rxn,Ignore->OptionValue["Ignore"]]];    
     Switch[#[[2]],
-        _?unitLessQ,If[keqExp!=0,Message[adjustUnits::noUnitsProvidedKeq,#[[1]],defaultConcUnit,#[[2]] Convert[(defaultConcUnit)^keqExp,(defaultAmountUnit defaultVolumeUnit^-1)^keqExp]]; #[[2]] Convert[(defaultConcUnit)^keqExp,(defaultAmountUnit defaultVolumeUnit^-1)^keqExp],#[[2]]],
-        _,Convert[#[[2]],(defaultAmountUnit getVolumeUnit2[#[[2]],Abs[keqExp]]^-1)^keqExp]])&;
+        _?unitLessQ,If[keqExp!=0,Message[adjustUnits::noUnitsProvidedKeq,#[[1]],defaultConcUnit,#[[2]] UnitConvert[(defaultConcUnit)^keqExp,(defaultAmountUnit defaultVolumeUnit^-1)^keqExp]]; #[[2]] UnitConvert[(defaultConcUnit)^keqExp,(defaultAmountUnit defaultVolumeUnit^-1)^keqExp],#[[2]]],
+        _,UnitConvert[#[[2]],(defaultAmountUnit getVolumeUnit2[#[[2]],Abs[keqExp]]^-1)^keqExp]])&;
 
-	KmHelper=If[unitLessQ[#[[2]]],Message[adjustUnits::noUnitsProvidedKm,#[[1]],defaultConcUnit];#[[2]]defaultConcUnit,Convert[#[[2]],defaultAmountUnit getVolumeUnit1[#[[2]]]^-1]]&;
-	VmaxHelper=If[unitLessQ[#[[2]]],Message[adjustUnits::noUnitsProvidedVmax,#[[1]],defaultFluxUnit];#[[2]]defaultFluxUnit,Convert[#[[2]],defaultAmountUnit getVolumeUnit1[#[[2]]]^-1 defaultTimeUnit^-1]]&;
+	KmHelper=If[unitLessQ[#[[2]]],Message[adjustUnits::noUnitsProvidedKm,#[[1]],defaultConcUnit];#[[2]]defaultConcUnit,UnitConvert[#[[2]],defaultAmountUnit getVolumeUnit1[#[[2]]]^-1]]&;
+	VmaxHelper=If[unitLessQ[#[[2]]],Message[adjustUnits::noUnitsProvidedVmax,#[[1]],defaultFluxUnit];#[[2]]defaultFluxUnit,UnitConvert[#[[2]],defaultAmountUnit getVolumeUnit1[#[[2]]]^-1 defaultTimeUnit^-1]]&;
 	
 	id2rxns=Thread[(getID/@rxns)->rxns];
 	#[[1]]->Switch[#[[1]],
@@ -498,7 +499,7 @@ adjustUnits[stuff:{_Rule...},model_MASSmodel,opts:OptionsPattern[]]:=If[model["U
 (*Model construction and associated definitions*)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Attribute test patterns and callbacks*)
 
 
@@ -506,7 +507,7 @@ attributeTestPatterns={
 	"Stoichiometry"->_?MatrixQ,
 	"InitialConditions"->{((_String|_v|_species|_metabolite|_enzyme|_parameter|_complex)->(_|_?NumberQ|\[Infinity]|-\[Infinity]|NaN|Indeterminate|$MASS$unitsPattern|With[{pat=$MASS$unitsPattern},HoldPattern@Times[(pat)..]]))..}|{},
 	"Constraints"->{((_String|_v|_species|_metabolite|_enzyme)->{(_?NumberQ|-\[Infinity]),(_?NumberQ|\[Infinity])})..}|{},
-	"Parameters"->{(Join[$MASS$speciesPattern,$MASS$parametersPattern]->(_?NumberQ|Indeterminate|\[Infinity]|-\[Infinity]|NaN|_Unit))..}|{},
+	"Parameters"->{(Join[$MASS$speciesPattern,$MASS$parametersPattern]->(_?NumberQ|Indeterminate|\[Infinity]|-\[Infinity]|NaN|_Quantity))..}|{},
 	"GPR"->{((_String|_protein|_proteinComplex)->(_protein|_proteinComplex|_gene|_geneComplex|_Or))..}|{},
 	"BoundaryConditions"->{(_species|_metabolite|_enzyme)...},
 	"Constant"->{(_species|_metabolite|_enzyme)...},
@@ -588,18 +589,18 @@ constructModel[modelID_String:"",S:(_?MatrixQ|{{}}),compounds:{$MASS$speciesPatt
 			{newRowOrder,indepDepS}={Range[1,Length[S]],SparseArray[S]};
 		];
 	];
-
+	
 	initialConditions=OptionValue["InitialConditions"];
 	pat="InitialConditions"/.attributeTestPatterns;
 	If[!MatchQ[initialConditions,pat],Message[constructModel::malformedarg,"Initial conditions",Short[initialConditions,30],pat];Abort[]];
 	initialConditions=initialConditions/.(s_String->val_):>v[s]->val;
-
+	
 	parameters=OptionValue["Parameters"];
 	pat="Parameters"/.attributeTestPatterns;
 	If[!MatchQ[parameters,pat],Message[constructModel::malformedarg,"Parameter(s)",Short[parameters],pat];Abort[]];
 	(*Silently setting compartment volumes to 1 Liter if not provided*)
 	variableComp=Union[Cases[OptionValue["CustomODE"],parameter["Volume",_][t]|Derivative[_][parameter["Volume",_]][t],\[Infinity]][[All,0]]/.Derivative[_]:>Sequence];
-	parameters=updateRules[If[OptionValue["UnitChecking"],#,stripUnits[#]]&[parameter["Volume",#]->1 Liter&/@Complement[getCompartment/@Union[Select[compounds,getCompartment[#]=!=None&]],getID[#][[2]]&/@variableComp]],parameters];
+	parameters=updateRules[If[OptionValue["UnitChecking"],#,stripUnits[#]]&[parameter["Volume",#]->1 Quantity["Liters"]&/@Complement[getCompartment/@Union[Select[compounds,getCompartment[#]=!=None&]],getID[#][[2]]&/@variableComp]],parameters];
 	
 	gpr=OptionValue["GPR"];
 	pat="GPR"/.attributeTestPatterns;
@@ -615,7 +616,7 @@ constructModel[modelID_String:"",S:(_?MatrixQ|{{}}),compounds:{$MASS$speciesPatt
 	pat="Constant"/.attributeTestPatterns;
 	If[!MatchQ[constant,pat],Message[constructModel::malformedarg,"Constant",Short[constant],pat];Abort[]];
 	constant=("Constant"/.attributeCallBacks)[constant];
-
+	
 	name=OptionValue["Name"];
 	If[!MatchQ[name,(Automatic|_String)],Message[constructModel::malformedarg,"Name",Short[name],Automatic|_String];Abort[]];
 	If[name==Automatic,name=modelIDtmp];
@@ -631,11 +632,11 @@ constructModel[modelID_String:"",S:(_?MatrixQ|{{}}),compounds:{$MASS$speciesPatt
 	ignore=OptionValue["Ignore"];
 	pat="Ignore"/.attributeTestPatterns;
 	If[!MatchQ[ignore,pat],Message[constructModel::malformedarg,"Ignore",Short[ignore],pat];Abort[]];
-
+	
 	units=OptionValue["UnitChecking"];
 	pat="UnitChecking"/.attributeTestPatterns;
 	If[!MatchQ[units,pat],Message[constructModel::malformedarg,"UnitChecking",Short[units],pat];Abort[]];
-
+	
 	modelIDtmp=modelID;
 	modelIDtmp=If[OptionValue["ID"]===Automatic,modelIDtmp,OptionValue["ID"]];
 	If[modelIDtmp==="",modelIDtmp="MASSmodel"<>ToString[Unique[]]];
@@ -676,7 +677,7 @@ constructModel[modelID_String:"",S:(_?MatrixQ|{{}}),compounds:{$MASS$speciesPatt
 	objective=OptionValue["Objective"];
 	pat="Objective"/.attributeTestPatterns;
 	If[!MatchQ[objective,pat],Message[constructModel::malformedarg,"Objective",objective,pat];Abort[]];
-
+	
 	model=MASSmodel[
 			{
 			"ID"->modelIDtmp,

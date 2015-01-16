@@ -34,7 +34,7 @@ simulate[model_MASSmodel,opts:OptionsPattern[{simulate,NDSolve}]]:=Module[{repl,
 	(*Check if all initial conditions are provided*)
 	ic=FilterRules[updateRules[model["InitialConditions"],adjustUnits[OptionValue["InitialConditions"],model]],model["Variables"][[All,0]]];
 	{ic,parameters}=If[model["UnitChecking"],{ic,parameters},stripUnits[{ic,parameters}]];
-	units=#[[1]]->If[MatchQ[#[[2]],_Unit],ReplacePart[#[[2]],1->1],1]&/@ic;
+	units=#[[1]]->If[MatchQ[#[[2]],_Quantity],ReplacePart[#[[2]],1->1],1]&/@ic;
 	If[
 		vars=Union[Cases[model["Variables"],Append[$MASS$speciesPattern,_parameter][t],\[Infinity]]][[All,0]];
 		Complement[vars,#[[All,1]]]=!={},
