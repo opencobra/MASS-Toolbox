@@ -78,10 +78,10 @@ ToExpression/@Toolbox`Private`prefixify[#]&/@{"mole","coulomb","farad","joule","
 (*Backwards Compatibility*)
 
 
-AutomaticUnits`Unit[number_,unit_]:=Quantity[number,unit/.(string_String:>(ToUpperCase[StringTake[string,1]]<>StringDrop[string,1]<>"s"))];
+AutomaticUnits`Unit[number_,amount_]:=Quantity[number,amount/.(string_String:>(ToUpperCase[StringTake[string,1]]<>StringDrop[string,1]<>"s"))];
 
 
-Unit[number_,unit_]:=Quantity[number,unit/.(string_String:>(ToUpperCase[StringTake[string,1]]<>StringDrop[string,1]<>"s"))];
+Unit[number_,amount_]:=Quantity[number,amount/.(string_String:>(ToUpperCase[StringTake[string,1]]<>StringDrop[string,1]<>"s"))];
 
 
 End[]
