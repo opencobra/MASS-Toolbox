@@ -74,7 +74,7 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 ]&@Hold[
 	progtext="Loading MathSBML ...";
 	(* Mathematica Init File *)
-	MathSBML::notinstalled="MathSBML seems to be not installed. SBML import/export capabilities will be limited. MathSBML can be obtained from http://sbml.org/Software/MathSBML";
+	MathSBML::notinstalled="MathSBML seems to be not installed. SBML import/export capabilities will be limited. MathSBML can be obtained from http://mathsbml.com/mathsbml/";
 	stubStream=OpenWrite[];bkupoutput=$Output;$Output={stubStream};
 	Block[{$ContextPath},
 		Quiet[Check[Needs["MathSBML`"],$Failed(*Message[MathSBML::notinstalled]*),{Get::noopen,Needs::nocont}]];
