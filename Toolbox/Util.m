@@ -191,6 +191,7 @@ updateToolbox[version_String,OptionsPattern[]]:=
 		Print["Please wait. Downloading Toolbox v"<>version<>"..."];
 		url="https://github.com/opencobra/MASS-Toolbox/archive/v"<>version<>".tar.gz";
 		Global`progress= 0.;
+		Monitor[Null,Null];
 		progFunction[_, "progress", {dlnow_, dltotal_, _, _}]:= Quiet[Global`progress = dlnow/dltotal];
 		task1=URLSaveAsynchronous[url, fileName, progFunction, "Progress"->True];
 		Monitor[WaitAsynchronousTask[task1],Dynamic[If[!NumberQ[Global`progress],"",ProgressIndicator[Global`progress]]]];
@@ -200,8 +201,6 @@ updateToolbox[version_String,OptionsPattern[]]:=
 		Print["Please wait. Extracting Files..."];
 		task2=ExtractArchive[fileName,directory];
 		WaitAsynchronousTask[task2];
-		DeleteFile[fileName];
-		DeleteFile[FileNameJoin[{directory,"pax_global_header"}]];
 
 		(* Install new version of mathematica *)
 		If[OptionValue[Install]==True,
@@ -212,8 +211,7 @@ updateToolbox[version_String,OptionsPattern[]]:=
 				nb=NotebookOpen[installNotebook,Visible->False];
 				SelectionMove[nb,Next,Cell,3];
 				SelectionEvaluate[nb];
-				Pause[2];
-				NotebookClose[nb];
+				Pause[5];
 				Print["The MASS Toolbox was successfully updated and installed!"];
 			],
 			Print["The MASS Toolbox was successfully updated!"];
