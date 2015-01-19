@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     30531,        807]
-NotebookOptionsPosition[     29443,        771]
-NotebookOutlinePosition[     29800,        787]
-CellTagsIndexPosition[     29757,        784]
+NotebookDataLength[     30376,        800]
+NotebookOptionsPosition[     29290,        764]
+NotebookOutlinePosition[     29647,        780]
+CellTagsIndexPosition[     29604,        777]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -559,11 +559,9 @@ Cell[BoxData[
            RowBox[{
             RowBox[{"(", 
              RowBox[{"_metabolite", "->", 
-              RowBox[{"Times", "[", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{"InterpolatingFunction", "[", "___", "]"}], "[", "t",
-                  "]"}], ",", "_Unit"}], "]"}]}], ")"}], ".."}], "}"}], ",", 
+              RowBox[{
+               RowBox[{"InterpolatingFunction", "[", "___", "]"}], "[", "t", 
+               "]"}]}], ")"}], ".."}], "}"}], ",", 
           RowBox[{"{", 
            RowBox[{
             RowBox[{"(", 
@@ -575,7 +573,7 @@ Cell[BoxData[
   ";"}]], "Input",
  CellChangeTimes->{{3.628272891132621*^9, 3.628272942479985*^9}, {
   3.6282730182792807`*^9, 3.628273131222487*^9}, {3.628273550370825*^9, 
-  3.6282735596736794`*^9}}],
+  3.6282735596736794`*^9}, {3.630683224151328*^9, 3.630683237126932*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -604,9 +602,7 @@ Cell[BoxData[
           RowBox[{"{", 
            RowBox[{
             RowBox[{"(", 
-             RowBox[{"_metabolite", "->", 
-              RowBox[{"Times", "[", 
-               RowBox[{"_ParametricFunction", ",", "_Unit"}], "]"}]}], ")"}], 
+             RowBox[{"_metabolite", "->", "_ParametricFunction"}], ")"}], 
             ".."}], "}"}], ",", 
           RowBox[{"{", 
            RowBox[{
@@ -625,7 +621,8 @@ Cell[BoxData[
     "]"}], ";"}]], "Input",
  CellChangeTimes->{{3.6272400217089443`*^9, 3.627240075329957*^9}, {
   3.627240140762793*^9, 3.6272401649579268`*^9}, {3.627240212666081*^9, 
-  3.627240223710676*^9}, {3.628273532603897*^9, 3.628273534256459*^9}}],
+  3.627240223710676*^9}, {3.628273532603897*^9, 3.628273534256459*^9}, {
+  3.630683240032385*^9, 3.6306832445014753`*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -686,9 +683,7 @@ Cell[BoxData[
           RowBox[{"{", 
            RowBox[{
             RowBox[{"(", 
-             RowBox[{"_metabolite", "->", 
-              RowBox[{"Times", "[", 
-               RowBox[{"_ParametricFunction", ",", "_Unit"}], "]"}]}], ")"}], 
+             RowBox[{"_metabolite", "->", "_ParametricFunction"}], ")"}], 
             ".."}], "}"}], ",", 
           RowBox[{"{", 
            RowBox[{
@@ -709,7 +704,7 @@ Cell[BoxData[
   3.627063770546084*^9, 3.627063816441256*^9}, {3.627063857869302*^9, 
   3.627063951801902*^9}, {3.6270639846446953`*^9, 3.627064017404975*^9}, {
   3.627065085639489*^9, 3.6270650891531487`*^9}, {3.627240168114963*^9, 
-  3.627240171139687*^9}}],
+  3.627240171139687*^9}, {3.6306832507436657`*^9, 3.630683255031981*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -747,10 +742,8 @@ Cell[BoxData[
            RowBox[{
             RowBox[{"(", 
              RowBox[{"_metabolite", "->", 
-              RowBox[{"Times", "[", 
-               RowBox[{
-                RowBox[{"_InterpolatingFunction", "[", "t", "]"}], ",", 
-                "_Unit"}], "]"}]}], ")"}], ".."}], "}"}], ",", 
+              RowBox[{"_InterpolatingFunction", "[", "t", "]"}]}], ")"}], 
+            ".."}], "}"}], ",", 
           RowBox[{"{", 
            RowBox[{
             RowBox[{"(", 
@@ -763,7 +756,7 @@ Cell[BoxData[
  CellChangeTimes->{{3.62706420444763*^9, 3.6270642169725933`*^9}, {
    3.627065075908984*^9, 3.6270650763305683`*^9}, {3.627065176826091*^9, 
    3.6270653467779016`*^9}, {3.6270653902311296`*^9, 3.6270654266432533`*^9}, 
-   3.6270657038027267`*^9}],
+   3.6270657038027267`*^9, {3.6306832602480917`*^9, 3.6306832657040253`*^9}}],
 
 Cell[BoxData["results"], "Input",
  CellChangeTimes->{{3.627238723747156*^9, 3.6272387243885393`*^9}}]
@@ -800,14 +793,14 @@ Cell[7223, 197, 7482, 170, 624, "Input"],
 Cell[14708, 369, 1644, 41, 114, "Input"],
 Cell[16355, 412, 4606, 122, 148, "Input"],
 Cell[20964, 536, 359, 9, 28, "Input"],
-Cell[21326, 547, 1074, 30, 114, "Input"],
-Cell[22403, 579, 439, 12, 28, "Input"],
-Cell[22845, 593, 1315, 34, 115, "Input"],
-Cell[24163, 629, 1311, 32, 114, "Input"],
-Cell[25477, 663, 387, 10, 28, "Input"],
-Cell[25867, 675, 1454, 36, 98, "Input"],
-Cell[27324, 713, 1999, 52, 115, "Input"],
-Cell[29326, 767, 101, 1, 28, "Input"]
+Cell[21326, 547, 1030, 28, 97, "Input"],
+Cell[22359, 577, 439, 12, 28, "Input"],
+Cell[22801, 591, 1282, 33, 115, "Input"],
+Cell[24086, 626, 1311, 32, 114, "Input"],
+Cell[25400, 660, 387, 10, 28, "Input"],
+Cell[25790, 672, 1418, 34, 81, "Input"],
+Cell[27211, 708, 1959, 50, 98, "Input"],
+Cell[29173, 760, 101, 1, 28, "Input"]
 }, Open  ]]
 }
 ]
