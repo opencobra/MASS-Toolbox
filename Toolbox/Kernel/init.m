@@ -74,7 +74,7 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 ]&@Hold[
 	progtext="Loading MathSBML ...";
 	(* Mathematica Init File *)
-	MathSBML::notinstalled="MathSBML seems to be not installed. SBML import/export capabilities will be limited. MathSBML can be obtained from http://sbml.org/Software/MathSBML";
+	MathSBML::notinstalled="MathSBML seems to be not installed. SBML import/export capabilities will be limited. MathSBML can be obtained from http://mathsbml.com/mathsbml/";
 	stubStream=OpenWrite[];bkupoutput=$Output;$Output={stubStream};
 	Block[{$ContextPath},
 		Quiet[Check[Needs["MathSBML`"],$Failed(*Message[MathSBML::notinstalled]*),{Get::noopen,Needs::nocont}]];
@@ -117,7 +117,7 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	Toolbox`Toolbox::badargs="There is no definition for '`1`' applicable to `2`.";
 	names = Complement[ToExpression[Select[Names["Toolbox`*"],StringFreeQ[#,"$"]&]],Toolbox`$MASS$headTypes];
 	rules={func->#}&/@names;
-	messageCode = Hold[def:func[___]:=(Message[Toolbox`Toolbox::badargs,Evaluate[func],Defer@def];Abort[])]/.rules;
+	messageCode = Hold[def:func[___]:=(Off[LessEqual::nord];Message[Toolbox`Toolbox::badargs,Evaluate[func],Defer@def];On[LessEqual::nord];Abort[])]/.rules;
 	ReleaseHold/@messageCode;
 
 	(* Protect all public function names *)
