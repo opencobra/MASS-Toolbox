@@ -355,7 +355,7 @@ complex/:ToString[complex[elem__]]:=StringJoin[Sequence@@Riffle[ToString/@(Times
 (*Thermodynamics*)
 
 
-Options[dGstd]={"is"->0. Mole Liter^-1,"pH"->0.,"T"->298.15 Kelvin};
+Options[dGstd]={"is"->Quantity[0. ,"Moles"/"Liters"],"pH"->0.,"T"->Quantity[298.15,"Kelvins"]};
 
 dGstd[id:Prepend[$MASS$speciesPattern,_String],opts:OptionsPattern[]]:=Block[{$preventRecursion=True},
 dGstd[id,Sequence@@updateRules[Options[dGstd],ToString[#[[1]]]->#[[2]]&/@List@opts]]

@@ -57,6 +57,9 @@ GurobiML::notinstalled="GurobiML seems to be not installed. Advanced LP/MILP/QP 
 (*Column[{icon,progtext,If[$FrontEnd=!=Null,ProgressIndicator[prog,{1,22}],prog]}]*)
 
 
+System`$ContextPath = Append[$ContextPath,"Toolbox`Units`"];
+
+
 Module[{licenseInfo,icon,delay,stubStream,bkupoutput,prog,progtext,names,rules,messageCode},
 licenseInfo="Copyright (c) 2013, Regents of the University of California
 All rights reserved.
@@ -71,7 +74,7 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 ]&@Hold[
 	progtext="Loading MathSBML ...";
 	(* Mathematica Init File *)
-	MathSBML::notinstalled="MathSBML seems to be not installed. SBML import/export capabilities will be limited. MathSBML can be obtained from http://sbml.org/Software/MathSBML";
+	MathSBML::notinstalled="MathSBML seems to be not installed. SBML import/export capabilities will be limited. MathSBML can be obtained from http://mathsbml.com/mathsbml/";
 	stubStream=OpenWrite[];bkupoutput=$Output;$Output={stubStream};
 	Block[{$ContextPath},
 		Quiet[Check[Needs["MathSBML`"],$Failed(*Message[MathSBML::notinstalled]*),{Get::noopen,Needs::nocont}]];
@@ -83,26 +86,16 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	
 (*	progtext="Loading GurobiML ...";
 	Quiet@Needs["GurobiML`"];Quiet@ParallelNeeds["GurobiML`"];prog++;delay[];*)
-
-	progtext="Loading AutomaticUnits ...";
-	Unprotect[BeginPackage];
-	BeginPackage["PhysicalConstants`", "Units`"] = BeginPackage["PhysicalConstants`", "AutomaticUnits`"];
-	Quiet[<<PhysicalConstants`;];
-	(*Unprotect[PhysicalConstants`Private`Mole];*)
-	PhysicalConstants`Private`Mole=AutomaticUnits`Unit[1,"Mole"];
-	BeginPackage["PhysicalConstants`", "Units`"] =.;
-	Protect[BeginPackage];
-	progtext="Loading AutomaticUnits ...";Needs["AutomaticUnits`"];prog++;delay[];
 	
 	progtext="Loading InterpolatingFunctionAnatomy ...";Needs["DifferentialEquations`InterpolatingFunctionAnatomy`"];prog++;delay[];
 	progtext="XML ...";Needs["XML`"];prog++;delay[];
 	progtext="Loading JLink ...";Needs["JLink`"];prog++;delay[];
 	
 	BeginPackage["Toolbox`"];
-	Needs["AutomaticUnits`"];
 	Unprotect["Toolbox`*"];
 	progtext="Loading Config ...";Get["Toolbox`Config`"];prog++;delay[];
 	progtext="Loading Usage strings ...";Get["Toolbox`UsageStrings`"];prog++;delay[];
+	progtext="Loading Units ...";Get["Toolbox`Units`"];prog++;delay[];
 	progtext="Loading Utilities ...";Get["Toolbox`Util`"];prog++;delay[];
 	progtext="Loading Types ...";Get["Toolbox`Types`"];prog++;delay[];
 	progtext="Loading Core ...";Get["Toolbox`Core`"];prog++;delay[];
@@ -117,13 +110,14 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	progtext="Loading Network Theory ...";Get["Toolbox`Networks`"];prog++;delay[];
 	progtext="Loading Simulations ...";Get["Toolbox`Simulations`"];prog++;delay[];
 	progtext="Loading QCQA ...";Get["Toolbox`QCQA`"];prog++;delay[];
+	
 	progtext="Loading ExampleData ...";Get["Toolbox`ExampleData`"];prog++;delay[];
 	
 	(* Display error message for all functions for incorrect inputs *)
 	Toolbox`Toolbox::badargs="There is no definition for '`1`' applicable to `2`.";
 	names = Complement[ToExpression[Select[Names["Toolbox`*"],StringFreeQ[#,"$"]&]],Toolbox`$MASS$headTypes];
 	rules={func->#}&/@names;
-	messageCode = Hold[def:func[___]:=(Message[Toolbox`Toolbox::badargs,Evaluate[func],Defer@def];Abort[])]/.rules;
+	messageCode = Hold[def:func[___]:=(Off[LessEqual::nord];Message[Toolbox`Toolbox::badargs,Evaluate[func],Defer@def];On[LessEqual::nord];Abort[])]/.rules;
 	ReleaseHold/@messageCode;
 
 	(* Protect all public function names *)

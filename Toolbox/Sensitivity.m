@@ -56,7 +56,7 @@ FASTsimul[func_Function,parametersOfInterest:{_Rule..},opts:OptionsPattern[]]:=M
 				j++;
 				oscillatingParameters=Thread[Rule[parametersOfInterest[[All,1]],Thread[searchFunction[parametersOfInterest[[All,2]],freq,s,0.]]]];
 				func@oscillatingParameters
-				,{s,sdivisions},DistributedContexts->{"Toolbox`","Toolbox`Private`","Global`","AutomaticUnits`"}];
+				,{s,sdivisions},DistributedContexts->{"Toolbox`","Toolbox`Private`","Global`","Toolbox`Units`"}];
 	{output,Thread[Rule[parametersOfInterest[[All,1]],freq]],sdivisions}
 ];
 

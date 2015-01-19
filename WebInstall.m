@@ -28,7 +28,7 @@ latestRelease[]:=
 
 
 Clear[Global`progress];
-Module[{version,directory,fileName,url,progFunction,task1,task2,newDirectory,installNotebook,nb,cell},
+Module[{version,directory,fileName,url,progFunction,task1,task2,newDirectory,installNotebook,nb},
 	(* Find latest version *)
 	version = latestRelease[];
 
@@ -38,6 +38,7 @@ Module[{version,directory,fileName,url,progFunction,task1,task2,newDirectory,ins
 	Print["Please wait. Downloading Toolbox v"<>version<>"..."];
 	url="https://github.com/opencobra/MASS-Toolbox/archive/v"<>version<>".tar.gz";
 	Global`progress= 0.;
+	Monitor[Null,Null];
 	progFunction[_, "progress", {dlnow_, dltotal_, _, _}]:= Quiet[Global`progress = dlnow/dltotal];
 	task1=URLSaveAsynchronous[url, fileName, progFunction, "Progress"->True];
 	Monitor[WaitAsynchronousTask[task1],Dynamic[If[NumberQ[Global`progress],ProgressIndicator[Global`progress],""]]];
@@ -47,15 +48,14 @@ Module[{version,directory,fileName,url,progFunction,task1,task2,newDirectory,ins
 	Print["Please wait. Extracting Files..."];
 	task2=ExtractArchive[fileName,directory];
 	WaitAsynchronousTask[task2];
-	DeleteFile[fileName];
-	DeleteFile[FileNameJoin[{directory,"pax_global_header"}]];
 
 	(* Install new Toolbox *)
+	Print["Installing Toolbox..."];
 	newDirectory=FileNameJoin[{directory,"MASS-Toolbox-"<>version}];
 	installNotebook=FileNameJoin[{newDirectory,"Installer.nb"}];
 	nb=NotebookOpen[installNotebook,Visible->False];
-	cell=NotebookLocate[{installNotebook,"InstallCode"}];
-	SelectionEvaluateCreateCell[nb];
-	NotebookClose[nb];
+	SelectionMove[nb,Next,Cell,3];
+	SelectionEvaluate[nb];
+	Pause[5];
 	Print["The MASS Toolbox was successfully installed! To load the Toolbox, quit the kernel and run \"<<Toolbox`\""];
 ];

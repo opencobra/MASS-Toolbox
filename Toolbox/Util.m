@@ -118,7 +118,7 @@ grep[file_String,patt_String]:=
 	]
 
 grep[patt_String]:=
-	With[{fileNames={"Chemoinformatics.m","COBRA.m","Config.m","Core.m","Design.m","ExampleData.m","IO.m","Networks.m","QCQA.m","Regulation.m","Sensitivity.m","Simulations.m","Style.m","Thermodynamics.m","Types.m","UsageStrings.m","Util.m","Visualization.m"}},
+	With[{fileNames={"Chemoinformatics.m","COBRA.m","Config.m","Core.m","Design.m","ExampleData.m","IO.m","Networks.m","QCQA.m","Regulation.m","Sensitivity.m","Simulations.m","Style.m","Thermodynamics.m","Types.m","UsageStrings.m","Util.m","Visualization.m","Units.m"}},
 		Flatten[Function[name,Prepend[#,name]&/@grep[name,patt]]/@fileNames,1]
 	]
 
@@ -191,6 +191,7 @@ updateToolbox[version_String,OptionsPattern[]]:=
 		Print["Please wait. Downloading Toolbox v"<>version<>"..."];
 		url="https://github.com/opencobra/MASS-Toolbox/archive/v"<>version<>".tar.gz";
 		Global`progress= 0.;
+		Monitor[Null,Null];
 		progFunction[_, "progress", {dlnow_, dltotal_, _, _}]:= Quiet[Global`progress = dlnow/dltotal];
 		task1=URLSaveAsynchronous[url, fileName, progFunction, "Progress"->True];
 		Monitor[WaitAsynchronousTask[task1],Dynamic[If[!NumberQ[Global`progress],"",ProgressIndicator[Global`progress]]]];
@@ -200,18 +201,17 @@ updateToolbox[version_String,OptionsPattern[]]:=
 		Print["Please wait. Extracting Files..."];
 		task2=ExtractArchive[fileName,directory];
 		WaitAsynchronousTask[task2];
-		DeleteFile[fileName];
-		DeleteFile[FileNameJoin[{directory,"pax_global_header"}]];
 
 		(* Install new version of mathematica *)
 		If[OptionValue[Install]==True,
 			Module[{installNotebook,nb,cell},
+				Print["Installing Toolbox..."];
 				newDirectory=FileNameJoin[{directory,"MASS-Toolbox-"<>version}];
 				installNotebook=FileNameJoin[{newDirectory,"Installer.nb"}];
 				nb=NotebookOpen[installNotebook,Visible->False];
-				cell=NotebookLocate[{installNotebook,"InstallCode"}];
-				SelectionEvaluateCreateCell[nb];
-				NotebookClose[nb];
+				SelectionMove[nb,Next,Cell,3];
+				SelectionEvaluate[nb];
+				Pause[5];
 				Print["The MASS Toolbox was successfully updated and installed!"];
 			],
 			Print["The MASS Toolbox was successfully updated!"];
