@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     15496,        399]
-NotebookOptionsPosition[     14820,        373]
-NotebookOutlinePosition[     15179,        389]
-CellTagsIndexPosition[     15136,        386]
+NotebookDataLength[     30531,        807]
+NotebookOptionsPosition[     29443,        771]
+NotebookOutlinePosition[     29800,        787]
+CellTagsIndexPosition[     29757,        784]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -367,13 +367,411 @@ Cell[BoxData[
   3.624924937133625*^9, 3.624924974607088*^9}, {3.624925031132512*^9, 
   3.62492503718895*^9}, {3.6249309439719276`*^9, 3.62493094925696*^9}}],
 
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"model4", "=", 
+   RowBox[{"constructModel", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"reaction", "[", 
+       RowBox[{"\"\<b1\>\"", ",", 
+        RowBox[{"{", 
+         RowBox[{"metabolite", "[", 
+          RowBox[{"\"\<x0\>\"", ",", "None"}], "]"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"metabolite", "[", 
+          RowBox[{"\"\<x1\>\"", ",", "None"}], "]"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "1"}], "}"}], ",", "False"}], "]"}], "}"}], ",", 
+     RowBox[{"Parameters", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"rateconst", "[", 
+         RowBox[{"\"\<b1\>\"", ",", "True"}], "]"}], "\[Rule]", 
+        RowBox[{"0.1", " ", 
+         RowBox[{"Hour", "^", 
+          RowBox[{"-", "1"}]}]}]}], "}"}]}], ",", 
+     RowBox[{"InitialConditions", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"metabolite", "[", 
+          RowBox[{"\"\<x0\>\"", ",", "None"}], "]"}], "->", 
+         RowBox[{"1", "Milli", " ", 
+          RowBox[{"Mole", "/", "Liter"}]}]}], ",", 
+        RowBox[{
+         RowBox[{"metabolite", "[", 
+          RowBox[{"\"\<x1\>\"", ",", "None"}], "]"}], "\[Rule]", 
+         RowBox[{"5", "Milli", " ", 
+          RowBox[{"Mole", "/", "Liter"}]}]}]}], "}"}]}], ",", 
+     RowBox[{"UnitChecking", "\[Rule]", "True"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.626985196641629*^9, 3.626985216173215*^9}, {
+   3.627063291224188*^9, 3.6270632933056717`*^9}, 3.627063332203511*^9, {
+   3.6270633772676563`*^9, 3.627063432301396*^9}, 3.627238798100198*^9, 
+   3.627238873940785*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"simulate", "[", 
+       RowBox[{"model4", ",", 
+        RowBox[{"{", 
+         RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", 
+        RowBox[{"ExactSolve", "\[Rule]", "True"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           InterpretationBox[
+            StyleBox["x0",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]],
+            Toolbox`metabolite["x0", None],
+            Editable->False,
+            Selectable->False], "\[Rule]", 
+           RowBox[{
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              RowBox[{"-", "0.1`"}], " ", "t"}]], " ", 
+            RowBox[{"(", 
+             InterpretationBox[
+              RowBox[{"1.`", " ", 
+               RowBox[{"Millimole", 
+                SuperscriptBox["Liter", 
+                 RowBox[{"-", "1"}]]}]}],
+              AutomaticUnits`Unit[1., "Liter"^(-1) "Millimole"],
+              AutoDelete->True], ")"}]}]}], ",", 
+          RowBox[{
+           InterpretationBox[
+            StyleBox["x1",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]],
+            Toolbox`metabolite["x1", None],
+            Editable->False,
+            Selectable->False], "\[Rule]", 
+           RowBox[{
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              RowBox[{"-", "0.1`"}], " ", "t"}]], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "0.16666666666666666`"}], "+", 
+              RowBox[{"1.`", " ", 
+               SuperscriptBox["\[ExponentialE]", 
+                RowBox[{"0.1`", " ", "t"}]]}]}], ")"}], " ", 
+            RowBox[{"(", 
+             InterpretationBox[
+              RowBox[{"6.`", " ", 
+               RowBox[{"Millimole", 
+                SuperscriptBox["Liter", 
+                 RowBox[{"-", "1"}]]}]}],
+              AutomaticUnits`Unit[6., "Liter"^(-1) "Millimole"],
+              AutoDelete->True], ")"}]}]}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          InterpretationBox[
+           SubscriptBox[
+            StyleBox["v",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]], 
+            StyleBox["b1",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]]],
+           Toolbox`v["b1"],
+           Editable->False,
+           Selectable->False], "\[Rule]", 
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             RowBox[{"-", "0.1`"}], " ", "t"}]], " ", 
+           RowBox[{"(", 
+            InterpretationBox[
+             RowBox[{"0.1`", " ", 
+              RowBox[{"Millimole", 
+               SuperscriptBox["Hour", 
+                RowBox[{"-", "1"}]], 
+               SuperscriptBox["Liter", 
+                RowBox[{"-", "1"}]]}]}],
+             AutomaticUnits`Unit[0.1, ("Hour"^(-1)/"Liter") "Millimole"],
+             AutoDelete->True], ")"}]}]}], "}"}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<SimulationRelatedTests-simulate-DSolve\>\""}]}], "]"}]}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.627063443157958*^9, 3.627063452379849*^9}, {
+  3.627063583169106*^9, 3.627063650275531*^9}, {3.6282728220798473`*^9, 
+  3.628272826360511*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sim4", " ", "=", " ", 
+   RowBox[{"simulate", "[", 
+    RowBox[{"model4", ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", 
+     RowBox[{"ExactSolve", "\[Rule]", "False"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6282735095197983`*^9, 3.628273517934574*^9}, 
+   3.628273566971747*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"MatchQ", "[", 
+       RowBox[{"sim4", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"_metabolite", "->", 
+              RowBox[{"Times", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"InterpolatingFunction", "[", "___", "]"}], "[", "t",
+                  "]"}], ",", "_Unit"}], "]"}]}], ")"}], ".."}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"_v", "->", "___"}], ")"}], ".."}], "}"}]}], "}"}]}], 
+       "]"}], ",", "True", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<SimulationRelatedTests-simulate-NDSolve\>\""}]}], "]"}]}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.628272891132621*^9, 3.628272942479985*^9}, {
+  3.6282730182792807`*^9, 3.628273131222487*^9}, {3.628273550370825*^9, 
+  3.6282735596736794`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"paramSim4", "=", 
+   RowBox[{"simulate", "[", 
+    RowBox[{"model4", ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"rateconst", "[", 
+       RowBox[{"\"\<b1\>\"", ",", "True"}], "]"}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.627240049735989*^9, 3.627240059003976*^9}, {
+  3.628273519623336*^9, 3.628273523479141*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"MatchQ", "[", 
+       RowBox[{"paramSim4", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"_metabolite", "->", 
+              RowBox[{"Times", "[", 
+               RowBox[{"_ParametricFunction", ",", "_Unit"}], "]"}]}], ")"}], 
+            ".."}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"_v", "->", "___"}], ")"}], ".."}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"_Keq", "|", "_rateconst", "|", "_parameter", "|", 
+              RowBox[{"metabolite", "[", 
+               RowBox[{"_", ",", "\"\<Xt\>\""}], "]"}]}], ")"}], ".."}], 
+           "}"}]}], "}"}]}], "]"}], ",", "True", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<SimulationRelatedTests-simulate-ParametricSolve\>\""}]}], "]"}]}],
+    "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.6272400217089443`*^9, 3.627240075329957*^9}, {
+  3.627240140762793*^9, 3.6272401649579268`*^9}, {3.627240212666081*^9, 
+  3.627240223710676*^9}, {3.628273532603897*^9, 3.628273534256459*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"model5", "=", 
+   RowBox[{"constructModel", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"reaction", "[", 
+       RowBox[{"\"\<b1\>\"", ",", 
+        RowBox[{"{", 
+         RowBox[{"metabolite", "[", 
+          RowBox[{"\"\<x0\>\"", ",", "None"}], "]"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"metabolite", "[", 
+          RowBox[{"\"\<x1\>\"", ",", "None"}], "]"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "1"}], "}"}], ",", "False"}], "]"}], "}"}], ",", 
+     RowBox[{"InitialConditions", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"metabolite", "[", 
+          RowBox[{"\"\<x0\>\"", ",", "None"}], "]"}], "->", 
+         RowBox[{"1", "Milli", " ", 
+          RowBox[{"Mole", "/", "Liter"}]}]}], ",", 
+        RowBox[{
+         RowBox[{"metabolite", "[", 
+          RowBox[{"\"\<x1\>\"", ",", "None"}], "]"}], "\[Rule]", 
+         RowBox[{"5", "Milli", " ", 
+          RowBox[{"Mole", "/", "Liter"}]}]}]}], "}"}]}], ",", 
+     RowBox[{"UnitChecking", "\[Rule]", "True"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6270636619404297`*^9, 3.6270636621720867`*^9}, {
+   3.627063723146646*^9, 3.627063723774241*^9}, 3.62723880292206*^9, {
+   3.628272979236032*^9, 3.6282729800130587`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sim5", "=", 
+   RowBox[{"simulate", "[", 
+    RowBox[{"model5", ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", 
+     RowBox[{"\"\<ParametricSolve\>\"", "\[Rule]", "True"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.627065092304933*^9, 3.627065097416329*^9}, {
+  3.6272401542358217`*^9, 3.627240157466687*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"MatchQ", "[", 
+       RowBox[{"sim5", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"_metabolite", "->", 
+              RowBox[{"Times", "[", 
+               RowBox[{"_ParametricFunction", ",", "_Unit"}], "]"}]}], ")"}], 
+            ".."}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"_v", "->", "___"}], ")"}], ".."}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"_Keq", "|", "_rateconst", "|", "_parameter", "|", 
+              RowBox[{"metabolite", "[", 
+               RowBox[{"_", ",", "\"\<Xt\>\""}], "]"}]}], ")"}], ".."}], 
+           "}"}]}], "}"}]}], "]"}], ",", "\[IndentingNewLine]", "True", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<SimulationRelatedTests-simulate-IncompleteModel\>\""}]}], "]"}]}],
+    "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.627063735729471*^9, 3.627063735894566*^9}, {
+  3.627063770546084*^9, 3.627063816441256*^9}, {3.627063857869302*^9, 
+  3.627063951801902*^9}, {3.6270639846446953`*^9, 3.627064017404975*^9}, {
+  3.627065085639489*^9, 3.6270650891531487`*^9}, {3.627240168114963*^9, 
+  3.627240171139687*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{
+      RowBox[{"MatchQ", "[", 
+       RowBox[{
+        RowBox[{"setSimulationParameters", "[", 
+         RowBox[{"sim5", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            InterpretationBox[
+             SubsuperscriptBox["k", 
+              StyleBox["b1",
+               StripOnInput->False,
+               ShowSyntaxStyles->False,
+               AutoSpacing->False,
+               ZeroWidthTimes->True,
+               LineColor->RGBColor[0, 0, 0],
+               FrontFaceColor->RGBColor[0, 0, 0],
+               BackFaceColor->RGBColor[0, 0, 0],
+               GraphicsColor->RGBColor[0, 0, 0],
+               FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+             Toolbox`rateconst["b1", True],
+             Editable->False,
+             Selectable->False], "\[Rule]", 
+            RowBox[{"0.1", " ", 
+             RowBox[{"Hour", "^", 
+              RowBox[{"-", "1"}]}]}]}], "}"}], ",", "model5"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"_metabolite", "->", 
+              RowBox[{"Times", "[", 
+               RowBox[{
+                RowBox[{"_InterpolatingFunction", "[", "t", "]"}], ",", 
+                "_Unit"}], "]"}]}], ")"}], ".."}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"_v", "->", "___"}], ")"}], ".."}], "}"}]}], "}"}]}], 
+       "]"}], ",", "True", ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<SimulationRelatedTests-setSimulationParameters\>\""}]}], "]"}]}], 
+   "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.62706420444763*^9, 3.6270642169725933`*^9}, {
+   3.627065075908984*^9, 3.6270650763305683`*^9}, {3.627065176826091*^9, 
+   3.6270653467779016`*^9}, {3.6270653902311296`*^9, 3.6270654266432533`*^9}, 
+   3.6270657038027267`*^9}],
+
 Cell[BoxData["results"], "Input",
- CellChangeTimes->{{3.624212577357069*^9, 3.624212578028*^9}}]
+ CellChangeTimes->{{3.627238723747156*^9, 3.6272387243885393`*^9}}]
 }, Open  ]]
 },
 WindowSize->{717, 572},
-WindowMargins->{{Automatic, 154}, {Automatic, 36}},
-FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+WindowMargins->{{11, Automatic}, {Automatic, 30}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 4, \
 2014)",
 StyleDefinitions->"Default.nb"
 ]
@@ -399,7 +797,17 @@ Cell[4070, 111, 1063, 28, 114, "Input"],
 Cell[5136, 141, 462, 12, 46, "Input"],
 Cell[5601, 155, 1619, 40, 148, "Input"],
 Cell[7223, 197, 7482, 170, 624, "Input"],
-Cell[14708, 369, 96, 1, 28, "Input"]
+Cell[14708, 369, 1644, 41, 114, "Input"],
+Cell[16355, 412, 4606, 122, 148, "Input"],
+Cell[20964, 536, 359, 9, 28, "Input"],
+Cell[21326, 547, 1074, 30, 114, "Input"],
+Cell[22403, 579, 439, 12, 28, "Input"],
+Cell[22845, 593, 1315, 34, 115, "Input"],
+Cell[24163, 629, 1311, 32, 114, "Input"],
+Cell[25477, 663, 387, 10, 28, "Input"],
+Cell[25867, 675, 1454, 36, 98, "Input"],
+Cell[27324, 713, 1999, 52, 115, "Input"],
+Cell[29326, 767, 101, 1, 28, "Input"]
 }, Open  ]]
 }
 ]
