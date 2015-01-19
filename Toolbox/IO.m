@@ -589,6 +589,7 @@ Check[sbml2model[Import[path,"XML"],opts],Message[sbml2model::NotExistFile,path]
 
 
 model2sbml[model_MASSmodel]:=Module[{ratemapping,localParam,globalParam},
+	Quiet[Check[Needs["MathSBML`"],Message[MathSBML::notinstalled];Abort[];,{Get::noopen,Needs::nocont}],{Get::noopen,Needs::nocont}];
 	MathSBML`newModel[Global`id->makeIdXmlConform@StringReplace[ToString[model["ID"]],"$"->"_"]];
 	Do[
 		MathSBML`addSpecies[
