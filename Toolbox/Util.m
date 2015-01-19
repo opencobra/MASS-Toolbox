@@ -198,6 +198,9 @@ updateToolbox[version_String,OptionsPattern[]]:=
 		Print["Download Complete!"];
 
 		(* Extract Archive *)
+		newDirectory=FileNameJoin[{directory,"MASS-Toolbox-"<>version}];
+		Quiet@DeleteFile[FileNameJoin[{directory,"pax_global_header"}]];
+		Quiet@DeleteDirectory[newDirectory,DeleteContents->True];
 		Print["Please wait. Extracting Files..."];
 		task2=ExtractArchive[fileName,directory];
 		WaitAsynchronousTask[task2];
@@ -206,7 +209,6 @@ updateToolbox[version_String,OptionsPattern[]]:=
 		If[OptionValue[Install]==True,
 			Module[{installNotebook,nb,cell},
 				Print["Installing Toolbox..."];
-				newDirectory=FileNameJoin[{directory,"MASS-Toolbox-"<>version}];
 				installNotebook=FileNameJoin[{newDirectory,"Installer.nb"}];
 				nb=NotebookOpen[installNotebook,Visible->False];
 				SelectionMove[nb,Next,Cell,3];
