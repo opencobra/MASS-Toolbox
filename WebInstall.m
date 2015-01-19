@@ -45,13 +45,15 @@ Module[{version,directory,fileName,url,progFunction,task1,task2,newDirectory,ins
 	Print["Download Complete!"];
 
 	(* Extract files *)
+	newDirectory=FileNameJoin[{directory,"MASS-Toolbox-"<>version}];
+	Quiet@DeleteFile[FileNameJoin[{directory,"pax_global_header"}]];
+	Quiet@DeleteDirectory[newDirectory,DeleteContents->True];
 	Print["Please wait. Extracting Files..."];
 	task2=ExtractArchive[fileName,directory];
 	WaitAsynchronousTask[task2];
 
 	(* Install new Toolbox *)
 	Print["Installing Toolbox..."];
-	newDirectory=FileNameJoin[{directory,"MASS-Toolbox-"<>version}];
 	installNotebook=FileNameJoin[{newDirectory,"Installer.nb"}];
 	nb=NotebookOpen[installNotebook,Visible->False];
 	SelectionMove[nb,Next,Cell,3];
