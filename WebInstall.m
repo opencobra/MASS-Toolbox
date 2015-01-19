@@ -45,6 +45,7 @@ Module[{version,directory,fileName,url,progFunction,task1,task2,newDirectory,ins
 	Print["Download Complete!"];
 
 	(* Extract files *)
+	Quiet@DeleteFile[FileNameJoin[{directory,"pax_global_header"}]];
 	Print["Please wait. Extracting Files..."];
 	task2=ExtractArchive[fileName,directory];
 	WaitAsynchronousTask[task2];
