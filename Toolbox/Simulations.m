@@ -182,7 +182,7 @@ setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_ratecons
 	
 	Module[{equations,values,abort,remainingParam,newEquations,adjustedParam,rules},
 		(* Check input format *)
-		If[!MatchQ[sim[[1]],{(_metabolite->Times[_ParametricFunction,_Quantity])...}],
+		If[!MatchQ[sim[[1]],{(_metabolite->(Times[_ParametricFunction,_Quantity]|_ParametricFunction))...}],
 			Message[setSimulationParameters::badargs,"metabolite equations",1];abort=True;
 		];
 		If[!MatchQ[sim[[2]],{(_v->___)...}],
