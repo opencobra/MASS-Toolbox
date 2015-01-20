@@ -112,6 +112,19 @@ calcLinkMatrix[s_?MatrixQ]:=Module[{Q,R,independent,tmp,dependent,newOrder,rank}
 ];
 
 
+initializeKernels[]:=Module[{},
+	LaunchKernels[];
+	ParallelEvaluate[Off[FrontEndObject::notavail];Needs["Toolbox`"];On[FrontEndObject::notavail]];
+	];
+
+initializeKernels[ker:{KernelObject..}]:=Module[{},
+	LaunchKernels[ker];
+	ParallelEvaluate[Off[FrontEndObject::notavail];Needs["Toolbox`"];On[FrontEndObject::notavail],ker];
+	];
+
+initializeKernels[ker_KernelObject]:=initializeKernels[{ker}];
+
+
 grep[file_String,patt_String]:=
 	With[{data=Import[FileNameJoin[{$ToolboxPath,file}],"Lines"]},
 		Pick[Transpose[{Range[Length[data]],data}],StringFreeQ[data,patt],False]
