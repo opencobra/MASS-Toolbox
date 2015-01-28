@@ -188,11 +188,13 @@ plotPhasePortrait[simulation_,opts:OptionsPattern[{plotPhasePortrait,ParametricP
 	]
 ];
 
-plotPhasePortrait[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},opts:OptionsPattern[{plotPhasePortrait,ParametricPlot,Manipulate}]]:=Module[{plotOpts,style,cleanSimulation,pltFunc},
+plotPhasePortrait[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},opts:OptionsPattern[{plotPhasePortrait,ParametricPlot,Manipulate}]]:=Module[{plotOpts,style,cleanSimulation,pltFunc,epilog},
 	cleanSimulation=stripUnits@simulation;
+	(* Ensure epilog is in a list format so start/end annotation can be joined with manual epilogs *)
+	If[Head[OptionValue[Epilog]]===List,epilog=OptionValue[Epilog],epilog={OptionValue[Epilog]}];
 	plotOpts=FilterRules[updateRules[Options[plotPhasePortrait],List[opts]],Options[ParametricPlot]];
 	(*pltFunc=ParametricPlot[#[[All,2]],{t,tMin,tMax},Epilog->annotateStartEnd[Sequence@@#[[All,2]],tMin,tMax,Sequence@@FilterRules[List@opts,Options[annotateStartEnd]]],Evaluate[Sequence@@If[OptionValue["FrameLabel"]===Automatic,updateRules[plotOpts,"FrameLabel"->(TraditionalForm/@#[[All,1]])],plotOpts]]]&;*)
-	pltFunc=ParametricPlot[Evaluate[#[[All,2]]],{t,tMin,tMax},Evaluate[If[OptionValue["Annotate"]===True,Epilog->annotateStartEnd[Sequence@@#[[All,2]],tMin,tMax,Sequence@@FilterRules[List@opts,Options[annotateStartEnd]]],Unevaluated[Sequence[]]]],Evaluate[Sequence@@If[OptionValue["FrameLabel"]===Automatic,updateRules[plotOpts,{FrameLabel->(TraditionalForm/@#[[All,1]])}],plotOpts]]]&;
+	pltFunc=ParametricPlot[Evaluate[#[[All,2]]],{t,tMin,tMax},Evaluate[If[OptionValue["Annotate"]===True,Epilog->Join[epilog,annotateStartEnd[Sequence@@#[[All,2]],tMin,tMax,Sequence@@FilterRules[List@opts,Options[annotateStartEnd]]]],Unevaluated[Sequence[]]]],Evaluate[Sequence@@If[OptionValue["FrameLabel"]===Automatic,updateRules[plotOpts,{FrameLabel->(TraditionalForm/@#[[All,1]])}],plotOpts]]]&;
 	If[Length[cleanSimulation]>2,
 		Manipulate[
 			pltFunc[FilterRules[cleanSimulation,{x,y}]],
@@ -203,10 +205,11 @@ plotPhasePortrait[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},op
 	]
 ];
 
-plotPhasePortrait[simulation:{{_Rule,_Rule}..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},opts:OptionsPattern[{plotPhasePortrait,ParametricPlot,Manipulate}]]:=Module[{plotOpts,cleanSimulation},
+plotPhasePortrait[simulation:{{_Rule,_Rule}..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},opts:OptionsPattern[{plotPhasePortrait,ParametricPlot,Manipulate}]]:=Module[{plotOpts,cleanSimulation,epilog},
 	cleanSimulation=stripUnits@simulation;	
+	If[Head[OptionValue[Epilog]]===List,epilog=OptionValue[Epilog],epilog={OptionValue[Epilog]}];
 	plotOpts=FilterRules[updateRules[Options[plotPhasePortrait],{opts}],Options[ParametricPlot]];
-	ParametricPlot[Evaluate[cleanSimulation/.r_Rule:>r[[2]]],{t,tMin,tMax},Evaluate[If[OptionValue["Annotate"]===True,Epilog->(annotateStartEnd[Sequence@@#[[All,2]],tMin,tMax,Sequence@@FilterRules[List@opts,Options[annotateStartEnd]]]&/@cleanSimulation),Unevaluated[Sequence[]]]],Evaluate[Sequence@@plotOpts]]
+	ParametricPlot[Evaluate[cleanSimulation/.r_Rule:>r[[2]]],{t,tMin,tMax},Evaluate[If[OptionValue["Annotate"]===True,Epilog->Join[epilog,(annotateStartEnd[Sequence@@#[[All,2]],tMin,tMax,Sequence@@FilterRules[List@opts,Options[annotateStartEnd]]]&/@cleanSimulation)],Unevaluated[Sequence[]]]],Evaluate[Sequence@@plotOpts]]
 ];
 
 
