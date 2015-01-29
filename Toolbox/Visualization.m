@@ -340,8 +340,18 @@ Options[drawMetaboliteMap]={"Style"->{},"DefaultStyle"->{Lighter@Gray,PointSize[
 drawMetaboliteMap[mets_,opts:OptionsPattern[]]:=Block[{surface,metaboliteSize,graphicElements,url,aspectRatio},
 aspectRatio=getAspectRatio[Sequence@@getCorners[mets]];
 graphicElements=Table[
-{Sequence@@If[MemberQ[OptionValue["Style"],elem[[1]],\[Infinity]],elem[[1]]/.OptionValue["Style"],OptionValue["DefaultStyle"]],If[Length[elem[[2]]]>2,Disk[elem[[2,1;;2]],elem[[2,3]]],Point[elem[[2]]]]}
-,{elem,mets}];
+	{Sequence@@
+		If[MemberQ[OptionValue["Style"],elem[[1]],\[Infinity]],
+			elem[[1]]/.OptionValue["Style"],OptionValue["DefaultStyle"]
+		],
+		Switch[Length[elem[[2]]],
+			2,Point[elem[[2]]],
+			3,Disk[elem[[2,1;;2]],elem[[2,3]]],
+			4,Disk[elem[[2,1;;2]],elem[[2,3;;4]]]
+		]
+	}
+	,{elem,mets}];
+
 If[OptionValue["Tooltips"],graphicElements=Thread[Tooltip[graphicElements,mets[[All,1]]]]];
 If[OptionValue["Hyperlinks"],graphicElements=Table[
 url="http://bigg.ucsd.edu/bigg/view3.pl?type=metabolite&id="<>ToString[(mets[[All,1]][[i]]/.Dispatch[id2internalBIGGmetID])[[1]]]<>"&model=3473243";
@@ -387,7 +397,7 @@ $AVAILABLEMAPS=Select[$AVAILABLEMAPS,!StringMatchQ[#[[1]],RegularExpression["^\\
 Options[drawPathway]={"CompoundLabels"->True,"ReactionLabels"->True,"TextLabels"->False,"MinMaxHack"->False,"PlotLegends"->None,"Tooltips"->True,"ColorFunctionScaling"->True,"Boundary"->False,"ReactionData"->{},"MetaboliteData"->{},ColorFunction->ColorData["Rainbow"],"MinSize"->0.005,"MaxSize"->0.01,"MinThickness"->0.001,"MaxThickness"->0.003,"TextStyle"->{FontFamily->"Arial",FontSize->Scaled[.008]},"MetaboliteStyle"->Options[drawMetaboliteMap],"ReactionStyle"->Options[drawReactionMap],ImageSize->350};
 drawPathway::unknownmap="Map `1` is not available. Try drawPathway[] to see a list of available maps";
 drawPathway[]:=Sort[$AVAILABLEMAPS[[All,1]]]
-drawPathway[mapID_String,opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{cmpdPos,rxnPos,finalLabels,mapData,cmpdLabels,rxnLabels,textLabels},
+drawPathway[mapID_String,opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{cmpdPos,rxnPos,finalLabels,mapData,cmpdLabels,rxnLabels,textLabels,compartments},
 	If[MemberQ[$AVAILABLEMAPS[[All,1]],mapID], mapData=Import[mapID/.$AVAILABLEMAPS], Message[drawPathway::unknownmap,mapID];Abort[];];
 	cmpdPos=Flatten[query["cmpd_pos",mapData,{}]];
 	rxnPos=query["rxn_pos",mapData];
@@ -400,7 +410,7 @@ drawPathway[mapID_String,opts:OptionsPattern[{drawPathway,drawReactionMap,drawMe
 	If[OptionValue["ReactionLabels"]==True, finalLabels=Join[rxnLabels,finalLabels];];
 	drawPathway[cmpdPos,DeleteCases[rxnPos,{"NaN","NaN"},\[Infinity]](*TODO: fix this in the maps*),finalLabels,opts]
 ];
-drawPathway[metPos:{(_String->{_?NumericQ,_?NumericQ,_?NumericQ})..},rxnPos:{(_String->{_List...})..},textPos:({(_Text|_Rule|_Style)..}|{}),compPos:{_Rule...}:{},opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{refMin,refMax,helperFunc,min,max,directedQ,map,fluxStyle,metStyle,cellMembrane,corners,aspectRatio,cleanRxnData,scalingFunction,cleanMetaboliteData},
+drawPathway[metPos:{(_String->{_?NumericQ..})..},rxnPos:{(_String->{_List...})..},textPos:({(_Text|_Rule|_Style)..}|{}),compPos:{_Rule...}:{},opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{refMin,refMax,helperFunc,min,max,directedQ,map,fluxStyle,metStyle,cellMembrane,corners,aspectRatio,cleanRxnData,scalingFunction,cleanMetaboliteData,compartments,compartmentGraphics},
 	directedQ="Directed"/.(ToString[#[[1]]]->#[[2]]&/@OptionValue["ReactionStyle"]);
 	corners=getCorners[rxnPos];
 	aspectRatio=getAspectRatio[Sequence@@corners];
@@ -428,8 +438,12 @@ drawPathway[metPos:{(_String->{_?NumericQ,_?NumericQ,_?NumericQ})..},rxnPos:{(_S
 		cellMembrane=Sequence[];,
 		cellMembrane=Sequence[];
 	];
+	
+	compartmentGraphics = Tooltip[Rectangle@@#[[2]],#[[1]]]&/@compPos;
+	compartments = Graphics[Join[{EdgeForm[Thin],FaceForm[]},compartmentGraphics]];
+
 	map=Show[
-		cellMembrane,
+		cellMembrane,compartments,
 		drawReactionMap[rxnPos,Sequence@@updateRules[OptionValue["ReactionStyle"],{"Style"->fluxStyle}],Sequence@@FilterRules[List@opts,Options[drawReactionMap]]]/.(Tooltip[graphics_,#[[1]]]:>Tooltip[graphics,#[[1]](*<>": "<>ToString[#[[2]]]*)]&/@cleanRxnData),
 		drawMetaboliteMap[metPos,Sequence@@updateRules[OptionValue["MetaboliteStyle"],If[metStyle=!={},{"Style"->metStyle},{}]],Sequence@@FilterRules[{opts},Options[drawMetaboliteMap]]],Graphics@Style[textPos,Sequence@@(OptionValue["TextStyle"]/.elem:(_Scaled):>elem[[0]][elem[[1]]*(1/aspectRatio)])],
 		ImageSize->OptionValue["ImageSize"]
