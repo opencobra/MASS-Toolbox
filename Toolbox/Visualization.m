@@ -400,7 +400,7 @@ drawPathway[mapID_String,opts:OptionsPattern[{drawPathway,drawReactionMap,drawMe
 	If[OptionValue["ReactionLabels"]==True, finalLabels=Join[rxnLabels,finalLabels];];
 	drawPathway[cmpdPos,DeleteCases[rxnPos,{"NaN","NaN"},\[Infinity]](*TODO: fix this in the maps*),finalLabels,opts]
 ];
-drawPathway[metPos:{_Rule..},rxnPos:{_Rule..},textPos:({(_Text|_Rule|_Style)..}|{}),opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{refMin,refMax,helperFunc,min,max,directedQ,map,fluxStyle,metStyle,cellMembrane,corners,aspectRatio,cleanRxnData,scalingFunction,cleanMetaboliteData},
+drawPathway[metPos:{(_String->{_?NumericQ,_?NumericQ,_?NumericQ})..},rxnPos:{(_String->{_List...})..},textPos:({(_Text|_Rule|_Style)..}|{}),compPos:{_Rule...}:{},opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{refMin,refMax,helperFunc,min,max,directedQ,map,fluxStyle,metStyle,cellMembrane,corners,aspectRatio,cleanRxnData,scalingFunction,cleanMetaboliteData},
 	directedQ="Directed"/.(ToString[#[[1]]]->#[[2]]&/@OptionValue["ReactionStyle"]);
 	corners=getCorners[rxnPos];
 	aspectRatio=getAspectRatio[Sequence@@corners];
