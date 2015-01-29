@@ -33,7 +33,7 @@ importModel[path_String,opts:OptionsPattern[]]:=Module[{stuff},
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Matlab*)
 
 
@@ -77,11 +77,11 @@ mat2model[path_String]:=Module[{stuff},
 mat2model[]:=mat2model[SystemDialogInput["FileOpen"]];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*SBML import*)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Utilities*)
 
 
@@ -100,7 +100,7 @@ cleanUpMathML[math:XMLElement["math",_,_]]:=Module[{adjustments},
 mathML2mass=XML`MathML`SymbolicMathMLToExpression[cleanUpMathML[#(*/.s_String\[RuleDelayed]StringReplace[s,"_"\[Rule]"$UNDRSCR$s"]*)]]&;
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfEvents*)
 
 
@@ -120,7 +120,7 @@ getListOfEvents[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_p
 ]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfInitialAssignments*)
 
 
@@ -128,7 +128,7 @@ parseInitialAssignmentXML[initialAssignment_XMLElement,id2massID:{_Rule..}]:=(("
 getListOfInitialAssignments[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseInitialAssignmentXML[#,id2massID]&/@extractXMLelement[xml,"listOfInitialAssignments",2]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfRules*)
 
 
@@ -145,7 +145,7 @@ Switch[#[[1]],
 getListOfRules[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseRuleXML[#,id2massID]&/@extractXMLelement[xml,"listOfRules",2]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfFunctionDefinitions*)
 
 
@@ -157,7 +157,7 @@ parseFunctionXML/@extractXMLelement[xml,"listOfFunctionDefinitions",2]
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfUnitDefinitions*)
 
 
@@ -188,7 +188,7 @@ getListOfUnitDefinitions[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPat
 ]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfSpecies*)
 
 
@@ -239,7 +239,7 @@ getListOfCompartments[xml_/;Head[xml]===XMLObject["Document"]]:=Module[{},
 getCompartmentVolumes[listOfCompartments:{((parameter["Volume",_String]|parameter["Volume",_String][t])->_List)...},unitDefinitions:{(_Rule|_RuleDelayed)...}]:=#[[1]]->sbmlString2Number[query["size",#[[2]],"1"]]*(query["units",#[[2]],"volume"]/.Dispatch[unitDefinitions])&/@listOfCompartments
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfReactions*)
 
 
@@ -291,7 +291,7 @@ getStoich[attrVal:{_Rule...},id2massID:{(_String->(_parameter|_parameter[t]|_spe
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*kineticLaw*)
 
 
@@ -351,7 +351,7 @@ getListOfGlobalParameters[xml]
 getParameterValues[listOfParameters:{((_parameter|_parameter[t])->_List)...}]:=#[[1]]->sbmlString2Number["value"/.Dispatch[#[[2]]]/."value"->"Indeterminate"]&/@listOfParameters
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*main*)
 
 
@@ -585,6 +585,145 @@ Check[sbml2model[Import[path,"XML"],opts],Message[sbml2model::NotExistFile,path]
 
 
 (* ::Subsection:: *)
+(*SBML layout*)
+
+
+(* ::Subsubsection:: *)
+(*Basic stuff*)
+
+
+parsePosition[object_XMLElement]:=Module[{position},
+	position=extractXMLelement[object,"position",1];
+	position/.Rule[var_String,num_String]:>Rule[var,ToExpression[num]]
+]
+
+
+parseDimensions[object_XMLElement]:=Module[{dimensions},
+	dimensions=extractXMLelement[object,"dimensions",1];
+	dimensions/.Rule[var_String,num_String]:>Rule[var,ToExpression[num]]
+]
+
+
+(* ::Subsubsection:: *)
+(*Compartment Glyphs*)
+
+
+parseCompartmentGlyph[element_XMLElement]:=Module[{name,position,dimensions,rawImage,object},
+	name=query["compartment",element[[2]]];
+	object=First@element[[3]];
+	position=parsePosition[object];(* x\[Rule]5,y\[Rule]5 *)
+	dimensions=parseDimensions[object]; (*width\[Rule]x,height\[Rule]x*)
+	name->{{"x","y"},{"width"+"x","height"+"y"}}/.Join[position,dimensions]
+]
+
+
+getListOfCompartmentGlyphs[layout_XMLElement]:=Module[{glyphs},
+	glyphs=extractXMLelement[layout,"listOfCompartmentGlyphs",2];
+	parseCompartmentGlyph/@glyphs
+]
+
+
+(* ::Subsubsection:: *)
+(*Species Glyphs*)
+
+
+parseSpeciesGlyph[element_XMLElement]:=
+	Module[{name,position,dimensions,rawImage,object},
+		name=query["species",element[[2]]];
+		position=parsePosition[element];(* x\[Rule]5,y\[Rule]5 *)
+		dimensions=parseDimensions[element]; (*width\[Rule]x,height\[Rule]x*)
+		Return[name->{"x"+"width"/2,"y"+"height"/2,"width","height"}/.Join[position,dimensions]]
+]
+
+
+getListOfSpeciesGlyphs[layout_XMLElement]:=Module[{glyphs},
+	glyphs=extractXMLelement[layout,"listOfSpeciesGlyphs",2];
+	parseSpeciesGlyph/@glyphs
+]
+
+
+(* ::Subsubsection:: *)
+(*Reaction Glyphs*)
+
+
+parseCurveSegment[object_XMLElement]:=Module[{type},
+	type=query["type",object[[2]]];
+	Switch[query["type",object[[2]]],
+		"LineSegment",
+			{(object[[3]]/.XMLElement[_,{"x"->x_,"y"->y_,___},___]:>{ToExpression[x],ToExpression[y]}),0},
+		"CubicBezier",
+			{{extractXMLelement[object,"start",1],
+				extractXMLelement[object,"basePoint1",1],
+				extractXMLelement[object,"basePoint2",1],
+				extractXMLelement[object,"end",1]
+			},1}/.{"x"->x_,"y"->y_,___}:>{ToExpression[x],ToExpression[y]}
+	]
+]
+
+
+parseReactionGlyph[element_XMLElement]:=Module[{name,curves},
+	name=query["reaction",element[[2]]];
+	curves=extractXMLelement[element,"curveSegment",0];
+	Rule[name,parseCurveSegment/@curves]
+]
+
+
+getListOfReactionGlyphs[layout_XMLElement]:=Module[{glyphs},
+	glyphs=extractXMLelement[layout,"listOfReactionGlyphs",2];
+	parseReactionGlyph/@glyphs
+]
+
+
+(* ::Subsubsection:: *)
+(*Text Glyphs*)
+
+
+parseTextGlyph[element_XMLElement] := Module[{text, position, dimensions, rawImage, object},
+	text = query["originOfText", element[[2]]];
+	position = parsePosition[element];
+	dimensions = parseDimensions[element];
+	Return[Text[text, {"x" + "width"/2, "y" + "height"/2}] /. Join[position, dimensions]]
+]
+
+
+getListOfTextGlyphs[layout_XMLElement] := Module[{glyphs, textLabels, rxnLabels, cmpdLabels},
+	glyphs = extractXMLelement[layout, "listOfTextGlyphs", 2];
+	textLabels = Cases[glyphs, XMLElement["textGlyph", {___, "originOfText" -> _, ___}, ___]];
+	(* Only takes text with originOfText. Some textGlyphs may have just "text", but that needs to be added later *)
+	parseTextGlyph/@textLabels
+	]
+
+
+(* ::Subsubsection:: *)
+(*Layout*)
+
+
+getListOfLayouts[xml_XMLElement]:=Module[{},
+	extractXMLelement[xml,"listOfLayouts",2]
+]
+
+
+sbmlLayout2pathway::invalidLayout = "Layout number `1` is larger than the number of layouts in the model (`2`)"
+
+sbmlLayout2pathway[file_String]:=sbmlLayout2pathway[Import[file,"XML"]];
+
+sbmlLayout2pathway[xml_/;Head[xml]===XMLObject["Document"],layoutNumber_Integer:1]:=
+Module[{modelStuff,modelID,modelName,layouts,layout,compartmentGlyphs,speciesGlyphs,textGlyphs,reactionGlyphs},
+	modelStuff=First@extractXMLelement[(xml/.{tag_String,attr_String}:>attr),"model",0];
+	modelID=query["id",modelStuff[[2]]];
+	modelName=query["name",modelStuff[[2]],modelID];
+	layouts=getListOfLayouts[modelStuff];
+	If[layoutNumber > Length[layouts],Message[sbmlLayout2pathway::invalidLayout,layoutNumber,Length[layouts]]];
+	layout=layouts[[layoutNumber]];
+	speciesGlyphs=getListOfSpeciesGlyphs[layout];
+	textGlyphs=getListOfTextGlyphs[layout];
+	reactionGlyphs=getListOfReactionGlyphs[layout];
+	compartmentGlyphs=getListOfCompartmentGlyphs[layout];
+	{speciesGlyphs,reactionGlyphs,textGlyphs,compartmentGlyphs}
+]
+
+
+(* ::Subsection::Closed:: *)
 (*SBML export*)
 
 
@@ -650,7 +789,7 @@ sbml2model[tmpFile[[1]],opts]
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*eQuilibrator*)
 
 

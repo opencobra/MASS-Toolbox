@@ -226,7 +226,7 @@ differentialFVA::usage="";
 generateDiffFvaReport::usage="";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*IO*)
 
 
@@ -245,6 +245,9 @@ model2sbml::usage="model2sbml[model_MASSmodel] converts model into an SBML repre
 sbml2model::usage="sbml2model[path|xml] either takes a path to a SBML file or symbolic XML as inputs and construct a MASSmodel data structure.";
 
 
+sbmlLayout2pathway::usage="sbmlLayout2pathway[path|xml] either takes a path to a SBML file or symbolic XML as inputs and returns the data to draw a pathway (i.e. {metCoords,rxnCoords,textCoords,compartmentCoords}),";
+
+
 eQuilibratorCompoundData::usage="eQuilibratorCompoundData[query] queries the eQuilibrator database for compound related data. Sample query:
 
 {\"InChI_identifiers\"->{\"InChI=1S/C10H16N5O13P3/c11-8-5-9(13-2-12-8)15(3-14-5)10-7(17)6(16)4(26-10)1-25-30(21,22)28-31(23,24)27-29(18,19)20/h2-4,6-7,10,16-17H,1H2,(H,21,22)(H,23,24)(H2,11,12,13)(H2,18,19,20)/t4-,6-,7-,10-/m1/s1\",\"InChI=1S/C10H15N5O10P2/c11-8-5-9(13-2-12-8)15(3-14-5)10-7(17)6(16)4(24-10)1-23-27(21,22)25-26(18,19)20/h2-4,6-7,10,16-17H,1H2,(H,21,22)(H2,11,12,13)(H2,18,19,20)/t4-,6-,7-,10-/m1/s1\"}}
@@ -255,6 +258,8 @@ eQuilibratorReactionData::usage="eQuilibratorReactionData[query] queries the eQu
 
 {\"ionic_strength\"->1.0,\"KEGG_reactions\"->{\"R00002\",\"R00022\"},\"pH\"->7.0}
 "
+
+
 
 
 (* ::Subsection::Closed:: *)
