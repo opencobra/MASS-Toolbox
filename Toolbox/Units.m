@@ -5,6 +5,7 @@
 
 
 Begin["`Units`"];
+Unprotect["Toolbox`Units`*"];
 
 
 (* ::Section:: *)
@@ -85,4 +86,5 @@ AutomaticUnits`Unit[number_,amount_]:=Quantity[number,amount/.(string_String:>(T
 Unit[number_,amount_]:=Quantity[number,amount/.(string_String:>(ToUpperCase[StringTake[string,1]]<>StringDrop[string,1]<>"s"))];
 
 
+Protect["Toolbox`Units`*"]
 End[]
