@@ -58,6 +58,9 @@ extractXMLelement[xml_,tag:(_String|_Alternatives),pos_,level_:\[Infinity]]:=Rep
 SetAttributes[integerChop,Listable];
 integerChop[number_Real]:=If[Round@number==number,Round@number,number]
 integerChop[other_?NumberQ]:=other
+Unprotect[Quantity];
+Quantity[n_,stuff_]:=Block[{$preventRecursion=True},Quantity[n,stuff]/.Power[a_,b_Real]:>Power[a,integerChop[b]]]/;!TrueQ[$preventRecursion]
+Protect[Quantity];
 
 
 getReferenceFluxesAndBoundsFromXML[path_String]:=Block[{tmp,tmp2,tmp3,tmp4},
