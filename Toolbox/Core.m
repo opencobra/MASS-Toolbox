@@ -153,19 +153,11 @@ edit[dat_String,title_:"Default title"]:=Module[{input},
 ];
 
 
-
-
-
 SetAttributes[editModelInPlace,HoldFirst];
 editModelInPlace[model_Symbol,attribute_String]/;MatchQ[Hold[model]/.OwnValues[model],Hold[_MASSmodel]]:=setModelAttribute[model,attribute,edit[model[attribute]]];
 
 
-
-
-
 editModel[model_MASSmodel,attribute_String]:=Module[{modelTmp},modelTmp=model;setModelAttribute[modelTmp,attribute,edit[modelTmp[attribute],"Edit "<>attribute]];modelTmp];
-
-
 
 
 wrapHead::usage="wrapHead[expression] will wrap head around the Head of expression like wrap[Head[expression]][expression]";
@@ -198,9 +190,6 @@ getGradient[rates_List,mets_List]:=Table[\!\(
 \*SubscriptBox[\(\[PartialD]\), \(mets[\([j]\)]\)]\(rates[\([i]\)]\)\),{i,1,Length[rates]},{j,1,Length[mets]}];
 
 
-
-
-
 getJacobian::unknownJacobianType="`1` is not a valid Jacobian type, try \"Concentration\" or \"Flus\" instead.";
 Options[getJacobian]={"Type"->"Concentration"(* or flux *)}
 getJacobian[stoich_?MatrixQ,rates_List,mets_List,opts:OptionsPattern[]]:=Module[{grad},
@@ -213,14 +202,11 @@ getJacobian[stoich_?MatrixQ,rates_List,mets_List,opts:OptionsPattern[]]:=Module[
 ];
 
 
-
-
 (* ::Subsection:: *)
 (*Rates*)
 
 
 addExternalConcentration=Switch[#,elem_/;MatchQ[elem,_rateconst],#,elem_/;MatchQ[elem,_Plus],Simplify@Replace[Expand[keq2k@#],pat:(-1_rateconst|_rateconst):>pat*Times@@Cases[#,m:$MASS$speciesPattern:>Head[m][getID[m],"Xt"],\[Infinity]],1],_,#]&;
-
 
 
 reaction2rate[rxns:{_reaction..},ignore:{$MASS$speciesPattern...}:{}]:=reaction2rate[#,ignore]&/@rxns
@@ -236,7 +222,6 @@ reaction2rate[r_reaction,ignore:{$MASS$speciesPattern...}:{}]:=Module[{rate},
 	]
 	(*If[MemberQ[r,_enzyme]&&MatchQ[getSubstrates[r]],,rate]*)
 ];
-
 
 
 makeRates::usage="makeRates[stoich_?MatrixQ, rowIDs_List, columnIDs_List] constructs rate equations for the forward and reverse directions of the reactions specified by the provided arguments. An overloaded MASSmodel version of this function exists also (makeRates[model_MASSmodel])";
@@ -265,17 +250,10 @@ makeRates[r:{_reaction..},opts:OptionsPattern[]]:=Module[{columnIDs,defaultSchem
 makeRates[{},data:({_Rule..}|{}):{},opts:OptionsPattern[]]:={}
 
 
-
-
-
 keq2k[expression_]:=Simplify[expression/.keq_Keq:>(rateconst[getID[keq],True]/rateconst[getID[keq],False])]
 kRev2keq[expression_]:=Simplify[expression/.r_rateconst/;r[[2]]==False:>rateconst[r[[1]],True]/Keq[r[[1]]],ExcludedForms->(1/_Keq)]
 kFwd2keq[expression_]:=Simplify[expression/.r_rateconst/;r[[2]]==True:>rateconst[r[[1]],False]*Keq[r[[1]]]]
 k2keq[expression_]:=kRev2keq[expression]
-
-
-
-
 
 
 (* ::Subsection:: *)
@@ -326,8 +304,6 @@ calcPERC[model_MASSmodel,steadystateConc:{Rule[$MASS$speciesPattern,_?NumberQ]..
 calcPERC[model_MASSmodel,steadystateConc:{Rule[$MASS$speciesPattern,_?NumberQ]..},steadystateFluxes:{Rule[_String,_?NumberQ]..},equilibriumConstants:{Rule[_Keq,(_?NumberQ|\[Infinity])]..},externalConcentrations:{Rule[$MASS$speciesPattern,(_?NumberQ|\[Infinity])]..}]:=calcPERC[model,"SteadyStateConcentrations"->steadystateConc,"SteadyStateFluxes"->steadystateFluxes,"Parameters"->Join[equilibriumConstants,externalConcentrations]]
 
 
-
-
 (* ::Subsection:: *)
 (*Structural stuff*)
 
@@ -345,11 +321,7 @@ getMassActionRatios[rxns:{_reaction..},opts:OptionsPattern[]]:=getMassActionRati
 (*getMassActionRatios[rxn_reaction,opts:OptionsPattern[]]:=getMassActionRatios[{getSignedStoich[rxn]}\[Transpose],getSpecies[rxn],opts][[1]]*)
 
 
-
-
 \[CapitalGamma][stuff__,opts:OptionsPattern[]]:=getMassActionRatios[stuff,opts]
-
-
 
 
 Options[getDisequilibriumRatios]={"Ignore"->{}};
@@ -358,16 +330,10 @@ getDisequilibriumRatios[rxn_reaction,opts:OptionsPattern[]]:=getMassActionRatios
 getDisequilibriumRatios[rxns:{_reaction..},opts:OptionsPattern[]]:=getDisequilibriumRatios[#,opts]&/@rxns
 
 
-
-
 \[Rho][stuff__,opts:OptionsPattern[]]:=getDisequilibriumRatios[stuff,opts]
 
 
-
-
 calcKappa[rateconstants_List]:=DiagonalMatrix[rateconstants]
-
-
 
 
 (* ::Subsection:: *)
@@ -519,6 +485,7 @@ attributeTestPatterns={
 	"Synonyms"->{(Join[$MASS$speciesPattern,$MASS$parametersPattern,_v|_String]->_String)..}|{},
 	"Events"->{(_String->WhenEvent[_,({_[t]..}->{__})|(_[t]->_)|{(_[t]->_)..},OptionsPattern[]])...},
 	"Objective"->(Automatic|_v|_Plus),
+	"Pathway"->({{(_String->{_?NumericQ..})..},{(_String->{_List...})..},({(_Text|_Rule|_Style)..}|{}),{_Rule...}}|{})
 	_->_
 };
 
@@ -559,12 +526,12 @@ attributeCallBacks={
 
 Options[constructModel]={"InitialConditions"->{},"Constraints"->{},"Parameters"->{},"Irreversible"->{},"GPR"->{},"CustomRateLaws"->{},
 "CustomODE"->{}(*FIXME needs arg checking*),"Constant"->{},"BoundaryConditions"->{},"Name"->Automatic,"ID"->Automatic,"ElementalComposition"->{},
-"Notes"->"","Ignore"->{},"ReorderStoichiometry"->True,"UnitChecking"->False,"Synonyms"->{},"Events"->{},"Objective"->Automatic};
+"Notes"->"","Ignore"->{},"ReorderStoichiometry"->True,"UnitChecking"->False,"Synonyms"->{},"Events"->{},"Objective"->Automatic,"Pathway"->{}};
 constructModel::malformedarg="`1` `2` do/does not match the appropriate pattern `3`";
 constructModel::nonUniqueRxnIDs="Non-unique flux IDs detected for `1`.";
 constructModel::wrongdim="The dimensions of the stoichiometry matrix (`1`) do not match the lengths of the provided compounds (`2`) and flux identifiers (`3`).";
 constructModel::wrongmatrixelements="Non Integer, Real, or Rational elements encountered at positions `1`.";
-constructModel[modelID_String:"",S:(_?MatrixQ|{{}}),compounds:{$MASS$speciesPattern...},fluxes:({(_String|_v)..}|{}),opts:OptionsPattern[]]:=Module[{objective,events,fluxesFinal,variableComp,units,tmpRxns,modelIDtmp,model,contxtStr,constraints,initialConditions,parameters,boundaryConditions,constant,revColInd,irrevConstr,name,notes,exchLeftNull,exchRightNull,exchConstr,elementalComposition,newRowOrder,indepDepS,indepS,linkMatrix,gpr,ignore,pat,defaultInitializationNotes,synonyms},
+constructModel[modelID_String:"",S:(_?MatrixQ|{{}}),compounds:{$MASS$speciesPattern...},fluxes:({(_String|_v)..}|{}),opts:OptionsPattern[]]:=Module[{objective,events,fluxesFinal,variableComp,units,tmpRxns,modelIDtmp,model,contxtStr,constraints,initialConditions,parameters,boundaryConditions,constant,revColInd,irrevConstr,name,notes,exchLeftNull,exchRightNull,exchConstr,elementalComposition,newRowOrder,indepDepS,indepS,linkMatrix,gpr,ignore,pat,defaultInitializationNotes,synonyms,pathway},
 	fluxesFinal=Switch[#,_String,v[#],_v,#,_,v[ToString[#]]]&/@fluxes;
 	
 	If[Length[Union[fluxesFinal]]=!=Length[fluxesFinal],
@@ -678,6 +645,10 @@ constructModel[modelID_String:"",S:(_?MatrixQ|{{}}),compounds:{$MASS$speciesPatt
 	pat="Objective"/.attributeTestPatterns;
 	If[!MatchQ[objective,pat],Message[constructModel::malformedarg,"Objective",objective,pat];Abort[]];
 	
+	pathway=OptionValue["Pathway"];
+	pat="Pathway"/.attributeTestPatterns;
+	If[!MatchQ[pathway,pat],Message[constructModel::malformedarg,"Pathway",pathway,pat];Abort[]]
+	
 	model=MASSmodel[
 			{
 			"ID"->modelIDtmp,
@@ -699,7 +670,8 @@ constructModel[modelID_String:"",S:(_?MatrixQ|{{}}),compounds:{$MASS$speciesPatt
 			"Ignore"->ignore,
 			"UnitChecking"->units,
 			"Synonyms"->synonyms,
-			"Events"->events
+			"Events"->events,
+			"Pathway"->pathway
 			}
 		];
 	model
@@ -730,9 +702,6 @@ setModelAttribute[model_Symbol,attribute_String,rhs_,opts:OptionsPattern[]]:=Mod
 ];
 
 
-
-
-
 SetAttributes[updateModelAttribute,HoldFirst];
 updateModelAttribute::malformedarg="`1` `2` do/does not match the appropriate pattern `3`";
 updateModelAttribute::wrongattr="The attribute `1` does not exist in model `2` or might not be mutable.";
@@ -747,13 +716,8 @@ setModelAttribute[model,attribute,newAttribute,"Sloppy"->True]
 ];
 
 
-
-
-
 SetAttributes[addModelAttribute,HoldFirst];
 addModelAttribute[model_Symbol,attribute_String,rhs_]:=(AppendTo[model[[1]],attribute->rhs]);
-
-
 
 
 (* ::Subsubsection:: *)
@@ -762,7 +726,7 @@ addModelAttribute[model_Symbol,attribute_String,rhs_]:=(AppendTo[model[[1]],attr
 
 (*Attributes*)
 $MASSmodel$MutableAttributes={"ID","Name","Constraints","InitialConditions","Parameters","GPR","BoundaryConditions","HasOnlySubstanceUnits",
-"Constant","ReversibleColumnIndices","CustomRateLaws","CustomODE","ElementalComposition","Notes","Ignore","UnitChecking","Synonyms","Events","Objective"};
+"Constant","ReversibleColumnIndices","CustomRateLaws","CustomODE","ElementalComposition","Notes","Ignore","UnitChecking","Synonyms","Events","Objective","Pathway"};
 $MASSmodel$ImmutableAttributes={"Stoichiometry","Species","Fluxes"};
 $MASSmodel$AdditionalImmutablAttributes={"Attributes","SparseStoichiometry","Reactions","Exchanges","Variables","ForwardRateConstants","ReverseRateConstants",
 "EquilibriumConstants","IrreversibleColumnIndices","Rates","Compartments","ODE","Genes","Proteins","GeneAssociations","ProteinAssociations","Enzymes"}
@@ -831,7 +795,7 @@ model_MASSmodel["Proteins"]:=Union@Cases[model["GPR"],_protein,\[Infinity]];
 model_MASSmodel["GeneAssociations"]:=(Union[Cases[model["GPR"],r_Rule/;r[[1,0]]===String,\[Infinity]]]/.p_proteinComplex:>And@@p)/.Union[Cases[model["GPR"],r_Rule/;r[[1,0]]===protein||r[[1,0]]===proteinComplex,\[Infinity]]]/.g_geneComplex:>And@@g
 model_MASSmodel["ProteinAssociations"]:=Union[Cases[model["GPR"],r_Rule/;r[[1,0]]===String,\[Infinity]]]/.p_proteinComplex:>And@@p
 model_MASSmodel["Enzymes"]:=Cases[model["Species"],_enzyme];
-
+model_MASSmodel["Pathway"]:=drawPathway["Pathway"/.model[[1]]];
 
 
 (*Overloading*)
@@ -966,7 +930,8 @@ MASSmodel/:MakeBoxes[model_MASSmodel,_]:=ToBoxes@MenuView[{
 	],
 	"Nullspace"->If[NullSpace[model]=!={},specialPane2@TableForm[NullSpace[model].model["Fluxes"],TableHeadings->{None,model["Fluxes"]}],"Nullspace empty"],
 	"Left Nullspace"->If[NullSpace[Transpose@model]=!={},specialPane2@TableForm[NullSpace[Transpose@model].model["Species"],TableHeadings->{None,model["Species"]}],"Left Nullspace empty"],
-	"Notes"->specialPane2@Style[model["Notes"],FontSize->10]},ImageSize->{{width},{height}}
+	"Notes"->specialPane2@Style[model["Notes"],FontSize->10],
+	"Pathway"->drawPathway[model["Pathway"]]},ImageSize->{{width},{height}}
 ]
 
 
@@ -1066,9 +1031,6 @@ splitReversible[stoich_?MatrixQ,colIDs:{(_String|_v)..},reversibleColumnIndices:
 ];
 
 
-
-
-
 addExchange::wrngPrefix="Prefix `1` is not string.";
 addExchange::wrngDirection="Direction has to be either Forward (m <=> 0) or Reverse (0 <=> m) and not `1`.";
 Options[addExchange]={"Direction"->"Forward"(*or Reverse*),"Prefix"->"EX_"}
@@ -1084,14 +1046,8 @@ addExchange[model_MASSmodel,m:$MASS$speciesPattern,opts:OptionsPattern[]]:=Modul
 ];
 
 
-
-
-
 Options[addExchanges]=Options[addExchange];
 addExchanges[model_MASSmodel,m:{$MASS$speciesPattern..},opts:OptionsPattern[]]:=Fold[addExchange[#1,#2,opts]&,model,m]
-
-
-
 
 
 addSinks[model_MASSmodel]:=Module[{bip,tmp,needSinks},
@@ -1106,14 +1062,9 @@ addSinks[model_MASSmodel,cmpds:{$MASS$speciesPattern..}]:=Module[{sinks},
 ];
 
 
-
-
 addSink[model_MASSmodel,cmpd:$MASS$speciesPattern]:=Module[{sinks},
 	addSinks[model,{cmpd}]
 ];
-
-
-
 
 
 deleteReactions::rxnNotInModel="Reaction(s) `1` does/do not exist in the model.";
@@ -1153,13 +1104,8 @@ deleteReactions[model_MASSmodel,rxnIDs:{(_String|_v)..}]:=Module[{modelTmp,notIn
 deleteReactions[model_MASSmodel,regex_RegularExpression]:=deleteReactions[model,Select[getID/@model["Fluxes"],StringMatchQ[#,regex]&]];
 
 
-
-
 deleteReaction[model_MASSmodel,rxn_reaction]:=deleteReactions[model,{getID@rxn}]
 deleteReaction[model_MASSmodel,rxnID:(_String|_v)]:=deleteReactions[model,{rxnID}]
-
-
-
 
 
 deleteGenes::notexists="Gene(s) `1` does(do) not exist in model `2`";
@@ -1178,12 +1124,7 @@ deleteGenes[model_MASSmodel,genes:{_gene..}]:=Module[{newModel,gpr,tmp,affectedR
 ];
 
 
-
-
 deleteGene[model_MASSmodel,g_gene]:=deleteGenes[model,{g}]
-
-
-
 
 
 deleteProteins::notexists="Proteins(s) `1` does(do) not exist in model `2`";
@@ -1200,12 +1141,7 @@ deleteProteins[model_MASSmodel,proteins:{_protein..}]:=Module[{newModel,gpr,tmp,
 ];
 
 
-
-
 deleteProtein[model_MASSmodel,p_protein]:=deleteProteins[model,{p}]
-
-
-
 
 
 addColumn::usage="addColumn[matrix, column] appends column to matrix. Adjusts shape of matrix by zero padding in order to accomodate column.";
@@ -1213,9 +1149,6 @@ addColumn[mat_?MatrixQ,col:{_?AtomQ..}]:=Module[{nRows,nCols},
 	{nRows,nCols}=Dimensions[mat];
 	Transpose[Append[Transpose[PadRight[mat,{Length[col],Dimensions[mat][[2]]}]],col]]
 ];
-
-
-
 
 
 addReaction::exists = "Reaction `` already exists in model `2`";
@@ -1253,17 +1186,11 @@ addReaction[model_,rxn_?reactionQ] :=
     ];
 
 
-
 addReactions[model_MASSmodel,rxns:{_?reactionQ..}]:=Fold[addReaction,model,rxns];
-
-
-
 
 
 deleteIndicesKeepConsistent::usage="Remove indices from a list of indices and change the resulting list of indices appropriately."
 deleteIndicesKeepConsistent[indices_List,indices2delete_List]:=Fold[DeleteCases[#1,#2]/.i_Integer/;i>#2:>i-1&,Sort@Union[indices],MapIndexed[#-(First@#2-1)&,Sort@Union@indices2delete]];
-
-
 
 
 deleteSpecies::notexists="species `1` does not exists in model `2`";
@@ -1288,15 +1215,9 @@ deleteSpecies[model_MASSmodel,{}]:=model
 deleteSpecies[model_MASSmodel,mets:{$MASS$speciesPattern..}]:=Fold[deleteSpecies,model,mets]
 
 
-
-
-
 stoich2reactionList::usage="stoich2reactionList[stoich_?MatrixQ,compounds_List,fluxes_List,revColIndices:({_Integer..}|{})] generates a list of reactions using the provided stoichiometry matrix, compounds, and reaction IDs. The fourth argument (revColIndices) specifies the columns of the stoichiometry matrix that correspond to reversible reactions.";
 stoich2reactionList[stoich_?MatrixQ,compounds_List,fluxes_List,revColIndices:({_Integer..}|{})]:=MapThread[stoichColumn2reaction[#,compounds,#2,#3]&,{Transpose@stoich,fluxes/.flux_v:>getID[flux],Table[If[MemberQ[revColIndices,i],True,False],{i,1,Length[Transpose@stoich]}]}]
 stoich2reactionList[{},{},{},{}]:={}
-
-
-
 
 
 stoichColumn2reaction[column_List,variables_,reactionID_,revQ_:True]:=Block[{substrPos,prodPos},
@@ -1312,9 +1233,6 @@ neg=Negative[stoich];
 pos=Positive[stoich];
 reaction[reactionID,Pick[cmpds,neg],Pick[cmpds,pos],Abs[Join[Pick[stoich,neg],Pick[stoich,pos]]],revQ]
 ];
-
-
-
 
 
 reactionList2model::usage="reactionList2model[reactionList:{HoldForm[_reaction]..}, opts___] constructs a MASSmodel given a list of reactions. Options are passed on to constructModel.";
@@ -1351,12 +1269,7 @@ reactionList2model[reactionList:{_reaction...},opts:OptionsPattern[]]:=Block[{ma
 ];
 
 
-
-
-
 subModel[model_MASSmodel,rxnIDs:{(_String|_v)..}]:=deleteReactions[model,Complement[getID/@model["Fluxes"],rxnIDs/.flux_v:>getID[flux]]];
-
-
 
 
 (* ::Subsection:: *)
@@ -1379,15 +1292,11 @@ Message[elementallyBalancedQ::notBalanced,SlideView[Rule@@@Cases[balancing,r_Rul
 ];
 
 
-
-
 (*Gevorgyan,A.,Poolman,M.G.,& Fell,D.A.(2008).Detection of stoichiometric inconsistencies in biomolecular models Bioinformatics (Oxford,England),24(19),2245\[Dash]2251. doi:10.1093/bioinformatics/btn425*)
 
 Options[stoichiometricallyConsistentQ]={"Solver"->LinearProgramming};
 stoichiometricallyConsistentQ[m_MASSmodel,opts:OptionsPattern[]]:=stoichiometricallyConsistentQ[deleteReactions[m,getID/@m["Exchanges"]]["Stoichiometry"],opts]
 stoichiometricallyConsistentQ[s_?MatrixQ,opts:OptionsPattern[]]:=Quiet[Check[OptionValue["Solver"][Array[1&,Length[s]],Transpose@s,Table[{0,0},{Length[Transpose@s]}],Array[1&,Length[s]]],False,{LinearProgramming::lpsnf}]/.{_?NumberQ..}:>True,{LinearProgramming::lpsnf}]
-
-
 
 
 (*Gevorgyan,A.,Poolman,M.G.,& Fell,D.A.(2008).Detection of stoichiometric inconsistencies in biomolecular models Bioinformatics (Oxford,England),24(19),2245\[Dash]2251. doi:10.1093/bioinformatics/btn425*)
@@ -1402,7 +1311,6 @@ Join[Table[Reals,{Length[#]}],Table[Integers,{Length[#]}]]
 ]&[s];
 Cases[Thread[Rule[compounds,milpResult[[1;;Length[s]]]]],r_Rule/;r[[2]]<1][[All,1]]
 ];
-
 
 
 (* ::Subsection:: *)
