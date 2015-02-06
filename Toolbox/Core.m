@@ -1370,10 +1370,10 @@ If[OptionValue["RemoveExchanges"],
 exclude=model["Exchanges"];,
 exclude={};
 ];
-balancing=Thread[Rule[model["Reactions"],Expand/@((model["Species"]/.Dispatch[updateRules[model["ElementalComposition"],OptionValue["ElementalComposition"]]]).model)]];
+balancing=Thread[Rule[model["Reactions"],Expand/@((model["Species"]/.Dispatch[updateRules[model["ElementalComposition"],OptionValue["ElementalComposition"]]]).model["Stoichiometry"])]];
 balancing=DeleteCases[balancing,r_Rule/;MemberQ[exclude,r[[1]]]];
 If[
-Round[Total[balancing[[All,2]]]]===0.,
+(Round[Total[balancing[[All,2]]]]==0.),
 True,
 Message[elementallyBalancedQ::notBalanced,SlideView[Rule@@@Cases[balancing,r_Rule/;Round[r[[2]]]=!=0],AppearanceElements->All]];False]
 ];
