@@ -1366,19 +1366,33 @@ subModel[model_MASSmodel,rxnIDs:{(_String|_v)..}]:=deleteReactions[model,Complem
 Options[elementallyBalancedQ]={"ElementalComposition"->{},"RemoveExchanges"->True};
 elementallyBalancedQ::notBalanced="The following reactions are not balanced: `1`.";
 elementallyBalancedQ[model_MASSmodel,opts:OptionsPattern[]]:=Module[{balancing,exclude},
-If[OptionValue["RemoveExchanges"],
-exclude=model["Exchanges"];,
-exclude={};
-];
-balancing=Thread[Rule[model["Reactions"],Expand/@((model["Species"]/.Dispatch[updateRules[model["ElementalComposition"],OptionValue["ElementalComposition"]]]).model["Stoichiometry"])]];
-balancing=DeleteCases[balancing,r_Rule/;MemberQ[exclude,r[[1]]]];
-If[
-(Round[Total[balancing[[All,2]]]]==0.),
-True,
-Message[elementallyBalancedQ::notBalanced,SlideView[Rule@@@Cases[balancing,r_Rule/;Round[r[[2]]]=!=0],AppearanceElements->All]];False]
+	If[OptionValue["RemoveExchanges"],
+		exclude=model["Exchanges"];,
+		exclude={};
+	];
+	balancing=Thread[Rule[model["Reactions"],Expand/@((model["Species"]/.Dispatch[updateRules[model["ElementalComposition"],OptionValue["ElementalComposition"]]]).model["Stoichiometry"])]];
+	balancing=DeleteCases[balancing,r_Rule/;MemberQ[exclude,r[[1]]]];
+	If[
+		(Round[Total[balancing[[All,2]]]]==0.),
+		True,
+		Message[elementallyBalancedQ::notBalanced,SlideView[Rule@@@Cases[balancing,r_Rule/;Round[r[[2]]]=!=0],AppearanceElements->All]];
+			False
+	]
 ];
 
 
+
+
+Options[getElementalMatrix]={"TableForm"->True};
+getElementalMatrix[model_MASSmodel,opts:OptionsPattern[]]:=Module[{elemList,elements,matrix},
+	elemList=List/@(model["Species"]/.model["ElementalComposition"])/.Plus->Sequence;
+	elements=DeleteDuplicates@Flatten[elemList/._?NumericQ->1];
+	matrix=Flatten/@Table[Cases[#,(x_*elem|elem)]&/@elemList/.{}->{0},{elem,elements}]/._String->1;
+	If[OptionValue[TableForm]==True,
+		Framed@TableForm[matrix,TableHeadings->{elements,model["Species"]}],
+		{elements,matrix}
+	]
+];
 
 
 (*Gevorgyan,A.,Poolman,M.G.,& Fell,D.A.(2008).Detection of stoichiometric inconsistencies in biomolecular models Bioinformatics (Oxford,England),24(19),2245\[Dash]2251. doi:10.1093/bioinformatics/btn425*)
