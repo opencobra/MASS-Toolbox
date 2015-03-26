@@ -216,16 +216,18 @@ plotPhasePortrait[simulation:{{_Rule,_Rule}..},{t_Symbol,tMin_?NumberQ,tMax_?Num
 Options[plotTiledPhasePortraits]=updateRules[Options[plotPhasePortrait],{Frame->False,FrameTicks->False}];
 plotTiledPhasePortraits[simulation:{_Rule..},opts:OptionsPattern[]]:=Module[{interPolDat,numericalDat,plotFunction},
 GraphicsGrid[Table[
-Piecewise[{
-{plotPhasePortrait[simulation[[{i,j}]],Sequence@@FilterRules[List[opts],Options[plotTiledPhasePortraits]],ImageSize->{Automatic,300}],i>j},{Quiet@plotSimulation[{simulation[[i]]},Epilog->Style[Text[simulation[[i,1,0,1]],ImageScaled@{.9,.85}],FontFamily->"Helvetica",FontSize->Scaled[0.07],Bold],BaseStyle->{FontSize->Scaled[.04]},ImageSize->{Automatic,300}],i==j},
-{"",i<j}}
-],{i,1,Length[simulation]},{j,1,Length[simulation]}],ImageSize->Length[simulation]*200,Frame->False]
+	Piecewise[{
+		{plotPhasePortrait[simulation[[{i,j}]],Sequence@@FilterRules[List[opts],Options[plotTiledPhasePortraits]],ImageSize->{Automatic,300}],i>j},
+		{Quiet@plotSimulation[{simulation[[i]]},Epilog->Style[Text[simulation[[i,1,1]],ImageScaled@{.9,.85}],FontFamily->"Helvetica",FontSize->Scaled[0.07],Bold],BaseStyle->{FontSize->Scaled[.04]},ImageSize->{Automatic,300}],i==j},
+		{"",i<j}}
+	],{i,1,Length[simulation]},{j,1,Length[simulation]}],ImageSize->Length[simulation]*200,Frame->False]
 ];
+
 plotTiledPhasePortraits[simulation1:{_Rule..},simulation2:{_Rule..},opts:OptionsPattern[]]:=Module[{interPolDat,numericalDat,plotFunction},
 GraphicsGrid[Table[
-Piecewise[{
-{plotPhasePortrait[{simulation1[[i]],simulation2[[j]]},Frame->False,PlotPoints->1000,PerformanceGoal->"Quality",ImageSize->{Automatic,300}],i!=j},{Quiet@plotSimulation[{simulation1[[i]],simulation2[[j]]},Epilog->Style[Text[simulation1[[i,1,0,1]],ImageScaled@{.9,.85}],FontFamily->"Helvetica",FontSize->Scaled[0.07],Bold],BaseStyle->{FontSize->Scaled[.04]},ImageSize->{Automatic,300}],i==j}}
-],{i,1,Length[simulation1]},{j,1,Length[simulation2]}],ImageSize->5*200,Frame->False]
+	Piecewise[{
+		{plotPhasePortrait[{simulation1[[i]],simulation2[[j]]},Frame->False,PlotPoints->1000,PerformanceGoal->"Quality",ImageSize->{Automatic,300}],i!=j},{Quiet@plotSimulation[{simulation1[[i]],simulation2[[j]]},Epilog->Style[Text[simulation1[[i,1,0,1]],ImageScaled@{.9,.85}],FontFamily->"Helvetica",FontSize->Scaled[0.07],Bold],BaseStyle->{FontSize->Scaled[.04]},ImageSize->{Automatic,300}],i==j}}
+	],{i,1,Length[simulation1]},{j,1,Length[simulation2]}],ImageSize->5*200,Frame->False]
 ];
 
 

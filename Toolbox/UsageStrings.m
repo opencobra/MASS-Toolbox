@@ -373,7 +373,7 @@ splitReversible::usage="splitReversible[S, ColumnIDs, reversibleColumnIndices] s
 subModel::usage="subModel[model, {rxn1, rxn2, ...}] will extract a sub-model consisting of the specified reactions.";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*QC/QA*)
 
 
@@ -383,7 +383,12 @@ detectUnconservedMetabolites::usage="detectUnconservedMetabolites[stoichiometry,
 elementallyBalancedQ::usage="Checks if provided model is elementally balanced.";
 
 
+getElementalMatrix::usage="getElementalMatrix[model] displays a formatted elemental matrix for the model. Use TableForm->False for the raw matrix.";
+
+
 stoichiometricallyConsistentQ::usage="Checks the stochiometric consistency of provide matrix or model (see Gevorgyan, A., Poolman, M. G., & Fell, D. A. (2008). Detection of stoichiometric inconsistencies in biomolecular models Bioinformatics (Oxford, England), 24(19), 2245\[Dash]2251. doi:10.1093/bioinformatics/btn425).";
+
+
 
 
 (* ::Subsection::Closed:: *)
