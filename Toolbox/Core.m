@@ -1383,7 +1383,7 @@ elementallyBalancedQ[model_MASSmodel,opts:OptionsPattern[]]:=Module[{balancing,e
 
 
 
-Options[getElementalMatrix]={"TableForm"->True};
+Options[getElementalMatrix]={"TableForm"->False};
 getElementalMatrix[model_MASSmodel,opts:OptionsPattern[]]:=Module[{elemList,elements,matrix},
 	elemList=List/@(model["Species"]/.model["ElementalComposition"])/.Plus->Sequence;
 	elements=DeleteDuplicates@Flatten[elemList/._?NumericQ->1];
