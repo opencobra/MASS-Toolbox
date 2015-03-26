@@ -10,6 +10,7 @@ ExampleData[{"Toolbox", "Glycolysis"}] := Import[FileNameJoin[{$ToolboxPath,"Exa
 ExampleData[{"Toolbox", "PentosePhosphatePathway"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","SB2","ppp.m.gz"}]];
 ExampleData[{"Toolbox", "NucleotideSalvagePathway"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","SB2","salvage.m.gz"}]];
 ExampleData[{"Toolbox", "Hemoglobin"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","SB2","Hemoglobin.m.gz"}]];
+ExampleData[{"Toolbox", "PFK"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","SB2","pfk.m.gz"}]]
 ExampleData[{"Toolbox", "RedBloodCellMap"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","SB2","SB2_map_complete.m"}]];
 ExampleData[{"Toolbox", "EcoliCore"}] := Import[FileNameJoin[{$ToolboxPath,"ExampleData","EcoliCore","EcoliCore.m.gz"}]];
 ExampleData[{"Toolbox", "EcoliCoreMap"}] := importBIGGmap[FileNameJoin[{$ToolboxPath,"ExampleData","EcoliCore","EcoliCoreMap.svg"}]];
