@@ -485,7 +485,7 @@ attributeTestPatterns={
 	"Synonyms"->{(Join[$MASS$speciesPattern,$MASS$parametersPattern,_v|_String]->_String)..}|{},
 	"Events"->{(_String->WhenEvent[_,({_[t]..}->{__})|(_[t]->_)|{(_[t]->_)..},OptionsPattern[]])...},
 	"Objective"->(Automatic|_v|_Plus),
-	"Pathway"->({{(_String->{_?NumericQ..})..},{(_String->{_List...})..},({(_Text|_Rule|_Style)..}|{}),{_Rule...}}|{})
+	"Pathway"->({{(_String->{_?NumericQ..})..},{(_String->{_List...})..},({(_Text|_Rule|_Style)..}|{}),{_Rule...}}|{}),
 	_->_
 };
 
@@ -647,7 +647,7 @@ constructModel[modelID_String:"",S:(_?MatrixQ|{{}}),compounds:{$MASS$speciesPatt
 	
 	pathway=OptionValue["Pathway"];
 	pat="Pathway"/.attributeTestPatterns;
-	If[!MatchQ[pathway,pat],Message[constructModel::malformedarg,"Pathway",pathway,pat];Abort[]]
+	If[!MatchQ[pathway,pat],Message[constructModel::malformedarg,"Pathway",pathway,pat];Abort[]];
 	
 	model=MASSmodel[
 			{
@@ -931,7 +931,7 @@ MASSmodel/:MakeBoxes[model_MASSmodel,_]:=ToBoxes@MenuView[{
 	"Nullspace"->If[NullSpace[model]=!={},specialPane2@TableForm[NullSpace[model].model["Fluxes"],TableHeadings->{None,model["Fluxes"]}],"Nullspace empty"],
 	"Left Nullspace"->If[NullSpace[Transpose@model]=!={},specialPane2@TableForm[NullSpace[Transpose@model].model["Species"],TableHeadings->{None,model["Species"]}],"Left Nullspace empty"],
 	"Notes"->specialPane2@Style[model["Notes"],FontSize->10],
-	"Pathway"->drawPathway[model["Pathway"]]},ImageSize->{{width},{height}}
+	"Pathway"->model["Pathway"]},ImageSize->{{width},{height}}
 ]
 
 

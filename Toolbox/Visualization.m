@@ -401,7 +401,8 @@ $AVAILABLEMAPS=Select[$AVAILABLEMAPS,!StringMatchQ[#[[1]],RegularExpression["^\\
 
 Options[drawPathway]={"CompoundLabels"->True,"ReactionLabels"->True,"TextLabels"->False,"MinMaxHack"->False,"PlotLegends"->None,"Tooltips"->True,"ColorFunctionScaling"->True,"Boundary"->False,"ReactionData"->{},"MetaboliteData"->{},ColorFunction->ColorData["Rainbow"],"MinSize"->0.005,"MaxSize"->0.01,"MinThickness"->0.001,"MaxThickness"->0.003,"TextStyle"->{FontFamily->"Arial",FontSize->Scaled[.008]},"MetaboliteStyle"->Options[drawMetaboliteMap],"ReactionStyle"->Options[drawReactionMap],ImageSize->350};
 drawPathway::unknownmap="Map `1` is not available. Try drawPathway[] to see a list of available maps";
-drawPathway[]:=Sort[$AVAILABLEMAPS[[All,1]]]
+drawPathway[]:=Sort[$AVAILABLEMAPS[[All,1]]];
+drawPathway[{}]:=Null; (* This is for the model viewer when there is no pathway *)
 drawPathway[mapID_String,opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{cmpdPos,rxnPos,finalLabels,mapData,cmpdLabels,rxnLabels,textLabels,compartments},
 	If[MemberQ[$AVAILABLEMAPS[[All,1]],mapID], mapData=Import[mapID/.$AVAILABLEMAPS], Message[drawPathway::unknownmap,mapID];Abort[];];
 	cmpdPos=Flatten[query["cmpd_pos",mapData,{}]];
@@ -415,7 +416,7 @@ drawPathway[mapID_String,opts:OptionsPattern[{drawPathway,drawReactionMap,drawMe
 	If[OptionValue["ReactionLabels"]==True, finalLabels=Join[rxnLabels,finalLabels];];
 	drawPathway[cmpdPos,DeleteCases[rxnPos,{"NaN","NaN"},\[Infinity]](*TODO: fix this in the maps*),finalLabels,opts]
 ];
-drawPathway[metPos:{(_String->{_?NumericQ..})..},rxnPos:{(_String->{_List...})..},textPos:({(_Text|_Rule|_Style)..}|{}),compPos:{_Rule...}:{},opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{refMin,refMax,helperFunc,min,max,directedQ,map,fluxStyle,metStyle,cellMembrane,corners,aspectRatio,cleanRxnData,scalingFunction,cleanMetaboliteData,compartments,compartmentGraphics},
+drawPathway[metPos:{(_String->{_?NumericQ..})..},rxnPos:{(_String->{_List...})..},textPos:({(_Text|_Rule|_Style)...}),compPos:{_Rule...}:{},opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{refMin,refMax,helperFunc,min,max,directedQ,map,fluxStyle,metStyle,cellMembrane,corners,aspectRatio,cleanRxnData,scalingFunction,cleanMetaboliteData,compartments,compartmentGraphics},
 	directedQ="Directed"/.(ToString[#[[1]]]->#[[2]]&/@OptionValue["ReactionStyle"]);
 	corners=getCorners[rxnPos];
 	aspectRatio=getAspectRatio[Sequence@@corners];
