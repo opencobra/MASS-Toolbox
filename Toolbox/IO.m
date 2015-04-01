@@ -628,7 +628,7 @@ getListOfCompartmentGlyphs[layout_XMLElement]:=Module[{glyphs},
 
 
 parseSpeciesGlyph[element_XMLElement]:=
-	Module[{name,position,dimensions,rawImage,object},
+	Module[{name,position,dimensions},
 		name=query["species",element[[2]]];
 		position=parsePosition[element];(* x\[Rule]5,y\[Rule]5 *)
 		dimensions=parseDimensions[element]; (*width\[Rule]x,height\[Rule]x*)
@@ -661,10 +661,26 @@ parseCurveSegment[object_XMLElement]:=Module[{type},
 ]
 
 
+(* Only necessary if bounding boxes are allowed for reactions *)
+
+
+parseBoundingBox[object_XMLElement]:=Module[{name,position,dimensions},
+	position=parsePosition[object];(* x\[Rule]5,y\[Rule]5 *)
+	dimensions=parseDimensions[object]; (*width\[Rule]x,height\[Rule]x*)
+	{{{{"x","y"},{"width"+"x","height"+"y"}},"Box"}}/.Join[position,dimensions]
+]
+
+
 parseReactionGlyph[element_XMLElement]:=Module[{name,curves},
 	name=query["reaction",element[[2]]];
 	curves=extractXMLelement[element,"curveSegment",0];
-	Rule[name,parseCurveSegment/@curves]
+	If[curves=={},
+		Module[{boundingBox},
+			boundingBox=First@extractXMLelement[element,"boundingBox",0];
+			Rule[name,parseBoundingBox[boundingBox]]
+		],
+		Rule[name,parseCurveSegment/@curves]
+	]
 ]
 
 
@@ -682,7 +698,10 @@ parseTextGlyph[element_XMLElement] := Module[{text, position, dimensions, rawIma
 	text = query["originOfText", element[[2]]];
 	position = parsePosition[element];
 	dimensions = parseDimensions[element];
-	Return[Text[text, {"x" + "width"/2, "y" + "height"/2}] /. Join[position, dimensions]]
+	If[Or[position =={},dimensions=={}],
+		##&[],
+		Text[text, {"x" + "width"/2, "y" + "height"/2}] /. Join[position, dimensions]
+	]
 ]
 
 

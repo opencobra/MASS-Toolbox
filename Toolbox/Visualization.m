@@ -367,30 +367,39 @@ Graphics[graphicElements/.elem:(_PointSize):>elem[[0]][elem[[1]]*(1/aspectRatio)
 
 Options[drawReactionMap]={"AbsentStyle"->{Dotted,Thickness[0.001],Lighter@Gray},"DefaultStyle"->{Thickness[0.002],Gray},"Tooltips"->True,"Style"->{},"Directed"->True,"Arrowheads"->0.01,"Hyperlinks"->False};
 drawReactionMap[reactionPositions_List,opts:OptionsPattern[]]:=Block[{rxnCoords,rxnPoints,rxnPos2Curve,color,thickness,defaultStyle,graphicElements,url,out,style,direction,aspectRatio},
+	
+	defaultStyle=If[OptionValue["Style"]==={},
+		OptionValue["DefaultStyle"],
+		OptionValue["AbsentStyle"]
+	];
 
-defaultStyle=If[OptionValue["Style"]==={},OptionValue["DefaultStyle"],OptionValue["AbsentStyle"]];
-aspectRatio=getAspectRatio[Sequence@@getCorners[reactionPositions]];
-If[OptionValue["Directed"],
-	rxnPos2Curve=If[#[[-1]]===0,BezierCurve[#[[1]]],If[#[[-1]]==#2,
-		{(*Arrowheads[OptionValue["Arrowheads"]],*)Arrow[{BezierFunction[Reverse@#[[1]]][If[#[[-1]]===1,.95,.05]],#[[1,#[[-1]]]]}],BezierCurve[#[[1]]]},
-		BezierCurve[#[[1]]]
-	]]&;
-	,
-	rxnPos2Curve=BezierCurve[#1[[1]]]&;
-];
+	aspectRatio=getAspectRatio[Sequence@@getCorners[reactionPositions]];
+	(* Take this out if bounding boxes are no longer allowed for reactions *)
+	If[MatchQ[reactionPositions,{(_String->{{{{_,_},{_,_}},"Box"}})..}],
+		rxnPos2Curve=Rectangle[#1[[1,1]],#1[[1,2]]]&;,
+		If[OptionValue["Directed"],
+			rxnPos2Curve=If[#[[-1]]===0,
+				BezierCurve[#[[1]]],
+				If[#[[-1]]==#2,
+					{(*Arrowheads[OptionValue["Arrowheads"]],*)Arrow[{BezierFunction[Reverse@#[[1]]][If[#[[-1]]===1,.95,.05]],#[[1,#[[-1]]]]}],BezierCurve[#[[1]]]},
+					BezierCurve[#[[1]]]
+				]]&;,
+			rxnPos2Curve=BezierCurve[#1[[1]]]&;
+		];
+	];
 
-graphicElements=Table[
-{style,direction}=If[MemberQ[OptionValue["Style"],elem[[1]],\[Infinity]],{#[[1;;-2]],#[[-1]]}&[elem[[1]]/.OptionValue["Style"]],{defaultStyle,0}];
-{Sequence@@style,rxnPos2Curve[#[[1]],#[[2]]]&/@Thread[List[elem[[2]],direction]]}
-,{elem,reactionPositions}
-];
-If[OptionValue["Tooltips"],graphicElements=Thread[Tooltip[graphicElements,#&/@reactionPositions[[All,1]]]]];
-If[OptionValue["Hyperlinks"],
-graphicElements=Table[
-url="http://bigg.ucsd.edu/bigg/view3.pl?type=reaction&id="<>ToString[(reactionPositions[[All,1]][[i]]/.Dispatch[id2internalBIGGrxnID])[[1]]]<>"&model=3473243";
-Button[graphicElements[[i]],SystemOpen[#]]&[url],{i,1,Length[graphicElements]}]
-];
-Graphics[graphicElements/.elem:(_Thickness|_PointSize|_ArrowHeads):>elem[[0]][elem[[1]]*(1/aspectRatio)]]
+	graphicElements=Table[
+		{style,direction}=If[MemberQ[OptionValue["Style"],elem[[1]],\[Infinity]],{#[[1;;-2]],#[[-1]]}&[elem[[1]]/.OptionValue["Style"]],{defaultStyle,0}];
+		{Sequence@@style,rxnPos2Curve[#[[1]],#[[2]]]&/@Thread[List[elem[[2]],direction]]}
+		,{elem,reactionPositions}
+	];
+	If[OptionValue["Tooltips"],graphicElements=Thread[Tooltip[graphicElements,#&/@reactionPositions[[All,1]]]]];
+	If[OptionValue["Hyperlinks"],
+		graphicElements=Table[
+			url="http://bigg.ucsd.edu/bigg/view3.pl?type=reaction&id="<>ToString[(reactionPositions[[All,1]][[i]]/.Dispatch[id2internalBIGGrxnID])[[1]]]<>"&model=3473243";
+			Button[graphicElements[[i]],SystemOpen[#]]&[url],{i,1,Length[graphicElements]}]
+	];
+	Graphics[graphicElements/.elem:(_Thickness|_PointSize|_ArrowHeads):>elem[[0]][elem[[1]]*(1/aspectRatio)]]
 ];
 
 
@@ -416,7 +425,7 @@ drawPathway[mapID_String,opts:OptionsPattern[{drawPathway,drawReactionMap,drawMe
 	If[OptionValue["ReactionLabels"]==True, finalLabels=Join[rxnLabels,finalLabels];];
 	drawPathway[cmpdPos,DeleteCases[rxnPos,{"NaN","NaN"},\[Infinity]](*TODO: fix this in the maps*),finalLabels,opts]
 ];
-drawPathway[metPos:{(_String->{_?NumericQ..})..},rxnPos:{(_String->{_List...})..},textPos:({(_Text|_Rule|_Style)...}),compPos:{_Rule...}:{},opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{refMin,refMax,helperFunc,min,max,directedQ,map,fluxStyle,metStyle,cellMembrane,corners,aspectRatio,cleanRxnData,scalingFunction,cleanMetaboliteData,compartments,compartmentGraphics},
+drawPathway[metPos:{(_String->{_?NumericQ..})..},rxnPos:{(_String->_List...)..},textPos:({(_Text|_Rule|_Style)...}),compPos:{_Rule...}:{},opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{refMin,refMax,helperFunc,min,max,directedQ,map,fluxStyle,metStyle,cellMembrane,corners,aspectRatio,cleanRxnData,scalingFunction,cleanMetaboliteData,compartments,compartmentGraphics},
 	directedQ="Directed"/.(ToString[#[[1]]]->#[[2]]&/@OptionValue["ReactionStyle"]);
 	corners=getCorners[rxnPos];
 	aspectRatio=getAspectRatio[Sequence@@corners];
