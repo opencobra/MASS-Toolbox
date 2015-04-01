@@ -412,6 +412,7 @@ Options[drawPathway]={"CompoundLabels"->True,"ReactionLabels"->True,"TextLabels"
 drawPathway::unknownmap="Map `1` is not available. Try drawPathway[] to see a list of available maps";
 drawPathway[]:=Sort[$AVAILABLEMAPS[[All,1]]];
 drawPathway[{}]:=Null; (* This is for the model viewer when there is no pathway *)
+drawPathway["Pathway"]:=Null; (* Same as above *)
 drawPathway[mapID_String,opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{cmpdPos,rxnPos,finalLabels,mapData,cmpdLabels,rxnLabels,textLabels,compartments},
 	If[MemberQ[$AVAILABLEMAPS[[All,1]],mapID], mapData=Import[mapID/.$AVAILABLEMAPS], Message[drawPathway::unknownmap,mapID];Abort[];];
 	cmpdPos=Flatten[query["cmpd_pos",mapData,{}]];
