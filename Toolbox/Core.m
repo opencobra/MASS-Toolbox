@@ -1386,7 +1386,7 @@ elementallyBalancedQ[model_MASSmodel,opts:OptionsPattern[]]:=Module[{balancing,e
 Options[getElementalMatrix]={"TableForm"->False};
 getElementalMatrix[model_MASSmodel,opts:OptionsPattern[]]:=Module[{elemList,elements,matrix},
 	elemList=List/@(model["Species"]/.model["ElementalComposition"])/.Plus->Sequence;
-	elements=DeleteDuplicates@Flatten[elemList/._?NumericQ->1];
+	elements=StringReplace[DeleteDuplicates@Flatten[elemList/._?NumericQ->1],"&"~~elem__~~"&":>elem];
 	matrix=Flatten/@Table[Cases[#,(x_*elem|elem)]&/@elemList/.{}->{0},{elem,elements}]/._String->1;
 	If[OptionValue[TableForm]==True,
 		Framed@TableForm[matrix,TableHeadings->{elements,model["Species"]}],

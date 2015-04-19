@@ -368,7 +368,7 @@ splitReversible::usage="splitReversible[S, ColumnIDs, reversibleColumnIndices] s
 subModel::usage="subModel[model, {rxn1, rxn2, ...}] will extract a sub-model consisting of the specified reactions.";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*QC/QA*)
 
 
@@ -411,7 +411,7 @@ SMILES::usage="Wrapper for a SMILES string.";
 smiles2elementalComposition::usage="Returns the elemental composition of a SMILES string";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Units*)
 
 
@@ -419,6 +419,9 @@ adjustUnits::usage="###FIXME###";
 
 
 stripUnits::usage="stripUnits[exprs] will remove all units (as defined in the Units` package) from expression.";
+
+
+toMASSUnits::usage="toMASSUnits[exprs] will convert all units to Liters, Millimoles, and Hours.";
 
 
 (* ::Subsection::Closed:: *)
