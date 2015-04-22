@@ -608,18 +608,18 @@ parseDimensions[object_XMLElement]:=Module[{dimensions},
 (*Compartment Glyphs*)
 
 
-parseCompartmentGlyph[element_XMLElement]:=Module[{name,position,dimensions,rawImage,object},
+parseCompartmentGlyph[element_XMLElement,maxHeight_?NumberQ]:=Module[{name,position,dimensions,rawImage,object},
 	name=query["compartment",element[[2]]];
 	object=First@element[[3]];
 	position=parsePosition[object];(* x\[Rule]5,y\[Rule]5 *)
 	dimensions=parseDimensions[object]; (*width\[Rule]x,height\[Rule]x*)
-	name->{{"x","y"},{"width"+"x","height"+"y"}}/.Join[position,dimensions]
+	name->{{"x","y"},{"width"+"x",maxHeight - ("height"+"y")}}/.Join[position,dimensions]
 ]
 
 
-getListOfCompartmentGlyphs[layout_XMLElement]:=Module[{glyphs},
+getListOfCompartmentGlyphs[layout_XMLElement,maxHeight_?NumberQ]:=Module[{glyphs},
 	glyphs=extractXMLelement[layout,"listOfCompartmentGlyphs",2];
-	parseCompartmentGlyph/@glyphs
+	parseCompartmentGlyph[#,maxHeight]&/@glyphs
 ]
 
 
@@ -627,18 +627,18 @@ getListOfCompartmentGlyphs[layout_XMLElement]:=Module[{glyphs},
 (*Species Glyphs*)
 
 
-parseSpeciesGlyph[element_XMLElement]:=
+parseSpeciesGlyph[element_XMLElement,maxHeight_?NumberQ]:=
 	Module[{name,position,dimensions},
 		name=query["species",element[[2]]];
 		position=parsePosition[element];(* x\[Rule]5,y\[Rule]5 *)
 		dimensions=parseDimensions[element]; (*width\[Rule]x,height\[Rule]x*)
-		Return[name->{"x"+"width"/2,"y"+"height"/2,"width","height"}/.Join[position,dimensions]]
+		Return[name->{"x"+"width"/2,maxHeight - ("y"+"height"/2),"width","height"}/.Join[position,dimensions]]
 ]
 
 
-getListOfSpeciesGlyphs[layout_XMLElement]:=Module[{glyphs},
+getListOfSpeciesGlyphs[layout_XMLElement,maxHeight_?NumberQ]:=Module[{glyphs},
 	glyphs=extractXMLelement[layout,"listOfSpeciesGlyphs",2];
-	parseSpeciesGlyph/@glyphs
+	parseSpeciesGlyph[#,maxHeight]&/@glyphs
 ]
 
 
@@ -646,47 +646,39 @@ getListOfSpeciesGlyphs[layout_XMLElement]:=Module[{glyphs},
 (*Reaction Glyphs*)
 
 
-parseCurveSegment[object_XMLElement]:=Module[{type},
+parseCurveSegment[object_XMLElement,maxHeight_?NumberQ]:=Module[{type},
 	type=query["type",object[[2]]];
 	Switch[query["type",object[[2]]],
 		"LineSegment",
-			{(object[[3]]/.XMLElement[_,{"x"->x_,"y"->y_,___},___]:>{ToExpression[x],ToExpression[y]}),0},
+			{(object[[3]]/.XMLElement[_,{"x"->x_,"y"->y_,___},___]:>{ToExpression[x],maxHeight - ToExpression[y]}),0},
 		"CubicBezier",
 			{{extractXMLelement[object,"start",1],
 				extractXMLelement[object,"basePoint1",1],
 				extractXMLelement[object,"basePoint2",1],
 				extractXMLelement[object,"end",1]
-			},1}/.{"x"->x_,"y"->y_,___}:>{ToExpression[x],ToExpression[y]}
+			},1}/.{"x"->x_,"y"->y_,___}:>{ToExpression[x],maxHeight - ToExpression[y]}
 	]
 ]
 
 
-(* Only necessary if bounding boxes are allowed for reactions *)
-
-
+(* Only necessary if bounding boxes are allowed for reactions 
 parseBoundingBox[object_XMLElement]:=Module[{name,position,dimensions},
 	position=parsePosition[object];(* x\[Rule]5,y\[Rule]5 *)
 	dimensions=parseDimensions[object]; (*width\[Rule]x,height\[Rule]x*)
 	{{{{"x","y"},{"width"+"x","height"+"y"}},"Box"}}/.Join[position,dimensions]
-]
+]*)
 
 
-parseReactionGlyph[element_XMLElement]:=Module[{name,curves},
+parseReactionGlyph[element_XMLElement,maxHeight_?NumberQ]:=Module[{name,curves},
 	name=query["reaction",element[[2]]];
 	curves=extractXMLelement[element,"curveSegment",0];
-	If[curves=={},
-		Module[{boundingBox},
-			boundingBox=First@extractXMLelement[element,"boundingBox",0];
-			Rule[name,parseBoundingBox[boundingBox]]
-		],
-		Rule[name,parseCurveSegment/@curves]
-	]
+	Rule[name,parseCurveSegment[#,maxHeight]&/@curves]
 ]
 
 
-getListOfReactionGlyphs[layout_XMLElement]:=Module[{glyphs},
+getListOfReactionGlyphs[layout_XMLElement,maxHeight_?NumberQ]:=Module[{glyphs},
 	glyphs=extractXMLelement[layout,"listOfReactionGlyphs",2];
-	parseReactionGlyph/@glyphs
+	parseReactionGlyph[#,maxHeight]&/@glyphs
 ]
 
 
@@ -694,22 +686,22 @@ getListOfReactionGlyphs[layout_XMLElement]:=Module[{glyphs},
 (*Text Glyphs*)
 
 
-parseTextGlyph[element_XMLElement] := Module[{text, position, dimensions, rawImage, object},
+parseTextGlyph[element_XMLElement,maxHeight_?NumberQ] := Module[{text, position, dimensions, rawImage, object},
 	text = query["originOfText", element[[2]]];
 	position = parsePosition[element];
 	dimensions = parseDimensions[element];
 	If[Or[position =={},dimensions=={}],
 		##&[],
-		Text[text, {"x" + "width"/2, "y" + "height"/2}] /. Join[position, dimensions]
+		Text[text, {"x" + "width"/2, maxHeight - ("y" + "height"/2)}] /. Join[position, dimensions]
 	]
 ]
 
 
-getListOfTextGlyphs[layout_XMLElement] := Module[{glyphs, textLabels, rxnLabels, cmpdLabels},
+getListOfTextGlyphs[layout_XMLElement,maxHeight_?NumberQ] := Module[{glyphs, textLabels, rxnLabels, cmpdLabels},
 	glyphs = extractXMLelement[layout, "listOfTextGlyphs", 2];
 	textLabels = Cases[glyphs, XMLElement["textGlyph", {___, "originOfText" -> _, ___}, ___]];
 	(* Only takes text with originOfText. Some textGlyphs may have just "text", but that needs to be added later *)
-	parseTextGlyph/@textLabels
+	parseTextGlyph[#,maxHeight]&/@textLabels
 	]
 
 
@@ -727,17 +719,18 @@ sbmlLayout2pathway::invalidLayout = "Layout number `1` is larger than the number
 sbmlLayout2pathway[file_String]:=sbmlLayout2pathway[Import[file,"XML"]];
 
 sbmlLayout2pathway[xml_/;Head[xml]===XMLObject["Document"],layoutNumber_Integer:1]:=
-Module[{modelStuff,modelID,modelName,layouts,layout,compartmentGlyphs,speciesGlyphs,textGlyphs,reactionGlyphs},
+Module[{modelStuff,modelID,modelName,layouts,layout,height,compartmentGlyphs,speciesGlyphs,textGlyphs,reactionGlyphs},
 	modelStuff=First@extractXMLelement[(xml/.{tag_String,attr_String}:>attr),"model",0];
 	modelID=query["id",modelStuff[[2]]];
 	modelName=query["name",modelStuff[[2]],modelID];
 	layouts=getListOfLayouts[modelStuff];
 	If[layoutNumber > Length[layouts],Message[sbmlLayout2pathway::invalidLayout,layoutNumber,Length[layouts]]];
 	layout=layouts[[layoutNumber]];
-	speciesGlyphs=getListOfSpeciesGlyphs[layout];
-	textGlyphs=getListOfTextGlyphs[layout];
-	reactionGlyphs=getListOfReactionGlyphs[layout];
-	compartmentGlyphs=getListOfCompartmentGlyphs[layout];
+	height=ToExpression["height"/.extractXMLelement[layout,"dimensions",1]];
+	speciesGlyphs=getListOfSpeciesGlyphs[layout,height];
+	textGlyphs=getListOfTextGlyphs[layout,height];
+	reactionGlyphs=getListOfReactionGlyphs[layout,height];
+	compartmentGlyphs=getListOfCompartmentGlyphs[layout,height];
 	{speciesGlyphs,reactionGlyphs,textGlyphs,compartmentGlyphs}
 ]
 
