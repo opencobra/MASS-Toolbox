@@ -69,7 +69,6 @@ annotateCurrencyMetabolites[rxns:{_reaction...}]:=Module[{endResult,input,result
 ];
 
 
-
 pools2poolMatrix[model_MASSmodel,pools:{Rule[_,Join[_Plus|_Times,$MASS$speciesPattern]]..}]:=Module[{cmpds2indices,tmp},
 	cmpds2indices=Thread[Rule[#,Range[1,Length[#]]]]&@model["Species"];
 	Rationalize@Normal@SparseArray[
@@ -83,6 +82,16 @@ pools2poolMatrix[model_MASSmodel,pools:{Rule[_,Join[_Plus|_Times,$MASS$speciesPa
 	]
 ];
 
+
+paths2pathwayMatrix[model_MASSmodel,paths:{(_Plus|_Times|_v)..}]:=Module[{rules},
+	rules=Map[
+		Switch[Head[#],
+			Times,Last[#]->First[#],
+			v,#->1
+		]&,List@@@paths,{2}
+	];
+	model["Fluxes"]/.rules/._v->0
+];
 
 
 metaboliteFromString::usage="metaboliteFromString[\"id_compartment\"] will return metabolite[\"id\", \"compartment\"].";
@@ -108,9 +117,6 @@ speciesFromString[met_String/;StringMatchQ[met,RegularExpression["^\\S+\\[\\S+\\
 speciesFromString[met_String/;StringMatchQ[met,RegularExpression["\\S+(_[\\S]+)?"]]]:=If[Length[#]==1,metabolite[#[[1]],None],metabolite[StringJoin[Sequence@@Riffle[#[[1;;-2]],"_"]],#[[-1]]]]&@StringSplit[StringReplace[met,RegularExpression["^M_"]->""],"_"];
 
 
-
-
-
 str2mass::wrngStrRepresentation="`1` cannot be parsed!";
 Options[str2mass]={"ReversibleDelimiter"->RegularExpression["<[=-]*>"],"IrreversibleDelimeter"->RegularExpression["[=-]*>"]};
 str2mass[s_String,opts:OptionsPattern[]]:=Module[{cleanStr},
@@ -125,14 +131,8 @@ str2mass[s_String,opts:OptionsPattern[]]:=Module[{cleanStr},
 ];
 
 
-
-
-
 stringShortener[str_String,maxChar_:15]:=If[StringLength[str]>maxChar,StringTake[str,maxChar]<>ToString[StringSkeleton[StringLength[str]-maxChar]],str]
 stringShortener[flux_v,maxChar_:15]:=stringShortener[getID[flux],maxChar]
-
-
-
 
 
 edit[dat:{_Rule..},title_:"Default title"]:=Module[{vars,varsStr,ret},
@@ -153,19 +153,11 @@ edit[dat_String,title_:"Default title"]:=Module[{input},
 ];
 
 
-
-
-
 SetAttributes[editModelInPlace,HoldFirst];
 editModelInPlace[model_Symbol,attribute_String]/;MatchQ[Hold[model]/.OwnValues[model],Hold[_MASSmodel]]:=setModelAttribute[model,attribute,edit[model[attribute]]];
 
 
-
-
-
 editModel[model_MASSmodel,attribute_String]:=Module[{modelTmp},modelTmp=model;setModelAttribute[modelTmp,attribute,edit[modelTmp[attribute],"Edit "<>attribute]];modelTmp];
-
-
 
 
 wrapHead::usage="wrapHead[expression] will wrap head around the Head of expression like wrap[Head[expression]][expression]";
@@ -198,9 +190,6 @@ getGradient[rates_List,mets_List]:=Table[\!\(
 \*SubscriptBox[\(\[PartialD]\), \(mets[\([j]\)]\)]\(rates[\([i]\)]\)\),{i,1,Length[rates]},{j,1,Length[mets]}];
 
 
-
-
-
 getJacobian::unknownJacobianType="`1` is not a valid Jacobian type, try \"Concentration\" or \"Flus\" instead.";
 Options[getJacobian]={"Type"->"Concentration"(* or flux *)}
 getJacobian[stoich_?MatrixQ,rates_List,mets_List,opts:OptionsPattern[]]:=Module[{grad},
@@ -213,14 +202,11 @@ getJacobian[stoich_?MatrixQ,rates_List,mets_List,opts:OptionsPattern[]]:=Module[
 ];
 
 
-
-
 (* ::Subsection:: *)
 (*Rates*)
 
 
 addExternalConcentration=Switch[#,elem_/;MatchQ[elem,_rateconst],#,elem_/;MatchQ[elem,_Plus],Simplify@Replace[Expand[keq2k@#],pat:(-1_rateconst|_rateconst):>pat*Times@@Cases[#,m:$MASS$speciesPattern:>Head[m][getID[m],"Xt"],\[Infinity]],1],_,#]&;
-
 
 
 reaction2rate[rxns:{_reaction..},ignore:{$MASS$speciesPattern...}:{}]:=reaction2rate[#,ignore]&/@rxns
@@ -274,10 +260,6 @@ kFwd2keq[expression_]:=Simplify[expression/.r_rateconst/;r[[2]]==True:>rateconst
 k2keq[expression_]:=kRev2keq[expression]
 
 
-
-
-
-
 (* ::Subsection:: *)
 (*PERCs*)
 
@@ -326,8 +308,6 @@ calcPERC[model_MASSmodel,steadystateConc:{Rule[$MASS$speciesPattern,_?NumberQ]..
 calcPERC[model_MASSmodel,steadystateConc:{Rule[$MASS$speciesPattern,_?NumberQ]..},steadystateFluxes:{Rule[_String,_?NumberQ]..},equilibriumConstants:{Rule[_Keq,(_?NumberQ|\[Infinity])]..},externalConcentrations:{Rule[$MASS$speciesPattern,(_?NumberQ|\[Infinity])]..}]:=calcPERC[model,"SteadyStateConcentrations"->steadystateConc,"SteadyStateFluxes"->steadystateFluxes,"Parameters"->Join[equilibriumConstants,externalConcentrations]]
 
 
-
-
 (* ::Subsection:: *)
 (*Structural stuff*)
 
@@ -345,11 +325,7 @@ getMassActionRatios[rxns:{_reaction..},opts:OptionsPattern[]]:=getMassActionRati
 (*getMassActionRatios[rxn_reaction,opts:OptionsPattern[]]:=getMassActionRatios[{getSignedStoich[rxn]}\[Transpose],getSpecies[rxn],opts][[1]]*)
 
 
-
-
 \[CapitalGamma][stuff__,opts:OptionsPattern[]]:=getMassActionRatios[stuff,opts]
-
-
 
 
 Options[getDisequilibriumRatios]={"Ignore"->{}};
@@ -358,16 +334,10 @@ getDisequilibriumRatios[rxn_reaction,opts:OptionsPattern[]]:=getMassActionRatios
 getDisequilibriumRatios[rxns:{_reaction..},opts:OptionsPattern[]]:=getDisequilibriumRatios[#,opts]&/@rxns
 
 
-
-
 \[Rho][stuff__,opts:OptionsPattern[]]:=getDisequilibriumRatios[stuff,opts]
 
 
-
-
 calcKappa[rateconstants_List]:=DiagonalMatrix[rateconstants]
-
-
 
 
 (* ::Subsection:: *)
