@@ -393,7 +393,6 @@ calcConcentrationBounds[model_MASSmodel,opt:OptionsPattern[]]:=Module[{logDisEqR
 (*MINSPAN*)
 
 
-Unprotect[constructMinSpanFormulation];
 constructMinSpanFormulation[s_?MatrixQ,null_?MatrixQ,fluxbounds_List]:=Module[{n,rank,cols,sPadded,obj,domains,bounds,minSpanMat,rhs},
 	n=Dimensions[s][[2]];
 	rank=MatrixRank[s];
@@ -419,17 +418,15 @@ constructMinSpanFormulation[s_?MatrixQ,null_?MatrixQ,fluxbounds_List]:=Module[{n
 	{obj,minSpanMat,rhs,bounds,domains}
 ];
 def:constructMinSpanFormulation[___]:=(Message[Toolbox::badargs,constructMinSpanFormulation,Defer@def];Abort[])
-Protect[constructMinSpanFormulation];
 
 
-Unprotect[minspan];
-Options[minspan]={"Precision"->1*^-6,MaxIterations->100000,"ReduceModel"->True,"Solver"->GurobiSolve};
+Options[minspan]={"Precision"->1*^-6,MaxIterations->100000,"ReduceModel"->True,"Solver"->LinearProgramming};
 minspan::emptyOrOneDimeNullspace="Empty or 1-dimensional nullspace encountered.";
 minspan::oneDimNullspace="Empty nullspace encountered.";
 minspan::emptyModel="Model stoichiometry empty.";
-minspan[model_MASSmodel,opts:OptionsPattern[{minspan,GurobiSolve}]]:=Module[{temp,modelTmp,s,fluxbounds,null,nullOriginal,p,theta,count,nonZeroEntriesAtTurnover,obj,minSpanMat,rhs,bounds,domains,sol,nonZeroEntries,minSpans,savetyCount,minspans,convergence,timings,timing,warmStart},
+minspan[model_MASSmodel,opts:OptionsPattern[{minspan,LinearProgramming}]]:=Module[{temp,modelTmp,s,fluxbounds,null,nullOriginal,p,theta,count,nonZeroEntriesAtTurnover,obj,minSpanMat,rhs,bounds,domains,sol,nonZeroEntries,minSpans,savetyCount,minspans,convergence,timings,timing,warmStart},
 	Switch[OptionValue["ReduceModel"],
-		True, temp=PrintTemporary["Reducing model ..."];modelTmp=reduceModel[model,Solver->GurobiFVA];NotebookDelete[temp],
+		True, temp=PrintTemporary["Reducing model ..."];modelTmp=reduceModel[model];NotebookDelete[temp],
 		_Function,modelTmp=OptionValue["ReduceModel"][model];,
 		False, modelTmp=model;,
 		_,Abort[];
@@ -470,7 +467,6 @@ minspan[model_MASSmodel,opts:OptionsPattern[{minspan,GurobiSolve}]]:=Module[{tem
 	minspans=integerChop[Round[#/Min[DeleteCases[Abs[#],0]],.0000001]]&/@minspans;
 	minspans.modelTmp["Fluxes"]	
 ];
-Protect[minspan];
 
 
 (* ::Subsection:: *)
