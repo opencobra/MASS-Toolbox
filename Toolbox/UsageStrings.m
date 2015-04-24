@@ -257,7 +257,7 @@ eQuilibratorReactionData::usage="eQuilibratorReactionData[query] queries the eQu
 "
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Assorted*)
 
 
@@ -292,6 +292,9 @@ symbolize::usage="symbolize[stuff] takes any MASS modeling related equations or 
 
 
 pools2poolMatrix::usage="pools2poolMatrix[model, pools], where pools should look like {\"poolID\"-> m[\"id1\", \"c\"] + 2 m[\"id2\", \"c\"], ...}, returns a correctly sorted pool matrix, such that poolmatrix.model works.";
+
+
+paths2pathwayMatrix::usage="paths2pathwayMatrix[model,paths], where paths should look like {v[\"id1\"]+2 v[\"id2\"],...}, returns a correctly sorted pathway matrix, such that pathwaymatrix.model works.";
 
 
 anonymize::usage="anonymize[f_[args__]] uses symbolize to translate any metabolite, rateconst etc. in args into real symbols. Afterwards, the output of f is translated back to the original args.";
@@ -368,7 +371,7 @@ splitReversible::usage="splitReversible[S, ColumnIDs, reversibleColumnIndices] s
 subModel::usage="subModel[model, {rxn1, rxn2, ...}] will extract a sub-model consisting of the specified reactions.";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*QC/QA*)
 
 
@@ -411,7 +414,7 @@ SMILES::usage="Wrapper for a SMILES string.";
 smiles2elementalComposition::usage="Returns the elemental composition of a SMILES string";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Units*)
 
 
@@ -419,6 +422,9 @@ adjustUnits::usage="###FIXME###";
 
 
 stripUnits::usage="stripUnits[exprs] will remove all units (as defined in the Units` package) from expression.";
+
+
+toMASSUnits::usage="toMASSUnits[exprs] will convert all units to Liters, Millimoles, and Hours.";
 
 
 (* ::Subsection::Closed:: *)

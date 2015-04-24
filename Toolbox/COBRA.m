@@ -199,7 +199,7 @@ GurobiFVA[stoichiometry_?MatrixQ,colIDs_List,bounds:({_Rule..}|{}):{},opts:Optio
 GurobiFVA[model_MASSmodel,bounds:({_Rule..}|{}):{},opts:OptionsPattern[]]:=Module[{},GurobiFVA[model["Stoichiometry"],getID/@model["Fluxes"],updateRules[model["Constraints"],bounds]/.flux_v:>getID[flux],opts]]*)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Sampling*)
 
 
@@ -386,6 +386,86 @@ calcConcentrationBounds[model_MASSmodel,opt:OptionsPattern[]]:=Module[{logDisEqR
 	eq=Join[thermoEq,logConcIneq];
 	vars=Union[Cases[eq,(_v|_rateconst|_metabolite|_parameter),\[Infinity]]];
 	(#->{Check[GAMS[{#,Sequence@@eq},vars][[1]],$Failed],Check[-GAMS[{-#,Sequence@@eq},vars][[1]],$Failed]}&/@vars)/.num_?NumberQ:>N@Exp[num]
+];
+
+
+(* ::Subsubsection:: *)
+(*MINSPAN*)
+
+
+constructMinSpanFormulation[s_?MatrixQ,null_?MatrixQ,fluxbounds_List]:=Module[{n,rank,cols,sPadded,obj,domains,bounds,minSpanMat,rhs},
+	n=Dimensions[s][[2]];
+	rank=MatrixRank[s];
+	cols=2n+2*Length[null];
+	sPadded=PadRight[#,cols]&/@s;
+	minSpanMat=Join[sPadded,
+		PadRight[#,cols]&/@Transpose[Join[Transpose[null],DiagonalMatrix[Table[-1001,{Length[null]}]]]],
+		PadRight[#,cols]&/@Transpose[Join[Transpose[PadRight[#,n+Length[null]]&/@(-null)],DiagonalMatrix[Table[-1001,{Length[null]}]]]],
+		PadRight[#,cols]&/@(PadLeft[#,n+2Length[null]]&/@Transpose[Join[IdentityMatrix[Length[null]],IdentityMatrix[Length[null]]]]),
+		Transpose[Join[Transpose[PadRight[#,n+2*Length[null]]&/@IdentityMatrix[n]],Transpose[-IdentityMatrix[n]*1000]]],
+		Transpose[Join[Transpose[PadRight[#,n+2*Length[null]]&/@IdentityMatrix[n]],Transpose[IdentityMatrix[n]*1000]]]
+	];
+	obj=PadLeft[Table[1,{n}],cols];
+	rhs=Join[
+			Table[{0,0},{Length[s]}],
+			Table[{-1000,1},{2*Length[null]}],
+			Table[{1,0},{Length[null]}],
+			Table[{0,-1},{n}],
+			Table[{0,1},{n}]
+	];
+	bounds=Join[fluxbounds,Table[{0,1},{n+2(Length[null])}]];
+	domains=Join[Table[Reals,{n}],Table[Integers,{n+2(Length[null])}]];
+	{obj,minSpanMat,rhs,bounds,domains}
+];
+def:constructMinSpanFormulation[___]:=(Message[Toolbox::badargs,constructMinSpanFormulation,Defer@def];Abort[])
+
+
+Options[minspan]={"Precision"->1*^-6,MaxIterations->100000,"ReduceModel"->True,"Solver"->LinearProgramming};
+minspan::emptyOrOneDimeNullspace="Empty or 1-dimensional nullspace encountered.";
+minspan::oneDimNullspace="Empty nullspace encountered.";
+minspan::emptyModel="Model stoichiometry empty.";
+minspan[model_MASSmodel,opts:OptionsPattern[{minspan,LinearProgramming}]]:=Module[{temp,modelTmp,s,fluxbounds,null,nullOriginal,p,theta,count,nonZeroEntriesAtTurnover,obj,minSpanMat,rhs,bounds,domains,sol,nonZeroEntries,minSpans,savetyCount,minspans,convergence,timings,timing,warmStart},
+	Switch[OptionValue["ReduceModel"],
+		True, temp=PrintTemporary["Reducing model ..."];modelTmp=reduceModel[model];NotebookDelete[temp],
+		_Function,modelTmp=OptionValue["ReduceModel"][model];,
+		False, modelTmp=model;,
+		_,Abort[];
+	];
+	s=S[modelTmp];
+	If[s=={},Message[minspan::emptyModel];Return[{}]];
+	fluxbounds=modelTmp["Fluxes"]/.modelTmp["Constraints"]/.s_v:>{-\[Infinity],\[Infinity]};
+	null=If[#==={}||Length[#]===1,Message[minspan::emptyOrOneDimeNullspace];Return[#],Transpose[Orthogonalize[#]]]&@NullSpace[s];
+	nullOriginal=null;
+	minspans=Transpose[null];
+	p=Drop[minspans,1];
+	theta=PseudoInverse[nullOriginal].Transpose[p];
+	null=Chop[nullOriginal.Transpose[Orthogonalize[NullSpace[Transpose[theta]]]]];
+	count=0;
+	nonZeroEntriesAtTurnover=\[Infinity];
+	convergence={Count[nullOriginal,n_?NumberQ/;n!=0,\[Infinity]]};
+	timings={};
+	sol={};
+	Monitor[
+	Do[
+		count+=1;
+		{obj,minSpanMat,rhs,bounds,domains}=constructMinSpanFormulation[s,Transpose@null,fluxbounds];
+		warmStart=Join[{Automatic,Automatic},ReplacePart[Array[0&,Dimensions[model][[2]]],Position[minspans[[1]],_?(#!=0&)]->1]];
+		(*If[count==2,Print[warmStart]];*)
+		{timing,sol}=AbsoluteTiming[Quiet[Chop[OptionValue["Solver"][obj,minSpanMat,rhs,bounds,domains,Sequence@@FilterRules[List[opts],Options[OptionValue["Solver"]]](*,"MIPStart"->warmStart*)],OptionValue["Precision"]],LinearProgramming::lpip]];
+		(*{timing,sol}=AbsoluteTiming[Chop[OptionValue["Solver"][obj,minSpanMat,rhs,bounds,domains,Sequence@@FilterRules[List[opts],Options[OptionValue["Solver"]]]],OptionValue["Precision"]]];*)
+		AppendTo[timings,timing];
+		minspans=Join[p,{sol[[1;;Dimensions[s][[2]]]]}];
+		AppendTo[convergence,Count[minspans,n_?NumberQ/;n!=0,\[Infinity]]];
+		If[Mod[count,Length[p]]==0,
+			nonZeroEntries=Count[minspans,n_?NumberQ/;n!=0,\[Infinity]];
+			If[nonZeroEntriesAtTurnover==nonZeroEntries,Break[];,nonZeroEntriesAtTurnover=nonZeroEntries;count=0;];
+		];
+		p=Drop[minspans,1];
+		theta=PseudoInverse[nullOriginal].Transpose[p];
+		null=Chop[nullOriginal.Orthogonalize[NullSpace[theta\[Transpose]]]\[Transpose]];
+	,{i,OptionValue["MaxIterations"]}];,If[i>1,GraphicsRow[{ListLogPlot[convergence,FrameLabel->{"Iterations","Convergence"},Joined->True],ListPlot[Subtract@@@Partition[convergence,2,1],FrameLabel->{"Iterations","Improvement"},Joined->True],ListPlot[timings,FrameLabel->{"Iterations","Calcuation Time [s]"},Joined->True]}],""]];
+	minspans=integerChop[Round[#/Min[DeleteCases[Abs[#],0]],.0000001]]&/@minspans;
+	minspans.modelTmp["Fluxes"]	
 ];
 
 
