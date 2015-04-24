@@ -69,7 +69,6 @@ annotateCurrencyMetabolites[rxns:{_reaction...}]:=Module[{endResult,input,result
 ];
 
 
-
 pools2poolMatrix[model_MASSmodel,pools:{Rule[_,Join[_Plus|_Times,$MASS$speciesPattern]]..}]:=Module[{cmpds2indices,tmp},
 	cmpds2indices=Thread[Rule[#,Range[1,Length[#]]]]&@model["Species"];
 	Rationalize@Normal@SparseArray[
@@ -83,6 +82,16 @@ pools2poolMatrix[model_MASSmodel,pools:{Rule[_,Join[_Plus|_Times,$MASS$speciesPa
 	]
 ];
 
+
+paths2pathwayMatrix[model_MASSmodel,paths:{(_Plus|_Times|_v)..}]:=Module[{rules},
+	rules=Map[
+		Switch[Head[#],
+			Times,Last[#]->First[#],
+			v,#->1
+		]&,List@@@paths,{2}
+	];
+	model["Fluxes"]/.rules/._v->0
+];
 
 
 metaboliteFromString::usage="metaboliteFromString[\"id_compartment\"] will return metabolite[\"id\", \"compartment\"].";
@@ -108,9 +117,6 @@ speciesFromString[met_String/;StringMatchQ[met,RegularExpression["^\\S+\\[\\S+\\
 speciesFromString[met_String/;StringMatchQ[met,RegularExpression["\\S+(_[\\S]+)?"]]]:=If[Length[#]==1,metabolite[#[[1]],None],metabolite[StringJoin[Sequence@@Riffle[#[[1;;-2]],"_"]],#[[-1]]]]&@StringSplit[StringReplace[met,RegularExpression["^M_"]->""],"_"];
 
 
-
-
-
 str2mass::wrngStrRepresentation="`1` cannot be parsed!";
 Options[str2mass]={"ReversibleDelimiter"->RegularExpression["<[=-]*>"],"IrreversibleDelimeter"->RegularExpression["[=-]*>"]};
 str2mass[s_String,opts:OptionsPattern[]]:=Module[{cleanStr},
@@ -125,14 +131,8 @@ str2mass[s_String,opts:OptionsPattern[]]:=Module[{cleanStr},
 ];
 
 
-
-
-
 stringShortener[str_String,maxChar_:15]:=If[StringLength[str]>maxChar,StringTake[str,maxChar]<>ToString[StringSkeleton[StringLength[str]-maxChar]],str]
 stringShortener[flux_v,maxChar_:15]:=stringShortener[getID[flux],maxChar]
-
-
-
 
 
 edit[dat:{_Rule..},title_:"Default title"]:=Module[{vars,varsStr,ret},

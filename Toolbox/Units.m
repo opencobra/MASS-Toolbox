@@ -86,5 +86,23 @@ AutomaticUnits`Unit[number_,amount_]:=Quantity[number,amount/.(string_String:>(T
 Unit[number_,amount_]:=Quantity[number,amount/.(string_String:>(ToUpperCase[StringTake[string,1]]<>StringDrop[string,1]<>"s"))];
 
 
+(* ::Section:: *)
+(*Functions*)
+
+
+toMASSUnits[expr_]:=expr/.HoldPattern[q:_Quantity]:>toBaseFundamental[q]
+
+toBaseFundamental[q_Quantity]:=
+	UnitConvert[q,
+		Quantity[Times@@Apply[Power,UnitDimensions[q]/.
+			{{"LengthUnit",x_?(Mod[#,3]==0&)}:>{"Liters",x/3},"LengthUnit"->"Meters",
+				"MassUnit"->"Grams","TimeUnit"->"Hours","ElectricCurrentUnit"->"Amperes",
+				"TemperatureDifferenceUnit"->"KelvinsDifference","AmountUnit"->"Millimoles",
+				"LuminousIntensityUnit"->"Candelas"
+			},{1}]
+		]
+	];
+
+
 Protect["Toolbox`Units`*"]
 End[]
