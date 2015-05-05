@@ -1359,7 +1359,7 @@ getElementalMatrix[model_MASSmodel,opts:OptionsPattern[]]:=Module[{elemList,elem
 	elements=DeleteDuplicates@Flatten[elemList/._?NumericQ->1];
 	matrix=Flatten/@Table[Cases[#,(x_*elem|elem)]&/@elemList/.{}->{0},{elem,elements}]/._String->1;
 	If[OptionValue[TableForm]==True,
-		Framed@TableForm[matrix,TableHeadings->{elements,model["Species"]}],
+		Framed@TableForm[matrix,TableHeadings->{elements,Rotate[#,Pi/2]&/@model["Species"]}],
 		{elements,matrix}
 	]
 ];
