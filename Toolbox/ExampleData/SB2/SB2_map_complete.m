@@ -19,5 +19,5 @@ Module[{iABmets2sb2,iABrxns2sb2,changeDirection,cmpdPos,rxnPos,text,metLabels,rx
 	metLabels=Join[text[[1]],{Text["dpg23",{2015,-1971}],Text["deoxyHb",{1850,-1780},Right],Text["Hb",{1850,-1950},Right],Text["Hb&\!\(\*SubscriptBox[\(O\), \(2\)]\)",{2050,-2150},Right],Text["Hb&2\!\(\*SubscriptBox[\(O\), \(2\)]\)",{2050,-2350},Right],Text["Hb&3\!\(\*SubscriptBox[\(O\), \(2\)]\)",{2050,-2550},Right],Text["Hb&4\!\(\*SubscriptBox[\(O\), \(2\)]\)",{2050,-2750},Right],Text["\!\(\*SubscriptBox[\(O\), \(2\)]\)",{1709,-2009},Right],Text["\!\(\*SubscriptBox[\(O\), \(2\)]\)",{1709,-2209},Right],Text["\!\(\*SubscriptBox[\(O\), \(2\)]\)",{1709,-2409},Right],Text["\!\(\*SubscriptBox[\(O\), \(2\)]\)",{1709,-2609},Right]}];
 	rxnLabels=Join[text[[2]],{Text["vdpgm",{2181,-1971}],Text["vdpgase",{2145,-2244}]}];
 	otherLabels=Join[text[[3]][[2;;,2]],{Text["Hemoglobin",{1702, -1552}]}];
-	{cmpdPos,rxnPos,{metLabels,rxnLabels,otherLabels}}
+	{cmpdPos,rxnPos,Join[metLabels,rxnLabels,otherLabels]}
 ]
