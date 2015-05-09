@@ -749,9 +749,8 @@ model2sbml[model_MASSmodel]:=Module[{species,modelUnits,unitRules,ratemapping,li
 
 	ratemapping=stripTime[Thread[Rule[(getID/@model["Fluxes"]),model["Rates"]]]];
 	localParam=If[MatchQ[#,_List],#[[2]],#]&[getID[#[[1]]]]->(ToString[#[[1]],"SBML"]->(stripUnits[#[[2]]]/.{\[Infinity]->"INF",-\[Infinity]->"-INF"}))&/@FilterRules[model["Parameters"],Cases[ratemapping,pat:$MASS$parametersPattern/;MemberQ[ratemapping[[All,1]],If[MatchQ[#,_List],#[[2]],#]&[getID[pat]]],\[Infinity]]];
-	Print[ratemapping];
+
 	params=FilterRules[Join[model["Parameters"],model["InitialConditions"]],Cases[Join[ratemapping,stripTime[model["CustomODE"]]],((p_parameter/;!MatchQ[getID[p],_List])|metabolite[_,"Xt"]),\[Infinity]]];
-	Print[params];
 
 	modelUnits = modelUnits2sbml[model];
 
@@ -786,8 +785,13 @@ model2sbml[model_MASSmodel]:=Module[{species,modelUnits,unitRules,ratemapping,li
 		]
 	];
 
-	AppendTo[listOfStuff,XMLElement["listOfRules",{},customODE2sbml[#,model]&/@model["CustomODE"]]];
-	
+	If[model["CustomODE"]!={},
+		AppendTo[listOfStuff,XMLElement["listOfRules",{},customODE2sbml[#,model]&/@model["CustomODE"]]]
+	];
+
+	If[model["Events"]!={},
+		AppendTo[listOfStuff,XMLElement["listOfEvents",{},event2sbml[#,model]&/@model["Events"]]]
+	];
 
 	XMLObject["Document"][
 		{XMLObject["Declaration"]["Version"->"1.0","Encoding"->"UTF-8"],
@@ -894,7 +898,7 @@ reaction2sbml[rxn_,model_MASSmodel,ratemapping_List,params_List,unitRules:{_Rule
 
 
 customODE2sbml[ode_,model_MASSmodel]:=Module[{rule,variable},
-	rule = Last[ode];
+	rule = stripTime[Last[ode]]/.{x:$MASS$parametersPattern|$MASS$speciesPattern:>ToString[x,"SBML"]};
 	Switch[ode[[1,0]],
 		(* Rate Rule *)
 		Derivative[1][___],
@@ -908,7 +912,23 @@ customODE2sbml[ode_,model_MASSmodel]:=Module[{rule,variable},
 		_Symbol,
 			XMLElement["algebraicRule",{},{ImportString[ExportString[rule,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]]}]	
 	]
-]
+];
+
+
+event2sbml[name_->event_,model_MASSmodel]:=Module[{trigger,mltrigger,variable,assignment},
+	trigger = stripTime[event[[1]]]/.{x:$MASS$parametersPattern|$MASS$speciesPattern:>ToString[x,"SBML"]};
+	mltrigger = ImportString[ExportString[trigger,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]];
+	variable = ToString[stripTime[event[[2,1,1]]],"SBML"];
+	assignment = ImportString[ExportString[event[[2,2,1]],"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]];
+	XMLElement["event",
+		{"id"->name,"name"->name,"useValuesFromTriggerTime"->"true"},
+		{XMLElement["trigger",{"initialValue"->"true","persistent"->"true"},{mltrigger}],
+			XMLElement["listOfEventAssignments",{},
+				{XMLElement["eventAssignment",{"variable"->variable},{assignment}]}
+			]
+		}
+	]
+];
 
 
 (* ::Subsubsection:: *)
