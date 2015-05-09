@@ -33,7 +33,7 @@ importModel[path_String,opts:OptionsPattern[]]:=Module[{stuff},
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Matlab*)
 
 
@@ -77,7 +77,7 @@ mat2model[path_String]:=Module[{stuff},
 mat2model[]:=mat2model[SystemDialogInput["FileOpen"]];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*SBML import*)
 
 
@@ -743,12 +743,15 @@ Module[{modelStuff,modelID,modelName,layouts,layout,height,compartmentGlyphs,spe
 (*SBML export*)
 
 
-model2sbml[model_MASSmodel]:=Module[{modelUnits,unitRules,ratemapping,listOfStuff,comps,localParam,params},
+model2sbml[model_MASSmodel]:=Module[{species,modelUnits,unitRules,ratemapping,listOfStuff,comps,localParam,params},
+
+	species = DeleteDuplicates@Join[getSpecies[model],Cases[First/@model["InitialConditions"],$MASS$speciesPattern]];
 
 	ratemapping=stripTime[Thread[Rule[(getID/@model["Fluxes"]),model["Rates"]]]];
 	localParam=If[MatchQ[#,_List],#[[2]],#]&[getID[#[[1]]]]->(ToString[#[[1]],"SBML"]->(stripUnits[#[[2]]]/.{\[Infinity]->"INF",-\[Infinity]->"-INF"}))&/@FilterRules[model["Parameters"],Cases[ratemapping,pat:$MASS$parametersPattern/;MemberQ[ratemapping[[All,1]],If[MatchQ[#,_List],#[[2]],#]&[getID[pat]]],\[Infinity]]];
-
-	params=FilterRules[model["Parameters"],Cases[ratemapping,((p_parameter/;!MatchQ[getID[p],_List])|metabolite[_,"Xt"]),\[Infinity]]];
+	Print[ratemapping];
+	params=FilterRules[Join[model["Parameters"],model["InitialConditions"]],Cases[Join[ratemapping,stripTime[model["CustomODE"]]],((p_parameter/;!MatchQ[getID[p],_List])|metabolite[_,"Xt"]),\[Infinity]]];
+	Print[params];
 
 	modelUnits = modelUnits2sbml[model];
 
@@ -772,7 +775,7 @@ model2sbml[model_MASSmodel]:=Module[{modelUnits,unitRules,ratemapping,listOfStuf
 	];
 	
 	(* Species *)
-	AppendTo[listOfStuff,XMLElement["listOfSpecies", {}, species2sbml[#,model,unitRules]&/@getSpecies[model]]];
+	AppendTo[listOfStuff,XMLElement["listOfSpecies", {}, species2sbml[#,model,unitRules]&/@species]];
 	
 	(* Parameters *)
 	AppendTo[listOfStuff,XMLElement["listOfParameters",{},parameter2sbml[#,model,unitRules]&/@params]];
@@ -782,6 +785,9 @@ model2sbml[model_MASSmodel]:=Module[{modelUnits,unitRules,ratemapping,listOfStuf
 			reaction2sbml[#,model,ratemapping,FilterRules[localParam,getID[#]][[All,2]],unitRules]&/@model["Reactions"]
 		]
 	];
+
+	AppendTo[listOfStuff,XMLElement["listOfRules",{},customODE2sbml[#,model]&/@model["CustomODE"]]];
+	
 
 	XMLObject["Document"][
 		{XMLObject["Declaration"]["Version"->"1.0","Encoding"->"UTF-8"],
@@ -860,17 +866,22 @@ species2sbml[spec_,model_MASSmodel,unitRules:{_Rule...}]:=Module[{comp, rules,su
 ]
 
 
-parameter2sbml[param_,model_MASSmodel,unitRules:{_Rule...}]:=Module[{name,value,units},
+parameter2sbml[param_,model_MASSmodel,unitRules:{_Rule...}]:=Module[{name,value,units,constant},
+	If[MemberQ[First/@model["InitialConditions"],param[[1]]],constant="false",constant="true"];
 	name=ToString[param[[1]],"SBML"];
 	value = ToString[stripUnits[param[[2]]],"SBML"];
 	units = QuantityUnit[param[[2]]]/.unitRules;
-	XMLElement["parameter",{"id"->name,"name"->name,"value"->value,"units"->units},{}]
+	XMLElement["parameter",{"id"->name,"name"->name,"value"->value,"units"->units,"constant"->constant},{}]
 ]
 
 
-reaction2sbml[rxn_,model_MASSmodel,ratemapping_List,params_List,unitRules:{_Rule...}]:=Module[{id,law,xmlLaw,localParams},
+reaction2sbml[rxn_,model_MASSmodel,ratemapping_List,params_List,unitRules:{_Rule...}]:=Module[{id,customLaw,law,xmlLaw,localParams},
 	id=makeIdXmlConform[getID[rxn]];
-	law = (getID[rxn]/.Dispatch[ratemapping])/.pat:Join[$MASS$speciesPattern,$MASS$parametersPattern]:>ToString[pat,"SBML"];
+	customLaw = v[getID[rxn]]/.model["CustomRateLaws"];
+	law = If[MatchQ[customLaw,_v],
+		(getID[rxn]/.Dispatch[ratemapping])/.(pat:Join[$MASS$speciesPattern,$MASS$parametersPattern]:>ToString[pat,"SBML"]),
+		stripTime[customLaw]/.(pat:Join[$MASS$speciesPattern,$MASS$parametersPattern]:>ToString[pat,"SBML"])
+	];
 	xmlLaw = ImportString[ExportString[law,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]];
 	localParams =XMLElement["listOfLocalParameters",{},XMLElement["localParameter",{"id"->First[#],"name"->First[#],"value"->ToString[QuantityMagnitude[Last[#]],"SBML"],"units"->QuantityUnit[Last[#]]/.unitRules},{}]&/@params];
 	XMLElement["reaction",{"id"->id,"name"->id,"reversible"->ToLowerCase@ToString@reversibleQ[rxn],"fast"->"false"},
@@ -880,6 +891,24 @@ reaction2sbml[rxn_,model_MASSmodel,ratemapping_List,params_List,unitRules:{_Rule
 		}
 	]
 ];
+
+
+customODE2sbml[ode_,model_MASSmodel]:=Module[{rule,variable},
+	rule = Last[ode];
+	Switch[ode[[1,0]],
+		(* Rate Rule *)
+		Derivative[1][___],
+			variable = ToString[ode[[1,0,1]],"SBML"];
+			XMLElement["rateRule",{"variable"->variable},{ImportString[ExportString[rule,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]]}],
+		(* Assignment Rule *)
+		$MASS$speciesPattern,
+			variable = ToString[ode[[1,0]],"SBML"];
+			XMLElement["assignmentRule",{"variable"->variable},{ImportString[ExportString[rule,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]]}],
+		(* Algebraic Rule *)
+		_Symbol,
+			XMLElement["algebraicRule",{},{ImportString[ExportString[rule,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]]}]	
+	]
+]
 
 
 (* ::Subsubsection:: *)
