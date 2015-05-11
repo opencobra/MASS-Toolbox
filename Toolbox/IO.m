@@ -850,7 +850,7 @@ compartments2sbml[comp_,model_MASSmodel,unitRules:{_Rule...}]:=Module[{},
 				units = QuantityUnit[volume]/.mathematica2SBMLBaseUnit;
 				XMLElement["compartment",{"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->units/.unitRules,"size"->size,"constant"->"true"},{}]
 			],
-		MemberQ[#[[1,0,1]]&/@model["CustomODE"],parameter["Volume",comp]],
+		MemberQ[#[[1,0]]&/@model["CustomODE"]/.Derivative[1][x_]:>x,parameter["Volume",comp]],
 			Module[{volume,size,units},
 				volume = parameter["Volume",comp]/.model["InitialConditions"];
 				size = ToString[QuantityMagnitude[volume],"SBML"];
@@ -915,7 +915,7 @@ customODE2sbml[ode_,model_MASSmodel]:=Module[{rule,variable},
 			variable = ToString[ode[[1,0,1]],"SBML"];
 			XMLElement["rateRule",{"variable"->variable},{ImportString[ExportString[rule,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]]}],
 		(* Assignment Rule *)
-		$MASS$speciesPattern,
+		$MASS$speciesPattern|$MASS$parametersPattern,
 			variable = ToString[ode[[1,0]],"SBML"];
 			XMLElement["assignmentRule",{"variable"->variable},{ImportString[ExportString[rule,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]]}],
 		(* Algebraic Rule *)
