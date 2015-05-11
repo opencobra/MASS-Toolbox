@@ -77,7 +77,7 @@ mat2model[path_String]:=Module[{stuff},
 mat2model[]:=mat2model[SystemDialogInput["FileOpen"]];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*SBML import*)
 
 
@@ -745,13 +745,13 @@ Module[{modelStuff,modelID,modelName,layouts,layout,height,compartmentGlyphs,spe
 
 model2sbml[model_MASSmodel]:=Module[{species,modelUnits,unitRules,ratemapping,listOfStuff,comps,localParam,params},
 
-	species = DeleteDuplicates@Join[getSpecies[model],Cases[First/@model["InitialConditions"],$MASS$speciesPattern]];
+	species = DeleteDuplicates@Join[getSpecies[model],Cases[First/@Join[model["InitialConditions"],model["Parameters"]],$MASS$speciesPattern]];
 
 	ratemapping=stripTime[Thread[Rule[(getID/@model["Fluxes"]),model["Rates"]]]];
 	localParam=If[MatchQ[#,_List],#[[2]],#]&[getID[#[[1]]]]->(ToString[#[[1]],"SBML"]->(stripUnits[#[[2]]]/.{\[Infinity]->"INF",-\[Infinity]->"-INF"}))&/@FilterRules[model["Parameters"],Cases[ratemapping,pat:$MASS$parametersPattern/;MemberQ[ratemapping[[All,1]],If[MatchQ[#,_List],#[[2]],#]&[getID[pat]]],\[Infinity]]];
-
+	
 	params=FilterRules[Join[model["Parameters"],model["InitialConditions"]],Cases[Join[ratemapping,stripTime[model["CustomODE"]]],((p_parameter/;!MatchQ[getID[p],_List])|metabolite[_,"Xt"]),\[Infinity]]];
-
+	
 	modelUnits = modelUnits2sbml[model];
 
 	(* Unit definitions *)
@@ -766,18 +766,19 @@ model2sbml[model_MASSmodel]:=Module[{species,modelUnits,unitRules,ratemapping,li
 	unitRules = (#[[1]]->StringJoin[#[[2]]])&/@modelUnits;
 
 	(* Compartments *)
-	comps = getCompartments[model];
+	comps = Union[getCompartments[model],Cases[First/@model["Parameters"],parameter["Volume",c_]:>c]];
 	If[comps != {},
 		AppendTo[listOfStuff,
 			XMLElement["listOfCompartments",{},compartments2sbml[#,model,unitRules]&/@comps]
 		];
 	];
-	
+
 	(* Species *)
 	AppendTo[listOfStuff,XMLElement["listOfSpecies", {}, species2sbml[#,model,unitRules]&/@species]];
-	
+
 	(* Parameters *)
 	AppendTo[listOfStuff,XMLElement["listOfParameters",{},parameter2sbml[#,model,unitRules]&/@params]];
+
 	(* Reactions *)
 	AppendTo[listOfStuff,
 		XMLElement["listOfReactions",{},
@@ -826,14 +827,14 @@ modelUnits2sbml[model_MASSmodel]:=Module[{unitList,stringUnits,volumeUnits,concU
 	model/.Quantity[_,unit_]:>AppendTo[unitList,unit];
 	unitList = DeleteDuplicates[unitList];
 	(* Get the substance units for later by concUnits*volumeUnits *)
-	volumeUnits = DeleteDuplicates@QuantityUnit[parameter["Volume",#]&/@getCompartments[model]/.model["Parameters"]/._parameter->Liter];
+	volumeUnits = DeleteDuplicates@QuantityUnit[parameter["Volume",#]&/@getCompartments[model]/.model["Parameters"]/.(_parameter->Quantity[1,"Liters"])];
 	concUnits = DeleteDuplicates[QuantityUnit[Cases[model["Species"]/.model["InitialConditions"],Except[$MASS$speciesPattern]]]];
 	AppendTo[unitList,QuantityUnit[Quantity/@volumeUnits*#]]&/@Quantity/@concUnits;
 	unitList=Flatten[unitList];
 	(* Create unit rules *)
 	stringUnits = Replace[unitList/.{Times->List,Power->List,x_Integer:>ToString[x]},{{a_String,b_String}:>{{a,b}},a_String:>{a}},1];
 	Thread[unitList->stringUnits]
-]
+];
 
 
 mathematica2SBMLBaseUnit={"Amperes"->"ampere","Becquerels"->"becquerel","Candelas"->"candela","Coulombs"->"coulomb","Farads"->"farad","Joules"->"joule","Lux"->"lux","Grams"->"gram","Meters"->"metre","Kelvins"->"kelvin","Moles"->"mole","Henries"->"henry","Kilograms"->"kilogram","Newtons"->"newton","Hertz"->"hertz","Liters"->"litre","Ohms"->"ohm","Lumens"->"lumen","Pascals"->"pascal","Radians"->"radian","Volts"->"volt","Seconds"->"second","Watts"->"watt","Siemens"->"siemens","Webers"->"weber","Steradians"->"steradian","Teslas"->"tesla"};
@@ -841,16 +842,25 @@ mathematica2SBMLBaseUnit={"Amperes"->"ampere","Becquerels"->"becquerel","Candela
 
 compartments2sbml[comp_,model_MASSmodel,unitRules:{_Rule...}]:=Module[{},
 
-	If[MatchQ[parameter["Volume",comp]/.model["Parameters"],_parameter],
-		XMLElement["compartment",{"id"->comp,"name"->comp,"spatialDimensions"->"3"},{}],
-		Module[{volume,size,units},
-			volume = parameter["Volume",comp]/.model["Parameters"];
-			size = ToString[QuantityMagnitude[volume],"SBML"];
-			units = QuantityUnit[volume]/.mathematica2SBMLBaseUnit;
-			XMLElement["compartment",{"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->units/.unitRules,"size"->size},{}]
-		]
+	Which[
+		MatchQ[parameter["Volume",comp]/.model["Parameters"],_Quantity|_?NumberQ],
+			Module[{volume,size,units},
+				volume = parameter["Volume",comp]/.model["Parameters"];
+				size = ToString[QuantityMagnitude[volume],"SBML"];
+				units = QuantityUnit[volume]/.mathematica2SBMLBaseUnit;
+				XMLElement["compartment",{"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->units/.unitRules,"size"->size,"constant"->"true"},{}]
+			],
+		MemberQ[#[[1,0,1]]&/@model["CustomODE"],parameter["Volume",comp]],
+			Module[{volume,size,units},
+				volume = parameter["Volume",comp]/.model["InitialConditions"];
+				size = ToString[QuantityMagnitude[volume],"SBML"];
+				units = QuantityUnit[volume]/.mathematica2SBMLBaseUnit;
+				XMLElement["compartment",{"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->units/.unitRules,"size"->size,"constant"->"false"},{}]
+			],
+		True,
+			XMLElement["compartment",{"id"->comp,"name"->comp,"spatialDimensions"->"3"},{}]
 	]
-]
+];
 		
 
 
@@ -859,7 +869,7 @@ species2sbml[spec_,model_MASSmodel,unitRules:{_Rule...}]:=Module[{comp, rules,su
 	comp = getCompartment[spec];
 	If[comp=!=None,
 		AppendTo[rules,"compartment"->getCompartment[spec]];
-		substanceUnits=QuantityUnit[(spec/.model["InitialConditions"])*(parameter["Volume",getCompartment[spec]]/.model["Parameters"])]/.unitRules;
+		substanceUnits=QuantityUnit[(spec/.model["InitialConditions"])*(parameter["Volume",getCompartment[spec]]/.Join[model["Parameters"],model["InitialConditions"]])]/.unitRules;
 		If[MatchQ[substanceUnits,_String],AppendTo[rules,"substanceUnits"->substanceUnits]]
 	];
 	AppendTo[rules,"boundaryCondition"->ToLowerCase@ToString@MemberQ[model["BoundaryConditions"],spec]];
@@ -915,16 +925,20 @@ customODE2sbml[ode_,model_MASSmodel]:=Module[{rule,variable},
 ];
 
 
-event2sbml[name_->event_,model_MASSmodel]:=Module[{trigger,mltrigger,variable,assignment},
+event2sbml[name_->event_,model_MASSmodel]:=Module[{trigger,mltrigger},
 	trigger = stripTime[event[[1]]]/.{x:$MASS$parametersPattern|$MASS$speciesPattern:>ToString[x,"SBML"]};
 	mltrigger = ImportString[ExportString[trigger,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]];
-	variable = ToString[stripTime[event[[2,1,1]]],"SBML"];
-	assignment = ImportString[ExportString[event[[2,2,1]],"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]];
+	
 	XMLElement["event",
 		{"id"->name,"name"->name,"useValuesFromTriggerTime"->"true"},
 		{XMLElement["trigger",{"initialValue"->"true","persistent"->"true"},{mltrigger}],
 			XMLElement["listOfEventAssignments",{},
-				{XMLElement["eventAssignment",{"variable"->variable},{assignment}]}
+				MapThread[
+					XMLElement["eventAssignment",{"variable"->ToString[stripTime[#1],"SBML"]},
+						{ImportString[ExportString[#2,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]]}
+					]&,
+					{event[[2,1]],event[[2,2]]}
+				]
 			]
 		}
 	]
