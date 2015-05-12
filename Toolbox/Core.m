@@ -1333,13 +1333,21 @@ subModel[model_MASSmodel,rxnIDs:{(_String|_v)..}]:=deleteReactions[model,Complem
 (*QC/QA*)
 
 
-Options[elementallyBalancedQ]={"ElementalComposition"->{},"RemoveExchanges"->True};
+Options[elementallyBalancedQ]={"ElementalComposition"->{},"RemoveExchanges"->True,"Exclude"->{}};
 elementallyBalancedQ::notBalanced="The following reactions are not balanced: `1`.";
-elementallyBalancedQ[model_MASSmodel,opts:OptionsPattern[]]:=Module[{balancing,exclude},
+elementallyBalancedQ[model_MASSmodel,opts:OptionsPattern[]]:=Module[{balancing,excludeOpt,exclude},
+	excludeOpt=Switch[Head[#],
+		v, #/.Thread[Rule[model["Fluxes"],model["Reactions"]]],
+		reaction, #,
+		String, v[#]/.Thread[Rule[model["Fluxes"],model["Reactions"]]],
+		_,##&[]
+	]&/@OptionValue["Exclude"];
+
 	If[OptionValue["RemoveExchanges"],
-		exclude=model["Exchanges"];,
-		exclude={};
+		exclude=Join[model["Exchanges"],excludeOpt];,
+		exclude=excludeOpt;
 	];
+	
 	balancing=Thread[Rule[model["Reactions"],Expand/@((model["Species"]/.Dispatch[updateRules[model["ElementalComposition"],OptionValue["ElementalComposition"]]]).model["Stoichiometry"])]];
 	balancing=DeleteCases[balancing,r_Rule/;MemberQ[exclude,r[[1]]]];
 	If[
