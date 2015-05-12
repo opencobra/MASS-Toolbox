@@ -33,7 +33,7 @@ importModel[path_String,opts:OptionsPattern[]]:=Module[{stuff},
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Matlab*)
 
 
@@ -77,7 +77,7 @@ mat2model[path_String]:=Module[{stuff},
 mat2model[]:=mat2model[SystemDialogInput["FileOpen"]];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*SBML import*)
 
 
@@ -584,7 +584,7 @@ Check[sbml2model[Import[path,"XML"],opts],Message[sbml2model::NotExistFile,path]
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*SBML export*)
 
 
@@ -650,7 +650,7 @@ sbml2model[tmpFile[[1]],opts]
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*eQuilibrator*)
 
 
@@ -667,6 +667,23 @@ eQuilibratorCompoundData[query_]:=eQuilibratorAPI[query,"http://equilibrator.wei
 
 
 eQuilibratorReactionData[query_]:=eQuilibratorAPI[query,"http://equilibrator.weizmann.ac.il/reaction_data"]
+
+
+(* ::Subsection:: *)
+(*Escher*)
+
+
+model2escher[model_MASSmodel]:=Module[{reactionList,metList},
+	reactionList = {"subsystem"->"","name"->getID[#],"upper_bound"->1000, "lower_bound"-> -1000, "notes"->{}, "metabolites"->reactionMets2json[#], "objective_coefficient"->0, "variable_kind"->"continuous", "id"->getID[#],"gene_reaction_rule"->""}&/@model["Reactions"];
+	metList = {"name"->StringReplace[ToString[#],"["~~x_~~"]":>"_"<>x],"notes"->"{}", "annotation"->"{}", "_constraint_sense"->"E", "charge"->"0", "_bound"->"0.0", "formula"->elementalComposition2formula[#/.getElementalComposition[glycolysis]], "compartment"->getCompartment[#],"id"->StringReplace[ToString[#],"["~~x_~~"]":>"_"<>x]}&/@model["Species"];
+	{"reactions"->reactionList, "description"->getName[model], "notes"->{}, "genes"->{}, "metabolites"->metList,"id"->getID[model]}
+];
+
+
+reactionMets2escher[rxn_reaction]:=Module[{stringList},
+	MapThread[StringReplace[ToString[#1],"["~~x_~~"]":>"_"<>x]->#2&,
+		{Join[getProducts[rxn],getSubstrates[rxn]],Join[getProdStoich[rxn],-getSubstrStoich[rxn]]}]
+]
 
 
 (* ::Subsection::Closed:: *)
