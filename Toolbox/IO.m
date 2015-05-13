@@ -674,14 +674,14 @@ eQuilibratorReactionData[query_]:=eQuilibratorAPI[query,"http://equilibrator.wei
 
 
 model2escher[model_MASSmodel]:=Module[{reactionList,metList},
-	reactionList = {"subsystem"->"","name"->getID[#],"upper_bound"->1000, "lower_bound"-> -1000, "notes"->{}, "metabolites"->reactionMets2json[#], "objective_coefficient"->0, "variable_kind"->"continuous", "id"->getID[#],"gene_reaction_rule"->""}&/@model["Reactions"];
-	metList = {"name"->StringReplace[ToString[#],"["~~x_~~"]":>"_"<>x],"notes"->"{}", "annotation"->"{}", "_constraint_sense"->"E", "charge"->"0", "_bound"->"0.0", "formula"->elementalComposition2formula[#/.getElementalComposition[glycolysis]], "compartment"->getCompartment[#],"id"->StringReplace[ToString[#],"["~~x_~~"]":>"_"<>x]}&/@model["Species"];
+	reactionList = {"subsystem"->"","name"->getID[#],"upper_bound"->1000, "lower_bound"-> -1000, "notes"->{}, "metabolites"->reactionMets2escher[#], "objective_coefficient"->0, "variable_kind"->"continuous", "id"->getID[#],"gene_reaction_rule"->""}&/@model["Reactions"];
+	metList = {"name"->ToString[#],"notes"->"{}", "annotation"->"{}", "_constraint_sense"->"E", "charge"->"0", "_bound"->"0.0", "formula"->elementalComposition2formula[#/.getElementalComposition[model]], "compartment"->ToString[getCompartment[#]],"id"->ToString[#]}&/@model["Species"];
 	{"reactions"->reactionList, "description"->getName[model], "notes"->{}, "genes"->{}, "metabolites"->metList,"id"->getID[model]}
 ];
 
 
 reactionMets2escher[rxn_reaction]:=Module[{stringList},
-	MapThread[StringReplace[ToString[#1],"["~~x_~~"]":>"_"<>x]->#2&,
+	MapThread[ToString[#1]->#2&,
 		{Join[getProducts[rxn],getSubstrates[rxn]],Join[getProdStoich[rxn],-getSubstrStoich[rxn]]}]
 ]
 
