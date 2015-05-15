@@ -33,7 +33,7 @@ importModel[path_String,opts:OptionsPattern[]]:=Module[{stuff},
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Matlab*)
 
 
@@ -77,11 +77,11 @@ mat2model[path_String]:=Module[{stuff},
 mat2model[]:=mat2model[SystemDialogInput["FileOpen"]];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*SBML import*)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Utilities*)
 
 
@@ -100,7 +100,7 @@ cleanUpMathML[math:XMLElement["math",_,_]]:=Module[{adjustments},
 mathML2mass=XML`MathML`SymbolicMathMLToExpression[cleanUpMathML[#(*/.s_String\[RuleDelayed]StringReplace[s,"_"\[Rule]"$UNDRSCR$s"]*)]]&;
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfEvents*)
 
 
@@ -120,7 +120,7 @@ getListOfEvents[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_p
 ]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfInitialAssignments*)
 
 
@@ -128,7 +128,7 @@ parseInitialAssignmentXML[initialAssignment_XMLElement,id2massID:{_Rule..}]:=(("
 getListOfInitialAssignments[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseInitialAssignmentXML[#,id2massID]&/@extractXMLelement[xml,"listOfInitialAssignments",2]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfRules*)
 
 
@@ -145,7 +145,7 @@ Switch[#[[1]],
 getListOfRules[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseRuleXML[#,id2massID]&/@extractXMLelement[xml,"listOfRules",2]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfFunctionDefinitions*)
 
 
@@ -157,7 +157,7 @@ parseFunctionXML/@extractXMLelement[xml,"listOfFunctionDefinitions",2]
 ];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfUnitDefinitions*)
 
 
@@ -188,7 +188,7 @@ getListOfUnitDefinitions[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPat
 ]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfSpecies*)
 
 
@@ -239,7 +239,7 @@ getListOfCompartments[xml_/;Head[xml]===XMLObject["Document"]]:=Module[{},
 getCompartmentVolumes[listOfCompartments:{((parameter["Volume",_String]|parameter["Volume",_String][t])->_List)...},unitDefinitions:{(_Rule|_RuleDelayed)...}]:=#[[1]]->sbmlString2Number[query["size",#[[2]],"1"]]*(query["units",#[[2]],"volume"]/.Dispatch[unitDefinitions])&/@listOfCompartments
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfReactions*)
 
 
@@ -291,7 +291,7 @@ getStoich[attrVal:{_Rule...},id2massID:{(_String->(_parameter|_parameter[t]|_spe
 ];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*kineticLaw*)
 
 
@@ -351,7 +351,7 @@ getListOfGlobalParameters[xml]
 getParameterValues[listOfParameters:{((_parameter|_parameter[t])->_List)...}]:=#[[1]]->sbmlString2Number["value"/.Dispatch[#[[2]]]/."value"->"Indeterminate"]&/@listOfParameters
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*main*)
 
 
@@ -801,7 +801,7 @@ sbml2model[tmpFile[[1]],opts]
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*eQuilibrator*)
 
 
@@ -818,6 +818,23 @@ eQuilibratorCompoundData[query_]:=eQuilibratorAPI[query,"http://equilibrator.wei
 
 
 eQuilibratorReactionData[query_]:=eQuilibratorAPI[query,"http://equilibrator.weizmann.ac.il/reaction_data"]
+
+
+(* ::Subsection:: *)
+(*Escher*)
+
+
+model2escher[model_MASSmodel]:=Module[{reactionList,metList},
+	reactionList = {"subsystem"->"","name"->getID[#],"upper_bound"->1000, "lower_bound"-> -1000, "notes"->{}, "metabolites"->reactionMets2escher[#], "objective_coefficient"->0, "variable_kind"->"continuous", "id"->getID[#],"gene_reaction_rule"->""}&/@model["Reactions"];
+	metList = {"name"->ToString[#],"notes"->"{}", "annotation"->"{}", "_constraint_sense"->"E", "charge"->"0", "_bound"->"0.0", "formula"->elementalComposition2formula[#/.getElementalComposition[model]], "compartment"->ToString[getCompartment[#]],"id"->ToString[#]}&/@model["Species"];
+	{"reactions"->reactionList, "description"->getName[model], "notes"->{}, "genes"->{}, "metabolites"->metList,"id"->getID[model]}
+];
+
+
+reactionMets2escher[rxn_reaction]:=Module[{stringList},
+	MapThread[ToString[#1]->#2&,
+		{Join[getProducts[rxn],getSubstrates[rxn]],Join[getProdStoich[rxn],-getSubstrStoich[rxn]]}]
+]
 
 
 (* ::Subsection::Closed:: *)

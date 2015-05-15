@@ -260,7 +260,10 @@ eQuilibratorReactionData::usage="eQuilibratorReactionData[query] queries the eQu
 "
 
 
-(* ::Subsection:: *)
+model2escher::usage="model2escher[model] converts a MASS model to a JSON model format compatible with the Escher pathway editor."
+
+
+(* ::Subsection::Closed:: *)
 (*Assorted*)
 
 

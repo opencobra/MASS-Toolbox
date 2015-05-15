@@ -501,7 +501,7 @@ nodeMapCoordinates[nodeMap:{{_Rule,(_?NumberQ|_Quantity)}...}]:=Module[{sortedNo
 ];
 
 
-Options[drawNodeMaps]={"Fluxes"->{},"Metabolites"->{},ColorFunction->ColorData["Rainbow"],"Legend"->False};
+Options[drawNodeMaps]={"Fluxes"->{},"Metabolites"->{},ColorFunction->ColorData["Rainbow"],"Legend"->False,ImageSize->600};
 drawNodeMaps[model_MASSmodel,opts:OptionsPattern[{drawNodeMaps,GraphPlot}]]:=Module[{unitlessFluxes,stoichRules,minFlux,maxFlux,colorFunction,activeFluxes,directions,bip,activeBip,nodeMapGraphs,edgeThicknesses,colorValues,edgeRenderingFunc,nodeRenderingFunc,metabolites,legendFunc,netFluxes},
 	If[!MatchQ[OptionValue["Metabolites"],{_metabolite...}],Message[drawNodeMaps::InvalidOption,"Metabolites"];Abort[]];
 	If[!MatchQ[OptionValue["Fluxes"],{(_v->(_?NumberQ|_Quantity))...}],Message[drawNodeMaps::InvalidOption,"Fluxes"];Abort[]];
@@ -523,7 +523,7 @@ drawNodeMaps[model_MASSmodel,opts:OptionsPattern[{drawNodeMaps,GraphPlot}]]:=Mod
 	edgeRenderingFunc=({colorFunction[Rescale[stripUnits@#3,{minFlux,maxFlux},{0,1}]],Thickness[Rescale[stripUnits@#3,{minFlux,maxFlux},{0.001,0.02}]],Arrowheads[Max[{3*Rescale[stripUnits@#3,{minFlux,maxFlux},{0.001,0.02}],.02}]],Arrow[#,{.1,.1}],If[OptionValue["Fluxes"]=!={},Style[Text[#3/.{Quantity[num_?NumberQ,units_]:>Quantity[Round[Abs[num],.001],units],num_?NumberQ:>Round[Abs[num],.001]},Mean@#1,Background->Opacity[.8,White]],Black,FontFamily->"Helvetica",FontSize->Scaled[.02]]]}&);
 	nodeRenderingFunc=({Style[Text[#2,#1],FontSize->Scaled[.02]]}&);
 	legendFunc=If[OptionValue["Legend"]===True&&OptionValue["Fluxes"]=!={},Legended[#,Rasterize@BarLegend[{colorFunction[[1]],{0,maxFlux}},LegendLabel->"Flux\nmmol \!\(\*SuperscriptBox[\(h\), \(-1\)]\) \!\(\*SuperscriptBox[\(gDW\), \(-1\)]\)",LabelStyle->{FontFamily->"Helvetica"}]]&,#&];
-	#[[1]]->legendFunc[GraphPlot[#[[2]],VertexCoordinateRules->Join[N@nodeMapCoordinates[#[[2]]],{#[[1]]->{0,0}}],PlotStyle->Gray,VertexLabeling->True,ImageSize->600,EdgeRenderingFunction->edgeRenderingFunc,VertexRenderingFunction->nodeRenderingFunc,PlotLabel->Style[#,Which[stripUnits[#[[1,2,1]]]<-10^-4,Darker[Red],stripUnits[#[[1,2,1]]]>10^-4,Darker[Green],True,Black],FontFamily->"Helvetica",FontSize->Scaled[.025]]&[Row[{"Net flux: ",ScientificForm@Chop[#[[1]]/.netFluxes/.activeFluxes/._v->0]}]],Sequence@@FilterRules[{opts},Options[GraphPlot]]]]&/@nodeMapGraphs
+	#[[1]]->legendFunc[GraphPlot[#[[2]],VertexCoordinateRules->Join[N@nodeMapCoordinates[#[[2]]],{#[[1]]->{0,0}}],PlotStyle->Gray,VertexLabeling->True,ImageSize->OptionValue[ImageSize],EdgeRenderingFunction->edgeRenderingFunc,VertexRenderingFunction->nodeRenderingFunc,PlotLabel->Style[#,Which[stripUnits[#[[1,2,1]]]<-10^-4,Darker[Red],stripUnits[#[[1,2,1]]]>10^-4,Darker[Green],True,Black],FontFamily->"Helvetica",FontSize->Scaled[.025]]&[Row[{"Net flux: ",ScientificForm@Chop[#[[1]]/.netFluxes/.activeFluxes/._v->0]}]],Sequence@@FilterRules[{opts},Options[GraphPlot]]]]&/@nodeMapGraphs
 ];
 
 
