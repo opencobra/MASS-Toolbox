@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     61073,       1484]
-NotebookOptionsPosition[     60243,       1450]
-NotebookOutlinePosition[     60600,       1466]
-CellTagsIndexPosition[     60557,       1463]
+NotebookDataLength[    124462,       2666]
+NotebookOptionsPosition[    122959,       2615]
+NotebookOutlinePosition[    123317,       2631]
+CellTagsIndexPosition[    123274,       2628]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -351,7 +351,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "1.68114600000000002921751729445531964302`6.24620534488743", 
+      "1.50964399999999998591704297723481431603`6.199474458543763", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -390,7 +390,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.50536400000000003540634452292579226196`5.7242042146581245", 
+      "0.49702699999999999658228944099391810596`5.71697989483491", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -429,7 +429,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.20941999999999999504396441807330120355`5.341618068534891", 
+      "0.1714660000000000072972738962562289089`5.254777929925092", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -468,7 +468,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.46645999999999998575361814800999127328`5.689414321224759", 
+      "0.44484299999999998842525883446796797216`5.6688066742279855", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -507,7 +507,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.35447899999999998854605109954718500376`5.570190425142115", 
+      "0.36104399999999997605826251856342423707`5.578160045359142", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -546,7 +546,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.19820799999999999529975980294693727046`5.317721092620299", 
+      "0.25212600000000001676525585025956388563`5.422217547033398", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -585,7 +585,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.54113199999999994638244515954283997416`5.753903130103535", 
+      "0.55115300000000000402167188440216705203`5.761872088959051", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -624,7 +624,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "2.68036500000000010857093002414330840111`6.448793851596587", 
+      "2.77223499999999978271603140456136316061`6.463429955553228", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -663,7 +663,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.25440400000000001901057089526148047298`5.426123848731907", 
+      "0.26398100000000002118838438036618754268`5.4421725829823995", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -702,7 +702,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "1.20969199999999998951238922018092125654`6.103274721837678", 
+      "0.78187399999999995792165918828686699271`5.9137366848641895", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -736,7 +736,7 @@ Cell[BoxData[
        BackFaceColor->RGBColor[1, 0, 0],
        GraphicsColor->RGBColor[1, 0, 0],
        FontColor->RGBColor[1, 0, 0]], 
-      "1.66152499999999991864285675546852871776`6.241106793519912", 
+      "1.98160800000000003606714926718268543482`6.31761766016223", 
       TemplateBox[{TagBox[
          GridBox[{{
             ButtonBox[
@@ -827,9 +827,9 @@ Cell[BoxData[
                     MessageName[
                     Toolbox`Private`eQuilibratorAPI, "badRequest"], 500]]}, 
                  "AbsoluteTimeUsed" -> 
-                 Quantity[1.256927`6.24982505322853, "Seconds"], 
-                 "CPUTimeUsed" -> Quantity[0.10451600000000028`, "Seconds"], 
-                 "MemoryUsed" -> Quantity[493680, "Bytes"]]]], Appearance -> 
+                 Quantity[1.54003`6.3380441788681665, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.08765400000000056, "Seconds"], 
+                 "MemoryUsed" -> Quantity[494448, "Bytes"]]]], Appearance -> 
              Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}, {
             ButtonBox[
             "\"View Outcome\"", ButtonFunction :> $CellContext`viewOutput[
@@ -870,9 +870,9 @@ Cell[BoxData[
                     MessageName[
                     Toolbox`Private`eQuilibratorAPI, "badRequest"], 403]]}, 
                  "AbsoluteTimeUsed" -> 
-                 Quantity[0.201401`5.454576620422006, "Seconds"], 
-                 "CPUTimeUsed" -> Quantity[0.012850999999999502`, "Seconds"], 
-                 "MemoryUsed" -> Quantity[14712, "Bytes"]]]], Appearance -> 
+                 Quantity[0.249128`5.546937539347265, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.01088500000000181, "Seconds"], 
+                 "MemoryUsed" -> Quantity[14584, "Bytes"]]]], Appearance -> 
              Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}}, 
           GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
           "Column", 
@@ -969,9 +969,9 @@ Cell[BoxData[
                     MessageName[
                     Toolbox`Private`eQuilibratorAPI, "badRequest"], 500]]}, 
                  "AbsoluteTimeUsed" -> 
-                 Quantity[1.256927`6.24982505322853, "Seconds"], 
-                 "CPUTimeUsed" -> Quantity[0.10451600000000028`, "Seconds"], 
-                 "MemoryUsed" -> Quantity[493680, "Bytes"]]]["TestID"]], 
+                 Quantity[1.54003`6.3380441788681665, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.08765400000000056, "Seconds"], 
+                 "MemoryUsed" -> Quantity[494448, "Bytes"]]]["TestID"]], 
              Appearance -> Automatic, Evaluator -> Automatic, Method -> 
              "Preemptive"]}, {
             ButtonBox[
@@ -1014,9 +1014,9 @@ Cell[BoxData[
                     MessageName[
                     Toolbox`Private`eQuilibratorAPI, "badRequest"], 403]]}, 
                  "AbsoluteTimeUsed" -> 
-                 Quantity[0.201401`5.454576620422006, "Seconds"], 
-                 "CPUTimeUsed" -> Quantity[0.012850999999999502`, "Seconds"], 
-                 "MemoryUsed" -> Quantity[14712, "Bytes"]]]["TestID"]], 
+                 Quantity[0.249128`5.546937539347265, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.01088500000000181, "Seconds"], 
+                 "MemoryUsed" -> Quantity[14584, "Bytes"]]]["TestID"]], 
              Appearance -> Automatic, Evaluator -> Automatic, Method -> 
              "Preemptive"]}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
           DefaultBaseStyle -> "Column", 
@@ -1043,7 +1043,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "0.76277600000000000957101065068854950368`5.902996933217908", 
+      "0.75027600000000005397993163569481112063`5.89582096764093", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -1082,7 +1082,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "2.40437399999999978916775944526307284832`6.40160193630371", 
+      "2.16137200000000007094058673828840255737`6.355329434278276", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -1116,7 +1116,7 @@ Cell[BoxData[
        BackFaceColor->RGBColor[1, 0, 0],
        GraphicsColor->RGBColor[1, 0, 0],
        FontColor->RGBColor[1, 0, 0]], 
-      "1.21956899999999990313881426118314266205`6.106806289861746", 
+      "1.09085100000000001507771685282932594419`6.058365347372106", 
       TemplateBox[{TagBox[
          GridBox[{{
             ButtonBox[
@@ -1175,7 +1175,7 @@ Cell[BoxData[
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
          Rational[2, 3], 0]], 
-      "1.48149400000000008859046829456929117441`6.191299810221467", 
+      "1.83563000000000009492850949754938483238`6.284385060105683", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -1227,7 +1227,7 @@ Cell[BoxData[
    3.6276271464862127`*^9, 3.627628144270997*^9, 3.627628902427033*^9, 
    3.627629004954207*^9, 3.627689734107296*^9, 3.6306853012035437`*^9, 
    3.630685502044681*^9, 3.630685919673807*^9, 3.630686091557816*^9, 
-   3.630686204238865*^9}]
+   3.630686204238865*^9, 3.640486564657529*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -1236,13 +1236,17 @@ Cell[CellGroupData[{
 Cell["Slow Test Results", "Section",
  CellChangeTimes->{{3.626199388001237*^9, 3.6261993913534718`*^9}}],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[{
  RowBox[{
   RowBox[{"slowTestNotebooks", " ", "=", " ", 
    RowBox[{"{", 
+    RowBox[{"(*", 
+     RowBox[{"\"\<SBMLrelatedTests.nb\>\"", ","}], "*)"}], 
     RowBox[{
-    "\"\<SBMLrelatedTests.nb\>\"", ",", 
-     "\"\<UnitCheckingRelatedTests.nb\>\""}], "}"}]}], 
+    "\"\<UnitCheckingRelatedTests.nb\>\"", ",", 
+     "\"\<CobraRelatedTests.nb\>\""}], "}"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"slowrawResults", " ", "=", " ", 
@@ -1342,7 +1346,176 @@ Cell[BoxData[{
  CellChangeTimes->{{3.6261995441135483`*^9, 3.626199544846629*^9}, {
   3.626199598087723*^9, 3.6261996886581383`*^9}, {3.627627204970739*^9, 
   3.62762721125911*^9}, {3.6276316869524603`*^9, 3.62763168974273*^9}, {
-  3.627690000807247*^9, 3.627690001320389*^9}}],
+  3.627690000807247*^9, 3.627690001320389*^9}, {3.640486579901782*^9, 
+  3.6404866267667418`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "take"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Cannot take positions \[NoBreak]\\!\\(1\\)\[NoBreak] \
+through \[NoBreak]\\!\\(77\\)\[NoBreak] in \[NoBreak]\\!\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Part/take\\\", ButtonNote -> \
+\\\"Part::take\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6404866922065287`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"fba", "::", "solverSolutionProblem"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Unexpected solution \
+\[NoBreak]\\!\\(\\(\\(GurobiSolve[\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\
+\\)]\\)\\) \[LeftDoubleBracket] \\(\\(1 ;; 77\\)\\) \[RightDoubleBracket]\\)\
+\[NoBreak] returned by \[NoBreak]\\!\\(GurobiSolve\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:Toolbox/ref/fba\\\", ButtonNote -> \
+\\\"Toolbox`fba::solverSolutionProblem\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6404866924262247`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Toolbox`fba", "::", "solverSolutionProblem"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Unexpected solution \
+\\!\\(GurobiSolve[\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)]\\) returned \
+by \\!\\(GurobiSolve\\).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.640486694721416*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Toolbox`fba", "::", "solverSolutionProblem"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Unexpected solution \
+\\!\\(GurobiSolve[\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)]\\) returned \
+by \\!\\(GurobiSolve\\).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.640486694753737*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Toolbox`fba", "::", "solverSolutionProblem"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Unexpected solution \
+\\!\\(GurobiSolve[\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)]\\) returned \
+by \\!\\(GurobiSolve\\).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.640486694808416*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Toolbox`fba", "::", "solverSolutionProblem"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Unexpected solution \
+\\!\\(GurobiSolve[\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)]\\) returned \
+by \\!\\(GurobiSolve\\).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.640486694859391*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Toolbox`fba", "::", "solverSolutionProblem"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Unexpected solution \
+\\!\\(GurobiSolve[\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)]\\) returned \
+by \\!\\(GurobiSolve\\).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.640486694906637*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Toolbox`fba", "::", "solverSolutionProblem"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Unexpected solution \
+\\!\\(GurobiSolve[\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)]\\) returned \
+by \\!\\(GurobiSolve\\).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.640486694968989*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Toolbox`fba", "::", "solverSolutionProblem"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Unexpected solution \
+\\!\\(GurobiSolve[\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)]\\) returned \
+by \\!\\(GurobiSolve\\).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.640486695026896*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Toolbox`fba", "::", "solverSolutionProblem"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Unexpected solution \
+\\!\\(GurobiSolve[\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)]\\) returned \
+by \\!\\(GurobiSolve\\).\"\>"}]], "Message", "MSG",
+ ShowCellLabel->True,
+ CellChangeTimes->{3.6404866950925283`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part \[NoBreak]\\!\\(2\\)\[NoBreak] of \[NoBreak]\\!\\({4}\
+\\)\[NoBreak] does not exist. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partw\\\", ButtonNote -> \
+\\\"Part::partw\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.640486695306753*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part \[NoBreak]\\!\\(2\\)\[NoBreak] of \[NoBreak]\\!\\({4}\
+\\)\[NoBreak] does not exist. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partw\\\", ButtonNote -> \
+\\\"Part::partw\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.640486695358664*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part \[NoBreak]\\!\\(2\\)\[NoBreak] of \[NoBreak]\\!\\({4}\
+\\)\[NoBreak] does not exist. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partw\\\", ButtonNote -> \
+\\\"Part::partw\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6404866954075336`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Part :: \
+partw\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.64048669545891*^9}],
+
+Cell[BoxData["$Aborted"], "Message", "MSG",
+ CellChangeTimes->{3.640486695464555*^9}]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -1383,43 +1556,1035 @@ Cell[BoxData[
       TagBox["\<\"Failed Tests\"\>",
        HoldForm]},
      {
-      ButtonBox["\<\"ThermodynamicsTests.nb\"\>",
+      ButtonBox["\<\"UnitCheckingRelatedTests.nb\"\>",
        Appearance->Automatic,
        ButtonFunction:>NotebookOpen[
          FileNameJoin[{
-           NotebookDirectory[], "ThermodynamicsTests.nb"}]],
+           NotebookDirectory[], "UnitCheckingRelatedTests.nb"}]],
        Evaluator->Automatic,
        Method->"Preemptive"], 
-      StyleBox["\<\"Success\"\>",
+      StyleBox["\<\"Failure\"\>",
        StripOnInput->False,
-       LineColor->RGBColor[0, 
-         Rational[2, 3], 0],
-       FrontFaceColor->RGBColor[0, 
-         Rational[2, 3], 0],
-       BackFaceColor->RGBColor[0, 
-         Rational[2, 3], 0],
-       GraphicsColor->RGBColor[0, 
-         Rational[2, 3], 0],
-       FontColor->RGBColor[0, 
-         Rational[2, 3], 0]], 
-      "1.53035300000000007436540272465208545327`6.205391532508686", 
-      TemplateBox[{InterpretationBox[
-         TagBox[
-          
-          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-           DefaultBaseStyle -> "Column", 
-           GridBoxItemSize -> {
-            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
-         
-         Column[{}]],InterpretationBox[
-         TagBox[
-          
-          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-           DefaultBaseStyle -> "Column", 
-           GridBoxItemSize -> {
-            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
-         
-         Column[{}]]},
+       LineColor->RGBColor[1, 0, 0],
+       FrontFaceColor->RGBColor[1, 0, 0],
+       BackFaceColor->RGBColor[1, 0, 0],
+       GraphicsColor->RGBColor[1, 0, 0],
+       FontColor->RGBColor[1, 0, 0]], 
+      "39.16334299999999757346813566982746124268`7.613479669558991", 
+      TemplateBox[{TagBox[
+         GridBox[{{
+            ButtonBox[
+            "\"View Outcome\"", ButtonFunction :> $CellContext`viewOutput[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 5, "TestID" -> 
+                 "UnitCheckingRelatedTests-20120822-I8U2C3", "Outcome" -> 
+                 "Failure", "ExpectedOutput" -> 
+                 HoldForm[{
+                   Toolbox`Keq["rxn1"] -> 1, Toolbox`Keq["rxn2"] -> 
+                    Quantity[1, "Liters"/"Millimoles"], Toolbox`Keq["rxn3"] -> 
+                    Quantity[1, "Liters"^(-1) "Millimoles"], 
+                    Toolbox`Keq["rxn4"] -> 1, Toolbox`Keq["rxn5"] -> 1, 
+                    Toolbox`Keq["cmprt_rxn1"] -> 1, Toolbox`Keq["cmprt_rxn2"] -> 
+                    Quantity[1, "Liters"/"Millimoles"], 
+                    Toolbox`Keq["cmprt_rxn3"] -> 
+                    Quantity[1, "Liters"^(-1) "Millimoles"], 
+                    Toolbox`Keq["cmprt_rxn4"] -> 1, Toolbox`Keq["cmprt_rxn5"] -> 
+                    1, Toolbox`Keq["trans1"] -> 1, Toolbox`Keq["trans2"] -> 
+                    Quantity[1., "Liters"^(-2.3) "Millimoles"^2.3], 
+                    Toolbox`Keq["trans3"] -> 1, 
+                    Toolbox`Keq["cmprt_rxn_weird"] -> 
+                    Quantity[1., "Liters"^(-2.3) "Millimoles"^2.3], 
+                    Toolbox`rateconst["rxn1", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["rxn2", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["rxn3", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["rxn4", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["rxn5", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["cmprt_rxn1", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["cmprt_rxn2", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["cmprt_rxn3", True] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn4", True] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn5", True] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["trans1", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["trans2", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["trans3", True] -> 
+                    Quantity[
+                    1., "Hours"^(-1) "Liters"^4.3 "Millimoles"^(-3.3)], 
+                    Toolbox`rateconst["cmprt_rxn_weird", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["rxn1", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["rxn2", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["rxn3", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["rxn4", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["rxn5", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["cmprt_rxn1", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["cmprt_rxn2", False] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn3", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["cmprt_rxn4", False] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn5", False] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["trans1", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["trans2", False] -> 
+                    Quantity[
+                    1., "Hours"^(-1) "Liters"^4.3 "Millimoles"^(-3.3)], 
+                    Toolbox`rateconst["trans3", False] -> 
+                    Quantity[
+                    1., "Hours"^(-1) "Liters"^4.3 "Millimoles"^(-3.3)], 
+                    Toolbox`rateconst["cmprt_rxn_weird", False] -> 
+                    Quantity[
+                    1., "Hours"^(-1) "Liters"^3.3 "Millimoles"^(-3.3)]}], 
+                 "ActualOutput" -> 
+                 HoldForm[{
+                   Toolbox`Keq["rxn1"] -> 1, Toolbox`Keq["rxn2"] -> 
+                    Quantity[1, "Liters"/"Millimoles"], Toolbox`Keq["rxn3"] -> 
+                    Quantity[1, "Liters"^(-1) "Millimoles"], 
+                    Toolbox`Keq["rxn4"] -> 1, Toolbox`Keq["rxn5"] -> 1, 
+                    Toolbox`Keq["cmprt_rxn1"] -> 1, Toolbox`Keq["cmprt_rxn2"] -> 
+                    Quantity[1, "Liters"/"Millimoles"], 
+                    Toolbox`Keq["cmprt_rxn3"] -> 
+                    Quantity[1, "Liters"^(-1) "Millimoles"], 
+                    Toolbox`Keq["cmprt_rxn4"] -> 1, Toolbox`Keq["cmprt_rxn5"] -> 
+                    1, Toolbox`Keq["trans1"] -> 1, Toolbox`Keq["trans2"] -> 
+                    Quantity[1., "Liters"^(-2.3) "Millimoles"^2.3], 
+                    Toolbox`Keq["trans3"] -> 1, 
+                    Toolbox`Keq["cmprt_rxn_weird"] -> 
+                    Quantity[1., "Liters"^(-2.3) "Millimoles"^2.3], 
+                    Toolbox`rateconst["rxn1", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["rxn2", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["rxn3", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["rxn4", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["rxn5", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["cmprt_rxn1", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["cmprt_rxn2", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["cmprt_rxn3", True] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn4", True] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn5", True] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["trans1", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["trans2", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["trans3", True] -> 
+                    Quantity[
+                    1., "Hours"^(-1) "Liters"^4.3 "Millimoles"^(-3.3)], 
+                    Toolbox`rateconst["cmprt_rxn_weird", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["rxn1", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["rxn2", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["rxn3", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["rxn4", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["rxn5", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["cmprt_rxn1", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["cmprt_rxn2", False] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn3", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["cmprt_rxn4", False] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn5", False] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["trans1", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["trans2", False] -> 
+                    Quantity[
+                    1., "Hours"^(-1) "Liters"^4.3 "Millimoles"^(-3.3)], 
+                    Toolbox`rateconst["trans3", False] -> 
+                    Quantity[
+                    1., "Hours"^(-1) "Liters"^4.3 "Millimoles"^(-3.3)], 
+                    Toolbox`rateconst["cmprt_rxn_weird", False] -> 
+                    Quantity[
+                    1., "Hours"^(-1) "Liters"^Toolbox`integerChop[3.3] 
+                    "Millimoles"^Toolbox`integerChop[-3.3]]}], 
+                 "ExpectedMessages" -> {}, "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[Quantity, "unkunit"], 
+                    Quantity[
+                    1., "Liters"^Toolbox`integerChop[-2.3] 
+                    "Millimoles"^Toolbox`integerChop[2.3]]]], 
+                   HoldForm[
+                    Message[
+                    MessageName[Quantity, "unkunit"], 
+                    Quantity[
+                    1., "Liters"^Toolbox`integerChop[-2.3] 
+                    "Millimoles"^Toolbox`integerChop[2.3]]]], 
+                   HoldForm[
+                    Message[
+                    MessageName[Quantity, "unkunit"], 
+                    Quantity[
+                    1., "Liters"^Toolbox`integerChop[-2.3] 
+                    "Millimoles"^Toolbox`integerChop[2.3]]]], 
+                   HoldForm[
+                    Message[
+                    MessageName[General, "stop"], 
+                    HoldForm[
+                    MessageName[Quantity, "unkunit"]]]]}, "AbsoluteTimeUsed" -> 
+                 Quantity[2.301694`6.512562583439878, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[2.292797, "Seconds"], "MemoryUsed" -> 
+                 Quantity[78416, "Bytes"]]]], Appearance -> Automatic, 
+             Evaluator -> Automatic, Method -> "Preemptive"]}, {
+            ButtonBox[
+            "\"View Outcome\"", ButtonFunction :> $CellContext`viewOutput[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 6, "TestID" -> 
+                 "UnitCheckingRelatedTests-20120822-U7R3N3", "Outcome" -> 
+                 "Failure", "ExpectedOutput" -> 
+                 HoldForm[{
+                   Toolbox`Keq["rxn1"] -> 1, Toolbox`Keq["rxn2"] -> 
+                    Quantity[1, "Meters"^3/"Moles"], Toolbox`Keq["rxn3"] -> 
+                    Quantity[1, "Meters"^(-3) "Moles"], Toolbox`Keq["rxn4"] -> 
+                    1, Toolbox`Keq["rxn5"] -> 1, Toolbox`Keq["cmprt_rxn1"] -> 
+                    1, Toolbox`Keq["cmprt_rxn2"] -> 
+                    Quantity[1, "Meters"^3/"Moles"], 
+                    Toolbox`Keq["cmprt_rxn3"] -> 
+                    Quantity[1, "Meters"^(-3) "Moles"], 
+                    Toolbox`Keq["cmprt_rxn4"] -> 1, Toolbox`Keq["cmprt_rxn5"] -> 
+                    1, Toolbox`Keq["trans1"] -> 1, Toolbox`Keq["trans2"] -> 
+                    Quantity[1., "Meters"^(-6.8999999999999995`) "Moles"^2.3],
+                     Toolbox`Keq["trans3"] -> 1, 
+                    Toolbox`Keq["cmprt_rxn_weird"] -> 
+                    Quantity[1., "Meters"^(-6.8999999999999995`) "Moles"^2.3],
+                     Toolbox`rateconst["rxn1", True] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn2", True] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn3", True] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["rxn4", True] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["rxn5", True] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn1", True] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn2", True] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn3", True] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn4", True] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn5", True] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["trans1", True] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["trans2", True] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["trans3", True] -> 
+                    Quantity[
+                    1., "Meters"^12.899999999999999` "Moles"^(-3.3)/
+                    "Seconds"], Toolbox`rateconst["cmprt_rxn_weird", True] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn1", False] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn2", False] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["rxn3", False] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn4", False] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["rxn5", False] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn1", False] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn2", False] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn3", False] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn4", False] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn5", False] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["trans1", False] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["trans2", False] -> 
+                    Quantity[
+                    1., "Meters"^12.899999999999999` "Moles"^(-3.3)/
+                    "Seconds"], Toolbox`rateconst["trans3", False] -> 
+                    Quantity[
+                    1., "Meters"^12.899999999999999` "Moles"^(-3.3)/
+                    "Seconds"], Toolbox`rateconst["cmprt_rxn_weird", False] -> 
+                    Quantity[
+                    1., "Meters"^9.899999999999999 "Moles"^(-3.3)/
+                    "Seconds"]}], "ActualOutput" -> 
+                 HoldForm[{
+                   Toolbox`Keq["rxn1"] -> 1, Toolbox`Keq["rxn2"] -> 
+                    Quantity[1, "Meters"^3/"Moles"], Toolbox`Keq["rxn3"] -> 
+                    Quantity[1, "Meters"^(-3) "Moles"], Toolbox`Keq["rxn4"] -> 
+                    1, Toolbox`Keq["rxn5"] -> 1, Toolbox`Keq["cmprt_rxn1"] -> 
+                    1, Toolbox`Keq["cmprt_rxn2"] -> 
+                    Quantity[1, "Meters"^3/"Moles"], 
+                    Toolbox`Keq["cmprt_rxn3"] -> 
+                    Quantity[1, "Meters"^(-3) "Moles"], 
+                    Toolbox`Keq["cmprt_rxn4"] -> 1, Toolbox`Keq["cmprt_rxn5"] -> 
+                    1, Toolbox`Keq["trans1"] -> 1, Toolbox`Keq["trans2"] -> 
+                    Quantity[1., "Meters"^(-6.8999999999999995`) "Moles"^2.3],
+                     Toolbox`Keq["trans3"] -> 1, 
+                    Toolbox`Keq["cmprt_rxn_weird"] -> 
+                    Quantity[1., "Meters"^(-6.8999999999999995`) "Moles"^2.3],
+                     Toolbox`rateconst["rxn1", True] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn2", True] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn3", True] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["rxn4", True] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["rxn5", True] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn1", True] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn2", True] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn3", True] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn4", True] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn5", True] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["trans1", True] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["trans2", True] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["trans3", True] -> 
+                    Quantity[
+                    1., "Meters"^12.899999999999999` "Moles"^(-3.3)/
+                    "Seconds"], Toolbox`rateconst["cmprt_rxn_weird", True] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn1", False] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn2", False] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["rxn3", False] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn4", False] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["rxn5", False] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn1", False] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn2", False] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn3", False] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn4", False] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn5", False] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["trans1", False] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["trans2", False] -> 
+                    Quantity[
+                    1., "Meters"^12.899999999999999` "Moles"^(-3.3)/
+                    "Seconds"], Toolbox`rateconst["trans3", False] -> 
+                    Quantity[
+                    1., "Meters"^12.899999999999999` "Moles"^(-3.3)/
+                    "Seconds"], Toolbox`rateconst["cmprt_rxn_weird", False] -> 
+                    Quantity[
+                    1., "Meters"^Toolbox`integerChop[9.899999999999999] 
+                    "Moles"^Toolbox`integerChop[-3.3]/"Seconds"]}], 
+                 "ExpectedMessages" -> {}, "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[Quantity, "unkunit"], 
+                    Quantity[
+                    1., "Meters"^Toolbox`integerChop[-6.8999999999999995`] 
+                    "Moles"^Toolbox`integerChop[2.3]]]], 
+                   HoldForm[
+                    Message[
+                    MessageName[Quantity, "unkunit"], 
+                    Quantity[
+                    1., "Meters"^Toolbox`integerChop[-6.8999999999999995`] 
+                    "Moles"^Toolbox`integerChop[2.3]]]], 
+                   HoldForm[
+                    Message[
+                    MessageName[Quantity, "unkunit"], 
+                    Quantity[
+                    1., "Meters"^Toolbox`integerChop[-6.8999999999999995`] 
+                    "Moles"^Toolbox`integerChop[2.3]]]], 
+                   HoldForm[
+                    Message[
+                    MessageName[General, "stop"], 
+                    HoldForm[
+                    MessageName[Quantity, "unkunit"]]]]}, "AbsoluteTimeUsed" -> 
+                 Quantity[1.721836`6.386506781600683, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[1.7116610000000003`, "Seconds"], 
+                 "MemoryUsed" -> Quantity[9144, "Bytes"]]]], Appearance -> 
+             Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+          "Column", 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
+        TagBox[
+         GridBox[{{
+            ButtonBox[
+            "\"View UnitCheckingRelatedTests-20120822-I8U2C3\"", 
+             ButtonFunction :> $CellContext`displayTest[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 5, "TestID" -> 
+                 "UnitCheckingRelatedTests-20120822-I8U2C3", "Outcome" -> 
+                 "Failure", "ExpectedOutput" -> 
+                 HoldForm[{
+                   Toolbox`Keq["rxn1"] -> 1, Toolbox`Keq["rxn2"] -> 
+                    Quantity[1, "Liters"/"Millimoles"], Toolbox`Keq["rxn3"] -> 
+                    Quantity[1, "Liters"^(-1) "Millimoles"], 
+                    Toolbox`Keq["rxn4"] -> 1, Toolbox`Keq["rxn5"] -> 1, 
+                    Toolbox`Keq["cmprt_rxn1"] -> 1, Toolbox`Keq["cmprt_rxn2"] -> 
+                    Quantity[1, "Liters"/"Millimoles"], 
+                    Toolbox`Keq["cmprt_rxn3"] -> 
+                    Quantity[1, "Liters"^(-1) "Millimoles"], 
+                    Toolbox`Keq["cmprt_rxn4"] -> 1, Toolbox`Keq["cmprt_rxn5"] -> 
+                    1, Toolbox`Keq["trans1"] -> 1, Toolbox`Keq["trans2"] -> 
+                    Quantity[1., "Liters"^(-2.3) "Millimoles"^2.3], 
+                    Toolbox`Keq["trans3"] -> 1, 
+                    Toolbox`Keq["cmprt_rxn_weird"] -> 
+                    Quantity[1., "Liters"^(-2.3) "Millimoles"^2.3], 
+                    Toolbox`rateconst["rxn1", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["rxn2", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["rxn3", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["rxn4", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["rxn5", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["cmprt_rxn1", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["cmprt_rxn2", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["cmprt_rxn3", True] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn4", True] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn5", True] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["trans1", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["trans2", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["trans3", True] -> 
+                    Quantity[
+                    1., "Hours"^(-1) "Liters"^4.3 "Millimoles"^(-3.3)], 
+                    Toolbox`rateconst["cmprt_rxn_weird", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["rxn1", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["rxn2", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["rxn3", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["rxn4", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["rxn5", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["cmprt_rxn1", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["cmprt_rxn2", False] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn3", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["cmprt_rxn4", False] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn5", False] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["trans1", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["trans2", False] -> 
+                    Quantity[
+                    1., "Hours"^(-1) "Liters"^4.3 "Millimoles"^(-3.3)], 
+                    Toolbox`rateconst["trans3", False] -> 
+                    Quantity[
+                    1., "Hours"^(-1) "Liters"^4.3 "Millimoles"^(-3.3)], 
+                    Toolbox`rateconst["cmprt_rxn_weird", False] -> 
+                    Quantity[
+                    1., "Hours"^(-1) "Liters"^3.3 "Millimoles"^(-3.3)]}], 
+                 "ActualOutput" -> 
+                 HoldForm[{
+                   Toolbox`Keq["rxn1"] -> 1, Toolbox`Keq["rxn2"] -> 
+                    Quantity[1, "Liters"/"Millimoles"], Toolbox`Keq["rxn3"] -> 
+                    Quantity[1, "Liters"^(-1) "Millimoles"], 
+                    Toolbox`Keq["rxn4"] -> 1, Toolbox`Keq["rxn5"] -> 1, 
+                    Toolbox`Keq["cmprt_rxn1"] -> 1, Toolbox`Keq["cmprt_rxn2"] -> 
+                    Quantity[1, "Liters"/"Millimoles"], 
+                    Toolbox`Keq["cmprt_rxn3"] -> 
+                    Quantity[1, "Liters"^(-1) "Millimoles"], 
+                    Toolbox`Keq["cmprt_rxn4"] -> 1, Toolbox`Keq["cmprt_rxn5"] -> 
+                    1, Toolbox`Keq["trans1"] -> 1, Toolbox`Keq["trans2"] -> 
+                    Quantity[1., "Liters"^(-2.3) "Millimoles"^2.3], 
+                    Toolbox`Keq["trans3"] -> 1, 
+                    Toolbox`Keq["cmprt_rxn_weird"] -> 
+                    Quantity[1., "Liters"^(-2.3) "Millimoles"^2.3], 
+                    Toolbox`rateconst["rxn1", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["rxn2", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["rxn3", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["rxn4", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["rxn5", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["cmprt_rxn1", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["cmprt_rxn2", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["cmprt_rxn3", True] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn4", True] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn5", True] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["trans1", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["trans2", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["trans3", True] -> 
+                    Quantity[
+                    1., "Hours"^(-1) "Liters"^4.3 "Millimoles"^(-3.3)], 
+                    Toolbox`rateconst["cmprt_rxn_weird", True] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["rxn1", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["rxn2", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["rxn3", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"^2/"Millimoles"], 
+                    Toolbox`rateconst["rxn4", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["rxn5", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["cmprt_rxn1", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["cmprt_rxn2", False] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn3", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"/"Millimoles"], 
+                    Toolbox`rateconst["cmprt_rxn4", False] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn5", False] -> 
+                    Quantity[1, "Hours"^(-1)], 
+                    Toolbox`rateconst["trans1", False] -> 
+                    Quantity[1, "Hours"^(-1) "Liters"], 
+                    Toolbox`rateconst["trans2", False] -> 
+                    Quantity[
+                    1., "Hours"^(-1) "Liters"^4.3 "Millimoles"^(-3.3)], 
+                    Toolbox`rateconst["trans3", False] -> 
+                    Quantity[
+                    1., "Hours"^(-1) "Liters"^4.3 "Millimoles"^(-3.3)], 
+                    Toolbox`rateconst["cmprt_rxn_weird", False] -> 
+                    Quantity[
+                    1., "Hours"^(-1) "Liters"^Toolbox`integerChop[3.3] 
+                    "Millimoles"^Toolbox`integerChop[-3.3]]}], 
+                 "ExpectedMessages" -> {}, "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[Quantity, "unkunit"], 
+                    Quantity[
+                    1., "Liters"^Toolbox`integerChop[-2.3] 
+                    "Millimoles"^Toolbox`integerChop[2.3]]]], 
+                   HoldForm[
+                    Message[
+                    MessageName[Quantity, "unkunit"], 
+                    Quantity[
+                    1., "Liters"^Toolbox`integerChop[-2.3] 
+                    "Millimoles"^Toolbox`integerChop[2.3]]]], 
+                   HoldForm[
+                    Message[
+                    MessageName[Quantity, "unkunit"], 
+                    Quantity[
+                    1., "Liters"^Toolbox`integerChop[-2.3] 
+                    "Millimoles"^Toolbox`integerChop[2.3]]]], 
+                   HoldForm[
+                    Message[
+                    MessageName[General, "stop"], 
+                    HoldForm[
+                    MessageName[Quantity, "unkunit"]]]]}, "AbsoluteTimeUsed" -> 
+                 Quantity[2.301694`6.512562583439878, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[2.292797, "Seconds"], "MemoryUsed" -> 
+                 Quantity[78416, "Bytes"]]]["TestID"]], Appearance -> 
+             Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}, {
+            ButtonBox[
+            "\"View UnitCheckingRelatedTests-20120822-U7R3N3\"", 
+             ButtonFunction :> $CellContext`displayTest[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 6, "TestID" -> 
+                 "UnitCheckingRelatedTests-20120822-U7R3N3", "Outcome" -> 
+                 "Failure", "ExpectedOutput" -> 
+                 HoldForm[{
+                   Toolbox`Keq["rxn1"] -> 1, Toolbox`Keq["rxn2"] -> 
+                    Quantity[1, "Meters"^3/"Moles"], Toolbox`Keq["rxn3"] -> 
+                    Quantity[1, "Meters"^(-3) "Moles"], Toolbox`Keq["rxn4"] -> 
+                    1, Toolbox`Keq["rxn5"] -> 1, Toolbox`Keq["cmprt_rxn1"] -> 
+                    1, Toolbox`Keq["cmprt_rxn2"] -> 
+                    Quantity[1, "Meters"^3/"Moles"], 
+                    Toolbox`Keq["cmprt_rxn3"] -> 
+                    Quantity[1, "Meters"^(-3) "Moles"], 
+                    Toolbox`Keq["cmprt_rxn4"] -> 1, Toolbox`Keq["cmprt_rxn5"] -> 
+                    1, Toolbox`Keq["trans1"] -> 1, Toolbox`Keq["trans2"] -> 
+                    Quantity[1., "Meters"^(-6.8999999999999995`) "Moles"^2.3],
+                     Toolbox`Keq["trans3"] -> 1, 
+                    Toolbox`Keq["cmprt_rxn_weird"] -> 
+                    Quantity[1., "Meters"^(-6.8999999999999995`) "Moles"^2.3],
+                     Toolbox`rateconst["rxn1", True] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn2", True] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn3", True] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["rxn4", True] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["rxn5", True] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn1", True] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn2", True] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn3", True] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn4", True] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn5", True] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["trans1", True] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["trans2", True] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["trans3", True] -> 
+                    Quantity[
+                    1., "Meters"^12.899999999999999` "Moles"^(-3.3)/
+                    "Seconds"], Toolbox`rateconst["cmprt_rxn_weird", True] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn1", False] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn2", False] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["rxn3", False] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn4", False] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["rxn5", False] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn1", False] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn2", False] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn3", False] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn4", False] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn5", False] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["trans1", False] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["trans2", False] -> 
+                    Quantity[
+                    1., "Meters"^12.899999999999999` "Moles"^(-3.3)/
+                    "Seconds"], Toolbox`rateconst["trans3", False] -> 
+                    Quantity[
+                    1., "Meters"^12.899999999999999` "Moles"^(-3.3)/
+                    "Seconds"], Toolbox`rateconst["cmprt_rxn_weird", False] -> 
+                    Quantity[
+                    1., "Meters"^9.899999999999999 "Moles"^(-3.3)/
+                    "Seconds"]}], "ActualOutput" -> 
+                 HoldForm[{
+                   Toolbox`Keq["rxn1"] -> 1, Toolbox`Keq["rxn2"] -> 
+                    Quantity[1, "Meters"^3/"Moles"], Toolbox`Keq["rxn3"] -> 
+                    Quantity[1, "Meters"^(-3) "Moles"], Toolbox`Keq["rxn4"] -> 
+                    1, Toolbox`Keq["rxn5"] -> 1, Toolbox`Keq["cmprt_rxn1"] -> 
+                    1, Toolbox`Keq["cmprt_rxn2"] -> 
+                    Quantity[1, "Meters"^3/"Moles"], 
+                    Toolbox`Keq["cmprt_rxn3"] -> 
+                    Quantity[1, "Meters"^(-3) "Moles"], 
+                    Toolbox`Keq["cmprt_rxn4"] -> 1, Toolbox`Keq["cmprt_rxn5"] -> 
+                    1, Toolbox`Keq["trans1"] -> 1, Toolbox`Keq["trans2"] -> 
+                    Quantity[1., "Meters"^(-6.8999999999999995`) "Moles"^2.3],
+                     Toolbox`Keq["trans3"] -> 1, 
+                    Toolbox`Keq["cmprt_rxn_weird"] -> 
+                    Quantity[1., "Meters"^(-6.8999999999999995`) "Moles"^2.3],
+                     Toolbox`rateconst["rxn1", True] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn2", True] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn3", True] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["rxn4", True] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["rxn5", True] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn1", True] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn2", True] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn3", True] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn4", True] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn5", True] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["trans1", True] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["trans2", True] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["trans3", True] -> 
+                    Quantity[
+                    1., "Meters"^12.899999999999999` "Moles"^(-3.3)/
+                    "Seconds"], Toolbox`rateconst["cmprt_rxn_weird", True] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn1", False] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn2", False] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["rxn3", False] -> 
+                    Quantity[1, "Meters"^6 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["rxn4", False] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["rxn5", False] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn1", False] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn2", False] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn3", False] -> 
+                    Quantity[1, "Meters"^3 "Moles"^(-1)/"Seconds"], 
+                    Toolbox`rateconst["cmprt_rxn4", False] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["cmprt_rxn5", False] -> 
+                    Quantity[1, "Seconds"^(-1)], 
+                    Toolbox`rateconst["trans1", False] -> 
+                    Quantity[1, "Meters"^3/"Seconds"], 
+                    Toolbox`rateconst["trans2", False] -> 
+                    Quantity[
+                    1., "Meters"^12.899999999999999` "Moles"^(-3.3)/
+                    "Seconds"], Toolbox`rateconst["trans3", False] -> 
+                    Quantity[
+                    1., "Meters"^12.899999999999999` "Moles"^(-3.3)/
+                    "Seconds"], Toolbox`rateconst["cmprt_rxn_weird", False] -> 
+                    Quantity[
+                    1., "Meters"^Toolbox`integerChop[9.899999999999999] 
+                    "Moles"^Toolbox`integerChop[-3.3]/"Seconds"]}], 
+                 "ExpectedMessages" -> {}, "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[Quantity, "unkunit"], 
+                    Quantity[
+                    1., "Meters"^Toolbox`integerChop[-6.8999999999999995`] 
+                    "Moles"^Toolbox`integerChop[2.3]]]], 
+                   HoldForm[
+                    Message[
+                    MessageName[Quantity, "unkunit"], 
+                    Quantity[
+                    1., "Meters"^Toolbox`integerChop[-6.8999999999999995`] 
+                    "Moles"^Toolbox`integerChop[2.3]]]], 
+                   HoldForm[
+                    Message[
+                    MessageName[Quantity, "unkunit"], 
+                    Quantity[
+                    1., "Meters"^Toolbox`integerChop[-6.8999999999999995`] 
+                    "Moles"^Toolbox`integerChop[2.3]]]], 
+                   HoldForm[
+                    Message[
+                    MessageName[General, "stop"], 
+                    HoldForm[
+                    MessageName[Quantity, "unkunit"]]]]}, "AbsoluteTimeUsed" -> 
+                 Quantity[1.721836`6.386506781600683, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[1.7116610000000003`, "Seconds"], 
+                 "MemoryUsed" -> Quantity[9144, "Bytes"]]]["TestID"]], 
+             Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+             "Preemptive"]}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+          DefaultBaseStyle -> "Column", 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"CobraRelatedTests.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "CobraRelatedTests.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      StyleBox["\<\"Failure\"\>",
+       StripOnInput->False,
+       LineColor->RGBColor[1, 0, 0],
+       FrontFaceColor->RGBColor[1, 0, 0],
+       BackFaceColor->RGBColor[1, 0, 0],
+       GraphicsColor->RGBColor[1, 0, 0],
+       FontColor->RGBColor[1, 0, 0]], 
+      "4.1294240000000002055458026006817817688`6.636489390827714", 
+      TemplateBox[{TagBox[
+         GridBox[{{
+            ButtonBox[
+            "\"View Outcome\"", ButtonFunction :> $CellContext`viewOutput[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 51, "TestID" -> 
+                 "CobraRelatedTests-20120326-X3P9F2", "Outcome" -> 
+                 "MessagesFailure", "ExpectedOutput" -> HoldForm[True], 
+                 "ActualOutput" -> HoldForm[True], "ExpectedMessages" -> {}, 
+                 "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[ReplaceAll, "reps"], 
+                    HoldForm[{$CellContext`gurobiSol}]]]}, "AbsoluteTimeUsed" -> 
+                 Quantity[0.00169`3.3784017024456654, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.0016859999999994102`, "Seconds"],
+                  "MemoryUsed" -> Quantity[21872, "Bytes"]]]], Appearance -> 
+             Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}, {
+            ButtonBox[
+            "\"View Outcome\"", ButtonFunction :> $CellContext`viewOutput[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 52, "TestID" -> 
+                 "CobraRelatedTests-20120326-X4A8B2", "Outcome" -> 
+                 "MessagesFailure", "ExpectedOutput" -> HoldForm[True], 
+                 "ActualOutput" -> HoldForm[True], "ExpectedMessages" -> {}, 
+                 "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[ReplaceAll, "reps"], 
+                    HoldForm[{$CellContext`gurobiSol}]]]}, "AbsoluteTimeUsed" -> 
+                 Quantity[0.001155`3.213096982060157, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.0011540000000067607`, "Seconds"],
+                  "MemoryUsed" -> Quantity[560, "Bytes"]]]], Appearance -> 
+             Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}, {
+            ButtonBox[
+            "\"View Outcome\"", ButtonFunction :> $CellContext`viewOutput[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 54, "TestID" -> 
+                 "CobraRelatedTests-20120326-V7X5D6", "Outcome" -> 
+                 "MessagesFailure", "ExpectedOutput" -> HoldForm[True], 
+                 "ActualOutput" -> HoldForm[True], "ExpectedMessages" -> {}, 
+                 "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[Symbol, "argx"], 
+                    HoldForm[Symbol], 
+                    HoldForm[0]]]}, "AbsoluteTimeUsed" -> 
+                 Quantity[0.002104`3.4735607333136955, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.0018999999999991246`, "Seconds"],
+                  "MemoryUsed" -> Quantity[20256, "Bytes"]]]], Appearance -> 
+             Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}, {
+            ButtonBox[
+            "\"View Outcome\"", ButtonFunction :> $CellContext`viewOutput[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 55, "TestID" -> 
+                 "CobraRelatedTests-20120326-Y2V8X7", "Outcome" -> 
+                 "MessagesFailure", "ExpectedOutput" -> HoldForm[True], 
+                 "ActualOutput" -> HoldForm[True], "ExpectedMessages" -> {}, 
+                 "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[Symbol, "argx"], 
+                    HoldForm[Symbol], 
+                    HoldForm[0]]]}, "AbsoluteTimeUsed" -> 
+                 Quantity[0.000881`3.095490906244039, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.0008780000000001564, "Seconds"], 
+                 "MemoryUsed" -> Quantity[496, "Bytes"]]]], Appearance -> 
+             Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}, {
+            ButtonBox[
+            "\"View Outcome\"", ButtonFunction :> $CellContext`viewOutput[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 56, "TestID" -> 
+                 "CobraRelatedTests-20120410-K8E1Q2", "Outcome" -> 
+                 "MessagesFailure", "ExpectedOutput" -> HoldForm[True], 
+                 "ActualOutput" -> HoldForm[True], "ExpectedMessages" -> {}, 
+                 "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[Symbol, "argx"], 
+                    HoldForm[Symbol], 
+                    HoldForm[0]]]}, "AbsoluteTimeUsed" -> 
+                 Quantity[0.000965`3.135042311175787, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.0009620000000012396, "Seconds"], 
+                 "MemoryUsed" -> Quantity[496, "Bytes"]]]], Appearance -> 
+             Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}, {
+            ButtonBox[
+            "\"View Outcome\"", ButtonFunction :> $CellContext`viewOutput[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 57, "TestID" -> 
+                 "CobraRelatedTests-20120410-R2C9V4", "Outcome" -> 
+                 "MessagesFailure", "ExpectedOutput" -> HoldForm[True], 
+                 "ActualOutput" -> HoldForm[True], "ExpectedMessages" -> {}, 
+                 "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[Symbol, "argx"], 
+                    HoldForm[Symbol], 
+                    HoldForm[0]]]}, "AbsoluteTimeUsed" -> 
+                 Quantity[0.000591`2.922102478713245, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.000588000000000477, "Seconds"], 
+                 "MemoryUsed" -> Quantity[496, "Bytes"]]]], Appearance -> 
+             Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+          "Column", 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
+        TagBox[
+         GridBox[{{
+            ButtonBox[
+            "\"View CobraRelatedTests-20120326-X3P9F2\"", 
+             ButtonFunction :> $CellContext`displayTest[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 51, "TestID" -> 
+                 "CobraRelatedTests-20120326-X3P9F2", "Outcome" -> 
+                 "MessagesFailure", "ExpectedOutput" -> HoldForm[True], 
+                 "ActualOutput" -> HoldForm[True], "ExpectedMessages" -> {}, 
+                 "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[ReplaceAll, "reps"], 
+                    HoldForm[{$CellContext`gurobiSol}]]]}, "AbsoluteTimeUsed" -> 
+                 Quantity[0.00169`3.3784017024456654, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.0016859999999994102`, "Seconds"],
+                  "MemoryUsed" -> Quantity[21872, "Bytes"]]]["TestID"]], 
+             Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+             "Preemptive"]}, {
+            ButtonBox[
+            "\"View CobraRelatedTests-20120326-X4A8B2\"", 
+             ButtonFunction :> $CellContext`displayTest[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 52, "TestID" -> 
+                 "CobraRelatedTests-20120326-X4A8B2", "Outcome" -> 
+                 "MessagesFailure", "ExpectedOutput" -> HoldForm[True], 
+                 "ActualOutput" -> HoldForm[True], "ExpectedMessages" -> {}, 
+                 "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[ReplaceAll, "reps"], 
+                    HoldForm[{$CellContext`gurobiSol}]]]}, "AbsoluteTimeUsed" -> 
+                 Quantity[0.001155`3.213096982060157, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.0011540000000067607`, "Seconds"],
+                  "MemoryUsed" -> Quantity[560, "Bytes"]]]["TestID"]], 
+             Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+             "Preemptive"]}, {
+            ButtonBox[
+            "\"View CobraRelatedTests-20120326-V7X5D6\"", 
+             ButtonFunction :> $CellContext`displayTest[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 54, "TestID" -> 
+                 "CobraRelatedTests-20120326-V7X5D6", "Outcome" -> 
+                 "MessagesFailure", "ExpectedOutput" -> HoldForm[True], 
+                 "ActualOutput" -> HoldForm[True], "ExpectedMessages" -> {}, 
+                 "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[Symbol, "argx"], 
+                    HoldForm[Symbol], 
+                    HoldForm[0]]]}, "AbsoluteTimeUsed" -> 
+                 Quantity[0.002104`3.4735607333136955, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.0018999999999991246`, "Seconds"],
+                  "MemoryUsed" -> Quantity[20256, "Bytes"]]]["TestID"]], 
+             Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+             "Preemptive"]}, {
+            ButtonBox[
+            "\"View CobraRelatedTests-20120326-Y2V8X7\"", 
+             ButtonFunction :> $CellContext`displayTest[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 55, "TestID" -> 
+                 "CobraRelatedTests-20120326-Y2V8X7", "Outcome" -> 
+                 "MessagesFailure", "ExpectedOutput" -> HoldForm[True], 
+                 "ActualOutput" -> HoldForm[True], "ExpectedMessages" -> {}, 
+                 "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[Symbol, "argx"], 
+                    HoldForm[Symbol], 
+                    HoldForm[0]]]}, "AbsoluteTimeUsed" -> 
+                 Quantity[0.000881`3.095490906244039, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.0008780000000001564, "Seconds"], 
+                 "MemoryUsed" -> Quantity[496, "Bytes"]]]["TestID"]], 
+             Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+             "Preemptive"]}, {
+            ButtonBox[
+            "\"View CobraRelatedTests-20120410-K8E1Q2\"", 
+             ButtonFunction :> $CellContext`displayTest[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 56, "TestID" -> 
+                 "CobraRelatedTests-20120410-K8E1Q2", "Outcome" -> 
+                 "MessagesFailure", "ExpectedOutput" -> HoldForm[True], 
+                 "ActualOutput" -> HoldForm[True], "ExpectedMessages" -> {}, 
+                 "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[Symbol, "argx"], 
+                    HoldForm[Symbol], 
+                    HoldForm[0]]]}, "AbsoluteTimeUsed" -> 
+                 Quantity[0.000965`3.135042311175787, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.0009620000000012396, "Seconds"], 
+                 "MemoryUsed" -> Quantity[496, "Bytes"]]]["TestID"]], 
+             Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+             "Preemptive"]}, {
+            ButtonBox[
+            "\"View CobraRelatedTests-20120410-R2C9V4\"", 
+             ButtonFunction :> $CellContext`displayTest[
+               TestResultObject[
+                Association[
+                "TestIndex" -> 57, "TestID" -> 
+                 "CobraRelatedTests-20120410-R2C9V4", "Outcome" -> 
+                 "MessagesFailure", "ExpectedOutput" -> HoldForm[True], 
+                 "ActualOutput" -> HoldForm[True], "ExpectedMessages" -> {}, 
+                 "ActualMessages" -> {
+                   HoldForm[
+                    Message[
+                    MessageName[Symbol, "argx"], 
+                    HoldForm[Symbol], 
+                    HoldForm[0]]]}, "AbsoluteTimeUsed" -> 
+                 Quantity[0.000591`2.922102478713245, "Seconds"], 
+                 "CPUTimeUsed" -> Quantity[0.000588000000000477, "Seconds"], 
+                 "MemoryUsed" -> Quantity[496, "Bytes"]]]["TestID"]], 
+             Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+             "Preemptive"]}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+          DefaultBaseStyle -> "Column", 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"]},
        "RowDefault"]}
     },
     GridBoxAlignment->{
@@ -1444,12 +2609,12 @@ Cell[BoxData[
        "Failed Tests"}}]]]], "Output",
  CellChangeTimes->{3.627627218931929*^9, 3.627627300640232*^9, 
   3.6276281614362707`*^9, 3.627628914053748*^9, 3.627631310555091*^9, 
-  3.627631659358233*^9}]
+  3.627631659358233*^9, 3.6404866977699137`*^9}]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1063, 572},
-WindowMargins->{{44, Automatic}, {Automatic, 0}},
+WindowMargins->{{31, Automatic}, {27, Automatic}},
 FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 4, \
 2014)",
 StyleDefinitions->"Default.nb"
@@ -1475,15 +2640,32 @@ Cell[CellGroupData[{
 Cell[9988, 247, 97, 1, 64, "Section"],
 Cell[CellGroupData[{
 Cell[10110, 252, 4144, 67, 46, "Input"],
-Cell[14257, 321, 38713, 908, 545, "Output"]
+Cell[14257, 321, 38731, 908, 545, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[53019, 1235, 104, 1, 64, "Section"],
-Cell[53126, 1238, 3684, 106, 216, "Input"],
+Cell[53037, 1235, 104, 1, 64, "Section"],
 Cell[CellGroupData[{
-Cell[56835, 1348, 807, 22, 80, "Input"],
-Cell[57645, 1372, 2570, 74, 63, "Output"]
+Cell[53166, 1240, 3815, 109, 216, "Input"],
+Cell[56984, 1351, 537, 11, 24, "Message"],
+Cell[57524, 1364, 650, 12, 24, "Message"],
+Cell[58177, 1378, 359, 9, 24, "Message"],
+Cell[58539, 1389, 359, 9, 24, "Message"],
+Cell[58901, 1400, 359, 9, 24, "Message"],
+Cell[59263, 1411, 359, 9, 24, "Message"],
+Cell[59625, 1422, 359, 9, 24, "Message"],
+Cell[59987, 1433, 359, 9, 24, "Message"],
+Cell[60349, 1444, 359, 9, 24, "Message"],
+Cell[60711, 1455, 361, 9, 24, "Message"],
+Cell[61075, 1466, 466, 10, 24, "Message"],
+Cell[61544, 1478, 466, 10, 24, "Message"],
+Cell[62013, 1490, 468, 10, 24, "Message"],
+Cell[62484, 1502, 527, 11, 24, "Message"],
+Cell[63014, 1515, 85, 1, 21, "Message"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[63136, 1521, 807, 22, 80, "Input"],
+Cell[63946, 1545, 58985, 1066, 289, "Output"]
 }, Open  ]]
 }, Open  ]]
 }

@@ -1333,17 +1333,25 @@ subModel[model_MASSmodel,rxnIDs:{(_String|_v)..}]:=deleteReactions[model,Complem
 (*QC/QA*)
 
 
-Options[elementallyBalancedQ]={"ElementalComposition"->{},"RemoveExchanges"->True};
+Options[elementallyBalancedQ]={"ElementalComposition"->{},"RemoveExchanges"->True,"Exclude"->{}};
 elementallyBalancedQ::notBalanced="The following reactions are not balanced: `1`.";
-elementallyBalancedQ[model_MASSmodel,opts:OptionsPattern[]]:=Module[{balancing,exclude},
+elementallyBalancedQ[model_MASSmodel,opts:OptionsPattern[]]:=Module[{balancing,excludeOpt,exclude},
+	excludeOpt=Switch[Head[#],
+		v, #/.Thread[Rule[model["Fluxes"],model["Reactions"]]],
+		reaction, #,
+		String, v[#]/.Thread[Rule[model["Fluxes"],model["Reactions"]]],
+		_,##&[]
+	]&/@OptionValue["Exclude"];
+
 	If[OptionValue["RemoveExchanges"],
-		exclude=model["Exchanges"];,
-		exclude={};
+		exclude=Join[model["Exchanges"],excludeOpt];,
+		exclude=excludeOpt;
 	];
+	
 	balancing=Thread[Rule[model["Reactions"],Expand/@((model["Species"]/.Dispatch[updateRules[model["ElementalComposition"],OptionValue["ElementalComposition"]]]).model["Stoichiometry"])]];
 	balancing=DeleteCases[balancing,r_Rule/;MemberQ[exclude,r[[1]]]];
 	If[
-		(Round[Total[balancing[[All,2]]]]==0.),
+		(Round[Total[balancing[[All,2]]/._String->1]]==0.),
 		True,
 		Message[elementallyBalancedQ::notBalanced,SlideView[Rule@@@Cases[balancing,r_Rule/;Round[r[[2]]]=!=0],AppearanceElements->All]];
 			False
@@ -1354,12 +1362,13 @@ elementallyBalancedQ[model_MASSmodel,opts:OptionsPattern[]]:=Module[{balancing,e
 
 
 Options[getElementalMatrix]={"TableForm"->False};
-getElementalMatrix[model_MASSmodel,opts:OptionsPattern[]]:=Module[{elemList,elements,matrix},
+getElementalMatrix[model_MASSmodel,opts:OptionsPattern[]]:=Module[{elemList,elements,matrix,pseudoElements},
 	elemList=List/@(model["Species"]/.model["ElementalComposition"])/.Plus->Sequence;
-	elements=DeleteDuplicates@Flatten[elemList/._?NumericQ->1];
+	pseudoElements=Select[DeleteDuplicates@Flatten[elemList/._?NumericQ->1],StringMatchQ[#,"&"~~__~~"&"]&];
+	elements = Join[{"C","H","O","P","N","S","q"},pseudoElements];
 	matrix=Flatten/@Table[Cases[#,(x_*elem|elem)]&/@elemList/.{}->{0},{elem,elements}]/._String->1;
 	If[OptionValue[TableForm]==True,
-		Framed@TableForm[matrix,TableHeadings->{elements,model["Species"]}],
+		Framed@TableForm[matrix,TableHeadings->{elements,Rotate[#,Pi/2]&/@model["Species"]}],
 		{elements,matrix}
 	]
 ];
