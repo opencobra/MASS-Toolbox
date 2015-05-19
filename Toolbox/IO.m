@@ -649,7 +649,7 @@ model2sbml[model_MASSmodel]:=Module[{species,modelUnits,unitRules,ratemapping,li
 			XMLObject["Comment"][" Generated on "<>DateString[] <>" "]
 		},
 		XMLElement["sbml", {"xmlns"->"http://www.sbml.org/sbml/level3/version1/core", "level"->"3", "version"->"1"},
-			XMLElement["model",{"id"->makeIdXmlConform@StringReplace[ToString[model["ID"]],"$"->"_"], "name"->model["Name"]}, listOfStuff]
+			{XMLElement["model",{"id"->makeIdXmlConform@StringReplace[ToString[model["ID"]],"$"->"_"], "name"->model["Name"]}, listOfStuff]}
 		],
 	{}]
 ]
@@ -746,7 +746,7 @@ reaction2sbml[rxn_,model_MASSmodel,ratemapping_List,params_List,unitRules:{_Rule
 		stripTime[customLaw]/.(pat:Join[$MASS$speciesPattern,$MASS$parametersPattern]:>ToString[pat,"SBML"])
 	];
 	xmlLaw = ImportString[ExportString[law,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]];
-	localParams =XMLElement["listOfLocalParameters",{},XMLElement["localParameter",{"id"->First[#],"name"->First[#],"value"->If[MatchQ[Last[#],_String],Last[#],ToString[QuantityMagnitude[Last[#]],"SBML"]],"units"->QuantityUnit[Last[#]]/.unitRules},{}]&/@params];
+	localParams =XMLElement["listOfLocalParameters",{},XMLElement["localParameter",{"id"->First[#],"name"->First[#],"value"->If[MatchQ[Last[#],_String],Last[#],ToString[QuantityMagnitude[Last[#]],"SBML"]],"units"->If[MatchQ[Last[#],_String],"Dimensionless",QuantityUnit[Last[#]]/.unitRules]},{}]&/@params];
 	XMLElement["reaction",{"id"->id,"name"->id,"reversible"->ToLowerCase@ToString@reversibleQ[rxn],"fast"->"false"},
 		{XMLElement["listOfReactants",{},MapThread[XMLElement["speciesReference",{"species"->ToString[#1,"SBML"],"stoichiometry"->ToString[#2]},{}]&,{getSubstrates[rxn],getSubstrStoich[rxn]}]],
 		XMLElement["listOfProducts",{},MapThread[XMLElement["speciesReference",{"species"->ToString[#1,"SBML"],"stoichiometry"->ToString[#2]},{}]&,{getProducts[rxn],getProdStoich[rxn]}]],
