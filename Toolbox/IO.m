@@ -77,7 +77,7 @@ mat2model[path_String]:=Module[{stuff},
 mat2model[]:=mat2model[SystemDialogInput["FileOpen"]];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*SBML import*)
 
 
@@ -746,7 +746,7 @@ reaction2sbml[rxn_,model_MASSmodel,ratemapping_List,params_List,unitRules:{_Rule
 		stripTime[customLaw]/.(pat:Join[$MASS$speciesPattern,$MASS$parametersPattern]:>ToString[pat,"SBML"])
 	];
 	xmlLaw = ImportString[ExportString[law,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]];
-	localParams =XMLElement["listOfLocalParameters",{},XMLElement["localParameter",{"id"->First[#],"name"->First[#],"value"->ToString[QuantityMagnitude[Last[#]],"SBML"],"units"->QuantityUnit[Last[#]]/.unitRules},{}]&/@params];
+	localParams =XMLElement["listOfLocalParameters",{},XMLElement["localParameter",{"id"->First[#],"name"->First[#],"value"->If[MatchQ[Last[#],_String],Last[#],ToString[QuantityMagnitude[Last[#]],"SBML"]],"units"->QuantityUnit[Last[#]]/.unitRules},{}]&/@params];
 	XMLElement["reaction",{"id"->id,"name"->id,"reversible"->ToLowerCase@ToString@reversibleQ[rxn],"fast"->"false"},
 		{XMLElement["listOfReactants",{},MapThread[XMLElement["speciesReference",{"species"->ToString[#1,"SBML"],"stoichiometry"->ToString[#2]},{}]&,{getSubstrates[rxn],getSubstrStoich[rxn]}]],
 		XMLElement["listOfProducts",{},MapThread[XMLElement["speciesReference",{"species"->ToString[#1,"SBML"],"stoichiometry"->ToString[#2]},{}]&,{getProducts[rxn],getProdStoich[rxn]}]],
