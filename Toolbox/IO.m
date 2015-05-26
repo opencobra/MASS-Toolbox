@@ -652,14 +652,12 @@ model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,un
 		Module[{},
 			sbmlRules={"xmlns"->"http://www.sbml.org/sbml/level3/version1/core", "level"->"3", "version"->"1",
 			"xmlns:fbc"->"http://www.sbml.org/sbml/level3/version1/fbc/version1","fbc:required"->"false"};
-			AppendTo[listOfStuff,XMLElement["listOfFluxBounds",{},fluxbounds2sbml[#,model]&/@model["Constraints"]]];
+			AppendTo[listOfStuff,XMLElement["listOfFluxBounds",{},fluxbounds2sbml/@model["Constraints"]]];
 			(* Objective *)
 			AppendTo[listOfStuff,
 				XMLElement["fbc:listOfObjectives",{"fbc:activeObjective"->"obj"},
 					{XMLElement["fbc:objective",{"fbc:id"->"obj","fbc:type"->"maximize"},
-						{XMLElement["fbc:listOfFluxObjectives",{},
-							{XMLElement["fbc:fluxObjective",{"fbc:reaction"->makeIdXmlConform[getID[model["Objective"]],"fbc:coefficient"->1]},{}]}
-						]}
+						{XMLElement["fbc:listOfFluxObjectives",{},fluxObjective2sbml[model]]}
 					]}
 				]
 			];
@@ -705,7 +703,7 @@ modelUnits2sbml[model_MASSmodel]:=Module[{unitList,stringUnits,volumeUnits,concU
 	AppendTo[unitList,QuantityUnit[Quantity/@volumeUnits*#]]&/@Quantity/@concUnits;
 	unitList=Flatten[unitList];
 	(* Create unit rules *)
-	stringUnits = Replace[unitList/.{Times->List,Power->List,x_Integer:>ToString[x]},{{a_String,b_String}:>{{a,b}},a_String:>{a}},1];
+	stringUnits = Replace[unitList/.{Times->List,Power->List,x_?NumberQ:>ToString[x]},{{a_String,b_String}:>{{a,b}},a_String:>{a}},1];
 	Thread[unitList->stringUnits]
 ];
 
@@ -737,7 +735,7 @@ compartments2sbml[comp_,model_MASSmodel,unitRules:{_Rule...}]:=Module[{},
 		
 
 
-species2sbml[spec_,model_MASSmodel,unitRules:{_Rule...}]:=Module[{comp, rules,substanceUnits},
+species2sbml[spec_,model_MASSmodel,unitRules:{_Rule...}]:=Module[{comp, rules,substanceUnits,ic},
 	rules = {"id"->ToString[spec,"SBML"],"name"->ToString[spec,"SBML"]};
 	comp = getCompartment[spec];
 	If[comp=!=None,
@@ -745,10 +743,13 @@ species2sbml[spec_,model_MASSmodel,unitRules:{_Rule...}]:=Module[{comp, rules,su
 		substanceUnits=QuantityUnit[(spec/.model["InitialConditions"])*(parameter["Volume",getCompartment[spec]]/.Join[model["Parameters"],model["InitialConditions"]])]/.unitRules;
 		If[MatchQ[substanceUnits,_String],AppendTo[rules,"substanceUnits"->substanceUnits]]
 	];
+
 	AppendTo[rules,"boundaryCondition"->ToLowerCase@ToString@MemberQ[model["BoundaryConditions"],spec]];
 	AppendTo[rules,"constant"->ToLowerCase@ToString@MemberQ[model["Constant"],spec]];
-	AppendTo[rules,"initialConcentration"->ToString[(spec/.stripUnits[model["InitialConditions"]]/.stripUnits[model["Parameters"]]/.n_/;!NumberQ[n]:>Indeterminate),"SBML"]];
 	AppendTo[rules,"hasOnlySubstanceUnits"->"false"];
+
+	ic = (spec/.stripUnits[model["InitialConditions"]]/.stripUnits[model["Parameters"]]/.n_/;!NumberQ[n]:>Indeterminate);
+	If[ic=!=Indeterminate,AppendTo[rules,"initialConcentration"->ToString[ic,"SBML"]]];
 	XMLElement["species",rules,{}]
 ]
 
@@ -822,13 +823,28 @@ event2sbml[name_->event_,model_MASSmodel]:=Module[{trigger,mltrigger},
 
 fluxbounds2sbml[constraint_]:=Module[{id,valueHigh,valueLow},
 	id=makeIdXmlConform[getID[constraint[[1]]]];
-	valueHigh=ToString[constraint[[2,1]]/.Infinity->"INF","SBML"];
-	valueLow=ToString[constraint[[2,2]]/.Infinity->"INF","SBML"];
+	valueHigh=ToString[constraint[[2,1]],"SBML"];
+	valueLow=ToString[constraint[[2,2]],"SBML"];
 	{
-		XMLElement["fbc:fluxBound",{"fbc:id"->id<>"_u","fbc:reaction"->id,"fbc:operation"->"greaterEqual","fbc:value"->value},{}],
-		XMLElement["fbc:fluxBound",{"fbc:id"->id<>"_l","fbc:reaction"->id,"fbc:operation"->"lessEqual","fbc:value"->value},{}]
+		XMLElement["fbc:fluxBound",{"fbc:id"->id<>"_u","fbc:reaction"->id,"fbc:operation"->"greaterEqual","fbc:value"->valueHigh},{}],
+		XMLElement["fbc:fluxBound",{"fbc:id"->id<>"_l","fbc:reaction"->id,"fbc:operation"->"lessEqual","fbc:value"->valueLow},{}]
 	}
 ]
+
+
+fluxObjective2sbml[model_MASSmodel]:=Module[{},
+	Switch[model["Objective"],
+		_v, 
+			{XMLElement["fbc:fluxObjective",{"fbc:reaction"->makeIdXmlConform[getID[model["Objective"]]],"fbc:coefficient"->1},{}]},
+		_Plus, 
+			If[MatchQ[#,_Times],
+				XMLElement["fbc:fluxObjective",{"fbc:reaction"->makeIdXmlConform[getID[#[[2]]]],"fbc:coefficient"->#[[1]]},{}],
+				XMLElement["fbc:fluxObjective",{"fbc:reaction"->makeIdXmlConform[getID[#]],"fbc:coefficient"->1},{}]
+			]&/@(List@@model["Objective"]),
+		Automatic,
+			{}
+	]
+];
 
 
 (* ::Subsubsection:: *)

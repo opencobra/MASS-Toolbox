@@ -460,6 +460,8 @@ complementParameters[{}]:={}
 
 Unprotect[ToString];
 ToString[x_?NumericQ,"SBML"]:=StringReplace[ToString[AccountingForm[N[x]]],"("~~num__~~")":>"-"<>num];
+ToString[Infinity,"SBML"]:="INF";
+ToString[-Infinity,"SBML"]:="-INF";
 Protect[ToString];
 
 
