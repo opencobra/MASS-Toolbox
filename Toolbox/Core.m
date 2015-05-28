@@ -11,7 +11,7 @@
 Begin["`Private`"];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Util*)
 
 
@@ -172,7 +172,7 @@ wrapHead[stuff_]:=wrap[Head[stuff]]@@stuff
 unwrapHead[stuff_]:=stuff/.w_wrap:>w[[1]]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Warnings and protection*)
 
 
@@ -182,7 +182,7 @@ Toolbox::NotImplemented="Function/Structure `1` has not been implemented yet.";
 Toolbox::deprecated="`1` is deprecated and will be removed in the (very) near future. Please use `2` instead.";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Old routines*)
 
 
@@ -202,7 +202,7 @@ getJacobian[stoich_?MatrixQ,rates_List,mets_List,opts:OptionsPattern[]]:=Module[
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Rates*)
 
 
@@ -256,7 +256,7 @@ kFwd2keq[expression_]:=Simplify[expression/.r_rateconst/;r[[2]]==True:>rateconst
 k2keq[expression_]:=kRev2keq[expression]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*PERCs*)
 
 
@@ -304,7 +304,7 @@ calcPERC[model_MASSmodel,steadystateConc:{Rule[$MASS$speciesPattern,_?NumberQ]..
 calcPERC[model_MASSmodel,steadystateConc:{Rule[$MASS$speciesPattern,_?NumberQ]..},steadystateFluxes:{Rule[_String,_?NumberQ]..},equilibriumConstants:{Rule[_Keq,(_?NumberQ|\[Infinity])]..},externalConcentrations:{Rule[$MASS$speciesPattern,(_?NumberQ|\[Infinity])]..}]:=calcPERC[model,"SteadyStateConcentrations"->steadystateConc,"SteadyStateFluxes"->steadystateFluxes,"Parameters"->Join[equilibriumConstants,externalConcentrations]]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Structural stuff*)
 
 
@@ -336,7 +336,7 @@ getDisequilibriumRatios[rxns:{_reaction..},opts:OptionsPattern[]]:=getDisequilib
 calcKappa[rateconstants_List]:=DiagonalMatrix[rateconstants]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Unit support*)
 
 
@@ -485,7 +485,7 @@ attributeTestPatterns={
 	"Synonyms"->{(Join[$MASS$speciesPattern,$MASS$parametersPattern,_v|_String]->_String)..}|{},
 	"Events"->{(_String->WhenEvent[_,({_[t]..}->{__})|(_[t]->_)|{(_[t]->_)..},OptionsPattern[]])...},
 	"Objective"->(Automatic|_v|_Plus),
-	"Pathway"->({{(_String->{_?NumericQ..})..},{(_String->{_List...})..},({(_Text|_Rule|_Style)..}|{}),{_Rule...}}|{}),
+	"Pathway"->{{{(_String->{_?NumericQ..})..},{(_String->{_List...})..},({(_Text|_Rule|_Style)..}|{}),{_Rule...}}...}|{{(_String->{_?NumericQ..})..},{(_String->{_List...})..},({(_Text|_Rule|_Style)..}|{}),{_Rule...}},
 	_->_
 };
 
@@ -795,7 +795,7 @@ model_MASSmodel["Proteins"]:=Union@Cases[model["GPR"],_protein,\[Infinity]];
 model_MASSmodel["GeneAssociations"]:=(Union[Cases[model["GPR"],r_Rule/;r[[1,0]]===String,\[Infinity]]]/.p_proteinComplex:>And@@p)/.Union[Cases[model["GPR"],r_Rule/;r[[1,0]]===protein||r[[1,0]]===proteinComplex,\[Infinity]]]/.g_geneComplex:>And@@g
 model_MASSmodel["ProteinAssociations"]:=Union[Cases[model["GPR"],r_Rule/;r[[1,0]]===String,\[Infinity]]]/.p_proteinComplex:>And@@p
 model_MASSmodel["Enzymes"]:=Cases[model["Species"],_enzyme];
-model_MASSmodel["Pathway"]:=drawPathway["Pathway"/.model[[1]]];
+model_MASSmodel["Pathway"]:=("Pathway"/.model[[1]])/."Pathway"->{};
 
 
 (*Overloading*)
@@ -818,6 +818,7 @@ MASSmodel/:ReplaceAll[stuff_,model_MASSmodel]:=stuff/.Join[model["Parameters"],m
 (*Model set operations*)
 
 
+MASSmodel::pathway = "Merged model will lose pathway data";
 MASSmodel/:Union[models__MASSmodel]:=Module[{listOfModels,commonAttributes,listOfAttributes,modelTmp,rhs},
 	listOfModels=List[models];
 	commonAttributes=Complement[Intersection[Union[Sequence@@(listOfModels[[All,1,All,1]])],Options[constructModel][[All,1]]],{"ID","Name"}];
@@ -829,6 +830,7 @@ MASSmodel/:Union[models__MASSmodel]:=Module[{listOfModels,commonAttributes,listO
 	Do[listOfAttributes=#[attr]&/@listOfModels;
 		rhs=Which[
 				And@@(MatchQ[#,{}]&/@listOfAttributes),{},
+				attr=="Pathway",Message[MASSmodel::pathway];{},
 				And@@(MatchQ[#,{_Rule...}]&/@listOfAttributes),updateRules[Sequence@@listOfAttributes],
 				And@@(MatchQ[#,_List]&/@listOfAttributes),Union[Flatten[listOfAttributes]],
 				And@@(MatchQ[#,_String]&/@listOfAttributes),StringJoin[Sequence@@Riffle[listOfAttributes,"\n"]],
@@ -844,7 +846,8 @@ MASSmodel/:Union[models__MASSmodel]:=Module[{listOfModels,commonAttributes,listO
 
 MASSmodel/:Intersection[models__MASSmodel]:=Module[{listOfModels,commonAttributes},
 	listOfModels=List[models];
-	commonAttributes=Complement[Intersection[Union[Sequence@@(listOfModels[[All,1,All,1]])],Options[constructModel][[All,1]]],{"ID","Name"}];
+	commonAttributes=Complement[Intersection[Union[Sequence@@(listOfModels[[All,1,All,1]])],Options[constructModel][[All,1]]],{"ID","Name","Pathway"}];
+	If[Flatten[#["Pathway"]&/@listOfModels]!={},Message[MASSmodel::pathway]];
 	constructModel[
 		Intersection[Sequence@@(#["Reactions"]&/@listOfModels),SameTest->(#1==#2&)],
 		"ID" -> StringJoin[Sequence@@Riffle[#["ID"]&/@listOfModels," \[Intersection] "]],
@@ -873,7 +876,8 @@ MASSmodel/:Complement[model_MASSmodel, models__MASSmodel]:=Module[{listOfModels,
 	Do[If[attr==="ID",Print[1]];
 		listOfAttributes=#[attr]&/@listOfModels;
 		rhs=Which[
-				And@@(MatchQ[#,{}]&/@listOfAttributes),{},
+				And@@(MatchQ[#,{}]&/@listOfAttributes),{},		
+				attr=="Pathway",Message[MASSmodel::pathway];{},
 				And@@(MatchQ[#,{_Rule...}]&/@listOfAttributes),FilterRules[Flatten[listOfAttributes],Complement[#1,##2]&[Sequence@@listOfAttributes[[All,All,1]]]],
 				And@@(MatchQ[#,_List]&/@listOfAttributes),Complement[listOfAttributes[[1]],Sequence@@listOfAttributes[[2;;]]],
 				And@@(MatchQ[#,_String]&/@listOfAttributes),StringJoin[Sequence@@Riffle[listOfAttributes,"\n"]],
@@ -931,7 +935,7 @@ MASSmodel/:MakeBoxes[model_MASSmodel,_]:=ToBoxes@MenuView[{
 	"Nullspace"->If[NullSpace[model]=!={},specialPane2@TableForm[NullSpace[model].model["Fluxes"],TableHeadings->{None,model["Fluxes"]}],"Nullspace empty"],
 	"Left Nullspace"->If[NullSpace[Transpose@model]=!={},specialPane2@TableForm[NullSpace[Transpose@model].model["Species"],TableHeadings->{None,model["Species"]}],"Left Nullspace empty"],
 	"Notes"->specialPane2@Style[model["Notes"],FontSize->10],
-	"Pathway"->model["Pathway"]},ImageSize->{{width},{height}}
+	"Pathway"->If[model["Pathway"]=={},None,drawPathway@@model["Pathway"]]},ImageSize->{{width},{height}}
 ]
 
 
