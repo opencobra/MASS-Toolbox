@@ -226,7 +226,7 @@ differentialFVA::usage="";
 generateDiffFvaReport::usage="";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*IO*)
 
 
@@ -263,7 +263,7 @@ eQuilibratorReactionData::usage="eQuilibratorReactionData[query] queries the eQu
 model2escher::usage="model2escher[model] converts a MASS model to a JSON model format compatible with the Escher pathway editor."
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Assorted*)
 
 
@@ -306,7 +306,7 @@ paths2pathwayMatrix::usage="paths2pathwayMatrix[model,paths], where paths should
 anonymize::usage="anonymize[f_[args__]] uses symbolize to translate any metabolite, rateconst etc. in args into real symbols. Afterwards, the output of f is translated back to the original args.";
 
 
-annotateCurrencyMetabolites::usage="annotateCurrencyMetabolites[rxns] provides a GUI interface for annotating currency metabolites. The output is a list of rules ({\"rxnID\"->{currMet1, currMet1, ..}}) that specifies currency metabolites on a reactin basis. The number keys on the keyboard can be used to specify the currency metabolites in addition to the computer mouse.";
+annotateCurrencyMetabolites::usage="annotateCurrencyMetabolites[{rxns..}|MASSmodel] provides a GUI interface for annotating currency metabolites. The output is a list of rules ({\"rxnID\"->{currMet1, currMet1, ..}}) that specifies currency metabolites on a reactin basis. The number keys on the keyboard can be used to specify the currency metabolites in addition to the computer mouse.";
 
 
 edit::usage="Opens a GUI dialog for editing.";
@@ -420,7 +420,7 @@ SMILES::usage="Wrapper for a SMILES string.";
 smiles2elementalComposition::usage="Returns the elemental composition of a SMILES string";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Units*)
 
 
@@ -696,7 +696,7 @@ pH::usage="pH";
 T::usage="Temperature";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Util*)
 
 
@@ -740,7 +740,7 @@ updateToolbox::usage="updateToolbox[] searches for the newest release of the MAS
 updateRequired::usage="updateRequired[] returns True if there is a newer release of the MASS Toolbox than the one currently installed.";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Visualization*)
 
 
@@ -784,3 +784,6 @@ importBIGGmap::usage="importBIGGmap[path] will import a SVG map from BIGG and re
 
 
 drawNodeMaps::usage="drawNodeMaps[model,Fluxes->listOfFluxes, Metabolites->listOfMetabolites] will draw node maps for the corresponding metabolites.";
+
+
+pathwayGUI::usage="pathwayGUI[model,\"CurrencyMets\"->{_metabolites..} will open an interface that allows users to organize pathway maps for the model. CurrencyMets may either be a list of metabolites or the output from annotateCurrencyMetabolites"

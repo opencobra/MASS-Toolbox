@@ -11,7 +11,7 @@
 Begin["`Private`"];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Util*)
 
 
@@ -67,6 +67,8 @@ annotateCurrencyMetabolites[rxns:{_reaction...}]:=Module[{endResult,input,result
 	];
 	endResult
 ];
+annotateCurrencyMetabolites[model_MASSmodel]:=annotateCurrencyMetabolites[model["Reactions"]];
+annotateCurrencyMetabolites[model_MASSmodel,previousAnnotation:{(_String->_List)...}]:=annotateCurrencyMetabolites[model["Reactions"],previousAnnotation];
 
 
 pools2poolMatrix[model_MASSmodel,pools:{Rule[_,Join[_Plus|_Times,$MASS$speciesPattern]]..}]:=Module[{cmpds2indices,tmp},
