@@ -818,7 +818,9 @@ MASSmodel/:ReplaceAll[stuff_,model_MASSmodel]:=stuff/.Join[model["Parameters"],m
 (*Model set operations*)
 
 
-MASSmodel::pathway = "Merged model will lose pathway data";
+MASSmodel::pathway = "New model will lose pathway data";
+
+
 MASSmodel/:Union[models__MASSmodel]:=Module[{listOfModels,commonAttributes,listOfAttributes,modelTmp,rhs},
 	listOfModels=List[models];
 	commonAttributes=Complement[Intersection[Union[Sequence@@(listOfModels[[All,1,All,1]])],Options[constructModel][[All,1]]],{"ID","Name"}];
@@ -1103,6 +1105,8 @@ deleteReactions[model_MASSmodel,rxnIDs:{(_String|_v)..}]:=Module[{modelTmp,notIn
 	setModelAttribute[modelTmp,"Constant",Select[model["Constant"],MemberQ[modelTmp["Species"],#]&],"Sloppy"->True];
 	setModelAttribute[modelTmp,"UnitChecking",model["UnitChecking"],"Sloppy"->True];
 	setModelAttribute[modelTmp,"Objective",model["Objective"],"Sloppy"->True];
+	setModelAttribute[modelTmp,"Pathway",{},"Sloppy"->True];
+	If[model["Pathway"]!={},Message[MASSmodel::pathway]];
 	modelTmp
 ];
 deleteReactions[model_MASSmodel,regex_RegularExpression]:=deleteReactions[model,Select[getID/@model["Fluxes"],StringMatchQ[#,regex]&]];
@@ -1186,6 +1190,8 @@ addReaction[model_,rxn_?reactionQ] :=
         If[ MatchQ[constr,{_,_}],
             setModelAttribute[modelTmp,"Constraints",Append[model["Constraints"],getID[rxn]->constr]]
         ];
+		setModelAttribute[modelTmp,"Pathway",{},"Sloppy"->True];
+		If[model["Pathway"]!={},Message[MASSmodel::pathway]];
         modelTmp
     ];
 
@@ -1213,6 +1219,8 @@ deleteSpecies[model_MASSmodel,met:$MASS$speciesPattern]:=Module[{modelTmp,pos,ne
 	setModelAttribute[modelTmp,"Species",Delete[model["Species"],pos]];
 	setModelAttribute[modelTmp,"InitialConditions",DeleteCases[model["InitialConditions"],r_Rule/;MemberQ[Append[model["Fluxes"][[zeroColumns]],met],r[[1]]]]];
 	setModelAttribute[modelTmp,"Constraints",DeleteCases[model["Constraints"],r_Rule/;MemberQ[Append[model["Fluxes"][[zeroColumns]],met],r[[1]]]]];
+	setModelAttribute[modelTmp,"Pathway",{},"Sloppy"->True];
+	If[model["Pathway"]!={},Message[MASSmodel::pathway]];
 	modelTmp
 ];
 deleteSpecies[model_MASSmodel,{}]:=model
