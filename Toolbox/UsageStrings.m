@@ -734,9 +734,6 @@ query::usage="query[key, listOfRules] will return the corresponding value."(*## 
 filter::usage="filter[listOfRules, keys] behave like FilterRules with the exception that the filtered rules are returned in the order of keys.";
 
 
-initializeKernels::usage="initializeKernels[] starts parallel kernels and loads the MASS Toolbox onto all kernels. Load specific kernels with initializeKernels[ker] or initializeKernels[{ker1,ker2,...}]."
-
-
 updateToolbox::usage="updateToolbox[] searches for the newest release of the MASS Toolbox and downloads it. Use Install->False to prevent automatic installation.";
 
 
