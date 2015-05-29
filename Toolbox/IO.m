@@ -652,7 +652,7 @@ model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,un
 		Module[{},
 			sbmlRules={"xmlns"->"http://www.sbml.org/sbml/level3/version1/core", "level"->"3", "version"->"1",
 			"xmlns:fbc"->"http://www.sbml.org/sbml/level3/version1/fbc/version1","fbc:required"->"false"};
-			AppendTo[listOfStuff,XMLElement["listOfFluxBounds",{},fluxbounds2sbml/@model["Constraints"]]];
+			AppendTo[listOfStuff,XMLElement["listOfFluxBounds",{},Flatten[fluxbounds2sbml/@model["Constraints"]]]];
 			(* Objective *)
 			AppendTo[listOfStuff,
 				XMLElement["fbc:listOfObjectives",{"fbc:activeObjective"->"obj"},
@@ -835,11 +835,11 @@ fluxbounds2sbml[constraint_]:=Module[{id,valueHigh,valueLow},
 fluxObjective2sbml[model_MASSmodel]:=Module[{},
 	Switch[model["Objective"],
 		_v, 
-			{XMLElement["fbc:fluxObjective",{"fbc:reaction"->makeIdXmlConform[getID[model["Objective"]]],"fbc:coefficient"->1},{}]},
+			{XMLElement["fbc:fluxObjective",{"fbc:reaction"->makeIdXmlConform[getID[model["Objective"]]],"fbc:coefficient"->"1"},{}]},
 		_Plus, 
 			If[MatchQ[#,_Times],
-				XMLElement["fbc:fluxObjective",{"fbc:reaction"->makeIdXmlConform[getID[#[[2]]]],"fbc:coefficient"->#[[1]]},{}],
-				XMLElement["fbc:fluxObjective",{"fbc:reaction"->makeIdXmlConform[getID[#]],"fbc:coefficient"->1},{}]
+				XMLElement["fbc:fluxObjective",{"fbc:reaction"->makeIdXmlConform[getID[#[[2]]]],"fbc:coefficient"->ToString[#[[1]],"SBML"]},{}],
+				XMLElement["fbc:fluxObjective",{"fbc:reaction"->makeIdXmlConform[getID[#]],"fbc:coefficient"->"1"},{}]
 			]&/@(List@@model["Objective"]),
 		Automatic,
 			{}
