@@ -363,26 +363,39 @@ getListOfAnnotations[xml_]:=Module[{lst,miriamList},
 	lst={};
 
 	(* Get model annotations *)
-
 	xml/.XMLElement["model",{___,"id"->id_,___},
 		{___,XMLElement["annotation",{},
 			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
 		],___}
 	]:>AppendTo[lst,{id,a}];
 
-	(* Get all other annotations *)
-	xml/.XMLElement[x:Except["model"],{___,"id"->id_,___},
+	(* Get all compartment annotations *)
+	xml/.XMLElement["compartment",{___,"id"->id_,___},
 		{___,XMLElement["annotation",{},
 			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
 		],___}
 	]:>AppendTo[lst,{id,a}];
 
+	(* Get all species annotations *)
+	xml/.XMLElement["species",({___,"id"->id_,___,"compartment"->comp_,___}|{___,"compartment"->comp_,___,"id"->id_,___}),
+		{___,XMLElement["annotation",{},
+			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
+		],___}
+	]:>AppendTo[lst,{m[id,comp],a}];
+
+	(* Get all reaction annotations *)
+	xml/.XMLElement["reaction",{___,"id"->id_,___},
+		{___,XMLElement["annotation",{},
+			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
+		],___}
+	]:>AppendTo[lst,{v[id],a}];
+
 	miriamList=(#[[1]]->
 		Select[#[[2,3]],
-			MatchQ[XMLElement[{("http://biomodels.net/biology-qualifiers/"|"http://biomodels.net/model-qualifiers/"),_},
+			MatchQ[#,XMLElement[{("http://biomodels.net/biology-qualifiers/"|"http://biomodels.net/model-qualifiers/"),_},
 				{___},
 				{___}
-			]]
+			]]&
 		]
 	)&/@lst;
 
@@ -632,7 +645,7 @@ Check[sbml2model[Import[path,"XML"],opts],Message[sbml2model::NotExistFile,path]
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*SBML export*)
 
 
@@ -640,7 +653,7 @@ Check[sbml2model[Import[path,"XML"],opts],Message[sbml2model::NotExistFile,path]
 (*Export*)
 
 
-Options[model2sbml]={"FBC"->False}
+Options[model2sbml]={"FBC"->False,"Annotations"->True}
 model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,unitRules,ratemapping,listOfStuff,comps,localParam,params,sbmlRules},
 
 	species = DeleteDuplicates@Join[getSpecies[model],Cases[First/@Join[model["InitialConditions"],model["Parameters"]],$MASS$speciesPattern]];

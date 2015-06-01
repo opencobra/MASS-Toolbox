@@ -480,20 +480,24 @@ displayAnnotations[annotations_List]:=Module[{items,qualifiers,urls,fullItems,fu
 	fullQualifiers = Flatten[MapThread[MapThread[Join[{#1},Table[SpanFromAbove,{i,Length[Flatten[#2]]-1}]]&,{#1,#2}]&,{qualifiers,urls}]];
 	fullURLs = annotation2url/@Flatten[urls];
 
-	title={Item[Style[#,Bold],Alignment->Center]&/@{"Object","Qualifier","URL"}};
-	Grid[Join[title,Transpose@{fullItems,fullQualifiers,fullURLs}],
+	title={Item[Style[#,Bold],Alignment->Center]&/@{"Object","Qualifier","Link"}};
+	Pane[Grid[Join[title,Transpose@{fullItems,fullQualifiers,fullURLs}],
 		Alignment->{Left,Center},
 		Spacings->{1, Automatic},
 		Dividers->All
-	]
+	],{Automatic, 200},Scrollbars->{False, True}]
 ];
 
 
 annotation2url[annotation_String]:=Module[{},
-	Which[StringMatchQ[annotation,"http://"~~__],
-		Hyperlink[annotation],
+	Which[StringMatchQ[annotation,"http://identifiers.org/"~~__],
+		Hyperlink[StringReplace[annotation,"http://identifiers.org"~~__~~"/"->""],
+			annotation
+		],
 		StringMatchQ[annotation,"urn:miriam:"~~__],
-		Hyperlink[annotation,StringReplace[annotation,{"urn:miriam:"->"http://identifiers.org/",":"->"/","%"->":"}]]
+		Hyperlink[StringReplace[annotation,{"urn:miriam:"~~__~~":"->"",":"->"/","%"->":"}],
+			StringReplace[annotation,{"urn:miriam:"->"http://identifiers.org/",":"->"/","%"->":"}]
+		]
 	]
 ];
 
@@ -517,7 +521,7 @@ attributeTestPatterns={
 	"Name"->_String,
 	"ElementalComposition"->({((_species|_metabolite|_enzyme)->(Automatic|_Times|_Plus|Except["",_String]|_SMILES|_InChI))..}|{}),
 	"Notes"->_String,
-	"Annotations"->{(_String->{(_String->{_String..})..})...},
+	"Annotations"->{(_->{(_String->{_String..})..})...},
 	"Ignore"->{(_species|_metabolite|_enzyme)..}|{},
 	"UnitChecking"->(True|False),
 	"Synonyms"->{(Join[$MASS$speciesPattern,$MASS$parametersPattern,_v|_String]->_String)..}|{},
