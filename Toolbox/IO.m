@@ -656,6 +656,8 @@ Check[sbml2model[Import[path,"XML"],opts],Message[sbml2model::NotExistFile,path]
 Options[model2sbml]={"FBC"->False,"Annotations"->True}
 model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,unitRules,ratemapping,listOfStuff,comps,localParam,params,sbmlRules},
 
+	listOfStuff = {};
+	
 	species = DeleteDuplicates@Join[getSpecies[model],Cases[First/@Join[model["InitialConditions"],model["Parameters"]],$MASS$speciesPattern]];
 
 	ratemapping=stripTime[Thread[Rule[(getID/@model["Fluxes"]),model["Rates"]]]];
@@ -665,14 +667,30 @@ model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,un
 	
 	modelUnits = modelUnits2sbml[model];
 
+	(* MIRIAM Annotations *)
+	If[OptionValue["Annotations"],
+		AppendTo[listOfStuff,XMLElement["Annotation",{},
+			{XMLElement[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#","RDF"},
+				{{"http://www.w3.org/2000/xmlns/","rdf"}->"http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+					{"http://www.w3.org/2000/xmlns/","bqmodel"}->"http://biomodels.net/model-qualifiers/",
+					{"http://www.w3.org/2000/xmlns/","bqbiol"}->"http://biomodels.net/biology-qualifiers/"
+				},
+				{XMLElement[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#","Description"},{},
+					annotations2sbml[model,"ID"]
+				]}
+			]}
+		]]
+	];
+
 	(* Unit definitions *)
-	listOfStuff = {XMLElement["listOfUnitDefinitions",{},
-		XMLElement["unitDefinition",
-			{"id"->StringJoin[#]},
-			{XMLElement["listOfUnits",{},
-			unitStringList2sbml/@#]}
-		]&/@(Last/@modelUnits)
-	]};
+	AppendTo[listOfStuff,
+		XMLElement["listOfUnitDefinitions",{},
+			XMLElement["unitDefinition",
+				{"id"->StringJoin[#]},
+				{XMLElement["listOfUnits",{},unitStringList2sbml/@#]}
+			]&/@(Last/@modelUnits)
+		]
+	];
 
 	unitRules = (#[[1]]->StringJoin[#[[2]]])&/@modelUnits;
 
@@ -901,6 +919,17 @@ fluxObjective2sbml[model_MASSmodel]:=Module[{},
 		Automatic,
 			{}
 	]
+];
+
+
+annotations2sbml[model_MASSmodel,item_]:=Module[{annotations},
+	annotations = (item/.model[[1]])/.("Annotations"/.model[[1]]);
+	XMLElement[{If[MemberQ[$MIRIAM$modelQuantifiers,#[[1]]],"http://biomodels.net/model-qualifiers/","http://biomodels.net/biology-qualifiers/"],#[[1]]},
+		{},
+		{XMLElement[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#","Bag"},{},
+			{XMLElement[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#","li"},{{"http://www.w3.org/1999/02/22-rdf-syntax-ns#","resource"}->#},{}]&/@#[[2]]}
+		]}
+	]&/@annotations
 ];
 
 
