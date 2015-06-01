@@ -77,7 +77,7 @@ mat2model[path_String]:=Module[{stuff},
 mat2model[]:=mat2model[SystemDialogInput["FileOpen"]];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*SBML import*)
 
 
@@ -239,7 +239,7 @@ getListOfCompartments[xml_/;Head[xml]===XMLObject["Document"]]:=Module[{},
 getCompartmentVolumes[listOfCompartments:{((parameter["Volume",_String]|parameter["Volume",_String][t])->_List)...},unitDefinitions:{(_Rule|_RuleDelayed)...}]:=#[[1]]->sbmlString2Number[query["size",#[[2]],"1"]]*(query["units",#[[2]],"volume"]/.Dispatch[unitDefinitions])&/@listOfCompartments
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfReactions*)
 
 
@@ -291,7 +291,7 @@ getStoich[attrVal:{_Rule...},id2massID:{(_String->(_parameter|_parameter[t]|_spe
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*kineticLaw*)
 
 
@@ -322,7 +322,7 @@ getKineticLaw[XMLElement["kineticLaw",attrVal:{_Rule...},data_List],rxnID_String
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*parameters*)
 
 
@@ -353,6 +353,29 @@ getParameterValues[listOfParameters:{((_parameter|_parameter[t])->_List)...},uni
 	unit = "units"/.Dispatch[#[[2]]]/."units"->"dimensionless"/.Dispatch[unitDefinitions]&;
 	#[[1]]->(value[#]*unit[#])&/@listOfParameters
 ];
+
+
+(* ::Subsubsection:: *)
+(*annotations*)
+
+
+getListOfAnnotations[xml_]:=Module[{lst},
+	lst={};
+	xml/.XMLElement[x:Except["model"],{"id"->id_,___},
+		{XMLElement["annotation",{},
+			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
+		],___}
+	]:>AppendTo[lst,{id,a}];
+
+	lst=lst/.{_String,x_String}:>x;
+	First[#]->formatAnnotation[Last[#]]&/@lst
+];
+
+
+formatAnnotation[miriam_XMLElement]:=Module[{raw},
+	raw=First[#]->#[[3,1,3]]&/@miriam[[3]];
+	raw/.XMLElement["li",{"resource"->x_},{}]:>x
+]
 
 
 (* ::Subsubsection:: *)
@@ -440,7 +463,7 @@ sbml2model::conversionFactorDetected="Conversion factor detected. The MASS Toolb
 sbml2model[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:=Module[{hosuRules,listOfUnitDefinitions,listOfFunctionDefinitions,listOfCompartments,compartmentVolumes,listOfParameters,parameters,
 listOfSpecies,initialConditions,boundaryConditions,id2massID,listOfRxns,listOfRules,assignmentRules,rateRules,algebraicRules,listOfInitialAssignments,
 listOfKineticLawsAndLocalParameters,listOfKineticLaws,listOfLocalParameters,speciesInReactions,notCoveredByReactions,customODE,constantSpecies,paramInListOfRules,
-constParam,speciesIDs2names,modelID,modelName,notes,modelStuff,hasOnlySubstanceUnits,listOfEvents},
+constParam,speciesIDs2names,modelID,modelName,notes,modelStuff,hasOnlySubstanceUnits,listOfEvents,listOfAnnotations},
 
 	Switch[OptionValue["Method"],
 		"Full",
@@ -473,6 +496,8 @@ constParam,speciesIDs2names,modelID,modelName,notes,modelStuff,hasOnlySubstanceU
 		
 		listOfRules=getListOfRules[xml,id2massID]/.Dispatch[listOfFunctionDefinitions]/.("algebraicRule"->eq_Equal/;MatchQ[Simplify[eq/.Dispatch[constParam]],(_parameter|_parameter[t])==_?NumberQ]):>("assignmentRule"->Rule@@Simplify[eq/.Dispatch[constParam]]);
 		
+		listOfAnnotations=getListOfAnnotations[xml];
+
 		paramInListOfRules=Union[Join[Cases[FilterRules[listOfRules,("rateRule"|"assignmentRule")][[All,2,1]],_parameter,\[Infinity],Heads->True],Cases[FilterRules[listOfRules,"algebraicRule"],_parameter,\[Infinity],Heads->True]]];
 		(*paramInListOfRules=Union[Join[Cases[FilterRules[listOfRules,("rateRule"|"assignmentRule")][[All,2]],_parameter,\[Infinity],Heads->True],Cases[FilterRules[listOfRules,"algebraicRule"],_parameter,\[Infinity],Heads->True]]];*)
 		
@@ -568,7 +593,7 @@ FullForm]\):>Derivative[1][s][t]*parameter["Volume",getCompartment[s]];
 			Sequence@@updateRules[
 				{"ID"->modelID,"Name"->modelName,"Notes"->notes,"InitialConditions"->N@initialConditions,"Parameters"->N@parameters,
 				"CustomRateLaws"->listOfKineticLaws,"BoundaryConditions"->boundaryConditions,"Constant"->constantSpecies,"CustomODE"->customODE,
-				"Synonyms"->speciesIDs2names,"Events"->listOfEvents},
+				"Synonyms"->speciesIDs2names,"Events"->listOfEvents,"Annotations"->listOfAnnotations},
 				FilterRules[List[opts],Options[constructModel]]
 			]
 		],
@@ -588,7 +613,7 @@ Check[sbml2model[Import[path,"XML"],opts],Message[sbml2model::NotExistFile,path]
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*SBML export*)
 
 

@@ -484,7 +484,7 @@ attributeTestPatterns={
 	"Name"->_String,
 	"ElementalComposition"->({((_species|_metabolite|_enzyme)->(Automatic|_Times|_Plus|Except["",_String]|_SMILES|_InChI))..}|{}),
 	"Notes"->_String,
-	"Annotations"->{_->{_String..}...},
+	"Annotations"->{(_String->{(_String->{_String..})..})...},
 	"Ignore"->{(_species|_metabolite|_enzyme)..}|{},
 	"UnitChecking"->(True|False),
 	"Synonyms"->{(Join[$MASS$speciesPattern,$MASS$parametersPattern,_v|_String]->_String)..}|{},
@@ -807,7 +807,7 @@ model_MASSmodel["Proteins"]:=Union@Cases[model["GPR"],_protein,\[Infinity]];
 model_MASSmodel["GeneAssociations"]:=(Union[Cases[model["GPR"],r_Rule/;r[[1,0]]===String,\[Infinity]]]/.p_proteinComplex:>And@@p)/.Union[Cases[model["GPR"],r_Rule/;r[[1,0]]===protein||r[[1,0]]===proteinComplex,\[Infinity]]]/.g_geneComplex:>And@@g
 model_MASSmodel["ProteinAssociations"]:=Union[Cases[model["GPR"],r_Rule/;r[[1,0]]===String,\[Infinity]]]/.p_proteinComplex:>And@@p
 model_MASSmodel["Enzymes"]:=Cases[model["Species"],_enzyme];
-model_MASSmodel["Annotations"]:=Null(* FIX ME *);
+model_MASSmodel["Annotations"]:=Null;
 
 
 
