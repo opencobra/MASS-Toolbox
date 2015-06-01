@@ -361,8 +361,8 @@ getParameterValues[listOfParameters:{((_parameter|_parameter[t])->_List)...},uni
 
 getListOfAnnotations[xml_]:=Module[{lst},
 	lst={};
-	xml/.XMLElement[x:Except["model"],{"id"->id_,___},
-		{XMLElement["annotation",{},
+	xml/.XMLElement[x:Except["model"],{___,"id"->id_,___},
+		{___,XMLElement["annotation",{},
 			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
 		],___}
 	]:>AppendTo[lst,{id,a}];
@@ -375,7 +375,7 @@ getListOfAnnotations[xml_]:=Module[{lst},
 formatAnnotation[miriam_XMLElement]:=Module[{raw},
 	raw=First[#]->#[[3,1,3]]&/@miriam[[3]];
 	raw/.XMLElement["li",{"resource"->x_},{}]:>x
-]
+];
 
 
 (* ::Subsubsection:: *)

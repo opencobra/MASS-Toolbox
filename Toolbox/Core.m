@@ -466,6 +466,39 @@ adjustUnits[stuff:{_Rule...},model_MASSmodel,opts:OptionsPattern[]]:=If[model["U
 
 
 (* ::Subsection:: *)
+(*Annotations*)
+
+
+displayAnnotations[annotations:("Annotations"|{})]:={};
+
+displayAnnotations[annotations_List]:=Module[{items,qualifiers,urls,fullItems,fullQualifiers,fullURLs,title},
+	items = First/@annotations;
+	qualifiers = First/@#&/@(Last/@annotations);
+	urls = Last/@#&/@(Last/@annotations);
+
+	fullItems = Flatten[MapThread[Join[{#1},Table[SpanFromAbove,{i,Length[Flatten[#2]]-1}]]&,{items,urls}]];
+	fullQualifiers = Flatten[MapThread[MapThread[Join[{#1},Table[SpanFromAbove,{i,Length[Flatten[#2]]-1}]]&,{#1,#2}]&,{qualifiers,urls}]];
+	fullURLs = annotation2url/@Flatten[urls];
+
+	title={Item[Style[#,Bold],Alignment->Center]&/@{"Object","Qualifier","URL"}};
+	Grid[Join[title,Transpose@{fullItems,fullQualifiers,fullURLs}],
+		Alignment->{Left,Center},
+		Spacings->{1, Automatic},
+		Dividers->All
+	]
+];
+
+
+annotation2url[annotation_String]:=Module[{},
+	Which[StringMatchQ[annotation,"http://"~~__],
+		Hyperlink[annotation],
+		StringMatchQ[annotation,"urn:miriam:"~~__],
+		Hyperlink[StringReplace[annotation,{"urn:miriam:"->"http://identifiers.org/",":"->"/","%"->":"}]]
+	]
+];
+
+
+(* ::Subsection:: *)
 (*Model construction and associated definitions*)
 
 
@@ -807,8 +840,7 @@ model_MASSmodel["Proteins"]:=Union@Cases[model["GPR"],_protein,\[Infinity]];
 model_MASSmodel["GeneAssociations"]:=(Union[Cases[model["GPR"],r_Rule/;r[[1,0]]===String,\[Infinity]]]/.p_proteinComplex:>And@@p)/.Union[Cases[model["GPR"],r_Rule/;r[[1,0]]===protein||r[[1,0]]===proteinComplex,\[Infinity]]]/.g_geneComplex:>And@@g
 model_MASSmodel["ProteinAssociations"]:=Union[Cases[model["GPR"],r_Rule/;r[[1,0]]===String,\[Infinity]]]/.p_proteinComplex:>And@@p
 model_MASSmodel["Enzymes"]:=Cases[model["Species"],_enzyme];
-model_MASSmodel["Annotations"]:=Null;
-
+model_MASSmodel["Annotations"]:=displayAnnotations["Annotations"/.model[[1]]];
 
 
 (*Overloading*)
