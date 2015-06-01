@@ -359,21 +359,40 @@ getParameterValues[listOfParameters:{((_parameter|_parameter[t])->_List)...},uni
 (*annotations*)
 
 
-getListOfAnnotations[xml_]:=Module[{lst},
+getListOfAnnotations[xml_]:=Module[{lst,miriamList},
 	lst={};
+
+	(* Get model annotations *)
+
+	xml/.XMLElement["model",{___,"id"->id_,___},
+		{___,XMLElement["annotation",{},
+			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
+		],___}
+	]:>AppendTo[lst,{id,a}];
+
+	(* Get all other annotations *)
 	xml/.XMLElement[x:Except["model"],{___,"id"->id_,___},
 		{___,XMLElement["annotation",{},
 			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
 		],___}
 	]:>AppendTo[lst,{id,a}];
 
-	lst=lst/.{_String,x_String}:>x;
-	First[#]->formatAnnotation[Last[#]]&/@lst
+	miriamList=(#[[1]]->
+		Select[#[[2,3]],
+			MatchQ[XMLElement[{("http://biomodels.net/biology-qualifiers/"|"http://biomodels.net/model-qualifiers/"),_},
+				{___},
+				{___}
+			]]
+		]
+	)&/@lst;
+
+	miriamList=miriamList/.{_String,x_String}:>x;
+	First[#]->formatAnnotation[Last[#]]&/@miriamList
 ];
 
 
-formatAnnotation[miriam_XMLElement]:=Module[{raw},
-	raw=First[#]->#[[3,1,3]]&/@miriam[[3]];
+formatAnnotation[miriam_List]:=Module[{raw},
+	raw=First[#]->#[[3,1,3]]&/@miriam;
 	raw/.XMLElement["li",{"resource"->x_},{}]:>x
 ];
 

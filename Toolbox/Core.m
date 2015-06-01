@@ -493,7 +493,7 @@ annotation2url[annotation_String]:=Module[{},
 	Which[StringMatchQ[annotation,"http://"~~__],
 		Hyperlink[annotation],
 		StringMatchQ[annotation,"urn:miriam:"~~__],
-		Hyperlink[StringReplace[annotation,{"urn:miriam:"->"http://identifiers.org/",":"->"/","%"->":"}]]
+		Hyperlink[annotation,StringReplace[annotation,{"urn:miriam:"->"http://identifiers.org/",":"->"/","%"->":"}]]
 	]
 ];
 
