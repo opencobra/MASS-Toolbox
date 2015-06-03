@@ -381,7 +381,7 @@ getListOfAnnotations[xml_]:=Module[{lst,miriamList},
 		{___,XMLElement["annotation",{},
 			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
 		],___}
-	]:>AppendTo[lst,{m[id,comp],a}];
+	]:>AppendTo[lst,{species[id,comp],a}];
 
 	(* Get all reaction annotations *)
 	xml/.XMLElement["reaction",{___,"id"->id_,___},
@@ -399,7 +399,7 @@ getListOfAnnotations[xml_]:=Module[{lst,miriamList},
 		]
 	)&/@lst;
 
-	miriamList=miriamList/.{_String,x_String}:>x;
+	miriamList=DeleteCases[miriamList/.{_String,x_String}:>x,_->{}];
 	First[#]->formatRawAnnotation[Last[#]]&/@miriamList
 ];
 
@@ -669,17 +669,7 @@ model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,un
 
 	(* MIRIAM Annotations *)
 	If[OptionValue["Annotations"],
-		AppendTo[listOfStuff,XMLElement["Annotation",{},
-			{XMLElement[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#","RDF"},
-				{{"http://www.w3.org/2000/xmlns/","rdf"}->"http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-					{"http://www.w3.org/2000/xmlns/","bqmodel"}->"http://biomodels.net/model-qualifiers/",
-					{"http://www.w3.org/2000/xmlns/","bqbiol"}->"http://biomodels.net/biology-qualifiers/"
-				},
-				{XMLElement[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#","Description"},{},
-					annotations2sbml[model,"ID"]
-				]}
-			]}
-		]]
+		AppendTo[listOfStuff,annotations2sbml[model,"ID"/.model[[1]]]]
 	];
 
 	(* Unit definitions *)
@@ -698,12 +688,12 @@ model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,un
 	comps = Union[getCompartments[model],Cases[First/@model["Parameters"],parameter["Volume",c_]:>c]];
 	If[comps != {},
 		AppendTo[listOfStuff,
-			XMLElement["listOfCompartments",{},compartments2sbml[#,model,unitRules]&/@comps]
+			XMLElement["listOfCompartments",{},compartments2sbml[#,model,unitRules,OptionValue["Annotations"]]&/@comps]
 		];
 	];
 
 	(* Species *)
-	AppendTo[listOfStuff,XMLElement["listOfSpecies", {}, species2sbml[#,model,unitRules]&/@species]];
+	AppendTo[listOfStuff,XMLElement["listOfSpecies", {}, species2sbml[#,model,unitRules,OptionValue["Annotations"]]&/@species]];
 
 	(* Parameters *)
 	AppendTo[listOfStuff,XMLElement["listOfParameters",{},parameter2sbml[#,model,unitRules]&/@params]];
@@ -711,7 +701,7 @@ model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,un
 	(* Reactions *)
 	AppendTo[listOfStuff,
 		XMLElement["listOfReactions",{},
-			reaction2sbml[#,model,ratemapping,FilterRules[localParam,getID[#]][[All,2]],unitRules]&/@model["Reactions"]
+			reaction2sbml[#,model,ratemapping,FilterRules[localParam,getID[#]][[All,2]],unitRules,OptionValue["Annotations"]]&/@model["Reactions"]
 		]
 	];
 
@@ -752,9 +742,6 @@ model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,un
 ]
 
 
-makeIdXmlConform[str_String]:=StringReplace[str,RegularExpression["([^a-z_A-Z0-9])"]:>"_Char"<>ToString[ToCharacterCode["$1"][[1]]]<>"_"]
-
-
 unitStringList2sbml[{unit_String}]:=unitStringList2sbml[{unit,"1"}];
 
 unitStringList2sbml[unit_String]:=unitStringList2sbml[{unit,"1"}];
@@ -786,31 +773,37 @@ modelUnits2sbml[model_MASSmodel]:=Module[{unitList,stringUnits,volumeUnits,concU
 mathematica2SBMLBaseUnit={"Amperes"->"ampere","Becquerels"->"becquerel","Candelas"->"candela","Coulombs"->"coulomb","Farads"->"farad","Joules"->"joule","Lux"->"lux","Grams"->"gram","Meters"->"metre","Kelvins"->"kelvin","Moles"->"mole","Henries"->"henry","Kilograms"->"kilogram","Newtons"->"newton","Hertz"->"hertz","Liters"->"litre","Ohms"->"ohm","Lumens"->"lumen","Pascals"->"pascal","Radians"->"radian","Volts"->"volt","Seconds"->"second","Watts"->"watt","Siemens"->"siemens","Webers"->"weber","Steradians"->"steradian","Teslas"->"tesla"};
 
 
-compartments2sbml[comp_,model_MASSmodel,unitRules:{_Rule...}]:=Module[{},
-
+compartments2sbml[comp_,model_MASSmodel,unitRules:{_Rule...},miriam_?BooleanQ]:=Module[{rules},
 	Which[
 		MatchQ[parameter["Volume",comp]/.model["Parameters"],_Quantity|_?NumberQ],
 			Module[{volume,size,units},
 				volume = parameter["Volume",comp]/.model["Parameters"];
 				size = ToString[QuantityMagnitude[volume],"SBML"];
 				units = QuantityUnit[volume]/.mathematica2SBMLBaseUnit;
-				XMLElement["compartment",{"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->units/.unitRules,"size"->size,"constant"->"true"},{}]
+				rules={"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->units/.unitRules,"size"->size,"constant"->"true"}
 			],
 		MemberQ[#[[1,0]]&/@model["CustomODE"]/.Derivative[1][x_]:>x,parameter["Volume",comp]],
 			Module[{volume,size,units},
 				volume = parameter["Volume",comp]/.model["InitialConditions"];
 				size = ToString[QuantityMagnitude[volume],"SBML"];
 				units = QuantityUnit[volume]/.mathematica2SBMLBaseUnit;
-				XMLElement["compartment",{"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->units/.unitRules,"size"->size,"constant"->"false"},{}]
+				rules={"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->units/.unitRules,"size"->size,"constant"->"false"}
 			],
 		True,
-			XMLElement["compartment",{"id"->comp,"name"->comp,"spatialDimensions"->"3"},{}]
+			rules = {"id"->comp,"name"->comp,"spatialDimensions"->"3"}
+	];
+
+	XMLElement["compartment",rules,
+		If[miriam,
+			{annotations2sbml[model,comp]},
+			{}
+		]
 	]
 ];
 		
 
 
-species2sbml[spec_,model_MASSmodel,unitRules:{_Rule...}]:=Module[{comp, rules,substanceUnits,ic},
+species2sbml[spec_,model_MASSmodel,unitRules:{_Rule...},miriam_?BooleanQ]:=Module[{comp, rules,substanceUnits,ic},
 	rules = {"id"->ToString[spec,"SBML"],"name"->ToString[spec,"SBML"]};
 	comp = getCompartment[spec];
 	If[comp=!=None,
@@ -825,7 +818,13 @@ species2sbml[spec_,model_MASSmodel,unitRules:{_Rule...}]:=Module[{comp, rules,su
 
 	ic = (spec/.stripUnits[model["InitialConditions"]]/.stripUnits[model["Parameters"]]/.n_/;!NumberQ[n]:>Indeterminate);
 	If[ic=!=Indeterminate,AppendTo[rules,"initialConcentration"->ToString[ic,"SBML"]]];
-	XMLElement["species",rules,{}]
+	XMLElement["species",
+		rules,
+		If[miriam,
+			{annotations2sbml[model,spec]},
+			{}
+		]
+	]
 ]
 
 
@@ -838,7 +837,7 @@ parameter2sbml[param_,model_MASSmodel,unitRules:{_Rule...}]:=Module[{name,value,
 ]
 
 
-reaction2sbml[rxn_,model_MASSmodel,ratemapping_List,params_List,unitRules:{_Rule...}]:=Module[{id,customLaw,law,xmlLaw,localParams},
+reaction2sbml[rxn_,model_MASSmodel,ratemapping_List,params_List,unitRules:{_Rule...},miriam_?BooleanQ]:=Module[{id,customLaw,law,xmlLaw,localParams},
 	id=makeIdXmlConform[getID[rxn]];
 	customLaw = v[getID[rxn]]/.model["CustomRateLaws"];
 	law = If[MatchQ[customLaw,_v],
@@ -848,7 +847,11 @@ reaction2sbml[rxn_,model_MASSmodel,ratemapping_List,params_List,unitRules:{_Rule
 	xmlLaw = ImportString[ExportString[law,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]];
 	localParams =XMLElement["listOfLocalParameters",{},XMLElement["localParameter",{"id"->First[#],"name"->First[#],"value"->If[MatchQ[Last[#],_String],Last[#],ToString[QuantityMagnitude[Last[#]],"SBML"]],"units"->If[MatchQ[Last[#],_String],"Dimensionless",QuantityUnit[Last[#]]/.unitRules]},{}]&/@params];
 	XMLElement["reaction",{"id"->id,"name"->id,"reversible"->ToLowerCase@ToString@reversibleQ[rxn],"fast"->"false"},
-		{XMLElement["listOfReactants",{},MapThread[XMLElement["speciesReference",{"species"->ToString[#1,"SBML"],"stoichiometry"->ToString[#2]},{}]&,{getSubstrates[rxn],getSubstrStoich[rxn]}]],
+		{If[miriam,
+			annotations2sbml[model,v[getID[rxn]]],
+			##&[]
+		],
+		XMLElement["listOfReactants",{},MapThread[XMLElement["speciesReference",{"species"->ToString[#1,"SBML"],"stoichiometry"->ToString[#2]},{}]&,{getSubstrates[rxn],getSubstrStoich[rxn]}]],
 		XMLElement["listOfProducts",{},MapThread[XMLElement["speciesReference",{"species"->ToString[#1,"SBML"],"stoichiometry"->ToString[#2]},{}]&,{getProducts[rxn],getProdStoich[rxn]}]],
 		XMLElement["kineticLaw",{},{xmlLaw,localParams}]
 		}
@@ -923,13 +926,29 @@ fluxObjective2sbml[model_MASSmodel]:=Module[{},
 
 
 annotations2sbml[model_MASSmodel,item_]:=Module[{annotations},
-	annotations = (item/.model[[1]])/.("Annotations"/.model[[1]]);
-	XMLElement[{If[MemberQ[$MIRIAM$modelQuantifiers,#[[1]]],"http://biomodels.net/model-qualifiers/","http://biomodels.net/biology-qualifiers/"],#[[1]]},
+	annotations = Replace[item,("Annotations"/.model[[1]])]/.item->{};
+	XMLElement["annotation",
 		{},
-		{XMLElement[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#","Bag"},{},
-			{XMLElement[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#","li"},{{"http://www.w3.org/1999/02/22-rdf-syntax-ns#","resource"}->#},{}]&/@#[[2]]}
+		{XMLElement[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#","RDF"},
+			{{"http://www.w3.org/2000/xmlns/","rdf"}->"http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+				{"http://www.w3.org/2000/xmlns/","bqmodel"}->"http://biomodels.net/model-qualifiers/",
+				{"http://www.w3.org/2000/xmlns/","bqbiol"}->"http://biomodels.net/biology-qualifiers/"
+			},
+			{XMLElement[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#","Description"},
+				{},
+				XMLElement[{If[MemberQ[$MIRIAM$modelQuantifiers,#[[1]]],"http://biomodels.net/model-qualifiers/","http://biomodels.net/biology-qualifiers/"],#[[1]]/.{"is (model)"->"is","isDescribedBy (model)"->"isDescribedBy"}},
+					{},
+					{XMLElement[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#","Bag"},
+						{},
+						XMLElement[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#","li"},
+							{{"http://www.w3.org/1999/02/22-rdf-syntax-ns#","resource"}->#},
+							{}
+						]&/@#[[2]]
+					]}
+				]&/@annotations
+			]}
 		]}
-	]&/@annotations
+	]
 ];
 
 
