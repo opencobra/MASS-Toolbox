@@ -367,7 +367,7 @@ getListOfAnnotations[xml_]:=Module[{lst,miriamList},
 		{___,XMLElement["annotation",{},
 			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
 		],___}
-	]:>AppendTo[lst,{id,a}];
+	]:>AppendTo[lst,{id,a/.{"is"->"is (model)","isDescribedBy"->"isDescribedBy (model)"}}];
 
 	(* Get all compartment annotations *)
 	xml/.XMLElement["compartment",{___,"id"->id_,___},
@@ -400,11 +400,11 @@ getListOfAnnotations[xml_]:=Module[{lst,miriamList},
 	)&/@lst;
 
 	miriamList=miriamList/.{_String,x_String}:>x;
-	First[#]->formatAnnotation[Last[#]]&/@miriamList
+	First[#]->formatRawAnnotation[Last[#]]&/@miriamList
 ];
 
 
-formatAnnotation[miriam_List]:=Module[{raw},
+formatRawAnnotation[miriam_List]:=Module[{raw},
 	raw=First[#]->#[[3,1,3]]&/@miriam;
 	raw/.XMLElement["li",{"resource"->x_},{}]:>x
 ];

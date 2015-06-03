@@ -470,7 +470,7 @@ adjustUnits[stuff:{_Rule...},model_MASSmodel,opts:OptionsPattern[]]:=If[model["U
 
 
 $MIRIAM$modelQualifiers = {"is (model)","isDerivedFrom","isDescribedBy (model)","isInstanceOf","hasInstance"};
-$MIRIAM$biologyQualifiers = {"encodes","hasPart","hasProperty","hasVersion","is (biology)","isDescribedBy (biology)","isEncodedBy","isHomologTo","isPartOf","isPropertyOf","isVersionOf","occursIn","hasTaxon"};
+$MIRIAM$biologyQualifiers = {"encodes","hasPart","hasProperty","hasVersion","is","isDescribedBy","isEncodedBy","isHomologTo","isPartOf","isPropertyOf","isVersionOf","occursIn","hasTaxon"};
 
 
 displayAnnotations[annotations:("Annotations"|{})]:={};
