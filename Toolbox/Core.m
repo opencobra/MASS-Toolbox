@@ -11,7 +11,7 @@
 Begin["`Private`"];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Util*)
 
 
@@ -469,8 +469,8 @@ adjustUnits[stuff:{_Rule...},model_MASSmodel,opts:OptionsPattern[]]:=If[model["U
 (*Annotations*)
 
 
-$MIRIAM$modelQualifiers = {"is","isDerivedFrom","isDescribedBy","isInstanceOf","hasInstance"};
-$MIRIAM$biologyQualifiers = {"encodes","hasPart","hasProperty","hasVersion","is","isDescribedBy","isEncodedBy","isHomologTo","isPartOf","isPropertyOf","isVersionOf","occursIn","hasTaxon"};
+$MIRIAM$modelQualifiers = {"is (model)","isDerivedFrom","isDescribedBy (model)","isInstanceOf","hasInstance"};
+$MIRIAM$biologyQualifiers = {"encodes","hasPart","hasProperty","hasVersion","is (biology)","isDescribedBy (biology)","isEncodedBy","isHomologTo","isPartOf","isPropertyOf","isVersionOf","occursIn","hasTaxon"};
 
 
 displayAnnotations[annotations:("Annotations"|{})]:={};
