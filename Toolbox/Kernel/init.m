@@ -72,18 +72,6 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	Monitor[ReleaseHold[#],Grid[{{Blur[icon,(*Log[23-prog]*)Max[{16-prog,0}]],progtext},{licenseInfo,SpanFromLeft}}]],
 	Monitor[ReleaseHold[#],Column[{progtext,licenseInfo}]]
 ]&@Hold[
-	progtext="Loading MathSBML ...";
-	(* Mathematica Init File *)
-	MathSBML::notinstalled="MathSBML seems to be not installed. SBML import/export capabilities will be limited. MathSBML can be obtained from http://mathsbml.com/mathsbml/";
-	stubStream=OpenWrite[];bkupoutput=$Output;$Output={stubStream};
-	Block[{$ContextPath},
-		Quiet[Check[Needs["MathSBML`"],$Failed(*Message[MathSBML::notinstalled]*),{Get::noopen,Needs::nocont}]];
-	];
-	Quiet[Check[Remove[reaction,t,name,Stoichiometry],None,{Remove::rmptc}],{Remove::rmptc}];
-	$Output=bkupoutput;Close[stubStream];
-	Quiet[Check[Remove[stubStream,bkupoutput],None,{Remove::rmptc}],{Remove::rmptc}];
-	prog++;
-	
 (*	progtext="Loading GurobiML ...";
 	Quiet@Needs["GurobiML`"];Quiet@ParallelNeeds["GurobiML`"];prog++;delay[];*)
 	

@@ -108,9 +108,10 @@ Options[plotSimulation]={"PlotFunction"->LogLogPlot,"Tooltipped"->True,"ZeroFac"
 plotSimulation[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ,tStep_:.1},opts:OptionsPattern[{plotSimulation,LogLogPlot,ListPlot}]]:=Module[{interPolDat,exactDat,plotFunction,plotOpts,fac,interPolPlot,exactPlot,legend},
 	interPolDat=Cases[simulation,r_Rule/;MemberQ[r,InterpolatingFunction[__][_],\[Infinity]]||NumberQ[r[[2]]],\[Infinity]];
 	exactDat=Complement[simulation,interPolDat];
+	interPolDat = Join[interPolDat,(#[[1]]->Interpolation[Table[{i,#[[2]]/.t->i},{i,tMin,tMax,tStep}],InterpolationOrder->1]&/@exactDat)];
 	interPolDat=interPolDat/.{elem:InterpolatingFunction[__][t]:>elem,elem:InterpolatingFunction[__]:>elem[t]};
-	interPolDat=If[OptionValue["Tooltipped"],Thread[Tooltip[stripUnits@interPolDat[[All,2]],(interPolDat[[All,1]]*(interPolDat[[All,2]]/.InterpolatingFunction[___][t]:>1)/.{u_Quantity:>Quantity["",u[[2]]],_?NumberQ:>1})]],stripUnits@interPolDat[[All,2]]];
-	exactDat=If[OptionValue["Tooltipped"],Thread[Tooltip[stripUnits@exactDat[[All,2]],(exactDat[[All,1]]*(exactDat[[All,2]])/.{u_Quantity:>Quantity["",u[[2]]],_?NumberQ:>1})]],stripUnits@exactDat[[All,2]]];
+	(*Print[interPolDat];*)
+	interPolDat=If[OptionValue["Tooltipped"],Thread[Tooltip[stripUnits@interPolDat[[All,2]],stripUnits@(interPolDat[[All,1]]*(interPolDat[[All,2]]/.InterpolatingFunction[___][t]:>1)/.{u_Quantity:>Quantity["",u[[2]]],_?NumberQ:>1})]],stripUnits@interPolDat[[All,2]]];
 	plotFunction=OptionValue["PlotFunction"];
 	If[$VersionNumber<9,
 	legend=If[OptionValue["Legend"]===True||MatchQ[OptionValue["PlotLegends"],Automatic|"Expressions"],
@@ -124,13 +125,8 @@ plotSimulation[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ,tStep_
 	If[interPolDat!={},
 		Quiet@Check[interPolPlot=plotFunction[Evaluate[interPolDat],{t,Evaluate[tMin+fac],tMax},Evaluate[legend],Evaluate[Sequence@@plotOpts]],None,InterpolatingFunction::dmval];,
 		interPolPlot={};
-	];
-	If[exactDat!={},
-		exactPlot=plotFunction[exactDat,{t,Evaluate[tMin+fac],tMax},Evaluate[legend],Evaluate[Sequence@@plotOpts]];,
-		exactPlot={};
-	];
-	
-	Show[Sequence@@Flatten[{interPolPlot,exactPlot}]]
+	];	
+	Show[interPolPlot]
 ];
 
 plotSimulation[simulation:{_Rule..},opts:OptionsPattern[]]:=Module[{tStart,tEnd,adjusted},
