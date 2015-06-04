@@ -172,7 +172,7 @@ wrapHead[stuff_]:=wrap[Head[stuff]]@@stuff
 unwrapHead[stuff_]:=stuff/.w_wrap:>w[[1]]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Warnings and protection*)
 
 
@@ -182,7 +182,7 @@ Toolbox::NotImplemented="Function/Structure `1` has not been implemented yet.";
 Toolbox::deprecated="`1` is deprecated and will be removed in the (very) near future. Please use `2` instead.";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Old routines*)
 
 
@@ -202,7 +202,7 @@ getJacobian[stoich_?MatrixQ,rates_List,mets_List,opts:OptionsPattern[]]:=Module[
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Rates*)
 
 
@@ -260,7 +260,7 @@ kFwd2keq[expression_]:=Simplify[expression/.r_rateconst/;r[[2]]==True:>rateconst
 k2keq[expression_]:=kRev2keq[expression]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*PERCs*)
 
 
@@ -308,7 +308,7 @@ calcPERC[model_MASSmodel,steadystateConc:{Rule[$MASS$speciesPattern,_?NumberQ]..
 calcPERC[model_MASSmodel,steadystateConc:{Rule[$MASS$speciesPattern,_?NumberQ]..},steadystateFluxes:{Rule[_String,_?NumberQ]..},equilibriumConstants:{Rule[_Keq,(_?NumberQ|\[Infinity])]..},externalConcentrations:{Rule[$MASS$speciesPattern,(_?NumberQ|\[Infinity])]..}]:=calcPERC[model,"SteadyStateConcentrations"->steadystateConc,"SteadyStateFluxes"->steadystateFluxes,"Parameters"->Join[equilibriumConstants,externalConcentrations]]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Structural stuff*)
 
 
@@ -340,7 +340,7 @@ getDisequilibriumRatios[rxns:{_reaction..},opts:OptionsPattern[]]:=getDisequilib
 calcKappa[rateconstants_List]:=DiagonalMatrix[rateconstants]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Unit support*)
 
 
@@ -466,6 +466,47 @@ adjustUnits[stuff:{_Rule...},model_MASSmodel,opts:OptionsPattern[]]:=If[model["U
 
 
 (* ::Subsection:: *)
+(*Annotations*)
+
+
+$MIRIAM$modelQualifiers = {"is (model)","isDerivedFrom","isDescribedBy (model)","isInstanceOf","hasInstance"};
+$MIRIAM$biologyQualifiers = {"encodes","hasPart","hasProperty","hasVersion","is","isDescribedBy","isEncodedBy","isHomologTo","isPartOf","isPropertyOf","isVersionOf","occursIn","hasTaxon"};
+
+
+displayAnnotations[annotations:("Annotations"|{})]:={};
+
+displayAnnotations[annotations_List]:=Module[{items,qualifiers,urls,fullItems,fullQualifiers,fullURLs,title},
+	items = First/@annotations;
+	qualifiers = First/@#&/@(Last/@annotations);
+	urls = Last/@#&/@(Last/@annotations);
+
+	fullItems = Flatten[MapThread[Join[{#1},Table[SpanFromAbove,{i,Length[Flatten[#2]]-1}]]&,{items,urls}]];
+	fullQualifiers = Flatten[MapThread[MapThread[Join[{#1},Table[SpanFromAbove,{i,Length[Flatten[#2]]-1}]]&,{#1,#2}]&,{qualifiers,urls}]];
+	fullURLs = annotation2url/@Flatten[urls];
+
+	title={Item[Style[#,Bold],Alignment->Center]&/@{"Object","Qualifier","Link"}};
+	Pane[Grid[Join[title,Transpose@{fullItems,fullQualifiers,fullURLs}],
+		Alignment->{Left,Center},
+		Spacings->{1, Automatic},
+		Dividers->All
+	],{Automatic, 200},Scrollbars->{False, True}]
+];
+
+
+annotation2url[annotation_String]:=Module[{},
+	Which[StringMatchQ[annotation,"http://identifiers.org/"~~__],
+		Hyperlink[StringReplace[annotation,"http://identifiers.org"~~__~~"/"->""],
+			annotation
+		],
+		StringMatchQ[annotation,"urn:miriam:"~~__],
+		Hyperlink[StringReplace[annotation,{"urn:miriam:"~~__~~":"->"",":"->"/","%"->":"}],
+			StringReplace[annotation,{"urn:miriam:"->"http://identifiers.org/",":"->"/","%"->":"}]
+		]
+	]
+];
+
+
+(* ::Subsection:: *)
 (*Model construction and associated definitions*)
 
 
@@ -484,6 +525,7 @@ attributeTestPatterns={
 	"Name"->_String,
 	"ElementalComposition"->({((_species|_metabolite|_enzyme)->(Automatic|_Times|_Plus|Except["",_String]|_SMILES|_InChI))..}|{}),
 	"Notes"->_String,
+	"Annotations"->{(_->{(_String->{_String..})..})...},
 	"Ignore"->{(_species|_metabolite|_enzyme)..}|{},
 	"UnitChecking"->(True|False),
 	"Synonyms"->{(Join[$MASS$speciesPattern,$MASS$parametersPattern,_v|_String]->_String)..}|{},
@@ -529,12 +571,12 @@ attributeCallBacks={
 
 Options[constructModel]={"InitialConditions"->{},"Constraints"->{},"Parameters"->{},"Irreversible"->{},"GPR"->{},"CustomRateLaws"->{},
 "CustomODE"->{}(*FIXME needs arg checking*),"Constant"->{},"BoundaryConditions"->{},"Name"->Automatic,"ID"->Automatic,"ElementalComposition"->{},
-"Notes"->"","Ignore"->{},"ReorderStoichiometry"->True,"UnitChecking"->False,"Synonyms"->{},"Events"->{},"Objective"->Automatic};
+"Notes"->"","Annotations"->{},"Ignore"->{},"ReorderStoichiometry"->True,"UnitChecking"->False,"Synonyms"->{},"Events"->{},"Objective"->Automatic};
 constructModel::malformedarg="`1` `2` do/does not match the appropriate pattern `3`";
 constructModel::nonUniqueRxnIDs="Non-unique flux IDs detected for `1`.";
 constructModel::wrongdim="The dimensions of the stoichiometry matrix (`1`) do not match the lengths of the provided compounds (`2`) and flux identifiers (`3`).";
 constructModel::wrongmatrixelements="Non Integer, Real, or Rational elements encountered at positions `1`.";
-constructModel[modelID_String:"",S:(_?MatrixQ|{{}}),compounds:{$MASS$speciesPattern...},fluxes:({(_String|_v)..}|{}),opts:OptionsPattern[]]:=Module[{objective,events,fluxesFinal,variableComp,units,tmpRxns,modelIDtmp,model,contxtStr,constraints,initialConditions,parameters,boundaryConditions,constant,revColInd,irrevConstr,name,notes,exchLeftNull,exchRightNull,exchConstr,elementalComposition,newRowOrder,indepDepS,indepS,linkMatrix,gpr,ignore,pat,defaultInitializationNotes,synonyms},
+constructModel[modelID_String:"",S:(_?MatrixQ|{{}}),compounds:{$MASS$speciesPattern...},fluxes:({(_String|_v)..}|{}),opts:OptionsPattern[]]:=Module[{objective,events,fluxesFinal,variableComp,units,tmpRxns,modelIDtmp,model,contxtStr,constraints,initialConditions,parameters,boundaryConditions,constant,revColInd,irrevConstr,name,notes,annotations,exchLeftNull,exchRightNull,exchConstr,elementalComposition,newRowOrder,indepDepS,indepS,linkMatrix,gpr,ignore,pat,defaultInitializationNotes,synonyms},
 	fluxesFinal=Switch[#,_String,v[#],_v,#,_,v[ToString[#]]]&/@fluxes;
 	
 	If[Length[Union[fluxesFinal]]=!=Length[fluxesFinal],
@@ -598,6 +640,10 @@ constructModel[modelID_String:"",S:(_?MatrixQ|{{}}),compounds:{$MASS$speciesPatt
 
 	notes=OptionValue["Notes"];
 	If[!MatchQ[notes,_String],Message[constructModel::malformedarg,"Notes",Short[notes],"Notes"/.attributeTestPatterns];Abort[]];
+
+	annotations=OptionValue["Annotations"];
+	pat="Annotations"/.attributeTestPatterns;
+	If[!MatchQ[annotations,pat],Message[constructModel::malformedarg,"Annotations",Short[annotations],pat];Abort[]];
 
 	ignore=OptionValue["Ignore"];
 	pat="Ignore"/.attributeTestPatterns;
@@ -666,6 +712,7 @@ constructModel[modelID_String:"",S:(_?MatrixQ|{{}}),compounds:{$MASS$speciesPatt
 			"Name"->name,
 			"ElementalComposition"->elementalComposition,
 			"Notes"->notes,
+			"Annotations"->annotations,
 			"Ignore"->ignore,
 			"UnitChecking"->units,
 			"Synonyms"->synonyms,
@@ -732,7 +779,7 @@ addModelAttribute[model_Symbol,attribute_String,rhs_]:=(AppendTo[model[[1]],attr
 
 (*Attributes*)
 $MASSmodel$MutableAttributes={"ID","Name","Constraints","InitialConditions","Parameters","GPR","BoundaryConditions","HasOnlySubstanceUnits",
-"Constant","ReversibleColumnIndices","CustomRateLaws","CustomODE","ElementalComposition","Notes","Ignore","UnitChecking","Synonyms","Events","Objective"};
+"Constant","ReversibleColumnIndices","CustomRateLaws","CustomODE","ElementalComposition","Notes","Annotations","Ignore","UnitChecking","Synonyms","Events","Objective"};
 $MASSmodel$ImmutableAttributes={"Stoichiometry","Species","Fluxes"};
 $MASSmodel$AdditionalImmutablAttributes={"Attributes","SparseStoichiometry","Reactions","Exchanges","Variables","ForwardRateConstants","ReverseRateConstants",
 "EquilibriumConstants","IrreversibleColumnIndices","Rates","Compartments","ODE","Genes","Proteins","GeneAssociations","ProteinAssociations","Enzymes"}
@@ -801,7 +848,7 @@ model_MASSmodel["Proteins"]:=Union@Cases[model["GPR"],_protein,\[Infinity]];
 model_MASSmodel["GeneAssociations"]:=(Union[Cases[model["GPR"],r_Rule/;r[[1,0]]===String,\[Infinity]]]/.p_proteinComplex:>And@@p)/.Union[Cases[model["GPR"],r_Rule/;r[[1,0]]===protein||r[[1,0]]===proteinComplex,\[Infinity]]]/.g_geneComplex:>And@@g
 model_MASSmodel["ProteinAssociations"]:=Union[Cases[model["GPR"],r_Rule/;r[[1,0]]===String,\[Infinity]]]/.p_proteinComplex:>And@@p
 model_MASSmodel["Enzymes"]:=Cases[model["Species"],_enzyme];
-
+model_MASSmodel["Annotations"]:=displayAnnotations["Annotations"/.model[[1]]];
 
 
 (*Overloading*)
