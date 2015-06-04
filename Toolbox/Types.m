@@ -455,6 +455,22 @@ complementParameters[{}]:={}
 
 
 (* ::Subsection:: *)
+(*Numbers*)
+
+
+Unprotect[ToString];
+ToString[x_?NumericQ,"SBML"]:=Module[{str},
+	Off[AccountingForm::sigz];
+	str=StringReplace[ToString[Quiet@AccountingForm[N[x]]],"("~~num__~~")":>"-"<>num];
+	On[AccountingForm::sigz];
+	str
+];
+ToString[Infinity,"SBML"]:="INF";
+ToString[-Infinity,"SBML"]:="-INF";
+Protect[ToString];
+
+
+(* ::Subsection:: *)
 (*End*)
 
 
