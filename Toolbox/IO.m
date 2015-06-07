@@ -359,36 +359,39 @@ getParameterValues[listOfParameters:{((_parameter|_parameter[t])->_List)...},uni
 (*annotations*)
 
 
-getListOfAnnotations[xml_]:=Module[{lst,miriamList},
-	lst={};
+getListOfAnnotations[xml_]:=Module[{annotations,compartments,specs,rxns,kineticLaws,rawParam,parameters,rules,miriamList},
 
 	(* Get model annotations *)
-	xml/.XMLElement["model",{___,"id"->id_,___},
-		{___,XMLElement["annotation",{},
-			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
-		],___}
-	]:>AppendTo[lst,{id,a/.{"is"->"is (model)","isDescribedBy"->"isDescribedBy (model)"}}];
+	annotations ={{"id"/.extractXMLelement[xml,"model",1],extractAnnotation[xml,5]}};
 
-	(* Get all compartment annotations *)
-	xml/.XMLElement["compartment",{___,"id"->id_,___},
-		{___,XMLElement["annotation",{},
-			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
-		],___}
-	]:>AppendTo[lst,{id,a}];
+	(* Compartment annotations *)
+	compartments=extractXMLelement[xml,"listOfCompartments",2,{5}];
+	annotations=Join[annotations,{"id"/.#[[2]],extractAnnotation[#,2]}&/@compartments];
 
-	(* Get all species annotations *)
-	xml/.XMLElement["species",({___,"id"->id_,___,"compartment"->comp_,___}|{___,"compartment"->comp_,___,"id"->id_,___}),
-		{___,XMLElement["annotation",{},
-			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
-		],___}
-	]:>AppendTo[lst,{species[id,comp],a}];
+	(* Species annotations *)
+	specs=extractXMLelement[xml,"listOfSpecies",2,{5}];
+	annotations=Join[annotations,{species["id"/.#[[2]],"compartment"/.#[[2]]],extractAnnotation[#,2]}&/@specs];
 
-	(* Get all reaction annotations *)
-	xml/.XMLElement["reaction",{___,"id"->id_,___},
-		{___,XMLElement["annotation",{},
-			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
-		],___}
-	]:>AppendTo[lst,{v[id],a}];
+	(* Reaction annotations *)
+	rxns=extractXMLelement[xml,"listOfReactions",2,{5}];
+	annotations=Join[annotations,{v["id"]/.#[[2]],extractAnnotation[#,2]}&/@rxns];
+
+	(* Kinetic Law annotations *)
+	kineticLaws={("id"/.#[[2]])<>" (rate law)",extractXMLelement[#,"kineticLaw",0,{2}][[1]]}&/@rxns;
+	annotations=Join[annotations,{#[[1]],extractAnnotation[#[[2]],2]}&/@kineticLaws];
+
+	(* Parameter annotations *)
+	rawParam=Thread[{("id"/.#[[2]]),extractXMLelement[#,"parameter",0]}]&/@rxns;
+	parameters={parameter["id"/.#[[2,2]],#[[1]]],#[[2]]}&/@Flatten[rawParam,1];
+	annotations=Join[annotations,{#[[1]],extractAnnotation[#[[2]],2]}&/@parameters];
+
+	(* Rule annotations *)
+	rules=extractXMLelement[xml,"listOfRules",2,{5}];
+	annotations=Join[annotations,{(("id"/.#[[2]])<>" (rule)")/."id (rule)"->"Custom Rule",extractAnnotation[#,2]}&/@rules];
+
+	(* Event annotations *)
+	rules=extractXMLelement[xml,"listOfEvents",2,{5}];
+	annotations=Join[annotations,{("id"/.#[[2]])/."id"->"Event",extractAnnotation[#,2]}&/@rules];
 
 	miriamList=(#[[1]]->
 		Select[#[[2,3]],
@@ -397,9 +400,9 @@ getListOfAnnotations[xml_]:=Module[{lst,miriamList},
 				{___}
 			]]&
 		]
-	)&/@lst;
+	)&/@DeleteCases[annotations,{_,{}}];
 
-	miriamList=DeleteCases[miriamList/.{_String,x_String}:>x,_->{}];
+	miriamList=miriamList/.{_String,x_String}:>x;
 	First[#]->formatRawAnnotation[Last[#]]&/@miriamList
 ];
 
@@ -407,6 +410,15 @@ getListOfAnnotations[xml_]:=Module[{lst,miriamList},
 formatRawAnnotation[miriam_List]:=Module[{raw},
 	raw=First[#]->#[[3,1,3]]&/@miriam;
 	raw/.XMLElement["li",{"resource"->x_},{}]:>x
+];
+
+
+extractAnnotation[xml_,level_Integer]:=Module[{annotation},
+	annotation=extractXMLelement[xml,"annotation",2,{level}];
+	If[annotation=={},
+		{},
+		annotation[[1,3,1]]
+	]
 ];
 
 
