@@ -322,7 +322,7 @@ getKineticLaw[XMLElement["kineticLaw",attrVal:{_Rule...},data_List],rxnID_String
 ];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*parameters*)
 
 
@@ -359,7 +359,7 @@ getParameterValues[listOfParameters:{((_parameter|_parameter[t])->_List)...},uni
 (*annotations*)
 
 
-getListOfAnnotations[xml_]:=Module[{annotations,compartments,specs,rxns,kineticLaws,rawParam,parameters,rules,miriamList},
+getListOfAnnotations[xml_]:=Module[{annotations,compartments,specs,rxns,kineticLaws,globalParam,rawParam,parameters,rules,miriamList},
 
 	(* Get model annotations *)
 	annotations ={{"id"/.extractXMLelement[xml,"model",1],extractAnnotation[xml,5]}};
@@ -380,7 +380,11 @@ getListOfAnnotations[xml_]:=Module[{annotations,compartments,specs,rxns,kineticL
 	kineticLaws={("id"/.#[[2]])<>" (rate law)",extractXMLelement[#,"kineticLaw",0,{2}][[1]]}&/@rxns;
 	annotations=Join[annotations,{#[[1]],extractAnnotation[#[[2]],2]}&/@kineticLaws];
 
-	(* Parameter annotations *)
+	(* Global parameter annotations *)
+	globalParam=extractXMLelement[xml,"listOfParameters",2,{5}];
+	annotations=Join[annotations,{parameter["id"/.#[[2]]],extractAnnotation[#,2]}&/@globalParam];
+
+	(* Local parameter annotations *)
 	rawParam=Thread[{("id"/.#[[2]]),extractXMLelement[#,"parameter",0]}]&/@rxns;
 	parameters={parameter["id"/.#[[2,2]],#[[1]]],#[[2]]}&/@Flatten[rawParam,1];
 	annotations=Join[annotations,{#[[1]],extractAnnotation[#[[2]],2]}&/@parameters];
@@ -402,7 +406,7 @@ getListOfAnnotations[xml_]:=Module[{annotations,compartments,specs,rxns,kineticL
 		]
 	)&/@DeleteCases[annotations,{_,{}}];
 
-	miriamList=miriamList/.{_String,x_String}:>x;
+	miriamList=DeleteCases[miriamList/.{_String,x_String}:>x,_->{}];
 	First[#]->formatRawAnnotation[Last[#]]&/@miriamList
 ];
 
@@ -708,7 +712,7 @@ model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,un
 	AppendTo[listOfStuff,XMLElement["listOfSpecies", {}, species2sbml[#,model,unitRules,OptionValue["Annotations"]]&/@species]];
 
 	(* Parameters *)
-	AppendTo[listOfStuff,XMLElement["listOfParameters",{},parameter2sbml[#,model,unitRules]&/@params]];
+	AppendTo[listOfStuff,XMLElement["listOfParameters",{},parameter2sbml[#,model,unitRules,OptionValue["Annotations"]]&/@params]];
 
 	(* Reactions *)
 	AppendTo[listOfStuff,
@@ -722,7 +726,7 @@ model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,un
 	];
 
 	If[model["Events"]!={},
-		AppendTo[listOfStuff,XMLElement["listOfEvents",{},event2sbml[#,model]&/@model["Events"]]]
+		AppendTo[listOfStuff,XMLElement["listOfEvents",{},event2sbml[#,model,OptionValue["Annotations"]]&/@model["Events"]]]
 	];
 
 	If[OptionValue["FBC"],
@@ -840,12 +844,18 @@ species2sbml[spec_,model_MASSmodel,unitRules:{_Rule...},miriam_?BooleanQ]:=Modul
 ]
 
 
-parameter2sbml[param_,model_MASSmodel,unitRules:{_Rule...}]:=Module[{name,value,units,constant},
+parameter2sbml[param_,model_MASSmodel,unitRules:{_Rule...},miriam_?BooleanQ]:=Module[{name,value,units,constant},
 	If[MemberQ[First/@model["InitialConditions"],param[[1]]],constant="false",constant="true"];
 	name=ToString[param[[1]],"SBML"];
 	value = ToString[stripUnits[param[[2]]],"SBML"];
 	units = QuantityUnit[param[[2]]]/.unitRules;
-	XMLElement["parameter",{"id"->name,"name"->name,"value"->value,"units"->units,"constant"->constant},{}]
+	XMLElement["parameter",
+		{"id"->name,"name"->name,"value"->value,"units"->units,"constant"->constant},
+		If[miriam,
+			{annotations2sbml[model,parameter[name]]},
+			{}
+		]
+	]
 ]
 
 
@@ -857,7 +867,29 @@ reaction2sbml[rxn_,model_MASSmodel,ratemapping_List,params_List,unitRules:{_Rule
 		stripTime[customLaw]/.(pat:Join[$MASS$speciesPattern,$MASS$parametersPattern]:>ToString[pat,"SBML"])
 	];
 	xmlLaw = ImportString[ExportString[law,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]];
-	localParams =XMLElement["listOfLocalParameters",{},XMLElement["localParameter",{"id"->First[#],"name"->First[#],"value"->If[MatchQ[Last[#],_String],Last[#],ToString[QuantityMagnitude[Last[#]],"SBML"]],"units"->If[MatchQ[Last[#],_String],"Dimensionless",QuantityUnit[Last[#]]/.unitRules]},{}]&/@params];
+	localParams = XMLElement["listOfLocalParameters",
+		{},
+		XMLElement["localParameter",
+			{"id"->First[#],
+				"name"->First[#],
+				"value"->If[
+					MatchQ[Last[#],_String],
+					Last[#],
+					ToString[QuantityMagnitude[Last[#]],"SBML"]
+				],
+				"units"->If[
+					MatchQ[Last[#],_String],
+					"Dimensionless",
+					QuantityUnit[Last[#]]/.unitRules
+				]
+			},
+			If[miriam,
+				{annotations2sbml[model,parameter[First[#],id]]},
+				{}
+			]
+		]&/@params
+	];
+
 	XMLElement["reaction",{"id"->id,"name"->id,"reversible"->ToLowerCase@ToString@reversibleQ[rxn],"fast"->"false"},
 		{If[miriam,
 			annotations2sbml[model,v[getID[rxn]]],
@@ -889,22 +921,33 @@ customODE2sbml[ode_,model_MASSmodel]:=Module[{rule,variable},
 ];
 
 
-event2sbml[name_->event_,model_MASSmodel]:=Module[{trigger,mltrigger},
+event2sbml[name_->event_,model_MASSmodel,miriam_?BooleanQ]:=Module[{trigger,mltrigger},
 	trigger = stripTime[event[[1]]]/.{x:$MASS$parametersPattern|$MASS$speciesPattern:>ToString[x,"SBML"]};
 	mltrigger = ImportString[ExportString[trigger,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]];
 	
+	If[miriam,
+			{annotations2sbml[model,parameter[name]]},
+			{}
+	];
+
 	XMLElement["event",
 		{"id"->name,"name"->name,"useValuesFromTriggerTime"->"true"},
-		{XMLElement["trigger",{"initialValue"->"true","persistent"->"true"},{mltrigger}],
-			XMLElement["listOfEventAssignments",{},
-				MapThread[
-					XMLElement["eventAssignment",{"variable"->ToString[stripTime[#1],"SBML"]},
-						{ImportString[ExportString[#2,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]]}
-					]&,
-					{event[[2,1]],event[[2,2]]}
+		Join[
+			{XMLElement["trigger",{"initialValue"->"true","persistent"->"true"},{mltrigger}],
+				XMLElement["listOfEventAssignments",{},
+					MapThread[
+						XMLElement["eventAssignment",{"variable"->ToString[stripTime[#1],"SBML"]},
+							{ImportString[ExportString[#2,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]]}
+						]&,
+						{event[[2,1]],event[[2,2]]}
+					]
 				]
+			},
+			If[miriam,
+				{annotations2sbml[model,name]},
+				{}
 			]
-		}
+		]
 	]
 ];
 
