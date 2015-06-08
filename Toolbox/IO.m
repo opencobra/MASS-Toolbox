@@ -796,14 +796,14 @@ compartments2sbml[comp_,model_MASSmodel,unitRules:{_Rule...},miriam_?BooleanQ]:=
 				volume = parameter["Volume",comp]/.model["Parameters"];
 				size = ToString[QuantityMagnitude[volume],"SBML"];
 				units = QuantityUnit[volume]/.mathematica2SBMLBaseUnit;
-				rules={"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->units/.unitRules,"size"->size,"constant"->"true"}
+				rules={"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->Replace[units,unitRules],"size"->size,"constant"->"true"}
 			],
 		MemberQ[#[[1,0]]&/@model["CustomODE"]/.Derivative[1][x_]:>x,parameter["Volume",comp]],
 			Module[{volume,size,units},
 				volume = parameter["Volume",comp]/.model["InitialConditions"];
 				size = ToString[QuantityMagnitude[volume],"SBML"];
 				units = QuantityUnit[volume]/.mathematica2SBMLBaseUnit;
-				rules={"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->units/.unitRules,"size"->size,"constant"->"false"}
+				rules={"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->Replace[units,unitRules],"size"->size,"constant"->"false"}
 			],
 		True,
 			rules = {"id"->comp,"name"->comp,"spatialDimensions"->"3"}
@@ -824,7 +824,7 @@ species2sbml[spec_,model_MASSmodel,unitRules:{_Rule...},miriam_?BooleanQ]:=Modul
 	comp = getCompartment[spec];
 	If[comp=!=None,
 		AppendTo[rules,"compartment"->getCompartment[spec]];
-		substanceUnits=QuantityUnit[(spec/.model["InitialConditions"])*(parameter["Volume",getCompartment[spec]]/.Join[model["Parameters"],model["InitialConditions"]])]/.unitRules;
+		substanceUnits=Replace[QuantityUnit[(spec/.model["InitialConditions"])*(parameter["Volume",getCompartment[spec]]/.Join[model["Parameters"],model["InitialConditions"]])],unitRules];
 		If[MatchQ[substanceUnits,_String],AppendTo[rules,"substanceUnits"->substanceUnits]]
 	];
 
@@ -848,7 +848,7 @@ parameter2sbml[param_,model_MASSmodel,unitRules:{_Rule...},miriam_?BooleanQ]:=Mo
 	If[MemberQ[First/@model["InitialConditions"],param[[1]]],constant="false",constant="true"];
 	name=ToString[param[[1]],"SBML"];
 	value = ToString[stripUnits[param[[2]]],"SBML"];
-	units = QuantityUnit[param[[2]]]/.unitRules;
+	units = Replace[QuantityUnit[param[[2]]],unitRules];
 	XMLElement["parameter",
 		{"id"->name,"name"->name,"value"->value,"units"->units,"constant"->constant},
 		If[miriam,
@@ -880,7 +880,7 @@ reaction2sbml[rxn_,model_MASSmodel,ratemapping_List,params_List,unitRules:{_Rule
 				"units"->If[
 					MatchQ[Last[#],_String],
 					"Dimensionless",
-					QuantityUnit[Last[#]]/.unitRules
+					Replace[QuantityUnit[Last[#]],unitRules]
 				]
 			},
 			If[miriam,
