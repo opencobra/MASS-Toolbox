@@ -76,7 +76,7 @@ simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve,Parametric
 		If[OptionValue["Parallel"],
 			equations={ParallelMap[(#//.parameters)&,ode,DistributedContexts->{"Private`"}],initialConditions//.parameters,events//.parameters},
 			equations={ode,initialConditions,events}//.parameters;
-		]
+		];
 
 
 		(*Set initial history functions for variables that are involved with delays*)
