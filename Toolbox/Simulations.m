@@ -32,7 +32,6 @@ simulate::BadOptions="ParametricSolve cannot be run at the same time as ExactSol
 
 simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve,ParametricNDSolve}]]:=
 	Module[{repl,ode,events,initialConditions,allConstants,missingParam,parameters,equations,solution,fluxSolution,tStart,tFinal,vars,units,ic,dsolveSol,rawSolution,simParam},
-		
 		(* Initialize kernels for parallel evaluation *)
 		If[OptionValue["Parallel"],
 			Quiet@initializeKernels[]
@@ -116,7 +115,7 @@ parametricSimulate[model_MASSmodel,equations_List,parameters_List,missingParam_L
 			Message[simulate::ParametricNDSolveProblem];Abort[];
 		];
 		(* Format the results into a simulation output, and add the parameters to the end *)
-		Append[formatResults[rawSolution,model,parameters,units],missingParam]
+		Append[formatResults[rawSolution,model,parameters,units,opts],missingParam]
 
 	]
 
@@ -143,15 +142,14 @@ solveSimulate[model_MASSmodel,equations_List,parameters_List,missingParam_List,t
 				{NDSolve::ndode,NDSolve::idelay,NDSolve::icfail,NDSolve::nderr,NDSolve::underdet,NDSolve::overdet,NDSolve::ndinnt}
 			]
 		];
-		
+
 		If[Head[rawSolution]===DSolve,
 			Message[simulate::DSolveProblem];Abort[]
 		];
 		(*Run NDSolve and check for missing parameter values if NDSolve::ndnum is raised*)
 		(*catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;*)
 		(*catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;*)
-
-		formatResults[rawSolution[[1]],model,parameters,units]
+		formatResults[rawSolution[[1]],model,parameters,units,opts]
 	];
 
 
@@ -161,7 +159,12 @@ formatResults[rawSolution_,model_,parameters_,units_,opts:OptionsPattern[{simula
 	Module[{solution,fluxSolution},
 		(* Format output of Solver into simulation output *)
 		solution=#[[1]]->(#[[2]] (#[[1]][[0]]/.Dispatch[units]))&/@rawSolution;
-		fluxSolution=Thread[Rule[model["Fluxes"],getRates[model,"Parameters"->parameters]/.parameters/.solution]];
+		If[OptionValue["Parallel"],
+			fluxSolution=Thread[Rule[model["Fluxes"],
+				ParallelMap[#&/.Dispatch[parameters]/.Dispatch[solution],getRates[model,"Parameters"->parameters],DistributedContexts->{"Private`"}]
+			]],
+			fluxSolution=Thread[Rule[model["Fluxes"],getRates[model,"Parameters"->parameters]/.Dispatch[parameters]/.Dispatch[solution]]]
+		];
 		solution=#[[1]]/.m_[t]:>m->#[[2]]&/@solution;
 		solution=Switch[OptionValue["SpeciesProfiles"],
 			"Concentrations",solution(*/.r_Rule/;MatchQ[r[[1]],$MASS$speciesPattern]:>r[[1]]->r[[2]]*),
