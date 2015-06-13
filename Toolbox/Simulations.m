@@ -18,7 +18,7 @@ Needs["DifferentialEquations`InterpolatingFunctionAnatomy`"]
 (*simulate*)
 
 
-Options[simulate]={"InitialConditions"->{},"Parameters"->{},"Events"->{},"tFinal"->Infinity,"tStart"->0,"SpeciesProfiles"->"Concentrations","ExactSolve"->False,"ParametricSolve"->False,"SimulationParameters"->{}};
+Options[simulate]={"InitialConditions"->{},"Parameters"->{},"Events"->{},"tFinal"->Infinity,"tStart"->0,"SpeciesProfiles"->"Concentrations","ExactSolve"->False,"ParametricSolve"->False,"SimulationParameters"->{},"Parallel"->False};
 simulate::missingIC="Missing initial conditions encountered for `1`.";
 simulate::missingParam="Missing parameter values encountered for `1`.";
 simulate::specProfile="The option \"SpeciesProfiles\" can be specified either as \"Concentrations\" or \"Particles\" but not as `1`";
@@ -32,7 +32,12 @@ simulate::BadOptions="ParametricSolve cannot be run at the same time as ExactSol
 
 simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve,ParametricNDSolve}]]:=
 	Module[{repl,ode,events,initialConditions,allConstants,missingParam,parameters,equations,solution,fluxSolution,tStart,tFinal,vars,units,ic,dsolveSol,rawSolution,simParam},
-
+		
+		(* Initialize kernels for parallel evaluation *)
+		If[OptionValue["Parallel"],
+			Quiet@initializeKernels[]
+		];
+		
 		(* Get model information *)
 		parameters=updateRules[model["Parameters"],adjustUnits[OptionValue["Parameters"],model]];
 		ode=getODE[model,"Parameters"->parameters];
@@ -68,7 +73,11 @@ simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve,Parametric
 		]&[stripUnits@ic];
 
 		(* Substitute parameters *)
-		equations={ode,initialConditions,events}//.parameters;
+		If[OptionValue["Parallel"],
+			equations={ParallelMap[(#//.parameters)&,ode,DistributedContexts->{"Private`"}],initialConditions//.parameters,events//.parameters},
+			equations={ode,initialConditions,events}//.parameters;
+		]
+
 
 		(*Set initial history functions for variables that are involved with delays*)
 		repl=(#[0]==val_)->#[t/;t<=0]==val&/@Union[Cases[equations,_[t+_],\[Infinity]][[All,0]]];
