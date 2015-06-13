@@ -322,7 +322,7 @@ getKineticLaw[XMLElement["kineticLaw",attrVal:{_Rule...},data_List],rxnID_String
 ];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*parameters*)
 
 
@@ -359,36 +359,43 @@ getParameterValues[listOfParameters:{((_parameter|_parameter[t])->_List)...},uni
 (*annotations*)
 
 
-getListOfAnnotations[xml_]:=Module[{lst,miriamList},
-	lst={};
+getListOfAnnotations[xml_]:=Module[{annotations,compartments,specs,rxns,kineticLaws,globalParam,rawParam,parameters,rules,miriamList},
 
 	(* Get model annotations *)
-	xml/.XMLElement["model",{___,"id"->id_,___},
-		{___,XMLElement["annotation",{},
-			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
-		],___}
-	]:>AppendTo[lst,{id,a/.{"is"->"is (model)","isDescribedBy"->"isDescribedBy (model)"}}];
+	annotations ={{"id"/.extractXMLelement[xml,"model",1],extractAnnotation[xml,5]}};
 
-	(* Get all compartment annotations *)
-	xml/.XMLElement["compartment",{___,"id"->id_,___},
-		{___,XMLElement["annotation",{},
-			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
-		],___}
-	]:>AppendTo[lst,{id,a}];
+	(* Compartment annotations *)
+	compartments=extractXMLelement[xml,"listOfCompartments",2,{5}];
+	annotations=Join[annotations,{"id"/.#[[2]],extractAnnotation[#,2]}&/@compartments];
 
-	(* Get all species annotations *)
-	xml/.XMLElement["species",({___,"id"->id_,___,"compartment"->comp_,___}|{___,"compartment"->comp_,___,"id"->id_,___}),
-		{___,XMLElement["annotation",{},
-			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
-		],___}
-	]:>AppendTo[lst,{species[id,comp],a}];
+	(* Species annotations *)
+	specs=extractXMLelement[xml,"listOfSpecies",2,{5}];
+	annotations=Join[annotations,{species["id"/.#[[2]],"compartment"/.#[[2]]],extractAnnotation[#,2]}&/@specs];
 
-	(* Get all reaction annotations *)
-	xml/.XMLElement["reaction",{___,"id"->id_,___},
-		{___,XMLElement["annotation",{},
-			{___,XMLElement[{_,"RDF"},{___},{a___}],___}
-		],___}
-	]:>AppendTo[lst,{v[id],a}];
+	(* Reaction annotations *)
+	rxns=extractXMLelement[xml,"listOfReactions",2,{5}];
+	annotations=Join[annotations,{v["id"]/.#[[2]],extractAnnotation[#,2]}&/@rxns];
+
+	(* Kinetic Law annotations *)
+	kineticLaws={("id"/.#[[2]])<>" (rate law)",extractXMLelement[#,"kineticLaw",0,{2}][[1]]}&/@rxns;
+	annotations=Join[annotations,{#[[1]],extractAnnotation[#[[2]],2]}&/@kineticLaws];
+
+	(* Global parameter annotations *)
+	globalParam=extractXMLelement[xml,"listOfParameters",2,{5}];
+	annotations=Join[annotations,{parameter["id"/.#[[2]]],extractAnnotation[#,2]}&/@globalParam];
+
+	(* Local parameter annotations *)
+	rawParam=Thread[{("id"/.#[[2]]),extractXMLelement[#,"parameter",0]}]&/@rxns;
+	parameters={parameter["id"/.#[[2,2]],#[[1]]],#[[2]]}&/@Flatten[rawParam,1];
+	annotations=Join[annotations,{#[[1]],extractAnnotation[#[[2]],2]}&/@parameters];
+
+	(* Rule annotations *)
+	rules=extractXMLelement[xml,"listOfRules",2,{5}];
+	annotations=Join[annotations,{(("id"/.#[[2]])<>" (rule)")/."id (rule)"->"Custom Rule",extractAnnotation[#,2]}&/@rules];
+
+	(* Event annotations *)
+	rules=extractXMLelement[xml,"listOfEvents",2,{5}];
+	annotations=Join[annotations,{("id"/.#[[2]])/."id"->"Event",extractAnnotation[#,2]}&/@rules];
 
 	miriamList=(#[[1]]->
 		Select[#[[2,3]],
@@ -397,7 +404,7 @@ getListOfAnnotations[xml_]:=Module[{lst,miriamList},
 				{___}
 			]]&
 		]
-	)&/@lst;
+	)&/@DeleteCases[annotations,{_,{}}];
 
 	miriamList=DeleteCases[miriamList/.{_String,x_String}:>x,_->{}];
 	First[#]->formatRawAnnotation[Last[#]]&/@miriamList
@@ -407,6 +414,15 @@ getListOfAnnotations[xml_]:=Module[{lst,miriamList},
 formatRawAnnotation[miriam_List]:=Module[{raw},
 	raw=First[#]->#[[3,1,3]]&/@miriam;
 	raw/.XMLElement["li",{"resource"->x_},{}]:>x
+];
+
+
+extractAnnotation[xml_,level_Integer]:=Module[{annotation},
+	annotation=extractXMLelement[xml,"annotation",2,{level}];
+	If[annotation=={},
+		{},
+		annotation[[1,3,1]]
+	]
 ];
 
 
@@ -696,7 +712,7 @@ model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,un
 	AppendTo[listOfStuff,XMLElement["listOfSpecies", {}, species2sbml[#,model,unitRules,OptionValue["Annotations"]]&/@species]];
 
 	(* Parameters *)
-	AppendTo[listOfStuff,XMLElement["listOfParameters",{},parameter2sbml[#,model,unitRules]&/@params]];
+	AppendTo[listOfStuff,XMLElement["listOfParameters",{},parameter2sbml[#,model,unitRules,OptionValue["Annotations"]]&/@params]];
 
 	(* Reactions *)
 	AppendTo[listOfStuff,
@@ -710,7 +726,7 @@ model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,un
 	];
 
 	If[model["Events"]!={},
-		AppendTo[listOfStuff,XMLElement["listOfEvents",{},event2sbml[#,model]&/@model["Events"]]]
+		AppendTo[listOfStuff,XMLElement["listOfEvents",{},event2sbml[#,model,OptionValue["Annotations"]]&/@model["Events"]]]
 	];
 
 	If[OptionValue["FBC"],
@@ -780,14 +796,14 @@ compartments2sbml[comp_,model_MASSmodel,unitRules:{_Rule...},miriam_?BooleanQ]:=
 				volume = parameter["Volume",comp]/.model["Parameters"];
 				size = ToString[QuantityMagnitude[volume],"SBML"];
 				units = QuantityUnit[volume]/.mathematica2SBMLBaseUnit;
-				rules={"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->units/.unitRules,"size"->size,"constant"->"true"}
+				rules={"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->Replace[units,unitRules],"size"->size,"constant"->"true"}
 			],
 		MemberQ[#[[1,0]]&/@model["CustomODE"]/.Derivative[1][x_]:>x,parameter["Volume",comp]],
 			Module[{volume,size,units},
 				volume = parameter["Volume",comp]/.model["InitialConditions"];
 				size = ToString[QuantityMagnitude[volume],"SBML"];
 				units = QuantityUnit[volume]/.mathematica2SBMLBaseUnit;
-				rules={"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->units/.unitRules,"size"->size,"constant"->"false"}
+				rules={"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->Replace[units,unitRules],"size"->size,"constant"->"false"}
 			],
 		True,
 			rules = {"id"->comp,"name"->comp,"spatialDimensions"->"3"}
@@ -808,7 +824,7 @@ species2sbml[spec_,model_MASSmodel,unitRules:{_Rule...},miriam_?BooleanQ]:=Modul
 	comp = getCompartment[spec];
 	If[comp=!=None,
 		AppendTo[rules,"compartment"->getCompartment[spec]];
-		substanceUnits=QuantityUnit[(spec/.model["InitialConditions"])*(parameter["Volume",getCompartment[spec]]/.Join[model["Parameters"],model["InitialConditions"]])]/.unitRules;
+		substanceUnits=Replace[QuantityUnit[(spec/.model["InitialConditions"])*(parameter["Volume",getCompartment[spec]]/.Join[model["Parameters"],model["InitialConditions"]])],unitRules];
 		If[MatchQ[substanceUnits,_String],AppendTo[rules,"substanceUnits"->substanceUnits]]
 	];
 
@@ -828,12 +844,18 @@ species2sbml[spec_,model_MASSmodel,unitRules:{_Rule...},miriam_?BooleanQ]:=Modul
 ]
 
 
-parameter2sbml[param_,model_MASSmodel,unitRules:{_Rule...}]:=Module[{name,value,units,constant},
+parameter2sbml[param_,model_MASSmodel,unitRules:{_Rule...},miriam_?BooleanQ]:=Module[{name,value,units,constant},
 	If[MemberQ[First/@model["InitialConditions"],param[[1]]],constant="false",constant="true"];
 	name=ToString[param[[1]],"SBML"];
 	value = ToString[stripUnits[param[[2]]],"SBML"];
-	units = QuantityUnit[param[[2]]]/.unitRules;
-	XMLElement["parameter",{"id"->name,"name"->name,"value"->value,"units"->units,"constant"->constant},{}]
+	units = Replace[QuantityUnit[param[[2]]],unitRules];
+	XMLElement["parameter",
+		{"id"->name,"name"->name,"value"->value,"units"->units,"constant"->constant},
+		If[miriam,
+			{annotations2sbml[model,parameter[name]]},
+			{}
+		]
+	]
 ]
 
 
@@ -845,7 +867,29 @@ reaction2sbml[rxn_,model_MASSmodel,ratemapping_List,params_List,unitRules:{_Rule
 		stripTime[customLaw]/.(pat:Join[$MASS$speciesPattern,$MASS$parametersPattern]:>ToString[pat,"SBML"])
 	];
 	xmlLaw = ImportString[ExportString[law,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]];
-	localParams =XMLElement["listOfLocalParameters",{},XMLElement["localParameter",{"id"->First[#],"name"->First[#],"value"->If[MatchQ[Last[#],_String],Last[#],ToString[QuantityMagnitude[Last[#]],"SBML"]],"units"->If[MatchQ[Last[#],_String],"Dimensionless",QuantityUnit[Last[#]]/.unitRules]},{}]&/@params];
+	localParams = XMLElement["listOfLocalParameters",
+		{},
+		XMLElement["localParameter",
+			{"id"->First[#],
+				"name"->First[#],
+				"value"->If[
+					MatchQ[Last[#],_String],
+					Last[#],
+					ToString[QuantityMagnitude[Last[#]],"SBML"]
+				],
+				"units"->If[
+					MatchQ[Last[#],_String],
+					"Dimensionless",
+					Replace[QuantityUnit[Last[#]],unitRules]
+				]
+			},
+			If[miriam,
+				{annotations2sbml[model,parameter[First[#],id]]},
+				{}
+			]
+		]&/@params
+	];
+
 	XMLElement["reaction",{"id"->id,"name"->id,"reversible"->ToLowerCase@ToString@reversibleQ[rxn],"fast"->"false"},
 		{If[miriam,
 			annotations2sbml[model,v[getID[rxn]]],
@@ -877,22 +921,33 @@ customODE2sbml[ode_,model_MASSmodel]:=Module[{rule,variable},
 ];
 
 
-event2sbml[name_->event_,model_MASSmodel]:=Module[{trigger,mltrigger},
+event2sbml[name_->event_,model_MASSmodel,miriam_?BooleanQ]:=Module[{trigger,mltrigger},
 	trigger = stripTime[event[[1]]]/.{x:$MASS$parametersPattern|$MASS$speciesPattern:>ToString[x,"SBML"]};
 	mltrigger = ImportString[ExportString[trigger,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]];
 	
+	If[miriam,
+			{annotations2sbml[model,parameter[name]]},
+			{}
+	];
+
 	XMLElement["event",
 		{"id"->name,"name"->name,"useValuesFromTriggerTime"->"true"},
-		{XMLElement["trigger",{"initialValue"->"true","persistent"->"true"},{mltrigger}],
-			XMLElement["listOfEventAssignments",{},
-				MapThread[
-					XMLElement["eventAssignment",{"variable"->ToString[stripTime[#1],"SBML"]},
-						{ImportString[ExportString[#2,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]]}
-					]&,
-					{event[[2,1]],event[[2,2]]}
+		Join[
+			{XMLElement["trigger",{"initialValue"->"true","persistent"->"true"},{mltrigger}],
+				XMLElement["listOfEventAssignments",{},
+					MapThread[
+						XMLElement["eventAssignment",{"variable"->ToString[stripTime[#1],"SBML"]},
+							{ImportString[ExportString[#2,"MathML","Annotations"->{},"Presentation"->False,"Content"->True],"XML"][[2]]}
+						]&,
+						{event[[2,1]],event[[2,2]]}
+					]
 				]
+			},
+			If[miriam,
+				{annotations2sbml[model,name]},
+				{}
 			]
-		}
+		]
 	]
 ];
 
@@ -1003,7 +1058,7 @@ eQuilibratorReactionData[query_]:=eQuilibratorAPI[query,"http://equilibrator.wei
 
 model2escher[model_MASSmodel]:=Module[{reactionList,metList},
 	reactionList = {"subsystem"->"","name"->getID[#],"upper_bound"->1000, "lower_bound"-> -1000, "notes"->{}, "metabolites"->reactionMets2escher[#], "objective_coefficient"->0, "variable_kind"->"continuous", "id"->getID[#],"gene_reaction_rule"->""}&/@model["Reactions"];
-	metList = {"name"->ToString[#],"notes"->"{}", "annotation"->"{}", "_constraint_sense"->"E", "charge"->"0", "_bound"->"0.0", "formula"->elementalComposition2formula[#/.getElementalComposition[model]], "compartment"->ToString[getCompartment[#]],"id"->ToString[#]}&/@model["Species"];
+	metList = {"name"->ToString[#],"notes"->"{}", "annotation"->"{}", "_constraint_sense"->"E", "charge"->"0", "_bound"->"0.0", "formula"->"", "compartment"->ToString[getCompartment[#]],"id"->ToString[#]}&/@model["Species"];
 	{"reactions"->reactionList, "description"->getName[model], "notes"->{}, "genes"->{}, "metabolites"->metList,"id"->getID[model]}
 ];
 
