@@ -447,7 +447,8 @@ drawPathway[metPos:{_Rule..},rxnPos:{_Rule..},textPos:({(_Text|_Rule|_Style)..}|
 (*Node maps*)
 
 
-distributeSinks[sinks_List/;Length[sinks]===1]:=Thread[sinks->{{1,0}}]
+distributeSinks[sinks_List/;Length[sinks]==0]:={};
+distributeSinks[sinks_List/;Length[sinks]==1]:=Thread[sinks->{{1,0}}]
 distributeSinks[sinks_List]:=Module[{num,start,end,interval},
 	num=Length[sinks];
 	start=Pi/Max[{num,3}];
@@ -455,6 +456,7 @@ distributeSinks[sinks_List]:=Module[{num,start,end,interval},
 	interval=(end-start)/(If[#===0,1,#]&[num-1]);
 	Thread[sinks->({Sin[#],Cos[#]}&/@NestList[interval+#1&,start,num-1])]
 ];
+distributeSources[sources_List/;Length[sources]==0]:={};
 distributeSources[sources_List/;Length[sources]==1]:=Thread[sources->{{-1,0}}]
 distributeSources[sources_List]:=Module[{num,start,end,interval},
 	num=Length[sources];
@@ -472,24 +474,24 @@ nodeMapCoordinates[nodeMap:{{_Rule,(_?NumberQ|_Quantity)}...}]:=Module[{sortedNo
 ];
 
 
-Options[drawNodeMaps]={"Fluxes"->{},"Metabolites"->{},ColorFunction->ColorData["Rainbow"],"Legend"->False,ImageSize->600};
+Options[drawNodeMaps]={"Fluxes"->{},"Species"->{},ColorFunction->ColorData["Rainbow"],"Legend"->False,ImageSize->600};
 drawNodeMaps[model_MASSmodel,opts:OptionsPattern[{drawNodeMaps,GraphPlot}]]:=Module[{unitlessFluxes,stoichRules,minFlux,maxFlux,colorFunction,activeFluxes,directions,bip,activeBip,nodeMapGraphs,edgeThicknesses,colorValues,edgeRenderingFunc,nodeRenderingFunc,metabolites,legendFunc,netFluxes},
-	If[!MatchQ[OptionValue["Metabolites"],{_metabolite...}],Message[drawNodeMaps::InvalidOption,"Metabolites"];Abort[]];
+	If[!MatchQ[OptionValue["Species"],{$MASS$speciesPattern...}],Message[drawNodeMaps::InvalidOption,"Species"];Abort[]];
 	If[!MatchQ[OptionValue["Fluxes"],{(_v->(_?NumberQ|_Quantity))...}],Message[drawNodeMaps::InvalidOption,"Fluxes"];Abort[]];
 	stoichRules={model["Species"][[#[[1,1]]]],model["Fluxes"][[#[[1,2]]]]}->Abs[#[[2]]]&/@ArrayRules[model["SparseStoichiometry"]][[;;-2]];
 	colorFunction=If[OptionValue["Fluxes"]==={},Black&,OptionValue["ColorFunction"]];
 	netFluxes=Thread[model["Species"]->model.model["Fluxes"]];
-	metabolites=If[OptionValue["Metabolites"]==={},model["Species"],OptionValue["Metabolites"]];
+	metabolites=If[OptionValue["Species"]==={},model["Species"],OptionValue["Species"]];
 	activeFluxes=If[OptionValue["Fluxes"]==={},Thread[model["Fluxes"]->0],OptionValue["Fluxes"]];
 	unitlessFluxes=stripUnits[activeFluxes];
 	directions=#[[1]]->If[#[[2]]<0,"Reverse","Forward"]&/@unitlessFluxes;
 	(*Generate a bipartite network representation of model; each edge contains the direction as a label: {{v -> m}}*)
 	bip=model2bipartite[model,"EdgeDirections"->True];
 	(*Get rid of edges that don't contain metabolites of interest*)
-	bip=Select[bip,MemberQ[#,Alternatives@@metabolites,\[Infinity]]&];
+	bip=Select[bip,MemberQ[#,Alternatives@@metabolites,2]&];
 	activeBip=Select[bip,(Cases[#,_v,\[Infinity]][[1]]/.Dispatch[directions])==#[[2]]&];
 	nodeMapGraphs=SortBy[Select[#->Cases[activeBip,r_Rule/;MemberQ[r,#],\[Infinity]]&/@metabolites,#[[2]]!={}&],-Length[#[[2]]]&];
-	nodeMapGraphs=Table[elem[[1]]->({#,If[#[[1,0]]===metabolite,Abs[((List@@#)/.Dispatch[stoichRules])*#[[2]]/.Dispatch[activeFluxes]],Abs[(Reverse[List@@#]/.Dispatch[stoichRules])*#[[1]]/.Dispatch[activeFluxes]]]}&/@elem[[2]]),{elem,nodeMapGraphs}];
+	nodeMapGraphs=Table[elem[[1]]->({#,If[MatchQ[#[[1]],$MASS$speciesPattern],Abs[((List@@#)/.Dispatch[stoichRules])*#[[2]]/.Dispatch[activeFluxes]],Abs[(Reverse[List@@#]/.Dispatch[stoichRules])*#[[1]]/.Dispatch[activeFluxes]]]}&/@elem[[2]]),{elem,nodeMapGraphs}];
 	{minFlux,maxFlux}={Min[#],Max[#]}&[Abs@stripUnits[Flatten[nodeMapGraphs[[All,2,All,2]]]]];
 	edgeRenderingFunc=({colorFunction[Rescale[stripUnits@#3,{minFlux,maxFlux},{0,1}]],Thickness[Rescale[stripUnits@#3,{minFlux,maxFlux},{0.001,0.02}]],Arrowheads[Max[{3*Rescale[stripUnits@#3,{minFlux,maxFlux},{0.001,0.02}],.02}]],Arrow[#,{.1,.1}],If[OptionValue["Fluxes"]=!={},Style[Text[#3/.{Quantity[num_?NumberQ,units_]:>Quantity[Round[Abs[num],.001],units],num_?NumberQ:>Round[Abs[num],.001]},Mean@#1,Background->Opacity[.8,White]],Black,FontFamily->"Helvetica",FontSize->Scaled[.02]]]}&);
 	nodeRenderingFunc=({Style[Text[#2,#1],FontSize->Scaled[.02]]}&);
