@@ -129,6 +129,7 @@ str2mass[s_String,opts:OptionsPattern[]]:=Module[{cleanStr},
 		_,Message[str2mass::wrngStrRepresentation,cleanStr];cleanStr
 	]
 ];
+str2mass[lst:{_String...},opts:OptionsPattern[]]:=str2mass[#,opts]&/@lst;
 
 
 stringShortener[str_String,maxChar_:15]:=If[StringLength[str]>maxChar,StringTake[str,maxChar]<>ToString[StringSkeleton[StringLength[str]-maxChar]],str]
