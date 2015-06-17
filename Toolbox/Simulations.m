@@ -228,10 +228,6 @@ setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_ratecons
 setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_rateconst|_parameter|metabolite[_,"Xt"])->(_Quantity|_?NumberQ))...},model_MASSmodel]:=setSimulationParameters[sim,parameters,model["Reactions"]];
 
 
-
-
-
-
 (* ::Subsection:: *)
 (*findSteadyState*)
 
@@ -249,10 +245,10 @@ findSteadyState[model_MASSmodel,opts:OptionsPattern[]]:=Module[{eq,var,rosetta,p
 	sol=Switch[OptionValue["Strategy"],
 		FindRoot,
 		var=stripUnits[Thread[{model["Variables"][[All,0]],model["Variables"][[All,0]]/.ic}]];
-		eq=stripUnits[model["ODE"][[All,2]]/.Derivative[1][_][t]->0/.param/.m_[t]:>m];
+		eq=stripUnits[model["ODE"][[All,2]]/.Derivative[1][_][t]->0/.stripUnits[param]/.m_[t]:>m];
 		sol=Quiet[anonymize[FindRoot[eq,var,Evaluate[Sequence@@FilterRules[List[opts],Options[FindRoot]]]]],{FindRoot::lstol}];
 		sol=#[[1]]->(#[[2]] (#[[1]]/.Dispatch[units]))&/@sol;
-		fluxSol=Thread[Rule[model["Fluxes"],model["Rates"]/.elem_[t]:>elem/.param/.sol]];
+		fluxSol=MapThread[#1->(#2(#1/.Dispatch[units]))&,{model["Fluxes"],model["Rates"]/.elem_[t]:>elem/.stripUnits[param]/.stripUnits[sol]}];
 		sol=Switch[OptionValue["SpeciesProfiles"],
 			"Concentrations",sol,
 			"Particles",conc2particles[sol,model],
