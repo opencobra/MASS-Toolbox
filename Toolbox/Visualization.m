@@ -111,10 +111,12 @@ plotSimulation[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ,tStep_
 	interPolDat = Join[interPolDat,(#[[1]]->Interpolation[Table[{i,#[[2]]/.t->i},{i,tMin,tMax,tStep}],InterpolationOrder->1]&/@exactDat)];
 	interPolDat=interPolDat/.{elem:InterpolatingFunction[__][t]:>elem,elem:InterpolatingFunction[__]:>elem[t]};
 	interPolDat=If[OptionValue["Tooltipped"],Thread[Tooltip[stripUnits@interPolDat[[All,2]],interPolDat[[All,1]]]],stripUnits@interPolDat[[All,2]]];
+	Print[TimeUsed[]];
 	plotFunction=If[OptionValue["Speedy"],
 		OptionValue["PlotFunction"]/.{Plot->ListPlot,LogPlot->ListLogPlot,LogLinearPlot->ListLogLinearPlot,LogLogPlot->ListLogLogPlot},
 		OptionValue["PlotFunction"]
 	];
+	Print[TimeUsed[]];
 	If[$VersionNumber<9,
 	legend=If[OptionValue["Legend"]===True||MatchQ[OptionValue["PlotLegends"],Automatic|"Expressions"],
 		Epilog->If[OptionQ[OptionValue["Legend"]],
@@ -126,7 +128,7 @@ plotSimulation[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ,tStep_
 	plotOpts=FilterRules[{opts},Options[plotFunction]];
 	If[interPolDat!={},
 		If[OptionValue["Speedy"],
-			Quiet@Check[interPolPlot=plotFunction[Evaluate[Table[#,{i,tMin,tMax,tStep}]&/@interPolDat],Evaluate[legend],Evaluate[Sequence@@plotOpts],Joined->True],None,InterpolatingFunction::dmval];,
+			Quiet@Check[interPolPlot=plotFunction[Evaluate[Table[#/.t->i,{i,tMin,tMax,(tMax-tMin)/100}]&/@interPolDat],Evaluate[legend],Evaluate[Sequence@@plotOpts],Joined->True],None,InterpolatingFunction::dmval];,
 			Quiet@Check[interPolPlot=plotFunction[Evaluate[interPolDat],{t,Evaluate[tMin+fac],tMax},Evaluate[legend],Evaluate[Sequence@@plotOpts]],None,InterpolatingFunction::dmval];
 		],
 		interPolPlot={};
