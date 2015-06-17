@@ -362,7 +362,7 @@ getParameterValues[listOfParameters:{((_parameter|_parameter[t])->_List)...},uni
 getListOfAnnotations[xml_]:=Module[{annotations,compartments,specs,rxns,kineticLaws,globalParam,rawParam,parameters,rules,miriamList},
 
 	(* Get model annotations *)
-	annotations ={{"id"/.extractXMLelement[xml,"model",1],extractAnnotation[xml,5]}};
+	annotations ={{"id"/.extractXMLelement[xml,"model",1],extractAnnotation[xml,5]}}/.{"is"->"is (model)","isDescribedBy"->"isDescribedBy (model)"};
 
 	(* Compartment annotations *)
 	compartments=extractXMLelement[xml,"listOfCompartments",2,{5}];
