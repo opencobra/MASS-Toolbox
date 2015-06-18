@@ -135,21 +135,32 @@ stringShortener[str_String,maxChar_:15]:=If[StringLength[str]>maxChar,StringTake
 stringShortener[flux_v,maxChar_:15]:=stringShortener[getID[flux],maxChar]
 
 
-edit[dat:{_Rule..},title_:"Default title"]:=Module[{vars,varsStr,ret},
-	vars=Table[Unique[],{Length[dat]}];
-	varsStr=ToString/@vars;
-	Do[Evaluate[vars[[v]]]=dat[[v,2]],{v,1,Length[vars]}];
-	DialogInput[{TextCell[title],
-	Pane[Grid[Flatten/@Partition[Thread[List[dat[[All,1]],ToExpression[StringJoin["{",Sequence@@Riffle[("InputField[Dynamic["<>#<>"]]"&/@varsStr),","],"}"]]]],2],Alignment->{Right,Top}],ImageSizeAction->"Scrollable",Scrollbars->Automatic,ImageSize->{Automatic,600}],Row[{
-	DefaultButton[DialogReturn[ret=(Symbol/@varsStr)]],CancelButton[DialogReturn[ret=(Symbol/@varsStr)]],DefaultButton["Set all to 0",Clear/@varsStr;Do[Evaluate[Symbol[varsStr[[v]]]]=0,{v,1,Length[varsStr]}]],DefaultButton["Initialize",Clear/@varsStr;Do[Evaluate[Symbol[varsStr[[v]]]]=dat[[v,2]],{v,1,Length[varsStr]}]]}]}];
-	Clear/@varsStr;
-	Return[Thread[Rule[dat[[All,1]],ret]]]
+edit[dat:{_Rule..},title_:"Default title"]:=DynamicModule[{vars,names,values,units,amounts,inputs,inputGrid,buttonRow,result},
+	names = dat[[All,1]];
+	values = dat[[All,2]];
+	units = QuantityUnit/@values/.{QuantityUnit[x_]:>"","DimensionlessUnit"->""};
+	amounts = QuantityMagnitude/@values/.QuantityMagnitude[x_]:>x;
+	MapThread[(vars[#1]=#2)&,{names,amounts}];
+	inputs=MapThread[{#1,InputField[Dynamic[vars[#1]],ImageSize->100],#2}&,{names,units}];
+	inputGrid=Grid[Flatten/@Partition[inputs,2],Alignment->Left,Dividers->{4->True,All},Frame->True];
+	result:=MapThread[(#1->First[Dynamic[vars[#1]]]*Quantity[#2/.{""->"DimensionlessUnit",Except[String]->"DimensionlessUnit"}])&,{names,units}];
+	buttonRow = Row[{
+		DefaultButton[DialogReturn[result]],
+		CancelButton[],
+		Button["Set all to 0",(vars[#]=0)&/@names],
+		Button["Initialize",MapThread[(vars[#1]=#2)&,{names,amounts}]]
+	}];
+	DialogInput[
+		Column[{
+			Pane[inputGrid,Scrollbars->Automatic,ImageSize->{Automatic,600}],
+			buttonRow
+		}]
+	]
 ];
 
-edit[dat_String,title_:"Default title"]:=Module[{input},
+edit[dat_String,title_:"Default title"]:=DynamicModule[{input},
 	input=dat;
-	DialogInput[{TextCell[title],InputField[Dynamic[input],String,FieldSize->{50,12}],DefaultButton[DialogReturn[]]},NotebookEventActions->{"ReturnKeyDown":>FrontEndExecute[{NotebookWrite[InputNotebook[],"\n",After]}]}];
-	Return@ToString@input
+	DialogInput[{TextCell[title],InputField[Dynamic[input],String,FieldSize->{50,12}],Row[{DefaultButton[DialogReturn[ToString[input]]],CancelButton[]}]},NotebookEventActions->{"ReturnKeyDown":>FrontEndExecute[{NotebookWrite[InputNotebook[],"\n",After]}]}]
 ];
 
 
