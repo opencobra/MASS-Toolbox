@@ -177,11 +177,12 @@ edit[dat_String,title_:"Default title"]:=Module[{out},
 
 
 SetAttributes[editModelInPlace,HoldFirst];
-editModelInPlace[model_Symbol,attribute_String]/;MatchQ[Hold[model]/.OwnValues[model],Hold[_MASSmodel]]:=setModelAttribute[model,attribute,edit[model[attribute]]];
+editModelInPlace[model_Symbol]/;MatchQ[Hold[model]/.OwnValues[model],Hold[_MASSmodel]]:=
+	model=editModel[model];
 
 
 editModel[model_MASSmodel]:=Module[{modelTmp=model,return=False},
-	DynamicModule[{attr,out1,out2,id,name,ic,parameters,elementalComposition,notes,annotations,synonyms},
+	DynamicModule[{attr,out1,out2},
 		out1=DialogInput[Pane[
 			Column[{
 				"Choose attribute to edit:",
@@ -516,7 +517,7 @@ adjustUnits[stuff:{_Rule...},rxns:{_reaction...}:{},opts:OptionsPattern[]]:=Modu
 adjustUnits[stuff:{_Rule...},model_MASSmodel,opts:OptionsPattern[]]:=If[model["UnitChecking"],adjustUnits[stuff,model["Reactions"],"Ignore"->Union[model["Ignore"],OptionValue["Ignore"]],Sequence@@FilterRules[List@opts,Except["Ignore"]]],stuff]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Annotations*)
 
 
@@ -822,8 +823,6 @@ SetAttributes[addModelAttribute,HoldFirst];
 addModelAttribute[model_Symbol,attribute_String,rhs_]:=(AppendTo[model[[1]],attribute->rhs]);
 
 
-
-
 (* ::Subsubsection:: *)
 (*Model attributes*)
 
@@ -1004,14 +1003,15 @@ MASSmodel /:getOverview[model_MASSmodel]:=Module[{stoich},
 	specialPane2[
 		Style[#,FontSize->12]&@Grid[
 			{
-			{"Number of species(rows):",Length[stoich]},{"Number of columns(reactions):",Dimensions[model][[2]]},{"Number of exchange reactions:",Length[model["Exchanges"]]},{"Number of irreversible reactions:",Count[model["Reactions"],r_reaction/;!reversibleQ[r]]},
-			{"Matrix rank:",If[Length[stoich]<1000,MatrixRank[stoich],Missing["NotAvailable"]]},
-			{"Dimensions null space: ",If[Length[stoich]<1000,Dimensions[stoich][[2]]-MatrixRank[stoich],Missing["NotAvailable"]]},
-			{"Dimensions left null space: ",If[Length[stoich]<1000,Dimensions[stoich\[Transpose]/.{}->{{}}][[2]]-MatrixRank[stoich],Missing["NotAvailable"]]},
-			{"Number of parameters",Length@model["Parameters"]},
-			{"Number of custom rate equations",Length@model["CustomRateLaws"]},
-			{"Number of equilibrium constants:",Length@Union@Cases[model["Parameters"],keq_Keq/;MemberQ[(getID/@model["Fluxes"]),getID[keq]],\[Infinity]]},
-			{"Number of forward rate constants:",Length@Union@Cases[model["Parameters"],k:rateconst[_,True]/;MemberQ[(getID/@model["Fluxes"]),getID[k]],\[Infinity]]},{"Number of initial concentrations:",Length@Union@Cases[model["InitialConditions"],m:$MASS$speciesPattern/;MemberQ[model["Species"],m],\[Infinity]]},{"Number of genes:",Length[model["Genes"]]},{"Number of proteins:",Length[model["Proteins"]]}},
+				{"Number of species(rows):",Length[stoich]},{"Number of columns(reactions):",Dimensions[model][[2]]},{"Number of exchange reactions:",Length[model["Exchanges"]]},{"Number of irreversible reactions:",Count[model["Reactions"],r_reaction/;!reversibleQ[r]]},
+				{"Matrix rank:",If[Length[stoich]<1000,MatrixRank[stoich],Missing["NotAvailable"]]},
+				{"Dimensions null space: ",If[Length[stoich]<1000,Dimensions[stoich][[2]]-MatrixRank[stoich],Missing["NotAvailable"]]},
+				{"Dimensions left null space: ",If[Length[stoich]<1000,Dimensions[stoich\[Transpose]/.{}->{{}}][[2]]-MatrixRank[stoich],Missing["NotAvailable"]]},
+				{"Number of parameters",Length@model["Parameters"]},
+				{"Number of custom rate equations",Length@model["CustomRateLaws"]},
+				{"Number of equilibrium constants:",Length@Union@Cases[model["Parameters"],keq_Keq/;MemberQ[(getID/@model["Fluxes"]),getID[keq]],\[Infinity]]},
+				{"Number of forward rate constants:",Length@Union@Cases[model["Parameters"],k:rateconst[_,True]/;MemberQ[(getID/@model["Fluxes"]),getID[k]],\[Infinity]]},{"Number of initial concentrations:",Length@Union@Cases[model["InitialConditions"],m:$MASS$speciesPattern/;MemberQ[model["Species"],m],\[Infinity]]},{"Number of genes:",Length[model["Genes"]]},{"Number of proteins:",Length[model["Proteins"]]}
+			},
 			Dividers->{True,All},Background->{None,{{GrayLevel[.99],LightBlue}}
 			},Spacings->{1,1}]
 	]
@@ -1123,7 +1123,7 @@ MASSmodel/:splitReversible[model_MASSmodel]:=Module[{splitModel,splitStoich,newC
 
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Structural manipulations*)
 
 
@@ -1427,7 +1427,7 @@ subModel[model_MASSmodel,rxnIDs:{(_String|_v)..}]:=deleteReactions[model,Complem
 
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*QC/QA*)
 
 
