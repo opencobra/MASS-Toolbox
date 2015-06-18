@@ -135,40 +135,80 @@ stringShortener[str_String,maxChar_:15]:=If[StringLength[str]>maxChar,StringTake
 stringShortener[flux_v,maxChar_:15]:=stringShortener[getID[flux],maxChar]
 
 
-edit[dat:{_Rule..},title_:"Default title"]:=DynamicModule[{vars,names,values,units,amounts,inputs,inputGrid,buttonRow,result},
-	names = dat[[All,1]];
-	values = dat[[All,2]];
-	units = QuantityUnit/@values/.{QuantityUnit[x_]:>"","DimensionlessUnit"->""};
-	amounts = QuantityMagnitude/@values/.QuantityMagnitude[x_]:>x;
-	MapThread[(vars[#1]=#2)&,{names,amounts}];
-	inputs=MapThread[{#1,InputField[Dynamic[vars[#1]],ImageSize->100],#2}&,{names,units}];
-	inputGrid=Grid[Flatten/@Partition[inputs,2],Alignment->Left,Dividers->{4->True,All},Frame->True];
-	result:=MapThread[(#1->First[Dynamic[vars[#1]]]*Quantity[#2/.{""->"DimensionlessUnit",Except[String]->"DimensionlessUnit"}])&,{names,units}];
-	buttonRow = Row[{
-		DefaultButton[DialogReturn[result]],
-		CancelButton[],
-		Button["Set all to 0",(vars[#]=0)&/@names],
-		Button["Initialize",MapThread[(vars[#1]=#2)&,{names,amounts}]]
-	}];
-	DialogInput[
-		Column[{
-			Pane[inputGrid,Scrollbars->Automatic,ImageSize->{Automatic,600}],
-			buttonRow
-		}]
-	]
-];
+edit[dat:{_Rule..},title_:"Default title"]:=Module[{output},
+	DynamicModule[{vars,names,values,units,amounts,inputs,inputGrid,buttonRow,result},
+		names = dat[[All,1]];
+		values = dat[[All,2]];
+		units = QuantityUnit/@values/.{QuantityUnit[x_]:>"","DimensionlessUnit"->""};
+		amounts = QuantityMagnitude/@values/.QuantityMagnitude[x_]:>x;
+		MapThread[(vars[#1]=#2)&,{names,amounts}];
+		inputs=MapThread[{#1,InputField[Dynamic[vars[#1]],ImageSize->100],#2}&,{names,units}];
+		inputGrid=Grid[Flatten/@Partition[inputs,2],Alignment->Left,Dividers->{4->True,All},Frame->True];
+		result:=MapThread[(#1->First[Dynamic[vars[#1]]]*Quantity[#2/.{""->"DimensionlessUnit",Except[String]->"DimensionlessUnit"}])&,{names,units}];
+		buttonRow = Row[{
+			DefaultButton[DialogReturn[result]],
+			CancelButton[],
+			Button["Set all to 0",(vars[#]=0)&/@names],
+			Button["Initialize",MapThread[(vars[#1]=#2)&,{names,amounts}]]
+		}];
+		output=DialogInput[
+			Column[{
+				Pane[inputGrid,Scrollbars->Automatic,ImageSize->{Automatic,600}],
+				buttonRow
+			}]
+		]
+	];
+	output
+]
 
-edit[dat_String,title_:"Default title"]:=DynamicModule[{input},
-	input=dat;
-	DialogInput[{TextCell[title],InputField[Dynamic[input],String,FieldSize->{50,12}],Row[{DefaultButton[DialogReturn[ToString[input]]],CancelButton[]}]},NotebookEventActions->{"ReturnKeyDown":>FrontEndExecute[{NotebookWrite[InputNotebook[],"\n",After]}]}]
-];
+
+edit[dat_String,title_:"Default title"]:=Module[{out},
+	DynamicModule[{input},
+		input=dat;
+		out=DialogInput[
+			{TextCell[title],
+				InputField[Dynamic[input],String,FieldSize->{50,12}],
+				Row[{DefaultButton[DialogReturn[ToString[input]]],CancelButton[]}]
+			},NotebookEventActions->{"ReturnKeyDown":>FrontEndExecute[{NotebookWrite[InputNotebook[],"\n",After]}]}
+		]
+	];
+	out
+]
 
 
 SetAttributes[editModelInPlace,HoldFirst];
 editModelInPlace[model_Symbol,attribute_String]/;MatchQ[Hold[model]/.OwnValues[model],Hold[_MASSmodel]]:=setModelAttribute[model,attribute,edit[model[attribute]]];
 
 
-editModel[model_MASSmodel,attribute_String]:=Module[{modelTmp},modelTmp=model;setModelAttribute[modelTmp,attribute,edit[modelTmp[attribute],"Edit "<>attribute]];modelTmp];
+editModel[model_MASSmodel]:=Module[{modelTmp=model,return=False},
+	DynamicModule[{attr,out1,out2,id,name,ic,parameters,elementalComposition,notes,annotations,synonyms},
+		out1=DialogInput[Pane[
+			Column[{
+				"Choose attribute to edit:",
+				RadioButtonBar[Dynamic[attr],{"ID","Name","InitialConditions","Parameters","ElementalComposition","Notes","Annotations","Synonyms"},Appearance->"Vertical"->{Automatic,2}],
+				Row[{DefaultButton["Edit Attribute",DialogReturn[attr]],CancelButton[],DefaultButton["Save & Finish",DialogReturn[return=True;]]}]
+			}]
+		]];
+		Which[
+			out1===$Canceled,
+				modelTmp=$Canceled,
+			out1===Null,
+				Null,
+			True,
+				out2=edit[model[out1],"Edit "<>out1];
+				If[out2===$Canceled,
+					modelTmp=model,
+					Toolbox`Private`setModelAttribute[modelTmp,out1,out2]
+				]
+		]
+
+		If[And[modelTmp=!=$Canceled,return==False],
+			modelTmp = editModel[modelTmp]
+		]
+
+	];
+	modelTmp
+];
 
 
 wrapHead::usage="wrapHead[expression] will wrap head around the Head of expression like wrap[Head[expression]][expression]";
