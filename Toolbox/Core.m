@@ -139,12 +139,12 @@ edit[dat:{_Rule..},title_:"Default title"]:=Module[{output},
 	DynamicModule[{vars,names,values,units,amounts,inputs,inputGrid,buttonRow,result},
 		names = dat[[All,1]];
 		values = dat[[All,2]];
-		units = QuantityUnit/@values/.{QuantityUnit[x_]:>"","DimensionlessUnit"->""};
-		amounts = QuantityMagnitude/@values/.QuantityMagnitude[x_]:>x;
+		units = If[MatchQ[#,_Quantity],QuantityUnit[#],"DimensionlessUnit"]&/@values;
+		amounts = If[MatchQ[#,_Quantity],QuantityMagnitude[#],#]&/@values;
 		MapThread[(vars[#1]=#2)&,{names,amounts}];
-		inputs=MapThread[{#1,InputField[Dynamic[vars[#1]],ImageSize->100],#2}&,{names,units}];
+		inputs=MapThread[{#1,InputField[Dynamic[vars[#1]],ImageSize->100],#2/.{"DimensionlessUnit"->""}}&,{names,units}];
 		inputGrid=Grid[Flatten/@Partition[inputs,2],Alignment->Left,Dividers->{4->True,All},Frame->True];
-		result:=MapThread[(#1->First[Dynamic[vars[#1]]]*Quantity[#2/.{""->"DimensionlessUnit",Except[String]->"DimensionlessUnit"}])&,{names,units}];
+		result:=MapThread[(#1->First[Dynamic[vars[#1]]]*Quantity[#2])&,{names,units}];
 		buttonRow = Row[{
 			DefaultButton[DialogReturn[result]],
 			CancelButton[],
@@ -181,7 +181,7 @@ editModelInPlace[model_Symbol]/;MatchQ[Hold[model]/.OwnValues[model],Hold[_MASSm
 	model=editModel[model];
 
 
-editModel[model_MASSmodel]:=Module[{modelTmp=model,return=False},
+editModel[model_MASSmodel]:=Module[{modelTmp=model,return=False,nb},
 	DynamicModule[{attr,out1,out2},
 		out1=DialogInput[Pane[
 			Column[{
@@ -190,6 +190,7 @@ editModel[model_MASSmodel]:=Module[{modelTmp=model,return=False},
 				Row[{DefaultButton["Edit Attribute",DialogReturn[attr]],CancelButton[],DefaultButton["Save & Finish",DialogReturn[return=True;]]}]
 			}]
 		]];
+		nb = CreateDialog[Style["Please wait...",20]];
 		Which[
 			out1===$Canceled,
 				modelTmp=$Canceled,
@@ -201,7 +202,8 @@ editModel[model_MASSmodel]:=Module[{modelTmp=model,return=False},
 					modelTmp=model,
 					Toolbox`Private`setModelAttribute[modelTmp,out1,out2]
 				]
-		]
+		];
+		NotebookClose[nb];
 
 		If[And[modelTmp=!=$Canceled,return==False],
 			modelTmp = editModel[modelTmp]
