@@ -77,7 +77,7 @@ mat2model[path_String]:=Module[{stuff},
 mat2model[]:=mat2model[SystemDialogInput["FileOpen"]];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*SBML import*)
 
 
@@ -359,7 +359,7 @@ getParameterValues[listOfParameters:{((_parameter|_parameter[t])->_List)...},uni
 (*annotations*)
 
 
-getListOfAnnotations[xml_]:=Module[{annotations,compartments,specs,rxns,kineticLaws,globalParam,rawParam,parameters,rules,miriamList},
+getListOfAnnotations[xml_]:=Module[{annotations,compartments,specs,rxns,kineticLaws,globalParam,rawParam,parameters,rules,miriamList,finalList},
 
 	(* Get model annotations *)
 	annotations ={{"id"/.extractXMLelement[xml,"model",1],extractAnnotation[xml,5]}}/.{"is"->"is (model)","isDescribedBy"->"isDescribedBy (model)"};
@@ -396,6 +396,9 @@ getListOfAnnotations[xml_]:=Module[{annotations,compartments,specs,rxns,kineticL
 	(* Event annotations *)
 	rules=extractXMLelement[xml,"listOfEvents",2,{5}];
 	annotations=Join[annotations,{("id"/.#[[2]])/."id"->"Event",extractAnnotation[#,2]}&/@rules];
+	
+	(* Remove things with no annotations *)
+	annotations=DeleteCases[annotations,{_,{}}];
 
 	miriamList=Thread[{#[[1]],
 		Select[#[[2,3]],
@@ -404,10 +407,13 @@ getListOfAnnotations[xml_]:=Module[{annotations,compartments,specs,rxns,kineticL
 				{___}
 			]]&
 		]
-	}]&/@DeleteCases[annotations,{_,{}}];
+	}]&/@annotations;
 
 	miriamList=DeleteCases[Flatten[miriamList,1]/.{_String,x_String}:>x,_->{}];
-	Flatten[Thread[{First[#],#[[2,1]],#[[2,3,1,3]]}]&/@miriamList,1]/.XMLElement["li",{"resource"->x_},{}]:>x
+	finalList = Flatten[Thread[{First[#],#[[2,1]],#[[2,3,1,3]]}]&/@miriamList,1]/.XMLElement["li",{"resource"->x_},{}]:>x;
+	(* Check for nested annotations *)
+	If[MemberQ[finalList,{_,_,_XMLElement}],Message[sbml2model::nestedAnnotations]];
+	DeleteCases[finalList,{_,_,_XMLElement}]
 ];
 
 
@@ -502,6 +508,7 @@ sbml2model::eventDelayDetected="Delayed event detected. The MASS Toolbox does no
 sbml2model::variableStoichiometry="The toolbox does not support for variable stoichiometric factors (detected in reaction `1`)";
 sbml2model::eventProblem="Problem encountered for the following events: `1`. Amongst other things, the toolbox does not provide support for events that involve parameters.";
 sbml2model::conversionFactorDetected="Conversion factor detected. The MASS Toolbox does not provide support conversion factors. The conversion factors will be ignored in further calculations.";
+sbml2model::nestedAnnotations="Nested annotation detected. The MASS Toolbox does not support nested annotations. These annotations will be ignored.";
 sbml2model[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:=Module[{hosuRules,listOfUnitDefinitions,listOfFunctionDefinitions,listOfCompartments,compartmentVolumes,listOfParameters,parameters,
 listOfSpecies,initialConditions,boundaryConditions,id2massID,listOfRxns,listOfRules,assignmentRules,rateRules,algebraicRules,listOfInitialAssignments,
 listOfKineticLawsAndLocalParameters,listOfKineticLaws,listOfLocalParameters,speciesInReactions,notCoveredByReactions,customODE,constantSpecies,paramInListOfRules,
