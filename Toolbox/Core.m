@@ -519,8 +519,35 @@ adjustUnits[stuff:{_Rule...},rxns:{_reaction...}:{},opts:OptionsPattern[]]:=Modu
 adjustUnits[stuff:{_Rule...},model_MASSmodel,opts:OptionsPattern[]]:=If[model["UnitChecking"],adjustUnits[stuff,model["Reactions"],"Ignore"->Union[model["Ignore"],OptionValue["Ignore"]],Sequence@@FilterRules[List@opts,Except["Ignore"]]],stuff]
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Annotations*)
+
+
+$MIRIAM$rules=Module[{miriamXML,info,urnXML,urns,patterns,finalPatterns,rawRules,categories},
+	miriamXML=Import[FileNameJoin[{$UserBaseDirectory,"Applications","Toolbox","Cache","miriam.xml"}],"XML"];
+	(* Remove last item in the XML (tag definitions) *)
+	info = Most[Toolbox`Private`extractXMLelement[miriamXML,"miriam",2]];
+
+	(* Get URNs for each datatype. Only keep the nondeprecated URNs *)
+	urnXML = Cases[Toolbox`Private`extractXMLelement[#,"uris",2],XMLElement["uri",{"type"->"URN"},{_String}]]&/@info;
+	(* Pull out just the urn, escape out "." for Regex, and add a ":" at the end *)
+	urns = StringInsert[StringReplace[#,"."->"\\."],":",-1]&/@Flatten[urnXML[[All,1,3]]];
+
+	(* Get patterns for each datatype (removing end and beginning flags) *)
+	patterns = StringTrim["pattern"/.#[[2]],"^"|"$"]&/@info;
+
+	(* Get applicable categories for each datatype *)
+	categories=#[[3,1]]&/@Toolbox`Private`extractXMLelement[
+			Select[Toolbox`Private`extractXMLelement[#,"annotation",2],("name"/.#[[2]])=="SBML"&],
+			"element",0
+		]&/@info;
+
+	finalPatterns = MapThread[StringJoin,{urns,patterns}];
+	rawRules=Thread[{categories,finalPatterns}];
+
+	rawRules=DeleteCases[{DeleteCases[First[#],"speciesType"],Last[#]}&/@rawRules,{{},_}];
+	Last/@rawRules
+];
 
 
 $MIRIAM$modelQualifiers = {"is (model)","isDerivedFrom","isDescribedBy (model)","isInstanceOf","hasInstance"};
