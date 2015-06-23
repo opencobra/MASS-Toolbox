@@ -77,11 +77,11 @@ mat2model[path_String]:=Module[{stuff},
 mat2model[]:=mat2model[SystemDialogInput["FileOpen"]];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*SBML import*)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Utilities*)
 
 
@@ -100,7 +100,7 @@ cleanUpMathML[math:XMLElement["math",_,_]]:=Module[{adjustments},
 mathML2mass=XML`MathML`SymbolicMathMLToExpression[cleanUpMathML[#(*/.s_String\[RuleDelayed]StringReplace[s,"_"\[Rule]"$UNDRSCR$s"]*)]]&;
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfEvents*)
 
 
@@ -120,7 +120,7 @@ getListOfEvents[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_p
 ]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfInitialAssignments*)
 
 
@@ -128,7 +128,7 @@ parseInitialAssignmentXML[initialAssignment_XMLElement,id2massID:{_Rule..}]:=(("
 getListOfInitialAssignments[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseInitialAssignmentXML[#,id2massID]&/@extractXMLelement[xml,"listOfInitialAssignments",2]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfRules*)
 
 
@@ -145,7 +145,7 @@ Switch[#[[1]],
 getListOfRules[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseRuleXML[#,id2massID]&/@extractXMLelement[xml,"listOfRules",2]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfFunctionDefinitions*)
 
 
@@ -157,7 +157,7 @@ parseFunctionXML/@extractXMLelement[xml,"listOfFunctionDefinitions",2]
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfUnitDefinitions*)
 
 
@@ -188,7 +188,7 @@ getListOfUnitDefinitions[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPat
 ]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfSpecies*)
 
 
@@ -322,7 +322,7 @@ getKineticLaw[XMLElement["kineticLaw",attrVal:{_Rule...},data_List],rxnID_String
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*parameters*)
 
 
@@ -397,23 +397,17 @@ getListOfAnnotations[xml_]:=Module[{annotations,compartments,specs,rxns,kineticL
 	rules=extractXMLelement[xml,"listOfEvents",2,{5}];
 	annotations=Join[annotations,{("id"/.#[[2]])/."id"->"Event",extractAnnotation[#,2]}&/@rules];
 
-	miriamList=(#[[1]]->
+	miriamList=Thread[{#[[1]],
 		Select[#[[2,3]],
 			MatchQ[#,XMLElement[{("http://biomodels.net/biology-qualifiers/"|"http://biomodels.net/model-qualifiers/"),_},
 				{___},
 				{___}
 			]]&
 		]
-	)&/@DeleteCases[annotations,{_,{}}];
+	}]&/@DeleteCases[annotations,{_,{}}];
 
-	miriamList=DeleteCases[miriamList/.{_String,x_String}:>x,_->{}];
-	First[#]->formatRawAnnotation[Last[#]]&/@miriamList
-];
-
-
-formatRawAnnotation[miriam_List]:=Module[{raw},
-	raw=First[#]->#[[3,1,3]]&/@miriam;
-	raw/.XMLElement["li",{"resource"->x_},{}]:>x
+	miriamList=DeleteCases[Flatten[miriamList,1]/.{_String,x_String}:>x,_->{}];
+	Flatten[Thread[{First[#],#[[2,1]],#[[2,3,1,3]]}]&/@miriamList,1]/.XMLElement["li",{"resource"->x_},{}]:>x
 ];
 
 
@@ -980,8 +974,14 @@ fluxObjective2sbml[model_MASSmodel]:=Module[{},
 ];
 
 
-annotations2sbml[model_MASSmodel,item_]:=Module[{annotations},
-	annotations = Replace[item,("Annotations"/.model[[1]])]/.item->{};
+annotations2sbml[model_MASSmodel,item_]:=Module[{annotations,rules},
+	(* Get a list of {{qualifier, url}...} *)
+	annotations = Rest/@Select["Annotations"/.model[[1]],First[#]==item&];
+
+	(* Make a set of rules for each qualifier {qual \[Rule] {urns...}...} *)
+	rules = Thread[DeleteDuplicates[First/@annotations]->(Last/@#&/@GatherBy[annotations,First])];
+
+	(* Map the following across the qualifiers *)
 	XMLElement["annotation",
 		{},
 		{XMLElement[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#","RDF"},
@@ -1000,7 +1000,7 @@ annotations2sbml[model_MASSmodel,item_]:=Module[{annotations},
 							{}
 						]&/@#[[2]]
 					]}
-				]&/@annotations
+				]&/@rules
 			]}
 		]}
 	]
