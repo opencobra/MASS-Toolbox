@@ -51,8 +51,8 @@ query[attr_,dict:({_Rule..}|Dispatch[{_Rule..}]),default_:Automatic]:=If[default
 
 
 (*extractXMLelement[xml_,tag_String]:=Replace[Cases[xml,XMLElement[tag,attrVal_,data_]:>Rule[attrVal,data],\[Infinity]],{}->{{}}][[1]]*)
-extractXMLelement[xml_,tag:(_String|_Alternatives),0,level_:\[Infinity]]:=Cases[xml,XMLElement[tag,attrVal_,data_],level]
-extractXMLelement[xml_,tag:(_String|_Alternatives),pos_,level_:\[Infinity]]:=Replace[Cases[xml,XMLElement[tag,attrVal_,data_]:>{attrVal,data}[[pos]],level],{}->{{}}][[1]]
+extractXMLelement[xml_,tag:(_String|_Alternatives|_List),0,level_:\[Infinity]]:=Cases[xml,XMLElement[tag,attrVal_,data_],level]
+extractXMLelement[xml_,tag:(_String|_Alternatives|_List),pos_,level_:\[Infinity]]:=Replace[Cases[xml,XMLElement[tag,attrVal_,data_]:>{attrVal,data}[[pos]],level],{}->{{}}][[1]]
 
 
 SetAttributes[integerChop,Listable];
