@@ -18,7 +18,7 @@ Needs["DifferentialEquations`InterpolatingFunctionAnatomy`"]
 (*simulate*)
 
 
-Options[simulate]={"InitialConditions"->{},"Parameters"->{},"Events"->{},"tFinal"->Infinity,"tStart"->0,"SpeciesProfiles"->"Concentrations","ExactSolve"->False,"ParametricSolve"->False,"SimulationParameters"->{}};
+Options[simulate]={"InitialConditions"->{},"Parameters"->{},"Events"->{},"tFinal"->Infinity,"tStart"->0,"SpeciesProfiles"->"Concentrations","ExactSolve"->False,"ParametricSolve"->False,"SimulationParameters"->{},"Parallel"->False};
 simulate::missingIC="Missing initial conditions encountered for `1`.";
 simulate::missingParam="Missing parameter values encountered for `1`.";
 simulate::specProfile="The option \"SpeciesProfiles\" can be specified either as \"Concentrations\" or \"Particles\" but not as `1`";
@@ -32,7 +32,11 @@ simulate::BadOptions="ParametricSolve cannot be run at the same time as ExactSol
 
 simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve,ParametricNDSolve}]]:=
 	Module[{repl,ode,events,initialConditions,allConstants,missingParam,parameters,equations,solution,fluxSolution,tStart,tFinal,vars,units,ic,dsolveSol,rawSolution,simParam},
-
+		(* Initialize kernels for parallel evaluation *)
+		If[OptionValue["Parallel"],
+			Quiet@initializeKernels[]
+		];
+		
 		(* Get model information *)
 		parameters=updateRules[model["Parameters"],adjustUnits[OptionValue["Parameters"],model]];
 		ode=getODE[model,"Parameters"->parameters];
@@ -68,7 +72,11 @@ simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve,Parametric
 		]&[stripUnits@ic];
 
 		(* Substitute parameters *)
-		equations={ode,initialConditions,events}//.parameters;
+		If[OptionValue["Parallel"],
+			equations={ParallelMap[(#//.parameters)&,ode,DistributedContexts->{"Private`"}],initialConditions//.parameters,events//.parameters},
+			equations={ode,initialConditions,events}//.parameters;
+		];
+
 
 		(*Set initial history functions for variables that are involved with delays*)
 		repl=(#[0]==val_)->#[t/;t<=0]==val&/@Union[Cases[equations,_[t+_],\[Infinity]][[All,0]]];
@@ -107,7 +115,7 @@ parametricSimulate[model_MASSmodel,equations_List,parameters_List,missingParam_L
 			Message[simulate::ParametricNDSolveProblem];Abort[];
 		];
 		(* Format the results into a simulation output, and add the parameters to the end *)
-		Append[formatResults[rawSolution,model,parameters,units],missingParam]
+		Append[formatResults[rawSolution,model,parameters,units,opts],missingParam]
 
 	]
 
@@ -134,15 +142,14 @@ solveSimulate[model_MASSmodel,equations_List,parameters_List,missingParam_List,t
 				{NDSolve::ndode,NDSolve::idelay,NDSolve::icfail,NDSolve::nderr,NDSolve::underdet,NDSolve::overdet,NDSolve::ndinnt}
 			]
 		];
-		
+
 		If[Head[rawSolution]===DSolve,
 			Message[simulate::DSolveProblem];Abort[]
 		];
 		(*Run NDSolve and check for missing parameter values if NDSolve::ndnum is raised*)
 		(*catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;*)
 		(*catchMissingDerivs=Quiet[Check[ReleaseHold[#],NSolve[DeleteCases[#[[1,1]],_[0]==_],#[[1,2]]]/.r_Rule:>(r[[1]]->With[{val=r[[2]]},FunctionInterpolation[val&[t],Evaluate[#[[1,3]]/. \[Infinity]->1*^10]]]),{NDSolve::derivs}],{NDSolve::derivs}]&;*)
-
-		formatResults[rawSolution[[1]],model,parameters,units]
+		formatResults[rawSolution[[1]],model,parameters,units,opts]
 	];
 
 
@@ -152,7 +159,12 @@ formatResults[rawSolution_,model_,parameters_,units_,opts:OptionsPattern[{simula
 	Module[{solution,fluxSolution},
 		(* Format output of Solver into simulation output *)
 		solution=#[[1]]->(#[[2]] (#[[1]][[0]]/.Dispatch[units]))&/@rawSolution;
-		fluxSolution=Thread[Rule[model["Fluxes"],getRates[model,"Parameters"->parameters]/.parameters/.solution]];
+		If[OptionValue["Parallel"],
+			fluxSolution=Thread[Rule[model["Fluxes"],
+				ParallelMap[#&/.Dispatch[parameters]/.Dispatch[solution],getRates[model,"Parameters"->parameters],DistributedContexts->{"Private`"}]
+			]],
+			fluxSolution=Thread[Rule[model["Fluxes"],getRates[model,"Parameters"->parameters]/.Dispatch[parameters]/.Dispatch[solution]]]
+		];
 		solution=#[[1]]/.m_[t]:>m->#[[2]]&/@solution;
 		solution=Switch[OptionValue["SpeciesProfiles"],
 			"Concentrations",solution(*/.r_Rule/;MatchQ[r[[1]],$MASS$speciesPattern]:>r[[1]]->r[[2]]*),
@@ -216,10 +228,6 @@ setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_ratecons
 setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_rateconst|_parameter|metabolite[_,"Xt"])->(_Quantity|_?NumberQ))...},model_MASSmodel]:=setSimulationParameters[sim,parameters,model["Reactions"]];
 
 
-
-
-
-
 (* ::Subsection:: *)
 (*findSteadyState*)
 
@@ -237,10 +245,10 @@ findSteadyState[model_MASSmodel,opts:OptionsPattern[]]:=Module[{eq,var,rosetta,p
 	sol=Switch[OptionValue["Strategy"],
 		FindRoot,
 		var=stripUnits[Thread[{model["Variables"][[All,0]],model["Variables"][[All,0]]/.ic}]];
-		eq=stripUnits[model["ODE"][[All,2]]/.Derivative[1][_][t]->0/.param/.m_[t]:>m];
+		eq=stripUnits[model["ODE"][[All,2]]/.Derivative[1][_][t]->0/.stripUnits[param]/.m_[t]:>m];
 		sol=Quiet[anonymize[FindRoot[eq,var,Evaluate[Sequence@@FilterRules[List[opts],Options[FindRoot]]]]],{FindRoot::lstol}];
 		sol=#[[1]]->(#[[2]] (#[[1]]/.Dispatch[units]))&/@sol;
-		fluxSol=Thread[Rule[model["Fluxes"],model["Rates"]/.elem_[t]:>elem/.param/.sol]];
+		fluxSol=MapThread[#1->(#2(#1/.Dispatch[units]))&,{model["Fluxes"],model["Rates"]/.elem_[t]:>elem/.stripUnits[param]/.stripUnits[sol]}];
 		sol=Switch[OptionValue["SpeciesProfiles"],
 			"Concentrations",sol,
 			"Particles",conc2particles[sol,model],
