@@ -1058,7 +1058,7 @@ eQuilibratorReactionData[query_]:=eQuilibratorAPI[query,"http://equilibrator.wei
 
 model2escher[model_MASSmodel]:=Module[{reactionList,metList},
 	reactionList = {"subsystem"->"","name"->getID[#],"upper_bound"->1000, "lower_bound"-> -1000, "notes"->{}, "metabolites"->reactionMets2escher[#], "objective_coefficient"->0, "variable_kind"->"continuous", "id"->getID[#],"gene_reaction_rule"->""}&/@model["Reactions"];
-	metList = {"name"->ToString[#],"notes"->"{}", "annotation"->"{}", "_constraint_sense"->"E", "charge"->"0", "_bound"->"0.0", "formula"->elementalComposition2formula[#/.getElementalComposition[model]], "compartment"->ToString[getCompartment[#]],"id"->ToString[#]}&/@model["Species"];
+	metList = {"name"->ToString[#],"notes"->"{}", "annotation"->"{}", "_constraint_sense"->"E", "charge"->"0", "_bound"->"0.0", "formula"->"", "compartment"->ToString[getCompartment[#]],"id"->ToString[#]}&/@model["Species"];
 	{"reactions"->reactionList, "description"->getName[model], "notes"->{}, "genes"->{}, "metabolites"->metList,"id"->getID[model]}
 ];
 

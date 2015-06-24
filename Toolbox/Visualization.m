@@ -110,8 +110,7 @@ plotSimulation[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ,tStep_
 	exactDat=Complement[simulation,interPolDat];
 	interPolDat = Join[interPolDat,(#[[1]]->Interpolation[Table[{i,#[[2]]/.t->i},{i,tMin,tMax,tStep}],InterpolationOrder->1]&/@exactDat)];
 	interPolDat=interPolDat/.{elem:InterpolatingFunction[__][t]:>elem,elem:InterpolatingFunction[__]:>elem[t]};
-	(*Print[interPolDat];*)
-	interPolDat=If[OptionValue["Tooltipped"],Thread[Tooltip[stripUnits@interPolDat[[All,2]],stripUnits@(interPolDat[[All,1]]*(interPolDat[[All,2]]/.InterpolatingFunction[___][t]:>1)/.{u_Quantity:>Quantity["",u[[2]]],_?NumberQ:>1})]],stripUnits@interPolDat[[All,2]]];
+	interPolDat=If[OptionValue["Tooltipped"],Thread[Tooltip[stripUnits@interPolDat[[All,2]],interPolDat[[All,1]]]],stripUnits@interPolDat[[All,2]]];
 	plotFunction=OptionValue["PlotFunction"];
 	If[$VersionNumber<9,
 	legend=If[OptionValue["Legend"]===True||MatchQ[OptionValue["PlotLegends"],Automatic|"Expressions"],
