@@ -98,9 +98,9 @@ computeSteadyStateFlux[model_MASSmodel,pathways_List,loadings:{_Rule..}]:=Module
 	(* Get the positions of the fluxes that consist of the loading rules *)
 	pos=Flatten[Position[model["Fluxes"],#]&/@(First/@loadings)];
 	(* Extract the fluxes with preset loading from the pathway matrix *)
-	setPaths = pathways[[All,#]]&/@pos;
+	setPaths = Transpose[pathways[[All,#]]&/@pos];
 	(* Multiply preset loading . preset paths to get pathway multipliers *)
-	mult = (Last/@loadings).setPaths;
+	mult = (Last/@loadings).Inverse[setPaths];
 	(* Return the multiplied pathways *)
 	mult.pathways
 ]
