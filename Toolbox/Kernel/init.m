@@ -92,6 +92,7 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	progtext="Loading JLink ...";Needs["JLink`"];prog++;delay[];
 	
 	BeginPackage["Toolbox`"];
+	Needs["AutomaticUnits`"];
 	Unprotect["Toolbox`*"];
 	progtext="Loading Config ...";Get["Toolbox`Config`"];prog++;delay[];
 	progtext="Loading Usage strings ...";Get["Toolbox`UsageStrings`"];prog++;delay[];
