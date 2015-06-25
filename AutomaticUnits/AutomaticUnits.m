@@ -62,8 +62,14 @@ DropUnits::usage="DropUnits[expr] converts all units in expr to numbers";
 CreateSymbol::usage="CreateSymbol is an option for DeclareUnit to specify whether a symbol is created for unit entry or whether the unit must be specified as Unit[value, name].";
 UsageMessage::usage="UsageMessage is an option for DelcareUnit which specifies a usage message for the unit symbol";
 $DefaultUnitSet::usage="$DefaultUnitSet is the name of the unit set from which automatic unit choices are made";
-SimplifyUnits::usage="SimplifyUnits[expr] attempts to replace composite units with single named units."
-UnitList::usage="ToUnitsList[oldunit,{newunit1,newunit2,...}] decomposes oldunit into newunits such that the sum of newunits is equivelant to the oldunit."
+SimplifyUnits::usage="SimplifyUnits[expr] attempts to replace composite units with single named units.";
+UnitList::usage="ToUnitsList[oldunit,{newunit1,newunit2,...}] decomposes oldunit into newunits such that the sum of newunits is equivelant to the oldunit.";
+DimensionCompatibleUnitQ::usage="DimensionCompatibleUnitQ[\!\(\*
+StyleBox[SubscriptBox[\"unit\", \"1\"],\nFontSlant->\"Italic\"]\),\!\(\*
+StyleBox[SubscriptBox[\"unit\", \"2\"],\nFontSlant->\"Italic\"]\)] tests whether \!\(\*
+StyleBox[SubscriptBox[\"unit\", \"1\"],\nFontSlant->\"Italic\"]\)\!\(\*
+StyleBox[\" \",\nFontSlant->\"Italic\"]\)and \!\(\*
+StyleBox[SubscriptBox[\"unit\", \"2\"],\nFontSlant->\"Italic\"]\) have compatible units.";
 
 (*Assign multiplier values- mainly for compatibility with the old units pacakge*)
 Percent = 1/100;Gross = 144;Dozen = 12; BakersDozen = 13; Mole = 6.0221367*10.^23;Yotta = 10^24; 
