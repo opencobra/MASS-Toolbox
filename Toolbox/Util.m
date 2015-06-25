@@ -134,7 +134,7 @@ grep[file_String,patt_String]:=
 	]
 
 grep[patt_String]:=
-	With[{fileNames={"Chemoinformatics.m","COBRA.m","Config.m","Core.m","Design.m","ExampleData.m","IO.m","Networks.m","QCQA.m","Regulation.m","Sensitivity.m","Simulations.m","Style.m","Thermodynamics.m","Types.m","UsageStrings.m","Util.m","Visualization.m","Units.m"}},
+	With[{fileNames={"Chemoinformatics.m","COBRA.m","Config.m","Core.m","Design.m","ExampleData.m","IO.m","Networks.m","QCQA.m","Regulation.m","Sensitivity.m","Simulations.m","Style.m","Thermodynamics.m","Types.m","UsageStrings.m","Util.m","Visualization.m"}},
 		Flatten[Function[name,Prepend[#,name]&/@grep[name,patt]]/@fileNames,1]
 	]
 
