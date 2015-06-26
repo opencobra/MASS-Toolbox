@@ -38,14 +38,12 @@ symbolize[stuff_,opts___Rule]:=Module[{rules},
 ];
 
 
-
 SetAttributes[anonymize,HoldAll];
 anonymize[f_[args__]]:=Module[{rosetta,args2},
 	{args2,rosetta}=symbolize[{args}];
 	Sow[rosetta];
 	f[Evaluate[Sequence@@args2]]/.rosetta
 ];
-
 
 
 annotateCurrencyMetabolites[rxns:{_reaction...},previousAnnotation:{(_String->_List)...}]:=Join[previousAnnotation,annotateCurrencyMetabolites[Select[rxns,!MemberQ[previousAnnotation[[All,1]],getID[#]]&]]]
@@ -99,7 +97,6 @@ metaboliteFromString::usage="metaboliteFromString[\"id_compartment\"] will retur
 
 metaboliteFromString[met_String/;StringMatchQ[met,RegularExpression["^\\S+\\[\\S+\\]$"]]]:=StringCases[met,RegularExpression["^(.+)\\[(.+)\\]"]:>metabolite["$1","$2"]][[1]]
 metaboliteFromString[met_String/;StringMatchQ[met,RegularExpression["\\S+(_[\\S]+)?"]]]:=If[Length[#]==1,metabolite[#[[1]],None],metabolite[StringJoin[Sequence@@Riffle[#[[1;;-2]],"_"]],#[[-1]]]]&@StringSplit[StringReplace[met,RegularExpression["^M_"]->""],"_"];
-
 
 
 speciesFromString[enz_String/;StringMatchQ[enz,RegularExpression["^E_.*"]]]:=Module[{tmp,enzID,allostericInhibitors,allostericActivators,catalyticBound,enzComp},
@@ -346,6 +343,10 @@ calcKappa[rateconstants_List]:=DiagonalMatrix[rateconstants]
 
 
 stripUnits[expr_]:=Module[{replacementRules=Thread[Rule[Symbol/@Names["Units`*"],1]]},DropUnits[expr/.Dispatch[replacementRules]]];
+
+
+getUnit[unit_Unit]:=Last[unit];
+getUnit[number_?NumericQ]:=1;
 
 
 Options[getReactionOrders]={"Ignore"->{}};

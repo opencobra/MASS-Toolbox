@@ -12,7 +12,7 @@ Begin["`Private`"]
 Needs["AutomaticUnits`"]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*IO*)
 
 
@@ -34,7 +34,7 @@ importModel[path_String,opts:OptionsPattern[]]:=Module[{stuff},
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Matlab*)
 
 
@@ -176,7 +176,8 @@ parseUnitXML[XMLElement["unit",attrVal:{_Rule..},_]]:=(10^sbmlString2Number["sca
 parseListOfUnitsXML[XMLElement["listOfUnits",_,units_List]]:=Times@@(parseUnitXML/@units)
 
 makeValidSymbol=StringReplace[#,RegularExpression["([^a-zA-Z0-9])"]:>("$"<>ToString[ToCharacterCode["$1"][[1]]]<>"$")]&
-parseUnitDefinitionXML[XMLElement["unitDefinition",attrVal:{_Rule..},listOfUnits_List]]:=("id"/.attrVal)->Quiet[Check[DeclareUnit[StringReplace[makeValidSymbol[query["name", attrVal, "id"/.attrVal]],{"(new default)"->"","(default)"->"","_"->"",Whitespace->""}],(parseListOfUnitsXML[extractXMLelement[listOfUnits,"listOfUnits",0][[1]]])],DeclareUnit["stub"<>ToString[Unique[]],(parseListOfUnitsXML[extractXMLelement[listOfUnits,"listOfUnits",0][[1]]])],{Symbol::symname}],{Unit::exists}]
+parseUnitDefinitionXML[XMLElement["unitDefinition",attrVal:{_Rule..},listOfUnits_List]]:=
+	("id"/.attrVal)->(parseListOfUnitsXML[extractXMLelement[listOfUnits,"listOfUnits",0][[1]]]);
 
 getListOfUnitDefinitions[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:=Module[{},
 	(*Join[updateRules[sbmlDefaultUnits,parseUnitDefinitionXML/@extractXMLelement[xml,"listOfUnitDefinitions",2]],sbmlBaseUnit2mathematica,{elem_String:>Unit[1,elem]}]*)
@@ -221,7 +222,7 @@ getHasOnlySubstanceUnits[listOfSpecies:{((_species[t]|_species)->_List)...}]:=st
 getBoundaryConditions[listOfSpecies:{((_species|_species[t])->_List)...}]:=Cases[listOfSpecies/.elem_[t]:>elem,r_Rule/;("boundaryCondition"/.r[[2]])==="true"&&query["constant",r[[2]],"false"]==="false":>r[[1]]]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfCompartments*)
 
 
@@ -564,7 +565,6 @@ constParam,speciesIDs2names,modelID,modelName,notes,modelStuff,hasOnlySubstanceU
 		compartmentVolumes=getCompartmentVolumes[listOfCompartments,listOfUnitDefinitions];
 		compartmentVolumes=updateRules[compartmentVolumes,FilterRules[assignmentRules,parameter["Volume",_][t]]];
 		compartmentVolumes=updateRules[compartmentVolumes,FilterRules[listOfInitialAssignments,parameter["Volume",_]|parameter["Volume",_][t]]];
-
 		parameters=Join[parameters,FilterRules[compartmentVolumes,parameter["Volume",_String]]];
 
 		initialConditions=getInitialConcentrations[listOfSpecies,listOfUnitDefinitions]/.Dispatch[compartmentVolumes];
@@ -683,7 +683,7 @@ model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,un
 	If[OptionValue["Annotations"],
 		AppendTo[listOfStuff,annotations2sbml[model,"ID"/.model[[1]]]]
 	];
-
+	
 	(* Unit definitions *)
 	AppendTo[listOfStuff,
 		XMLElement["listOfUnitDefinitions",{},
@@ -759,9 +759,9 @@ unitStringList2sbml[{unit_String}]:=unitStringList2sbml[{unit,"1"}];
 unitStringList2sbml[unit_String]:=unitStringList2sbml[{unit,"1"}];
 
 unitStringList2sbml[{unit_String,exponent_String}]:=Module[{compatibility,destinationUnit,rawmult,multiplier},
-	compatibility=AutomaticUnits`private`DimensionCompatibleUnitQ[unit,#]&/@(First/@mathematica2SBMLBaseUnit);
-	destinationUnit=First[Pick[First/@mathematica2SBMLBaseUnit,compatibility]];
-	rawmult = First[Convert[unit,destinationUnit]];
+	compatibility=Quiet[AutomaticUnits`private`DimensionCompatibleUnitQ[Unit[unit],#]]&/@(First/@mathematica2SBMLBaseUnit);
+	destinationUnit=First@Pick[First/@mathematica2SBMLBaseUnit,compatibility];
+	rawmult = First[Convert[Unit[unit],destinationUnit]];
 	multiplier=ToString[rawmult^ToExpression[exponent],"SBML"];
 	XMLElement["unit",{"kind"->destinationUnit/.mathematica2SBMLBaseUnit,"exponent"->exponent,"scale"->"0","multiplier"->multiplier},{}]
 ]
@@ -770,35 +770,34 @@ unitStringList2sbml[{unit_String,exponent_String}]:=Module[{compatibility,destin
 modelUnits2sbml[model_MASSmodel]:=Module[{unitList,stringUnits,volumeUnits,concUnits},
 	unitList = {};
 	model/.Unit[_,unit_]:>AppendTo[unitList,unit];
-	unitList = DeleteDuplicates[unitList];
 	(* Get the substance units for later by concUnits*volumeUnits *)
-	volumeUnits = DeleteDuplicates@(Last/@(parameter["Volume",#]&/@getCompartments[model]/.model["Parameters"]/.(_parameter->1 Liter)));
+	volumeUnits = DeleteDuplicates[Last/@(parameter["Volume",#]&/@getCompartments[model]/.model["Parameters"]/.(_parameter->1 Liter))];
 	concUnits = DeleteDuplicates[Last/@(Cases[model["Species"]/.model["InitialConditions"],Except[$MASS$speciesPattern]])];
-	AppendTo[unitList,Last[Unit/@volumeUnits*#]]&/@Unit/@concUnits;
-	unitList=Flatten[unitList];
+	unitList=Join[unitList,Flatten[volumeUnits*#&/@concUnits]];
+	(* Remove duplicates and flatten list *)
+	unitList=DeleteDuplicates[Flatten[unitList]];
 	(* Create unit rules *)
 	stringUnits = Replace[unitList/.{Times->List,Power->List,x_?NumberQ:>ToString[x]},{{a_String,b_String}:>{{a,b}},a_String:>{a}},1];
 	Thread[unitList->stringUnits]
 ];
 
 
-mathematica2SBMLBaseUnit={AutomaticUnits`Unit[1, "Ampere"]->"ampere",AutomaticUnits`Unit[1, "Mole"]->"avogadro",AutomaticUnits`Unit[1, "Becquerel"]->"becquerel",AutomaticUnits`Unit[1, "Candela"]->"candela",AutomaticUnits`Unit[1, "Coulomb"]->"coulomb",1->"dimensionless",AutomaticUnits`Unit[1, "Farad"]->"farad",AutomaticUnits`Unit[1, "Joule"]->"joule",AutomaticUnits`Unit[1, "Lux"]->"lux",AutomaticUnits`Unit[1, "Gram"]->"gram",AutomaticUnits`Unit[1, "Mole"/"Second"]->"katal",AutomaticUnits`Unit[1, "Meter"]->"metre",GrayLevel[0.5]->"gray",AutomaticUnits`Unit[1, "Kelvin"]->"kelvin",AutomaticUnits`Unit[1, "Mole"]->"mole",AutomaticUnits`Unit[1, "Henry"]->"henry",AutomaticUnits`Unit[1000, "Gram"]->"kilogram",AutomaticUnits`Unit[1, "Newton"]->"newton",AutomaticUnits`Unit[1, "Hertz"]->"hertz",AutomaticUnits`Unit[1, "Liter"]->"litre",AutomaticUnits`Unit[1, "Ohm"]->"ohm",AutomaticUnits`Unit[1, "item"]->"item",AutomaticUnits`Unit[1, "Lumen"]->"lumen",AutomaticUnits`Unit[1, "Pascal"]->"pascal",AutomaticUnits`Unit[1, "Radian"]->"radian",AutomaticUnits`Unit[1, "Volt"]->"volt",AutomaticUnits`Unit[1, "Second"]->"second",AutomaticUnits`Unit[1, "Watt"]->"watt",AutomaticUnits`Unit[1, "Siemens"]->"siemens",AutomaticUnits`Unit[1, "Weber"]->"weber",AutomaticUnits`Unit[Rational[1, 1000], "Gram"^(-1) "Joule"]->"sievert",AutomaticUnits`Unit[1, "Steradian"]->"steradian",AutomaticUnits`Unit[1, "Tesla"]->"tesla"};;
-
+mathematica2SBMLBaseUnit={Ampere->"ampere",Becquerel->"becquerel",Candela->"candela",Coulomb->"coulomb",1->"dimensionless",Farad->"farad",Joule->"joule",Lux->"lux",Gram->"gram",Mole/Second->"katal",Meter->"metre",GrayLevel[0.5]->"gray",Kelvin->"kelvin",Mole->"mole",Henry->"henry",Kilogram->"kilogram",Newton->"newton",Hertz->"hertz",Liter->"litre",Ohm->"ohm",Quiet[DeclareUnit["item"]]->"item",Lumen->"lumen",Pascal->"pascal",Radian->"radian",Volt->"volt",Second->"second",Watt->"watt",Siemens->"siemens",Weber->"weber",1/1000 Joule/Gram->"sievert",Steradian->"steradian",Tesla->"tesla"};
 
 compartments2sbml[comp_,model_MASSmodel,unitRules:{_Rule...},miriam_?BooleanQ]:=Module[{rules},
 	Which[
-		MatchQ[parameter["Volume",comp]/.model["Parameters"],_Quantity|_?NumberQ],
+		MatchQ[parameter["Volume",comp]/.model["Parameters"],_Unit|_?NumberQ],
 			Module[{volume,size,units},
 				volume = parameter["Volume",comp]/.model["Parameters"];
-				size = ToString[QuantityMagnitude[volume],"SBML"];
-				units = QuantityUnit[volume]/.mathematica2SBMLBaseUnit;
+				size = ToString[stripUnits[volume],"SBML"];
+				units = getUnit[volume]/.mathematica2SBMLBaseUnit;
 				rules={"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->Replace[units,unitRules],"size"->size,"constant"->"true"}
 			],
 		MemberQ[#[[1,0]]&/@model["CustomODE"]/.Derivative[1][x_]:>x,parameter["Volume",comp]],
 			Module[{volume,size,units},
 				volume = parameter["Volume",comp]/.model["InitialConditions"];
-				size = ToString[QuantityMagnitude[volume],"SBML"];
-				units = QuantityUnit[volume]/.mathematica2SBMLBaseUnit;
+				size = ToString[stripUnits[volume],"SBML"];
+				units = getUnit[volume]/.mathematica2SBMLBaseUnit;
 				rules={"id"->comp,"name"->comp,"spatialDimensions"->"3","units"->Replace[units,unitRules],"size"->size,"constant"->"false"}
 			],
 		True,
@@ -820,7 +819,7 @@ species2sbml[spec_,model_MASSmodel,unitRules:{_Rule...},miriam_?BooleanQ]:=Modul
 	comp = getCompartment[spec];
 	If[comp=!=None,
 		AppendTo[rules,"compartment"->getCompartment[spec]];
-		substanceUnits=Replace[QuantityUnit[(spec/.model["InitialConditions"])*(parameter["Volume",getCompartment[spec]]/.Join[model["Parameters"],model["InitialConditions"]])],unitRules];
+		substanceUnits=Replace[getUnit[(spec/.model["InitialConditions"])*(parameter["Volume",getCompartment[spec]]/.Join[model["Parameters"],model["InitialConditions"]])],unitRules];
 		If[MatchQ[substanceUnits,_String],AppendTo[rules,"substanceUnits"->substanceUnits]]
 	];
 
@@ -844,7 +843,7 @@ parameter2sbml[param_,model_MASSmodel,unitRules:{_Rule...},miriam_?BooleanQ]:=Mo
 	If[MemberQ[First/@model["InitialConditions"],param[[1]]],constant="false",constant="true"];
 	name=ToString[param[[1]],"SBML"];
 	value = ToString[stripUnits[param[[2]]],"SBML"];
-	units = Replace[QuantityUnit[param[[2]]],unitRules];
+	units = Replace[getUnit[param[[2]]],unitRules];
 	XMLElement["parameter",
 		{"id"->name,"name"->name,"value"->value,"units"->units,"constant"->constant},
 		If[miriam,
@@ -871,12 +870,12 @@ reaction2sbml[rxn_,model_MASSmodel,ratemapping_List,params_List,unitRules:{_Rule
 				"value"->If[
 					MatchQ[Last[#],_String],
 					Last[#],
-					ToString[QuantityMagnitude[Last[#]],"SBML"]
+					ToString[stripUnits[Last[#]],"SBML"]
 				],
 				"units"->If[
 					MatchQ[Last[#],_String],
 					"Dimensionless",
-					Replace[QuantityUnit[Last[#]],unitRules]
+					Replace[getUnit[Last[#]],unitRules]
 				]
 			},
 			If[miriam,
