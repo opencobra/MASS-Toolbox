@@ -75,11 +75,24 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 (*	progtext="Loading GurobiML ...";
 	Quiet@Needs["GurobiML`"];Quiet@ParallelNeeds["GurobiML`"];prog++;delay[];*)
 	
+	(* Load Automatic Units *)
+	progtext="Loading AutomaticUnits ...";
+	Unprotect[BeginPackage];
+	BeginPackage["PhysicalConstants`", "Units`"] = BeginPackage["PhysicalConstants`", "AutomaticUnits`"];
+	Quiet[<<PhysicalConstants`;];
+	(*Unprotect[PhysicalConstants`Private`Mole];*)
+	PhysicalConstants`Private`Mole=AutomaticUnits`Unit[1,"Mole"];
+	BeginPackage["PhysicalConstants`", "Units`"] =.;
+	Protect[BeginPackage];
+	progtext="Loading AutomaticUnits ...";Needs["AutomaticUnits`"];prog++;delay[];
+
+	
 	progtext="Loading InterpolatingFunctionAnatomy ...";Needs["DifferentialEquations`InterpolatingFunctionAnatomy`"];prog++;delay[];
 	progtext="XML ...";Needs["XML`"];prog++;delay[];
 	progtext="Loading JLink ...";Needs["JLink`"];prog++;delay[];
 	
 	BeginPackage["Toolbox`"];
+	Needs["AutomaticUnits`"];
 	Unprotect["Toolbox`*"];
 	progtext="Loading Config ...";Get["Toolbox`Config`"];prog++;delay[];
 	progtext="Loading Usage strings ...";Get["Toolbox`UsageStrings`"];prog++;delay[];

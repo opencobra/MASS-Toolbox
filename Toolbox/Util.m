@@ -58,9 +58,6 @@ extractXMLelement[xml_,tag:(_String|_Alternatives),pos_,level_:\[Infinity]]:=Rep
 SetAttributes[integerChop,Listable];
 integerChop[number_Real]:=If[Round@number==number,Round@number,number]
 integerChop[other_?NumberQ]:=other
-Unprotect[Quantity];
-Quantity[n_,stuff_]:=Block[{$preventRecursion=True},Quantity[n,stuff]/.Power[a_,b_Real]:>Power[a,integerChop[b]]]/;!TrueQ[$preventRecursion]
-Protect[Quantity];
 
 
 getReferenceFluxesAndBoundsFromXML[path_String]:=Block[{tmp,tmp2,tmp3,tmp4},
@@ -134,7 +131,7 @@ grep[file_String,patt_String]:=
 	]
 
 grep[patt_String]:=
-	With[{fileNames={"Chemoinformatics.m","COBRA.m","Config.m","Core.m","Design.m","ExampleData.m","IO.m","Networks.m","QCQA.m","Regulation.m","Sensitivity.m","Simulations.m","Style.m","Thermodynamics.m","Types.m","UsageStrings.m","Util.m","Visualization.m","Units.m"}},
+	With[{fileNames={"Chemoinformatics.m","COBRA.m","Config.m","Core.m","Design.m","ExampleData.m","IO.m","Networks.m","QCQA.m","Regulation.m","Sensitivity.m","Simulations.m","Style.m","Thermodynamics.m","Types.m","UsageStrings.m","Util.m","Visualization.m"}},
 		Flatten[Function[name,Prepend[#,name]&/@grep[name,patt]]/@fileNames,1]
 	]
 

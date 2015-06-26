@@ -4,7 +4,7 @@
 (*Units*)
 
 
-Begin["`Units`"];
+(*Begin["`Units`"];
 Unprotect["Toolbox`Units`*"];
 
 
@@ -83,7 +83,7 @@ ToExpression/@Toolbox`Private`prefixify[#]&/@{"mole","coulomb","farad","joule","
 AutomaticUnits`Unit[number_,amount_]:=Quantity[number,amount/.(string_String:>(ToUpperCase[StringTake[string,1]]<>StringDrop[string,1]<>"s"))];
 
 
-Unit[number_,amount_]:=Quantity[number,amount/.(string_String:>(ToUpperCase[StringTake[string,1]]<>StringDrop[string,1]<>"s"))];
+Unit[number_,amount_]:=Quantity[number,amount/.(string_String:>(ToUpperCase[StringTake[string,1]]<>StringDrop[string,1]<>"s"))];*)
 
 
 (* ::Section:: *)
@@ -104,5 +104,5 @@ toBaseFundamental[q_Quantity]:=
 	];
 
 
-Protect["Toolbox`Units`*"]
-End[]
+(*Protect["Toolbox`Units`*"]
+End[]*)
