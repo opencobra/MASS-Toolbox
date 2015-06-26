@@ -92,6 +92,18 @@ paths2pathwayMatrix[model_MASSmodel,paths:{(_Plus|_Times|_v)..}]:=Module[{rules}
 ];
 
 
+computeSteadyStateFlux[model_MASSmodel,pathways_List,loadings:{_Rule..}]:=Module[{pos,setPaths,mult},
+	(* Get the positions of the fluxes that consist of the loading rules *)
+	pos=Flatten[Position[model["Fluxes"],#]&/@(First/@loadings)];
+	(* Extract the fluxes with preset loading from the pathway matrix *)
+	setPaths = Transpose[pathways[[All,#]]&/@pos];
+	(* Multiply preset loading . preset paths to get pathway multipliers *)
+	mult = (Last/@loadings).Inverse[setPaths];
+	(* Return the multiplied pathways *)
+	mult.pathways
+]
+
+
 metaboliteFromString::usage="metaboliteFromString[\"id_compartment\"] will return metabolite[\"id\", \"compartment\"].";
 
 
