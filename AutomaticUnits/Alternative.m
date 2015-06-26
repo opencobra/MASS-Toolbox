@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 UnitSet["Alternative"]={
 (*--------------- angles---------------- *)
 DeclareUnit["Circle", Unit[2*Pi, "Radian"], CreateSymbol -> False], 
@@ -46,7 +48,7 @@ DeclareUnit["Barn", 1*^-28 Unit["Meter"]^2, UsageMessage->"Barn is a unit of are
 (*----------------volume-----------------*)
 
 DeclareUnit["Drop", 3.*^-8*Unit["Meter"]^3, CreateSymbol -> False], 
-DeclareUnit["Liter", Unit["Meter"]^3/1000, UsageMessage->"Liter is a unit of volume.",TraditionalLabel->"l"], 
+DeclareUnit["Liter", Unit["Meter"]^3/1000, UsageMessage->"Liter is a unit of volume.",TraditionalLabel->"L"], 
 DeclareUnit["Cord", 128*Unit["Foot"]^3, UsageMessage->"Cord is a unit of volume."], 
 DeclareUnit["RegisterTon", 100*Unit["Foot"]^3, UsageMessage->"RegisterTon is a unit of volume."], 
 (*DeclareUnit["WineBottle", Unit[0.7576778, "Liter"], UsageMessage->"WineBottle is a unit of volume."], *)
