@@ -1075,6 +1075,7 @@ Get["AutomaticUnits`Scottish`"];
 Get["AutomaticUnits`Spanish`"];
 Get["AutomaticUnits`Swedish`"];
 Get["AutomaticUnits`Taiwanese`"];
+Get["AutomaticUnits`Custom`"];
 (*Special unit set needed for mouse interactivity*)
 UnitSet["InteractiveChoices"]=Union[UnitSet["SI"],UnitSet["Imperial"],UnitSet["USCustomary"]]; 
 End[];(*Return to private context*)

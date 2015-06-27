@@ -164,7 +164,7 @@ parseFunctionXML/@extractXMLelement[xml,"listOfFunctionDefinitions",2]
 
 sbmlBaseUnit2mathematica={"ampere"->Ampere,"avogadro"->Mole,"becquerel"->Becquerel,"candela"->Candela,"coulomb"->Coulomb,"dimensionless"->1,
 "farad"->Farad,"joule"->Joule,"lux"->Lux,"gram"->Gram,"katal"->Mole/Second,"metre"->Meter,"gray"->GrayLevel[0.5`],"kelvin"->Kelvin,"mole"->Mole,
-"henry"->Henry,"kilogram"->Gram Kilo,"newton"->Newton,"hertz"->Hertz,"litre"->Liter,"ohm"->Ohm,"item"->Quiet[DeclareUnit["item"],{Unit::exists}],"lumen"->Lumen,"pascal"->Pascal,"radian"->Radian,
+"henry"->Henry,"kilogram"->Gram Kilo,"newton"->Newton,"hertz"->Hertz,"litre"->Liter,"ohm"->Ohm,"item"->itemUnit,"lumen"->Lumen,"pascal"->Pascal,"radian"->Radian,
 "volt"->Volt,"second"->Second,"watt"->Watt,"siemens"->Siemens,"weber"->Weber,"sievert"->Joule/(Gram Kilo),"steradian"->Steradian,"tesla"->Tesla};
 sbmlDefaultUnits={"substance"->Mole,"volume"->Liter,"area"->Meter^2,"length"->Meter,"time"->Second};
 unitDefDefaults={"scale"->"0","multiplier"->"1","exponent"->"1"};
@@ -782,7 +782,7 @@ modelUnits2sbml[model_MASSmodel]:=Module[{unitList,stringUnits,volumeUnits,concU
 ];
 
 
-mathematica2SBMLBaseUnit={Ampere->"ampere",Becquerel->"becquerel",Candela->"candela",Coulomb->"coulomb",1->"dimensionless",Farad->"farad",Joule->"joule",Lux->"lux",Gram->"gram",Mole/Second->"katal",Meter->"metre",GrayLevel[0.5]->"gray",Kelvin->"kelvin",Mole->"mole",Henry->"henry",Kilogram->"kilogram",Newton->"newton",Hertz->"hertz",Liter->"litre",Ohm->"ohm",Quiet[DeclareUnit["item"]]->"item",Lumen->"lumen",Pascal->"pascal",Radian->"radian",Volt->"volt",Second->"second",Watt->"watt",Siemens->"siemens",Weber->"weber",1/1000 Joule/Gram->"sievert",Steradian->"steradian",Tesla->"tesla"};
+mathematica2SBMLBaseUnit={Ampere->"ampere",Becquerel->"becquerel",Candela->"candela",Coulomb->"coulomb",1->"dimensionless",Farad->"farad",Joule->"joule",Lux->"lux",Gram->"gram",Mole/Second->"katal",Meter->"metre",GrayLevel[0.5]->"gray",Kelvin->"kelvin",Mole->"mole",Henry->"henry",Kilogram->"kilogram",Newton->"newton",Hertz->"hertz",Liter->"litre",Ohm->"ohm",itemUnit->"item",Lumen->"lumen",Pascal->"pascal",Radian->"radian",Volt->"volt",Second->"second",Watt->"watt",Siemens->"siemens",Weber->"weber",1/1000 Joule/Gram->"sievert",Steradian->"steradian",Tesla->"tesla"};
 
 compartments2sbml[comp_,model_MASSmodel,unitRules:{_Rule...},miriam_?BooleanQ]:=Module[{rules},
 	Which[

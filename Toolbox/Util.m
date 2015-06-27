@@ -125,6 +125,11 @@ initializeKernels[ker:{KernelObject..}]:=Module[{},
 initializeKernels[ker_KernelObject]:=initializeKernels[{ker}];
 
 
+Unprotect[Round];
+Round[thing_Unit,number_?NumberQ]:=Unit[Round[First[thing],number],Last[thing]];
+Protect[Round];
+
+
 grep[file_String,patt_String]:=
 	With[{data=Import[FileNameJoin[{$ToolboxPath,file}],"Lines"]},
 		Pick[Transpose[{Range[Length[data]],data}],StringFreeQ[data,patt],False]

@@ -57,9 +57,6 @@ GurobiML::notinstalled="GurobiML seems to be not installed. Advanced LP/MILP/QP 
 (*Column[{icon,progtext,If[$FrontEnd=!=Null,ProgressIndicator[prog,{1,22}],prog]}]*)
 
 
-If[!MemberQ[System`$ContextPath,"Toolbox`Units`"],System`$ContextPath=Prepend[System`$ContextPath,"Toolbox`Units`"]];
-
-
 Module[{licenseInfo,icon,delay,stubStream,bkupoutput,prog,progtext,names,rules,messageCode},
 licenseInfo="Copyright (c) 2013, Regents of the University of California
 All rights reserved.
@@ -96,7 +93,6 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	Unprotect["Toolbox`*"];
 	progtext="Loading Config ...";Get["Toolbox`Config`"];prog++;delay[];
 	progtext="Loading Usage strings ...";Get["Toolbox`UsageStrings`"];prog++;delay[];
-	progtext="Loading Units ...";Get["Toolbox`Units`"];prog++;delay[];
 	progtext="Loading Utilities ...";Get["Toolbox`Util`"];prog++;delay[];
 	progtext="Loading Types ...";Get["Toolbox`Types`"];prog++;delay[];
 	progtext="Loading Core ...";Get["Toolbox`Core`"];prog++;delay[];
