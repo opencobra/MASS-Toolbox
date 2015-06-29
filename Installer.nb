@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     16272,        469]
-NotebookOptionsPosition[     14955,        416]
-NotebookOutlinePosition[     15432,        438]
-CellTagsIndexPosition[     15358,        433]
+NotebookDataLength[     16329,        470]
+NotebookOptionsPosition[     15011,        417]
+NotebookOutlinePosition[     15488,        439]
+CellTagsIndexPosition[     15414,        434]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -75,7 +75,7 @@ Cell[BoxData[{
           RowBox[{"DeleteDirectory", "::", "nodir"}], "MessageName"], "}"}]}],
         "]"}], ";", "\[IndentingNewLine]", 
       RowBox[{"CopyDirectory", "[", 
-       RowBox[{"\"\<Toolbox\>\"", ",", 
+       RowBox[{"\"\<AutomaticUnits\>\"", ",", 
         RowBox[{"FileNameJoin", "[", 
          RowBox[{"{", 
           RowBox[{"path", ",", "\"\<AutomaticUnits\>\""}], "}"}], "]"}]}], 
@@ -85,7 +85,8 @@ Cell[BoxData[{
  CellChangeTimes->{{3.624074264671877*^9, 3.6240742731735888`*^9}, {
   3.624074650996521*^9, 3.6240746959425087`*^9}, {3.6256129091812162`*^9, 
   3.625612912606317*^9}, {3.628267099491096*^9, 3.6282671069533854`*^9}, {
-  3.644254895636889*^9, 3.644254915674518*^9}},
+  3.644254895636889*^9, 3.644254915674518*^9}, {3.644587882015006*^9, 
+  3.644587894119781*^9}},
  CellTags->"InstallCode"],
 
 Cell[BoxData[
@@ -426,13 +427,13 @@ StyleDefinitions->"Default.nb"
 (*CellTagsOutline
 CellTagsIndex->{
  "InstallCode"->{
-  Cell[761, 29, 2365, 59, 165, "Input",
+  Cell[761, 29, 2421, 60, 165, "Input",
    CellTags->"InstallCode"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"InstallCode", 15265, 427}
+ {"InstallCode", 15321, 428}
  }
 *)
 (*NotebookFileOutline
@@ -440,34 +441,34 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[579, 22, 67, 0, 44, "Subsection"],
 Cell[649, 24, 109, 3, 30, "Text"],
-Cell[761, 29, 2365, 59, 165, "Input",
+Cell[761, 29, 2421, 60, 165, "Input",
  CellTags->"InstallCode"],
-Cell[3129, 90, 127, 2, 28, "Input"]
+Cell[3185, 91, 127, 2, 28, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3293, 97, 69, 0, 44, "Subsection"],
-Cell[3365, 99, 129, 3, 30, "Text"],
-Cell[3497, 104, 1985, 53, 233, "Input"]
+Cell[3349, 98, 69, 0, 44, "Subsection"],
+Cell[3421, 100, 129, 3, 30, "Text"],
+Cell[3553, 105, 1985, 53, 233, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5519, 162, 97, 2, 44, "Subsection"],
-Cell[5619, 166, 5489, 130, 403, "Input"]
+Cell[5575, 163, 97, 2, 44, "Subsection"],
+Cell[5675, 167, 5489, 130, 403, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11145, 301, 62, 0, 44, "Subsection"],
+Cell[11201, 302, 62, 0, 44, "Subsection"],
 Cell[CellGroupData[{
-Cell[11232, 305, 30, 0, 35, "Subsubsection"],
+Cell[11288, 306, 30, 0, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[11287, 309, 1842, 50, 199, "Input"],
-Cell[13132, 361, 565, 8, 199, "Output"]
+Cell[11343, 310, 1842, 50, 199, "Input"],
+Cell[13188, 362, 565, 8, 199, "Output"]
 }, Open  ]],
-Cell[13712, 372, 56, 1, 28, "Input"]
+Cell[13768, 373, 56, 1, 28, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13805, 378, 32, 0, 35, "Subsubsection"],
+Cell[13861, 379, 32, 0, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[13862, 382, 946, 26, 131, "Input"],
-Cell[14811, 410, 104, 1, 63, "Output"]
+Cell[13918, 383, 946, 26, 131, "Input"],
+Cell[14867, 411, 104, 1, 63, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
