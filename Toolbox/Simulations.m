@@ -59,7 +59,7 @@ simulate[model_MASSmodel,opts:OptionsPattern[{simulate,DSolve,NDSolve,Parametric
 		(*Check if all initial conditions are provided*)
 		ic=FilterRules[updateRules[model["InitialConditions"],adjustUnits[OptionValue["InitialConditions"],model]],model["Variables"][[All,0]]];
 		{ic,parameters}=If[model["UnitChecking"],{ic,parameters},stripUnits[{ic,parameters}]];
-		units=#[[1]]->If[MatchQ[#[[2]],_Quantity],ReplacePart[#[[2]],1->1],1]&/@ic;
+		units=#[[1]]->If[MatchQ[#[[2]],_Unit],ReplacePart[#[[2]],1->1],1]&/@ic;
 		If[
 			vars=Union[Cases[model["Variables"],Append[$MASS$speciesPattern,_parameter][t],\[Infinity]]][[All,0]];
 			Complement[vars,#[[All,1]]]=!={},
@@ -178,11 +178,11 @@ simulate[model_MASSmodel,{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},parameters:{(_Ke
 setSimulationParameters::badargs = "The `1` in the simulation input (simulation[[`2`]]) are not formatted correctly.";
 setSimulationParameters::fpct = "The parameters in `1` cannot be filled from `2`.";
 
-setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_rateconst|_parameter|metabolite[_,"Xt"])->(_Quantity|_?NumberQ))...},rxns:{_reaction...}]:=
+setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_rateconst|_parameter|metabolite[_,"Xt"])->(_Unit|_?NumberQ))...},rxns:{_reaction...}]:=
 	
 	Module[{equations,values,abort,remainingParam,newEquations,adjustedParam,rules},
 		(* Check input format *)
-		If[!MatchQ[sim[[1]],{(_metabolite->(Times[_ParametricFunction,_Quantity]|_ParametricFunction))...}],
+		If[!MatchQ[sim[[1]],{(_metabolite->(Times[_ParametricFunction,_Unit]|_ParametricFunction))...}],
 			Message[setSimulationParameters::badargs,"metabolite equations",1];abort=True;
 		];
 		If[!MatchQ[sim[[2]],{(_v->___)...}],
@@ -213,11 +213,7 @@ setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_ratecons
 	];
 
 
-setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_rateconst|_parameter|metabolite[_,"Xt"])->(_Quantity|_?NumberQ))...},model_MASSmodel]:=setSimulationParameters[sim,parameters,model["Reactions"]];
-
-
-
-
+setSimulationParameters[sim:List[_List,_List,_List],parameters:{((_Keq|_rateconst|_parameter|metabolite[_,"Xt"])->(_Unit|_?NumberQ))...},model_MASSmodel]:=setSimulationParameters[sim,parameters,model["Reactions"]];
 
 
 (* ::Subsection:: *)

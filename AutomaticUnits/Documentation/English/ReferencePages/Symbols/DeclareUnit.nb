@@ -1,0 +1,874 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     24070,        864]
+NotebookOptionsPosition[     18233,        662]
+NotebookOutlinePosition[     20081,        714]
+CellTagsIndexPosition[     19955,        708]
+WindowTitle->DeclareUnit - Wolfram Mathematica
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Automatic unit conversion",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:AutomaticUnits/guide/AutomaticUnits"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
+Cell[BoxData[GridBox[{
+   {Cell["AUTOMATICUNITS PACLET SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"See Also \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"Convert\"\>":>Documentation`HelpLookup[
+       "paclet:AutomaticUnits/ref/Convert"], "\<\"Unit\"\>":>
+       Documentation`HelpLookup["paclet:AutomaticUnits/ref/Unit"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"More About \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"Automatic unit conversion\"\>":>
+       Documentation`HelpLookup["paclet:AutomaticUnits/guide/AutomaticUnits"], 
+       RowBox[{
+        RowBox[{"{", "}"}], "\[LeftDoubleBracket]", "1", 
+        "\[RightDoubleBracket]"}]:>Documentation`HelpLookup[
+        If[
+         StringMatchQ[
+          Part[{}, 2], "paclet*"], 
+         Part[
+          
+          Part[{{"Automatic unit conversion", 
+             "AutomaticUnits/guide/AutomaticUnits"}, {}, {}, {}}, 2], 2], 
+         StringJoin["paclet:", 
+          Part[
+           
+           Part[{{"Automatic unit conversion", 
+              "AutomaticUnits/guide/AutomaticUnits"}, {}, {}, {}}, 2], 2]]]], 
+       RowBox[{
+        RowBox[{"{", "}"}], "\[LeftDoubleBracket]", "1", 
+        "\[RightDoubleBracket]"}]:>Documentation`HelpLookup[
+        If[
+         StringMatchQ[
+          Part[{}, 2], "paclet*"], 
+         Part[
+          
+          Part[{{"Automatic unit conversion", 
+             "AutomaticUnits/guide/AutomaticUnits"}, {}, {}, {}}, 3], 2], 
+         StringJoin["paclet:", 
+          Part[
+           
+           Part[{{"Automatic unit conversion", 
+              "AutomaticUnits/guide/AutomaticUnits"}, {}, {}, {}}, 3], 2]]]], 
+       RowBox[{
+        RowBox[{"{", "}"}], "\[LeftDoubleBracket]", "1", 
+        "\[RightDoubleBracket]"}]:>Documentation`HelpLookup[
+        If[
+         StringMatchQ[
+          Part[{}, 2], "paclet*"], 
+         Part[
+          
+          Part[{{"Automatic unit conversion", 
+             "AutomaticUnits/guide/AutomaticUnits"}, {}, {}, {}}, 4], 2], 
+         StringJoin["paclet:", 
+          Part[
+           
+           Part[{{"Automatic unit conversion", 
+              "AutomaticUnits/guide/AutomaticUnits"}, {}, {}, {}}, 4], 2]]]]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"AutomaticUnits/ref/DeclareUnit\"\>":>
+       None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["AutomaticUnits/ref/DeclareUnit"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/AutomaticUnits/ref/\
+DeclareUnit.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "AutomaticUnits/ref/DeclareUnit", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell["DeclareUnit", "ObjectName",
+ CellID->1224892054],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"DeclareUnit", "[", 
+       RowBox[{"\"\<name\>\"", ",", " ", "val"}], "]"}]], "InlineFormula"],
+     " \[LineSeparator]declares a new unit \"name\" to be equivalent to the \
+unit based quantity val."
+    }]]},
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"DeclareUnit", "[", "\"\<name\>\"", "]"}]], "InlineFormula"],
+     " \[LineSeparator]declares a base unit name."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {None, {None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["EXAMPLES",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->324499318],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection",
+ CellID->388801462],
+
+Cell["Declare a new base unit", "MoreAbout",
+ CellID->68518941],
+
+Cell[BoxData[{
+ RowBox[{"<<", "AutomaticUnits`"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DeclareUnit", "[", "\"\<word\>\"", "]"}], ";"}]}], "Input",
+ CellLabel->"In[1]:=",
+ CellID->541074244],
+
+Cell["Declare other new units in terms of existing units", "MoreAbout",
+ CellID->181727542],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"DeclareUnit", "[", 
+   RowBox[{"\"\<page\>\"", ",", 
+    RowBox[{"Unit", "[", 
+     RowBox[{"2000", " ", ",", "\"\<word\>\""}], "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DeclareUnit", "[", 
+   RowBox[{"\"\<book\>\"", ",", 
+    RowBox[{"Unit", "[", 
+     RowBox[{"250", ",", "\"\<page\>\""}], "]"}]}], "]"}], ";"}]}], "Input",
+ CellLabel->"In[2]:=",
+ CellID->673754201],
+
+Cell["Use these units in the same was as built in units", "MoreAbout",
+ CellID->297443158],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Convert", "[", 
+  RowBox[{
+   RowBox[{"1000000", " ", "word"}], ",", " ", "book"}], "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->150319923],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"2", " ", "book"}],
+  AutomaticUnits`Unit[2, "book"],
+  AutoDelete->True]], "Output",
+ ImageSize->{42, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->339516205]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Convert", "[", 
+  RowBox[{
+   RowBox[{"1000000", " ", "word"}], ",", " ", "page"}], "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->680153532],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"500", " ", "page"}],
+  AutomaticUnits`Unit[500, "page"],
+  AutoDelete->True]], "Output",
+ ImageSize->{56, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
+ CellID->549642918]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "Options",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(3)", "ExampleCount"]
+  }], "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "TraditionalLabel",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(1)", "ExampleCount"]
+  }], "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell["\<\
+TraditionalLabel->\"label\" defines the TraditionalForm of a unit. \
+TraditionalForm labels automatically use ToolTips to provide the full unit \
+name.\
+\>", "ExampleText",
+ CellID->716350751],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DeclareUnit", "[", 
+  RowBox[{"\"\<SmallBucket\>\"", ",", 
+   RowBox[{"1.2", " ", "Liter"}], ",", 
+   RowBox[{"TraditionalLabel", "\[Rule]", "\"\<sb\>\""}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->258328763],
+
+Cell[BoxData[
+ InterpretationBox["SmallBucket",
+  Units`Unit[1, "SmallBucket"]]], "Output",
+ ImageSize->{81, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->7337510]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TraditionalForm", "[", 
+  RowBox[{"3", " ", "SmallBucket"}], "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->852005142],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"3", " ", 
+   InterpretationBox[
+    TooltipBox["sb",
+     "SmallBucket",
+     TooltipStyle->"TextStyling"],
+    Units`Unit[1, "SmallBucket"]]}], TraditionalForm]], "Output",
+ ImageSize->{23, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]//TraditionalForm=",
+ CellID->68254631]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "CreateSymbol",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(1)", "ExampleCount"]
+  }], "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->8781809],
+
+Cell["\<\
+CreateSymbol->False prevents a new symbol being created. This allows unit \
+names to be protected symbols. Such units must be entered using InputForm\
+\>", "ExampleText",
+ CellID->11641652],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DeclareUnit", "[", 
+  RowBox[{"\"\<Plot\>\"", ",", 
+   RowBox[{"Unit", "[", 
+    RowBox[{"100", ",", " ", "\"\<Word\>\""}], "]"}], ",", 
+   RowBox[{"CreateSymbol", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->79554504],
+
+Cell[BoxData[
+ InterpretationBox["Plot",
+  Units`Unit[1, "Plot"]]], "Output",
+ ImageSize->{32, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->222979963]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Unit", "[", 
+   RowBox[{"100", " ", ",", "\"\<Plot\>\""}], "]"}], "+", 
+  RowBox[{"Unit", "[", 
+   RowBox[{"200", ",", "\"\<Word\>\""}], "]"}]}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->180276783],
+
+Cell[BoxData[
+ RowBox[{"10200", " ", 
+  InterpretationBox["Word",
+   Units`Unit[1, "Word"]]}]], "Output",
+ ImageSize->{72, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->10887876]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"100", " ", "Plot"}], "+", 
+  RowBox[{"200", " ", "Word"}]}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->375460559],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"100", " ", "Plot"}], "+", 
+  RowBox[{"200", " ", "Word"}]}]], "Output",
+ ImageSize->{121, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->347270923]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Convert", "[", 
+  RowBox[{
+   RowBox[{"Unit", "[", 
+    RowBox[{"3", ",", "\"\<Plot\>\""}], "]"}], ",", 
+   RowBox[{"Unit", "[", "\"\<Word\>\"", "]"}]}], "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->230477268],
+
+Cell[BoxData[
+ RowBox[{"300", " ", 
+  InterpretationBox["Word",
+   Units`Unit[1, "Word"]]}]], "Output",
+ ImageSize->{56, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
+ CellID->63475960]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Convert", "[", 
+  RowBox[{
+   RowBox[{"Unit", "[", 
+    RowBox[{"3", ",", "\"\<Plot\>\""}], "]"}], ",", 
+   RowBox[{"Unit", "[", "\"\<Word\>\"", "]"}]}], "]"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->512943182]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "UsageMessage",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(1)", "ExampleCount"]
+  }], "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->708578929],
+
+Cell["Declare the usage message for a symbol", "ExampleText",
+ CellID->110911302],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DeclareUnit", "[", 
+  RowBox[{"\"\<Pinch\>\"", ",", 
+   RowBox[{"0.1", " ", "Gram"}], ",", 
+   RowBox[{
+   "UsageMessage", "\[Rule]", 
+    "\"\<Pinch is a unit of mass used for cooking.\>\""}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->23636352],
+
+Cell[BoxData[
+ InterpretationBox["Pinch",
+  Units`Unit[1, "Pinch"]]], "Output",
+ ImageSize->{39, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->1575805]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "Pinch"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->932901200],
+
+Cell[BoxData[
+ StyleBox["\<\"Pinch is a unit of mass used for cooking.\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellTags->"Info3466250977-2011323",
+ CellID->637100275]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "Possible Issues",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(1)", "ExampleCount"]
+  }], "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell["\<\
+If you are creating a unit which is not based on any existing unit \
+dimensions, you must declare the base unit if you wish to access it via the \
+symbol name. If you do not, you will need to use the InputForm, \
+Unit[\"name\"] for all uses.\
+\>", "ExampleText",
+ CellID->296274141],
+
+Cell[BoxData[{
+ RowBox[{"<<", "Units`"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DeclareUnit", "[", 
+   RowBox[{"\"\<word\>\"", ",", 
+    RowBox[{"Unit", "[", 
+     RowBox[{"1", ",", "\"\<word\>\""}], "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DeclareUnit", "[", 
+   RowBox[{"\"\<page\>\"", ",", 
+    RowBox[{"Unit", "[", 
+     RowBox[{"2000", " ", ",", "\"\<word\>\""}], "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DeclareUnit", "[", 
+   RowBox[{"\"\<book\>\"", ",", 
+    RowBox[{"Unit", "[", 
+     RowBox[{"250", ",", "\"\<page\>\""}], "]"}]}], "]"}], ";"}]}], "Input",
+ CellLabel->"In[1]:=",
+ CellID->89594374],
+
+Cell["\"page\" must be referred to in InputForm", "ExampleText",
+ CellID->439731233],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Convert", "[", 
+  RowBox[{
+   RowBox[{"1000000", " ", "word"}], ",", " ", 
+   RowBox[{"Unit", "[", "\"\<page\>\"", "]"}]}], "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->204864361],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"500", " ", "page"}],
+  Units`Unit[500, "page"],
+  AutoDelete->True]], "Output",
+ ImageSize->{56, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->3817857]
+}, Open  ]],
+
+Cell["But after declaring the base unit you you can use the symbol", \
+"ExampleText",
+ CellID->126725606],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"DeclareUnit", "[", "\"\<page\>\"", "]"}], ";"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->991943021],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Convert", "[", 
+  RowBox[{
+   RowBox[{"1000000", " ", "word"}], ",", " ", "page"}], "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->41758495],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"500", " ", "page"}],
+  Units`Unit[500, "page"],
+  AutoDelete->True]], "Output",
+ ImageSize->{56, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
+ CellID->349909652]
+}, Open  ]]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["SEE ALSO",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["Convert",
+    BaseStyle->"Link",
+    ButtonData->"paclet:AutomaticUnits/ref/Convert"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["Unit",
+    BaseStyle->"Link",
+    ButtonData->"paclet:AutomaticUnits/ref/Unit"],
+   FontFamily->"Verdana"]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->21912]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["MORE ABOUT",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "MoreAboutSection",
+ CellID->38303248],
+
+Cell[TextData[ButtonBox["Automatic unit conversion",
+ BaseStyle->"Link",
+ ButtonData->"paclet:AutomaticUnits/guide/AutomaticUnits"]], "MoreAbout",
+ CellID->573226771]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"DeclareUnit - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, 
+  "Metadata" -> {
+   "built" -> "{2011, 1, 21, 15, 23, 49.1628329}", "context" -> 
+    "AutomaticUnits`", "keywords" -> {}, "index" -> True, "label" -> 
+    "AutomaticUnits Paclet Symbol", "language" -> "en", "paclet" -> 
+    "AutomaticUnits", "status" -> "None", "summary" -> 
+    "DeclareUnit[\"name\", val] declares a new unit \"name\" to be equivalent \
+to the unit based quantity val.DeclareUnit[\"name\"] declares a base unit \
+name.", "synonyms" -> {}, "title" -> "DeclareUnit", "type" -> "Symbol", "uri" -> 
+    "AutomaticUnits/ref/DeclareUnit"}, "LinkTrails" -> "", 
+  "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"8.0 for Microsoft Windows (32-bit) (November 7, 2010)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "8.0 for Microsoft Windows (32-bit) (November 7, 2010)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[5967, 166, 461, 13, 70, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->324499318]},
+ "Info3466250977-2011323"->{
+  Cell[13860, 492, 168, 4, 70, "Print",
+   CellTags->"Info3466250977-2011323",
+   CellID->637100275]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 19680, 697},
+ {"Info3466250977-2011323", 19829, 701}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[604, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[683, 24, 208, 5, 70, "LinkTrail"],
+Cell[894, 31, 4306, 105, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[5225, 140, 54, 1, 70, "ObjectName",
+ CellID->1224892054],
+Cell[5282, 143, 648, 18, 70, "Usage",
+ CellID->982511436]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5967, 166, 461, 13, 70, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->324499318],
+Cell[CellGroupData[{
+Cell[6453, 183, 148, 5, 70, "ExampleSection",
+ CellID->388801462],
+Cell[6604, 190, 63, 1, 70, "MoreAbout",
+ CellID->68518941],
+Cell[6670, 193, 198, 5, 70, "Input",
+ CellID->541074244],
+Cell[6871, 200, 91, 1, 70, "MoreAbout",
+ CellID->181727542],
+Cell[6965, 203, 433, 13, 70, "Input",
+ CellID->673754201],
+Cell[7401, 218, 90, 1, 70, "MoreAbout",
+ CellID->297443158],
+Cell[CellGroupData[{
+Cell[7516, 223, 167, 5, 70, "Input",
+ CellID->150319923],
+Cell[7686, 230, 259, 9, 36, "Output",
+ CellID->339516205]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7982, 244, 167, 5, 70, "Input",
+ CellID->680153532],
+Cell[8152, 251, 263, 9, 36, "Output",
+ CellID->549642918]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8464, 266, 223, 7, 70, "ExampleSection",
+ CellID->2061341341],
+Cell[CellGroupData[{
+Cell[8712, 277, 238, 7, 70, "ExampleSubsection",
+ CellID->1757724783],
+Cell[8953, 286, 202, 5, 70, "ExampleText",
+ CellID->716350751],
+Cell[CellGroupData[{
+Cell[9180, 295, 242, 6, 70, "Input",
+ CellID->258328763],
+Cell[9425, 303, 219, 7, 36, "Output",
+ CellID->7337510]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9681, 315, 144, 4, 70, "Input",
+ CellID->852005142],
+Cell[9828, 321, 354, 12, 70, "Output",
+ CellID->68254631]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[10231, 339, 231, 7, 70, "ExampleSubsection",
+ CellID->8781809],
+Cell[10465, 348, 199, 4, 70, "ExampleText",
+ CellID->11641652],
+Cell[CellGroupData[{
+Cell[10689, 356, 270, 7, 70, "Input",
+ CellID->79554504],
+Cell[10962, 365, 207, 7, 36, "Output",
+ CellID->222979963]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11206, 377, 233, 7, 70, "Input",
+ CellID->180276783],
+Cell[11442, 386, 234, 8, 36, "Output",
+ CellID->10887876]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11713, 399, 148, 5, 70, "Input",
+ CellID->375460559],
+Cell[11864, 406, 237, 8, 36, "Output",
+ CellID->347270923]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12138, 419, 237, 7, 70, "Input",
+ CellID->230477268],
+Cell[12378, 428, 232, 8, 36, "Output",
+ CellID->63475960]
+}, Open  ]],
+Cell[12625, 439, 237, 7, 70, "Input",
+ CellID->512943182]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[12899, 451, 233, 7, 70, "ExampleSubsection",
+ CellID->708578929],
+Cell[13135, 460, 81, 1, 70, "ExampleText",
+ CellID->110911302],
+Cell[CellGroupData[{
+Cell[13241, 465, 278, 8, 70, "Input",
+ CellID->23636352],
+Cell[13522, 475, 207, 7, 36, "Output",
+ CellID->1575805]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13766, 487, 91, 3, 70, "Input",
+ CellID->932901200],
+Cell[13860, 492, 168, 4, 70, "Print",
+ CellTags->"Info3466250977-2011323",
+ CellID->637100275]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[14089, 503, 231, 7, 70, "ExampleSection",
+ CellID->1305812373],
+Cell[14323, 512, 292, 6, 70, "ExampleText",
+ CellID->296274141],
+Cell[14618, 520, 674, 20, 70, "Input",
+ CellID->89594374],
+Cell[15295, 542, 84, 1, 70, "ExampleText",
+ CellID->439731233],
+Cell[CellGroupData[{
+Cell[15404, 547, 207, 6, 70, "Input",
+ CellID->204864361],
+Cell[15614, 555, 252, 9, 36, "Output",
+ CellID->3817857]
+}, Open  ]],
+Cell[15881, 567, 105, 2, 70, "ExampleText",
+ CellID->126725606],
+Cell[15989, 571, 136, 4, 70, "Input",
+ CellID->991943021],
+Cell[CellGroupData[{
+Cell[16150, 579, 166, 5, 70, "Input",
+ CellID->41758495],
+Cell[16319, 586, 254, 9, 36, "Output",
+ CellID->349909652]
+}, Open  ]]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16634, 602, 417, 12, 70, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[17054, 616, 512, 19, 70, "SeeAlso",
+ CellID->21912]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17603, 640, 419, 12, 70, "MoreAboutSection",
+ CellID->38303248],
+Cell[18025, 654, 166, 3, 70, "MoreAbout",
+ CellID->573226771]
+}, Open  ]],
+Cell[18206, 660, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

@@ -66,9 +66,9 @@ SetOptions[enzyme,Sequence@@options];
 model=constructModel[Join[catalyticRxnList,activationRxnList,inhibitingRxnList,If[OptionValue["Inhibitors"]==={},{},{transition}],exch]];
 
 updateCustomRateLaws[model,correctRatesForBindingSites@FilterRules[Thread[(getID/@model["Fluxes"])->model["Rates"]],_?(StringMatchQ[#,RegularExpression[".*(Activation|Inhibition).*"]]&)]];
-
 (*If[activators==={},unifyRateConstants@model,model]*)
-If[OptionValue["ActivationSites"]==0||OptionValue["Activators"]=={},unifyRateConstants@model,model]
+If[OptionValue["ActivationSites"]==0||OptionValue["Activators"]=={},setCustomRateLaws[model,Thread[model["CustomRateLaws"][[All,1]]->unifyRateConstants[model["CustomRateLaws"][[All,2]]]]]];
+model
 ];
 
 constructEnzymeModule[rxn_reaction,activatingBindingSites_Integer,inhibitingBindingSites_Integer,activators:({_metabolite..}|{}):{},inhibitors:({_metabolite..}|{}):{},opts:OptionsPattern[]]:=

@@ -57,9 +57,6 @@ GurobiML::notinstalled="GurobiML seems to be not installed. Advanced LP/MILP/QP 
 (*Column[{icon,progtext,If[$FrontEnd=!=Null,ProgressIndicator[prog,{1,22}],prog]}]*)
 
 
-If[!MemberQ[System`$ContextPath,"Toolbox`Units`"],System`$ContextPath=Prepend[System`$ContextPath,"Toolbox`Units`"]];
-
-
 Module[{licenseInfo,icon,delay,stubStream,bkupoutput,prog,progtext,names,rules,messageCode},
 licenseInfo="Copyright (c) 2013, Regents of the University of California
 All rights reserved.
@@ -75,15 +72,27 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 (*	progtext="Loading GurobiML ...";
 	Quiet@Needs["GurobiML`"];Quiet@ParallelNeeds["GurobiML`"];prog++;delay[];*)
 	
+	(* Load Automatic Units *)
+	progtext="Loading AutomaticUnits ...";
+	Unprotect[BeginPackage];
+	BeginPackage["PhysicalConstants`", "Units`"] = BeginPackage["PhysicalConstants`", "AutomaticUnits`"];
+	Quiet[<<PhysicalConstants`;];
+	(*Unprotect[PhysicalConstants`Private`Mole];*)
+	PhysicalConstants`Private`Mole=AutomaticUnits`Unit[1,"Mole"];
+	BeginPackage["PhysicalConstants`", "Units`"] =.;
+	Protect[BeginPackage];
+	progtext="Loading AutomaticUnits ...";Needs["AutomaticUnits`"];prog++;delay[];
+
+	
 	progtext="Loading InterpolatingFunctionAnatomy ...";Needs["DifferentialEquations`InterpolatingFunctionAnatomy`"];prog++;delay[];
 	progtext="XML ...";Needs["XML`"];prog++;delay[];
 	progtext="Loading JLink ...";Needs["JLink`"];prog++;delay[];
 	
 	BeginPackage["Toolbox`"];
+	Needs["AutomaticUnits`"];
 	Unprotect["Toolbox`*"];
 	progtext="Loading Config ...";Get["Toolbox`Config`"];prog++;delay[];
 	progtext="Loading Usage strings ...";Get["Toolbox`UsageStrings`"];prog++;delay[];
-	progtext="Loading Units ...";Get["Toolbox`Units`"];prog++;delay[];
 	progtext="Loading Utilities ...";Get["Toolbox`Util`"];prog++;delay[];
 	progtext="Loading Types ...";Get["Toolbox`Types`"];prog++;delay[];
 	progtext="Loading Core ...";Get["Toolbox`Core`"];prog++;delay[];
