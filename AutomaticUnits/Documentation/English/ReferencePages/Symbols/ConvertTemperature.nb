@@ -1,0 +1,560 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     16257,        550]
+NotebookOptionsPosition[     13026,        442]
+NotebookOutlinePosition[     14396,        480]
+CellTagsIndexPosition[     14311,        475]
+WindowTitle->ConvertTemperature - Wolfram Mathematica
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Automatic unit conversion",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:AutomaticUnits/guide/AutomaticUnits"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
+Cell[BoxData[GridBox[{
+   {Cell["AUTOMATICUNITS PACKAGE PACLET SYMBOL", "PacletNameCell"], Cell[
+    TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"Tutorials \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"AutomaticUnits Package\"\>":>
+       Documentation`HelpLookup["paclet:AutomaticUnits/tutorial/Units"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"See Also \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"Kelvin\"\>":>Documentation`HelpLookup[
+       "paclet:Units/ref/Kelvin"], "\<\"Celsius\"\>":>
+       Documentation`HelpLookup[
+       "paclet:Units/ref/Celsius"], "\<\"Fahrenheit\"\>":>
+       Documentation`HelpLookup[
+       "paclet:Units/ref/Fahrenheit"], "\<\"Rankine\"\>":>
+       Documentation`HelpLookup[
+       "paclet:Units/ref/Rankine"], "\<\"Centigrade\"\>":>
+       Documentation`HelpLookup["paclet:Units/ref/Centigrade"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"More About \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"Automatic unit conversion\"\>":>
+       Documentation`HelpLookup["paclet:AutomaticUnits/guide/AutomaticUnits"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->
+         False], {"\<\"AutomaticUnits/ref/ConvertTemperature\"\>":>
+       None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["AutomaticUnits/ref/ConvertTemperature"]}, Visible -> 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/AutomaticUnits/ref/\
+ConvertTemperature.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "AutomaticUnits/ref/ConvertTemperature", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell["ConvertTemperature", "ObjectName",
+ CellID->21520],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"ConvertTemperature", "[", 
+       RowBox[{
+        StyleBox["oldunit", "TI"], ",", 
+        StyleBox["newunit", "TI"]}], "]"}]], "InlineFormula"],
+     " \[LineSeparator]converts temperature from ",
+     Cell[BoxData[
+      StyleBox["oldunit", "TI"]], "InlineFormula"],
+     " to ",
+     Cell[BoxData[
+      StyleBox["newunit", "TI"]], "InlineFormula"],
+     " respecting non-absolute zeros."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->22981]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[
+  FrameBox[
+   StyleBox[
+    RowBox[{"MORE", " ", "INFORMATION"}], "NotesFrameText"],
+   StripOnInput->False],
+  Appearance->{Automatic, None},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->"Preemptive"]]]], "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->324370413],
+
+Cell[TextData[{
+ "To use ",
+ Cell[BoxData["ConvertTemperature"], "InlineFormula"],
+ ", you first need to load the ",
+ ButtonBox["Units Package",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Units/guide/UnitsPackage"],
+ " using ",
+ Cell[BoxData[
+  RowBox[{"Needs", "[", "\"\<Units`\>\"", "]"}]], "InlineFormula"],
+ "."
+}], "Notes",
+ CellID->380863996],
+
+Cell[TextData[{
+ "The following values for temperature scales ",
+ Cell[BoxData[
+  StyleBox["oldscale", "TI"]], "InlineFormula"],
+ " and ",
+ Cell[BoxData[
+  StyleBox["newscale", "TI"]], "InlineFormula"],
+ " can be used:"
+}], "Notes",
+ CellID->11740],
+
+Cell["Celsius, Fahrenheit, Rankine, Centigrade, Kelvin.", "Notes",
+ CellID->42711110],
+
+Cell["\<\
+The conversion of temperature units is different from most other unit \
+conversions, because it is not multiplicative when not used as part of a \
+compound unit. This is because the zeros of various systems are set at \
+different values.\
+\>", "Notes",
+ CellID->17177],
+
+Cell[TextData[{
+ "For example, while a temperature gradient of 0 ",
+ Cell[BoxData[
+  ButtonBox["Centigrade",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Units/ref/Centigrade"]], "InlineFormula"],
+ "/Meter is the same as 0 ",
+ Cell[BoxData[
+  ButtonBox["Fahrenheit",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Units/ref/Fahrenheit"]], "InlineFormula"],
+ "/Meter the actual temperature 0 ",
+ Cell[BoxData[
+  ButtonBox["Centigrade",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Units/ref/Centigrade"]], "InlineFormula"],
+ " is the same as ",
+ Cell[BoxData["32"], "InlineFormula"],
+ "  ",
+ Cell[BoxData[
+  ButtonBox["Fahrenheit",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Units/ref/Fahrenheit"]], "InlineFormula"],
+ ". "
+}], "Notes",
+ CellID->29825],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["Convert",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Units/ref/Convert"]], "InlineFormula"],
+ " only converts the units of temperature. Instead use ",
+ Cell[BoxData["ConvertTemperature"], "InlineFormula"],
+ " to convert the actual temperatures taking into account absolute zero."
+}], "Notes",
+ CellID->14944]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["EXAMPLES",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->448612628],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection",
+ CellID->303848413],
+
+Cell["\<\
+Find the equivalent temperature in Fahrenheit to zero Centigrade\
+\>", "Notes",
+ CellID->82400425],
+
+Cell[BoxData[
+ RowBox[{"<<", "AutomaticUnits`"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->23075406],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ConvertTemperature", "[", 
+  RowBox[{
+   RowBox[{"0", " ", "Centigrade"}], ",", " ", "Fahrenheit"}], "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->37765605],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"32", " ", "Fahrenheit"}],
+  AutomaticUnits`Unit[32, "Fahrenheit"],
+  AutoDelete->True]], "Output",
+ ImageSize->{91, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->69743982]
+}, Open  ]],
+
+Cell["\<\
+Find the equivalent temperature gradient in Fahrenheit to 1 degree Centigrade \
+per Meter\
+\>", "Notes",
+ CellID->50823556],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Convert", "[", 
+  RowBox[{
+   RowBox[{"1", " ", 
+    RowBox[{"Centigrade", "/", "Meter"}]}], ",", 
+   RowBox[{"Fahrenheit", "/", "Meter"}]}], "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->15831217],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   FractionBox["9", "5"], " ", 
+   RowBox[{"Fahrenheit", 
+    SuperscriptBox["Meter", 
+     RowBox[{"-", "1"}]]}]}],
+  AutomaticUnits`Unit[
+   Rational[9, 5], "Fahrenheit"/"Meter"],
+  AutoDelete->True]], "Output",
+ ImageSize->{138, 32},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->453145493]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["SEE ALSO",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "SeeAlsoSection",
+ CellID->14843],
+
+Cell[TextData[{
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["Kelvin",
+    BaseStyle->"Link",
+    ButtonData->"paclet:Units/ref/Kelvin"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["Celsius",
+    BaseStyle->"Link",
+    ButtonData->"paclet:Units/ref/Celsius"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["Fahrenheit",
+    BaseStyle->"Link",
+    ButtonData->"paclet:Units/ref/Fahrenheit"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["Rankine",
+    BaseStyle->"Link",
+    ButtonData->"paclet:Units/ref/Rankine"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["Centigrade",
+    BaseStyle->"Link",
+    ButtonData->"paclet:Units/ref/Centigrade"],
+   FontFamily->"Verdana"]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->9592]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["TUTORIALS",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "TutorialsSection",
+ CellID->31662],
+
+Cell[TextData[ButtonBox["AutomaticUnits Package",
+ BaseStyle->"Link",
+ ButtonData->"paclet:AutomaticUnits/tutorial/Units"]], "Tutorials",
+ CellID->23409]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["MORE ABOUT",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "MoreAboutSection",
+ CellID->614109478],
+
+Cell[TextData[ButtonBox["Automatic unit conversion",
+ BaseStyle->"Link",
+ ButtonData->"paclet:AutomaticUnits/guide/AutomaticUnits"]], "MoreAbout",
+ CellID->2979449]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"ConvertTemperature - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, 
+  "Metadata" -> {
+   "built" -> "{2011, 1, 21, 15, 23, 45.0598751}", "context" -> 
+    "AutomaticUnits`", "keywords" -> {}, "index" -> True, "label" -> 
+    "AutomaticUnits Package Paclet Symbol", "language" -> "en", "paclet" -> 
+    "AutomaticUnits Package", "status" -> "None", "summary" -> 
+    "ConvertTemperature[oldunit, newunit] converts temperature from oldunit \
+to newunit respecting non-absolute zeros.", "synonyms" -> {}, "title" -> 
+    "ConvertTemperature", "type" -> "Symbol", "uri" -> 
+    "AutomaticUnits/ref/ConvertTemperature"}, "LinkTrails" -> "", 
+  "SearchTextTranslated" -> ""},
+FrontEndVersion->"8.0 for Microsoft Windows (32-bit) (November 7, 2010)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "WindowsANSI"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[7800, 238, 461, 13, 70, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->448612628]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 14168, 468}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[611, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[690, 24, 208, 5, 70, "LinkTrail"],
+Cell[901, 31, 3428, 79, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[4354, 114, 56, 1, 70, "ObjectName",
+ CellID->21520],
+Cell[4413, 117, 651, 20, 70, "Usage",
+ CellID->22981]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5101, 142, 580, 17, 70, "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->324370413],
+Cell[5684, 161, 348, 12, 70, "Notes",
+ CellID->380863996],
+Cell[6035, 175, 248, 9, 70, "Notes",
+ CellID->11740],
+Cell[6286, 186, 85, 1, 70, "Notes",
+ CellID->42711110],
+Cell[6374, 189, 278, 6, 70, "Notes",
+ CellID->17177],
+Cell[6655, 197, 751, 25, 70, "Notes",
+ CellID->29825],
+Cell[7409, 224, 354, 9, 70, "Notes",
+ CellID->14944]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[7800, 238, 461, 13, 70, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->448612628],
+Cell[CellGroupData[{
+Cell[8286, 255, 148, 5, 70, "ExampleSection",
+ CellID->303848413],
+Cell[8437, 262, 108, 3, 70, "Notes",
+ CellID->82400425],
+Cell[8548, 267, 101, 3, 70, "Input",
+ CellID->23075406],
+Cell[CellGroupData[{
+Cell[8674, 274, 183, 5, 70, "Input",
+ CellID->37765605],
+Cell[8860, 281, 272, 9, 36, "Output",
+ CellID->69743982]
+}, Open  ]],
+Cell[9147, 293, 133, 4, 70, "Notes",
+ CellID->50823556],
+Cell[CellGroupData[{
+Cell[9305, 301, 224, 7, 70, "Input",
+ CellID->15831217],
+Cell[9532, 310, 389, 14, 53, "Output",
+ CellID->453145493]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9982, 331, 412, 12, 70, "SeeAlsoSection",
+ CellID->14843],
+Cell[10397, 345, 1355, 48, 70, "SeeAlso",
+ CellID->9592]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11789, 398, 415, 12, 70, "TutorialsSection",
+ CellID->31662],
+Cell[12207, 412, 153, 3, 70, "Tutorials",
+ CellID->23409]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12397, 420, 420, 12, 70, "MoreAboutSection",
+ CellID->614109478],
+Cell[12820, 434, 164, 3, 70, "MoreAbout",
+ CellID->2979449]
+}, Open  ]],
+Cell[12999, 440, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

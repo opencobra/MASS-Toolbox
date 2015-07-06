@@ -18,11 +18,11 @@ Needs["Toolbox`ThirdParty`BiochemThermo`BasicBiochemData3`"]*)
 
 
 (*constants={"T"->298.15(*Temperature*),"R"->8.31*^-3(*Gas constant (mM)*)};*)
-(*constants={"T"\[Rule]Quantity[298.15,"Kelvins"](*Temperature*),"R"->UnitConvert[Quantity["MolarGasConstant"],Quantity[1, ("Joules"*"Millimoles")/"Kelvins"]](*Gas constant (mM)*),"F"\[Rule]UnitConvert[Quantity[1, "FaradayConstant"],Quantity[1, "Coulombs"/"Millimoles"]]};*)
-constants={"R"->Quantity["MolarGasConstant"]};
+(*constants={"T"->298.15 Kelvin(*Temperature*),"R"->Quiet[Convert[MolarGasConstant,Joule/(Kelvin Milli Mole)],{Convert::temp}](*Gas constant (mM)*),"F"->Quiet[Convert[FaradayConstant,Coulomb/(Milli Mole)]]};*)
+constants={"R"->PhysicalConstants`MolarGasConstant};
 
 
-defaults={"is"->is,"pH"->pH,"T"->Quantity[298.15,"Kelvins"]};
+defaults={"is"->is,"pH"->pH,"T"->298.15 Kelvin};
 
 
 equilibrator2albertyFormat[pseudoisomers:{{_Rule..}...}]:={"dG0_f","dH0_f","z","nH"}/.#&/@pseudoisomers
@@ -41,29 +41,30 @@ calcDeltaG[model_MASSmodel,opts:OptionsPattern[]]:=Module[{fluxes,conc,tmpParam,
 	tmpParam=updateRules[model["Parameters"],OptionValue["Parameters"]];
 	keq=FilterRules[tmpParam,_Keq];
 	speciesParam=FilterRules[tmpParam,$MASS$speciesPattern];
-	dissEqRatios=UnitSimplify[Chop[getDisequilibriumRatios[model]/.keq/.conc/.speciesParam]];
-	Thread[(dG[getID[#]]&/@model["Fluxes"])->Quantity["MolarGasConstant"]*Quantity[298.15,"Kelvins"]*Chop[Log[dissEqRatios]]]
+	dissEqRatios=SimplifyUnits[Chop[getDisequilibriumRatios[model]/.keq/.conc/.speciesParam]];
+	Thread[(dG[getID[#]]&/@model["Fluxes"])->PhysicalConstants`MolarGasConstant*298.15 Kelvin*Chop[Log[dissEqRatios]]]
 ];
 
 calcDeltaG[pseudoIsomers:{_?(MatchQ[#,{_Rule..}&&MemberQ[Quiet@#[[All,1]],"dG0_f"]]&)..},opts:OptionsPattern[]]:=Module[{dGzero,dHzero,dGzeroT,zi,nH,pHterm,isterm,gpfnsp,T,R,stub,is,pH,Tstd,gibbsCoeff},
 	dGzero=Table[
-		Quiet[Check[stub=UnitConvert["dG0_f"/.Dispatch[isomer],Quantity["Kilojoules"/"Moles"]],Message[calcDeltaG::noOrWrongUnitsDG,isomer];stub,{Quantity::compat}],{Quantity::compat}]
+		Quiet[Check[stub=Convert["dG0_f"/.Dispatch[isomer],Kilojoule Mole^-1],Message[calcDeltaG::noOrWrongUnitsDG,isomer];stub,{Convert::incomp,Unit::incomp2}],{Convert::incomp,Unit::incomp2}]
 		,{isomer,pseudoIsomers}
 		]//stripUnits;
 	dHzero=Table[
-		Quiet[Check[stub=UnitConvert["dH0_f"/.Dispatch[isomer],Quantity["Kilojoules"/"Moles"]],Message[calcDeltaG::noOrWrongUnitsDH,isomer];stub,{Quantity::compat}],{Quantity::compat}]
+		(*Quiet[,{Convert::incomp,Unit::incomp2}]*)
+		Check[stub=Convert["dH0_f"/.Dispatch[isomer],Kilojoule Mole^-1],Message[calcDeltaG::noOrWrongUnitsDH,isomer];stub,{Convert::incomp,Unit::incomp2}]
 		,{isomer,pseudoIsomers}
 		]//stripUnits;
-	is=If[MatchQ[OptionValue["is"],_Symbol],OptionValue["is"],Quiet[Check[stub=stripUnits@UnitConvert[OptionValue["is"],Quantity["Moles"/"Liters"]],Message[calcDeltaG::noOrWrongUnitsIonicStrength];stub,{Quantity::compat}],{Quantity::compat}]];
+	is=If[MatchQ[OptionValue["is"],_Symbol],OptionValue["is"],Quiet[Check[stub=stripUnits@Convert[OptionValue["is"],Mole Liter^-1],Message[calcDeltaG::noOrWrongUnitsIonicStrength];stub,{Convert::incomp,Unit::incomp2}],{Convert::incomp,Unit::incomp2}]];
 	If[NumberQ[is]&&!(0<=is<=0.35),Message[calcDeltaG::pHandISandTrange,"ionic strength"]];
 	pH=OptionValue["pH"];
 	If[NumberQ[pH]&&!(5<=pH<=9),Message[calcDeltaG::pHandISandTrange,"pH"]];
 	zi="z"/.pseudoIsomers;
 	nH="nH"/.pseudoIsomers;
 	Tstd=298.15;
-	T=If[MatchQ[OptionValue["T"],_Quantity],stripUnits[UnitConvert[OptionValue["T"],"Kelvins"]],OptionValue["T"]];
+	T=If[MatchQ[OptionValue["T"],_Unit],stripUnits[ConvertTemperature[OptionValue["T"],Kelvin]],OptionValue["T"]];
 	If[NumberQ[T]&&!(273.15<=T<=313.15),Message[calcDeltaG::pHandISandTrange,"T"]];
-	R=Quiet[Check[stripUnits@UnitConvert[OptionValue["R"],Quantity[1, "Joules"/("Kelvins"*"Moles")]],Message[calcDeltaG::inconcond];Abort[](*/.Quantity[a_,Times[Power["Kelvin",-1],"Kilojoule",Power["Mole",-1]]]:>a*),{Quantity::compat}],{Quantity::compat}];
+	R=Quiet[stripUnits@Convert[OptionValue["R"],(Joule)/(Mole Kelvin)](*/.Unit[a_,Times[Power["Kelvin",-1],"Kilojoule",Power["Mole",-1]]]:>a*),{Convert::incomp,Unit::incomp2}];
 	(*
 	dG=dH - Tstd dS
 	dS->(-dG+dH)/Tstd;
@@ -78,7 +79,7 @@ calcDeltaG[pseudoIsomers:{_?(MatchQ[#,{_Rule..}&&MemberQ[Quiet@#[[All,1]],"dG0_f
 	gibbsCoeff=((9.20483*T)/10^3-(1.284668*T^2)/10^5+(4.95199*T^3)/10^8);
 	isterm=gibbsCoeff (((zi^2)-nH)*Sqrt[is])/(1+1.6*Sqrt[is]);
 	gpfnsp=dGzeroT-pHterm-isterm;
-	Chop[(((-R*T*Log[Apply[Plus,Exp[-1*gpfnsp/((R*T)/1000)]]])/1000)/.Dispatch[List[opts]])*Quantity["Kilojoules"/"Moles"]]
+	Chop[(((-R*T*Log[Apply[Plus,Exp[-1*gpfnsp/((R*T)/1000)]]])/1000)/.Dispatch[List[opts]])Kilojoule Mole^-1]
 ];
 (*-((8.31451*t*Log[Plus@@(E^(-(gpfnsp/((8.31451*t)/1000))))])/1000)*)
 calcDeltaG[metsAndIsomers:{($MASS$speciesPattern->{_?(MatchQ[#,{_Rule..}&&MemberQ[#[[All,1]],"priority"]]&)..})..},opts:OptionsPattern[]]:=
@@ -147,25 +148,25 @@ calcDeltaG[rxns:{_reaction..},dGofFormation:{(_dGstd->_ )..}]:=calcDeltaG[#,dGof
 
 dG2keq::nounits="No units provided. Assuming Kilojoule \!\(\*SuperscriptBox[\(Mole\), \(-1\)]\).";
 Options[dG2keq]=Join[FilterRules[constants,{"R"}],FilterRules[defaults,{"T"}]];
-dG2keq[dgz_Quantity,opts:OptionsPattern[]]:=Module[{dgzConverted},
-dgzConverted=Quiet[Check[UnitConvert[dgz,Quantity["Joules"/"Moles"]],dgz,{Quantity::compat}],{Quantity::compat}];
+dG2keq[dgz_Unit,opts:OptionsPattern[]]:=Module[{dgzConverted},
+dgzConverted=Quiet[Check[Convert[dgz,Joule Mole^-1],dgz,{Convert::incomp}],{Convert::incomp}];
 Exp[-(dgzConverted/(OptionValue["R"]*OptionValue["T"]))]
 ];
 dG2keq[dgz_?NumberQ,opts:OptionsPattern[]]:=Module[{},
 If[dgz==0,
 1,
 Message[dG2keq::nounits];
-dG2keq[dgz*Quantity[1, "Kilojoules"/"Moles"],opts]
+dG2keq[dgz Kilojoule Mole^-1,opts]
 ]
 ];
 dG2keq[param:{_Rule..},opts:OptionsPattern[]]:=param/.r_Rule/;MatchQ[r[[1]],_dGstd]&&Head[getID[r[[1]]]]==String:>Keq[getID[r[[1]]]]->dG2keq[r[[2]]]
 
 
-adjustKeqUnits=stripUnits[UnitConvert[#,Table[Quantity["Liters"/"Moles"]^i,{i,Join[Range[-5,-1],Range[1,5]]}]]]&;
+adjustKeqUnits=stripUnits[Convert[#,Table[Liter^-i Mole^i,{i,Join[Range[-5,-1],Range[1,5]]}]]]&;
 
 Options[keq2dG]=Join[Join[FilterRules[constants,{"R"}],FilterRules[defaults,{"T"}]],{"is"->Undefined,"pH"->Undefined}];
 keq2dG[keq_Keq,opts:OptionsPattern[]]:=Exp[-(dGstd[getID[keq],Sequence@@updateRules[FilterRules[Options[keq2dG],Options[dGstd][[All,1]]],FilterRules[List@opts,Options[dGstd][[All,1]]]]]/(OptionValue["R"]OptionValue["T"]))]
-keq2dG[keq:(_?NumberQ|_Quantity),opts:OptionsPattern[]]:=-OptionValue["R"] OptionValue["T"] Log[adjustKeqUnits[keq]]
+keq2dG[keq:(_?NumberQ|_Unit),opts:OptionsPattern[]]:=-OptionValue["R"] OptionValue["T"] Log[adjustKeqUnits[keq]]
 keq2dG[param:{_Rule..},opts:OptionsPattern[]]:=param/.r_Rule/;r[[1,0]]==Keq&&Head[getID[r[[1]]]]==String:>(dGstd[getID[r[[1]]],Sequence@@updateRules[FilterRules[Options[keq2dG],Options[dGstd][[All,1]]],FilterRules[List@opts,Options[dGstd][[All,1]]]]]->-OptionValue["R"] OptionValue["T"] Log[adjustKeqUnits[r[[2]]]])
 keq2dG[stuff_,opts:OptionsPattern[]]:=stuff/.keq_Keq:>Exp[-(dGstd[getID[keq],Sequence@@updateRules[Options[dGstd],FilterRules[List@opts,Options[dGstd][[All,1]]]]]/(OptionValue["R"]OptionValue["T"]))]
 
