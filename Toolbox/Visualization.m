@@ -340,8 +340,18 @@ Options[drawMetaboliteMap]={"Style"->{},"DefaultStyle"->{Lighter@Gray,PointSize[
 drawMetaboliteMap[mets_,opts:OptionsPattern[]]:=Block[{surface,metaboliteSize,graphicElements,url,aspectRatio},
 aspectRatio=getAspectRatio[Sequence@@getCorners[mets]];
 graphicElements=Table[
-{Sequence@@If[MemberQ[OptionValue["Style"],elem[[1]],\[Infinity]],elem[[1]]/.OptionValue["Style"],OptionValue["DefaultStyle"]],If[Length[elem[[2]]]>2,Disk[elem[[2,1;;2]],elem[[2,3]]],Point[elem[[2]]]]}
-,{elem,mets}];
+	{Sequence@@
+		If[MemberQ[OptionValue["Style"],elem[[1]],\[Infinity]],
+			elem[[1]]/.OptionValue["Style"],OptionValue["DefaultStyle"]
+		],
+		Switch[Length[elem[[2]]],
+			2,Point[elem[[2]]],
+			3,Disk[elem[[2,1;;2]],elem[[2,3]]],
+			4,Disk[elem[[2,1;;2]],elem[[2,3;;4]]]
+		]
+	}
+	,{elem,mets}];
+
 If[OptionValue["Tooltips"],graphicElements=Thread[Tooltip[graphicElements,mets[[All,1]]]]];
 If[OptionValue["Hyperlinks"],graphicElements=Table[
 url="http://bigg.ucsd.edu/bigg/view3.pl?type=metabolite&id="<>ToString[(mets[[All,1]][[i]]/.Dispatch[id2internalBIGGmetID])[[1]]]<>"&model=3473243";
@@ -353,29 +363,42 @@ Graphics[graphicElements/.elem:(_PointSize):>elem[[0]][elem[[1]]*(1/aspectRatio)
 Options[drawReactionMap]={"AbsentStyle"->{Dotted,Thickness[0.001],Lighter@Gray},"DefaultStyle"->{Thickness[0.002],Gray},"Tooltips"->True,"Style"->{},"Directed"->True,"Arrowheads"->0.01,"Hyperlinks"->False};
 drawReactionMap[reactionPositions_List,opts:OptionsPattern[]]:=Block[{rxnCoords,rxnPoints,rxnPos2Curve,color,thickness,defaultStyle,graphicElements,url,out,style,direction,aspectRatio},
 
-defaultStyle=If[OptionValue["Style"]==={},OptionValue["DefaultStyle"],OptionValue["AbsentStyle"]];
-aspectRatio=getAspectRatio[Sequence@@getCorners[reactionPositions]];
-If[OptionValue["Directed"],
-	rxnPos2Curve=If[#[[-1]]===0,BezierCurve[#[[1]]],If[#[[-1]]==#2,
-		{(*Arrowheads[OptionValue["Arrowheads"]],*)Arrow[{BezierFunction[Reverse@#[[1]]][If[#[[-1]]===1,.95,.05]],#[[1,#[[-1]]]]}],BezierCurve[#[[1]]]},
-		BezierCurve[#[[1]]]
-	]]&;
-	,
-	rxnPos2Curve=BezierCurve[#1[[1]]]&;
-];
+	defaultStyle=If[OptionValue["Style"]==={},
+		OptionValue["DefaultStyle"],
+		OptionValue["AbsentStyle"]
+	];
 
-graphicElements=Table[
-{style,direction}=If[MemberQ[OptionValue["Style"],elem[[1]],\[Infinity]],{#[[1;;-2]],#[[-1]]}&[elem[[1]]/.OptionValue["Style"]],{defaultStyle,0}];
-{Sequence@@style,rxnPos2Curve[#[[1]],#[[2]]]&/@Thread[List[elem[[2]],direction]]}
-,{elem,reactionPositions}
-];
-If[OptionValue["Tooltips"],graphicElements=Thread[Tooltip[graphicElements,#&/@reactionPositions[[All,1]]]]];
-If[OptionValue["Hyperlinks"],
-graphicElements=Table[
-url="http://bigg.ucsd.edu/bigg/view3.pl?type=reaction&id="<>ToString[(reactionPositions[[All,1]][[i]]/.Dispatch[id2internalBIGGrxnID])[[1]]]<>"&model=3473243";
-Button[graphicElements[[i]],SystemOpen[#]]&[url],{i,1,Length[graphicElements]}]
-];
-Graphics[graphicElements/.elem:(_Thickness|_PointSize|_ArrowHeads):>elem[[0]][elem[[1]]*(1/aspectRatio)]]
+	aspectRatio=getAspectRatio[Sequence@@getCorners[reactionPositions]];
+
+	(* aspect ratio of 0 gives errors *)
+	If[aspectRatio==0,aspectRatio=1];
+	
+	(* Take this out if bounding boxes are no longer allowed for reactions *)
+	If[MatchQ[reactionPositions,{(_String->{{{{_,_},{_,_}},"Box"}})..}],
+		rxnPos2Curve=Rectangle[#1[[1,1]],#1[[1,2]]]&;,
+		If[OptionValue["Directed"],
+			rxnPos2Curve=If[#[[-1]]===0,
+				BezierCurve[#[[1]]],
+				If[#[[-1]]==#2,
+					{(*Arrowheads[OptionValue["Arrowheads"]],*)Arrow[{BezierFunction[Reverse@#[[1]]][If[#[[-1]]===1,.95,.05]],#[[1,#[[-1]]]]}],BezierCurve[#[[1]]]},
+					BezierCurve[#[[1]]]
+				]]&;,
+			rxnPos2Curve=BezierCurve[#1[[1]]]&;
+		];
+	];
+
+	graphicElements=Table[
+		{style,direction}=If[MemberQ[OptionValue["Style"],elem[[1]],\[Infinity]],{#[[1;;-2]],#[[-1]]}&[elem[[1]]/.OptionValue["Style"]],{defaultStyle,0}];
+		{Sequence@@style,rxnPos2Curve[#[[1]],#[[2]]]&/@Thread[List[elem[[2]],direction]]}
+		,{elem,reactionPositions}
+	];
+	If[OptionValue["Tooltips"],graphicElements=Thread[Tooltip[graphicElements,#&/@reactionPositions[[All,1]]]]];
+	If[OptionValue["Hyperlinks"],
+		graphicElements=Table[
+			url="http://bigg.ucsd.edu/bigg/view3.pl?type=reaction&id="<>ToString[(reactionPositions[[All,1]][[i]]/.Dispatch[id2internalBIGGrxnID])[[1]]]<>"&model=3473243";
+			Button[graphicElements[[i]],SystemOpen[#]]&[url],{i,1,Length[graphicElements]}]
+	];
+	Graphics[graphicElements/.elem:(_Thickness|_PointSize|_ArrowHeads):>elem[[0]][elem[[1]]*(1/aspectRatio)]]
 ];
 
 
@@ -386,8 +409,10 @@ $AVAILABLEMAPS=Select[$AVAILABLEMAPS,!StringMatchQ[#[[1]],RegularExpression["^\\
 
 Options[drawPathway]={"CompoundLabels"->True,"ReactionLabels"->True,"TextLabels"->False,"MinMaxHack"->False,"PlotLegends"->None,"Tooltips"->True,"ColorFunctionScaling"->True,"Boundary"->False,"ReactionData"->{},"MetaboliteData"->{},ColorFunction->ColorData["Rainbow"],"MinSize"->0.005,"MaxSize"->0.01,"MinThickness"->0.001,"MaxThickness"->0.003,"TextStyle"->{FontFamily->"Arial",FontSize->Scaled[.008]},"MetaboliteStyle"->Options[drawMetaboliteMap],"ReactionStyle"->Options[drawReactionMap],ImageSize->350};
 drawPathway::unknownmap="Map `1` is not available. Try drawPathway[] to see a list of available maps";
-drawPathway[]:=Sort[$AVAILABLEMAPS[[All,1]]]
-drawPathway[mapID_String,opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{cmpdPos,rxnPos,finalLabels,mapData,cmpdLabels,rxnLabels,textLabels},
+drawPathway[]:=Sort[$AVAILABLEMAPS[[All,1]]];
+drawPathway[{}]:=Null; (* This is for the model viewer when there is no pathway *)
+drawPathway["Pathway"]:=Null; (* Same as above *)
+drawPathway[mapID_String,opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{cmpdPos,rxnPos,finalLabels,mapData,cmpdLabels,rxnLabels,textLabels,compartments},
 	If[MemberQ[$AVAILABLEMAPS[[All,1]],mapID], mapData=Import[mapID/.$AVAILABLEMAPS], Message[drawPathway::unknownmap,mapID];Abort[];];
 	cmpdPos=Flatten[query["cmpd_pos",mapData,{}]];
 	rxnPos=query["rxn_pos",mapData];
@@ -400,11 +425,15 @@ drawPathway[mapID_String,opts:OptionsPattern[{drawPathway,drawReactionMap,drawMe
 	If[OptionValue["ReactionLabels"]==True, finalLabels=Join[rxnLabels,finalLabels];];
 	drawPathway[cmpdPos,DeleteCases[rxnPos,{"NaN","NaN"},\[Infinity]](*TODO: fix this in the maps*),finalLabels,opts]
 ];
-drawPathway[metPos:{_Rule..},rxnPos:{_Rule..},textPos:({(_Text|_Rule|_Style)..}|{}),opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{refMin,refMax,helperFunc,min,max,directedQ,map,fluxStyle,metStyle,cellMembrane,corners,aspectRatio,cleanRxnData,scalingFunction,cleanMetaboliteData},
+
+drawPathway[metPos:{(_String->{_?NumericQ..})..},rxnPos:{(_String->_List...)..},textPos:({(_Text|_Rule|_Style)...}),compPos:{_Rule...}:{},opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{refMin,refMax,helperFunc,min,max,directedQ,map,fluxStyle,metStyle,cellMembrane,corners,aspectRatio,cleanRxnData,scalingFunction,cleanMetaboliteData,compartments,compartmentGraphics},
 	directedQ="Directed"/.(ToString[#[[1]]]->#[[2]]&/@OptionValue["ReactionStyle"]);
 	corners=getCorners[rxnPos];
 	aspectRatio=getAspectRatio[Sequence@@corners];
-	
+
+	(* aspect ratio of 0 gives errors *)
+	If[aspectRatio==0,aspectRatio=1];
+
 	cleanRxnData=FilterRules[OptionValue["ReactionData"]/.elem_v:>getID[elem],rxnPos[[All,1]]];
 	If[OptionValue["MinMaxHack"]===True,
 		refMax=Max[Abs[{Min[#],Max[#]}&[cleanRxnData[[All,2]]]]];
@@ -414,9 +443,10 @@ drawPathway[metPos:{_Rule..},rxnPos:{_Rule..},textPos:({(_Text|_Rule|_Style)..}|
 		{refMin,refMax}=OptionValue["MinMaxHack"];
 		cleanRxnData=Join[cleanRxnData,{"Max"->refMin,"Moritz"->refMax}];
 	];
-	
+
 	scalingFunction=Switch[OptionValue["ColorFunctionScaling"],True,If[directedQ,Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{0.,1.}]&,Rescale[#,{Min[#],Max[#]},{0.,1.}]&],_Function,OptionValue["ColorFunctionScaling"],False,#&];
 	cleanMetaboliteData=FilterRules[OptionValue["MetaboliteData"]/.elem:$MASS$speciesPattern:>getID[elem],metPos[[All,1]]];
+
 	If[directedQ,
 		fluxStyle=Thread[Rule[cleanRxnData[[All,1]]/.elem_v:>getID[elem],Thread[List[Arrowheads/@Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{OptionValue["MinThickness"]*(5/aspectRatio),OptionValue["MaxThickness"]*(5/aspectRatio)}],Thickness/@Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{OptionValue["MinThickness"],OptionValue["MaxThickness"]}],OptionValue["ColorFunction"]/@scalingFunction[#],-1*Sign[#]]]]]&[cleanRxnData[[All,2]]];,
 		fluxStyle=Thread[Rule[cleanRxnData[[All,1]]/.elem_v:>getID[elem],Thread[List[Thickness/@Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{OptionValue["MinThickness"],OptionValue["MaxThickness"]}],OptionValue["ColorFunction"]/@scalingFunction[#],-1*Sign[#]]]]]&[cleanRxnData[[All,2]]];
@@ -428,12 +458,17 @@ drawPathway[metPos:{_Rule..},rxnPos:{_Rule..},textPos:({(_Text|_Rule|_Style)..}|
 		cellMembrane=Sequence[];,
 		cellMembrane=Sequence[];
 	];
+
+	compartmentGraphics = Tooltip[Rectangle@@#[[2]],#[[1]]]&/@compPos;
+	compartments = Graphics[Join[{EdgeForm[Thin],FaceForm[]},compartmentGraphics]];
+
 	map=Show[
-		cellMembrane,
+		cellMembrane,compartments,
 		drawReactionMap[rxnPos,Sequence@@updateRules[OptionValue["ReactionStyle"],{"Style"->fluxStyle}],Sequence@@FilterRules[List@opts,Options[drawReactionMap]]]/.(Tooltip[graphics_,#[[1]]]:>Tooltip[graphics,#[[1]](*<>": "<>ToString[#[[2]]]*)]&/@cleanRxnData),
 		drawMetaboliteMap[metPos,Sequence@@updateRules[OptionValue["MetaboliteStyle"],If[metStyle=!={},{"Style"->metStyle},{}]],Sequence@@FilterRules[{opts},Options[drawMetaboliteMap]]],Graphics@Style[textPos,Sequence@@(OptionValue["TextStyle"]/.elem:(_Scaled):>elem[[0]][elem[[1]]*(1/aspectRatio)])],
 		ImageSize->OptionValue["ImageSize"]
 	];
+
 	map=If[OptionValue["PlotLegends"]=!=None&&OptionValue["ReactionData"]=!={},
 		{min,max}={If[directedQ,0,Min[#]],If[directedQ,Max@Abs@#,Max@#]}&[cleanRxnData[[All,2]]];
 		helperFunc=Composition[#,With[{minn=min,maxx=max},Rescale[#,{minn,maxx},{0.,1.}]&]]&;
@@ -500,6 +535,215 @@ drawNodeMaps[model_MASSmodel,opts:OptionsPattern[{drawNodeMaps,GraphPlot}]]:=Mod
 
 
 drawNodeMaps::InvalidOption = "The arguments for the option `1` are invalid."
+
+
+(* ::Subsection::Closed:: *)
+(*PathwayGUI*)
+
+
+(*Options[pathwayGUI]={"CurrencyMets"->{},"GridSize"->.001,"PointSize"->.01,"PlotFunction"->LayeredGraphPlot,ImageSize->Large,"Labels"->True};*)
+(*pathwayGUI[model_MASSmodel,opts:OptionsPattern[pathwayGUI]]:=Module[{mets,rxns,organizedMets,background,rxnIndex,output,textLabels},*)
+(**)
+(*	mets = model["Species"];*)
+(*	rxns = model["Reactions"];*)
+(**)
+(*	DynamicModule[{pts,points,reactionPoints,visible=True,allMets,map,metLabels,currencyMets,static,oldPoints},*)
+(*		(* Designate currency metabolites *)*)
+(*		currencyMets = OptionValue["CurrencyMets"];*)
+(**)
+(*		(* Organize reaction metabolites for non-exchange reactions into {mainReactants,mainProducts,sideReactants,sideProducts} *)*)
+(*		organizedMets=organizeMets[#,currencyMets]&/@Complement[rxns,model["Exchanges"]];*)
+(**)
+(*		(* Set up initial names and points for metabolites *)*)
+(*		{allMets,pts}=setPathwayPoints[model,currencyMets,OptionValue["PlotFunction"]];*)
+(*		pts=Round[#,OptionValue["GridSize"]]&/@pts;*)
+(*		(* Get the current lines for reactions *)*)
+(*		points["Current"]:=pts;*)
+(*		reactionPoints["Current"] := Join[DeleteCases[getReactionPoints[points["Current"],allMets,#,visible]&/@organizedMets,{},1],getExchangePoints[points["Current"],allMets,#,visible]&/@model["Exchanges"]];*)
+(**)
+(*		(* Draw the map with the reaction lines *)*)
+(*		metLabels["Current"]:=allMets/.{{x_metabolite}:>x,If[visible,{x_metabolite,v_}:>x,{x_metabolite,v_}:>""]};*)
+(*		background = *)
+(*			Dynamic@Show[{Graphics[{White,Rectangle[]},ImageSize->OptionValue[ImageSize]],*)
+(*				Sequence@@drawReactionsFromPoints[reactionPoints["Current"]]*)
+(*				}];*)
+(**)
+(*		static=Flatten[Position[allMets,{_metabolite},1]];*)
+(**)
+(*		(* Create locator pane with points *)*)
+(*		map:=LocatorPane[*)
+(*			Dynamic[pts,*)
+(*				(* During click, snap to grid *)*)
+(*				(pts=Round[#,OptionValue["GridSize"]]&/@#)&*)
+(*			],*)
+(*			background,*)
+(*			Appearance->metLabels["Current"]*)
+(*		];*)
+(*		textLabels:=If[OptionValue["Labels"],*)
+(*			Thread[Text[metLabels["Current"],points["Current"]]],*)
+(*			{}*)
+(*		];*)
+(*		Print[rxns];*)
+(*		output=DialogInput[*)
+(*			Grid[{{Dynamic[map],SpanFromLeft,SpanFromLeft},*)
+(*				{DefaultButton[DialogReturn[*)
+(*					visible=True;*)
+(*					{formatPoints[points["Current"],allMets,OptionValue["PointSize"]],*)
+(*					Thread[Rule[getID/@rxns,formatReactions/@reactionPoints["Current"]]],textLabels,{}}*)
+(*				]],*)
+(*					CancelButton[],Row[{Checkbox[Dynamic[visible]],"Show currency metabolites"}]*)
+(*			}}]*)
+(*		];*)
+(*	];*)
+(*	output*)
+(*];*)
+
+
+(*organizeMets[rxn_reaction,currencyMets_List]:=Module[{rxnCurrency,mainReact,mainProd,sideReact,sideProd,rxnNumber},*)
+(*	Which[*)
+(*		MatchQ[currencyMets,{_metabolite...}],*)
+(*			rxnCurrency=currencyMets,*)
+(*		MatchQ[currencyMets,{(_String->{_metabolite...})..}],*)
+(*			rxnCurrency=getID[rxn]/.currencyMets,*)
+(*		True,*)
+(*			Abort[];*)
+(*	];*)
+(*	mainReact={#}&/@Select[getSubstrates[rxn],!MemberQ[rxnCurrency,#]&];*)
+(*	mainProd={#}&/@Select[getProducts[rxn],!MemberQ[rxnCurrency,#]&];*)
+(*	sideReact=Thread[{Select[getSubstrates[rxn],MemberQ[rxnCurrency,#]&],getID[rxn]}];*)
+(*	sideProd=Thread[{Select[getProducts[rxn],MemberQ[rxnCurrency,#]&],getID[rxn]}];*)
+(*	{mainReact,mainProd,sideReact,sideProd}*)
+(*];*)
+(**)
+(*getReactionPoints[pts_,allMets_List,{reactants_,products_,sideReact_,sideProd_},visible_]:=Module[{newMainReact,newSideReact,newMainProd,newSideProd,reactantPos,productPos,newReactantPos,newProductPos,lines,curvedReactants,curvedProducts,sideProdPos,sideReactPos,sideReactPos1,sideReactPos2,sideReactPos3,sideProdPos1,sideProdPos2,sideProdPos3},*)
+(*	*)
+(*	(* If there are either no main reactants or main products while currency are invisible, show no reaction *)*)
+(*	If[And[Or[reactants=={},products=={}],Not[visible]],*)
+(*		Return[{}];*)
+(*	];*)
+(*	*)
+(*	(* If there are no main reactants/products, make all side reactants/products main *)*)
+(*	If[reactants=={},*)
+(*		newMainReact=sideReact; newSideReact={},*)
+(*		newMainReact=reactants; newSideReact=sideReact*)
+(*	];*)
+(*	If[products=={},*)
+(*		newMainProd=sideProd; newSideProd={},*)
+(*		newMainProd=products; newSideProd=sideProd*)
+(*	];*)
+(**)
+(*	(* Find the positions of all main reactants and product metabolites *)*)
+(*	reactantPos=pts[[First@First@Position[allMets,#,1]]]&/@newMainReact;*)
+(*	productPos=pts[[First@First@Position[allMets,#,1]]]&/@newMainProd;*)
+(*	curvedReactants = {};curvedProducts = {};*)
+(*	(* Make straight line through centroid of products to centroid of reactants *)*)
+(*	(* Also add bezier lines from reactant to straight line *)*)
+(*	(* For things with only one product/reactant, just draw line to product/reactant *)*)
+(*	(* Start line 9/10 of the way to the metabolite *)*)
+(*	*)
+(*	Switch[Length[newMainReact],*)
+(*		0,newReactantPos={0,0},*)
+(*		1,newReactantPos=(9*Mean[reactantPos]+Mean[productPos])/10,*)
+(*		_,newReactantPos=(2*Mean[reactantPos]+Mean[productPos])/3;*)
+(*		curvedReactants=curvedReactions[reactantPos,productPos]*)
+(*	];*)
+(*			*)
+(*	Switch[Length[newMainProd],*)
+(*		0,newProductPos={0,0},*)
+(*		1,newProductPos=(9*Mean[productPos]+Mean[reactantPos])/10,*)
+(*		_,newProductPos=(2*Mean[productPos]+Mean[reactantPos])/3;*)
+(*		curvedProducts=curvedReactions[productPos,reactantPos]*)
+(*	];*)
+(*	*)
+(*	lines = {{newReactantPos,newProductPos}};*)
+(*	sideReactPos={};sideProdPos={};*)
+(*	If[And[visible==True,Length[newSideReact]>0],*)
+(*		sideReactPos1=pts[[First@First@Position[allMets,#,1]]]&/@newSideReact;*)
+(*		sideReactPos2=(9*Mean[reactantPos]+Mean[productPos])/10;*)
+(*		sideReactPos3=(2*Mean[reactantPos]+Mean[productPos])/3;*)
+(*		sideReactPos={#,sideReactPos2,sideReactPos3}&/@sideReactPos1;	*)
+(*	];*)
+(*	If[And[visible==True,Length[newSideProd]>0],*)
+(*		sideProdPos1=pts[[First@First@Position[allMets,#,1]]]&/@newSideProd;*)
+(*		sideProdPos2=(9*Mean[productPos]+Mean[reactantPos])/10;*)
+(*		sideProdPos3=(2*Mean[productPos]+Mean[reactantPos])/3;*)
+(*		sideProdPos={#,sideProdPos2,sideProdPos3}&/@sideProdPos1;*)
+(*	];*)
+(**)
+(*	{lines,Join[curvedReactants,curvedProducts,sideReactPos,sideProdPos]}/.Mean[{}]->0*)
+(*];*)
+(**)
+(*(* Creates the curves on either end of the line for multi-species reactions *)*)
+(*curvedReactions[primary_List,secondary_List]:=Module[{midPt,endPt},*)
+(*	midPt= Mean[primary];*)
+(*	endPt=(2*Mean[primary]+Mean[secondary])/3;*)
+(*	{(9*#+midPt)/10,midPt,endPt}&/@primary*)
+(*];*)
+(**)
+(**)
+(*(* Get points for exchange reactions *)*)
+(*getExchangePoints[points_,mets_,exchange_reaction,visible_]:=Module[{met,index,pos,outerPoint},*)
+(*	met=First@Join[getProducts[exchange],getSubstrates[exchange]];*)
+(*	If[Position[mets,{met,getID[exchange]},1]!={},*)
+(*		index=Position[mets,{met,getID[exchange]}];*)
+(*			If[Not[visible],*)
+(*				Return[{{},{}}]*)
+(*			],*)
+(*		index=Position[mets,{met},1]*)
+(*	];*)
+(*	*)
+(*	pos=points[[First@First@index]];*)
+(*	If[pos[[1]]<pos[[2]],*)
+(*		If[1-pos[[1]]<pos[[2]],*)
+(*			outerPoint={pos[[1]],1.01},*)
+(*			outerPoint={-.01,pos[[2]]}*)
+(*		],*)
+(*		If[1-pos[[1]]<pos[[2]],*)
+(*			outerPoint={1.01,pos[[2]]},*)
+(*			outerPoint={pos[[1]],-.01}*)
+(*		]*)
+(*	];*)
+(*	{{{(9*pos+outerPoint)/10,outerPoint}},{}}*)
+(*];*)
+(**)
+(*drawReactionsFromPoints[points_List]:=Module[{},*)
+(*	{Graphics[(Line/@#[[1]])&/@points],Graphics[BezierCurve[#[[2]]]]&/@points}*)
+(*];*)
+(**)
+(*formatPoints[points:{{_?NumberQ,_?NumberQ}...},mets_List,radius_]:=Module[{names,rads},*)
+(*	names=mets/.{{x_metabolite,v_}:>x,{x_metabolite}:>x};*)
+(*	Print[names];*)
+(*	If[MatchQ[radius,_?NumberQ],*)
+(*		rads=mets/.{{x_metabolite}:>radius,{x_,v_}:>radius/2},*)
+(*		rads=radius*)
+(*	];*)
+(*	Thread[Rule[getID/@names,MapThread[Append,{points,rads}]]]*)
+(*];*)
+(**)
+(*formatReactions[pts_List]:=Module[{straightLines,curves},*)
+(*	straightLines={#,0}&/@pts[[1]];*)
+(*	curves=Append[{#},-1]&/@pts[[2]];*)
+(*	Join[straightLines,curves]*)
+(*];*)
+(**)
+(*setPathwayPoints[model_MASSmodel,currencyMets_List,plotFunction_,opts:OptionsPattern[setPathwayPoints]]:=Module[{graphRules,newCurrency,map,graph,points,names,metPos,selectedPoints,xpts,ypts,scaledPoints},*)
+(*	If[MatchQ[currencyMets,{_metabolite...}],*)
+(*		graphRules = Join[Flatten[{Rule[#,rxn_]:>Rule[{#,rxn},rxn],Rule[rxn_,#]:>Rule[rxn,{#,rxn}]}&/@currencyMets],*)
+(*			{(met_metabolite->rxn_v):>({met}->rxn),(rxn_v->met_metabolite):>(rxn->{met})}],*)
+(*		newCurrency = Join@@Thread/@Reverse/@List@@@currencyMets;*)
+(*			graphRules = Join[Flatten[{Rule[First[#],v[Last[#]]]->({First[#],v[Last[#]]}->v[Last[#]]),Rule[v[Last[#]],First[#]]->Rule[v[Last[#]],{First[#],v[Last[#]]}]}&/@newCurrency],*)
+(*				{(met_metabolite->rxn_v):>({met}->rxn),(rxn_v->met_metabolite):>(rxn->{met})}]*)
+(*	];*)
+(*	map=reactions2bipartite[model["Reactions"]]/.graphRules;*)
+(*	graph = plotFunction[map,VertexLabeling->Tooltip,PlotRange->{{0,1},{0,1}}];*)
+(*	points=graph[[1,2,2]];	*)
+(*	names=#[[2]]&/@Select[Rest[graph[[1,1,2,2]]],!MatchQ[#[[2]],_v]&]/.(x_v:>getID[x]);*)
+(*	metPos=#[[1,1]]&/@Select[Rest[graph[[1,1,2,2]]],!MatchQ[#[[2]],_v]&];*)
+(*	selectedPoints=Abs[points[[metPos]]];*)
+(*	{xpts,ypts}=Transpose[selectedPoints];*)
+(*	scaledPoints=Transpose[{xpts/Max[xpts],1-ypts/Max[ypts]}];*)
+(*	{names,scaledPoints}*)
+(*]*)
 
 
 (* ::Subsection:: *)

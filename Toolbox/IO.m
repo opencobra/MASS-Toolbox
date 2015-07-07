@@ -82,7 +82,7 @@ mat2model[]:=mat2model[SystemDialogInput["FileOpen"]];
 (*SBML import*)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Utilities*)
 
 
@@ -101,7 +101,7 @@ cleanUpMathML[math:XMLElement["math",_,_]]:=Module[{adjustments},
 mathML2mass=XML`MathML`SymbolicMathMLToExpression[cleanUpMathML[#(*/.s_String\[RuleDelayed]StringReplace[s,"_"\[Rule]"$UNDRSCR$s"]*)]]&;
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfEvents*)
 
 
@@ -121,7 +121,7 @@ getListOfEvents[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_p
 ]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfInitialAssignments*)
 
 
@@ -129,7 +129,7 @@ parseInitialAssignmentXML[initialAssignment_XMLElement,id2massID:{_Rule..}]:=(("
 getListOfInitialAssignments[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseInitialAssignmentXML[#,id2massID]&/@extractXMLelement[xml,"listOfInitialAssignments",2]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfRules*)
 
 
@@ -146,7 +146,7 @@ Switch[#[[1]],
 getListOfRules[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseRuleXML[#,id2massID]&/@extractXMLelement[xml,"listOfRules",2]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfFunctionDefinitions*)
 
 
@@ -158,7 +158,7 @@ parseFunctionXML/@extractXMLelement[xml,"listOfFunctionDefinitions",2]
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfUnitDefinitions*)
 
 
@@ -185,7 +185,7 @@ getListOfUnitDefinitions[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPat
 ]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfSpecies*)
 
 
@@ -236,7 +236,7 @@ getListOfCompartments[xml_/;Head[xml]===XMLObject["Document"]]:=Module[{},
 getCompartmentVolumes[listOfCompartments:{((parameter["Volume",_String]|parameter["Volume",_String][t])->_List)...},unitDefinitions:{(_Rule|_RuleDelayed)...}]:=#[[1]]->sbmlString2Number[query["size",#[[2]],"1"]]*(query["units",#[[2]],"volume"]/.Dispatch[unitDefinitions])&/@listOfCompartments
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfReactions*)
 
 
@@ -319,7 +319,7 @@ getKineticLaw[XMLElement["kineticLaw",attrVal:{_Rule...},data_List],rxnID_String
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*parameters*)
 
 
@@ -356,10 +356,10 @@ getParameterValues[listOfParameters:{((_parameter|_parameter[t])->_List)...},uni
 (*annotations*)
 
 
-getListOfAnnotations[xml_]:=Module[{annotations,compartments,specs,rxns,kineticLaws,globalParam,rawParam,parameters,rules,miriamList},
+getListOfAnnotations[xml_]:=Module[{annotations,compartments,specs,rxns,kineticLaws,globalParam,rawParam,parameters,rules,miriamList,finalList},
 
 	(* Get model annotations *)
-	annotations ={{"id"/.extractXMLelement[xml,"model",1],extractAnnotation[xml,5]}};
+	annotations ={{"id"/.extractXMLelement[xml,"model",1],extractAnnotation[xml,5]}}/.{"is"->"is (model)","isDescribedBy"->"isDescribedBy (model)"};
 
 	(* Compartment annotations *)
 	compartments=extractXMLelement[xml,"listOfCompartments",2,{5}];
@@ -393,24 +393,24 @@ getListOfAnnotations[xml_]:=Module[{annotations,compartments,specs,rxns,kineticL
 	(* Event annotations *)
 	rules=extractXMLelement[xml,"listOfEvents",2,{5}];
 	annotations=Join[annotations,{("id"/.#[[2]])/."id"->"Event",extractAnnotation[#,2]}&/@rules];
+	
+	(* Remove things with no annotations *)
+	annotations=DeleteCases[annotations,{_,{}}];
 
-	miriamList=(#[[1]]->
+	miriamList=Thread[{#[[1]],
 		Select[#[[2,3]],
 			MatchQ[#,XMLElement[{("http://biomodels.net/biology-qualifiers/"|"http://biomodels.net/model-qualifiers/"),_},
 				{___},
 				{___}
 			]]&
 		]
-	)&/@DeleteCases[annotations,{_,{}}];
+	}]&/@annotations;
 
-	miriamList=DeleteCases[miriamList/.{_String,x_String}:>x,_->{}];
-	First[#]->formatRawAnnotation[Last[#]]&/@miriamList
-];
-
-
-formatRawAnnotation[miriam_List]:=Module[{raw},
-	raw=First[#]->#[[3,1,3]]&/@miriam;
-	raw/.XMLElement["li",{"resource"->x_},{}]:>x
+	miriamList=DeleteCases[Flatten[miriamList,1]/.{_String,x_String}:>x,_->{}];
+	finalList = Flatten[Thread[{First[#],#[[2,1]],#[[2,3,1,3]]}]&/@miriamList,1]/.XMLElement["li",{"resource"->x_},{}]:>x;
+	(* Check for nested annotations *)
+	If[MemberQ[finalList,{_,_,_XMLElement}],Message[sbml2model::nestedAnnotations]];
+	DeleteCases[finalList,{_,_,_XMLElement}]
 ];
 
 
@@ -505,6 +505,7 @@ sbml2model::eventDelayDetected="Delayed event detected. The MASS Toolbox does no
 sbml2model::variableStoichiometry="The toolbox does not support for variable stoichiometric factors (detected in reaction `1`)";
 sbml2model::eventProblem="Problem encountered for the following events: `1`. Amongst other things, the toolbox does not provide support for events that involve parameters.";
 sbml2model::conversionFactorDetected="Conversion factor detected. The MASS Toolbox does not provide support conversion factors. The conversion factors will be ignored in further calculations.";
+sbml2model::nestedAnnotations="Nested annotation detected. The MASS Toolbox does not support nested annotations. These annotations will be ignored.";
 sbml2model[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:=Module[{hosuRules,listOfUnitDefinitions,listOfFunctionDefinitions,listOfCompartments,compartmentVolumes,listOfParameters,parameters,
 listOfSpecies,initialConditions,boundaryConditions,id2massID,listOfRxns,listOfRules,assignmentRules,rateRules,algebraicRules,listOfInitialAssignments,
 listOfKineticLawsAndLocalParameters,listOfKineticLaws,listOfLocalParameters,speciesInReactions,notCoveredByReactions,customODE,constantSpecies,paramInListOfRules,
@@ -637,7 +638,7 @@ FullForm]\):>Derivative[1][s][t]*parameter["Volume",getCompartment[s]];
 			Sequence@@updateRules[
 				{"ID"->modelID,"Name"->modelName,"Notes"->notes,"InitialConditions"->N@initialConditions,"Parameters"->N@parameters,
 				"CustomRateLaws"->listOfKineticLaws,"BoundaryConditions"->boundaryConditions,"Constant"->constantSpecies,"CustomODE"->customODE,
-				"Synonyms"->speciesIDs2names,"Events"->listOfEvents,"Annotations"->listOfAnnotations},
+				"Synonyms"->speciesIDs2names,"Events"->listOfEvents,"Annotations"->listOfAnnotations,"Pathway"->sbmlLayout2pathway[xml]},
 				FilterRules[List[opts],Options[constructModel]]
 			]
 		],
@@ -657,7 +658,161 @@ Check[sbml2model[Import[path,"XML"],opts],Message[sbml2model::NotExistFile,path]
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
+(*SBML layout*)
+
+
+(* ::Subsubsection:: *)
+(*Basic stuff*)
+
+
+parsePosition[object_XMLElement]:=Module[{position},
+	position=extractXMLelement[object,"position",1];
+	position/.Rule[var_String,num_String]:>Rule[var,ToExpression[num]]
+]
+
+
+parseDimensions[object_XMLElement]:=Module[{dimensions},
+	dimensions=extractXMLelement[object,"dimensions",1];
+	dimensions/.Rule[var_String,num_String]:>Rule[var,ToExpression[num]]
+]
+
+
+(* ::Subsubsection:: *)
+(*Compartment Glyphs*)
+
+
+parseCompartmentGlyph[element_XMLElement,maxHeight_?NumberQ]:=Module[{name,position,dimensions,rawImage,object},
+	name=query["compartment",element[[2]]];
+	object=First@element[[3]];
+	position=parsePosition[object];(* x\[Rule]5,y\[Rule]5 *)
+	dimensions=parseDimensions[object]; (*width\[Rule]x,height\[Rule]x*)
+	name->{{"x","y"},{"width"+"x",("height"+"y")}}/.Join[position,dimensions]
+]
+
+
+getListOfCompartmentGlyphs[layout_XMLElement,maxHeight_?NumberQ]:=Module[{glyphs},
+	glyphs=extractXMLelement[layout,"listOfCompartmentGlyphs",2];
+	parseCompartmentGlyph[#,maxHeight]&/@glyphs
+]
+
+
+(* ::Subsubsection:: *)
+(*Species Glyphs*)
+
+
+parseSpeciesGlyph[element_XMLElement,maxHeight_?NumberQ]:=
+	Module[{name,position,dimensions},
+		name=query["species",element[[2]]];
+		position=parsePosition[element];(* x\[Rule]5,y\[Rule]5 *)
+		dimensions=parseDimensions[element]; (*width\[Rule]x,height\[Rule]x*)
+		Return[name->{"x"+"width"/2,maxHeight - ("y"+"height"/2),"width","height"}/.Join[position,dimensions]]
+]
+
+
+getListOfSpeciesGlyphs[layout_XMLElement,maxHeight_?NumberQ]:=Module[{glyphs},
+	glyphs=extractXMLelement[layout,"listOfSpeciesGlyphs",2];
+	parseSpeciesGlyph[#,maxHeight]&/@glyphs
+]
+
+
+(* ::Subsubsection:: *)
+(*Reaction Glyphs*)
+
+
+parseCurveSegment[object_XMLElement,maxHeight_?NumberQ]:=Module[{type},
+	type=query["type",object[[2]]];
+	Switch[query["type",object[[2]]],
+		"LineSegment",
+			{(object[[3]]/.XMLElement[_,{"x"->x_,"y"->y_,___},___]:>{ToExpression[x],maxHeight - ToExpression[y]}),0},
+		"CubicBezier",
+			{{extractXMLelement[object,"start",1],
+				extractXMLelement[object,"basePoint1",1],
+				extractXMLelement[object,"basePoint2",1],
+				extractXMLelement[object,"end",1]
+			},1}/.{"x"->x_,"y"->y_,___}:>{ToExpression[x],maxHeight - ToExpression[y]},
+		"type",
+			##&[]
+	]
+]
+
+
+(* Only necessary if bounding boxes are allowed for reactions 
+parseBoundingBox[object_XMLElement]:=Module[{name,position,dimensions},
+	position=parsePosition[object];(* x\[Rule]5,y\[Rule]5 *)
+	dimensions=parseDimensions[object]; (*width\[Rule]x,height\[Rule]x*)
+	{{{{"x","y"},{"width"+"x","height"+"y"}},"Box"}}/.Join[position,dimensions]
+]*)
+
+
+parseReactionGlyph[element_XMLElement,maxHeight_?NumberQ]:=Module[{name,curves},
+	name=query["reaction",element[[2]]];
+	curves=extractXMLelement[element,"curveSegment",0];
+	Rule[name,parseCurveSegment[#,maxHeight]&/@curves]
+]
+
+
+getListOfReactionGlyphs[layout_XMLElement,maxHeight_?NumberQ]:=Module[{glyphs},
+	glyphs=extractXMLelement[layout,"listOfReactionGlyphs",2];
+	parseReactionGlyph[#,maxHeight]&/@glyphs
+]
+
+
+(* ::Subsubsection:: *)
+(*Text Glyphs*)
+
+
+parseTextGlyph[element_XMLElement,maxHeight_?NumberQ] := Module[{text, position, dimensions, rawImage, object},
+	text = query["originOfText", element[[2]]];
+	position = parsePosition[element];
+	dimensions = parseDimensions[element];
+	If[Or[position =={},dimensions=={}],
+		##&[],
+		Text[text, {"x" + "width"/2, maxHeight - ("y" + "height"/2)}] /. Join[position, dimensions]
+	]
+]
+
+
+getListOfTextGlyphs[layout_XMLElement,maxHeight_?NumberQ] := Module[{glyphs, textLabels, rxnLabels, cmpdLabels},
+	glyphs = extractXMLelement[layout, "listOfTextGlyphs", 2];
+	textLabels = Cases[glyphs, XMLElement["textGlyph", {___, "originOfText" -> _, ___}, ___]];
+	(* Only takes text with originOfText. Some textGlyphs may have just "text", but that needs to be added later *)
+	parseTextGlyph[#,maxHeight]&/@textLabels
+	]
+
+
+(* ::Subsubsection:: *)
+(*Layout*)
+
+
+getListOfLayouts[xml_XMLElement]:=Module[{},
+	Select[extractXMLelement[xml,"listOfLayouts",2],#[[1]]=="layout"&]
+]
+
+
+sbmlLayout2pathway::invalidLayout = "Layout number `1` is larger than the number of layouts in the model (`2`)"
+
+sbmlLayout2pathway[file_String]:=sbmlLayout2pathway[Import[file,"XML"]];
+
+sbmlLayout2pathway[xml_/;Head[xml]===XMLObject["Document"],layoutNumber_Integer:1]:=
+Module[{modelStuff,modelID,modelName,layouts,layout,height,compartmentGlyphs,speciesGlyphs,textGlyphs,reactionGlyphs},
+	modelStuff=First@extractXMLelement[(xml/.{tag_String,attr_String}:>attr),"model",0];
+	modelID=query["id",modelStuff[[2]]];
+	modelName=query["name",modelStuff[[2]],modelID];
+	layouts=getListOfLayouts[modelStuff];
+	If[Length[layouts]==0,Return[{}]];
+	If[layoutNumber > Length[layouts],Message[sbmlLayout2pathway::invalidLayout,layoutNumber,Length[layouts]];Abort[]];
+	layout=layouts[[layoutNumber]];
+	height=ToExpression["height"/.extractXMLelement[layout,"dimensions",1]];
+	speciesGlyphs=getListOfSpeciesGlyphs[layout,height];
+	textGlyphs=getListOfTextGlyphs[layout,height];
+	reactionGlyphs=getListOfReactionGlyphs[layout,height];
+	compartmentGlyphs=getListOfCompartmentGlyphs[layout,height];
+	{speciesGlyphs,reactionGlyphs,textGlyphs,compartmentGlyphs}
+]
+
+
+(* ::Subsection::Closed:: *)
 (*SBML export*)
 
 
@@ -975,8 +1130,14 @@ fluxObjective2sbml[model_MASSmodel]:=Module[{},
 ];
 
 
-annotations2sbml[model_MASSmodel,item_]:=Module[{annotations},
-	annotations = Replace[item,("Annotations"/.model[[1]])]/.item->{};
+annotations2sbml[model_MASSmodel,item_]:=Module[{annotations,rules},
+	(* Get a list of {{qualifier, url}...} *)
+	annotations = Rest/@Select["Annotations"/.model[[1]],First[#]==item&];
+
+	(* Make a set of rules for each qualifier {qual \[Rule] {urns...}...} *)
+	rules = Thread[DeleteDuplicates[First/@annotations]->(Last/@#&/@GatherBy[annotations,First])];
+
+	(* Map the following across the qualifiers *)
 	XMLElement["annotation",
 		{},
 		{XMLElement[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#","RDF"},
@@ -995,7 +1156,7 @@ annotations2sbml[model_MASSmodel,item_]:=Module[{annotations},
 							{}
 						]&/@#[[2]]
 					]}
-				]&/@annotations
+				]&/@rules
 			]}
 		]}
 	]
@@ -1028,7 +1189,7 @@ sbml2model[tmpFile[[1]],opts]
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*eQuilibrator*)
 
 
