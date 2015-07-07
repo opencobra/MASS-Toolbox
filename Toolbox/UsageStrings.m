@@ -245,6 +245,9 @@ model2sbml::usage="model2sbml[model_MASSmodel] converts model into an SBML repre
 sbml2model::usage="sbml2model[path|xml] either takes a path to a SBML file or symbolic XML as inputs and construct a MASSmodel data structure.";
 
 
+sbmlLayout2pathway::usage="sbmlLayout2pathway[path|xml] either takes a path to a SBML file or symbolic XML as inputs and returns the data to draw a pathway (i.e. {metCoords,rxnCoords,textCoords,compartmentCoords}),";
+
+
 eQuilibratorCompoundData::usage="eQuilibratorCompoundData[query] queries the eQuilibrator database for compound related data. Sample query:
 
 {\"InChI_identifiers\"->{\"InChI=1S/C10H16N5O13P3/c11-8-5-9(13-2-12-8)15(3-14-5)10-7(17)6(16)4(26-10)1-25-30(21,22)28-31(23,24)27-29(18,19)20/h2-4,6-7,10,16-17H,1H2,(H,21,22)(H,23,24)(H2,11,12,13)(H2,18,19,20)/t4-,6-,7-,10-/m1/s1\",\"InChI=1S/C10H15N5O10P2/c11-8-5-9(13-2-12-8)15(3-14-5)10-7(17)6(16)4(24-10)1-23-27(21,22)25-26(18,19)20/h2-4,6-7,10,16-17H,1H2,(H,21,22)(H2,11,12,13)(H2,18,19,20)/t4-,6-,7-,10-/m1/s1\"}}
@@ -306,7 +309,7 @@ computeSteadyStateFlux::usage="computeSteadyStateFlux[model_MASSmodel,pathwayMat
 anonymize::usage="anonymize[f_[args__]] uses symbolize to translate any metabolite, rateconst etc. in args into real symbols. Afterwards, the output of f is translated back to the original args.";
 
 
-annotateCurrencyMetabolites::usage="annotateCurrencyMetabolites[rxns] provides a GUI interface for annotating currency metabolites. The output is a list of rules ({\"rxnID\"->{currMet1, currMet1, ..}}) that specifies currency metabolites on a reactin basis. The number keys on the keyboard can be used to specify the currency metabolites in addition to the computer mouse.";
+annotateCurrencyMetabolites::usage="annotateCurrencyMetabolites[{rxns..}|MASSmodel] provides a GUI interface for annotating currency metabolites. The output is a list of rules ({\"rxnID\"->{currMet1, currMet1, ..}}) that specifies currency metabolites on a reactin basis. The number keys on the keyboard can be used to specify the currency metabolites in addition to the computer mouse.";
 
 
 edit::usage="Opens a GUI dialog for editing.";
@@ -420,7 +423,7 @@ SMILES::usage="Wrapper for a SMILES string.";
 smiles2elementalComposition::usage="Returns the elemental composition of a SMILES string";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Units*)
 
 
@@ -696,7 +699,7 @@ pH::usage="pH";
 T::usage="Temperature";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Util*)
 
 
@@ -734,16 +737,13 @@ query::usage="query[key, listOfRules] will return the corresponding value."(*## 
 filter::usage="filter[listOfRules, keys] behave like FilterRules with the exception that the filtered rules are returned in the order of keys.";
 
 
-initializeKernels::usage="initializeKernels[] starts parallel kernels and loads the MASS Toolbox onto all kernels. Load specific kernels with initializeKernels[ker] or initializeKernels[{ker1,ker2,...}]."
-
-
 updateToolbox::usage="updateToolbox[] searches for the newest release of the MASS Toolbox and downloads it. Use Install->False to prevent automatic installation.";
 
 
 updateRequired::usage="updateRequired[] returns True if there is a newer release of the MASS Toolbox than the one currently installed.";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Visualization*)
 
 
@@ -787,3 +787,6 @@ importBIGGmap::usage="importBIGGmap[path] will import a SVG map from BIGG and re
 
 
 drawNodeMaps::usage="drawNodeMaps[model,Fluxes->listOfFluxes, Metabolites->listOfMetabolites] will draw node maps for the corresponding metabolites.";
+
+
+pathwayGUI::usage="pathwayGUI[model,\"CurrencyMets\"->{_metabolites..} will open an interface that allows users to organize pathway maps for the model. CurrencyMets may either be a list of metabolites or the output from annotateCurrencyMetabolites"
