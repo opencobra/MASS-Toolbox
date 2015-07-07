@@ -34,7 +34,7 @@ importModel[path_String,opts:OptionsPattern[]]:=Module[{stuff},
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Matlab*)
 
 
@@ -637,7 +637,7 @@ FullForm]\):>Derivative[1][s][t]*parameter["Volume",getCompartment[s]];
 			Sequence@@updateRules[
 				{"ID"->modelID,"Name"->modelName,"Notes"->notes,"InitialConditions"->N@initialConditions,"Parameters"->N@parameters,
 				"CustomRateLaws"->listOfKineticLaws,"BoundaryConditions"->boundaryConditions,"Constant"->constantSpecies,"CustomODE"->customODE,
-				"Synonyms"->speciesIDs2names,"Events"->listOfEvents,"Annotations"->listOfAnnotations},
+				"Synonyms"->speciesIDs2names,"Events"->listOfEvents,"Annotations"->listOfAnnotations,"Pathway"->sbmlLayout2pathway[xml]},
 				FilterRules[List[opts],Options[constructModel]]
 			]
 		],
@@ -657,7 +657,7 @@ Check[sbml2model[Import[path,"XML"],opts],Message[sbml2model::NotExistFile,path]
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*SBML layout*)
 
 
@@ -785,7 +785,7 @@ getListOfTextGlyphs[layout_XMLElement,maxHeight_?NumberQ] := Module[{glyphs, tex
 
 
 getListOfLayouts[xml_XMLElement]:=Module[{},
-	extractXMLelement[xml,"listOfLayouts",2]
+	Select[extractXMLelement[xml,"listOfLayouts",2],#[[1]]=="layout"&]
 ]
 
 
@@ -799,7 +799,8 @@ Module[{modelStuff,modelID,modelName,layouts,layout,height,compartmentGlyphs,spe
 	modelID=query["id",modelStuff[[2]]];
 	modelName=query["name",modelStuff[[2]],modelID];
 	layouts=getListOfLayouts[modelStuff];
-	If[layoutNumber > Length[layouts],Message[sbmlLayout2pathway::invalidLayout,layoutNumber,Length[layouts]]];
+	If[Length[layouts]==0,Return[{}]];
+	If[layoutNumber > Length[layouts],Message[sbmlLayout2pathway::invalidLayout,layoutNumber,Length[layouts]];Abort[]];
 	layout=layouts[[layoutNumber]];
 	height=ToExpression["height"/.extractXMLelement[layout,"dimensions",1]];
 	speciesGlyphs=getListOfSpeciesGlyphs[layout,height];
