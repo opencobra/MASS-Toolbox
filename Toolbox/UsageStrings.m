@@ -226,7 +226,7 @@ differentialFVA::usage="";
 generateDiffFvaReport::usage="";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*IO*)
 
 
@@ -312,13 +312,13 @@ anonymize::usage="anonymize[f_[args__]] uses symbolize to translate any metaboli
 annotateCurrencyMetabolites::usage="annotateCurrencyMetabolites[{rxns..}|MASSmodel] provides a GUI interface for annotating currency metabolites. The output is a list of rules ({\"rxnID\"->{currMet1, currMet1, ..}}) that specifies currency metabolites on a reactin basis. The number keys on the keyboard can be used to specify the currency metabolites in addition to the computer mouse.";
 
 
-edit::usage="Opens a GUI dialog for editing.";
+edit::usage="edit[model] opens a GUI dialog for editing. The code to implement the changes is returned.";
 
 
-editModelInPlace::usage="editModelInPlace[model, attribute] opens a GUI for editing. Changes are stored in place.";
+editModelInPlace::usage="editModelInPlace[model] opens a GUI for editing. Changes are directly applied to the original model.";
 
 
-editModel::usage="editModel[model, attribute] opens a GUI for editing. A copy of model (including the changes) is returned.";
+editAttribute::usage="editAttribute[model, attribute] opens a GUI to edit a specific attribute.";
 
 
 (* ::Subsection::Closed:: *)
