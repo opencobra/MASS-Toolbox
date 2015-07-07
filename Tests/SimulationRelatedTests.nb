@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     34456,        913]
-NotebookOptionsPosition[     33288,        875]
-NotebookOutlinePosition[     33645,        891]
-CellTagsIndexPosition[     33602,        888]
+NotebookDataLength[     35094,        924]
+NotebookOptionsPosition[     33887,        885]
+NotebookOutlinePosition[     34244,        901]
+CellTagsIndexPosition[     34201,        898]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -368,6 +368,10 @@ Cell[BoxData[
   3.62492503718895*^9}, {3.6249309439719276`*^9, 3.62493094925696*^9}}],
 
 Cell[BoxData[
+ RowBox[{"<<", "Toolbox`"}]], "Input",
+ CellChangeTimes->{{3.644260800906399*^9, 3.644260802173325*^9}}],
+
+Cell[BoxData[
  RowBox[{
   RowBox[{"model4", "=", 
    RowBox[{"constructModel", "[", 
@@ -397,18 +401,18 @@ Cell[BoxData[
         RowBox[{
          RowBox[{"metabolite", "[", 
           RowBox[{"\"\<x0\>\"", ",", "None"}], "]"}], "->", 
-         RowBox[{"1", "Milli", " ", 
-          RowBox[{"Mole", "/", "Liter"}]}]}], ",", 
+         RowBox[{"1", 
+          RowBox[{"Millimole", "/", "Liter"}]}]}], ",", 
         RowBox[{
          RowBox[{"metabolite", "[", 
           RowBox[{"\"\<x1\>\"", ",", "None"}], "]"}], "\[Rule]", 
-         RowBox[{"5", "Milli", " ", 
-          RowBox[{"Mole", "/", "Liter"}]}]}]}], "}"}]}], ",", 
+         RowBox[{"5", 
+          RowBox[{"Millimole", "/", "Liter"}]}]}]}], "}"}]}], ",", 
      RowBox[{"UnitChecking", "\[Rule]", "True"}]}], "]"}]}], ";"}]], "Input",
  CellChangeTimes->{{3.626985196641629*^9, 3.626985216173215*^9}, {
    3.627063291224188*^9, 3.6270632933056717`*^9}, 3.627063332203511*^9, {
    3.6270633772676563`*^9, 3.627063432301396*^9}, 3.627238798100198*^9, 
-   3.627238873940785*^9}],
+   3.627238873940785*^9, {3.6442605078046713`*^9, 3.644260533292358*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -532,7 +536,9 @@ Cell[BoxData[
    "]"}], ";"}]], "Input",
  CellChangeTimes->{{3.627063443157958*^9, 3.627063452379849*^9}, {
   3.627063583169106*^9, 3.627063650275531*^9}, {3.6282728220798473`*^9, 
-  3.628272826360511*^9}, {3.630686035699153*^9, 3.630686036745266*^9}}],
+  3.628272826360511*^9}, {3.630686035699153*^9, 3.630686036745266*^9}, {
+  3.6442596346537867`*^9, 3.64425967804945*^9}, {3.644260970028162*^9, 
+  3.644260986343033*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -563,8 +569,7 @@ Cell[BoxData[
                RowBox[{
                 RowBox[{
                  RowBox[{"InterpolatingFunction", "[", "___", "]"}], "[", "t",
-                  "]"}], ",", "_Quantity"}], "]"}]}], ")"}], ".."}], "}"}], 
-          ",", 
+                  "]"}], ",", "_Unit"}], "]"}]}], ")"}], ".."}], "}"}], ",", 
           RowBox[{"{", 
            RowBox[{
             RowBox[{"(", 
@@ -577,7 +582,9 @@ Cell[BoxData[
  CellChangeTimes->{{3.628272891132621*^9, 3.628272942479985*^9}, {
    3.6282730182792807`*^9, 3.628273131222487*^9}, {3.628273550370825*^9, 
    3.6282735596736794`*^9}, {3.630683224151328*^9, 3.630683237126932*^9}, {
-   3.630685598356228*^9, 3.630685610138472*^9}, 3.6306856561126003`*^9}],
+   3.630685598356228*^9, 3.630685610138472*^9}, 3.6306856561126003`*^9, {
+   3.6442596013840637`*^9, 3.644259601739171*^9}, {3.644259690450675*^9, 
+   3.644259694481007*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -585,103 +592,104 @@ Cell[BoxData[
    RowBox[{"model4", ",", "False"}], "]"}], ";"}]], "Input"],
 
 Cell[BoxData[
- RowBox[{"AppendTo", "[", 
-  RowBox[{"results", ",", 
-   RowBox[{"VerificationTest", "[", 
-    RowBox[{
-     RowBox[{"simulate", "[", 
-      RowBox[{"model4", ",", 
-       RowBox[{"{", 
-        RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", 
-       RowBox[{"ExactSolve", "\[Rule]", "True"}]}], "]"}], ",", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{
-          InterpretationBox[
-           StyleBox["x0",
-            StripOnInput->False,
-            ShowSyntaxStyles->False,
-            AutoSpacing->False,
-            ZeroWidthTimes->True,
-            LineColor->RGBColor[0, 0, 0],
-            FrontFaceColor->RGBColor[0, 0, 0],
-            BackFaceColor->RGBColor[0, 0, 0],
-            GraphicsColor->RGBColor[0, 0, 0],
-            FontColor->RGBColor[0, 0, 0]],
-           Toolbox`metabolite["x0", None],
-           Editable->False,
-           Selectable->False], "\[Rule]", 
-          RowBox[{
-           SuperscriptBox["\[ExponentialE]", 
-            RowBox[{
-             RowBox[{"-", "0.1`"}], " ", "t"}]], " ", 
-           RowBox[{"(", "1.`", ")"}]}]}], ",", 
-         RowBox[{
-          InterpretationBox[
-           StyleBox["x1",
-            StripOnInput->False,
-            ShowSyntaxStyles->False,
-            AutoSpacing->False,
-            ZeroWidthTimes->True,
-            LineColor->RGBColor[0, 0, 0],
-            FrontFaceColor->RGBColor[0, 0, 0],
-            BackFaceColor->RGBColor[0, 0, 0],
-            GraphicsColor->RGBColor[0, 0, 0],
-            FontColor->RGBColor[0, 0, 0]],
-           Toolbox`metabolite["x1", None],
-           Editable->False,
-           Selectable->False], "\[Rule]", 
-          RowBox[{
-           SuperscriptBox["\[ExponentialE]", 
-            RowBox[{
-             RowBox[{"-", "0.1`"}], " ", "t"}]], " ", 
-           RowBox[{"(", 
-            RowBox[{
-             RowBox[{"-", "0.16666666666666666`"}], "+", 
-             RowBox[{"1.`", " ", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{"0.1`", " ", "t"}]]}]}], ")"}], " ", 
-           RowBox[{"(", "6.`", ")"}]}]}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         InterpretationBox[
-          SubscriptBox[
-           StyleBox["v",
-            StripOnInput->False,
-            ShowSyntaxStyles->False,
-            AutoSpacing->False,
-            ZeroWidthTimes->True,
-            LineColor->RGBColor[0, 0, 0],
-            FrontFaceColor->RGBColor[0, 0, 0],
-            BackFaceColor->RGBColor[0, 0, 0],
-            GraphicsColor->RGBColor[0, 0, 0],
-            FontColor->RGBColor[0, 0, 0]], 
-           StyleBox["b1",
-            StripOnInput->False,
-            ShowSyntaxStyles->False,
-            AutoSpacing->False,
-            ZeroWidthTimes->True,
-            LineColor->RGBColor[0, 0, 0],
-            FrontFaceColor->RGBColor[0, 0, 0],
-            BackFaceColor->RGBColor[0, 0, 0],
-            GraphicsColor->RGBColor[0, 0, 0],
-            FontColor->RGBColor[0, 0, 0]]],
-          Toolbox`v["b1"],
-          Editable->False,
-          Selectable->False], "\[Rule]", 
-         RowBox[{
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{
-            RowBox[{"-", "0.1`"}], " ", "t"}]], " ", 
-          RowBox[{"(", "0.1`", ")"}]}]}], "}"}]}], "}"}], ",", 
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"results", ",", 
+    RowBox[{"VerificationTest", "[", 
      RowBox[{
-     "TestID", "\[Rule]", 
-      "\"\<SimulationRelatedTests-simulate-DSolve\>\""}]}], "]"}]}], 
-  "]"}]], "Input",
+      RowBox[{"simulate", "[", 
+       RowBox[{"model4", ",", 
+        RowBox[{"{", 
+         RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", 
+        RowBox[{"ExactSolve", "\[Rule]", "True"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           InterpretationBox[
+            StyleBox["x0",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]],
+            Toolbox`metabolite["x0", None],
+            Editable->False,
+            Selectable->False], "\[Rule]", 
+           RowBox[{
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              RowBox[{"-", "0.1`"}], " ", "t"}]], " ", 
+            RowBox[{"(", "1.`", ")"}]}]}], ",", 
+          RowBox[{
+           InterpretationBox[
+            StyleBox["x1",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]],
+            Toolbox`metabolite["x1", None],
+            Editable->False,
+            Selectable->False], "\[Rule]", 
+           RowBox[{
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              RowBox[{"-", "0.1`"}], " ", "t"}]], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "0.16666666666666666`"}], "+", 
+              RowBox[{"1.`", " ", 
+               SuperscriptBox["\[ExponentialE]", 
+                RowBox[{"0.1`", " ", "t"}]]}]}], ")"}], " ", 
+            RowBox[{"(", "6.`", ")"}]}]}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          InterpretationBox[
+           SubscriptBox[
+            StyleBox["v",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]], 
+            StyleBox["b1",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]]],
+           Toolbox`v["b1"],
+           Editable->False,
+           Selectable->False], "\[Rule]", 
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             RowBox[{"-", "0.1`"}], " ", "t"}]], " ", 
+           RowBox[{"(", "0.1`", ")"}]}]}], "}"}]}], "}"}], ",", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<SimulationRelatedTests-simulate-DSolve\>\""}]}], "]"}]}], "]"}], 
+  ";"}]], "Input",
  CellChangeTimes->{{3.630685869214189*^9, 3.63068588713374*^9}, {
-  3.630685993465456*^9, 3.6306860112008667`*^9}}],
+   3.630685993465456*^9, 3.6306860112008667`*^9}, 3.644260552543063*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -755,19 +763,19 @@ Cell[BoxData[
         RowBox[{
          RowBox[{"metabolite", "[", 
           RowBox[{"\"\<x0\>\"", ",", "None"}], "]"}], "->", 
-         RowBox[{"1", "Milli", " ", 
-          RowBox[{"Mole", "/", "Liter"}]}]}], ",", 
+         RowBox[{"1", 
+          RowBox[{"Millimole", "/", "Liter"}]}]}], ",", 
         RowBox[{
          RowBox[{"metabolite", "[", 
           RowBox[{"\"\<x1\>\"", ",", "None"}], "]"}], "\[Rule]", 
-         RowBox[{"5", "Milli", " ", 
-          RowBox[{"Mole", "/", "Liter"}]}]}]}], "}"}]}], ",", 
+         RowBox[{"5", 
+          RowBox[{"Millimole", "/", "Liter"}]}]}]}], "}"}]}], ",", 
      RowBox[{"UnitChecking", "\[Rule]", "False"}]}], "]"}]}], ";"}]], "Input",\
 
  CellChangeTimes->{{3.6270636619404297`*^9, 3.6270636621720867`*^9}, {
    3.627063723146646*^9, 3.627063723774241*^9}, 3.62723880292206*^9, {
    3.628272979236032*^9, 3.6282729800130587`*^9}, {3.630686049084702*^9, 
-   3.6306860497261353`*^9}}],
+   3.6306860497261353`*^9}, {3.644260570585685*^9, 3.644260576173727*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -867,7 +875,9 @@ Cell[BoxData[
  CellChangeTimes->{{3.62706420444763*^9, 3.6270642169725933`*^9}, {
    3.627065075908984*^9, 3.6270650763305683`*^9}, {3.627065176826091*^9, 
    3.6270653467779016`*^9}, {3.6270653902311296`*^9, 3.6270654266432533`*^9}, 
-   3.6270657038027267`*^9, {3.6306832602480917`*^9, 3.6306832657040253`*^9}}],
+   3.6270657038027267`*^9, {3.6306832602480917`*^9, 3.6306832657040253`*^9}, {
+   3.644259700739064*^9, 3.644259703447632*^9}, {3.644260580703053*^9, 
+   3.644260581083432*^9}}],
 
 Cell[BoxData["results"], "Input",
  CellChangeTimes->{{3.627238723747156*^9, 3.6272387243885393`*^9}}]
@@ -901,19 +911,20 @@ Cell[4070, 111, 1063, 28, 114, "Input"],
 Cell[5136, 141, 462, 12, 46, "Input"],
 Cell[5601, 155, 1619, 40, 148, "Input"],
 Cell[7223, 197, 7482, 170, 624, "Input"],
-Cell[14708, 369, 1644, 41, 114, "Input"],
-Cell[16355, 412, 4659, 122, 148, "Input"],
-Cell[21017, 536, 359, 9, 28, "Input"],
-Cell[21379, 547, 1216, 32, 114, "Input"],
-Cell[22598, 581, 119, 3, 28, "Input"],
-Cell[22720, 586, 3528, 97, 103, "Input"],
-Cell[26251, 685, 490, 13, 28, "Input"],
-Cell[26744, 700, 1282, 33, 115, "Input"],
-Cell[28029, 735, 1366, 34, 114, "Input"],
-Cell[29398, 771, 387, 10, 28, "Input"],
-Cell[29788, 783, 1418, 34, 81, "Input"],
-Cell[31209, 819, 1959, 50, 98, "Input"],
-Cell[33171, 871, 101, 1, 28, "Input"]
+Cell[14708, 369, 118, 2, 28, "Input"],
+Cell[14829, 373, 1674, 41, 114, "Input"],
+Cell[16506, 416, 4758, 124, 148, "Input"],
+Cell[21267, 542, 359, 9, 28, "Input"],
+Cell[21629, 553, 1303, 33, 114, "Input"],
+Cell[22935, 588, 119, 3, 28, "Input"],
+Cell[23057, 593, 3662, 98, 103, "Input"],
+Cell[26722, 693, 490, 13, 28, "Input"],
+Cell[27215, 708, 1282, 33, 115, "Input"],
+Cell[28500, 743, 1394, 34, 114, "Input"],
+Cell[29897, 779, 387, 10, 28, "Input"],
+Cell[30287, 791, 1418, 34, 81, "Input"],
+Cell[31708, 827, 2059, 52, 98, "Input"],
+Cell[33770, 881, 101, 1, 28, "Input"]
 }, Open  ]]
 }
 ]

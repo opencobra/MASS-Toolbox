@@ -1,0 +1,643 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     18524,        633]
+NotebookOptionsPosition[     14773,        507]
+NotebookOutlinePosition[     16391,        553]
+CellTagsIndexPosition[     16306,        548]
+WindowTitle->$DefaultUnitSet - Wolfram Mathematica
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Automatic unit conversion",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:AutomaticUnits/guide/AutomaticUnits"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
+Cell[BoxData[GridBox[{
+   {Cell["AUTOMATICUNITS PACLET SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"See Also \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"UnitSet\"\>":>Documentation`HelpLookup[
+       "paclet:AutomaticUnits/ref/UnitSet"], "\<\"Unit\"\>":>
+       Documentation`HelpLookup["paclet:AutomaticUnits/ref/Unit"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"More About \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"Automatic unit conversion\"\>":>
+       Documentation`HelpLookup["paclet:AutomaticUnits/guide/AutomaticUnits"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"AutomaticUnits/ref/$DefaultUnitSet\"\>":>
+       None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["AutomaticUnits/ref/$DefaultUnitSet"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/AutomaticUnits/ref/$\
+DefaultUnitSet.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "AutomaticUnits/ref/$DefaultUnitSet", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell["$DefaultUnitSet", "ObjectName",
+ CellID->1224892054],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData["$DefaultUnitSet"], "InlineFormula"],
+     "\[LineSeparator]is the name of the UnitSet from which automatic unit \
+choices are made"
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[
+  FrameBox[
+   StyleBox[
+    RowBox[{"MORE", " ", "INFORMATION"}], "NotesFrameText"],
+   StripOnInput->False],
+  Appearance->{Automatic, None},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->"Preemptive"]]]], "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->470666069],
+
+Cell["\<\
+Change the value of $DefaultUnitSet to control the units returned when \
+different units are combined.\
+\>", "Notes",
+ CellID->1067943069],
+
+Cell["\<\
+The value of $DefaultUnitSet can also be changed using the AutomaticUnits \
+palette.\
+\>", "Notes",
+ CellID->726785537]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["EXAMPLES",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->291959971],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection",
+ CellID->181120206],
+
+Cell["When the package is first loaded, the default unit set is SI", "Notes",
+ CellID->2930854],
+
+Cell[BoxData[
+ RowBox[{"<<", "AutomaticUnits`"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->789093595],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$DefaultUnitSet"], "Input",
+ CellLabel->"In[2]:=",
+ CellID->478580459],
+
+Cell[BoxData["\<\"SI\"\>"], "Output",
+ ImageSize->{18, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->591425211]
+}, Open  ]],
+
+Cell["\<\
+This means that when dimensionally compatible units must be converted to a \
+common unit, the common unit will be found from UnitSet[\"SI\"]\
+\>", "Notes",
+ CellID->453409939],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnitSet", "[", "\"\<SI\>\"", "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->229670942],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox["Meter",
+    AutomaticUnits`Unit[1, "Meter"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    SuperscriptBox["Meter", "2"],
+    AutomaticUnits`Unit[1, "Meter"^2],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    SuperscriptBox["Meter", "3"],
+    AutomaticUnits`Unit[1, "Meter"^3],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    SuperscriptBox["Meter", 
+     RowBox[{"-", "1"}]],
+    AutomaticUnits`Unit[1, "Meter"^(-1)],
+    AutoDelete->True], ",", 
+   InterpretationBox["Kilogram",
+    AutomaticUnits`Unit[1, "Kilogram"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Second",
+    AutomaticUnits`Unit[1, "Second"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Hertz",
+    AutomaticUnits`Unit[1, "Hertz"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"Meter", 
+     SuperscriptBox["Second", 
+      RowBox[{"-", "1"}]]}],
+    AutomaticUnits`Unit[1, "Meter"/"Second"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Newton",
+    AutomaticUnits`Unit[1, "Newton"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Joule",
+    AutomaticUnits`Unit[1, "Joule"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Watt",
+    AutomaticUnits`Unit[1, "Watt"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Pascal",
+    AutomaticUnits`Unit[1, "Pascal"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"Pascal", " ", "Second"}],
+    AutomaticUnits`Unit[1, "Pascal" "Second"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Coulomb",
+    AutomaticUnits`Unit[1, "Coulomb"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"Coulomb", 
+     SuperscriptBox["Kilogram", 
+      RowBox[{"-", "1"}]]}],
+    AutomaticUnits`Unit[1, "Coulomb"/"Kilogram"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Ampere",
+    AutomaticUnits`Unit[1, "Ampere"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Volt",
+    AutomaticUnits`Unit[1, "Volt"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"Volt", 
+     SuperscriptBox["Meter", 
+      RowBox[{"-", "1"}]]}],
+    AutomaticUnits`Unit[1, "Meter"^(-1) "Volt"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Weber",
+    AutomaticUnits`Unit[1, "Weber"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Tesla",
+    AutomaticUnits`Unit[1, "Tesla"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"Ampere", 
+     SuperscriptBox["Meter", 
+      RowBox[{"-", "1"}]]}],
+    AutomaticUnits`Unit[1, "Ampere"/"Meter"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"Ampere", 
+     SuperscriptBox["Meter", "2"]}],
+    AutomaticUnits`Unit[1, "Ampere" "Meter"^2],
+    AutoDelete->True], ",", 
+   InterpretationBox["Ohm",
+    AutomaticUnits`Unit[1, "Ohm"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Siemens",
+    AutomaticUnits`Unit[1, "Siemens"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"Meter", " ", "Ohm"}],
+    AutomaticUnits`Unit[1, "Meter" "Ohm"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Farad",
+    AutomaticUnits`Unit[1, "Farad"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Henry",
+    AutomaticUnits`Unit[1, "Henry"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Radian",
+    AutomaticUnits`Unit[1, "Radian"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Steradian",
+    AutomaticUnits`Unit[1, "Steradian"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Kelvin",
+    AutomaticUnits`Unit[1, "Kelvin"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"Kelvin", 
+     SuperscriptBox["Meter", "2"], 
+     SuperscriptBox["Watt", 
+      RowBox[{"-", "1"}]]}],
+    AutomaticUnits`Unit[1, "Kelvin" "Meter"^2/"Watt"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Bit",
+    AutomaticUnits`Unit[1, "Bit"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Candela",
+    AutomaticUnits`Unit[1, "Candela"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Lumen",
+    AutomaticUnits`Unit[1, "Lumen"],
+    AutoDelete->True], ",", 
+   InterpretationBox["Lux",
+    AutomaticUnits`Unit[1, "Lux"],
+    AutoDelete->True], ",", 
+   InterpretationBox["GrayDose",
+    AutomaticUnits`Unit[1, "GrayDose"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{"Joule", 
+     SuperscriptBox["Tesla", 
+      RowBox[{"-", "1"}]]}],
+    AutomaticUnits`Unit[1, "Joule"/"Tesla"],
+    AutoDelete->True], ",", 
+   InterpretationBox[
+    RowBox[{
+     SuperscriptBox["Pascal", 
+      RowBox[{"-", "1"}]], 
+     SuperscriptBox["Second", 
+      RowBox[{"-", "1"}]]}],
+    AutomaticUnits`Unit[1, "Pascal"^(-1)/"Second"],
+    AutoDelete->True]}], "}"}]], "Output",
+ ImageSize->{536, 88},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->231348154]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"50000", " ", "Foot"}], "+", 
+  RowBox[{"300.", " ", "Meter"}]}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->37047187],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"15540.`", " ", "Meter"}],
+  AutomaticUnits`Unit[15540., "Meter"],
+  AutoDelete->True]], "Output",
+ ImageSize->{86, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
+ CellID->111720868]
+}, Open  ]],
+
+Cell["\<\
+By changing the value of $DefaultUnitSet, you can change the choice of \
+returned unit.\
+\>", "Notes",
+ CellID->76099760],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"$DefaultUnitSet", "=", "\"\<PrefixedSI\>\""}], ";"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->453913324],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"50000", " ", "Foot"}], "+", 
+  RowBox[{"300.", " ", "Meter"}]}]], "Input",
+ CellLabel->"In[6]:=",
+ CellID->370364024],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"15.540000000000001`", " ", "Kilometer"}],
+  AutomaticUnits`Unit[15.540000000000001`, "Kilometer"],
+  AutoDelete->True]], "Output",
+ ImageSize->{105, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[6]=",
+ CellID->148554050]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"$DefaultUnitSet", "=", "\"\<USCustomary\>\""}], ";"}]], "Input",
+ CellLabel->"In[7]:=",
+ CellID->107243046],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"50000", " ", "Foot"}], "+", 
+  RowBox[{"300.", " ", "Meter"}]}]], "Input",
+ CellLabel->"In[8]:=",
+ CellID->60215506],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"3.2186963383838383`", " ", "League"}],
+  AutomaticUnits`Unit[3.2186963383838383`, "League"],
+  AutoDelete->True]], "Output",
+ ImageSize->{91, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[8]=",
+ CellID->156619483]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["SEE ALSO",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["UnitSet",
+    BaseStyle->"Link",
+    ButtonData->"paclet:AutomaticUnits/ref/UnitSet"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["Unit",
+    BaseStyle->"Link",
+    ButtonData->"paclet:AutomaticUnits/ref/Unit"],
+   FontFamily->"Verdana"]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->21912]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["MORE ABOUT",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "MoreAboutSection",
+ CellID->38303248],
+
+Cell[TextData[ButtonBox["Automatic unit conversion",
+ BaseStyle->"Link",
+ ButtonData->"paclet:AutomaticUnits/guide/AutomaticUnits"]], "MoreAbout",
+ CellID->482745]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"$DefaultUnitSet - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, 
+  "Metadata" -> {
+   "built" -> "{2011, 1, 21, 15, 24, 12.0177119}", "context" -> 
+    "AutomaticUnits`", "keywords" -> {}, "index" -> True, "label" -> 
+    "AutomaticUnits Paclet Symbol", "language" -> "en", "paclet" -> 
+    "AutomaticUnits", "status" -> "None", "summary" -> 
+    "$DefaultUnitSet is the name of the UnitSet from which automatic unit \
+choices are made", "synonyms" -> {}, "title" -> "$DefaultUnitSet", "type" -> 
+    "Symbol", "uri" -> "AutomaticUnits/ref/$DefaultUnitSet"}, "LinkTrails" -> 
+  "", "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"8.0 for Microsoft Windows (32-bit) (November 7, 2010)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "8.0 for Microsoft Windows (32-bit) (November 7, 2010)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[4999, 148, 461, 13, 70, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->291959971]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 16163, 541}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[608, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[687, 24, 208, 5, 70, "LinkTrail"],
+Cell[898, 31, 2699, 60, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[3622, 95, 58, 1, 70, "ObjectName",
+ CellID->1224892054],
+Cell[3683, 98, 379, 11, 70, "Usage",
+ CellID->982511436]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4099, 114, 580, 17, 70, "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->470666069],
+Cell[4682, 133, 148, 4, 70, "Notes",
+ CellID->1067943069],
+Cell[4833, 139, 129, 4, 70, "Notes",
+ CellID->726785537]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[4999, 148, 461, 13, 70, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->291959971],
+Cell[CellGroupData[{
+Cell[5485, 165, 148, 5, 70, "ExampleSection",
+ CellID->181120206],
+Cell[5636, 172, 95, 1, 70, "Notes",
+ CellID->2930854],
+Cell[5734, 175, 102, 3, 70, "Input",
+ CellID->789093595],
+Cell[CellGroupData[{
+Cell[5861, 182, 84, 2, 70, "Input",
+ CellID->478580459],
+Cell[5948, 186, 167, 5, 36, "Output",
+ CellID->591425211]
+}, Open  ]],
+Cell[6130, 194, 185, 4, 70, "Notes",
+ CellID->453409939],
+Cell[CellGroupData[{
+Cell[6340, 202, 112, 3, 70, "Input",
+ CellID->229670942],
+Cell[6455, 207, 4793, 153, 109, "Output",
+ CellID->231348154]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11285, 365, 151, 5, 70, "Input",
+ CellID->37047187],
+Cell[11439, 372, 272, 9, 36, "Output",
+ CellID->111720868]
+}, Open  ]],
+Cell[11726, 384, 131, 4, 70, "Notes",
+ CellID->76099760],
+Cell[11860, 390, 141, 4, 70, "Input",
+ CellID->453913324],
+Cell[CellGroupData[{
+Cell[12026, 398, 152, 5, 70, "Input",
+ CellID->370364024],
+Cell[12181, 405, 306, 9, 36, "Output",
+ CellID->148554050]
+}, Open  ]],
+Cell[12502, 417, 142, 4, 70, "Input",
+ CellID->107243046],
+Cell[CellGroupData[{
+Cell[12669, 425, 151, 5, 70, "Input",
+ CellID->60215506],
+Cell[12823, 432, 299, 9, 36, "Output",
+ CellID->156619483]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13183, 448, 417, 12, 70, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[13603, 462, 506, 18, 70, "SeeAlso",
+ CellID->21912]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14146, 485, 419, 12, 70, "MoreAboutSection",
+ CellID->38303248],
+Cell[14568, 499, 163, 3, 70, "MoreAbout",
+ CellID->482745]
+}, Open  ]],
+Cell[14746, 505, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

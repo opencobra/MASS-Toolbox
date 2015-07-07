@@ -303,6 +303,9 @@ pools2poolMatrix::usage="pools2poolMatrix[model, pools], where pools should look
 paths2pathwayMatrix::usage="paths2pathwayMatrix[model,paths], where paths should look like {v[\"id1\"]+2 v[\"id2\"],...}, returns a correctly sorted pathway matrix, such that pathwaymatrix.model works.";
 
 
+computeSteadyStateFlux::usage="computeSteadyStateFlux[model_MASSmodel,pathwayMatrix:{_List..},loadings:{_Rule..}] computes the steady state flux of a model given a list of flux loadings.";
+
+
 anonymize::usage="anonymize[f_[args__]] uses symbolize to translate any metabolite, rateconst etc. in args into real symbols. Afterwards, the output of f is translated back to the original args.";
 
 
