@@ -362,13 +362,17 @@ Graphics[graphicElements/.elem:(_PointSize):>elem[[0]][elem[[1]]*(1/aspectRatio)
 
 Options[drawReactionMap]={"AbsentStyle"->{Dotted,Thickness[0.001],Lighter@Gray},"DefaultStyle"->{Thickness[0.002],Gray},"Tooltips"->True,"Style"->{},"Directed"->True,"Arrowheads"->0.01,"Hyperlinks"->False};
 drawReactionMap[reactionPositions_List,opts:OptionsPattern[]]:=Block[{rxnCoords,rxnPoints,rxnPos2Curve,color,thickness,defaultStyle,graphicElements,url,out,style,direction,aspectRatio},
-	
+
 	defaultStyle=If[OptionValue["Style"]==={},
 		OptionValue["DefaultStyle"],
 		OptionValue["AbsentStyle"]
 	];
 
 	aspectRatio=getAspectRatio[Sequence@@getCorners[reactionPositions]];
+
+	(* aspect ratio of 0 gives errors *)
+	If[aspectRatio==0,aspectRatio=1];
+	
 	(* Take this out if bounding boxes are no longer allowed for reactions *)
 	If[MatchQ[reactionPositions,{(_String->{{{{_,_},{_,_}},"Box"}})..}],
 		rxnPos2Curve=Rectangle[#1[[1,1]],#1[[1,2]]]&;,
@@ -421,11 +425,15 @@ drawPathway[mapID_String,opts:OptionsPattern[{drawPathway,drawReactionMap,drawMe
 	If[OptionValue["ReactionLabels"]==True, finalLabels=Join[rxnLabels,finalLabels];];
 	drawPathway[cmpdPos,DeleteCases[rxnPos,{"NaN","NaN"},\[Infinity]](*TODO: fix this in the maps*),finalLabels,opts]
 ];
+
 drawPathway[metPos:{(_String->{_?NumericQ..})..},rxnPos:{(_String->_List...)..},textPos:({(_Text|_Rule|_Style)...}),compPos:{_Rule...}:{},opts:OptionsPattern[{drawPathway,drawReactionMap,drawMetaboliteMap}]]:=Module[{refMin,refMax,helperFunc,min,max,directedQ,map,fluxStyle,metStyle,cellMembrane,corners,aspectRatio,cleanRxnData,scalingFunction,cleanMetaboliteData,compartments,compartmentGraphics},
 	directedQ="Directed"/.(ToString[#[[1]]]->#[[2]]&/@OptionValue["ReactionStyle"]);
 	corners=getCorners[rxnPos];
 	aspectRatio=getAspectRatio[Sequence@@corners];
-	
+
+	(* aspect ratio of 0 gives errors *)
+	If[aspectRatio==0,aspectRatio=1];
+
 	cleanRxnData=FilterRules[OptionValue["ReactionData"]/.elem_v:>getID[elem],rxnPos[[All,1]]];
 	If[OptionValue["MinMaxHack"]===True,
 		refMax=Max[Abs[{Min[#],Max[#]}&[cleanRxnData[[All,2]]]]];
@@ -435,9 +443,10 @@ drawPathway[metPos:{(_String->{_?NumericQ..})..},rxnPos:{(_String->_List...)..},
 		{refMin,refMax}=OptionValue["MinMaxHack"];
 		cleanRxnData=Join[cleanRxnData,{"Max"->refMin,"Moritz"->refMax}];
 	];
-	
+
 	scalingFunction=Switch[OptionValue["ColorFunctionScaling"],True,If[directedQ,Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{0.,1.}]&,Rescale[#,{Min[#],Max[#]},{0.,1.}]&],_Function,OptionValue["ColorFunctionScaling"],False,#&];
 	cleanMetaboliteData=FilterRules[OptionValue["MetaboliteData"]/.elem:$MASS$speciesPattern:>getID[elem],metPos[[All,1]]];
+
 	If[directedQ,
 		fluxStyle=Thread[Rule[cleanRxnData[[All,1]]/.elem_v:>getID[elem],Thread[List[Arrowheads/@Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{OptionValue["MinThickness"]*(5/aspectRatio),OptionValue["MaxThickness"]*(5/aspectRatio)}],Thickness/@Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{OptionValue["MinThickness"],OptionValue["MaxThickness"]}],OptionValue["ColorFunction"]/@scalingFunction[#],-1*Sign[#]]]]]&[cleanRxnData[[All,2]]];,
 		fluxStyle=Thread[Rule[cleanRxnData[[All,1]]/.elem_v:>getID[elem],Thread[List[Thickness/@Rescale[Abs@#,{Min[Abs@#],Max[Abs@#]},{OptionValue["MinThickness"],OptionValue["MaxThickness"]}],OptionValue["ColorFunction"]/@scalingFunction[#],-1*Sign[#]]]]]&[cleanRxnData[[All,2]]];
@@ -449,7 +458,7 @@ drawPathway[metPos:{(_String->{_?NumericQ..})..},rxnPos:{(_String->_List...)..},
 		cellMembrane=Sequence[];,
 		cellMembrane=Sequence[];
 	];
-	
+
 	compartmentGraphics = Tooltip[Rectangle@@#[[2]],#[[1]]]&/@compPos;
 	compartments = Graphics[Join[{EdgeForm[Thin],FaceForm[]},compartmentGraphics]];
 
@@ -459,6 +468,7 @@ drawPathway[metPos:{(_String->{_?NumericQ..})..},rxnPos:{(_String->_List...)..},
 		drawMetaboliteMap[metPos,Sequence@@updateRules[OptionValue["MetaboliteStyle"],If[metStyle=!={},{"Style"->metStyle},{}]],Sequence@@FilterRules[{opts},Options[drawMetaboliteMap]]],Graphics@Style[textPos,Sequence@@(OptionValue["TextStyle"]/.elem:(_Scaled):>elem[[0]][elem[[1]]*(1/aspectRatio)])],
 		ImageSize->OptionValue["ImageSize"]
 	];
+
 	map=If[OptionValue["PlotLegends"]=!=None&&OptionValue["ReactionData"]=!={},
 		{min,max}={If[directedQ,0,Min[#]],If[directedQ,Max@Abs@#,Max@#]}&[cleanRxnData[[All,2]]];
 		helperFunc=Composition[#,With[{minn=min,maxx=max},Rescale[#,{minn,maxx},{0.,1.}]&]]&;
@@ -527,11 +537,10 @@ drawNodeMaps[model_MASSmodel,opts:OptionsPattern[{drawNodeMaps,GraphPlot}]]:=Mod
 drawNodeMaps::InvalidOption = "The arguments for the option `1` are invalid."
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*PathwayGUI*)
 
 
-(* ::Code:: *)
 (*Options[pathwayGUI]={"CurrencyMets"->{},"GridSize"->.001,"PointSize"->.01,"PlotFunction"->LayeredGraphPlot,ImageSize->Large,"Labels"->True};*)
 (*pathwayGUI[model_MASSmodel,opts:OptionsPattern[pathwayGUI]]:=Module[{mets,rxns,organizedMets,background,rxnIndex,output,textLabels},*)
 (**)
@@ -590,7 +599,6 @@ drawNodeMaps::InvalidOption = "The arguments for the option `1` are invalid."
 (*];*)
 
 
-(* ::Code:: *)
 (*organizeMets[rxn_reaction,currencyMets_List]:=Module[{rxnCurrency,mainReact,mainProd,sideReact,sideProd,rxnNumber},*)
 (*	Which[*)
 (*		MatchQ[currencyMets,{_metabolite...}],*)

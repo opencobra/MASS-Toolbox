@@ -236,7 +236,7 @@ getListOfCompartments[xml_/;Head[xml]===XMLObject["Document"]]:=Module[{},
 getCompartmentVolumes[listOfCompartments:{((parameter["Volume",_String]|parameter["Volume",_String][t])->_List)...},unitDefinitions:{(_Rule|_RuleDelayed)...}]:=#[[1]]->sbmlString2Number[query["size",#[[2]],"1"]]*(query["units",#[[2]],"volume"]/.Dispatch[unitDefinitions])&/@listOfCompartments
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfReactions*)
 
 
@@ -686,7 +686,7 @@ parseCompartmentGlyph[element_XMLElement,maxHeight_?NumberQ]:=Module[{name,posit
 	object=First@element[[3]];
 	position=parsePosition[object];(* x\[Rule]5,y\[Rule]5 *)
 	dimensions=parseDimensions[object]; (*width\[Rule]x,height\[Rule]x*)
-	name->{{"x","y"},{"width"+"x",maxHeight - ("height"+"y")}}/.Join[position,dimensions]
+	name->{{"x","y"},{"width"+"x",("height"+"y")}}/.Join[position,dimensions]
 ]
 
 
@@ -729,7 +729,9 @@ parseCurveSegment[object_XMLElement,maxHeight_?NumberQ]:=Module[{type},
 				extractXMLelement[object,"basePoint1",1],
 				extractXMLelement[object,"basePoint2",1],
 				extractXMLelement[object,"end",1]
-			},1}/.{"x"->x_,"y"->y_,___}:>{ToExpression[x],maxHeight - ToExpression[y]}
+			},1}/.{"x"->x_,"y"->y_,___}:>{ToExpression[x],maxHeight - ToExpression[y]},
+		"type",
+			##&[]
 	]
 ]
 
