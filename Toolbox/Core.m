@@ -486,17 +486,11 @@ $MIRIAM$biologyQualifiers = {"encodes","hasPart","hasProperty","hasVersion","is"
 
 displayAnnotations[annotations:("Annotations"|{})]:={};
 
-displayAnnotations[annotations_List]:=Module[{items,qualifiers,urls,fullItems,fullQualifiers,fullURLs,title},
-	items = First/@annotations;
-	qualifiers = First/@#&/@(Last/@annotations);
-	urls = Last/@#&/@(Last/@annotations);
-
-	fullItems = Flatten[MapThread[Join[{#1},Table[SpanFromAbove,{i,Length[Flatten[#2]]-1}]]&,{items,urls}]];
-	fullQualifiers = Flatten[MapThread[MapThread[Join[{#1},Table[SpanFromAbove,{i,Length[Flatten[#2]]-1}]]&,{#1,#2}]&,{qualifiers,urls}]];
-	fullURLs = annotation2url/@Flatten[urls];
+displayAnnotations[annotations_List]:=Module[{items,title},
+	items={#[[1]],#[[2]],annotation2url[#[[3]]]}&/@annotations;
 
 	title={Item[Style[#,Bold],Alignment->Center]&/@{"Object","Qualifier","Link"}};
-	Pane[Grid[Join[title,Transpose@{fullItems,fullQualifiers,fullURLs}],
+	Pane[Grid[Join[title,items],
 		Alignment->{Left,Center},
 		Spacings->{1, Automatic},
 		Dividers->All
@@ -536,7 +530,7 @@ attributeTestPatterns={
 	"Name"->_String,
 	"ElementalComposition"->({((_species|_metabolite|_enzyme)->(Automatic|_Times|_Plus|Except["",_String]|_SMILES|_InChI))..}|{}),
 	"Notes"->_String,
-	"Annotations"->{(_->{(_String->{_String..})..})...},
+	"Annotations"->{{_,Alternatives@@Join[$MIRIAM$modelQualifiers,$MIRIAM$biologyQualifiers],_String}...},
 	"Ignore"->{(_species|_metabolite|_enzyme)..}|{},
 	"UnitChecking"->(True|False),
 	"Synonyms"->{(Join[$MASS$speciesPattern,$MASS$parametersPattern,_v|_String]->_String)..}|{},
