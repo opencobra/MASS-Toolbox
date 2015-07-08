@@ -147,122 +147,6 @@ stringShortener[str_String,maxChar_:15]:=If[StringLength[str]>maxChar,StringTake
 stringShortener[flux_v,maxChar_:15]:=stringShortener[getID[flux],maxChar]
 
 
-editAttribute[dat:{_Rule...},title_:"Default title"]:=Module[{output},
-	DynamicModule[{vars,unitVars,names,values,units,amounts,inputs,inputGrid,buttonRow,result},
-		(* Get the names and values of each item *)
-		names = dat[[All,1]];
-		values = dat[[All,2]];
-
-		(* If any item is has units, separate it into units and amounts *)
-		units = If[MatchQ[#,_Unit],#[[2]],""]&/@values;
-		amounts = If[MatchQ[#,_Unit],#[[1]],#]&/@values;
-
-		(* Create variables for the input fields for both the amounts and the units *)
-		MapThread[(vars[#1]=#2)&,{names,amounts}];
-		MapThread[(unitVars[#1]=#2/.x_String:>ToExpression[x,InputForm,Defer])&,{names,units}];
-
-		(* If no items have units, ignore units. Else, create an input fields *)
-		If[MatchQ[units,{""...}],
-			inputs={#,InputField[Dynamic[vars[#]],ImageSize->100],""}&/@names,
-			inputs={#,InputField[Dynamic[vars[#]],ImageSize->100],InputField[Dynamic[unitVars[#]],ImageSize->100]}&/@names
-		];
-		
-		inputGrid=Grid[Flatten/@Partition[inputs,2],Alignment->Left,Dividers->{4->True,All},Frame->True];
-		result:=(#->ReleaseHold[vars[#]*unitVars[#]/.Defer[Null]->1])&/@names;
-		buttonRow = Row[{
-			DefaultButton[DialogReturn[result]],
-			CancelButton[],
-			Button["Set all to 0",(vars[#]=0)&/@names],
-			Button["Initialize",MapThread[(vars[#1]=#2)&,{names,amounts}]]
-		}];
-		output=DialogInput[
-			Column[{
-				Pane[inputGrid,Scrollbars->Automatic,ImageSize->{Automatic,600}],
-				buttonRow
-			}]
-		]
-	];
-	output
-]
-
-
-editAttribute[dat_String,title_:"Default title"]:=Module[{out},
-	DynamicModule[{input},
-		input=dat;
-		out=DialogInput[
-			{TextCell[title],
-				InputField[Dynamic[input],String,FieldSize->{50,12}],
-				Row[{DefaultButton[DialogReturn[ToString[input]]],CancelButton[]}]
-			},NotebookEventActions->{"ReturnKeyDown":>FrontEndExecute[{NotebookWrite[InputNotebook[],"\n",After]}]}
-		]
-	];
-	out
-]
-
-
-SetAttributes[editModelInPlace,HoldFirst];
-editModelInPlace[model_Symbol]/;MatchQ[Hold[model]/.OwnValues[model],Hold[_MASSmodel]]:=
-	model=edit[model];
-
-
-SetAttributes[edit,HoldFirst];
-edit[model_,result_:"",modelName_:""]:=Module[{modelTmp=model,attribute,out2,name,nb,newResult=""},
-
-	(* If the name comes in blank, then get the correct name *)
-	If[modelName=="",
-		name=ToString[SymbolName[Unevaluated@model]],
-		name=modelName (* If it already has a name passed in from a previous call, then keep it *)
-	];
-
-	DynamicModule[{attr},
-
-		(* First choose the attribute to edit *)
-		attribute=DialogInput[Pane[
-			Column[{
-				"Choose attribute to edit:",
-				RadioButtonBar[Dynamic[attr],{"ID","Name","InitialConditions","Parameters","ElementalComposition","Notes","Annotations","Synonyms"},Appearance->"Vertical"->{Automatic,2}],
-				Row[{DefaultButton["Edit Attribute",DialogReturn[attr]],CancelButton[],DefaultButton["Save & Finish",DialogReturn[]]}]
-			}]
-		]];
-
-		(* Quit GUI if cancelled *)
-		If[attribute===$Canceled,Abort[]];
-
-		(* If Save&Quit button is pressed, return the code. Else go back to edit code *)
-		If[attribute===Null,
-			newResult = result,
-			Module[{},
-				(* Tell user to wait while computation occurs *)
-				nb = CreateDialog[Style["Please wait...",20]];
-				(* Run attribute editing GUI *)
-				out2=editAttribute[model[attribute],"Edit "<>attribute];
-				(* If it was cancelled, do not change model *)
-				If[out2===$Canceled,
-					modelTmp=model,
-					Module[{},
-						(* Else, change the temporary model, and update the result code string *)
-						setModelAttribute[modelTmp,attribute,out2];
-						(* If the output is a string, wrap quotation marks around it *)
-						If[MatchQ[out2,_String], out2="\""<>out2<>"\""];
-						newResult = result<>"set"<>ToString[attribute]<>"["<>name<>","<>ToString[out2,TraditionalForm]<>"];"
-					]
-				];
-				NotebookClose[nb];
-				
-				newResult = edit[modelTmp,newResult,name]
-			]
-			
-		];
-
-	];
-	(* Return nothing if there is no "newResult" *)
-	If[newResult===Null,
-		newResult,
-		CellPrint[ExpressionCell[ToExpression[newResult,TraditionalForm,Defer],"Input"]]
-	]
-]/;MatchQ[model,_MASSmodel];
-
-
 wrapHead::usage="wrapHead[expression] will wrap head around the Head of expression like wrap[Head[expression]][expression]";
 
 
@@ -1524,6 +1408,136 @@ Join[Table[Reals,{Length[#]}],Table[Integers,{Length[#]}]]
 ]&[s];
 Cases[Thread[Rule[compounds,milpResult[[1;;Length[s]]]]],r_Rule/;r[[2]]<1][[All,1]]
 ];
+
+
+(* ::Subsection:: *)
+(*Model editing GUIs*)
+
+
+SetAttributes[editAttribute,HoldFirst];
+editAttribute[model_,attribute:Alternatives@@Toolbox`Private`$MASSmodel$MutableAttributes]:=Module[{data,name,output,result},
+	data = model[attribute];
+	name=ToString[SymbolName[Unevaluated@model]];
+	output = editAttributeGUI[data,"Edit "<>attribute];
+	If[output === $Canceled,
+		$Canceled,
+		result = "set"<>ToString[attribute]<>"["<>name<>","<>ToString[output,InputForm]<>"];";
+		CellPrint[ExpressionCell[ToExpression[result,TraditionalForm,Defer],"Input"]]
+	]
+]/;MatchQ[model,_MASSmodel]
+
+
+editAttributeGUI[dat:{_Rule..},title_:"Default title"]:=Module[{output},
+	DynamicModule[{vars,unitVars,names,values,units,amounts,inputs,inputGrid,buttonRow,result},
+		(* Get the names and values of each item *)
+		names = dat[[All,1]];
+		values = dat[[All,2]];
+
+		(* If any item is has units, separate it into units and amounts *)
+		units = If[MatchQ[#,_Unit],#[[2]],""]&/@values;
+		amounts = If[MatchQ[#,_Unit],#[[1]],#]&/@values;
+
+		(* Create variables for the input fields for both the amounts and the units *)
+		MapThread[(vars[#1]=#2)&,{names,amounts}];
+		MapThread[(unitVars[#1]=#2/.x_String:>ToExpression[x,InputForm,Defer])&,{names,units}];
+
+		(* If no items have units, ignore units. Else, create an input fields *)
+		If[MatchQ[units,{""...}],
+			inputs={#,InputField[Dynamic[vars[#]],ImageSize->100],""}&/@names,
+			inputs={#,InputField[Dynamic[vars[#]],ImageSize->100],InputField[Dynamic[unitVars[#]],ImageSize->100]}&/@names
+		];
+		
+		inputGrid=Grid[Flatten/@Partition[inputs,2],Alignment->Left,Dividers->{4->True,All},Frame->True];
+		result:=(#->ReleaseHold[vars[#]*unitVars[#]/.Defer[Null]->1])&/@names;
+		buttonRow = Row[{
+			DefaultButton[DialogReturn[result]],
+			CancelButton[],
+			Button["Set all to 0",(vars[#]=0)&/@names],
+			Button["Initialize",MapThread[(vars[#1]=#2)&,{names,amounts}]]
+		}];
+		output=DialogInput[
+			Column[{
+				Pane[inputGrid,Scrollbars->Automatic,ImageSize->{Automatic,600}],
+				buttonRow
+			}]
+		]
+	];
+	output
+]
+
+
+editAttributeGUI[dat_String,title_:"Default title"]:=Module[{out},
+	DynamicModule[{input},
+		input=dat;
+		out=DialogInput[
+			{TextCell[title],
+				InputField[Dynamic[input],String,FieldSize->{50,12}],
+				Row[{DefaultButton[DialogReturn[ToString[input]]],CancelButton[]}]
+			},NotebookEventActions->{"ReturnKeyDown":>FrontEndExecute[{NotebookWrite[InputNotebook[],"\n",After]}]}
+		]
+	];
+	out
+]
+
+
+SetAttributes[editModelInPlace,HoldFirst];
+editModelInPlace[model_Symbol]/;MatchQ[Hold[model]/.OwnValues[model],Hold[_MASSmodel]]:=
+	model=edit[model];
+
+
+SetAttributes[edit,HoldFirst];
+edit[model_,result_:"",modelName_:""]:=Module[{modelTmp=model,attribute,out2,name,nb,newResult=""},
+
+	(* If the name comes in blank, then get the correct name *)
+	If[modelName=="",
+		name=ToString[SymbolName[Unevaluated@model]],
+		name=modelName (* If it already has a name passed in from a previous call, then keep it *)
+	];
+
+	DynamicModule[{attr},
+
+		(* First choose the attribute to edit *)
+		attribute=DialogInput[Pane[
+			Column[{
+				"Choose attribute to edit:",
+				RadioButtonBar[Dynamic[attr],{"ID","Name","InitialConditions","Parameters","ElementalComposition","Notes","Annotations","Synonyms"},Appearance->"Vertical"->{Automatic,2}],
+				Row[{DefaultButton["Edit Attribute",DialogReturn[attr]],CancelButton[],DefaultButton["Save & Finish",DialogReturn[]]}]
+			}]
+		]];
+
+		(* Quit GUI if cancelled *)
+		If[attribute===$Canceled,Abort[]];
+
+		(* If Save&Quit button is pressed, return the code. Else go back to edit code *)
+		If[attribute===Null,
+			newResult = result,
+			Module[{},
+				(* Tell user to wait while computation occurs *)
+				nb = CreateDialog[Style["Please wait...",20]];
+				(* Run attribute editing GUI *)
+				out2=editAttributeGUI[model[attribute],"Edit "<>attribute];
+				(* If it was cancelled, do not change model *)
+				If[out2===$Canceled,
+					modelTmp=model,
+					Module[{},
+						(* Else, change the temporary model, and update the result code string *)
+						Quiet[setModelAttribute[modelTmp,attribute,out2]];
+						newResult = result<>"set"<>ToString[attribute]<>"["<>name<>","<>ToString[out2,InputForm]<>"];"
+					]
+				];
+				NotebookClose[nb];
+				newResult = edit[modelTmp,newResult,name]
+			]
+			
+		];
+
+	];
+	(* Return nothing if there is no "newResult" *)
+	If[newResult===Null,
+		newResult,
+		CellPrint[ExpressionCell[ToExpression[newResult,TraditionalForm,Defer],"Input"]]
+	]
+]/;MatchQ[model,_MASSmodel];
 
 
 (* ::Subsection:: *)
