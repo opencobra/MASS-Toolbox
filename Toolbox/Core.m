@@ -148,19 +148,32 @@ stringShortener[flux_v,maxChar_:15]:=stringShortener[getID[flux],maxChar]
 
 
 editAttribute[dat:{_Rule...},title_:"Default title"]:=Module[{output},
-	DynamicModule[{vars,names,values,inputs,inputGrid,buttonRow,result},
+	DynamicModule[{vars,unitVars,names,values,units,amounts,inputs,inputGrid,buttonRow,result},
+		(* Get the names and values of each item *)
 		names = dat[[All,1]];
 		values = dat[[All,2]];
-		Print[values];
-		MapThread[(vars[#1]=#2)&,{names,values}];
-		inputs={#,InputField[Dynamic[vars[#]],ImageSize->100]}&/@names;
-		inputGrid=Grid[Flatten/@Partition[inputs,2],Alignment->Left,Dividers->{3->True,All},ItemSize->Full,Frame->True];
-		result:=#->First[Dynamic[vars[#]]]&/@names;
+
+		(* If any item is has units, separate it into units and amounts *)
+		units = If[MatchQ[#,_Unit],#[[2]],""]&/@values;
+		amounts = If[MatchQ[#,_Unit],#[[1]],#]&/@values;
+
+		(* Create variables for the input fields for both the amounts and the units *)
+		MapThread[(vars[#1]=#2)&,{names,amounts}];
+		MapThread[(unitVars[#1]=#2/.x_String:>ToExpression[x,InputForm,Defer])&,{names,units}];
+
+		(* If no items have units, ignore units. Else, create an input fields *)
+		If[MatchQ[units,{""...}],
+			inputs={#,InputField[Dynamic[vars[#]],ImageSize->100],""}&/@names,
+			inputs={#,InputField[Dynamic[vars[#]],ImageSize->100],InputField[Dynamic[unitVars[#]],ImageSize->100]}&/@names
+		];
+		
+		inputGrid=Grid[Flatten/@Partition[inputs,2],Alignment->Left,Dividers->{4->True,All},Frame->True];
+		result:=(#->ReleaseHold[vars[#]*unitVars[#]/.Defer[Null]->1])&/@names;
 		buttonRow = Row[{
 			DefaultButton[DialogReturn[result]],
 			CancelButton[],
 			Button["Set all to 0",(vars[#]=0)&/@names],
-			Button["Initialize",MapThread[(vars[#1]=#2)&,{names,values}]]
+			Button["Initialize",MapThread[(vars[#1]=#2)&,{names,amounts}]]
 		}];
 		output=DialogInput[
 			Column[{
