@@ -451,7 +451,7 @@ adjustUnits[stuff:{_Rule...},rxns:{_reaction...}:{},opts:OptionsPattern[]]:=Modu
 adjustUnits[stuff:{_Rule...},model_MASSmodel,opts:OptionsPattern[]]:=If[model["UnitChecking"],adjustUnits[stuff,model["Reactions"],"Ignore"->Union[model["Ignore"],OptionValue["Ignore"]],Sequence@@FilterRules[List@opts,Except["Ignore"]]],stuff]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Annotations*)
 
 
@@ -466,14 +466,13 @@ $MIRIAM$rules=Module[{miriamXML,info,urnXML,urns,patterns,finalPatterns,rawRules
 	urns = StringInsert[StringReplace[#,"."->"\\."],":",-1]&/@Flatten[urnXML[[All,1,3]]];
 
 	(* Get patterns for each datatype (removing end and beginning flags) *)
-	patterns = StringTrim["pattern"/.#[[2]],"^"|"$"]&/@info;
+	patterns = "("<>StringTrim["pattern"/.#[[2]],"^"|"$"]<>")"&/@info;
 
 	(* Get applicable categories for each datatype *)
 	categories=#[[3,1]]&/@Toolbox`Private`extractXMLelement[
 			Select[Toolbox`Private`extractXMLelement[#,"annotation",2],("name"/.#[[2]])=="SBML"&],
 			"element",0
 		]&/@info;
-
 	finalPatterns = MapThread[StringJoin,{urns,patterns}];
 	rawRules=Thread[{categories,finalPatterns}];
 
@@ -1414,11 +1413,15 @@ Cases[Thread[Rule[compounds,milpResult[[1;;Length[s]]]]],r_Rule/;r[[2]]<1][[All,
 (*Model editing GUIs*)
 
 
+(* ::Subsubsection:: *)
+(*Edit Attributes*)
+
+
 SetAttributes[editAttribute,HoldFirst];
 editAttribute[model_,attribute:Alternatives@@Toolbox`Private`$MASSmodel$MutableAttributes]:=Module[{data,name,output,result},
 	data = model[attribute];
 	name=ToString[SymbolName[Unevaluated@model]];
-	output = editAttributeGUI[data,"Edit "<>attribute];
+	output = editAttributeGUI[data,model,"Edit "<>attribute];
 	If[output === $Canceled,
 		$Canceled,
 		result = "set"<>ToString[attribute]<>"["<>name<>","<>ToString[output,InputForm]<>"];";
@@ -1427,7 +1430,7 @@ editAttribute[model_,attribute:Alternatives@@Toolbox`Private`$MASSmodel$MutableA
 ]/;MatchQ[model,_MASSmodel]
 
 
-editAttributeGUI[dat:{_Rule..},title_:"Default title"]:=Module[{output},
+editAttributeGUI[dat:{_Rule..},model_MASSmodel,title_:"Default title"]:=Module[{output},
 	DynamicModule[{vars,unitVars,names,values,units,amounts,inputs,inputGrid,buttonRow,result},
 		(* Get the names and values of each item *)
 		names = dat[[All,1]];
@@ -1459,34 +1462,171 @@ editAttributeGUI[dat:{_Rule..},title_:"Default title"]:=Module[{output},
 			Column[{
 				Pane[inputGrid,Scrollbars->Automatic,ImageSize->{Automatic,600}],
 				buttonRow
-			}]
+			}],WindowTitle->title
 		]
 	];
 	output
 ]
 
 
-editAttributeGUI[dat_String,title_:"Default title"]:=Module[{out},
+editAttributeGUI[dat_String,model_MASSmodel,title_:"Default title"]:=Module[{out},
 	DynamicModule[{input},
 		input=dat;
 		out=DialogInput[
-			{TextCell[title],
-				InputField[Dynamic[input],String,FieldSize->{50,12}],
+			{InputField[Dynamic[input],String,FieldSize->{50,12}],
 				Row[{DefaultButton[DialogReturn[ToString[input]]],CancelButton[]}]
-			},NotebookEventActions->{"ReturnKeyDown":>FrontEndExecute[{NotebookWrite[InputNotebook[],"\n",After]}]}
+			},NotebookEventActions->{"ReturnKeyDown":>FrontEndExecute[{NotebookWrite[InputNotebook[],"\n",After]}]},WindowTitle->title
 		]
 	];
 	out
 ]
 
 
+editAttributeGUI[annotationPane_Pane,model_MASSmodel,title_:"Default title"]:=editAnnotationPane["Annotations"/.model[[1]],model,title];
+
+
+editAnnotationPane[annot:{{_,_String,_String}..},model_MASSmodel,title_String,wrongAnnot_List:{}]:=Module[{newAnnotations,newWrong},
+
+DynamicModule[{annotations,items,qualifiers,urls,wrongPos,itemChoices,qualChoices,urlVar,itemVar,qualVar,urlFields,qualMenu,itemMenu,deleteAnnotation,addAnnotation,urlButtons,grid},
+	(* Must set annotations as a dynamic variable *)
+	annotations=annot;
+	items = #[[1]]&/@annotations;
+	qualifiers = #[[2]]&/@annotations;
+	urls = #[[3]]&/@annotations;
+
+	(* Extract position of incorrect annotations *)
+	wrongPos = Flatten@Position[annot,Alternatives@@wrongAnnot,1];
+	(* Get all possible items that could have annotations *)
+	(* model, species, fluxes, compartments, parameters, rate laws, events, initial items *)
+	itemChoices = DeleteDuplicates@Join[{model["ID"]},model["Species"],model["Fluxes"],model["Compartments"],First/@model["Parameters"],getID[#]<>" {rate law)"&/@model["Fluxes"],First/@model["Events"], {"Custom Rule"},items];
+	(* Also do this for qualifiers *)
+	qualChoices = Join[$MIRIAM$modelQualifiers,$MIRIAM$biologyQualifiers];
+
+	(* Set up variables for pulldowns and input fields *)
+	itemVar=Table[Unique["item"],{i,Length[annotations]}];
+	qualVar=Table[Unique["qual"],{i,Length[annotations]}];
+	urlVar=Table[Unique["url"],{i,Length[annotations]}];
+	
+	(* Initialize variables *)
+	Table[(itemVar[[i]])=items[[i]],{i,Length[annotations]}];
+	Table[(qualVar[[i]])=qualifiers[[i]],{i,Length[annotations]}];
+	Table[(urlVar[[i]])=urls[[i]],{i,Length[annotations]}];
+
+	(* Create interactive elements *)
+	urlFields = Dynamic[Table[With[{i=i},InputField[Dynamic[urlVar[[i]]],String]],{i,Length[annotations]}]];
+	qualMenu = Dynamic[Table[With[{i=i},PopupMenu[Dynamic[qualVar[[i]]],qualChoices]],{i,Length[annotations]}]];
+	itemMenu = Dynamic[Table[With[{i=i},PopupMenu[Dynamic[itemVar[[i]]],itemChoices]],{i,Length[annotations]}]];
+
+	(* Function to delete annotation at index i *)
+	deleteAnnotation[i_]:=Module[{},
+		annotations=Delete[annotations,i];
+		itemVar=Delete[itemVar,i];
+		qualVar=Delete[qualVar,i];
+		urlVar=Delete[urlVar,i];
+	];
+
+	(* Function to add annotation at index i *)
+	addAnnotation[index_]:=Module[{i},
+		(* Insert below *)
+		i = index + 1;
+		annotations=Insert[annotations,{Null,"",""},i];
+		itemVar=Insert[itemVar,Unique["item"],i];itemVar[[i]]=Null;
+		qualVar=Insert[qualVar,Unique["qual"],i];qualVar[[i]]="";
+		urlVar=Insert[urlVar,Unique["url"],i];urlVar[[i]]=""
+	];
+
+	(* Make buttons to add and delete annotations *)
+	urlButtons = Dynamic[Table[With[{i=i},Row[{
+		Button["+",addAnnotation[i],Appearance->"Palette"],
+		Button["-",deleteAnnotation[i],Appearance->"Palette"]
+	}]],{i,Length[annotations]}]];
+
+	grid = Dynamic[Grid[
+			Transpose[{
+				First@itemMenu,
+				First@qualMenu,
+				First@urlFields,
+				First@urlButtons
+			}],
+		Dividers->All,Alignment->{Center,Center},Background->{None,Thread[wrongPos->Pink]}]];
+	newAnnotations = DialogInput[
+		Pane[
+			Column[{
+				grid,
+				Row[{
+					Button["OK",DialogReturn[Transpose[{itemVar,qualVar,urlVar}]]],
+					CancelButton[]
+				}]
+			}],Scrollbars->True,ImageSize->{Automatic,500}
+		],WindowTitle->title
+	];
+];
+
+	If[newAnnotations===$Canceled,
+		$Canceled,
+		newWrong = checkAnnotations[newAnnotations,model];
+		If[newWrong=={},
+			newAnnotations,
+			editAnnotationPane[newAnnotations,model,title,newWrong]
+		]
+	]
+];
+
+
+checkAnnotations::wrongQualifer="The qualifier `1` in `2` cannot be used to annotate `3`";
+checkAnnotations::invalidURN="The URN `1` does not follow the MIRIAM guidelines.";
+
+checkAnnotations[annotations_List,model_MASSmodel]:=Module[{nonModel,urls,urns,wrongAnnot={},wrongURN={}},
+	(* Check that only models have model qualifiers *)
+	nonModel = Select[annotations,First[#]=!=model["ID"]&];
+	If[!MemberQ[$MIRIAM$biologyQualifiers,#[[2]]],
+		ChoiceDialog["The qualifier \""<>#[[2]]<>"\" in\n"<>ToString[#]<>"\ncan only be used to annotate models",
+			"OK"->AppendTo[wrongAnnot,#]
+		];
+		Return[#]
+	]&/@nonModel;
+
+	(* Check that the URNs are correctly formatted *)
+	(* First convert all URLs to URNs *)
+	urls = Last/@annotations;
+
+	urns = Which[
+		StringMatchQ[#,"http://identifiers.org/"~~__],
+			StringReplace[#,{"http://identifiers.org/"->"urn:miriam:","/"->":",":"->"%"}],
+		StringMatchQ[#,"urn:miriam:"~~__],
+			#,
+		True,
+			#;
+	]&/@urls;
+
+	wrongURN = Pick[annotations,!StringMatchQ[#,Alternatives@@RegularExpression/@$MIRIAM$rules]&/@urns];
+
+	If[wrongURN!={},
+		wrongURN=ChoiceDialog[Column@{"The following URNs do not follow the MIRIAM guidelines, or may use a deprecated format.\n",Pane[Column[wrongURN],{Automatic,300},Scrollbars->True],"\nThe MIRIAM registry pattern for the MASS Toolbox was last updated June 2015"},
+				{"Ignore Errors"->{},
+				"Go Back and Edit"->wrongURN},Modal->True
+			]
+	];
+	Join[wrongAnnot,wrongURN]
+]
+
+
+(* ::Subsubsection:: *)
+(*Edit Model*)
+
+
 SetAttributes[editModelInPlace,HoldFirst];
-editModelInPlace[model_Symbol]/;MatchQ[Hold[model]/.OwnValues[model],Hold[_MASSmodel]]:=
-	model=edit[model];
+editModelInPlace[model_]:=Module[{name},
+	(* Get the model Name *)
+	name=ToString[SymbolName[Unevaluated@model]];
+	model=edit[model,"",name,"Evaluate"->True];
+
+]/;MatchQ[model,_MASSmodel];
 
 
 SetAttributes[edit,HoldFirst];
-edit[model_,result_:"",modelName_:""]:=Module[{modelTmp=model,attribute,out2,name,nb,newResult=""},
+Options[edit]={"Evaluate"->False};
+edit[model_,result_:"",modelName_:"",opts:OptionsPattern[edit]]:=Module[{modelTmp=model,attribute,out2,name,newResult=""},
 
 	(* If the name comes in blank, then get the correct name *)
 	If[modelName=="",
@@ -1512,30 +1652,31 @@ edit[model_,result_:"",modelName_:""]:=Module[{modelTmp=model,attribute,out2,nam
 		If[attribute===Null,
 			newResult = result,
 			Module[{},
-				(* Tell user to wait while computation occurs *)
-				nb = CreateDialog[Style["Please wait...",20]];
 				(* Run attribute editing GUI *)
-				out2=editAttributeGUI[model[attribute],"Edit "<>attribute];
+				out2=editAttributeGUI[model[attribute],model,"Edit "<>attribute];
 				(* If it was cancelled, do not change model *)
 				If[out2===$Canceled,
 					modelTmp=model,
 					Module[{},
 						(* Else, change the temporary model, and update the result code string *)
-						Quiet[setModelAttribute[modelTmp,attribute,out2]];
+						setModelAttribute[modelTmp,attribute,out2];
 						newResult = result<>"set"<>ToString[attribute]<>"["<>name<>","<>ToString[out2,InputForm]<>"];"
 					]
 				];
-				NotebookClose[nb];
-				newResult = edit[modelTmp,newResult,name]
+				newResult = edit[modelTmp,newResult,name,opts]
 			]
 			
 		];
 
 	];
+
 	(* Return nothing if there is no "newResult" *)
 	If[newResult===Null,
 		newResult,
-		CellPrint[ExpressionCell[ToExpression[newResult,TraditionalForm,Defer],"Input"]]
+		If[OptionValue["Evaluate"]==True,
+			modelTmp,
+			CellPrint[ExpressionCell[ToExpression[newResult,TraditionalForm,Defer],"Input"]]
+		]
 	]
 ]/;MatchQ[model,_MASSmodel];
 
