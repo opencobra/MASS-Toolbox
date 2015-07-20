@@ -78,7 +78,7 @@ mat2model[path_String]:=Module[{stuff},
 mat2model[]:=mat2model[SystemDialogInput["FileOpen"]];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*SBML import*)
 
 
@@ -158,7 +158,7 @@ parseFunctionXML/@extractXMLelement[xml,"listOfFunctionDefinitions",2]
 ];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfUnitDefinitions*)
 
 
@@ -812,7 +812,7 @@ Module[{modelStuff,modelID,modelName,layouts,layout,height,compartmentGlyphs,spe
 ]
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*SBML export*)
 
 
@@ -914,7 +914,7 @@ unitStringList2sbml[{unit_String}]:=unitStringList2sbml[{unit,"1"}];
 unitStringList2sbml[unit_String]:=unitStringList2sbml[{unit,"1"}];
 
 unitStringList2sbml[{unit_String,exponent_String}]:=Module[{compatibility,destinationUnit,rawmult,multiplier},
-	compatibility=Quiet[AutomaticUnits`private`DimensionCompatibleUnitQ[Unit[unit],#]]&/@(First/@mathematica2SBMLBaseUnit);
+	compatibility=Quiet[DimensionCompatibleUnitQ[Unit[unit],#]]&/@(First/@mathematica2SBMLBaseUnit);
 	destinationUnit=First@Pick[First/@mathematica2SBMLBaseUnit,compatibility];
 	rawmult = First[Convert[Unit[unit],destinationUnit]];
 	multiplier=ToString[rawmult^ToExpression[exponent],"SBML"];
