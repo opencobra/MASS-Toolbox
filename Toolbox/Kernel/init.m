@@ -107,7 +107,8 @@ If[$FrontEnd=!=Null&&$VersionNumber>=8,
 	progtext="Loading Network Theory ...";Get["Toolbox`Networks`"];prog++;delay[];
 	progtext="Loading Simulations ...";Get["Toolbox`Simulations`"];prog++;delay[];
 	progtext="Loading QCQA ...";Get["Toolbox`QCQA`"];prog++;delay[];
-	
+	progtext="Loading GUIs ...";Get["Toolbox`GUI`"];prog++;delay[];	
+
 	progtext="Loading ExampleData ...";Get["Toolbox`ExampleData`"];prog++;delay[];
 	
 	(* Display error message for all functions for incorrect inputs *)
