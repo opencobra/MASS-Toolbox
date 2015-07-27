@@ -1449,6 +1449,16 @@ editAttribute[model_,attribute:Alternatives@@Toolbox`Private`$MASSmodel$MutableA
 
 
 (* ::Subsubsection:: *)
+(*Edit Empty Lists*)
+
+
+editAttributeGUI[dat:{},model_MASSmodel,title_:"Default title"]:=Module[{out},
+	ChoiceDialog["The selected attribute cannot be edited using the GUI for this model.","OK"->True];
+	{}
+]
+
+
+(* ::Subsubsection:: *)
 (*Edit String Attributes (Name, ID, Notes etc.)*)
 
 
