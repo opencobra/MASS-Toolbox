@@ -13,9 +13,10 @@ Begin["`Private`"];
 
 (* Things to change:
 
-	1) Make each attribute it's own edit function
+	1) Make each attribute it's own edit function.
 	2) Automatically populate things like synonyms and elemental composition with the metabolites.
 	3) Use updateAttribute functions instead of setAttribute. This will make the final output much easier to read
+	4) Get rid of Nulls when there is no unit.
 
 *)
 
