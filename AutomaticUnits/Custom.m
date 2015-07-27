@@ -11,5 +11,5 @@ UnitSet["Custom"]={
 	TraditionalLabel->"mol"]
 };
 
-AutomaticUnits`private`SIPrefixify["mole","substance","mol"]
+AutomaticUnits`private`SIPrefixify["Mole","substance","mol"]
 
