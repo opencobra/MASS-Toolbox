@@ -159,7 +159,7 @@ wrapHead[stuff_]:=wrap[Head[stuff]]@@stuff
 unwrapHead[stuff_]:=stuff/.w_wrap:>w[[1]]
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Warnings and protection*)
 
 
@@ -169,7 +169,7 @@ Toolbox::NotImplemented="Function/Structure `1` has not been implemented yet.";
 Toolbox::deprecated="`1` is deprecated and will be removed in the (very) near future. Please use `2` instead.";
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Old routines*)
 
 
@@ -189,7 +189,7 @@ getJacobian[stoich_?MatrixQ,rates_List,mets_List,opts:OptionsPattern[]]:=Module[
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Rates*)
 
 
@@ -391,7 +391,7 @@ adjustUnits::noUnitsProvidedKm="No units provided for `1`. `2` assumed: `3`";
 adjustUnits::noUnitsProvidedVmax="No units provided for `1`. `2` assumed: `3`";
 adjustUnits::incomp="Incompatible units encountered for `1`.";
 adjustUnits::noRxnInfo="No reaction information available for `1`";
-adjustUnits[stuff:{_Rule...},rxns:{_reaction...}:{},opts:OptionsPattern[]]:=Module[{id2rxns,unitLessQ,catchIncomp,volumeHelper,keqExp,speciesHelper,fluxHelper,fwdRateConstHelper,revRateConstHelper,keqHelper,rxnOrder,defaultAmountUnit,defaultVolumeUnit,defaultLengthUnit,defaultSurfaceUnit,defaultTimeUnit,defaultMassUnit,defaultConcUnit,defaultFluxUnit,rxn,KmHelper,VmaxHelper,getVolumeUnit1,getVolumeUnit2},
+adjustUnits[stuff:{_Rule...},rxns:{_reaction...}:{},opts:OptionsPattern[]]:=Module[{id2rxns,unitLessQ,catchIncomp,volumeHelper,keqExp,speciesHelper,fluxHelper,fwdRateConstHelper,revRateConstHelper,keqHelper,rxnOrder,defaultAmountUnit,defaultVolumeUnit,defaultLengthUnit,defaultSurfaceUnit,defaultTimeUnit,defaultMassUnit,defaultConcUnit,defaultFluxUnit,rxn,KmHelper,VmaxHelper,getVolumeUnit1,getVolumeUnit2,compartmentFactor},
 	defaultAmountUnit=OptionValue["DefaultAmountUnit"];
 	defaultVolumeUnit=OptionValue["DefaultVolumeUnit"];
 	defaultSurfaceUnit=OptionValue["DefaultSurfaceUnit"];
@@ -401,15 +401,35 @@ adjustUnits[stuff:{_Rule...},rxns:{_reaction...}:{},opts:OptionsPattern[]]:=Modu
 	defaultConcUnit=defaultAmountUnit defaultVolumeUnit^-1;
 	defaultFluxUnit=defaultAmountUnit (*defaultVolumeUnit^-1*) defaultTimeUnit^-1;
 
-	catchIncomp=Function[{expr,elem},Check[expr,Message[adjustUnits::incomp,elem];Abort[];,{Convert::incomp,Unit::incomp2,spatialUnit::spatialUnitRxnOrderMismatch}],{HoldFirst}];
+	(* Helper function to catch and quiet all incompatible unit messages and throw a useful one instead *)
+	catchIncomp=Function[{expr,elem},
+		Quiet[
+			Check[expr,
+				Message[adjustUnits::incomp,elem];Abort[];,
+				{Convert::incomp,Unit::incomp2,spatialUnit::spatialUnitRxnOrderMismatch}
+			],{Convert::incomp,Unit::incomp2,spatialUnit::spatialUnitRxnOrderMismatch}
+		],{HoldFirst}
+	];
+
 	unitLessQ=(NumberQ[#]||#===\[Infinity])&;
 
 	getVolumeUnit1=spatialUnit[#,Sequence@@FilterRules[updateRules[Options[adjustUnits],List[opts]],Options[spatialUnit]]]&;
 	getVolumeUnit2=spatialUnit[#1,#2,Sequence@@FilterRules[updateRules[Options[adjustUnits],List[opts]],Options[spatialUnit]]]&;
 
-	volumeHelper=If[unitLessQ[#[[2]]],Message[adjustUnits::noUnitsProvidedCompartment,#[[1]],OptionValue["DefaultVolumeUnit"],#[[2]]OptionValue["DefaultVolumeUnit"]];#[[2]]OptionValue["DefaultVolumeUnit"],Convert[#[[2]],getVolumeUnit1[#[[2]]]]]&;
-	speciesHelper=If[unitLessQ[#[[2]]],Message[adjustUnits::noUnitsProvidedSpecies,#[[1]],defaultConcUnit,#[[2]]defaultConcUnit];#[[2]]defaultConcUnit,Convert[#[[2]],defaultAmountUnit/getVolumeUnit1[#[[2]]]]]&;
-	fluxHelper=If[unitLessQ[#[[2]]],Message[adjustUnits::noUnitsProvidedFlux,#[[1]],defaultFluxUnit,#[[2]]defaultFluxUnit];#[[2]]defaultFluxUnit,Convert[#[[2]],defaultAmountUnit getVolumeUnit1[#[[2]]]^-1 defaultTimeUnit^-1]]&;
+	(* If any the volume/concentration/flux has no units, return a message and use default units. *) 
+	(* If they have units, make sure it is a usable volume/conc/flux unit *)
+	volumeHelper=If[unitLessQ[#[[2]]],
+		Message[adjustUnits::noUnitsProvidedCompartment,#[[1]],OptionValue["DefaultVolumeUnit"],#[[2]]OptionValue["DefaultVolumeUnit"]];#[[2]]OptionValue["DefaultVolumeUnit"],
+		Convert[#[[2]],getVolumeUnit1[#[[2]]]]
+	]&;
+	speciesHelper=If[unitLessQ[#[[2]]],
+		Message[adjustUnits::noUnitsProvidedSpecies,#[[1]],defaultConcUnit,#[[2]]defaultConcUnit];#[[2]]defaultConcUnit,
+		Convert[#[[2]],defaultAmountUnit/getVolumeUnit1[#[[2]]]]
+	]&;
+	fluxHelper=If[unitLessQ[#[[2]]],
+		Message[adjustUnits::noUnitsProvidedFlux,#[[1]],defaultFluxUnit,#[[2]]defaultFluxUnit];#[[2]]defaultFluxUnit,
+		Convert[#[[2]],defaultAmountUnit getVolumeUnit1[#[[2]]]^-1 defaultTimeUnit^-1]
+	]&;
 
 	fwdRateConstHelper=(rxn=getID[#[[1]]]/.id2rxns;If[!MatchQ[rxn,_reaction],Message[adjustUnits::noRxnInfo,#];Abort[];];
 		rxnOrder=getReactionOrders[rxn,Ignore->OptionValue["Ignore"]][[1]];
@@ -750,11 +770,13 @@ setModelAttribute::wrongattr="The attribute `1` does not exist in model `2` or m
 setModelAttribute[model_Symbol,attribute_String,rhs_,opts:OptionsPattern[]]:=Module[{attributeTest,callBack},
 	If[OptionValue["Sloppy"]==True,
 		model[[1]]=updateRules[model[[1]],{attribute->rhs}],
-		If[!MemberQ[$MASSmodel$Attributes,attribute],Message[setModelAttribute::wrongattr,attribute,model["ID"]];Abort[];];
-		attributeTest=MatchQ[#,attribute/.attributeTestPatterns]&;
-		If[!attributeTest[rhs],Message[setModelAttribute::malformedarg,attribute,rhs//Short,attribute/.attributeTestPatterns];Abort[];];
-		callBack=attribute/.attributeCallBacks;
-		model[[1]]=updateRules[model[[1]],{attribute->callBack[rhs,model]}];
+		Module[{},
+			If[!MemberQ[$MASSmodel$Attributes,attribute],Message[setModelAttribute::wrongattr,attribute,model["ID"]];Abort[];];
+			attributeTest=MatchQ[#,attribute/.attributeTestPatterns]&;
+			If[!attributeTest[rhs],Message[setModelAttribute::malformedarg,attribute,rhs//Short,attribute/.attributeTestPatterns];Abort[];];
+			callBack=attribute/.attributeCallBacks;
+			model[[1]]=updateRules[model[[1]],{attribute->callBack[rhs,model]}];
+		];
 	];
 ];
 
@@ -1413,10 +1435,6 @@ Cases[Thread[Rule[compounds,milpResult[[1;;Length[s]]]]],r_Rule/;r[[2]]<1][[All,
 (*Model editing GUIs*)
 
 
-(* ::Subsubsection:: *)
-(*Edit Attributes*)
-
-
 SetAttributes[editAttribute,HoldFirst];
 editAttribute[model_,attribute:Alternatives@@Toolbox`Private`$MASSmodel$MutableAttributes]:=Module[{data,name,output,result},
 	data = model[attribute];
@@ -1430,43 +1448,8 @@ editAttribute[model_,attribute:Alternatives@@Toolbox`Private`$MASSmodel$MutableA
 ]/;MatchQ[model,_MASSmodel]
 
 
-editAttributeGUI[dat:{_Rule..},model_MASSmodel,title_:"Default title"]:=Module[{output},
-	DynamicModule[{vars,unitVars,names,values,units,amounts,inputs,inputGrid,buttonRow,result},
-		(* Get the names and values of each item *)
-		names = dat[[All,1]];
-		values = dat[[All,2]];
-
-		(* If any item is has units, separate it into units and amounts *)
-		units = If[MatchQ[#,_Unit],#[[2]],""]&/@values;
-		amounts = If[MatchQ[#,_Unit],#[[1]],#]&/@values;
-
-		(* Create variables for the input fields for both the amounts and the units *)
-		MapThread[(vars[#1]=#2)&,{names,amounts}];
-		MapThread[(unitVars[#1]=#2/.x_String:>ToExpression[x,InputForm,Defer])&,{names,units}];
-
-		(* If no items have units, ignore units. Else, create an input fields *)
-		If[MatchQ[units,{""...}],
-			inputs={#,InputField[Dynamic[vars[#]],ImageSize->100],""}&/@names,
-			inputs={#,InputField[Dynamic[vars[#]],ImageSize->100],InputField[Dynamic[unitVars[#]],ImageSize->100]}&/@names
-		];
-		
-		inputGrid=Grid[Flatten/@Partition[inputs,2],Alignment->Left,Dividers->{4->True,All},Frame->True];
-		result:=(#->ReleaseHold[vars[#]*unitVars[#]/.Defer[Null]->1])&/@names;
-		buttonRow = Row[{
-			DefaultButton[DialogReturn[result]],
-			CancelButton[],
-			Button["Set all to 0",(vars[#]=0)&/@names],
-			Button["Initialize",MapThread[(vars[#1]=#2)&,{names,amounts}]]
-		}];
-		output=DialogInput[
-			Column[{
-				Pane[inputGrid,Scrollbars->Automatic,ImageSize->{Automatic,600}],
-				buttonRow
-			}],WindowTitle->title
-		]
-	];
-	output
-]
+(* ::Subsubsection:: *)
+(*Edit String Attributes (Name, ID, Notes etc.)*)
 
 
 editAttributeGUI[dat_String,model_MASSmodel,title_:"Default title"]:=Module[{out},
@@ -1480,6 +1463,238 @@ editAttributeGUI[dat_String,model_MASSmodel,title_:"Default title"]:=Module[{out
 	];
 	out
 ]
+
+
+(* ::Subsubsection:: *)
+(*Edit List Attributes (Elemental Composition etc.)*)
+
+
+editAttributeGUI[dat:{_Rule..},model_MASSmodel,title_:"Default title",errors_List:{}]:=Module[{output},
+	DynamicModule[{vars,names,values,inputs,inputGrid,buttonRow,result},
+		(* Get the names and values of each item *)
+		names = dat[[All,1]];
+		values = dat[[All,2]]; 
+
+		(* Create variables for the input fields *)
+		MapThread[(vars[#1]=#2)&,{names,values}];
+
+		(* Create the input fields *)
+		inputs={#,InputField[Dynamic[vars[#]],ImageSize->100]}&/@names;
+		
+		inputGrid=Grid[Flatten/@Partition[inputs,2,2,1,{{"",""}}],Alignment->Left,Dividers->{4->True,All},Frame->True];
+		result:=(#->vars[#])&/@names;
+		buttonRow = Row[{
+			DefaultButton[DialogReturn[result]],
+			CancelButton[],
+			Button["Set all to Null",(vars[#]=Null)&/@names],
+			Button["Initialize",MapThread[(vars[#1]=#2)&,{names,values}]]
+		}];
+		output=DialogInput[
+			Column[{
+				Pane[inputGrid,Scrollbars->Automatic,ImageSize->{Automatic,600}],
+				buttonRow
+			}],WindowTitle->title
+		]
+	];
+	output
+]
+
+
+(* ::Subsubsection:: *)
+(*Edit numeric list attributes (Parameters, Initial Conditions etc.)*)
+
+
+editAttributeGUI[dat:{Rule[_,(_Unit|_?NumericQ|Infinity)]..},model_MASSmodel,title_:"Default title",errors_List:{{},{}}]:=Module[{output,unitMessage,wrongMessage},
+	DynamicModule[{vars,unitVars,names,values,units,amounts,inputs,inputGrid,buttonRow,result,errorPos,backgroundPos},
+		(* Get the names and values of each item *)
+		names = dat[[All,1]];
+		values = dat[[All,2]];
+
+		(* If any item is has units, separate it into units and amounts *)
+		units = If[MatchQ[#,_Unit],#[[2]],""]&/@values;
+		amounts = If[MatchQ[#,_Unit],#[[1]],#]&/@values;
+
+		(* Create variables for the input fields for both the amounts and the units *)
+		MapThread[(vars[#1]=#2)&,{names,amounts}];
+		MapThread[(unitVars[#1]=#2/.x_String:>ToExpression[x,InputForm,HoldForm])&,{names,units}];
+
+		(* If no items have units, ignore units. Else, create an input fields *)
+		If[MatchQ[units,{Null...}],
+			inputs={#,InputField[Dynamic[vars[#]],ImageSize->100],""}&/@names,
+			inputs={#,InputField[Dynamic[vars[#]],ImageSize->100],InputField[Dynamic[unitVars[#]],ImageSize->100]}&/@names
+		];
+
+		(* Get positions of items with warnings *)
+		errorPos = Flatten[Position[names,#]&/@errors];
+		backgroundPos = Flatten[{{Ceiling[#/2],3Mod[#+1,2]+1},{Ceiling[#/2],3Mod[#+1,2]+2},{Ceiling[#/2],3Mod[#+1,2]+3}}&/@errorPos,1];
+
+		inputGrid=Grid[Flatten/@Partition[inputs,2,2,1,{{"","",""}}],Alignment->Left,Dividers->{4->True,All},Frame->True,Background->{None,None,Thread[backgroundPos->Pink]}];
+		(* Infinity doesn't play well with units, so I had to hack a way for infinity to be inside the unit *)
+		result:=If[And[vars[#]==Infinity,ReleaseHold[unitVars[#]]=!=Null],
+			#->Unit[vars[#],Last[ReleaseHold[unitVars[#]]]],
+			(#->vars[#]*ReleaseHold[unitVars[#]]/.Null->1)
+		]&/@names;
+		
+		buttonRow = Row[{
+			DefaultButton[DialogReturn[result]],
+			CancelButton[],
+			Button["Set all to 0",(vars[#]=0)&/@names],
+			Button["Initialize",MapThread[(vars[#1]=#2)&,{names,amounts}]]
+		}];
+		output=DialogInput[
+			Column[{
+				Pane[inputGrid,Scrollbars->Automatic,ImageSize->{Automatic,600}],
+				buttonRow
+			}],WindowTitle->title
+		]
+	];
+
+	(* Check the units. Wrong has the outputs that are not units. Messages has information for incorrect units. *)
+	If[output===$Canceled,
+		unitMessage={};wrongMessage={},
+		{unitMessage,wrongMessage}=checkUnits[output,model];
+	];
+
+	(* If no messages, return output *)
+	If[unitMessage=={}&&wrongMessage=={},
+		output,
+		Module[{accept,newOutput}, (* If units are wrong, give messages and then create new window with edited units *)
+			accept = ChoiceDialog[
+				Column@Join[
+					("Incompatible units detected for "<>ToString[#[[1]],TraditionalForm]<>". The value "<>ToString[#[[2]],TraditionalForm]<>" will be replaced by "<>ToString[#[[3]],TraditionalForm]<>".\n")
+						&/@unitMessage,
+					("The value of "<>ToString[#[[1]],TraditionalForm]<>", "<>ToString[#[[2]],TraditionalForm]<>", is not a unit.")
+						&/@wrongMessage
+				],"OK"->True,"Ignore Errors"->False
+			];
+			(* Change output to new units (if accept is true) and create new GUI*)
+			If[accept,
+				newOutput=output/.Join[(Rule[#[[1]],_]->Rule[#[[1]],#[[3]]]&/@unitMessage),(Rule[#[[1]],_]->Rule[#[[1]],1]&/@wrongMessage)];
+				editAttributeGUI[newOutput,model,title,Join[First/@unitMessage,First/@wrongMessage]],
+				output
+			]
+		]
+	]
+
+]
+
+
+(* Most of this code was taken from adjustUnits. If adjustUnits has a bug, this may need to be edited as well *)
+Options[checkUnits]={"Ignore"->{}};
+checkUnits[stuff:{_Rule...},rxns:{_reaction...}:{},opts:OptionsPattern[]]:=Module[{id2rxns,unitLessQ,catchIncomp,volumeHelper,keqExp,speciesHelper,fluxHelper,fwdRateConstHelper,revRateConstHelper,keqHelper,rxnOrder,defaultAmountUnit,defaultVolumeUnit,defaultLengthUnit,defaultSurfaceUnit,defaultTimeUnit,defaultMassUnit,defaultConcUnit,defaultFluxUnit,rxn,KmHelper,VmaxHelper,getVolumeUnit1,getVolumeUnit2,compartmentFactor,newStuff={}},
+	defaultAmountUnit=Millimole;
+	defaultVolumeUnit=Liter;
+	defaultSurfaceUnit=Meter^2;
+	defaultLengthUnit=Meter;
+	defaultTimeUnit=Hour;
+	defaultMassUnit=Gram;
+	defaultConcUnit=defaultAmountUnit defaultVolumeUnit^-1;
+	defaultFluxUnit=defaultAmountUnit (*defaultVolumeUnit^-1*) defaultTimeUnit^-1;
+
+	(* In general, this function will collect all incorrect units and save them as {item, current value, new value} *)
+	unitLessQ=(NumberQ[#]||#===\[Infinity])&;
+
+	getVolumeUnit1=spatialUnit[#,Sequence@@FilterRules[updateRules[Options[adjustUnits],List[opts]],Options[spatialUnit]]]&;
+	getVolumeUnit2=spatialUnit[#1,#2,Sequence@@FilterRules[updateRules[Options[adjustUnits],List[opts]],Options[spatialUnit]]]&;
+
+	(* If any volume/concentration/flux has no units, sow for later. *) 
+	(* If they have units, make sure it is a compatible volume/conc/flux unit *)
+	volumeHelper=If[unitLessQ[#[[2]]],
+		Sow[{#[[1]],#[[2]],#[[2]]defaultVolumeUnit},"unit"],
+		If[!Quiet@DimensionCompatibleUnitQ[#[[2]],defaultVolumeUnit],
+			Sow[{#[[1]],#[[2]],stripUnits[#[[2]]]defaultVolumeUnit},"unit"]
+		]
+	]&;
+	speciesHelper=If[unitLessQ[#[[2]]],
+		Sow[{#[[1]],#[[2]],#[[2]]defaultConcUnit},"unit"],
+		If[!Quiet@DimensionCompatibleUnitQ[#[[2]],defaultAmountUnit/getVolumeUnit1[#[[2]]]],
+			Sow[{#[[1]],#[[2]],stripUnits[#[[2]]]defaultAmountUnit/getVolumeUnit1[#[[2]]]},"unit"]
+		]
+	]&;
+	fluxHelper=If[unitLessQ[#[[2]]],
+		Sow[{#[[1]],#[[2]],#[[2]]defaultFluxUnit},"unit"],
+		If[!Quiet@DimensionCompatibleUnitQ[#[[2]],defaultAmountUnit getVolumeUnit1[#[[2]]]^-1 defaultTimeUnit^-1],
+			Sow[{#[[1]],#[[2]],stripUnits[#[[2]]]defaultAmountUnit getVolumeUnit1[#[[2]]]^-1 defaultTimeUnit^-1},"unit"]
+		]
+	]&;
+
+	fwdRateConstHelper=(rxn=getID[#[[1]]]/.id2rxns;
+		(*If[!MatchQ[rxn,_reaction],Message[adjustUnits::noRxnInfo,#];Abort[];];*) (* <-- May be needed? If no error comes up then just delete this. *)
+		rxnOrder=getReactionOrders[rxn,Ignore->OptionValue["Ignore"]][[1]];
+		compartmentFactor=If[MatchQ[getCompartment[rxn],(None|_List)],0,1];
+		Switch[#[[2]],
+			_?unitLessQ,Sow[{#[[1]],#[[2]],#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-compartmentFactor) defaultTimeUnit^-1},"unit"],
+			_,If[!Quiet@DimensionCompatibleUnitQ[#[[2]],defaultAmountUnit^(1-rxnOrder) getVolumeUnit2[#[[2]],rxnOrder-compartmentFactor]^(rxnOrder-compartmentFactor) defaultTimeUnit^-1],
+				Sow[{#[[1]],#[[2]],stripUnits[#[[2]]]defaultAmountUnit^(1-rxnOrder) getVolumeUnit2[#[[2]],rxnOrder-compartmentFactor]^(rxnOrder-compartmentFactor) defaultTimeUnit^-1},"unit"]
+			]
+		])&;
+
+	revRateConstHelper=(rxn=getID[#[[1]]]/.id2rxns;If[!MatchQ[rxn,_reaction],Message[adjustUnits::noRxnInfo,#];Abort[];];
+		rxnOrder=getReactionOrders[rxn,Ignore->OptionValue["Ignore"]][[2]];
+		compartmentFactor=If[MatchQ[getCompartment[rxn],(None|_List)],0,1];
+		Switch[#[[2]],
+			_?unitLessQ,Sow[{#[[1]],#[[2]],#[[2]]defaultAmountUnit^(1-rxnOrder) defaultVolumeUnit^(rxnOrder-compartmentFactor) defaultTimeUnit^-1},"unit"],
+			_,If[!Quiet@DimensionCompatibleUnitQ[#[[2]],defaultAmountUnit^(1-rxnOrder) getVolumeUnit2[#[[2]],rxnOrder-compartmentFactor]^(rxnOrder-compartmentFactor) defaultTimeUnit^-1],
+				Sow[{#[[1]],#[[2]],stripUnits[#[[2]]]defaultAmountUnit^(1-rxnOrder) getVolumeUnit2[#[[2]],rxnOrder-compartmentFactor]^(rxnOrder-compartmentFactor) defaultTimeUnit^-1},"unit"]
+			]
+		])&;
+
+	keqHelper=(rxn=getID[#[[1]]]/.id2rxns;
+		(*If[!MatchQ[rxn,_reaction],Message[adjustUnits::noRxnInfo,#];Abort[];];*) (* Same as above *)
+		keqExp=Subtract@@Reverse[getReactionOrders[rxn,Ignore->OptionValue["Ignore"]]];
+		Switch[#[[2]],
+			_?unitLessQ,If[keqExp!=0,Sow[{#[[1]],#[[2]],#[[2]] (defaultAmountUnit defaultVolumeUnit^-1)^keqExp},"unit"]],
+			_,If[!Quiet@DimensionCompatibleUnitQ[#[[2]],(defaultAmountUnit defaultVolumeUnit^-1)^keqExp],
+				Sow[{#[[1]],#[[2]],(defaultAmountUnit defaultVolumeUnit^-1)^keqExp},"unit"] (* This is what it used to be. Which is correct??? (defaultAmountUnit getVolumeUnit2[#[[2]],Abs[keqExp]]^-1)^keqExp *)
+			]
+		])&;
+
+	KmHelper=If[unitLessQ[#[[2]]],
+		Sow[{#[[1]],#[[2]],#[[2]]defaultConcUnit},"unit"],
+		If[!Quiet@DimensionCompatibleUnitQ[#[[2]],defaultAmountUnit getVolumeUnit1[#[[2]]]^-1],
+			Sow[{#[[1]],#[[2]],stripUnits[#[[2]]]defaultAmountUnit getVolumeUnit1[#[[2]]]^-1},"unit"]
+		]
+	]&;
+
+	VmaxHelper=If[unitLessQ[#[[2]]],
+		Sow[{#[[1]],#[[2]],#[[2]]defaultFluxUnit},"unit"],
+		If[!Quiet@DimensionCompatibleUnitQ[#[[2]],defaultAmountUnit getVolumeUnit1[#[[2]]]^-1 defaultTimeUnit^-1],
+			Sow[{#[[1]],#[[2]],stripUnits[#[[2]]]defaultAmountUnit getVolumeUnit1[#[[2]]]^-1 defaultTimeUnit^-1},"unit"]
+		]
+	]&;
+	
+	id2rxns=Thread[(getID/@rxns)->rxns];	
+
+	Flatten[#,1]&/@Reap[
+
+			(* Return an error if something is either not a unit, number, or infinity *)
+			If[MatchQ[#[[2]],(_?NumberQ|_DirectedInfinity|_Unit)],
+				AppendTo[newStuff,#],
+				Sow[{#[[1]],#[[2]]},"wrong"]
+			]&/@stuff;
+			(* After this, only check things that consist of real units *)	
+
+			Switch[#[[1]],
+				parameter["Volume",_],volumeHelper[#],
+				$MASS$speciesPattern,speciesHelper[#],
+				_v,fluxHelper[#],
+				rateconst[_,True],fwdRateConstHelper[#],
+				rateconst[_,False],revRateConstHelper[#],
+				_Keq,keqHelper[#],
+				_Km,KmHelper[#],
+				_vmax,VmaxHelper[#],
+				_,Null
+			]&/@newStuff,{"unit","wrong"}
+		][[2]]
+
+
+]
+
+checkUnits[stuff:{_Rule...},model_MASSmodel,opts:OptionsPattern[]]:=If[model["UnitChecking"],checkUnits[stuff,model["Reactions"],"Ignore"->Union[model["Ignore"],OptionValue["Ignore"]],Sequence@@FilterRules[List@opts,Except["Ignore"]]],stuff]
+
+
+(* ::Subsubsection:: *)
+(*Edit Annotations*)
 
 
 editAttributeGUI[annotationPane_Pane,model_MASSmodel,title_:"Default title"]:=editAnnotationPane["Annotations"/.model[[1]],model,title];
@@ -1659,7 +1874,7 @@ edit[model_,result_:"",modelName_:"",opts:OptionsPattern[edit]]:=Module[{modelTm
 					modelTmp=model,
 					Module[{},
 						(* Else, change the temporary model, and update the result code string *)
-						setModelAttribute[modelTmp,attribute,out2];
+						setModelAttribute[modelTmp,attribute,out2,"Sloppy"->True];
 						newResult = result<>"set"<>ToString[attribute]<>"["<>name<>","<>ToString[out2,InputForm]<>"];"
 					]
 				];
