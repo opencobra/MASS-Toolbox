@@ -105,7 +105,7 @@ insetLegend[labels_List,opts:OptionsPattern[]]:=insetLegend[labels,Hold@Sequence
 
 (*Options[plotSimulation]=updateRules[Union[Options[LogLogPlot],Options[ListPlot]],{"PlotFunction"->LogLogPlot,"Tooltipped"->True,"ZeroFac"->1*^-6,Joined->True,"Legend"->False}];*)
 Options[plotSimulation]={"PlotFunction"->LogLogPlot,"Tooltipped"->True,"ZeroFac"->1*^-6,Joined->True,"Legend"->False,"PlotLegends"->None};
-plotSimulation[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ,tStep_:.1},opts:OptionsPattern[{plotSimulation,LogLogPlot,ListPlot}]]:=Module[{interPolDat,exactDat,plotFunction,plotOpts,fac,interPolPlot,exactPlot,legend},
+plotSimulation[simulation:{_Rule...},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ,tStep_:.1},opts:OptionsPattern[{plotSimulation,LogLogPlot,ListPlot}]]:=Module[{interPolDat,exactDat,plotFunction,plotOpts,fac,interPolPlot,exactPlot,legend},
 	interPolDat=Cases[simulation,r_Rule/;MemberQ[r,InterpolatingFunction[__][_],\[Infinity]]||NumberQ[r[[2]]],\[Infinity]];
 	exactDat=Complement[simulation,interPolDat];
 	interPolDat = Join[interPolDat,(#[[1]]->Interpolation[Table[{i,#[[2]]/.t->i},{i,tMin,tMax,tStep}],InterpolationOrder->1]&/@exactDat)];
@@ -124,8 +124,11 @@ plotSimulation[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ,tStep_
 	If[interPolDat!={},
 		Quiet@Check[interPolPlot=plotFunction[Evaluate[interPolDat],{t,Evaluate[tMin+fac],tMax},Evaluate[legend],Evaluate[Sequence@@plotOpts]],None,InterpolatingFunction::dmval];,
 		interPolPlot={};
-	];	
-	Show[interPolPlot]
+	];
+	If[interPolPlot==={},
+		Plot[Null,{t,Evaluate[tMin+fac],tMax}],
+		Show[interPolPlot]
+	]
 ];
 
 plotSimulation[simulation:{_Rule..},opts:OptionsPattern[]]:=Module[{tStart,tEnd,adjusted},
