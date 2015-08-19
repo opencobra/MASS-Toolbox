@@ -321,6 +321,9 @@ editModelInPlace::usage="editModelInPlace[model] opens a GUI for editing. Change
 editAttribute::usage="editAttribute[model, attribute] opens a GUI to edit a specific attribute.";
 
 
+quickView::usage="quickView[model] opens a GUI to view basic simulations of the model and edit some attributes.";
+
+
 (* ::Subsection::Closed:: *)
 (*Model construction*)
 
