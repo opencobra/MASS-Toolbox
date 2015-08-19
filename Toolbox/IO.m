@@ -1207,12 +1207,12 @@ textFilter[input_,data_,n_: 10]:=Take[#,Min[Length[#],n]]&@Select[data,StringMat
 biomodel2model[]:=Module[{output},
 	If[DownValues[Biomodels`getModelSBMLById]==={},PrintTemporary["Biomodel's web API is used for the first time. Installing web services from http://www.ebi.ac.uk/biomodels-main/services/BioModelsWebServices?wsdl"];Quiet@InstallService["http://www.ebi.ac.uk/biomodels-main/services/BioModelsWebServices?wsdl","Biomodels`"]];
 	DynamicModule[{term,s="",term2data,string2id,autocompleteInputField,models={},id2name},
-		term2data[term_]:=Import[FileNameJoin[{$UserBaseDirectory,"Applications","Toolbox","Cache","biomodels"}]<>term<>".m.gz"];
+		term2data[term_]:=Import[FileNameJoin[{$UserBaseDirectory,"Applications","Toolbox","Cache","biomodels",term<>".m.gz"}]];
 		string2id[string_]:=Module[{result},
 			result=If[term=="ID",{string},ToExpression["Quiet@Biomodels`getModelsIdBy"<>StringReplace[term," ID"->"Id"]<>"[\""<>string<>"\"]"]];
 			If[MatchQ[result,_List],result,{}]
 		];
-		id2name=Import["/Users/Anand/Desktop/id2name.m.gz"];
+		id2name=Import@FileNameJoin[{$UserBaseDirectory,"Applications","Toolbox","Cache","biomodels","id2name.m.gz"}];
 		autocompleteInputField[]:=Column[{InputField[Dynamic[s],String,ContinuousAction->True],Dynamic@If[StringLength[s]>0,Column[items[textFilter[s,term2data[term]],(s=#)&]],""]}];
 
 		output=DialogInput[
@@ -1228,9 +1228,13 @@ biomodel2model[]:=Module[{output},
 			WindowSize->{500,400}
 		]
 	];
-
-	biomodel2model[output]
+	If[output===$Failed,
+		$Canceled,
+		biomodel2model[output]
+	]
 ]
+
+
 
 
 (* ::Subsection:: *)
