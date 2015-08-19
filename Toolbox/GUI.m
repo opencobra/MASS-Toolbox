@@ -500,56 +500,55 @@ edit[model_,result_:"",modelName_:"",opts:OptionsPattern[edit]]:=Module[{modelTm
 (*QuickView*)
 
 
-(* ::Code:: *)
-(*SetAttributes[quickView,HoldFirst];*)
-(*quickView[model_,modelName_String:""]:=Module[{pane,name,newModel},*)
-(**)
-(*	(* Get the name of the model variable *)*)
-(*	If[modelName=="",*)
-(*		name=ToString[SymbolName[Unevaluated@model]],*)
-(*		name=modelName (* If the name has been passed in *)*)
-(*	];*)
-(*		*)
-(**)
-(*	DynamicModule[{met={},flux={},sim,mets,fluxes,vars,tStart=0,tFinal=10,simSize=300,ppSize=200},*)
-(*		sim=simulate[model,{t,0,10}];*)
-(**)
-(*		mets=Column[{*)
-(*			Dynamic@Button["Select/Deselect All",If[met==model["Species"],met={},met=model["Species"]]],*)
-(*			CheckboxBar[Dynamic[met],model["Species"],Appearance->"Vertical"->{Automatic,3}]*)
-(*		}];*)
-(*		fluxes=Column[{*)
-(*			Dynamic@Button["Select/Deselect All",If[flux==model["Fluxes"],flux={},flux=model["Fluxes"]]],*)
-(*			CheckboxBar[Dynamic[flux],model["Fluxes"],Appearance->"Vertical"->{Automatic,3}]*)
-(*		}];*)
-(*		*)
-(*		vars = Grid[{*)
-(*			{"Start Time: ", InputField[Dynamic[tStart],Number]},*)
-(*			{"End Time: ", InputField[Dynamic[tFinal],Number]}*)
-(*		}];*)
-(*		*)
-(*		pane=DialogInput[*)
-(*			Grid[{*)
-(*				{mets,Dynamic[plotSimulation[FilterRules[sim[[1]],met],{t,tStart,tFinal},ImageSize->simSize]],*)
-(*					plotPhasePortrait[sim[[1]],{t,0,10},ImageSize->ppSize]},*)
-(*				{fluxes,Dynamic[plotSimulation[FilterRules[sim[[2]],flux],{t,0,10},ImageSize->simSize]],*)
-(*					plotPhasePortrait[sim[[2]],{t,0,10},ImageSize->ppSize]},*)
-(*				{Column[{Button["Edit model",DialogReturn["EDIT"]],Button["Save model",DialogReturn["SAVE"]]}],*)
-(*					vars}*)
-(*			}],WindowTitle->"Visualization Pane"*)
-(*		];*)
-(**)
-(*		Switch[pane,*)
-(*			"EDIT",*)
-(*				newModel=edit[model,"","","Evaluate"->True];*)
-(*				quickView[newModel,name],*)
-(*			"SAVE",*)
-(*				Evaluate@ToExpression[name]=model,*)
-(*			$Failed,*)
-(*				Null;*)
-(*		]*)
-(*	]*)
-(*]/;MatchQ[model,_MASSmodel];*)
+SetAttributes[quickView,HoldFirst];
+quickView[model_,modelName_String:""]:=Module[{pane,name,newModel},
+
+	(* Get the name of the model variable *)
+	If[modelName=="",
+		name=ToString[SymbolName[Unevaluated@model]],
+		name=modelName (* If the name has been passed in *)
+	];
+		
+
+	DynamicModule[{met={},flux={},sim,mets,fluxes,vars,tStart=0,tFinal=10,simSize=300,ppSize=200},
+		sim=simulate[model,{t,0,10}];
+
+		mets=Column[{
+			Dynamic@Button["Select/Deselect All",If[met==model["Species"],met={},met=model["Species"]]],
+			CheckboxBar[Dynamic[met],model["Species"],Appearance->"Vertical"->{Automatic,3}]
+		}];
+		fluxes=Column[{
+			Dynamic@Button["Select/Deselect All",If[flux==model["Fluxes"],flux={},flux=model["Fluxes"]]],
+			CheckboxBar[Dynamic[flux],model["Fluxes"],Appearance->"Vertical"->{Automatic,3}]
+		}];
+		
+		vars = Grid[{
+			{"Start Time: ", InputField[Dynamic[tStart],Number]},
+			{"End Time: ", InputField[Dynamic[tFinal],Number]}
+		}];
+		
+		pane=DialogInput[
+			Grid[{
+				{mets,Dynamic[plotSimulation[FilterRules[sim[[1]],met],{t,tStart,tFinal},ImageSize->simSize]],
+					plotPhasePortrait[sim[[1]],{t,0,10},ImageSize->ppSize]},
+				{fluxes,Dynamic[plotSimulation[FilterRules[sim[[2]],flux],{t,0,10},ImageSize->simSize]],
+					plotPhasePortrait[sim[[2]],{t,0,10},ImageSize->ppSize]},
+				{Column[{Button["Edit model",DialogReturn["EDIT"]],Button["Save model",DialogReturn["SAVE"]]}],
+					vars}
+			}],WindowTitle->"Visualization Pane"
+		];
+
+		Switch[pane,
+			"EDIT",
+				newModel=edit[model,"","","Evaluate"->True];
+				quickView[newModel,name],
+			"SAVE",
+				Evaluate@ToExpression[name]=model,
+			$Failed,
+				Null;
+		]
+	]
+]/;MatchQ[model,_MASSmodel];
 
 
 (* ::Section:: *)
