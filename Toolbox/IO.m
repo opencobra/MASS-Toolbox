@@ -816,7 +816,7 @@ Module[{modelStuff,modelID,modelName,layouts,layout,height,compartmentGlyphs,spe
 (*SBML export*)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Export*)
 
 
@@ -1172,11 +1172,11 @@ biomodelID2name={"BIOMD0000000299"->"Leloup1999_CircadianRhythms_Neurospora","BI
 biomodel2model::wrngid="`1`";
 Options[biomodel2model]=Options[sbml2model];
 
-biomodel2model[]:=Module[{model},
+(*biomodel2model[]:=Module[{model},
 Print@Panel[Pane[Grid[{With[{tmp=#[[1]]},Button[Style[tmp,Small],model=biomodel2model[tmp];SelectionMove[EvaluationNotebook[],Previous,Cell];
 NotebookDelete[EvaluationNotebook[]],Method->"Queued"]],Hyperlink[#[[2]],"http://www.ebi.ac.uk/biomodels-main/"<>#[[1]]]}&/@biomodelID2name],ImageSize->{Automatic,450},Scrollbars->True]];
 model
-]
+]*)
 
 biomodel2model[id_String,opts:OptionsPattern[]]:=Module[{sbmlString,tmpFile},
 If[DownValues[Biomodels`getModelSBMLById]==={},PrintTemporary["Biomodel's web API is used for the first time. Installing web services from http://www.ebi.ac.uk/biomodels-main/services/BioModelsWebServices?wsdl"];Quiet@InstallService["http://www.ebi.ac.uk/biomodels-main/services/BioModelsWebServices?wsdl","Biomodels`"]];
@@ -1187,6 +1187,53 @@ WriteString[tmpFile,sbmlString];
 Close[tmpFile];
 sbml2model[tmpFile[[1]],opts]
 ];
+
+
+(* ::Code:: *)
+(*(*Returns expr with styles off or on depending on whether the expr is hovered.Additionally the cursor as the mouse if hovering the expression can be set.*)MouseoverStyled[expr_,off_,on_,cursor_: "LinkHand"]:=Deploy[MouseAppearance[Mouseover[Style[expr,off],Style[expr,on]],cursor]]*)
+(**)
+(*(*Returns a list item with the given text*)*)
+(**)
+(*item[text_]:=MouseoverStyled[Framed[text],{},{Background->LightBlue}]*)
+(**)
+(*(*Create a list of clickable items*)*)
+(**)
+(*items[labels_,func_]:=EventHandler[item[#],{"MouseClicked":>func[#]}]&/@labels;*)
+(**)
+(*(*Picks out the n first elements that have the input*)*)
+(**)
+(*textFilter[input_,data_,n_: 10]:=Take[#,Min[Length[#],n]]&@Select[data,StringMatchQ[#,___~~input~~___,IgnoreCase->True]&]*)
+(**)
+
+
+(* ::Code:: *)
+(*biomodel2model[]:=Module[{output},*)
+(*	If[DownValues[Biomodels`getModelSBMLById]==={},PrintTemporary["Biomodel's web API is used for the first time. Installing web services from http://www.ebi.ac.uk/biomodels-main/services/BioModelsWebServices?wsdl"];Quiet@InstallService["http://www.ebi.ac.uk/biomodels-main/services/BioModelsWebServices?wsdl","Biomodels`"]];*)
+(*	DynamicModule[{term,s="",term2data,string2id,autocompleteInputField,models={},id2name},*)
+(*		term2data[term_]:=Import["/Users/Anand/Desktop/"<>term<>".m.gz"];*)
+(*		string2id[string_]:=Module[{result},*)
+(*			result=If[term=="ID",{string},ToExpression["Quiet@Biomodels`getModelsIdBy"<>StringReplace[term," ID"->"Id"]<>"[\""<>string<>"\"]"]];*)
+(*			If[MatchQ[result,_List],result,{}]*)
+(*		];*)
+(*		id2name=Import["/Users/Anand/Desktop/id2name.m.gz"];*)
+(*		autocompleteInputField[]:=Column[{InputField[Dynamic[s],String,ContinuousAction->True],Dynamic@If[StringLength[s]>0,Column[items[textFilter[s,term2data[term]],(s=#)&]],""]}];*)
+(**)
+(*		output=DialogInput[*)
+(*			Row[{*)
+(*				(* Search for terms *)*)
+(*				Column[{PopupMenu[Dynamic[term],{"ID","ChEBI","ChEBI ID","GO","GO ID","Name","Author"}],*)
+(*				Framed@Pane[autocompleteInputField[],{200,300},Scrollbars->{False,True},AppearanceElements->None],*)
+(*				Dynamic[Button["Search",models=string2id[s]]]},Alignment->Center],*)
+(*				(* Choose from models *)*)
+(*				Spacer[50],*)
+(*				Dynamic@Pane[Column[Button[ToString[#]/.id2name,DialogReturn[#],ImageSize->{200,Automatic}]&/@models],{200,300},Scrollbars->{False,True},AppearanceElements->None]*)
+(*			}],*)
+(*			WindowSize->{500,400}*)
+(*		]*)
+(*	];*)
+(**)
+(*	biomodel2model[output]*)
+(*]*)
 
 
 (* ::Subsection:: *)
