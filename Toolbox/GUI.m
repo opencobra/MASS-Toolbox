@@ -510,16 +510,18 @@ quickView[model_,modelName_String:""]:=Module[{pane,name,newModel},
 	];
 		
 
-	DynamicModule[{met={},flux={},sim,mets,fluxes,vars,tStart=0,tFinal=10,simSize=300,ppSize=200},
+	DynamicModule[{met={},flux={},metPlotFunc=LogLogPlot,fluxPlotFunc=LogLogPlot,sim,mets,fluxes,vars,tStart=0,tFinal=10,simSize=300,ppSize=200},
 		sim=simulate[model,{t,0,10}];
 
 		mets=Column[{
 			Dynamic@Button["Select/Deselect All",If[met==model["Species"],met={},met=model["Species"]]],
-			CheckboxBar[Dynamic[met],model["Species"],Appearance->"Vertical"->{Automatic,3}]
+			CheckboxBar[Dynamic[met],model["Species"],Appearance->"Vertical"->{Automatic,3}],
+			PopupMenu[Dynamic[metPlotFunc],{Plot,LogPlot,LogLinearPlot,LogLogPlot}]
 		}];
 		fluxes=Column[{
 			Dynamic@Button["Select/Deselect All",If[flux==model["Fluxes"],flux={},flux=model["Fluxes"]]],
-			CheckboxBar[Dynamic[flux],model["Fluxes"],Appearance->"Vertical"->{Automatic,3}]
+			CheckboxBar[Dynamic[flux],model["Fluxes"],Appearance->"Vertical"->{Automatic,3}],
+			PopupMenu[Dynamic[fluxPlotFunc],{Plot,LogPlot,LogLinearPlot,LogLogPlot}]
 		}];
 		
 		vars = Grid[{
@@ -529,9 +531,9 @@ quickView[model_,modelName_String:""]:=Module[{pane,name,newModel},
 		
 		pane=DialogInput[
 			Grid[{
-				{mets,Dynamic[plotSimulation[FilterRules[sim[[1]],met],{t,tStart,tFinal},ImageSize->simSize]],
+				{mets,Dynamic[plotSimulation[FilterRules[sim[[1]],met],{t,tStart,tFinal},ImageSize->simSize,PlotFunction->metPlotFunc]],
 					plotPhasePortrait[sim[[1]],{t,0,10},ImageSize->ppSize]},
-				{fluxes,Dynamic[plotSimulation[FilterRules[sim[[2]],flux],{t,0,10},ImageSize->simSize]],
+				{fluxes,Dynamic[plotSimulation[FilterRules[sim[[2]],flux],{t,0,10},ImageSize->simSize,PlotFunction->fluxPlotFunc]],
 					plotPhasePortrait[sim[[2]],{t,0,10},ImageSize->ppSize]},
 				{Column[{Button["Edit model",DialogReturn["EDIT"]],Button["Save model",DialogReturn["SAVE"]]}],
 					vars}
