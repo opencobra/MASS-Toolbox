@@ -331,7 +331,7 @@ stripUnits[expr_]:=Module[{replacementRules=Thread[Rule[Symbol/@Names["Units`*"]
 
 
 getUnit[unit_Unit]:=Last[unit];
-getUnit[number_?NumericQ]:=1;
+getUnit[number:(_?NumericQ|_DirectedInfinity)]:="dimensionless";
 
 
 Options[getReactionOrders]={"Ignore"->{}};

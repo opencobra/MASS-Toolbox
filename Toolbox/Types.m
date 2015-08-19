@@ -101,7 +101,7 @@ metabolite/:MakeBoxes[metabolite[id_String,compartment_Blank],_]:=Interpretation
 metabolite/:MakeBoxes[metabolite[id_String,compartment_String],_]:=InterpretationBox[SuperscriptBox[#1,#2],metabolite[id,compartment],Editable->False,Selectable->False]&[simplyBlack[id],simplyBlack[compartment]];
 metabolite/:ToString[m_metabolite/;getCompartment[m]===None]:=StringReplace[getID@m,{"M\[UnderBracket]"->"",RegularExpression["\[UnderBracket].*?$"]->"","\[UnderBracket]"->"_"}]
 metabolite/:ToString[m_metabolite]:=StringJoin[StringReplace[getID@m,{"M\[UnderBracket]"->"",RegularExpression["\[UnderBracket].*?$"]->"","\[UnderBracket]"->"_"}],"[",StringReplace[getCompartment[m]/._Blank->"any","\[UnderBracket]"->"_"],"]"]
-metabolite/:ToString[m_metabolite,"SBML"]:=makeIdXmlConform[StringJoin["M_",getID@m,"_",getCompartment[m]/._Blank->"any"]]
+metabolite/:ToString[m_metabolite,"SBML"]:=makeIdXmlConform[StringJoin["M_",getID@m,"_",ToString[getCompartment[m]]/._Blank->"any"]]
 metabolite/:getID[m_metabolite]:=m[[1]]
 metabolite/:getCompartment[m_metabolite]:=m[[2]]
 metabolite/:setCompartment[m_metabolite,compartment:(_String|None)]:=metabolite[getID[m],compartment]
