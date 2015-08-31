@@ -34,7 +34,7 @@ importModel[path_String,opts:OptionsPattern[]]:=Module[{stuff},
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Matlab*)
 
 
@@ -48,7 +48,7 @@ Join[rxn2prot,prot2gene]
 
 
 mat2model::noModelFound="No model found in `1`.";
-mat2model[stuff:{_Rule...}]:=Module[{modelStructsFound,rxnIDs,irrev,constr,gpr,grRules},
+mat2model[stuff:{_Rule...}]:=Module[{modelStructsFound,rxnIDs,irrev,constr,gpr,grRules,stoich},
 	modelStructsFound=Cases[stuff,r_Rule/;MatchQ[r[[2]],{_Rule..}]&&Length[Intersection[r[[2,All,1]],{"S","rxns","mets","rev","lb","ub"}]]==6,1];
 	If[modelStructsFound==={},Message[mat2model::noModelFound,FileNameTake[path]];Abort[];];
 	Table[
@@ -57,7 +57,9 @@ mat2model[stuff:{_Rule...}]:=Module[{modelStructsFound,rxnIDs,irrev,constr,gpr,g
 		constr=Thread[Rule[rxnIDs,Thread[{Flatten["lb"/.struct[[2]]],Flatten["ub"/.struct[[2]]]}]]];
 		grRules=Flatten["grRules"/.struct[[2]]/."grRules"->{}];
 		gpr=If[grRules==={},{},grRules2gpr[grRules,rxnIDs]];
-		struct[[1]]->constructModel["S"/.struct[[2]],
+		stoich="S"/.struct[[2]];
+		stoich[[1,4,2,2]]=Drop[stoich[[1,4,2,2]],-63];
+		struct[[1]]->constructModel[(*"S"/.struct[[2]]*)stoich,
 			str2mass[#]&/@Flatten["mets"/.struct[[2]]],
 			rxnIDs,
 			"Irreversible"->irrev,

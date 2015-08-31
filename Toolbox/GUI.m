@@ -7,7 +7,7 @@
 Begin["`Private`"];
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*Attribute Editing*)
 
 
@@ -150,7 +150,7 @@ editAttributeGUI[dat:{Rule[_,(_Unit|_?NumericQ|Infinity)]..},model_MASSmodel,tit
 	];
 
 	(* Check the units. Wrong has the outputs that are not units. Messages has information for incorrect units. *)
-	If[output===$Canceled,
+	If[output===$Canceled || model["UnitChecking"]==False,
 		unitMessage={};wrongMessage={},
 		{unitMessage,wrongMessage}=checkUnits[output,model];
 	];
@@ -511,7 +511,7 @@ quickView[model_,modelName_String:""]:=Module[{pane,name,newModel},
 		
 
 	DynamicModule[{met={},flux={},metPlotFunc=LogLogPlot,fluxPlotFunc=LogLogPlot,sim,mets,fluxes,vars,tStart=0,tFinal=10,simSize=300,ppSize=200},
-		sim=simulate[model,{t,0,10}];
+		sim:=simulate[model,{t,tStart,tFinal}];
 
 		mets=Column[{
 			Dynamic@Button["Select/Deselect All",If[met==model["Species"],met={},met=model["Species"]]],
@@ -531,9 +531,9 @@ quickView[model_,modelName_String:""]:=Module[{pane,name,newModel},
 		
 		pane=DialogInput[
 			Grid[{
-				{mets,Dynamic[plotSimulation[FilterRules[sim[[1]],met],{t,tStart,tFinal},ImageSize->simSize,PlotFunction->metPlotFunc]],
+				{mets,Dynamic[Deploy@plotSimulation[FilterRules[sim[[1]],met],{t,tStart,tFinal},ImageSize->simSize,PlotFunction->metPlotFunc]],
 					plotPhasePortrait[sim[[1]],{t,0,10},ImageSize->ppSize]},
-				{fluxes,Dynamic[plotSimulation[FilterRules[sim[[2]],flux],{t,0,10},ImageSize->simSize,PlotFunction->fluxPlotFunc]],
+				{fluxes,Dynamic[Deploy@plotSimulation[FilterRules[sim[[2]],flux],{t,0,10},ImageSize->simSize,PlotFunction->fluxPlotFunc]],
 					plotPhasePortrait[sim[[2]],{t,0,10},ImageSize->ppSize]},
 				{Column[{Button["Edit model",DialogReturn["EDIT"]],Button["Save model",DialogReturn["SAVE"]]}],
 					vars}
