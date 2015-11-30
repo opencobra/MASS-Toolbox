@@ -78,7 +78,7 @@ mat2model[path_String]:=Module[{stuff},
 mat2model[]:=mat2model[SystemDialogInput["FileOpen"]];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*SBML import*)
 
 
@@ -158,7 +158,7 @@ parseFunctionXML/@extractXMLelement[xml,"listOfFunctionDefinitions",2]
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfUnitDefinitions*)
 
 
@@ -222,7 +222,7 @@ getHasOnlySubstanceUnits[listOfSpecies:{((_species[t]|_species)->_List)...}]:=st
 getBoundaryConditions[listOfSpecies:{((_species|_species[t])->_List)...}]:=Cases[listOfSpecies/.elem_[t]:>elem,r_Rule/;("boundaryCondition"/.r[[2]])==="true"&&query["constant",r[[2]],"false"]==="false":>r[[1]]]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfCompartments*)
 
 
@@ -236,7 +236,7 @@ getListOfCompartments[xml_/;Head[xml]===XMLObject["Document"]]:=Module[{},
 getCompartmentVolumes[listOfCompartments:{((parameter["Volume",_String]|parameter["Volume",_String][t])->_List)...},unitDefinitions:{(_Rule|_RuleDelayed)...}]:=#[[1]]->sbmlString2Number[query["size",#[[2]],"1"]]*(query["units",#[[2]],"volume"]/.Dispatch[unitDefinitions])&/@listOfCompartments
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfReactions*)
 
 
@@ -352,7 +352,7 @@ getParameterValues[listOfParameters:{((_parameter|_parameter[t])->_List)...},uni
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*annotations*)
 
 
@@ -580,7 +580,7 @@ constParam,speciesIDs2names,modelID,modelName,notes,modelStuff,hasOnlySubstanceU
 
 		initialConditions=#[[1]]->(#[[2]]/.Dispatch[compartmentVolumes/.elem_[t]:>elem])&/@initialConditions;
 		parameters=#[[1]]->(#[[2]]/.Dispatch[compartmentVolumes/.elem_[t]:>elem])&/@parameters;
-		initialConditions=updateRules[initialConditions,stripTime[assignmentRules]/.Dispatch[parameters]];
+		initialConditions=updateRules[stripTime[assignmentRules]/.Dispatch[parameters],initialConditions];
 		listOfKineticLawsAndLocalParameters=getListOfKineticLawsAndLocalParameters[xml,id2massID,listOfFunctionDefinitions];
 		listOfKineticLaws=(#[[1]]->#[[2,1]]&/@listOfKineticLawsAndLocalParameters)/."t"->t;
 		listOfLocalParameters=Flatten[#[[2,2]]&/@listOfKineticLawsAndLocalParameters];
@@ -593,7 +593,7 @@ constParam,speciesIDs2names,modelID,modelName,notes,modelStuff,hasOnlySubstanceU
 		initialConditions=updateRules[FilterRules[parameters,_[t]]/.elem_[t]:>elem,initialConditions];
 		parameters=FilterRules[parameters,Except[_[t]]];
 		
-		initialConditions=updateRules[initialConditions,FilterRules[listOfInitialAssignments,initialConditions[[All,1]]]];
+		initialConditions=updateRules[FilterRules[listOfInitialAssignments,initialConditions[[All,1]]],initialConditions];
 		initialConditions=#[[1]]->(#[[2]]//.Dispatch[initialConditions])&/@initialConditions;
 		initialConditions=initialConditions/.Dispatch[listOfFunctionDefinitions];
 		initialConditions=initialConditions/.Global`delay[a_,b_]:>(a/.t->(t-b));
@@ -812,7 +812,7 @@ Module[{modelStuff,modelID,modelName,layouts,layout,height,compartmentGlyphs,spe
 ]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*SBML export*)
 
 
