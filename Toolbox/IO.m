@@ -129,7 +129,7 @@ parseInitialAssignmentXML[initialAssignment_XMLElement,id2massID:{_Rule..}]:=(("
 getListOfInitialAssignments[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseInitialAssignmentXML[#,id2massID]&/@extractXMLelement[xml,"listOfInitialAssignments",2]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfRules*)
 
 
@@ -598,7 +598,7 @@ constParam,speciesIDs2names,modelID,modelName,notes,modelStuff,hasOnlySubstanceU
 		initialConditions=initialConditions/.Dispatch[listOfFunctionDefinitions];
 		initialConditions=initialConditions/.Global`delay[a_,b_]:>(a/.t->(t-b));
 		(*FIXME updateRules might not be appropriate as units might get lost*)
-		parameters=updateRules[parameters,FilterRules[listOfInitialAssignments,parameters[[All,1]]]];
+		parameters=updateRules[FilterRules[listOfInitialAssignments,parameters[[All,1]]],parameters];
 		parameters=#[[1]]->(#[[2]]//.Dispatch[parameters])&/@parameters;
 		parameters=parameters/.Dispatch[listOfFunctionDefinitions];
 		initialConditions=#[[1]]->(#[[2]]//.Dispatch[parameters])&/@initialConditions;
