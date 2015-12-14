@@ -106,9 +106,13 @@ insetLegend[labels_List,opts:OptionsPattern[]]:=insetLegend[labels,Hold@Sequence
 (*Options[plotSimulation]=updateRules[Union[Options[LogLogPlot],Options[ListPlot]],{"PlotFunction"->LogLogPlot,"Tooltipped"->True,"ZeroFac"->1*^-6,Joined->True,"Legend"->False}];*)
 Options[plotSimulation]={"PlotFunction"->LogLogPlot,"Tooltipped"->True,"ZeroFac"->1*^-6,Joined->True,"Legend"->False,"PlotLegends"->None};
 plotSimulation[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ,tStep_:.1},opts:OptionsPattern[{plotSimulation,LogLogPlot,ListPlot}]]:=Module[{interPolDat,exactDat,plotFunction,plotOpts,fac,interPolPlot,exactPlot,legend},
+	(* Split up exact simulations vs interpolating functions *)
 	interPolDat=Cases[simulation,r_Rule/;MemberQ[r,InterpolatingFunction[__][_],\[Infinity]]||NumberQ[r[[2]]],\[Infinity]];
 	exactDat=Complement[simulation,interPolDat];
+	(* Turn exact simulations into interpolating functions and append it to existing interpolating functions *)
 	interPolDat = Join[interPolDat,(#[[1]]->Interpolation[Table[{i,#[[2]]/.t->i},{i,tMin,tMax,(tMax-tMin)/100}],InterpolationOrder->1]&/@exactDat)];
+	(* Extract labels from initial simulation and replace with new interpolating functions so order is preserved for legends *)
+	interPolDat = Thread[simulation[[All,1]]->(simulation[[All,1]]/.interPolDat)];
 	interPolDat=interPolDat/.{elem:InterpolatingFunction[__][t]:>elem,elem:InterpolatingFunction[__]:>elem[t]};
 	interPolDat=If[OptionValue["Tooltipped"],Thread[Tooltip[stripUnits@interPolDat[[All,2]],interPolDat[[All,1]]]],stripUnits@interPolDat[[All,2]]];
     plotFunction=OptionValue["PlotFunction"];
