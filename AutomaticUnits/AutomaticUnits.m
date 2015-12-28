@@ -72,11 +72,11 @@ StyleBox[\" \",\nFontSlant->\"Italic\"]\)and \!\(\*
 StyleBox[SubscriptBox[\"unit\", \"2\"],\nFontSlant->\"Italic\"]\) have compatible units.";
 
 (*Assign multiplier values- mainly for compatibility with the old units pacakge*)
-Percent = 1/100;Gross = 144;Dozen = 12; BakersDozen = 13; Mole = 6.0221367*10.^23;Yotta = 10^24; 
+Percent = 1/100;Gross = 144;Dozen = 12; BakersDozen = 13; Yotta = 10^24; 
 Zetta = 10^21; Exa = 10^18; Peta = 10^15; Tera = 10^12; Giga = 10^9; Mega = 10^6; Kilo = 10^3; 
 Hecto = 100; Deca = 10; Deci = 1/10; Centi = 1/10^2; Milli = 1/10^3; Micro = 1/10^6; Nano = 1/10^9; 
 Pico = 1/10^12; Femto = 1/10^15; Atto = 1/10^18; Zepto = 1/10^21; Yocto = 1/10^24; Percent=1/100;
-Gross=144; Dozen=12; BakersDozen=13; Mole=6.0221415*^23;
+Gross=144; Dozen=12; BakersDozen=13;
 
 
 
