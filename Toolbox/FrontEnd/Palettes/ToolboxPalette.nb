@@ -1,0 +1,472 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16287,        462]
+NotebookOptionsPosition[     15916,        443]
+NotebookOutlinePosition[     16329,        462]
+CellTagsIndexPosition[     16286,        459]
+WindowFrame->Palette*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ PanelBox[
+  TagBox[GridBox[{
+     {
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"\\!\\(\\*SuperscriptBox[\\(m\\), \\(c\\)]\\)\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"m", "[", 
+            RowBox[{
+              TagBox[
+               FrameBox["\"name\""], "Placeholder"], ",", 
+              TagBox[
+               FrameBox["\"comp\""], "Placeholder"]}], "]"}]],
+        "\"Metabolite\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Metabolite", "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"\\!\\(\\*SuperscriptBox[\\(spec\\), \\(c\\)]\\)\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"species", "[", 
+            RowBox[{
+              TagBox[
+               FrameBox["\"name\""], "Placeholder"], ",", 
+              TagBox[
+               FrameBox["\"comp\""], "Placeholder"]}], "]"}]],
+        "\"Species\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Species", "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"\\!\\(\\*TagBox[GridBox[{\\n   {\\\"\[Placeholder]\\\", \
+\\\"\[Placeholder]\\\"}\\n  \
+},\\nAutoDelete->False,\\nGridBoxDividers->{\\\"Columns\\\" -> {{True}}, \
+\\\"Rows\\\" -> {{True}}},\\nGridBoxItemSize->{\\\"Columns\\\" -> \
+{{Automatic}}, \\\"Rows\\\" -> {{Automatic}}}],\\n \\\"Grid\\\"]\\)\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{
+            InterpretationBox["complex", Toolbox`complex], "[", 
+            RowBox[{
+              TagBox[
+               FrameBox["\"spec1\""], "Placeholder"], ",", 
+              TagBox[
+               FrameBox["\"spec2\""], "Placeholder"]}], "]"}]],
+        "\"Complex\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Complex", "Tooltip"]& ]},
+     {
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"\\!\\(\\*SubscriptBox[\\(v\\), \
+\\(\[Placeholder]\\)]\\)\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"v", "[", 
+            TagBox[
+             FrameBox["\"rxn\""], "Placeholder"], "]"}]],
+        "\"Flux\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Flux", "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"r\[Rule]p\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"r", "[", 
+            RowBox[{
+              TagBox[
+               FrameBox["\"name\""], "Placeholder"], ",", 
+              RowBox[{"{", 
+                TagBox[
+                 FrameBox["\"substrates\""], "Placeholder"], "}"}], ",", 
+              RowBox[{"{", 
+                TagBox[
+                 FrameBox["\"products\""], "Placeholder"], "}"}], ",", 
+              RowBox[{"{", 
+                TagBox[
+                 FrameBox["\"stoichiometry\""], "Placeholder"], "}"}], ",", 
+              "False"}], "]"}]],
+        "\"Irreversible Reaction\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Irreversible Reaction", "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"r\[LeftRightArrow]p\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"r", "[", 
+            RowBox[{
+              TagBox[
+               FrameBox["\"name\""], "Placeholder"], ",", 
+              RowBox[{"{", 
+                TagBox[
+                 FrameBox["\"substrates\""], "Placeholder"], "}"}], ",", 
+              RowBox[{"{", 
+                TagBox[
+                 FrameBox["\"products\""], "Placeholder"], "}"}], ",", 
+              RowBox[{"{", 
+                TagBox[
+                 FrameBox["\"stoichiometry\""], "Placeholder"], "}"}], ",", 
+              "True"}], "]"}]],
+        "\"Reversible Reaction\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Reversible Reaction", "Tooltip"]& ]},
+     {
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"\\!\\(\\*SubsuperscriptBox[\\(k\\), \
+\\(\[Placeholder]\\), \\(\[LongRightArrow]\\)]\\)\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"k", "[", 
+            RowBox[{
+              TagBox[
+               FrameBox["\"rxn\""], "Placeholder"], ",", "True"}], "]"}]],
+        "\"Forward Rate Constant\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Forward Rate Constant", "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"\\!\\(\\*SubsuperscriptBox[\\(k\\), \
+\\(\[Placeholder]\\), \\(\[LongLeftArrow]\\)]\\)\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"k", "[", 
+            RowBox[{
+              TagBox[
+               FrameBox["\"rxn\""], "Placeholder"], ",", "False"}], "]"}]],
+        "\"Reverse Rate Constant\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Reverse Rate Constant", "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"\\!\\(\\*UnderscriptBox[\\(K\\), \
+\\(\[Placeholder]\\)]\\)\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"Keq", "[", 
+            TagBox[
+             FrameBox["\"rxn\""], "Placeholder"], "]"}]],
+        "\"Equilibrium Constant\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Equilibrium Constant", "Tooltip"]& ]},
+     {
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"\\!\\(\\*UnderscriptBox[\\(\[Placeholder]\\), \\(\
+\[Placeholder]\\)]\\)\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"p", "[", 
+            RowBox[{
+              TagBox[
+               FrameBox["\"name\""], "Placeholder"], ",", 
+              TagBox[
+               FrameBox["\"rxn\""], "Placeholder"]}], "]"}]],
+        "\"Reaction Parameter\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Reaction Parameter", "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"\\!\\(\\*UnderscriptBox[\\(\[Placeholder]\\), \
+\\(Global\\)]\\)\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"p", "[", 
+            TagBox[
+             FrameBox["\"name\""], "Placeholder"], "]"}]],
+        "\"Global Parameter\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Global Parameter", "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"\\!\\(\\*UnderscriptBox[SubscriptBox[\\(v\\), \
+\\(max\\)], \\(\[Placeholder]\\)]\\)\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"vmax", "[", 
+            TagBox[
+             FrameBox["\"rxn\""], "Placeholder"], "]"}]],
+        "\"\\!\\(\\*SubscriptBox[\\(V\\), \\(max\\)]\\)\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "\!\(\*SubscriptBox[\(V\), \(max\)]\)", "Tooltip"]& ]},
+     {
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"Km\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"Km", "[", 
+            RowBox[{
+              TagBox[
+               FrameBox["\"met\""], "Placeholder"], ",", 
+              TagBox[
+               FrameBox["\"rxn\""], "Placeholder"]}], "]"}]],
+        "\"Michaelis Constant\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Michaelis Constant", "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"Ki\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"Ki", "[", 
+            RowBox[{
+              TagBox[
+               FrameBox["\"met\""], "Placeholder"], ",", 
+              TagBox[
+               FrameBox["\"rxn\""], "Placeholder"]}], "]"}]],
+        "\"Inhibition Constant\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Inhibition Constant", "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"Kd\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"Kd", "[", 
+            RowBox[{
+              TagBox[
+               FrameBox["\"met\""], "Placeholder"], ",", 
+              TagBox[
+               FrameBox["\"rxn\""], "Placeholder"]}], "]"}]],
+        "\"Dissociation Constant\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Dissociation Constant", "Tooltip"]& ]},
+     {
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"\\!\\(\\*UnderoverscriptBox[\\n StyleBox[\\n  \
+RowBox[{\\n   RowBox[{\\\"\[Square]\\\", \\\"&\\\"}], \
+\\\"\[Square]\\\"}],\\nStripOnInput->False,\\nBackground->GrayLevel[0.85]], \
+\\n StyleBox[\\\"\[Square]\\\",\\nStripOnInput->False,\\nLineColor->RGBColor[\
+0, Rational[2, 3], 0],\\nFrontFaceColor->RGBColor[0, Rational[2, 3], \
+0],\\nBackFaceColor->RGBColor[0, Rational[2, 3], \
+0],\\nGraphicsColor->RGBColor[0, Rational[2, 3], 0],\\nFontColor->RGBColor[0, \
+Rational[2, 3], 0]], \\n \
+StyleBox[\\\"\[Square]\\\",\\nStripOnInput->False,\\nLineColor->RGBColor[\
+Rational[2, 3], 0, 0],\\nFrontFaceColor->RGBColor[Rational[2, 3], 0, \
+0],\\nBackFaceColor->RGBColor[Rational[2, 3], 0, \
+0],\\nGraphicsColor->RGBColor[Rational[2, 3], 0, \
+0],\\nFontColor->RGBColor[Rational[2, 3], 0, 0]]]\\)\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"e", "[", 
+            RowBox[{
+              RowBox[{"\"ID\"", "\[Rule]", 
+                TagBox[
+                 FrameBox["\"name\""], "Placeholder"]}], ",", 
+              RowBox[{"\"Compartment\"", "\[Rule]", 
+                TagBox[
+                 FrameBox["\"comp\""], "Placeholder"]}], ",", 
+              RowBox[{"\"BoundCatalytic\"", "\[Rule]", 
+                RowBox[{"{", 
+                  TagBox[
+                   FrameBox["\"spec\""], "Placeholder"], "}"}]}], ",", 
+              RowBox[{"\"BoundActivators\"", "\[Rule]", 
+                RowBox[{"{", 
+                  TagBox[
+                   FrameBox["\"spec\""], "Placeholder"], "}"}]}], ",", 
+              RowBox[{"\"BoundInhibitors\"", "\[Rule]", 
+                RowBox[{"{", 
+                  TagBox[
+                   FrameBox["\"spec\""], "Placeholder"], "}"}]}], ",", 
+              RowBox[{"\"CatalyticSites\"", "\[Rule]", 
+                TagBox[
+                 FrameBox["\"#\""], "Placeholder"]}], ",", 
+              RowBox[{"\"ActivationSites\"", "\[Rule]", 
+                TagBox[
+                 FrameBox["\"#\""], "Placeholder"]}], ",", 
+              RowBox[{"\"InhibitionSites\"", "\[Rule]", 
+                TagBox[
+                 FrameBox["\"#\""], "Placeholder"]}]}], "]"}]],
+        "\"Enzyme\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Enzyme", "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"\\!\\(\\*FrameBox[\\n \
+SuperscriptBox[\\\"\[Placeholder]\\\", \
+\\\"\[Placeholder]\\\"],\\nBackground->RGBColor[0, 1, \
+1],\\nStripOnInput->False]\\)\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"gene", "[", 
+            RowBox[{
+              TagBox[
+               FrameBox["\"name\""], "Placeholder"], ",", 
+              TagBox[
+               FrameBox["\"comp\""], "Placeholder"]}], "]"}]],
+        "\"Gene\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Gene", "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"\\!\\(\\*FrameBox[\\n \
+SuperscriptBox[\\\"\[Placeholder]\\\", \
+\\\"\[Placeholder]\\\"],\\nBackground->RGBColor[1, 0.5, \
+0],\\nStripOnInput->False]\\)\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"protein", "[", 
+            RowBox[{
+              TagBox[
+               FrameBox["\"name\""], "Placeholder"], ",", 
+              TagBox[
+               FrameBox["\"comp\""], "Placeholder"]}], "]"}]],
+        "\"Protein\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Protein", "Tooltip"]& ]},
+     {
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"\\!\\(\\*SubscriptBox[\\(\[CapitalDelta]G\\), \\(\
+\[Placeholder]\\)]\\)\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"dG", "[", 
+            TagBox[
+             FrameBox["\"rxn\""], "Placeholder"], "]"}]],
+        "\"\[CapitalDelta]G\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "\[CapitalDelta]G", "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"\\!\\(\\*FrameBox[\\n RowBox[{\\n  FrameBox[\\\"\
+\[Placeholder]\\\",\\nBackground->RGBColor[0, 1, 1],\\nStripOnInput->False], \
+\\\"   \\\", \\n  FrameBox[\\\"\[Placeholder]\\\",\\nBackground->RGBColor[0, \
+1, 1],\\nStripOnInput->False]}],\\nBackground->GrayLevel[0.85],\\\
+nStripOnInput->False]\\)\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"geneComplex", "[", 
+            RowBox[{
+              TagBox[
+               FrameBox["\"gene1\""], "Placeholder"], ",", 
+              TagBox[
+               FrameBox["\"gene2\""], "Placeholder"]}], "]"}]],
+        "\"Gene Complex\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Gene Complex", "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         TagBox["\<\"\\!\\(\\*FrameBox[\\n RowBox[{\\n  FrameBox[\\\"\
+\[Placeholder]\\\",\\nBackground->RGBColor[1, 0.5, \
+0],\\nStripOnInput->False], \\\"  \\\", \\n  FrameBox[\\\"\[Placeholder]\\\",\
+\\nBackground->RGBColor[1, 0.5, \
+0],\\nStripOnInput->False]}],\\nBackground->GrayLevel[0.85],\\nStripOnInput->\
+False]\\)\"\>",
+          Deploy,
+          DefaultBaseStyle->"Deploy"],
+         BaseStyle->"Paste",
+         ButtonData->RowBox[{"proteinComplex", "[", 
+            RowBox[{
+              TagBox[
+               FrameBox["\"protein1\""], "Placeholder"], ",", 
+              TagBox[
+               FrameBox["\"protein2\""], "Placeholder"]}], "]"}]],
+        "\"Protein Complex\"",
+        TooltipStyle->"TextStyling"],
+       Annotation[#, "Protein Complex", "Tooltip"]& ]}
+    },
+    AutoDelete->False,
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+   "Grid"]]],
+ CellMargins->{{0, 0}, {0, 0}},
+ CellBracketOptions->{"Color"->RGBColor[0.269993, 0.308507, 0.6]},
+ CellHorizontalScrolling->True,
+ PageBreakAbove->True,
+ PageBreakWithin->False,
+ ShowAutoStyles->True,
+ LineSpacing->{1.25, 0},
+ AutoItalicWords->{},
+ ScriptMinSize->9,
+ ShowStringCharacters->False,
+ FontFamily:>CurrentValue["PanelFontFamily"],
+ FontSize:>CurrentValue["PanelFontSize"]]
+},
+WindowSize->All,
+WindowMargins->{{57, Automatic}, {Automatic, 128}},
+WindowElements->{},
+DynamicUpdating->True,
+Magnification->1.,
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 4, \
+2014)",
+StyleDefinitions->"Palette.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[559, 20, 15353, 421, 266, InheritFromParent,
+ PageBreakAbove->True,
+ PageBreakWithin->False]
+}
+]
+*)
+
+(* End of internal cache information *)
+
