@@ -1,5 +1,7 @@
 (* ::Package:: *)
 
+(* Custom file to include Moles and all prefixed versions as units *)
+
 Remove[Mole]
 UnitSet["Custom"]={
     DeclareUnit["itemUnit", Unit[1, "itemUnit"],

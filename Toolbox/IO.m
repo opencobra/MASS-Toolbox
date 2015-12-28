@@ -12,18 +12,25 @@ Begin["`Private`"]
 Needs["AutomaticUnits`"]
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*IO*)
 
 
 importModel::fileNotExist="File `1` does not exist.";
 importModel::notModel="File `1` does not contain a model.";
+(* Allow users to designate attributes as in constructModel *)
 Options[importModel]=Options[constructModel];
+(* If no inputs are given, open a system dialog to find the file *)
 importModel[]:=importModel[SystemDialogInput["FileOpen"]];
 importModel[path_String,opts:OptionsPattern[]]:=Module[{stuff},
+	(* If the file does not exist, return error message and abort *)
     If[!FileExistsQ[path],Message[importModel::fileNotExist,path];Abort[];];
+	(* Import the model as a Mathematica package *)
     stuff=Import[path,"Package"];
+	(* If the contents of the file are not a MASS model, throw error and abort *)
     If[!MatchQ[stuff,_MASSmodel],Message[importModel::notModel,path];Abort[];];
+	(* Create model with the contents of the MASS model in the file. *)
+	(* The S matrix, fluxes, species, and reversibility will be taken from the list of reactions *)
     constructModel[
         stuff["Reactions"],
         Sequence@@updateRules[
@@ -129,7 +136,7 @@ parseInitialAssignmentXML[initialAssignment_XMLElement,id2massID:{_Rule..}]:=(("
 getListOfInitialAssignments[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseInitialAssignmentXML[#,id2massID]&/@extractXMLelement[xml,"listOfInitialAssignments",2]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfRules*)
 
 
@@ -397,6 +404,7 @@ getListOfAnnotations[xml_]:=Module[{annotations,compartments,specs,rxns,kineticL
 	(* Remove things with no annotations *)
 	annotations=DeleteCases[annotations,{_,{}}];
 
+	(* Select only the annotations that are either biology-qualifiers or model-qualifiers, and re-format *)
 	miriamList=Thread[{#[[1]],
 		Select[#[[2,3]],
 			MatchQ[#,XMLElement[{("http://biomodels.net/biology-qualifiers/"|"http://biomodels.net/model-qualifiers/"),_},
@@ -423,7 +431,7 @@ extractAnnotation[xml_,level_Integer]:=Module[{annotation},
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*main*)
 
 
@@ -658,7 +666,7 @@ Check[sbml2model[Import[path,"XML"],opts],Message[sbml2model::NotExistFile,path]
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*SBML layout*)
 
 
@@ -816,7 +824,7 @@ Module[{modelStuff,modelID,modelName,layouts,layout,height,compartmentGlyphs,spe
 (*SBML export*)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Export*)
 
 
@@ -1163,7 +1171,7 @@ annotations2sbml[model_MASSmodel,item_]:=Module[{annotations,rules},
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*biomodel2model*)
 
 
