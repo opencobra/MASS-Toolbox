@@ -840,21 +840,25 @@ Module[{modelStuff,modelID,modelName,layouts,layout,height,compartmentGlyphs,spe
 
 
 Options[model2sbml]={"FBC"->False,"Annotations"->True}
-model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,unitRules,ratemapping,listOfStuff,comps,localParam,params,sbmlRules},
+model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,miriam,modelUnits,unitRules,ratemapping,listOfStuff,comps,localParam,params,sbmlRules},
 
 	listOfStuff = {};
 	
 	species = DeleteDuplicates@Join[getSpecies[model],Cases[First/@Join[model["InitialConditions"],model["Parameters"]],$MASS$speciesPattern]];
 
 	ratemapping=stripTime[Thread[Rule[(getID/@model["Fluxes"]),model["Rates"]]]];
-	localParam=If[MatchQ[#,_List],#[[2]],#]&[getID[#[[1]]]]->(ToString[#[[1]],"SBML"]->(stripUnits[#[[2]]]/.{\[Infinity]->"INF",-\[Infinity]->"-INF"}))&/@FilterRules[model["Parameters"],Cases[ratemapping,pat:$MASS$parametersPattern/;MemberQ[ratemapping[[All,1]],If[MatchQ[#,_List],#[[2]],#]&[getID[pat]]],\[Infinity]]];
-	
+	localParam=If[MatchQ[#,_List],#[[2]],#]&[getID[#[[1]]]]->(ToString[#[[1]],"SBML"]->#[[2]])&/@FilterRules[model["Parameters"],Cases[ratemapping,pat:$MASS$parametersPattern/;MemberQ[ratemapping[[All,1]],If[MatchQ[#,_List],#[[2]],#]&[getID[pat]]],\[Infinity]]];
 	params=FilterRules[Join[model["Parameters"],model["InitialConditions"]],Cases[Join[ratemapping,stripTime[model["CustomODE"]]],((p_parameter/;!MatchQ[getID[p],_List])|metabolite[_,"Xt"]),\[Infinity]]];
 	
 	modelUnits = modelUnits2sbml[model];
 
-	(* MIRIAM Annotations *)
-	If[OptionValue["Annotations"],
+	(* MIRIAM Annotations (can only be true if there are annotations in the model) *)
+	miriam = If[model["Annotations"]=={},
+		False,
+		OptionValue["Annotations"]
+	];
+
+	If[miriam,
 		AppendTo[listOfStuff,annotations2sbml[model,"ID"/.model[[1]]]]
 	];
 	
@@ -872,22 +876,22 @@ model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,un
 
 	(* Compartments *)
 	comps = Union[getCompartments[model],Cases[First/@model["Parameters"],parameter["Volume",c_]:>c]];
-	If[comps != {},
+	If[comps != {None},
 		AppendTo[listOfStuff,
-			XMLElement["listOfCompartments",{},compartments2sbml[#,model,unitRules,OptionValue["Annotations"]]&/@comps]
+			XMLElement["listOfCompartments",{},compartments2sbml[#,model,unitRules,miriam]&/@comps]
 		];
 	];
 
 	(* Species *)
-	AppendTo[listOfStuff,XMLElement["listOfSpecies", {}, species2sbml[#,model,unitRules,OptionValue["Annotations"]]&/@species]];
+	AppendTo[listOfStuff,XMLElement["listOfSpecies", {}, species2sbml[#,model,unitRules,miriam]&/@species]];
 
 	(* Parameters *)
-	AppendTo[listOfStuff,XMLElement["listOfParameters",{},parameter2sbml[#,model,unitRules,OptionValue["Annotations"]]&/@params]];
+	AppendTo[listOfStuff,XMLElement["listOfParameters",{},parameter2sbml[#,model,unitRules,miriam]&/@params]];
 
 	(* Reactions *)
 	AppendTo[listOfStuff,
 		XMLElement["listOfReactions",{},
-			reaction2sbml[#,model,ratemapping,FilterRules[localParam,getID[#]][[All,2]],unitRules,OptionValue["Annotations"]]&/@model["Reactions"]
+			reaction2sbml[#,model,ratemapping,FilterRules[localParam,getID[#]][[All,2]],unitRules,miriam]&/@model["Reactions"]
 		]
 	];
 
@@ -896,7 +900,7 @@ model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,un
 	];
 
 	If[model["Events"]!={},
-		AppendTo[listOfStuff,XMLElement["listOfEvents",{},event2sbml[#,model,OptionValue["Annotations"]]&/@model["Events"]]]
+		AppendTo[listOfStuff,XMLElement["listOfEvents",{},event2sbml[#,model,miriam]&/@model["Events"]]]
 	];
 
 	If[OptionValue["FBC"],
@@ -944,10 +948,12 @@ unitStringList2sbml[{unit_String,exponent_String}]:=Module[{compatibility,destin
 modelUnits2sbml[model_MASSmodel]:=Module[{unitList,stringUnits,volumeUnits,concUnits},
 	unitList = {};
 	model/.Unit[_,unit_]:>AppendTo[unitList,unit];
-	(* Get the substance units for later by concUnits*volumeUnits *)
-	volumeUnits = DeleteDuplicates[Last/@(parameter["Volume",#]&/@getCompartments[model]/.model["Parameters"]/.(_parameter->1 Liter))];
-	concUnits = DeleteDuplicates[Last/@(Cases[model["Species"]/.model["InitialConditions"],Except[$MASS$speciesPattern]])];
-	unitList=Join[unitList,Flatten[volumeUnits*#&/@concUnits]];
+	(* Get the substance units for later by concUnits*volumeUnits (only if compartments exist)*)
+	If[getCompartments[model]!={None},
+		volumeUnits = DeleteDuplicates[Last/@(parameter["Volume",#]&/@getCompartments[model]/.model["Parameters"]/.(_parameter->(1 Liter)))];
+		concUnits = DeleteDuplicates[Last/@(Cases[model["Species"]/.model["InitialConditions"],Except[$MASS$speciesPattern]])];
+		unitList=Join[unitList,Flatten[volumeUnits*#&/@concUnits]];
+	];
 	(* Remove duplicates and flatten list *)
 	unitList=DeleteDuplicates[Flatten[unitList]];
 	(* Create unit rules *)
@@ -992,7 +998,7 @@ species2sbml[spec_,model_MASSmodel,unitRules:{_Rule...},miriam_?BooleanQ]:=Modul
 	rules = {"id"->ToString[spec,"SBML"],"name"->ToString[spec,"SBML"]};
 	comp = getCompartment[spec];
 	If[comp=!=None,
-		AppendTo[rules,"compartment"->getCompartment[spec]];
+		AppendTo[rules,"compartment"->ToString[getCompartment[spec]]];
 		substanceUnits=Replace[getUnit[(spec/.model["InitialConditions"])*(parameter["Volume",getCompartment[spec]]/.Join[model["Parameters"],model["InitialConditions"]])],unitRules];
 		If[MatchQ[substanceUnits,_String],AppendTo[rules,"substanceUnits"->substanceUnits]]
 	];
@@ -1041,16 +1047,8 @@ reaction2sbml[rxn_,model_MASSmodel,ratemapping_List,params_List,unitRules:{_Rule
 		XMLElement["localParameter",
 			{"id"->First[#],
 				"name"->First[#],
-				"value"->If[
-					MatchQ[Last[#],_String],
-					Last[#],
-					ToString[stripUnits[Last[#]],"SBML"]
-				],
-				"units"->If[
-					MatchQ[Last[#],_String],
-					"Dimensionless",
-					Replace[getUnit[Last[#]],unitRules]
-				]
+				"value"->ToString[stripUnits[Last[#]],"SBML"],
+				"units"->Replace[getUnit[Last[#]],unitRules]
 			},
 			If[miriam,
 				{annotations2sbml[model,parameter[First[#],id]]},
