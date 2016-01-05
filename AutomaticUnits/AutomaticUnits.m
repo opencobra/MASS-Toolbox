@@ -62,25 +62,24 @@ DropUnits::usage="DropUnits[expr] converts all units in expr to numbers";
 CreateSymbol::usage="CreateSymbol is an option for DeclareUnit to specify whether a symbol is created for unit entry or whether the unit must be specified as Unit[value, name].";
 UsageMessage::usage="UsageMessage is an option for DelcareUnit which specifies a usage message for the unit symbol";
 $DefaultUnitSet::usage="$DefaultUnitSet is the name of the unit set from which automatic unit choices are made";
-SimplifyUnits::usage="SimplifyUnits[expr] attempts to replace composite units with single named units.";
-UnitList::usage="ToUnitsList[oldunit,{newunit1,newunit2,...}] decomposes oldunit into newunits such that the sum of newunits is equivelant to the oldunit.";
-DimensionCompatibleUnitQ::usage="DimensionCompatibleUnitQ[\!\(\*
-StyleBox[SubscriptBox[\"unit\", \"1\"],\nFontSlant->\"Italic\"]\),\!\(\*
-StyleBox[SubscriptBox[\"unit\", \"2\"],\nFontSlant->\"Italic\"]\)] tests whether \!\(\*
-StyleBox[SubscriptBox[\"unit\", \"1\"],\nFontSlant->\"Italic\"]\)\!\(\*
-StyleBox[\" \",\nFontSlant->\"Italic\"]\)and \!\(\*
-StyleBox[SubscriptBox[\"unit\", \"2\"],\nFontSlant->\"Italic\"]\) have compatible units.";
+SimplifyUnits::usage="SimplifyUnits[expr] attempts to replace composite units with single named units."
+UnitList::usage="ToUnitsList[oldunit,{newunit1,newunit2,...}] decomposes oldunit into newunits such that the sum of newunits is equivelant to the oldunit."
 
 (*Assign multiplier values- mainly for compatibility with the old units pacakge*)
-Percent = 1/100;Gross = 144;Dozen = 12; BakersDozen = 13; Yotta = 10^24; 
+Percent = 1/100;Gross = 144;Dozen = 12; BakersDozen = 13; (*Mole = 6.0221367*10.^23;*)Yotta = 10^24; 
 Zetta = 10^21; Exa = 10^18; Peta = 10^15; Tera = 10^12; Giga = 10^9; Mega = 10^6; Kilo = 10^3; 
 Hecto = 100; Deca = 10; Deci = 1/10; Centi = 1/10^2; Milli = 1/10^3; Micro = 1/10^6; Nano = 1/10^9; 
 Pico = 1/10^12; Femto = 1/10^15; Atto = 1/10^18; Zepto = 1/10^21; Yocto = 1/10^24; Percent=1/100;
-Gross=144; Dozen=12; BakersDozen=13;
+Gross=144; Dozen=12; BakersDozen=13; (*Mole=6.0221415*^23;*)
 
 
 
 Begin["`private`"];
+
+If[$VersionNumber > 9.,
+	dispatchify[dispatch_Dispatch]:=Normal[dispatch],
+	dispatchify[dispatch_Dispatch]:=dispatch[[1]]
+];	
 
 (*Lists that store the unit coversion rules*)
 $ToFundamental={};
@@ -96,7 +95,7 @@ SyntaxInformation[UnitSet]={"ArgumentsPattern"->{_.}};
 (*FundamentalUnits is a core function for reducing a unit expression to its lowest units*)
 Unprotect[FundamentalUnits];
 FundamentalUnits[expr_]:=
-    expr/.Unit[n_,dims_]:>Unit[n,PowerExpand[dims/.$ToFundamental]];
+	expr/.Unit[n_,dims_]:>Unit[n,PowerExpand[dims/.$ToFundamental]];
 Protect[FundamentalUnits];
 
 (*Declare new unit in terms of old unit. User function but also used to create the intitial built in units*)
@@ -109,7 +108,7 @@ Block[{dispatchedq,existingrules,existingexactrules,msg},
 			OptionValue[UsageMessage]
 			];
 		Which[
-			Head[$ToFundamental]===Dispatch,existingrules=Normal[$ToFundamental];dispatchedq=True,
+			Head[$ToFundamental]===Dispatch,existingrules=dispatchify[$ToFundamental];dispatchedq=True,
 			Head[$ToFundamental]===List,existingrules=$ToFundamental,
 			True,existingrules={}];
 		(*If unit name is already decalared, issue warning and over-write definition*)
@@ -128,7 +127,7 @@ Block[{dispatchedq,existingrules,existingexactrules,msg},
 		(*If relationship is exact, store it explicitely *)
 		If[Precision[val[[1]]]===Infinity,
 			Which[
-				Head[$ExactUnitRules]===Dispatch,existingexactrules=Normal[$ExactUnitRules];dispatchedq=True,
+				Head[$ExactUnitRules]===Dispatch,existingexactrules=dispatchify[$ExactUnitRules];dispatchedq=True,
 				Head[$ExactUnitRules]===List,existingexactrules=$ExactUnitRules,
 				True,existingrules={}
 				];
@@ -161,9 +160,9 @@ DeclareUnit[name_String,opts:OptionsPattern[]]:=DeclareUnit[name,Unit[1,name],op
 application of Dispatch by doing it just once at the end. This gives much faster package initialization*)
 FastGroupDeclareUnit[expr_]:=Block[{$UnitInitialization=True,newfund,newexact,junk},
 	(*Make sure that the tables are plain lists*)
-					If[Head[$ToFundamental]===Dispatch,$ToFundamental=Normal[$ToFundamental]];
+					If[Head[$ToFundamental]===Dispatch,$ToFundamental=dispatchify[$ToFundamental]];
 					If[Head[$ToFundamental]===List,$ToFundamental={}];
-					If[Head[$ExactUnitRules]===Dispatch,$ExactUnitRules=Normal[$ExactUnitRules]];
+					If[Head[$ExactUnitRules]===Dispatch,$ExactUnitRules=dispatchify[$ExactUnitRules]];
 					If[Head[$ExactUnitRules]===List,$ExactUnitRules={}];
 					
 					(*expr should be a CompoundExpression of DeclareUnit expressions*)
@@ -348,8 +347,8 @@ DimensionCompatibleUnitQ[Unit[_, un_]..]:=True;
 (*faster test when all the same unit*)
 
 (*General test*)
-DimensionCompatibleUnitQ[a__Unit]:=Block[{differentunits=Union[{a}/.Unit[_,un_]->Unit[1,un]]},
-        	Which[
+DimensionCompatibleUnitQ[a__Unit]:=Block[{differentunits=Union[{a}/.Unit[_,un_]->Unit[1,un]]},	
+		Which[
     		Apply[And,NumericQ/@#],True,
     		Apply[SameQ,Map[Last,#]],True,
     		True,Message[Unit::"incomp1",differentunits];False]&[
@@ -370,8 +369,9 @@ GetPreferredUnits[]:=Which[
 
 Convert[Unit[n1_,un1_], Unit[n_, un_]] :=Block[{exactconversion},
 	(*If input is exact, test for an exact conversion*)
+
 	If[Precision[n1]==Infinity,	exactconversion=(Unit[n1,un1]/Unit[1,un])/.$ExactUnitRules];
-	If[NumericQ[exactconversion],
+	If[MatchQ[exactconversion,(_?NumericQ|Infinity|-Infinity)],
 		exactconversion Unit[1,un],(*If there is an exact conversion, use it*)
 
    		If[ NumericQ[#](*Could alternatively test FreeQ[#1,Unit]*), 
@@ -495,6 +495,11 @@ Unit[n_?NumericQ, Unit[m_?NumericQ,dims_]]:=Unit[n m, dims];
 Unit[n_?NumericQ,a__ Unit[m_?NumericQ,dims_]]:=Unit[n m,a dims];
 Unit[n_List,un_]:=Unit[#,un]&/@n;
 
+(* The following lines have been added by Niko on 07-10-2013*)
+SetAttributes[integerChop,Listable];
+integerChop[number_Real]:=If[Round@number==number,Round@number,number]
+integerChop[other_?NumberQ]:=other
+Unit[n_,stuff_]:=Block[{$preventRecursion=True},Unit[n,stuff/.Power[a_,b_Real]:>Power[a,integerChop[b]]]]/;!TrueQ[$preventRecursion]
 
 
 (*Dimensionless quantities discard their Unit head*)
@@ -516,14 +521,14 @@ Unit/:Unit[n_,Times[i_Symbol?NumericQ,u___]]:=Unit[n i,Times[u]];
 Unit/:Unit[n_,Times[i_Power?NumericQ,u___]]:=Unit[n i,Times[u]];
 
 
-	
-Unit/:Times[a___,b_Unit,c___]/;MemberQ[{a,c},(_Rational|_Unit|_Real|_Integer|_?NumericQ)]:=Block[{uns,nums,rest,unlist,unsorted,splitlist,finallist,finalunit,finalnumber},
+(*FIXME: Following line introduced by Niko*)
+Unit/:Times[a___,b_Unit,c___]/;MemberQ[{a,c},(_Rational|_Unit|_Real|_Integer|_?NumericQ|Infinity|-Infinity)]:=Block[{uns,nums,rest,unlist,unsorted,splitlist,finallist,finalunit,finalnumber},
 	(*Split the product into numbers, units and other stuff*)
 	rest={a,b,c};
 	uns=Cases[rest,_Unit];
 	rest=DeleteCases[rest,_Unit];
-	nums=Cases[rest,_?NumericQ];
-	rest=DeleteCases[rest,_?NumericQ];
+	nums=Cases[rest,(_?NumericQ|Infinity|-Infinity)];
+	rest=DeleteCases[rest,_?NumericQ|Infinity|-Infinity];
 	If[Length[uns]==1,finalunit=uns[[1]],
 		unlist=Flatten[Last/@uns/.Times->List]; (*Get a list of all the individual multiplied unit symbols*)
   		(*Pair with FundamentalUnit and Sort so that dimensionally equivelent units are next to each other in power order*)
@@ -538,8 +543,8 @@ Unit/:Times[a___,b_Unit,c___]/;MemberQ[{a,c},(_Rational|_Unit|_Real|_Integer|_?N
         			]&,
             	splitlist]];
         (*Any cancelled units are now numbers and need to be pulled out of the list and put in nums*)
-        nums=Join[nums,Cases[finallist,_?NumericQ]];
-        finallist=DeleteCases[finallist,_?NumericQ];
+        nums=Join[nums,Cases[finallist,_?NumericQ|Infinity|-Infinity]];
+        finallist=DeleteCases[finallist,_?NumericQ|Infinity|-Infinity];
     	finalunit=Apply[Unit,Apply[Times,finallist/.Unit->List]]; (*Recompose into a unit*)
 	];(*All units are now squashed into one unit. Now we address the numbers.*)
 	finalnumber=Apply[Times,Join[First/@uns,nums]];
@@ -548,7 +553,7 @@ Unit/:Times[a___,b_Unit,c___]/;MemberQ[{a,c},(_Rational|_Unit|_Real|_Integer|_?N
     	finalunit finalnumber ,(*If unit cancelled completely, just return a number*)
     	Unit[finalnumber,Last[finalunit]] (*Otherwise multiply the units number part*)
     	]];
-	
+
             
 UnitSortfn[x_List,y_List]:=Block[{un1=x[[1]],un2=y[[1]]},
       					If[Head[un1]===Unit,un1=un1[[2]]];
@@ -582,7 +587,7 @@ ToObjectPower[a_]:={HeldPower[a,1]};
 
 CollectObjectPowers[obj_]:=
     Block[{ops=ToObjectPower[obj],gcd,reduced},
-    	gcd=Apply[GCD,Map[Last,ops]];
+    	Quiet[gcd=Apply[GCD,Map[Last,ops]],{GCD::exact}];
       	reduced=Map[#[[1]]^(#[[2]]/gcd)&,ops];
       	HeldPower[Apply[Times,reduced],gcd]
     ];
@@ -623,11 +628,13 @@ Block[{targetunit,commonexactunits,temp,relatedtargetunits,values=First/@{a,b}},
 
 
  (*Special case of adding a number to a unit. Fails unless the unit can be simplified to a number*)
- Unit/:(a_?NumericQ+Unit[b_,c_])/;Not[TrueQ[compflag]]:=
+(*Commented out by Niko*) 
+(*Unit/:(a_?NumericQ+Unit[b_,c_]):=
     Block[{compflag=True},
       If[NumericQ[#],a+#,
-        Message[Unit::"incomp",c];a+Unit[b,c]]&[FundamentalUnits[Unit[b,c]]]];
-        
+        Message[Unit::"incomp",c];a+Unit[b,c]]&[FundamentalUnits[Unit[b,c]]]]/;Not[TrueQ[compflag]];*)
+
+
 (*========================Other functions behaviour=========================*)
 
 (*Square roots*)
@@ -727,7 +734,7 @@ Unit/:#[a__Unit,b_?NumericQ,c___Unit]:=False;)&/@{Unequal,NotGreater,NotLess};
 (Unit/:#[a__Unit]/;DimensionCompatibleUnitQ[a]:=Block[
 										{converted=Convert[{a}]},
 										If[FreeQ[converted,Unit],#[converted],
-										#[Apply[Sequence,First/@converted]] Unit[1,converted[[1,2]]]
+										Quiet[#[Apply[Sequence,First/@converted]],{GCD::exact}] Unit[1,converted[[1,2]]]
 										]])&/@{GCD,LCM};
 										
 						
@@ -1063,7 +1070,7 @@ Get["AutomaticUnits`AlternativeNames`"];
 Get["AutomaticUnits`Champagne`"];
 Get["AutomaticUnits`Anthropic`"];
 (*Regional and obsolete units*)
-Get["AutomaticUnits`RegionalUnits`"];
+(*Get["AutomaticUnits`RegionalUnits`"];
 Get["AutomaticUnits`Arabic`"];
 Get["AutomaticUnits`Japanese`"];
 Get["AutomaticUnits`Malay`"];
@@ -1074,8 +1081,7 @@ Get["AutomaticUnits`Russian`"];
 Get["AutomaticUnits`Scottish`"];
 Get["AutomaticUnits`Spanish`"];
 Get["AutomaticUnits`Swedish`"];
-Get["AutomaticUnits`Taiwanese`"];
-Get["AutomaticUnits`Custom`"];
+Get["AutomaticUnits`Taiwanese`"];*)
 (*Special unit set needed for mouse interactivity*)
 UnitSet["InteractiveChoices"]=Union[UnitSet["SI"],UnitSet["Imperial"],UnitSet["USCustomary"]]; 
 End[];(*Return to private context*)
@@ -1130,9 +1136,20 @@ UnitButton[tradform_] :=  Tooltip[
 										NotebookWrite[InputNotebook[], ToBoxes[#, 
 											If[tradform,TraditionalForm,StandardForm]]],Appearance -> "Palette"],
 									TraditionalForm[#]] &
-									
+
 End[];
 
-	
+
+DeclareUnit["Molecule"];
+DeclareUnit["Mole",Unit[6.0221415`*^23,"Molecule"],
+	UsageMessage->"Mole is the unit of substance or amount",
+	TraditionalLabel->"mol"];
+AutomaticUnits`private`SIPrefixify["Mole","Substance amount","mol"];
+UnitSet["SI"]=Join[UnitSet["SI"]/.Meter^3->Liter,{Millimole,Millimole Liter^-1}];
+
+DeclareUnit["itemUnit", Unit[1, "itemUnit"],
+    UsageMessage->"This is a custom item",
+    TraditionalLabel->"item"];
+
 EndPackage[]
 
