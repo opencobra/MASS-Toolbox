@@ -196,7 +196,10 @@ plotPhasePortrait[simulation:{_Rule..},{t_Symbol,tMin_?NumberQ,tMax_?NumberQ},op
 	pltFunc=ParametricPlot[Evaluate[#[[All,2]]],{t,tMin,tMax},Evaluate[If[OptionValue["Annotate"]===True,Epilog->Join[epilog,annotateStartEnd[Sequence@@#[[All,2]],tMin,tMax,Sequence@@FilterRules[List@opts,Options[annotateStartEnd]]]],Unevaluated[Sequence[]]]],Evaluate[Sequence@@If[OptionValue["FrameLabel"]===Automatic,updateRules[plotOpts,{FrameLabel->(TraditionalForm/@#[[All,1]])}],plotOpts]]]&;
 	If[Length[cleanSimulation]>2,
 		Manipulate[
-			pltFunc[FilterRules[cleanSimulation,{x,y}]],
+			If[MatchQ[x,y],
+				pltFunc[Join[FilterRules[cleanSimulation,{x}],FilterRules[cleanSimulation,{x}]]],
+				pltFunc[FilterRules[cleanSimulation,{x,y}]]
+			],
 			{{x,cleanSimulation[[All,1]][[1]],"Abscissa"},cleanSimulation[[All,1]]},
 			{{y,cleanSimulation[[All,1]][[2]],"Ordinate"},cleanSimulation[[All,1]]},SaveDefinitions->True,Initialization:>(Needs["Toolbox`"];Needs["Toolbox`Style`"];Needs[""])
 		],
