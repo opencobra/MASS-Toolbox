@@ -193,7 +193,7 @@ parseUnitDefinitionXML[XMLElement["unitDefinition",attrVal:{_Rule..},listOfUnits
 			],DeclareUnit["stub"<>ToString[Unique[]],
 				(parseListOfUnitsXML[extractXMLelement[listOfUnits,"listOfUnits",0][[1]]])
 			],{Symbol::symname}
-		],{Unit::exists}
+		],{Unit::exists,General::shdw,Message::name}
 	]
 ];
 
