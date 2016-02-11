@@ -12,7 +12,7 @@ Begin["`Private`"]
 Needs["AutomaticUnits`"]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*IO*)
 
 
@@ -153,19 +153,21 @@ Switch[#[[1]],
 getListOfRules[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseRuleXML[#,id2massID]&/@extractXMLelement[xml,"listOfRules",2]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfFunctionDefinitions*)
 
 
 (*parseFunctionXML[XMLElement["functionDefinition",attrVal:{_Rule..},mathML_List]]:=("id"/.Dispatch[attrVal])->mathML2mass[extractXMLelement[mathML,"math",0][[1]]]*)
-parseFunctionXML[XMLElement["functionDefinition",attrVal:{_Rule..},mathML_List]]:=("id"/.Dispatch[attrVal])->XML`MathML`SymbolicMathMLToExpression[extractXMLelement[mathML,"math",0][[1]]/.s_String:>StringReplace[s,"_"->"$UNDRSCR$s"]]
+parseFunctionXML[XMLElement["functionDefinition",attrVal:{_Rule..},mathML_List]]:=("id"/.Dispatch[attrVal])->XML`MathML`SymbolicMathMLToExpression[extractXMLelement[mathML,"math",0][[1]]/.s_String:>StringReplace[s,"_"->"$UNDRSCR$"]]
 
-getListOfFunctionDefinitions[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:=Module[{},
-parseFunctionXML/@extractXMLelement[xml,"listOfFunctionDefinitions",2]
+getListOfFunctionDefinitions[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:=Module[{list,customFunctions},
+    list = parseFunctionXML/@extractXMLelement[xml,"listOfFunctionDefinitions",2];
+    customFunctions = Symbol[StringReplace[First[#],"_"->"$UNDRSCR$"]]->Last[#]&/@list;
+    list//.customFunctions
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfUnitDefinitions*)
 
 
@@ -442,7 +444,7 @@ extractAnnotation[xml_,level_Integer]:=Module[{annotation},
 ];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*main*)
 
 
@@ -538,8 +540,9 @@ constParam,speciesIDs2names,modelID,modelName,notes,modelStuff,hasOnlySubstanceU
 		modelName=query["name",modelStuff[[2]],modelID];
 		notes=Quiet@Check[ImportString[ExportString[extractXMLelement[modelStuff[[3]],"notes",2][[1]],"XML"],"XHTML"],""];
 		listOfUnitDefinitions=getListOfUnitDefinitions[xml];
+
 		listOfFunctionDefinitions=getListOfFunctionDefinitions[xml](*/.Dispatch[listOfUnitDefinitions]*);
-		
+
 		listOfCompartments=getListOfCompartments[xml];
 		(*compartmentIDs2names=DeleteCases[(#[[1]]->query["name",#[[2]],Undefined]&/@listOfCompartments)/.elem_[t]:>elem,r_Rule/;r[[2]]===Undefined];*)
 		
