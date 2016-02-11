@@ -85,7 +85,7 @@ mat2model[path_String]:=Module[{stuff},
 mat2model[]:=mat2model[SystemDialogInput["FileOpen"]];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*SBML import*)
 
 
@@ -680,7 +680,7 @@ Check[sbml2model[Import[path,"XML"],opts],Message[sbml2model::NotExistFile,path]
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*SBML layout*)
 
 
@@ -834,11 +834,11 @@ Module[{modelStuff,modelID,modelName,layouts,layout,height,compartmentGlyphs,spe
 ]
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*SBML export*)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Export*)
 
 
@@ -853,7 +853,7 @@ model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,un
 	localParam=If[MatchQ[#,_List],#[[2]],#]&[getID[#[[1]]]]->(ToString[#[[1]],"SBML"]->(stripUnits[#[[2]]]/.{\[Infinity]->"INF",-\[Infinity]->"-INF"}))&/@FilterRules[model["Parameters"],Cases[ratemapping,pat:$MASS$parametersPattern/;MemberQ[ratemapping[[All,1]],If[MatchQ[#,_List],#[[2]],#]&[getID[pat]]],\[Infinity]]];
 	
 	params=FilterRules[Join[model["Parameters"],model["InitialConditions"]],Cases[Join[ratemapping,stripTime[model["CustomODE"]]],((p_parameter/;!MatchQ[getID[p],_List])|metabolite[_,"Xt"]),\[Infinity]]];
-	
+
 	modelUnits = modelUnits2sbml[model];
 
 	(* MIRIAM Annotations *)
@@ -948,8 +948,8 @@ modelUnits2sbml[model_MASSmodel]:=Module[{unitList,stringUnits,volumeUnits,concU
 	unitList = {};
 	model/.Unit[_,unit_]:>AppendTo[unitList,unit];
 	(* Get the substance units for later by concUnits*volumeUnits *)
-	volumeUnits = DeleteDuplicates[Last/@(parameter["Volume",#]&/@getCompartments[model]/.model["Parameters"]/.(_parameter->1 Liter))];
-	concUnits = DeleteDuplicates[Last/@(Cases[model["Species"]/.model["InitialConditions"],Except[$MASS$speciesPattern]])];
+	volumeUnits = DeleteDuplicates[Last/@Cases[(parameter["Volume",#]&/@getCompartments[model]/.model["Parameters"]/.(_parameter->1 Liter)),_Unit]];
+    concUnits = DeleteDuplicates[Last/@(Cases[model["Species"]/.model["InitialConditions"],_Unit])];
 	unitList=Join[unitList,Flatten[volumeUnits*#&/@concUnits]];
 	(* Remove duplicates and flatten list *)
 	unitList=DeleteDuplicates[Flatten[unitList]];
