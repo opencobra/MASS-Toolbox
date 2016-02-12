@@ -12,7 +12,7 @@ Begin["`Private`"]
 Needs["AutomaticUnits`"]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*IO*)
 
 
@@ -92,7 +92,7 @@ mat2model[path_String]:=Module[{stuff},
 mat2model[]:=mat2model[SystemDialogInput["FileOpen"]];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*SBML import*)
 
 
@@ -160,19 +160,21 @@ Switch[#[[1]],
 getListOfRules[xml_/;Head[xml]===XMLObject["Document"],id2massID:{(_String->(_parameter|_parameter[t]|_species|_species[t]|_Symbol|_?NumberQ))..}]:=parseRuleXML[#,id2massID]&/@extractXMLelement[xml,"listOfRules",2]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*listOfFunctionDefinitions*)
 
 
 (*parseFunctionXML[XMLElement["functionDefinition",attrVal:{_Rule..},mathML_List]]:=("id"/.Dispatch[attrVal])->mathML2mass[extractXMLelement[mathML,"math",0][[1]]]*)
-parseFunctionXML[XMLElement["functionDefinition",attrVal:{_Rule..},mathML_List]]:=("id"/.Dispatch[attrVal])->XML`MathML`SymbolicMathMLToExpression[extractXMLelement[mathML,"math",0][[1]]/.s_String:>StringReplace[s,"_"->"$UNDRSCR$s"]]
+parseFunctionXML[XMLElement["functionDefinition",attrVal:{_Rule..},mathML_List]]:=("id"/.Dispatch[attrVal])->XML`MathML`SymbolicMathMLToExpression[extractXMLelement[mathML,"math",0][[1]]/.s_String:>StringReplace[s,"_"->"$UNDRSCR$"]]
 
-getListOfFunctionDefinitions[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:=Module[{},
-parseFunctionXML/@extractXMLelement[xml,"listOfFunctionDefinitions",2]
+getListOfFunctionDefinitions[xml_/;Head[xml]===XMLObject["Document"],opts:OptionsPattern[]]:=Module[{list,customFunctions},
+    list = parseFunctionXML/@extractXMLelement[xml,"listOfFunctionDefinitions",2];
+    customFunctions = Symbol[StringReplace[First[#],"_"->"$UNDRSCR$"]]->Last[#]&/@list;
+    list//.customFunctions
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*listOfUnitDefinitions*)
 
 
@@ -200,7 +202,7 @@ parseUnitDefinitionXML[XMLElement["unitDefinition",attrVal:{_Rule..},listOfUnits
 			],DeclareUnit["stub"<>ToString[Unique[]],
 				(parseListOfUnitsXML[extractXMLelement[listOfUnits,"listOfUnits",0][[1]]])
 			],{Symbol::symname}
-		],{Unit::exists}
+		],{Unit::exists,General::shdw,Message::name}
 	]
 ];
 
@@ -449,7 +451,7 @@ extractAnnotation[xml_,level_Integer]:=Module[{annotation},
 ];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*main*)
 
 
@@ -545,8 +547,9 @@ constParam,speciesIDs2names,modelID,modelName,notes,modelStuff,hasOnlySubstanceU
 		modelName=query["name",modelStuff[[2]],modelID];
 		notes=Quiet@Check[ImportString[ExportString[extractXMLelement[modelStuff[[3]],"notes",2][[1]],"XML"],"XHTML"],""];
 		listOfUnitDefinitions=getListOfUnitDefinitions[xml];
+
 		listOfFunctionDefinitions=getListOfFunctionDefinitions[xml](*/.Dispatch[listOfUnitDefinitions]*);
-		
+
 		listOfCompartments=getListOfCompartments[xml];
 		(*compartmentIDs2names=DeleteCases[(#[[1]]->query["name",#[[2]],Undefined]&/@listOfCompartments)/.elem_[t]:>elem,r_Rule/;r[[2]]===Undefined];*)
 		
@@ -684,7 +687,7 @@ Check[sbml2model[Import[path,"XML"],opts],Message[sbml2model::NotExistFile,path]
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*SBML layout*)
 
 
@@ -838,11 +841,11 @@ Module[{modelStuff,modelID,modelName,layouts,layout,height,compartmentGlyphs,spe
 ]
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*SBML export*)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Export*)
 
 
@@ -857,7 +860,7 @@ model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,un
 	localParam=If[MatchQ[#,_List],#[[2]],#]&[getID[#[[1]]]]->(ToString[#[[1]],"SBML"]->(stripUnits[#[[2]]]/.{\[Infinity]->"INF",-\[Infinity]->"-INF"}))&/@FilterRules[model["Parameters"],Cases[ratemapping,pat:$MASS$parametersPattern/;MemberQ[ratemapping[[All,1]],If[MatchQ[#,_List],#[[2]],#]&[getID[pat]]],\[Infinity]]];
 	
 	params=FilterRules[Join[model["Parameters"],model["InitialConditions"]],Cases[Join[ratemapping,stripTime[model["CustomODE"]]],((p_parameter/;!MatchQ[getID[p],_List])|metabolite[_,"Xt"]),\[Infinity]]];
-	
+
 	modelUnits = modelUnits2sbml[model];
 
 	(* MIRIAM Annotations *)
@@ -952,8 +955,8 @@ modelUnits2sbml[model_MASSmodel]:=Module[{unitList,stringUnits,volumeUnits,concU
 	unitList = {};
 	model/.Unit[_,unit_]:>AppendTo[unitList,unit];
 	(* Get the substance units for later by concUnits*volumeUnits *)
-	volumeUnits = DeleteDuplicates[Last/@(parameter["Volume",#]&/@getCompartments[model]/.model["Parameters"]/.(_parameter->1 Liter))];
-	concUnits = DeleteDuplicates[Last/@(Cases[model["Species"]/.model["InitialConditions"],Except[$MASS$speciesPattern]])];
+	volumeUnits = DeleteDuplicates[Last/@Cases[(parameter["Volume",#]&/@getCompartments[model]/.model["Parameters"]/.(_parameter->1 Liter)),_Unit]];
+    concUnits = DeleteDuplicates[Last/@(Cases[model["Species"]/.model["InitialConditions"],_Unit])];
 	unitList=Join[unitList,Flatten[volumeUnits*#&/@concUnits]];
 	(* Remove duplicates and flatten list *)
 	unitList=DeleteDuplicates[Flatten[unitList]];
