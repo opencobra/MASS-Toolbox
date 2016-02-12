@@ -442,7 +442,7 @@ False]\\)\"\>",
  FontSize:>CurrentValue["PanelFontSize"]]
 },
 WindowSize->All,
-WindowMargins->{{57, Automatic}, {Automatic, 128}},
+WindowMargins->{{283, Automatic}, {21, Automatic}},
 WindowElements->{},
 DynamicUpdating->True,
 Magnification->1.,
@@ -469,4 +469,3 @@ Cell[559, 20, 15353, 421, 266, InheritFromParent,
 *)
 
 (* End of internal cache information *)
-

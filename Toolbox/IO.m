@@ -41,7 +41,7 @@ importModel[path_String,opts:OptionsPattern[]]:=Module[{stuff},
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Matlab*)
 
 
@@ -64,14 +64,21 @@ mat2model[stuff:{_Rule...}]:=Module[{modelStructsFound,rxnIDs,irrev,constr,gpr,g
 		constr=Thread[Rule[rxnIDs,Thread[{Flatten["lb"/.struct[[2]]],Flatten["ub"/.struct[[2]]]}]]];
 		grRules=Flatten["grRules"/.struct[[2]]/."grRules"->{}];
 		gpr=If[grRules==={},{},grRules2gpr[grRules,rxnIDs]];
-		struct[[1]]->constructModel["S"/.struct[[2]],
+		{"S"/.struct[[2]],
+			str2mass[#]&/@Flatten["mets"/.struct[[2]]],
+			rxnIDs,
+			"Irreversible"->irrev,
+			"ID"->struct[[1]],
+			"Name"->("description"/.struct[[2]]/."description"->""),
+			"Constraints"->constr,"GPR"->gpr}
+		(*struct[[1]]->constructModel["S"/.struct[[2]],
 			str2mass[#]&/@Flatten["mets"/.struct[[2]]],
 			rxnIDs,
 			"Irreversible"->irrev,
 			"ID"->struct[[1]],
 			"Name"->("description"/.struct[[2]]/."description"->""),
 			"Constraints"->constr,"GPR"->gpr
-			]
+			]*)
 	,{struct,modelStructsFound}]
 ];
 
