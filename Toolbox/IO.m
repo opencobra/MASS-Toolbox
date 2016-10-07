@@ -41,7 +41,7 @@ importModel[path_String,opts:OptionsPattern[]]:=Module[{stuff},
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Matlab*)
 
 
@@ -877,11 +877,11 @@ model2sbml[model_MASSmodel,opts:OptionsPattern[]]:=Module[{species,modelUnits,un
 			]&/@(Last/@modelUnits)
 		]
 	];
-
-	unitRules = (#[[1]]->StringJoin[#[[2]]])&/@modelUnits;
+	
+	unitRules = Append[(#[[1]]->StringJoin[#[[2]]])&/@modelUnits,1->"dimensionless"];
 
 	(* Compartments *)
-	comps = Union[getCompartments[model],Cases[First/@model["Parameters"],parameter["Volume",c_]:>c]];
+	comps = DeleteCases[Union[getCompartments[model],Cases[First/@model["Parameters"],parameter["Volume",c_]:>c]],None];
 	If[comps != {},
 		AppendTo[listOfStuff,
 			XMLElement["listOfCompartments",{},compartments2sbml[#,model,unitRules,OptionValue["Annotations"]]&/@comps]
@@ -943,8 +943,9 @@ unitStringList2sbml[{unit_String}]:=unitStringList2sbml[{unit,"1"}];
 unitStringList2sbml[unit_String]:=unitStringList2sbml[{unit,"1"}];
 
 unitStringList2sbml[{unit_String,exponent_String}]:=Module[{compatibility,destinationUnit,rawmult,multiplier},
-	compatibility=Quiet[DimensionCompatibleUnitQ[Unit[unit],#]]&/@(First/@mathematica2SBMLBaseUnit);
+	compatibility=Quiet[AutomaticUnits`private`DimensionCompatibleUnitQ[Unit[unit],#]]&/@(First/@mathematica2SBMLBaseUnit);
 	destinationUnit=First@Pick[First/@mathematica2SBMLBaseUnit,compatibility];
+	
 	rawmult = First[Convert[Unit[unit],destinationUnit]];
 	multiplier=ToString[rawmult^ToExpression[exponent],"SBML"];
 	XMLElement["unit",{"kind"->destinationUnit/.mathematica2SBMLBaseUnit,"exponent"->exponent,"scale"->"0","multiplier"->multiplier},{}]
@@ -1028,6 +1029,7 @@ parameter2sbml[param_,model_MASSmodel,unitRules:{_Rule...},miriam_?BooleanQ]:=Mo
 	name=ToString[param[[1]],"SBML"];
 	value = ToString[stripUnits[param[[2]]],"SBML"];
 	units = Replace[getUnit[param[[2]]],unitRules];
+	
 	XMLElement["parameter",
 		{"id"->name,"name"->name,"value"->value,"units"->units,"constant"->constant},
 		If[miriam,
