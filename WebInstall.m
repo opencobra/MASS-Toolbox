@@ -40,8 +40,7 @@ Module[{version,directory,fileName,url,progFunction,task1,task2,newDirectory,ins
 	Global`progress= 0.;
 	Monitor[Null,Null];
 	progFunction[_, "progress", {dlnow_, dltotal_, _, _}]:= Quiet[Global`progress = dlnow/dltotal];
-	task1=URLSaveAsynchronous[url, fileName, progFunction, "Progress"->True];
-	Monitor[WaitAsynchronousTask[task1],Dynamic[If[NumberQ[Global`progress],ProgressIndicator[Global`progress],""]]];
+	task1=URLDownload[url, fileName];
 	Print["Download Complete!"];
 
 	(* Extract files *)
