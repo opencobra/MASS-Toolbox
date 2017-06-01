@@ -1,217 +1,164 @@
 Notebook[{
-Cell[TextData[{
- "New in: ",
- Cell["XX", "HistoryData",
-  CellTags->"New"],
- " | Modified in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Modified"],
- " | Obsolete in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Obsolete"],
- " | Excised in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Excised"]
-}], "History",
- CellID->1247902091],
-
-Cell[CellGroupData[{
-
-Cell["Categorization", "CategorizationSection",
- CellID->1122911449],
-
-Cell["Symbol", "Categorization",
- CellLabel->"Entity Type",
- CellID->686433507],
-
-Cell["Toolbox Package", "Categorization",
- CellLabel->"Paclet Name",
- CellID->1428673650],
-
-Cell["Toolbox`", "Categorization",
- CellLabel->"Context",
- CellID->703378443],
-
-Cell["Toolbox/ref/deleteGenes", "Categorization",
- CellLabel->"URI",
- CellID->1931498413]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Keywords", "KeywordsSection",
- CellID->477174294],
-
-Cell["XXXX", "Keywords",
- CellID->1164421360]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Syntax Templates", "TemplatesSection",
- CellID->1872225408],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Additional Function Template",
- CellID->1562036412],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Arguments Pattern",
- CellID->158391909],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Local Variables",
- CellID->1360575930],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Color Equal Signs",
- CellID->793782254]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Details", "DetailsSection",
- CellID->307771771],
-
-Cell["XXXX", "Details",
- CellLabel->"Lead",
- CellID->670882175],
-
-Cell["XXXX", "Details",
- CellLabel->"Developers",
- CellID->350963985],
-
-Cell["XXXX", "Details",
- CellLabel->"Authors",
- CellID->8391405],
-
-Cell["XXXX", "Details",
- CellLabel->"Feature Name",
- CellID->3610269],
-
-Cell["XXXX", "Details",
- CellLabel->"QA",
- CellID->401364205],
-
-Cell["XXXX", "Details",
- CellLabel->"DA",
- CellID->350204745],
-
-Cell["XXXX", "Details",
- CellLabel->"Docs",
- CellID->732958810],
-
-Cell["XXXX", "Details",
- CellLabel->"Features Page Notes",
- CellID->222905350],
-
-Cell["XXXX", "Details",
- CellLabel->"Comments",
- CellID->240026365]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["deleteGenes", "ObjectName",
- CellID->1224892054],
+Cell[BoxData[GridBox[{
+   {Cell["TOOLBOX PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "See Also",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"See Also", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"deleteProteins\"\>":>
+       Documentation`HelpLookup[
+       "paclet:Toolbox/ref/deleteProteins"], "\<\"deleteSpecies\"\>":>
+       Documentation`HelpLookup[
+       "paclet:Toolbox/ref/deleteSpecies"], "\<\"deleteReactions\"\>":>
+       Documentation`HelpLookup["paclet:Toolbox/ref/deleteReactions"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"SeeAlso"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Toolbox/ref/deleteGenes\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["Toolbox/ref/deleteGenes"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/Toolbox/ref/\
+deleteGenes.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$13237], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "Toolbox/ref/deleteGenes", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
 
 Cell[TextData[{
- Cell["   ", "ModInfo"],
- "deleteGenes[model, genes]",
- "\[LineSeparator]deletes genes from model. Depending reactions and proteins \
-are also removed."
-}], "Usage"],
+ Cell["deleteGenes", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
 
-Cell["XXXX", "Notes",
- CellID->1067943069]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Tutorials", "TutorialsSection",
- CellID->250839057],
-
-Cell["XXXX", "Tutorials",
- CellID->341631938]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Demonstrations", "RelatedDemonstrationsSection",
- CellID->1268215905],
-
-Cell["XXXX", "RelatedDemonstrations",
- CellID->1129518860]
-}, Open  ]],
+Cell[BoxData[GridBox[{
+   {"", Cell["\<\
+deleteGenes[model, genes]\[LineSeparator]deletes genes from model. Depending \
+reactions and proteins are also removed.\
+\>"]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}}],
 
 Cell[CellGroupData[{
 
-Cell["Related Links", "RelatedLinksSection",
- CellID->1584193535],
-
-Cell["XXXX", "RelatedLinks",
- CellID->1038487239]
-}, Open  ]],
+Cell["", "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[{
+        Cell[
+         BoxData[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, BaselinePosition -> Baseline, 
+             ImageSize -> {6, 0}], CacheGraphics -> False], 
+           Spacer[6]]]], "Examples", "\[NonBreakingSpace]\[NonBreakingSpace]", 
+        Cell["(1)", "ExampleCount"]}], "PrimaryExamplesSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[{
+       Cell[
+        BoxData[
+         InterpretationBox[
+          StyleBox[
+           GraphicsBox[{}, BaselinePosition -> Baseline, ImageSize -> {6, 0}],
+            CacheGraphics -> False], 
+          Spacer[6]]]], "Examples", "\[NonBreakingSpace]\[NonBreakingSpace]", 
+       
+       Cell["(1)", "ExampleCount"]}]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellTags->"PrimaryExamplesSection",
+ CellID->257464993],
 
 Cell[CellGroupData[{
-
-Cell["See Also", "SeeAlsoSection",
- CellID->1255426704],
 
 Cell[TextData[{
- Cell[BoxData[
-  ButtonBox["deleteProteins",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/deleteProteins"]], "InlineFormula"],
- "\[NonBreakingSpace]",
- StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
-  "InlineSeparator"],
- " ",
- Cell[BoxData[
-  ButtonBox["deleteSpecies",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/deleteSpecies"]], "InlineFormula"],
- "\[NonBreakingSpace]",
- StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
-  "InlineSeparator"],
- " ",
- Cell[BoxData[
-  ButtonBox["deleteReactions",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/deleteReactions"]], "InlineFormula"]
-}], "SeeAlso",
- CellChangeTimes->{{3.562344788194339*^9, 3.5623448624116*^9}},
- CellID->929782353]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["More About", "MoreAboutSection",
- CellID->38303248],
-
-Cell["XXXX", "MoreAbout",
- CellID->1665078683]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[GridBox[{
-    {
-     StyleBox["Examples", "PrimaryExamplesSection"], 
-     ButtonBox[
-      RowBox[{
-       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
-      BaseStyle->"ExtendedExamplesLink",
-      ButtonData:>"ExtendedExamples"]}
-   }],
-  $Line = 0; Null]], "PrimaryExamplesSection",
- CellID->880084151],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->34588646],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.562334208889278*^9, 3.562334224176997*^9}},
- CellLabel->"In[22]:=",
+ CellLabel->"In[1]:=",
  CellID->266098833],
 
 Cell[CellGroupData[{
@@ -221,19 +168,19 @@ Cell[BoxData[{
   RowBox[{"ecoli", "=", 
    RowBox[{"ExampleData", "[", 
     RowBox[{"{", 
-     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<EcoliCore\>\""}], "}"}], 
-    "]"}]}], ";"}], "\[IndentingNewLine]", 
+     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<EcoliCore\>\""}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{"ecoli", "//", "Dimensions"}]}], "Input",
- CellChangeTimes->{{3.562334204495352*^9, 3.5623342410251627`*^9}, {
-  3.562335553594967*^9, 3.5623355598510857`*^9}},
- CellLabel->"In[29]:=",
+ CellLabel->"In[2]:=",
  CellID->228985351],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"74", ",", "98"}], "}"}]], "Output",
- CellChangeTimes->{3.562335560233473*^9},
- CellLabel->"Out[30]=",
+ ImageSize->{57, 16},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
  CellID->1001617146]
 }, Open  ]],
 
@@ -247,16 +194,12 @@ Cell[BoxData[
      RowBox[{"ecoli", "[", "\"\<GPR\>\"", "]"}], "]"}]}], ",", "3", ",", 
    "\[IndentingNewLine]", 
    RowBox[{"AppearanceElements", "\[Rule]", "All"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.562334242795143*^9, 3.5623342635215197`*^9}, {
-  3.562334302514502*^9, 3.562334337340241*^9}, {3.5623343930518227`*^9, 
-  3.5623344011166*^9}, {3.562335454457283*^9, 3.562335460790647*^9}, {
-  3.5623354983317547`*^9, 3.56233551421031*^9}},
- CellLabel->"In[26]:=",
+ CellLabel->"In[3]:=",
  CellID->1262133177],
 
 Cell[BoxData[
  TagBox[
-  DynamicModuleBox[{Typeset`var$$ = 3}, 
+  DynamicModuleBox[{Typeset`var$$ = 1}, 
    InterpretationBox[
     TagBox[
      PanelBox[GridBox[{
@@ -370,12 +313,14 @@ Cell[BoxData[
                    Offset[0.4]}, 
                   Offset[0.2]}, "RowsIndexed" -> {}}], 
              AnimatorBox[Dynamic[Typeset`var$$], {1, 58, 1},
+              AnimationRunTime->0.,
+              AnimationRunning->False,
+              AnimationTimeIndex->0.,
               
               AppearanceElements->{
                "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
                 "DirectionButton"},
-              Enabled->Automatic,
-              PausedTime->0], 
+              Enabled->Automatic], 
              StyleBox[
               TemplateBox[{DynamicBox[
                  ToBoxes[Typeset`var$$, StandardForm], 
@@ -555,8 +500,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {1., 1.}, {2., 
@@ -659,8 +603,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {-1., 0.}, {0., 0.}, {1., 
@@ -813,8 +756,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {1., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {1., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {2., 
@@ -942,8 +884,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {1., 1.}, {1., 
@@ -1030,8 +971,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -1277,8 +1217,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {2., 1.}, {2., 
@@ -1365,8 +1304,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -1654,8 +1592,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {-1., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {-1., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 
@@ -1742,8 +1679,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -1906,8 +1842,7 @@ Cell[BoxData[
                     Background->GrayLevel[0.85]],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {1., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {1., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 
@@ -2027,8 +1962,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {1., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {1., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 
@@ -2115,8 +2049,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -2268,8 +2201,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {1., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {1., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {2., 
@@ -2389,8 +2321,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {1., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {1., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 
@@ -2433,8 +2364,8 @@ Cell[BoxData[
              Ticks->Automatic,
              TicksStyle->{}], 15->
             GraphicsBox[
-             
-             TagBox[GraphicsGroupBox[{
+             TagBox[
+              GraphicsGroupBox[{
                 GraphicsComplexBox[{{0., 1.}, {0., 0.}, {1., 1.}, {1., 0.}, {
                  0., 2.}, {1., 2.}}, 
                  {GrayLevel[0], 
@@ -2518,8 +2449,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {1., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {1., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {1., 1.}, {1., 
@@ -2653,8 +2583,7 @@ Cell[BoxData[
                     Background->GrayLevel[0.85]],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -3049,8 +2978,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {2., 1.}, {2., 
@@ -3204,8 +3132,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {2., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {2., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {2., 
@@ -3307,8 +3234,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {-1., 0.}, {0., 0.}, {1., 
@@ -3395,8 +3321,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -3482,8 +3407,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -3637,8 +3561,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {1., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {1., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {-1., 2.}, {0., 
@@ -3758,8 +3681,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {1., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {1., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 
@@ -3846,8 +3768,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -3999,8 +3920,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {2., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {2., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {2., 
@@ -4109,8 +4029,7 @@ Cell[BoxData[
                     Background->GrayLevel[0.85]],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -4196,8 +4115,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -4283,8 +4201,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -4370,8 +4287,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -4457,8 +4373,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -4544,8 +4459,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -4664,8 +4578,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {1., 
@@ -4785,8 +4698,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {1., 
@@ -4873,8 +4785,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -4960,8 +4871,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -5047,8 +4957,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -5292,8 +5201,7 @@ Cell[BoxData[
                     Background->GrayLevel[0.85]],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -5442,8 +5350,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {-1., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {-1., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {-1., 0.}, {-1., 1.}, {0., 
@@ -5530,8 +5437,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -5650,8 +5556,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {1., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {1., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 
@@ -5925,8 +5830,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {2., 0.}, {1., 1.}, {2., 
@@ -6013,8 +5917,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -6100,8 +6003,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -6187,8 +6089,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -6340,8 +6241,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {2., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {2., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {2., 
@@ -6461,8 +6361,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {1., 
@@ -6549,8 +6448,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -6636,8 +6534,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -6723,8 +6620,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -6843,8 +6739,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {1., 
@@ -6964,8 +6859,8 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {1., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {1., 2.}]}}],
+              
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 
                 2.}, {1., 2.}}]& ],
@@ -7084,8 +6979,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {1., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {1., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 
@@ -7205,8 +7099,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {1., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {1., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 
@@ -7340,8 +7233,7 @@ Cell[BoxData[
                     Background->GrayLevel[0.85]],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -7449,8 +7341,7 @@ Cell[BoxData[
                     Background->GrayLevel[0.85]],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -7569,8 +7460,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {1., 
@@ -7698,8 +7588,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {1., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {1., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {1., 1.}, {1., 
@@ -7786,8 +7675,7 @@ Cell[BoxData[
                     Selectable->False],
                     StandardForm],
                    StandardForm,
-                   Editable->True], {0., 2.}]}},
-               ContentSelectable->True],
+                   Editable->True], {0., 2.}]}}],
               
               Annotation[#, 
                VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}]& ],
@@ -7890,23 +7778,23 @@ Cell[BoxData[
               Toolbox`gene["b0356", None]], {2., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b0351", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {1., 1.}, {2., 1.}, {2.,
-          0.}, {3., 1.}, {1., 2.}, {3., 2.}, {2., 2.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b0351", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {1., 1.}, {2., 
+         1.}, {2., 0.}, {3., 1.}, {1., 2.}, {3., 2.}, {2., 2.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -7935,15 +7823,14 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {1., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["s0001", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {-1., 0.}, {0., 0.}, {1., 0.}, {
-         0., 2.}}], FrameTicks -> None, PlotRange -> All, PlotRangePadding -> 
-       Scaled[0.1], AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> 
-       False, AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
-       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
-       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
-       CoordinatesToolOptions -> Automatic, 
+              Toolbox`gene["s0001", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {-1., 0.}, {0., 0.}, {1., 
+         0.}, {0., 2.}}], FrameTicks -> None, PlotRange -> All, 
+       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+       AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
+       Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
+       Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
+       ContentSelectable -> Automatic, CoordinatesToolOptions -> Automatic, 
        DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
        TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
        FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
@@ -7984,11 +7871,10 @@ Cell[BoxData[
               Toolbox`gene["b1849", None]], {2., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b3115", None]], {1., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {2., 1.}, {0.,
-          2.}, {2., 2.}, {1., 2.}}], FrameTicks -> None, PlotRange -> All, 
-       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+              Toolbox`gene["b3115", None]], {1., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {2., 
+         1.}, {0., 2.}, {2., 2.}, {1., 2.}}], FrameTicks -> None, PlotRange -> 
+       All, PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
        AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
        Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
        Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
@@ -8004,7 +7890,6 @@ Cell[BoxData[
       Graphics[
        Annotation[
         GraphicsGroup[{
-          
           GraphicsComplex[{{0., 1.}, {0., 0.}, {1., 1.}, {1., 0.}, {1., 2.}, {
            0., 2.}}, {
             RGBColor[0.5, 0., 0.], 
@@ -8031,10 +7916,9 @@ Cell[BoxData[
               Toolbox`gene["b1276", None]], {1., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b0118", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {1., 1.}, {1., 0.}, {1.,
-          2.}, {0., 2.}}], FrameTicks -> None, PlotRange -> All, 
+              Toolbox`gene["b0118", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {1., 1.}, {1., 
+         0.}, {1., 2.}, {0., 2.}}], FrameTicks -> None, PlotRange -> All, 
        PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
        AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
        Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
@@ -8065,22 +7949,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b0474", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b0474", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -8127,11 +8011,10 @@ Cell[BoxData[
               Toolbox`gene["b0726", None]], {-1., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b0727", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {2., 1.}, {2., 0.}, {2.,
-          2.}, {3., 2.}, {1., 2.}, {-1., 2.}, {0., 2.}}], FrameTicks -> None, 
-       PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
+              Toolbox`gene["b0727", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {2., 1.}, {2., 
+         0.}, {2., 2.}, {3., 2.}, {1., 2.}, {-1., 2.}, {0., 2.}}], FrameTicks -> 
+       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
        Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
        AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
        BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
@@ -8161,22 +8044,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b2587", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b2587", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -8219,10 +8102,9 @@ Cell[BoxData[
                Toolbox`gene["b3735", None]]], {1., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b3739", None]], {-1., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 2.}, {1.,
-          2.}, {-1., 2.}}], FrameTicks -> None, PlotRange -> All, 
+              Toolbox`gene["b3739", None]], {-1., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 
+         2.}, {1., 2.}, {-1., 2.}}], FrameTicks -> None, PlotRange -> All, 
        PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
        AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
        Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
@@ -8253,22 +8135,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b0720", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b0720", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -8297,8 +8179,8 @@ Cell[BoxData[
              StandardForm[
               Toolbox`geneComplex[
                Toolbox`gene["b0733", None], 
-               Toolbox`gene["b0734", None]]], {1., 2.}]}}}, 
-         ContentSelectable -> True], 
+               Toolbox`gene["b0734", None]]], {1., 2.}]}}}, ContentSelectable -> 
+         True], 
         VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 2.}, {1.,
           2.}}], FrameTicks -> None, PlotRange -> All, PlotRangePadding -> 
        Scaled[0.1], AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> 
@@ -8338,8 +8220,8 @@ Cell[BoxData[
               Toolbox`gene["b2975", None]], {0., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b3603", None]], {1., 2.}]}}}, 
-         ContentSelectable -> True], 
+              Toolbox`gene["b3603", None]], {1., 2.}]}}}, ContentSelectable -> 
+         True], 
         VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 2.}, {1.,
           2.}}], FrameTicks -> None, PlotRange -> All, PlotRangePadding -> 
        Scaled[0.1], AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> 
@@ -8372,22 +8254,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b2779", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b2779", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -8420,11 +8302,10 @@ Cell[BoxData[
               Toolbox`gene["b2925", None]], {0., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b2097", None]], {1., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {2., 1.}, {2.,
-          2.}, {0., 2.}, {1., 2.}}], FrameTicks -> None, PlotRange -> All, 
-       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+              Toolbox`gene["b2097", None]], {1., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {2., 
+         1.}, {2., 2.}, {0., 2.}, {1., 2.}}], FrameTicks -> None, PlotRange -> 
+       All, PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
        AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
        Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
        Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
@@ -8461,15 +8342,14 @@ Cell[BoxData[
               Toolbox`gene["b4232", None]], {0., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b3925", None]], {1., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 2.}, {1.,
-          2.}}], FrameTicks -> None, PlotRange -> All, PlotRangePadding -> 
-       Scaled[0.1], AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> 
-       False, AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
-       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
-       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
-       CoordinatesToolOptions -> Automatic, 
+              Toolbox`gene["b3925", None]], {1., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 
+         2.}, {1., 2.}}], FrameTicks -> None, PlotRange -> All, 
+       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+       AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
+       Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
+       Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
+       ContentSelectable -> Automatic, CoordinatesToolOptions -> Automatic, 
        DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
        TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
        FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
@@ -8508,10 +8388,9 @@ Cell[BoxData[
               Toolbox`gene["b0904", None]], {0., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b2492", None]], {1., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {1., 1.}, {1., 0.}, {0.,
-          2.}, {1., 2.}}], FrameTicks -> None, PlotRange -> All, 
+              Toolbox`gene["b2492", None]], {1., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {1., 1.}, {1., 
+         0.}, {0., 2.}, {1., 2.}}], FrameTicks -> None, PlotRange -> All, 
        PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
        AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
        Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
@@ -8546,22 +8425,22 @@ Cell[BoxData[
                Toolbox`gene["b4151", None], 
                Toolbox`gene["b4152", None], 
                Toolbox`gene["b4153", None], 
-               Toolbox`gene["b4154", None]]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+               Toolbox`gene["b4154", None]]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -8629,12 +8508,11 @@ Cell[BoxData[
               Toolbox`gene["b1818", None]], {-1., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b1819", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {2., 1.}, {2., 0.}, {3.,
-          1.}, {4., 2.}, {1., 2.}, {2., 2.}, {3., 2.}, {5., 2.}, {-2., 
-         2.}, {-1., 2.}, {0., 2.}}], FrameTicks -> None, PlotRange -> All, 
-       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+              Toolbox`gene["b1819", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {2., 1.}, {2., 
+         0.}, {3., 1.}, {4., 2.}, {1., 2.}, {2., 2.}, {3., 2.}, {5., 
+         2.}, {-2., 2.}, {-1., 2.}, {0., 2.}}], FrameTicks -> None, PlotRange -> 
+       All, PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
        AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
        Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
        Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
@@ -8679,11 +8557,10 @@ Cell[BoxData[
               Toolbox`gene["b4122", None]], {1., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b1611", None]], {2., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {2., 1.}, {0.,
-          2.}, {1., 2.}, {2., 2.}}], FrameTicks -> None, PlotRange -> All, 
-       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+              Toolbox`gene["b1611", None]], {2., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {2., 
+         1.}, {0., 2.}, {1., 2.}, {2., 2.}}], FrameTicks -> None, PlotRange -> 
+       All, PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
        AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
        Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
        Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
@@ -8724,15 +8601,14 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {1., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b3528", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {-1., 0.}, {0., 0.}, {1., 0.}, {
-         0., 2.}}], FrameTicks -> None, PlotRange -> All, PlotRangePadding -> 
-       Scaled[0.1], AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> 
-       False, AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
-       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
-       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
-       CoordinatesToolOptions -> Automatic, 
+              Toolbox`gene["b3528", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {-1., 0.}, {0., 0.}, {1., 
+         0.}, {0., 2.}}], FrameTicks -> None, PlotRange -> All, 
+       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+       AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
+       Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
+       Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
+       ContentSelectable -> Automatic, CoordinatesToolOptions -> Automatic, 
        DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
        TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
        FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
@@ -8758,22 +8634,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b1852", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b1852", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -8791,22 +8667,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b1779", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b1779", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -8836,15 +8712,14 @@ Cell[BoxData[
               Toolbox`gene["b0810", None]], {0., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b0809", None]], {1., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {-1., 2.}, {0., 2.}, {
-         1., 2.}}], FrameTicks -> None, PlotRange -> All, PlotRangePadding -> 
-       Scaled[0.1], AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> 
-       False, AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
-       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
-       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
-       CoordinatesToolOptions -> Automatic, 
+              Toolbox`gene["b0809", None]], {1., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {-1., 2.}, {0., 
+         2.}, {1., 2.}}], FrameTicks -> None, PlotRange -> All, 
+       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+       AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
+       Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
+       Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
+       ContentSelectable -> Automatic, CoordinatesToolOptions -> Automatic, 
        DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
        TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
        FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
@@ -8877,15 +8752,14 @@ Cell[BoxData[
               Toolbox`gene["b3870", None]], {0., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b1297", None]], {1., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 2.}, {1.,
-          2.}}], FrameTicks -> None, PlotRange -> All, PlotRangePadding -> 
-       Scaled[0.1], AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> 
-       False, AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
-       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
-       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
-       CoordinatesToolOptions -> Automatic, 
+              Toolbox`gene["b1297", None]], {1., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 
+         2.}, {1., 2.}}], FrameTicks -> None, PlotRange -> All, 
+       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+       AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
+       Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
+       Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
+       ContentSelectable -> Automatic, CoordinatesToolOptions -> Automatic, 
        DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
        TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
        FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
@@ -8911,22 +8785,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b1761", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b1761", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -8959,11 +8833,10 @@ Cell[BoxData[
               Toolbox`gene["b0485", None]], {1., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b1524", None]], {2., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {2., 1.}, {0.,
-          2.}, {1., 2.}, {2., 2.}}], FrameTicks -> None, PlotRange -> All, 
-       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+              Toolbox`gene["b1524", None]], {2., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {2., 
+         1.}, {0., 2.}, {1., 2.}, {2., 2.}}], FrameTicks -> None, PlotRange -> 
+       All, PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
        AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
        Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
        Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
@@ -8995,22 +8868,22 @@ Cell[BoxData[
              StandardForm[
               Toolbox`geneComplex[
                Toolbox`gene["b3212", None], 
-               Toolbox`gene["b3213", None]]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+               Toolbox`gene["b3213", None]]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -9028,22 +8901,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b4077", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b4077", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -9061,22 +8934,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b2029", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b2029", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -9094,22 +8967,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b0875", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b0875", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -9127,22 +9000,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b1136", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b1136", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -9160,22 +9033,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b4015", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b4015", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -9200,15 +9073,14 @@ Cell[BoxData[
               Toolbox`gene["b2133", None]], {1., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b1380", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {1., 2.}, {0.,
-          2.}}], FrameTicks -> None, PlotRange -> All, PlotRangePadding -> 
-       Scaled[0.1], AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> 
-       False, AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
-       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
-       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
-       CoordinatesToolOptions -> Automatic, 
+              Toolbox`gene["b1380", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {1., 
+         2.}, {0., 2.}}], FrameTicks -> None, PlotRange -> All, 
+       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+       AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
+       Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
+       Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
+       ContentSelectable -> Automatic, CoordinatesToolOptions -> Automatic, 
        DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
        TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
        FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
@@ -9241,15 +9113,14 @@ Cell[BoxData[
               Toolbox`gene["b4014", None]], {1., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b2976", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {1., 2.}, {0.,
-          2.}}], FrameTicks -> None, PlotRange -> All, PlotRangePadding -> 
-       Scaled[0.1], AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> 
-       False, AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
-       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
-       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
-       CoordinatesToolOptions -> Automatic, 
+              Toolbox`gene["b2976", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {1., 
+         2.}, {0., 2.}}], FrameTicks -> None, PlotRange -> All, 
+       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+       AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
+       Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
+       Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
+       ContentSelectable -> Automatic, CoordinatesToolOptions -> Automatic, 
        DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
        TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
        FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
@@ -9275,22 +9146,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b3236", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b3236", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -9308,22 +9179,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b1479", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b1479", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -9341,22 +9212,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b2463", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b2463", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -9387,22 +9258,22 @@ Cell[BoxData[
                Toolbox`gene["b2285", None], 
                Toolbox`gene["b2286", None], 
                Toolbox`gene["b2287", None], 
-               Toolbox`gene["b2288", None]]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+               Toolbox`gene["b2288", None]]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -9435,10 +9306,9 @@ Cell[BoxData[
                Toolbox`gene["b1603", None]]], {0., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b3962", None]], {-1., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {-1., 0.}, {-1., 1.}, {0., 0.}, {
-         0., 2.}, {-1., 2.}}], FrameTicks -> None, PlotRange -> All, 
+              Toolbox`gene["b3962", None]], {-1., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {-1., 0.}, {-1., 1.}, {0.,
+          0.}, {0., 2.}, {-1., 2.}}], FrameTicks -> None, PlotRange -> All, 
        PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
        AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
        Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
@@ -9469,22 +9339,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b0451", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b0451", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -9509,15 +9379,14 @@ Cell[BoxData[
               Toolbox`gene["b3916", None]], {0., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b1723", None]], {1., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 2.}, {1.,
-          2.}}], FrameTicks -> None, PlotRange -> All, PlotRangePadding -> 
-       Scaled[0.1], AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> 
-       False, AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
-       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
-       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
-       CoordinatesToolOptions -> Automatic, 
+              Toolbox`gene["b1723", None]], {1., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 
+         2.}, {1., 2.}}], FrameTicks -> None, PlotRange -> All, 
+       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+       AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
+       Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
+       Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
+       ContentSelectable -> Automatic, CoordinatesToolOptions -> Automatic, 
        DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
        TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
        FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
@@ -9573,11 +9442,10 @@ Cell[BoxData[
                Toolbox`gene["b3114", None]]], {2., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b2579", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {2., 0.}, {1., 1.}, {2., 1.}, {3.,
-          1.}, {1., 2.}, {3., 2.}, {2., 2.}, {0., 2.}}], FrameTicks -> None, 
-       PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
+              Toolbox`gene["b2579", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {2., 0.}, {1., 1.}, {2., 
+         1.}, {3., 1.}, {1., 2.}, {3., 2.}, {2., 2.}, {0., 2.}}], FrameTicks -> 
+       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
        Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
        AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
        BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
@@ -9607,22 +9475,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b4025", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b4025", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -9640,22 +9508,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b2926", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b2926", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -9673,22 +9541,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b0767", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b0767", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -9721,11 +9589,10 @@ Cell[BoxData[
               Toolbox`gene["b4395", None]], {0., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b3612", None]], {2., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {2., 1.}, {1.,
-          2.}, {0., 2.}, {2., 2.}}], FrameTicks -> None, PlotRange -> All, 
-       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+              Toolbox`gene["b3612", None]], {2., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {2., 
+         1.}, {1., 2.}, {0., 2.}, {2., 2.}}], FrameTicks -> None, PlotRange -> 
+       All, PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
        AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
        Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
        Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
@@ -9762,15 +9629,14 @@ Cell[BoxData[
               Toolbox`gene["b3493", None]], {1., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b2987", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {1., 2.}, {0.,
-          2.}}], FrameTicks -> None, PlotRange -> All, PlotRangePadding -> 
-       Scaled[0.1], AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> 
-       False, AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
-       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
-       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
-       CoordinatesToolOptions -> Automatic, 
+              Toolbox`gene["b2987", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {1., 
+         2.}, {0., 2.}}], FrameTicks -> None, PlotRange -> All, 
+       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+       AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
+       Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
+       Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
+       ContentSelectable -> Automatic, CoordinatesToolOptions -> Automatic, 
        DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
        TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
        FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
@@ -9796,22 +9662,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b3956", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b3956", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -9829,22 +9695,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b3403", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b3403", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -9862,22 +9728,22 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b1702", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+              Toolbox`gene["b1702", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -9902,15 +9768,14 @@ Cell[BoxData[
               Toolbox`gene["b2458", None]], {1., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b2297", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {1., 2.}, {0.,
-          2.}}], FrameTicks -> None, PlotRange -> All, PlotRangePadding -> 
-       Scaled[0.1], AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> 
-       False, AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
-       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
-       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
-       CoordinatesToolOptions -> Automatic, 
+              Toolbox`gene["b2297", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {1., 
+         2.}, {0., 2.}}], FrameTicks -> None, PlotRange -> All, 
+       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+       AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
+       Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
+       Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
+       ContentSelectable -> Automatic, CoordinatesToolOptions -> Automatic, 
        DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
        TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
        FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
@@ -9943,15 +9808,14 @@ Cell[BoxData[
               Toolbox`gene["b1854", None]], {0., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b1676", None]], {1., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 2.}, {1.,
-          2.}}], FrameTicks -> None, PlotRange -> All, PlotRangePadding -> 
-       Scaled[0.1], AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> 
-       False, AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
-       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
-       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
-       CoordinatesToolOptions -> Automatic, 
+              Toolbox`gene["b1676", None]], {1., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 
+         2.}, {1., 2.}}], FrameTicks -> None, PlotRange -> All, 
+       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+       AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
+       Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
+       Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
+       ContentSelectable -> Automatic, CoordinatesToolOptions -> Automatic, 
        DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
        TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
        FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
@@ -9984,15 +9848,14 @@ Cell[BoxData[
               Toolbox`gene["b3386", None]], {0., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b4301", None]], {1., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 2.}, {1.,
-          2.}}], FrameTicks -> None, PlotRange -> All, PlotRangePadding -> 
-       Scaled[0.1], AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> 
-       False, AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
-       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
-       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
-       CoordinatesToolOptions -> Automatic, 
+              Toolbox`gene["b4301", None]], {1., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 
+         2.}, {1., 2.}}], FrameTicks -> None, PlotRange -> All, 
+       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+       AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
+       Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
+       Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
+       ContentSelectable -> Automatic, CoordinatesToolOptions -> Automatic, 
        DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
        TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
        FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
@@ -10025,15 +9888,14 @@ Cell[BoxData[
               Toolbox`gene["b2914", None]], {0., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b4090", None]], {1., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 2.}, {1.,
-          2.}}], FrameTicks -> None, PlotRange -> All, PlotRangePadding -> 
-       Scaled[0.1], AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> 
-       False, AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
-       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
-       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
-       CoordinatesToolOptions -> Automatic, 
+              Toolbox`gene["b4090", None]], {1., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {0., 
+         2.}, {1., 2.}}], FrameTicks -> None, PlotRange -> All, 
+       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+       AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
+       Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
+       Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
+       ContentSelectable -> Automatic, CoordinatesToolOptions -> Automatic, 
        DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
        TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
        FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
@@ -10063,22 +9925,22 @@ Cell[BoxData[
                Toolbox`gene["b0721", None], 
                Toolbox`gene["b0722", None], 
                Toolbox`gene["b0723", None], 
-               Toolbox`gene["b0724", None]]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+               Toolbox`gene["b0724", None]]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -10098,22 +9960,22 @@ Cell[BoxData[
              StandardForm[
               Toolbox`geneComplex[
                Toolbox`gene["b0728", None], 
-               Toolbox`gene["b0729", None]]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
+               Toolbox`gene["b0729", None]]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}], 
       Graphics[
        Annotation[
         GraphicsGroup[{
@@ -10138,15 +10000,14 @@ Cell[BoxData[
               Toolbox`gene["b2464", None]], {1., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b0008", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {1., 2.}, {0.,
-          2.}}], FrameTicks -> None, PlotRange -> All, PlotRangePadding -> 
-       Scaled[0.1], AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> 
-       False, AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
-       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
-       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
-       CoordinatesToolOptions -> Automatic, 
+              Toolbox`gene["b0008", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {1., 0.}, {1., 1.}, {1., 
+         2.}, {0., 2.}}], FrameTicks -> None, PlotRange -> All, 
+       PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
+       AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
+       Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
+       Automatic, BaseStyle -> {}, ColorOutput -> Automatic, 
+       ContentSelectable -> Automatic, CoordinatesToolOptions -> Automatic, 
        DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
        TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
        FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
@@ -10185,10 +10046,9 @@ Cell[BoxData[
               Toolbox`gene["b2935", None]], {0., 2.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b2465", None]], {1., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {1., 1.}, {1., 0.}, {0.,
-          2.}, {1., 2.}}], FrameTicks -> None, PlotRange -> All, 
+              Toolbox`gene["b2465", None]], {1., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {1., 1.}, {1., 
+         0.}, {0., 2.}, {1., 2.}}], FrameTicks -> None, PlotRange -> All, 
        PlotRangePadding -> Scaled[0.1], AspectRatio -> Automatic, 
        AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, AxesOrigin -> 
        Automatic, AxesStyle -> {}, Background -> None, BaselinePosition -> 
@@ -10219,35 +10079,32 @@ Cell[BoxData[
               FontColor -> GrayLevel[0]], {0., 0.}]}, {
             Inset[
              StandardForm[
-              Toolbox`gene["b3919", None]], {0., 2.}]}}}, 
-         ContentSelectable -> True], 
-        VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], FrameTicks -> 
-       None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], AspectRatio -> 
-       Automatic, AlignmentPoint -> Center, Axes -> False, AxesLabel -> None, 
-       AxesOrigin -> Automatic, AxesStyle -> {}, Background -> None, 
-       BaselinePosition -> Automatic, BaseStyle -> {}, ColorOutput -> 
-       Automatic, ContentSelectable -> Automatic, CoordinatesToolOptions -> 
-       Automatic, DisplayFunction :> $DisplayFunction, Epilog -> {}, 
-       FormatType :> TraditionalForm, Frame -> False, FrameLabel -> None, 
-       FrameStyle -> {}, FrameTicksStyle -> {}, GridLines -> None, 
-       GridLinesStyle -> {}, ImageMargins -> 0., ImagePadding -> All, 
-       ImageSizeRaw -> Automatic, LabelStyle -> {}, PlotLabel -> None, 
-       PlotRangeClipping -> False, PlotRegion -> Automatic, 
-       PreserveImageOptions -> Automatic, Prolog -> {}, RotateLabel -> True, 
-       Ticks -> Automatic, TicksStyle -> {}, ImageSize -> {{800}, {300}}]}, 
-     Typeset`var$$]],
+              Toolbox`gene["b3919", None]], {0., 2.}]}}}, ContentSelectable -> 
+         True], VertexCoordinateRules -> {{0., 1.}, {0., 0.}, {0., 2.}}], 
+       FrameTicks -> None, PlotRange -> All, PlotRangePadding -> Scaled[0.1], 
+       AspectRatio -> Automatic, AlignmentPoint -> Center, Axes -> False, 
+       AxesLabel -> None, AxesOrigin -> Automatic, AxesStyle -> {}, 
+       Background -> None, BaselinePosition -> Automatic, BaseStyle -> {}, 
+       ColorOutput -> Automatic, ContentSelectable -> Automatic, 
+       CoordinatesToolOptions -> Automatic, 
+       DisplayFunction :> $DisplayFunction, Epilog -> {}, FormatType :> 
+       TraditionalForm, Frame -> False, FrameLabel -> None, FrameStyle -> {}, 
+       FrameTicksStyle -> {}, GridLines -> None, GridLinesStyle -> {}, 
+       ImageMargins -> 0., ImagePadding -> All, ImageSizeRaw -> Automatic, 
+       LabelStyle -> {}, PlotLabel -> None, PlotRangeClipping -> False, 
+       PlotRegion -> Automatic, PreserveImageOptions -> Automatic, 
+       Prolog -> {}, RotateLabel -> True, Ticks -> Automatic, 
+       TicksStyle -> {}, ImageSize -> {{800}, {300}}]}, Typeset`var$$]],
    DynamicModuleValues:>{}],
   Setting[#, {0}]& ]], "Output",
- CellChangeTimes->{{3.562334247436219*^9, 3.5623342642407427`*^9}, {
-   3.562334320214026*^9, 3.5623343386123466`*^9}, 3.562334402986691*^9, 
-   3.5623352287877607`*^9, 3.562335462022725*^9, {3.562335500843635*^9, 
-   3.5623355156975937`*^9}},
- CellLabel->"Out[26]=",
+ ImageSize->{829, 353},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
  CellID->1095660339]
 }, Open  ]],
 
 Cell["The gene associations for reaction ACKr", "ExampleText",
- CellChangeTimes->{{3.562336256369117*^9, 3.5623362665989943`*^9}},
  CellID->754042212],
 
 Cell[CellGroupData[{
@@ -10255,8 +10112,7 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"\"\<ACKr\>\"", "/.", 
   RowBox[{"ecoli", "[", "\"\<GeneAssociations\>\"", "]"}]}]], "Input",
- CellChangeTimes->{{3.562335696826233*^9, 3.562335716541695*^9}},
- CellLabel->"In[33]:=",
+ CellLabel->"In[4]:=",
  CellID->2042494913],
 
 Cell[BoxData[
@@ -10294,8 +10150,10 @@ Cell[BoxData[
    Toolbox`gene["b1849", None],
    Editable->False,
    Selectable->False]}]], "Output",
- CellChangeTimes->{{3.5623357046488943`*^9, 3.562335716976774*^9}},
- CellLabel->"Out[33]=",
+ ImageSize->{182, 28},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
  CellID->321454176]
 }, Open  ]],
 
@@ -10303,8 +10161,6 @@ Cell["\<\
 Deleting only one of the associated genes will not affect the presence of \
 ACKr \
 \>", "ExampleText",
- CellChangeTimes->{{3.562336256369117*^9, 3.562336313088236*^9}, {
-  3.562336492235736*^9, 3.562336529556705*^9}},
  CellID->886456137],
 
 Cell[CellGroupData[{
@@ -10333,21 +10189,16 @@ Cell[BoxData[{
    RowBox[{"ecoli", "[", "\"\<Reactions\>\"", "]"}], ",", 
    RowBox[{"mutant", "[", "\"\<Reactions\>\"", "]"}], ",", 
    RowBox[{"SameTest", "\[Rule]", "SameQ"}]}], "]"}]}], "Input",
- CellChangeTimes->{{3.562334420197214*^9, 3.5623344514697943`*^9}, {
-  3.562334508055155*^9, 3.562334526983204*^9}, {3.5623345814683933`*^9, 
-  3.5623346204970407`*^9}, {3.562334688490168*^9, 3.5623346910740767`*^9}, {
-  3.562334835661146*^9, 3.562334844709455*^9}, {3.562336125726234*^9, 
-  3.562336155207502*^9}, {3.5623362328654013`*^9, 3.5623362384814034`*^9}, {
-  3.562336417597578*^9, 3.562336470288176*^9}},
- CellLabel->"In[33]:=",
+ CellLabel->"In[5]:=",
  CellID->1767904461],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"74", ",", "98"}], "}"}]], "Output",
- CellChangeTimes->{{3.562336142392602*^9, 3.562336155742207*^9}, 
-   3.562336238891406*^9, {3.56233642693725*^9, 3.5623364707240562`*^9}},
- CellLabel->"Out[34]=",
+ ImageSize->{57, 16},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[5]=",
  CellID->1493865894],
 
 Cell[BoxData[
@@ -10363,9 +10214,10 @@ Cell[BoxData[
    Toolbox`gene["b2296", None],
    Editable->False,
    Selectable->False], "}"}]], "Output",
- CellChangeTimes->{{3.562336142392602*^9, 3.562336155742207*^9}, 
-   3.562336238891406*^9, {3.56233642693725*^9, 3.562336470726653*^9}},
- CellLabel->"Out[35]=",
+ ImageSize->{64, 28},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[5]=",
  CellID->1172763381],
 
 Cell[BoxData[
@@ -10381,24 +10233,24 @@ Cell[BoxData[
    Toolbox`protein["AckA", None],
    Editable->False,
    Selectable->False], "}"}]], "Output",
- CellChangeTimes->{{3.562336142392602*^9, 3.562336155742207*^9}, 
-   3.562336238891406*^9, {3.56233642693725*^9, 3.56233647072859*^9}},
- CellLabel->"Out[36]=",
+ ImageSize->{57, 28},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[5]=",
  CellID->1029232301],
 
 Cell[BoxData[
  RowBox[{"{", "}"}]], "Output",
- CellChangeTimes->{{3.562336142392602*^9, 3.562336155742207*^9}, 
-   3.562336238891406*^9, {3.56233642693725*^9, 3.562336470838963*^9}},
- CellLabel->"Out[37]=",
+ ImageSize->{18, 16},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[5]=",
  CellID->326506322]
 }, Open  ]],
 
 Cell["\<\
 The deletion of all three associated genes is necessary to get rid of ACKr\
 \>", "ExampleText",
- CellChangeTimes->{{3.562336256369117*^9, 3.562336313088236*^9}, {
-   3.562336492235736*^9, 3.562336596117731*^9}, 3.562338677058975*^9},
  CellID->364101923],
 
 Cell[CellGroupData[{
@@ -10430,22 +10282,16 @@ Cell[BoxData[{
    RowBox[{"ecoli", "[", "\"\<Reactions\>\"", "]"}], ",", 
    RowBox[{"mutant", "[", "\"\<Reactions\>\"", "]"}], ",", 
    RowBox[{"SameTest", "\[Rule]", "SameQ"}]}], "]"}]}], "Input",
- CellChangeTimes->{{3.5623348747977457`*^9, 3.562334898974526*^9}, {
-  3.562335527915183*^9, 3.562335543738552*^9}, {3.562335734966587*^9, 
-  3.562335775424727*^9}, {3.562336240617857*^9, 3.562336246673867*^9}, {
-  3.562336394509403*^9, 3.5623364336300383`*^9}, {3.562336474446073*^9, 
-  3.5623364870955048`*^9}},
- CellLabel->"In[38]:=",
+ CellLabel->"In[6]:=",
  CellID->1507964434],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"74", ",", "97"}], "}"}]], "Output",
- CellChangeTimes->{
-  3.562335544173237*^9, {3.562335757144498*^9, 3.562335775892282*^9}, 
-   3.562336246979641*^9, {3.5623364108019543`*^9, 3.562336434061255*^9}, 
-   3.562336487600819*^9},
- CellLabel->"Out[39]=",
+ ImageSize->{57, 16},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[6]=",
  CellID->771035769],
 
 Cell[BoxData[
@@ -10484,11 +10330,10 @@ Cell[BoxData[
     Toolbox`gene["b3115", None],
     Editable->False,
     Selectable->False]}], "}"}]], "Output",
- CellChangeTimes->{
-  3.562335544173237*^9, {3.562335757144498*^9, 3.562335775892282*^9}, 
-   3.562336246979641*^9, {3.5623364108019543`*^9, 3.562336434061255*^9}, 
-   3.562336487603477*^9},
- CellLabel->"Out[40]=",
+ ImageSize->{178, 28},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[6]=",
  CellID->881843585],
 
 Cell[BoxData[
@@ -10527,212 +10372,196 @@ Cell[BoxData[
     Toolbox`protein["TdcD", None],
     Editable->False,
     Selectable->False]}], "}"}]], "Output",
- CellChangeTimes->{
-  3.562335544173237*^9, {3.562335757144498*^9, 3.562335775892282*^9}, 
-   3.562336246979641*^9, {3.5623364108019543`*^9, 3.562336434061255*^9}, 
-   3.5623364876055403`*^9},
- CellLabel->"Out[41]=",
+ ImageSize->{157, 28},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[6]=",
  CellID->1360485148],
 
 Cell[BoxData[
- RowBox[{"{", 
-  InterpretationBox[
-   OverscriptBox[
-    RowBox[{
-     RowBox[{
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["ac",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["ac", "c"],
-       Editable->False,
-       Selectable->False], "+", 
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["atp",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["atp", "c"],
-       Editable->False,
-       Selectable->False]}], "\[Equilibrium]", 
-     RowBox[{
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["actp",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["actp", "c"],
-       Editable->False,
-       Selectable->False], "+", 
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["adp",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["adp", "c"],
-       Editable->False,
-       Selectable->False]}]}], 
-    StyleBox["ACKr",
-     StripOnInput->False,
-     ShowSyntaxStyles->False,
-     AutoSpacing->False,
-     ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]]],
-   Toolbox`reaction["ACKr", {
-     Toolbox`metabolite["ac", "c"], 
-     Toolbox`metabolite["atp", "c"]}, {
-     Toolbox`metabolite["actp", "c"], 
-     Toolbox`metabolite["adp", "c"]}, {1, 1, 1, 1}, True],
-   Editable->False,
-   Selectable->False], "}"}]], "Output",
- CellChangeTimes->{
-  3.562335544173237*^9, {3.562335757144498*^9, 3.562335775892282*^9}, 
-   3.562336246979641*^9, {3.5623364108019543`*^9, 3.562336434061255*^9}, 
-   3.5623364877461357`*^9},
- CellLabel->"Out[42]=",
- CellID->1415492827]
+ GraphicsBox[
+  TagBox[RasterBox[CompressedData["
+1:eJztWq+v5DYQtlpS2P+g6j9gXGpYFOmqspA79XIquVrXSlVomKFZWFCkSkFB
+QSFBJiYhIQEhIQYBJgEG23Hy9t3+yL5N9va9vX2XT29Xu5O8fOMZezzj2Z/f
+/fXG+w4h9PcP8Pbm7b/k06e3/m8/wpffP/7954eP7//49eM/7z+8//TLu+9B
++BO8/oOX/bxZseI1ote63/lqtKrrphtFpu/Ng7hT+uV1W/FcMLWDEM3b8Vub
+M4Sw67kI08psuoIFeQdTI3aRG1e31XTFFdEJThn3vNiu7146yKvN7tUwlEoy
+4nA5CHRMaRhzB8PkiNb1f7cwKXWL3qSeW8CyblNMwl1vahkRgiHJieox7usQ
+vrmRMnYHuI3KK74cpvIQIq4LnqVZu+lygvme30uOECtlhB7kHSdOsa7zO0cn
+AhLk2piuirET9ZuGwtIurV9VKRttdwFmA4FJHBQUavX760BGSViN4VoF2BF6
+o6uEwOKHYI6p7Oz+zq27N6ZNEQpaiPPE/Tb9rjttzt911zD7hd03gf70mE2b
+e5h4QdS8dsd/e+iL0CeQ1Bbt0SUdOSQ9Fq94PagpCdShUIU07C56XFuEBGP4
+o5F44VBxQ+qz+ArNIpifH/q4A78fTYbzGDIiR9iKV0nZfIm2d0R9Fl+nWQT3
+iyv5XUOtxOQXqHk5bkh9Fs+om2k4ZdXpzPQJ6iv6va/CoQKyUK26SkBriyQR
+51ON56A+D9MkcXG2HnhG3bTACIvTxeYT1Ff0OxhChB7Uww7ki352lQKpZBgF
+cxbLAmoo3q5j/DZBiM0o8a9vlu2DSweRJ/z+BPUcvzcioY49uwYESbltV6qU
+eaMQu6x6fIjpT59nm7ZuJi8eU/RVDNnIKML25ByHw/FaGflBFFMyXHBYtTvq
+p6h3uFJK/HzS9bNHqrcaIGyBsBfry3VbYBZA3xQUj2aBNyIHlqXUU35XzOU7
+fjc5D2JhS/lWQNxA+Tjw4ai7qJXumpSzbFrxA3R878lPUhitVJsFGPlpq1TT
+tGOjvAwdhNysbDtVQTBANDu7ePu2EkI+oqxkABxeerRQFoy0U6rKfPBGBVq2
+TTu07C/QbbFZtAQOwjLQpkyDz35fSF0wupfPw9wOXJocNKD7qkiZTz3Xzicu
+u2FnQcmSY50OjNNK3w0kmKlpj2bJEcWAkhO8n5lIkPBy/Kwlg0h7tuTsKsgS
+0l1keZ5leTMRIReMtLetnL3mziW6LTSLlkBKH1JzU5JtnF9K3cnIcXmlHghN
+A5n//jBN49vVwYuy7o3iGLGtNbIFSUBfRJxzWL2EhSFj8V54mKTYHA7nWNKJ
+YI5tDWB838fRfctGOpj3pN/n6bbYLAPp9sjlhN9nUZvK/gol2ynueuk5O71p
+LYA8tl1pU2V8uxitGnYfgQlj+jINYzlnEmjIHCYW2TSFhQ1fhDe9MX2nhkA/
+SGCT7Y2uIaDhoDjLqoR9JqZBEPiPoJQfVkALRwrpPNyT1vZXOqDcZbotNkub
+wQeW11Y4xHnxGOeXUAvmRtXBzD/I6/qcOWNqQagPex0vxwZ1GTyIbSaRlHNO
++HQWpVP3naCw/yHpI0coHwb4mZa387aatuDEjc6uvoUj7TOfbOV+bS7UbalZ
+qsTfJpnUxe5nvy+hFjyYU8cZ28WZeJaVX6mldYpiM7aQtpcgoBEb0Ba30poi
+FTM8sXSku/KLdVusz5EyS6mvWr+/BIb9Tdxai2ncULel1Hfnd1UVRTVnT7kB
+bqjbUuq78/uKq2Dy3ObiPuyKe4HkE31Y7vj1TbRZ8ULoI88/LOM2mzqhyOWi
+mnX2uuK+oOoyYQ7x88mrXS3iOHupjuaKF4MpsyQT9erYFf8DnYcS+g==
+    "], {{0, 31}, {
+    168, 0}}, {0, 255},
+    ColorFunction->RGBColor],
+   BoxForm`ImageTag["Byte", ColorSpace -> "RGB", Interleaving -> True],
+   Selectable->False],
+  DefaultBaseStyle->"ImageGraphics",
+  ImageSize->Automatic,
+  ImageSizeRaw->{168, 31},
+  PlotRange->{{0, 168}, {0, 31}}]], "Output",
+ ImageSize->{172, 31},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellTags->"RasterizedOutput",
+ CellLabel->"Out[6]=",
+ CellID->1510788632]
 }, Open  ]]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer"],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["More Examples", "ExtendedExamplesSection",
- CellTags->"ExtendedExamples",
- CellID->1854448968],
+Cell["", "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[{
+        Cell[
+         BoxData[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, BaselinePosition -> Baseline, 
+             ImageSize -> {6, 0}], CacheGraphics -> False], 
+           Spacer[6]]]], "See Also"}], "SeeAlsoSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[{
+       Cell[
+        BoxData[
+         InterpretationBox[
+          StyleBox[
+           GraphicsBox[{}, BaselinePosition -> Baseline, ImageSize -> {6, 0}],
+            CacheGraphics -> False], 
+          Spacer[6]]]], "See Also"}]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->1255426704],
 
-Cell[BoxData[
- InterpretationBox[Cell["Scope", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1293636265],
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["deleteProteins"]],"paclet:Toolbox/ref/deleteProteins"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["deleteSpecies"]],"paclet:Toolbox/ref/deleteSpecies"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["deleteReactions"]],"paclet:Toolbox/ref/deleteReactions"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
 
-Cell[BoxData[
- InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1020263627],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[Cell["Options", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->2061341341],
-
-Cell[BoxData[
- InterpretationBox[Cell["XXXX", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1757724783],
-
-Cell[BoxData[
- InterpretationBox[Cell["XXXX", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1295379749]
-}, Closed]],
-
-Cell[BoxData[
- InterpretationBox[Cell["Applications", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->258228157],
-
-Cell[BoxData[
- InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->2123667759],
-
-Cell[BoxData[
- InterpretationBox[Cell["Possible Issues", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1305812373],
-
-Cell[BoxData[
- InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1653164318],
-
-Cell[BoxData[
- InterpretationBox[Cell["Neat Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->589267740]
-}, Open  ]]
+Cell[" ", "FooterCell"]
 },
-WindowSize->{853, 1093},
-WindowMargins->{{Automatic, 181}, {Automatic, 0}},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"deleteGenes",
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Wolfram Language", ButtonData -> "paclet:guide/WolframRoot", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2017, 6, 1, 13, 36, 47.005532}", 
+    "history" -> {"XX", "", "", ""}, "context" -> "Toolbox`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Toolbox Package Symbol", "language" -> "en", "paclet" -> 
+    "Toolbox Package", "status" -> "None", "summary" -> 
+    "deleteGenes[model, genes] deletes genes from model. Depending reactions \
+and proteins are also removed.", "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "deleteGenes", "titlemodifier" -> "", "windowtitle" -> "deleteGenes", 
+    "type" -> "Symbol", "uri" -> "Toolbox/ref/deleteGenes"}, 
+  "SearchTextTranslated" -> ""},
 CellContext->"Global`",
-FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
-2011)",
-StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
-  CharacterEncoding -> "UTF-8"]
+FrontEndVersion -> "6.0",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "6.0", 
+  StyleDefinitions -> "Default.nb"]
 ]
 

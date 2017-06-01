@@ -1,255 +1,328 @@
 Notebook[{
-Cell[TextData[{
- "New in: ",
- Cell["XX", "HistoryData",
-  CellTags->"New"],
- " | Modified in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Modified"],
- " | Obsolete in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Obsolete"],
- " | Excised in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Excised"]
-}], "History",
- CellID->1247902091],
-
-Cell[CellGroupData[{
-
-Cell["Categorization", "CategorizationSection",
- CellID->1122911449],
-
-Cell["Symbol", "Categorization",
- CellLabel->"Entity Type",
- CellID->686433507],
-
-Cell["Toolbox Package", "Categorization",
- CellLabel->"Paclet Name",
- CellID->1199313825],
-
-Cell["Toolbox`", "Categorization",
- CellLabel->"Context",
- CellID->585946033],
-
-Cell["Toolbox/ref/addExchange", "Categorization",
- CellLabel->"URI",
- CellID->1782455136]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Keywords", "KeywordsSection",
- CellID->477174294],
-
-Cell["XXXX", "Keywords",
- CellID->1164421360]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Syntax Templates", "TemplatesSection",
- CellID->1872225408],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Additional Function Template",
- CellID->1562036412],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Arguments Pattern",
- CellID->158391909],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Local Variables",
- CellID->1360575930],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Color Equal Signs",
- CellID->793782254]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Details", "DetailsSection",
- CellID->307771771],
-
-Cell["XXXX", "Details",
- CellLabel->"Lead",
- CellID->670882175],
-
-Cell["XXXX", "Details",
- CellLabel->"Developers",
- CellID->350963985],
-
-Cell["XXXX", "Details",
- CellLabel->"Authors",
- CellID->8391405],
-
-Cell["XXXX", "Details",
- CellLabel->"Feature Name",
- CellID->3610269],
-
-Cell["XXXX", "Details",
- CellLabel->"QA",
- CellID->401364205],
-
-Cell["XXXX", "Details",
- CellLabel->"DA",
- CellID->350204745],
-
-Cell["XXXX", "Details",
- CellLabel->"Docs",
- CellID->732958810],
-
-Cell["XXXX", "Details",
- CellLabel->"Features Page Notes",
- CellID->222905350],
-
-Cell["XXXX", "Details",
- CellLabel->"Comments",
- CellID->240026365]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["addExchange", "ObjectName",
- CellID->1224892054],
+Cell[BoxData[GridBox[{
+   {Cell["TOOLBOX PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "See Also",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"See Also", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"addExchanges\"\>":>
+       Documentation`HelpLookup[
+       "paclet:Toolbox/ref/addExchanges"], "\<\"addReaction\"\>":>
+       Documentation`HelpLookup[
+       "paclet:Toolbox/ref/addReaction"], "\<\"addReactions\"\>":>
+       Documentation`HelpLookup[
+       "paclet:Toolbox/ref/addReactions"], "\<\"addSink\"\>":>
+       Documentation`HelpLookup[
+       "paclet:Toolbox/ref/addSink"], "\<\"addSinks\"\>":>
+       Documentation`HelpLookup["paclet:Toolbox/ref/addSinks"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"SeeAlso"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Toolbox/ref/addExchange\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["Toolbox/ref/addExchange"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/Toolbox/ref/\
+addExchange.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$4136], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "Toolbox/ref/addExchange", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
 
 Cell[TextData[{
- Cell["   ", "ModInfo"],
- "addExchange[model_MASSmodel,m_species]",
- "\[LineSeparator]adds a exchange ",
+ Cell["addExchange", "ObjectName"],
  Cell[BoxData[
-  ButtonBox["reaction",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/reaction"]], "InlineFormula"],
- " ",
- "for",
- " ",
- Cell[BoxData[
-  ButtonBox["metabolite",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/metabolite"]], "InlineFormula"],
- " ",
- "to",
- " ",
- "model",
- "."
-}], "Usage",
- CellChangeTimes->{{3.557059371982123*^9, 3.5570593851424837`*^9}}],
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     "addExchange[model_MASSmodel,m_species]",
+     "\[LineSeparator]adds a exchange ",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["reaction"]],"paclet:Toolbox/ref/reaction"},
+       "RefLink",
+       BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+     " ",
+     "for",
+     " ",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["metabolite"]],"paclet:Toolbox/ref/metabolite"},
+       "RefLink",
+       BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+     " ",
+     "to",
+     " ",
+     "model",
+     "."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}}],
+
+Cell[CellGroupData[{
+
+Cell["", "NotesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[
+       Cell[
+        BoxData[
+         ButtonBox[
+          Cell[
+           TextData[{
+             Cell[
+              BoxData[
+               InterpretationBox[
+                StyleBox[
+                 
+                 GraphicsBox[{}, BaselinePosition -> Baseline, 
+                  ImageSize -> {6, 0}], CacheGraphics -> False], 
+                Spacer[6]]]], "Details"}], "NotesFrameText"], 
+          Appearance -> {Automatic, None}, BaseStyle -> None, 
+          ButtonFunction :> (FrontEndExecute[{
+             FrontEnd`SelectionMove[
+              FrontEnd`SelectedNotebook[], All, ButtonCell], 
+             FrontEndToken["OpenCloseGroup"], 
+             FrontEnd`SelectionMove[
+              FrontEnd`SelectedNotebook[], After, CellContents]}]& ), 
+          Evaluator -> None, Method -> "Preemptive"]]]], "NotesSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[
+      ButtonBox[
+       Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            InterpretationBox[
+             StyleBox[
+              
+              GraphicsBox[{}, BaselinePosition -> Baseline, 
+               ImageSize -> {6, 0}], CacheGraphics -> False], 
+             Spacer[6]]]], "Details"}], "NotesFrameText"], 
+       Appearance -> {Automatic, None}, BaseStyle -> None, 
+       ButtonFunction :> (FrontEndExecute[{
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], All, ButtonCell], 
+          FrontEndToken["OpenCloseGroup"], 
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], After, CellContents]}]& ), Evaluator -> 
+       None, Method -> "Preemptive"]]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->1087699868],
+
+Cell["", "SectionHeaderSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]],
+
+Cell["", "SectionHeaderSpacer"],
 
 Cell["The following options can be given: ", "Notes"],
 
 Cell[BoxData[GridBox[{
-   {Cell["   ", "ModInfo"], 
+   {Cell["      ", "TableRowIcon"], 
     ButtonBox["Direction",
-     BaseStyle->"Link"], 
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/Direction"], 
     ButtonBox["Forward",
-     BaseStyle->"Link"], Cell["\<\
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/Forward"], Cell["\<\
 The direction of the of the exchange reactions (either Forward or Reverse).\
 \>", "TableText"]},
-   {Cell["   ", "ModInfo"], 
+   {Cell["      ", "TableRowIcon"], 
     ButtonBox["Prefix",
-     BaseStyle->"Link"], "EX_", Cell["\<\
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/Prefix"], "EX_", Cell["\<\
 The prefix string that will be prepended to exchange reaction IDs.\
 \>", "TableText"]}
   }]], "3ColumnTableMod",
- CellChangeTimes->{{3.557059216496015*^9, 3.557059356888907*^9}, {
-  3.557059688073366*^9, 3.557059694075788*^9}}]
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {None, {None}}, 
+   "RowsIndexed" -> {}},
+ GridBoxDividers->{"Rows" -> {{True, True, True}}}}],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Closed]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Tutorials", "TutorialsSection",
- CellID->250839057],
-
-Cell["XXXX", "Tutorials",
- CellID->341631938]
-}, Open  ]],
+Cell["", "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[{
+        Cell[
+         BoxData[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, BaselinePosition -> Baseline, 
+             ImageSize -> {6, 0}], CacheGraphics -> False], 
+           Spacer[6]]]], "Examples", "\[NonBreakingSpace]\[NonBreakingSpace]", 
+        Cell["(3)", "ExampleCount"]}], "PrimaryExamplesSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[{
+       Cell[
+        BoxData[
+         InterpretationBox[
+          StyleBox[
+           GraphicsBox[{}, BaselinePosition -> Baseline, ImageSize -> {6, 0}],
+            CacheGraphics -> False], 
+          Spacer[6]]]], "Examples", "\[NonBreakingSpace]\[NonBreakingSpace]", 
+       
+       Cell["(3)", "ExampleCount"]}]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellTags->"PrimaryExamplesSection",
+ CellID->1590878212],
 
 Cell[CellGroupData[{
-
-Cell["Related Demonstrations", "RelatedDemonstrationsSection",
- CellID->1268215905],
-
-Cell["XXXX", "RelatedDemonstrations",
- CellID->1129518860]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Links", "RelatedLinksSection",
- CellID->1584193535],
-
-Cell["XXXX", "RelatedLinks",
- CellID->1038487239]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["See Also", "SeeAlsoSection",
- CellID->1255426704],
 
 Cell[TextData[{
- Cell[BoxData[
-  ButtonBox["addExchanges",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/addExchanges"]], "InlineFormula"],
- " ",
- Cell[BoxData[
-  ButtonBox["addReaction",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/addReaction"]], "InlineFormula"],
- " ",
- Cell[BoxData[
-  ButtonBox["addReactions",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/addReactions"]], "InlineFormula"],
- " ",
- Cell[BoxData[
-  ButtonBox["addSink",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/addSink"]], "InlineFormula"],
- " ",
- Cell[BoxData[
-  ButtonBox["addSinks",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/addSinks"]], "InlineFormula"]
-}], "SeeAlso",
- CellChangeTimes->{{3.5570594424101*^9, 3.557059461015443*^9}, {
-  3.557061323174117*^9, 3.557061396668796*^9}, {3.557061445336445*^9, 
-  3.557061459882119*^9}},
- CellID->929782353]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["More About", "MoreAboutSection",
- CellID->38303248],
-
-Cell["XXXX", "MoreAbout",
- CellID->1665078683]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[GridBox[{
-    {
-     StyleBox["Examples", "PrimaryExamplesSection"], 
-     ButtonBox[
-      RowBox[{
-       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
-      BaseStyle->"ExtendedExamplesLink",
-      ButtonData:>"ExtendedExamples"]}
-   }],
-  $Line = 0; Null]], "PrimaryExamplesSection",
- CellID->880084151],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->1718703934],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.557060755878477*^9, 3.557060760546105*^9}},
- CellLabel->"In[38]:=",
+ CellLabel->"In[1]:=",
  CellID->1300734271],
 
 Cell[BoxData[
@@ -257,10 +330,9 @@ Cell[BoxData[
   RowBox[{"model", "=", 
    RowBox[{"ExampleData", "[", 
     RowBox[{"{", 
-     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<Glycolysis\>\""}], "}"}], 
-    "]"}]}], ";"}]], "Input",
- CellChangeTimes->{{3.557060765022431*^9, 3.557060789442855*^9}},
- CellLabel->"In[40]:=",
+     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<Glycolysis\>\""}], "}"}], "]"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[2]:=",
  CellID->57366237],
 
 Cell[BoxData[
@@ -271,8 +343,7 @@ Cell[BoxData[
      RowBox[{"m", "[", 
       RowBox[{"\"\<pyr\>\"", ",", "\"\<c\>\""}], "]"}]}], "]"}]}], 
   ";"}]], "Input",
- CellChangeTimes->{{3.5570607983667297`*^9, 3.557060844211854*^9}},
- CellLabel->"In[43]:=",
+ CellLabel->"In[3]:=",
  CellID->2129233550],
 
 Cell[CellGroupData[{
@@ -282,8 +353,7 @@ Cell[BoxData[
   RowBox[{
    RowBox[{"modifiedModel", "[", "\"\<Reactions\>\"", "]"}], ",", 
    RowBox[{"model", "[", "\"\<Reactions\>\"", "]"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.557060850295167*^9, 3.557060882260284*^9}},
- CellLabel->"In[45]:=",
+ CellLabel->"In[4]:=",
  CellID->1303998813],
 
 Cell[BoxData[
@@ -293,45 +363,37 @@ Cell[BoxData[
     RowBox[{
      InterpretationBox[
       SuperscriptBox[Cell["pyr", "Input"], Cell["c", "Input"]],
-      Toolbox`metabolite["pyr", "c"]], "\[Equilibrium]", 
-     "\[EmptySet]"}], Cell["EX_pyr_c", "Input"]],
+      Toolbox`metabolite["pyr", "c"]], "\[Equilibrium]", "\[EmptySet]"}], 
+    Cell["EX_pyr_c", "Input"]],
    Toolbox`reaction["EX_pyr_c", {
      Toolbox`metabolite["pyr", "c"]}, {}, {1}, True],
    Editable->False,
    Selectable->False], "}"}]], "Output",
- CellChangeTimes->{{3.5570608598090467`*^9, 3.5570608828893337`*^9}},
- CellLabel->"Out[45]=",
+ ImageSize->{73, 41},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
  CellID->1295650444]
 }, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["More Examples", "ExtendedExamplesSection",
- CellTags->"ExtendedExamples",
- CellID->1854448968],
-
-Cell[BoxData[
- InterpretationBox[Cell["Scope", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1293636265],
-
-Cell[BoxData[
- InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1020263627],
+Cell[TextData[{
+ "Options",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(2)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- InterpretationBox[Cell["Options", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[Cell["Direction", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
+Cell[TextData[{
+ "Direction",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True],
 
 Cell[BoxData[
  RowBox[{
@@ -343,10 +405,7 @@ Cell[BoxData[
       Toolbox`metabolite["pyr", "c"]], ",", 
      RowBox[{"Direction", "\[Rule]", "\"\<Forward\>\""}]}], "]"}]}], 
   ";"}]], "Input",
- CellChangeTimes->{{3.5570607983667297`*^9, 3.557060844211854*^9}, {
-   3.557060953342079*^9, 3.5570609603697577`*^9}, {3.5570610775368643`*^9, 
-   3.557061093465129*^9}, 3.557061288566687*^9},
- CellLabel->"In[29]:=",
+ CellLabel->"In[1]:=",
  CellID->1782005029],
 
 Cell[CellGroupData[{
@@ -356,8 +415,7 @@ Cell[BoxData[
   RowBox[{
    RowBox[{"modifiedModel", "[", "\"\<Reactions\>\"", "]"}], ",", 
    RowBox[{"model", "[", "\"\<Reactions\>\"", "]"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.557060850295167*^9, 3.557060882260284*^9}},
- CellLabel->"In[30]:=",
+ CellLabel->"In[2]:=",
  CellID->1351581341],
 
 Cell[BoxData[
@@ -367,15 +425,16 @@ Cell[BoxData[
     RowBox[{
      InterpretationBox[
       SuperscriptBox[Cell["pyr", "Input"], Cell["c", "Input"]],
-      Toolbox`metabolite["pyr", "c"]], "\[Equilibrium]", 
-     "\[EmptySet]"}], Cell["EX_pyr_c", "Input"]],
+      Toolbox`metabolite["pyr", "c"]], "\[Equilibrium]", "\[EmptySet]"}], 
+    Cell["EX_pyr_c", "Input"]],
    Toolbox`reaction["EX_pyr_c", {
      Toolbox`metabolite["pyr", "c"]}, {}, {1}, True],
    Editable->False,
    Selectable->False], "}"}]], "Output",
- CellChangeTimes->{{3.5570608598090467`*^9, 3.5570608828893337`*^9}, 
-   3.5570609637275743`*^9, 3.557061095974506*^9, 3.557061290103526*^9},
- CellLabel->"Out[30]=",
+ ImageSize->{73, 41},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
  CellID->1763956512]
 }, Open  ]],
 
@@ -389,10 +448,7 @@ Cell[BoxData[
       Toolbox`metabolite["pyr", "c"]], ",", 
      RowBox[{"Direction", "\[Rule]", "\"\<Reverse\>\""}]}], "]"}]}], 
   ";"}]], "Input",
- CellChangeTimes->{{3.5570607983667297`*^9, 3.557060844211854*^9}, {
-   3.557060953342079*^9, 3.5570609603697577`*^9}, {3.5570610775368643`*^9, 
-   3.557061112633271*^9}, 3.557061292669389*^9},
- CellLabel->"In[32]:=",
+ CellLabel->"In[3]:=",
  CellID->365136996],
 
 Cell[CellGroupData[{
@@ -402,8 +458,7 @@ Cell[BoxData[
   RowBox[{
    RowBox[{"modifiedModel", "[", "\"\<Reactions\>\"", "]"}], ",", 
    RowBox[{"model", "[", "\"\<Reactions\>\"", "]"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.557060850295167*^9, 3.557060882260284*^9}},
- CellLabel->"In[33]:=",
+ CellLabel->"In[4]:=",
  CellID->1496712293],
 
 Cell[BoxData[
@@ -418,19 +473,22 @@ Cell[BoxData[
      Toolbox`metabolite["pyr", "c"]}, {1}, True],
    Editable->False,
    Selectable->False], "}"}]], "Output",
- CellChangeTimes->{{3.5570608598090467`*^9, 3.5570608828893337`*^9}, 
-   3.5570609637275743`*^9, {3.557061095974506*^9, 3.55706111375632*^9}, 
-   3.55706129387409*^9},
- CellLabel->"Out[33]=",
+ ImageSize->{73, 41},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
  CellID->805350349]
 }, Open  ]]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- InterpretationBox[Cell["Prefix", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
+Cell[TextData[{
+ "Prefix",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True],
 
 Cell[BoxData[
  RowBox[{
@@ -442,9 +500,7 @@ Cell[BoxData[
       Toolbox`metabolite["pyr", "c"]], ",", 
      RowBox[{"Prefix", "\[Rule]", "\"\<Exhange_\>\""}]}], "]"}]}], 
   ";"}]], "Input",
- CellChangeTimes->{{3.5570607983667297`*^9, 3.557060844211854*^9}, {
-   3.557060953342079*^9, 3.5570609603697577`*^9}, 3.557061300612597*^9},
- CellLabel->"In[35]:=",
+ CellLabel->"In[1]:=",
  CellID->409649375],
 
 Cell[CellGroupData[{
@@ -454,8 +510,7 @@ Cell[BoxData[
   RowBox[{
    RowBox[{"modifiedModel", "[", "\"\<Reactions\>\"", "]"}], ",", 
    RowBox[{"model", "[", "\"\<Reactions\>\"", "]"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.557060850295167*^9, 3.557060882260284*^9}},
- CellLabel->"In[36]:=",
+ CellLabel->"In[2]:=",
  CellID->144473343],
 
 Cell[BoxData[
@@ -465,52 +520,171 @@ Cell[BoxData[
     RowBox[{
      InterpretationBox[
       SuperscriptBox[Cell["pyr", "Input"], Cell["c", "Input"]],
-      Toolbox`metabolite["pyr", "c"]], "\[Equilibrium]", 
-     "\[EmptySet]"}], Cell["Exhange_pyr_c", "Input"]],
+      Toolbox`metabolite["pyr", "c"]], "\[Equilibrium]", "\[EmptySet]"}], 
+    Cell["Exhange_pyr_c", "Input"]],
    Toolbox`reaction["Exhange_pyr_c", {
      Toolbox`metabolite["pyr", "c"]}, {}, {1}, True],
    Editable->False,
    Selectable->False], "}"}]], "Output",
- CellChangeTimes->{{3.5570608598090467`*^9, 3.5570608828893337`*^9}, 
-   3.5570609637275743`*^9, 3.5570613021146107`*^9},
- CellLabel->"Out[36]=",
+ ImageSize->{90, 41},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
  CellID->2081372249]
 }, Open  ]]
-}, Open  ]]
+}, Closed]]
+}, Closed]],
+
+Cell["", "SectionFooterSpacer"],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
 }, Open  ]],
 
-Cell[BoxData[
- InterpretationBox[Cell["Applications", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->258228157],
+Cell[CellGroupData[{
 
-Cell[BoxData[
- InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->2123667759],
+Cell["", "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[{
+        Cell[
+         BoxData[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, BaselinePosition -> Baseline, 
+             ImageSize -> {6, 0}], CacheGraphics -> False], 
+           Spacer[6]]]], "See Also"}], "SeeAlsoSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[{
+       Cell[
+        BoxData[
+         InterpretationBox[
+          StyleBox[
+           GraphicsBox[{}, BaselinePosition -> Baseline, ImageSize -> {6, 0}],
+            CacheGraphics -> False], 
+          Spacer[6]]]], "See Also"}]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->1255426704],
 
-Cell[BoxData[
- InterpretationBox[Cell["Possible Issues", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1305812373],
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["addExchanges"]],"paclet:Toolbox/ref/addExchanges"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["addReaction"]],"paclet:Toolbox/ref/addReaction"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["addReactions"]],"paclet:Toolbox/ref/addReactions"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["addSink"]],"paclet:Toolbox/ref/addSink"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["addSinks"]],"paclet:Toolbox/ref/addSinks"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
 
-Cell[BoxData[
- InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1653164318],
-
-Cell[BoxData[
- InterpretationBox[Cell["Neat Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->589267740]
-}, Open  ]]
+Cell[" ", "FooterCell"]
 },
-WindowSize->{1060, 1023},
-WindowMargins->{{308, Automatic}, {Automatic, 0}},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"addExchange",
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Wolfram Language", ButtonData -> "paclet:guide/WolframRoot", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2017, 6, 1, 13, 36, 22.282610}", 
+    "history" -> {"XX", "", "", ""}, "context" -> "Toolbox`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Toolbox Package Symbol", "language" -> "en", "paclet" -> 
+    "Toolbox Package", "status" -> "None", "summary" -> 
+    "addExchange[model_MASSmodel,m_species] adds a exchange reaction for \
+metabolite to model.", "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "addExchange", "titlemodifier" -> "", "windowtitle" -> "addExchange", 
+    "type" -> "Symbol", "uri" -> "Toolbox/ref/addExchange"}, 
+  "SearchTextTranslated" -> ""},
 CellContext->"Global`",
-FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
-2010)",
-StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
-  CharacterEncoding -> "UTF-8"]
+FrontEndVersion -> "6.0",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "6.0", 
+  StyleDefinitions -> "Default.nb"]
 ]
 

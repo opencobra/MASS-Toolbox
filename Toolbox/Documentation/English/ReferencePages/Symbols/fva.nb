@@ -1,141 +1,219 @@
 Notebook[{
-Cell[TextData[{
- "New in: ",
- Cell["XX", "HistoryData",
-  CellTags->"New"],
- " | Modified in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Modified"],
- " | Obsolete in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Obsolete"],
- " | Excised in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Excised"]
-}], "History",
- CellID->1247902091],
-
-Cell[CellGroupData[{
-
-Cell["Categorization", "CategorizationSection",
- CellID->1122911449],
-
-Cell["Symbol", "Categorization",
- CellLabel->"Entity Type",
- CellID->686433507],
-
-Cell["Toolbox Package", "Categorization",
- CellLabel->"Paclet Name",
- CellID->1404257366],
-
-Cell["Toolbox`COBRA`", "Categorization",
- CellLabel->"Context",
- CellID->508269832],
-
-Cell["Toolbox/ref/fva", "Categorization",
- CellLabel->"URI",
- CellID->1948602305]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Keywords", "KeywordsSection",
- CellID->477174294],
-
-Cell["XXXX", "Keywords",
- CellID->1164421360]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Syntax Templates", "TemplatesSection",
- CellID->1872225408],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Additional Function Template",
- CellID->1562036412],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Arguments Pattern",
- CellID->158391909],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Local Variables",
- CellID->1360575930],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Color Equal Signs",
- CellID->793782254]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Details", "DetailsSection",
- CellID->307771771],
-
-Cell["XXXX", "Details",
- CellLabel->"Lead",
- CellID->670882175],
-
-Cell["XXXX", "Details",
- CellLabel->"Developers",
- CellID->350963985],
-
-Cell["XXXX", "Details",
- CellLabel->"Authors",
- CellID->8391405],
-
-Cell["XXXX", "Details",
- CellLabel->"Feature Name",
- CellID->3610269],
-
-Cell["XXXX", "Details",
- CellLabel->"QA",
- CellID->401364205],
-
-Cell["XXXX", "Details",
- CellLabel->"DA",
- CellID->350204745],
-
-Cell["XXXX", "Details",
- CellLabel->"Docs",
- CellID->732958810],
-
-Cell["XXXX", "Details",
- CellLabel->"Features Page Notes",
- CellID->222905350],
-
-Cell["XXXX", "Details",
- CellLabel->"Comments",
- CellID->240026365]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["fva", "ObjectName",
- CellID->1224892054],
+Cell[BoxData[GridBox[{
+   {Cell["TOOLBOX PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "See Also",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"See Also", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"fba\"\>":>Documentation`HelpLookup[
+       "paclet:Toolbox/ref/fba"], "\<\"reduceModel\"\>":>
+       Documentation`HelpLookup[
+       "paclet:Toolbox/ref/reduceModel"], "\<\"plotFVA\"\>":>
+       Documentation`HelpLookup[
+       "paclet:Toolbox/ref/plotFVA"], "\<\"LinearProgramming\"\>":>
+       Documentation`HelpLookup["paclet:ref/LinearProgramming"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"SeeAlso"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Toolbox/ref/fva\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["Toolbox/ref/fva"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/Toolbox/ref/fva.html"],
+                 StandardForm]], "Input", TextClipboardType -> "PlainText"]}, 
+            Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$21784], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], "Toolbox/ref/fva", 
+             ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
 
 Cell[TextData[{
- Cell["   ", "ModInfo"],
- "fva[model]\[LineSeparator]performs flux-variability analysis (FVA) on the \
-given system."
-}], "Usage",
- CellChangeTimes->{{3.557518594947802*^9, 3.557518634732685*^9}}],
+ Cell["fva", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {"", Cell["\<\
+fva[model]\[LineSeparator]performs flux-variability analysis (FVA) on the \
+given system.\
+\>"]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}}],
+
+Cell[CellGroupData[{
+
+Cell["", "NotesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[
+       Cell[
+        BoxData[
+         ButtonBox[
+          Cell[
+           TextData[{
+             Cell[
+              BoxData[
+               InterpretationBox[
+                StyleBox[
+                 
+                 GraphicsBox[{}, BaselinePosition -> Baseline, 
+                  ImageSize -> {6, 0}], CacheGraphics -> False], 
+                Spacer[6]]]], "Details"}], "NotesFrameText"], 
+          Appearance -> {Automatic, None}, BaseStyle -> None, 
+          ButtonFunction :> (FrontEndExecute[{
+             FrontEnd`SelectionMove[
+              FrontEnd`SelectedNotebook[], All, ButtonCell], 
+             FrontEndToken["OpenCloseGroup"], 
+             FrontEnd`SelectionMove[
+              FrontEnd`SelectedNotebook[], After, CellContents]}]& ), 
+          Evaluator -> None, Method -> "Preemptive"]]]], "NotesSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[
+      ButtonBox[
+       Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            InterpretationBox[
+             StyleBox[
+              
+              GraphicsBox[{}, BaselinePosition -> Baseline, 
+               ImageSize -> {6, 0}], CacheGraphics -> False], 
+             Spacer[6]]]], "Details"}], "NotesFrameText"], 
+       Appearance -> {Automatic, None}, BaseStyle -> None, 
+       ButtonFunction :> (FrontEndExecute[{
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], All, ButtonCell], 
+          FrontEndToken["OpenCloseGroup"], 
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], After, CellContents]}]& ), Evaluator -> 
+       None, Method -> "Preemptive"]]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->1128003011],
+
+Cell["", "SectionHeaderSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]],
+
+Cell["", "SectionHeaderSpacer"],
 
 Cell["The following options can be given: ", "Notes"],
 
 Cell[BoxData[GridBox[{
-   {Cell["   ", "ModInfo"], 
+   {Cell["      ", "TableRowIcon"], 
     ButtonBox["OptFlag",
-     BaseStyle->"Link"], 
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/OptFlag"], 
     ButtonBox["Max",
-     BaseStyle->"Link"], Cell[
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/Max"], Cell[
     "\"Min\" (Minimization) or \"Max\" (Maximization)", "TableText"]},
-   {Cell["   ", "ModInfo"], 
+   {Cell["      ", "TableRowIcon"], 
     ButtonBox["Solver",
-     BaseStyle->"Link"], 
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/Solver"], 
     ButtonBox["LinearProgramming",
-     BaseStyle->"Link"], Cell[TextData[{
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/LinearProgramming"], Cell[TextData[{
      "Choose from all supported solvers, i.e.  ",
      ButtonBox["LinearProgramming",
       BaseStyle->"Link",
@@ -150,114 +228,116 @@ Cell[BoxData[GridBox[{
       ButtonData->"paclet:Toolbox/ref/GLPKStandalone"],
      ", ",
      Cell[BoxData[
-      ButtonBox["CPLEXStandalone",
-       BaseStyle->"Link",
-       ButtonData->"paclet:Toolbox/ref/CPLEXStandalone"]], 
-      "InlineFormula"],
+      TemplateBox[{Cell[
+         TextData["CPLEXStandalone"]],"paclet:Toolbox/ref/CPLEXStandalone"},
+       "RefLink",
+       BaseStyle->{"InlineFormula"}]], "InlineFormula"],
      " "
     }], "TableText"]},
-   {Cell["   ", "ModInfo"], 
+   {Cell["      ", "TableRowIcon"], 
     ButtonBox["Loopless",
-     BaseStyle->"Link"], 
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/Loopless"], 
     ButtonBox["False",
-     BaseStyle->"Link"], Cell[
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/False"], Cell[
     "Set True if loopless optimization should be performed", "TableText"]},
-   {Cell["   ", "ModInfo"], 
+   {Cell["      ", "TableRowIcon"], 
     ButtonBox["ProgressBar",
-     BaseStyle->"Link"], 
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/ProgressBar"], 
     ButtonBox["True",
-     BaseStyle->"Link"], Cell["If a progress should be shown", "TableText"]}
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/True"], Cell[
+    "If a progress should be shown", "TableText"]}
   }]], "3ColumnTableMod",
- CellChangeTimes->{{3.557518513564178*^9, 3.5575185359677753`*^9}}]
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, 
+   "Rows" -> {None, None, None, {None}}, "RowsIndexed" -> {}},
+ GridBoxDividers->{"Rows" -> {{True, True, True, True, True}}}}],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Closed]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Tutorials", "TutorialsSection",
- CellID->250839057],
-
-Cell["XXXX", "Tutorials",
- CellID->341631938]
-}, Open  ]],
+Cell["", "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[{
+        Cell[
+         BoxData[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, BaselinePosition -> Baseline, 
+             ImageSize -> {6, 0}], CacheGraphics -> False], 
+           Spacer[6]]]], "Examples", "\[NonBreakingSpace]\[NonBreakingSpace]", 
+        Cell["(1)", "ExampleCount"]}], "PrimaryExamplesSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[{
+       Cell[
+        BoxData[
+         InterpretationBox[
+          StyleBox[
+           GraphicsBox[{}, BaselinePosition -> Baseline, ImageSize -> {6, 0}],
+            CacheGraphics -> False], 
+          Spacer[6]]]], "Examples", "\[NonBreakingSpace]\[NonBreakingSpace]", 
+       
+       Cell["(1)", "ExampleCount"]}]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellTags->"PrimaryExamplesSection",
+ CellID->360970161],
 
 Cell[CellGroupData[{
-
-Cell["Related Demonstrations", "RelatedDemonstrationsSection",
- CellID->1268215905],
-
-Cell["XXXX", "RelatedDemonstrations",
- CellID->1129518860]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Links", "RelatedLinksSection",
- CellID->1584193535],
-
-Cell["XXXX", "RelatedLinks",
- CellID->1038487239]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["See Also", "SeeAlsoSection",
- CellID->1255426704],
 
 Cell[TextData[{
- Cell[BoxData[
-  ButtonBox["fba",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/fba"]], "InlineFormula"],
- " \[EmptyVerySmallSquare] ",
- Cell[BoxData[
-  ButtonBox["reduceModel",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/reduceModel"]], "InlineFormula"],
- " \[EmptyVerySmallSquare] ",
- Cell[BoxData[
-  ButtonBox["plotFVA",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/plotFVA"]], "InlineFormula"],
- " \[EmptyVerySmallSquare] ",
- ButtonBox["LinearProgramming",
-  BaseStyle->"Link",
-  ButtonData->"paclet:ref/LinearProgramming"]
-}], "SeeAlso",
- CellChangeTimes->{
-  3.557518564640607*^9, {3.562349141792976*^9, 3.562349143984968*^9}, {
-   3.562349217439109*^9, 3.562349222866004*^9}, {3.56234927569485*^9, 
-   3.5623493630682364`*^9}},
- CellID->929782353]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["More About", "MoreAboutSection",
- CellID->38303248],
-
-Cell["XXXX", "MoreAbout",
- CellID->1665078683]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[GridBox[{
-    {
-     StyleBox["Examples", "PrimaryExamplesSection"], 
-     ButtonBox[
-      RowBox[{
-       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
-      BaseStyle->"ExtendedExamplesLink",
-      ButtonData:>"ExtendedExamples"]}
-   }],
-  $Line = 0; Null]], "PrimaryExamplesSection",
- CellID->880084151],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->184193152],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.557508341598042*^9, 3.55750834854175*^9}},
- CellLabel->"In[40]:=",
+ CellLabel->"In[1]:=",
  CellID->1442699638],
 
 Cell[BoxData[
@@ -265,20 +345,16 @@ Cell[BoxData[
   RowBox[{"ecoli", "=", 
    RowBox[{"ExampleData", "[", 
     RowBox[{"{", 
-     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<EcoliCore\>\""}], "}"}], 
-    "]"}]}], ";"}]], "Input",
- CellChangeTimes->{{3.5575081007577553`*^9, 3.557508163699807*^9}, {
-  3.5575082106925793`*^9, 3.557508241631016*^9}, {3.557508279855599*^9, 
-  3.5575083005925293`*^9}, {3.557508330906055*^9, 3.55750835712017*^9}},
- CellLabel->"In[41]:=",
+     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<EcoliCore\>\""}], "}"}], "]"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[2]:=",
  CellID->442561503],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"Options", "[", "plotFVA", "]"}]], "Input",
- CellChangeTimes->{{3.557518772762179*^9, 3.557518775527218*^9}},
- CellLabel->"In[42]:=",
+ CellLabel->"In[3]:=",
  CellID->2027371807],
 
 Cell[BoxData[
@@ -336,15 +412,14 @@ Cell[BoxData[
       RowBox[{"FontSize", "\[Rule]", 
        RowBox[{"Scaled", "[", "0.02`", "]"}]}]}], "}"}]}], ",", 
    RowBox[{"\<\"Sort\"\>", "\[Rule]", "True"}]}], "}"}]], "Output",
- CellChangeTimes->{3.557518775911421*^9, 3.5575188866057587`*^9},
- CellLabel->"Out[42]=",
+ ImageSize->{552, 221},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
  CellID->1096429171]
 }, Open  ]],
 
 Cell["Perform flux-variability analysis", "ExampleText",
- CellChangeTimes->{{3.557508372254775*^9, 3.557508392989348*^9}, {
-  3.55751865919*^9, 3.557518674436461*^9}, {3.557518900272806*^9, 
-  3.5575189008888063`*^9}},
  CellID->724704069],
 
 Cell[CellGroupData[{
@@ -354,207 +429,98 @@ Cell[BoxData[{
   RowBox[{"fva", "[", "ecoli", "]"}], "//", 
   "Short"}], "\[IndentingNewLine]", 
  RowBox[{"plotFVA", "[", "%", "]"}]}], "Input",
- CellChangeTimes->{{3.557508415303709*^9, 3.5575084249446383`*^9}, {
-  3.557518583677258*^9, 3.557518588044763*^9}, {3.557518640531725*^9, 
-  3.557518640805616*^9}, {3.5575186783015127`*^9, 3.557518700670389*^9}, {
-  3.557518786192086*^9, 3.55751885449743*^9}},
- CellLabel->"In[43]:=",
+ CellLabel->"In[4]:=",
  CellID->214957589],
 
 Cell[BoxData[
- TagBox[
-  RowBox[{"{", 
-   RowBox[{
-    RowBox[{
-     InterpretationBox[
-      SubscriptBox[
-       StyleBox["v",
-        StripOnInput->False,
-        ShowSyntaxStyles->False,
-        AutoSpacing->False,
-        ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]], 
-       StyleBox["ACALD",
-        StripOnInput->False,
-        ShowSyntaxStyles->False,
-        AutoSpacing->False,
-        ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]]],
-      Toolbox`v["ACALD"]], "\[Rule]", 
-     RowBox[{"{", 
-      RowBox[{"0.`", ",", "0.`"}], "}"}]}], ",", 
-    RowBox[{
-     InterpretationBox[
-      SubscriptBox[
-       StyleBox["v",
-        StripOnInput->False,
-        ShowSyntaxStyles->False,
-        AutoSpacing->False,
-        ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]], 
-       StyleBox["ACALDt",
-        StripOnInput->False,
-        ShowSyntaxStyles->False,
-        AutoSpacing->False,
-        ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]]],
-      Toolbox`v["ACALDt"]], "\[Rule]", 
-     RowBox[{"{", 
-      RowBox[{"0.`", ",", "0.`"}], "}"}]}], ",", 
-    RowBox[{
-     InterpretationBox[
-      SubscriptBox[
-       StyleBox["v",
-        StripOnInput->False,
-        ShowSyntaxStyles->False,
-        AutoSpacing->False,
-        ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]], 
-       StyleBox["ACKr",
-        StripOnInput->False,
-        ShowSyntaxStyles->False,
-        AutoSpacing->False,
-        ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]]],
-      Toolbox`v["ACKr"]], "\[Rule]", 
-     RowBox[{"{", 
-      RowBox[{"0.`", ",", "0.`"}], "}"}]}], ",", 
-    RowBox[{
-     InterpretationBox[
-      SubscriptBox[
-       StyleBox["v",
-        StripOnInput->False,
-        ShowSyntaxStyles->False,
-        AutoSpacing->False,
-        ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]], 
-       StyleBox["ACONTa",
-        StripOnInput->False,
-        ShowSyntaxStyles->False,
-        AutoSpacing->False,
-        ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]]],
-      Toolbox`v["ACONTa"]], "\[Rule]", 
-     RowBox[{"{", 
-      RowBox[{"0.`", ",", "0.`"}], "}"}]}], ",", 
-    RowBox[{"\[LeftSkeleton]", "91", "\[RightSkeleton]"}], ",", 
-    RowBox[{
-     InterpretationBox[
-      SubscriptBox[
-       StyleBox["v",
-        StripOnInput->False,
-        ShowSyntaxStyles->False,
-        AutoSpacing->False,
-        ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]], 
-       StyleBox["GLYK",
-        StripOnInput->False,
-        ShowSyntaxStyles->False,
-        AutoSpacing->False,
-        ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]]],
-      Toolbox`v["GLYK"]], "\[Rule]", 
-     RowBox[{"{", 
-      RowBox[{"0.`", ",", "0.`"}], "}"}]}], ",", 
-    RowBox[{
-     InterpretationBox[
-      SubscriptBox[
-       StyleBox["v",
-        StripOnInput->False,
-        ShowSyntaxStyles->False,
-        AutoSpacing->False,
-        ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]], 
-       StyleBox["G3PD2",
-        StripOnInput->False,
-        ShowSyntaxStyles->False,
-        AutoSpacing->False,
-        ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]]],
-      Toolbox`v["G3PD2"]], "\[Rule]", 
-     RowBox[{"{", 
-      RowBox[{"0.`", ",", "0.`"}], "}"}]}], ",", 
-    RowBox[{
-     InterpretationBox[
-      SubscriptBox[
-       StyleBox["v",
-        StripOnInput->False,
-        ShowSyntaxStyles->False,
-        AutoSpacing->False,
-        ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]], 
-       StyleBox[
-        RowBox[{"EX_glyc", 
-         RowBox[{"(", "e", ")"}]}],
-        StripOnInput->False,
-        ShowSyntaxStyles->False,
-        AutoSpacing->False,
-        ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]]],
-      Toolbox`v["EX_glyc(e)"]], "\[Rule]", 
-     RowBox[{"{", 
-      RowBox[{"0.`", ",", "0.`"}], "}"}]}]}], "}"}],
-  Short]], "Output",
- CellChangeTimes->{{3.557518808453948*^9, 3.5575188562018623`*^9}, 
-   3.55751888877911*^9},
- CellLabel->"Out[43]//Short=",
- CellID->19295983],
+ GraphicsBox[
+  TagBox[RasterBox[CompressedData["
+1:eJztXa/zrLoVp62p7L9QUxldG1mVmXbqYt6bvrypec2815kOFofE4VAoFAqF
+QWEwGCoQTGeooDMRMRGI7Ulgd9nfP+7e7/3ubj73vncXNoTkk3Byzgl7zu+/
+/8ef2a8dx/nlt/C/P3/3L/zzz9+5f/kdHPz1p1/+/uNPP/ztTz/984cff/j5
+j9//Bk7+Af77968cR39eWVhYWFh8FsgyDqKi/9bNsLCwsHhTFB7hUTHI8Vs3
+xMLCwuI9MQQsFN+6ERYWFhZvDBHycPjWjbgJok4opmmr5uOxjzh2ANgthy/T
+6q+vamw9Qvy0+aLbfXpYqh8IS+aH4Qmpfjo5LEPCKrk5VCkDTvyqbVMP+HG7
++2u+taohILx5ZXeOpfqBsGR+GJ6R6h05LKoQka2bogopjeo7m3wnxjovzq4L
+AzR460hRNdCRzhd03HGCWp648BJur6oK3Pxqn84n4HYPluoHwpL5YXhJqmXI
+g22nVE0cJ5wqN5+jZtbtlZRqcdkoh7bthFqcENutPii8XASUFGIYxHVbgV3m
+OjQ63T25XDhUGwEZg2xcTPNepNTxyzu93XdUVQZucf2QfgJu92Cp3qF6VGpm
+cRTDzY+qJXN/3iqhD8f5O6m2nwzDg5hw++x9OarHtggpT5dkVgF2aAIfOlDB
+USjXBYF/ns/vtvW57ziIMuqgWese29hxnGzuvPAdvLi7DJCDGSfIIX62vNfc
+O9F3CwzDkPtQNDq65Ikm42w7BLLyHRSJoUAwPVpRuPhuku+oqo64n91g4X0Q
+t6oKTmgsluozVIvC97TuomLq0PiyW8+SeYbMsctAdSQUilBojm6kw3VRWWDH
+F6rxGaPaz0rgXy+5wPaLUz120Jv9KScK4LMYeiDOW6v/ogy4HzAW6yddVcRh
+7W7V5nuXR1NVIsBkISv0YWXK5xx5By3vitj3gw3CMApA49dtOGy+yj2M/WJ7
+QpYwHvVcUEKbl8zsqY5nTt5XVQ/rMvK73S9O1r/6CG5Vk5hdBEQIxizeW4ot
+1WeoFmUYVkPlYxJUU8NizsM4gDUOHdO+LJmnyZQhntVmUXgOy2QdAjU87Vdj
+RVAwtW+sA+xXm0ZFoE1gjBBN232y34Bq4dNgb1nJOMw8tPBCjymnhRpTRgu4
+bZ8iHO4y1bnEF6uO44nhI7JiOuwzLSyOdnHRypojmp/ci5QhWzZYaIXQz0dt
+rXiwvG7886IK9HIb7miGqokcMyEO1fJbqwKUvlvuVnS2fo0P4HYoPOzpeThe
+1Hgs1cveVhGIAUerOmruPhzRCOgZ1ambLBtkyVw0CZNyOlYlQf5/qoD6sUfd
+RlR0nslavcQbaTCKutbiqgFr5B1FxJH3JcYu0QWTdn3c6E1CSvXJrF+JHKNg
+OYGVMZyptkEm8/mkrGhCcsniUwlnaXdGggx7DR6HQrfMICq338gqPEJym+on
+bb0i7+GmqlaT82e3ovP1rz6EW1n6CzXjDCzVO1TLGh4lv64iZz6/R/V5WDKX
+ZAofrb1nfQLV/rfySVAPpU89n5Jjcngl84AjTF1OaXB+9r4k1ZffWxMl6Fe5
+HEfRxIhEymwURsZvP9RVJ1elR7y8G0fVxIyEzc5qaCrQh0q3wHWc+ByB12AI
+2L4Cb5z/632ABY5bCilzSHxav7mhqtxlh5uhl+rfwVfhdshAIj/ivaT3ohoM
+bV8/M2NCJuv7Jjl8Ee9FZuHCaa0VlCCRw9qIXJCuwtMCbJbYSzksK88h2gW9
+ahPmX9KHL+AZqb4shzOOw3mHdPCQFgJyckKCWEe8Ep2LWD19D8siBpJlBOob
+wtrZo12U+hBh7WbzHvECeRVSRL2yv3LK7KCOtV8prr/4F4RjH3vk0G14a/1f
+h9shhDUbE0yDLwwa8k5Ua/9wYJyfY586jtdrJyd9nBx+LzLBuuDIaI1Ye0dB
+5BIjXYfcddYeDFkFZCNyRckcRChYfviSPnwZT0j17rt2t9xm96WVD4Xoe3GX
+wtcW6X2jcwA19Ef8Uw+q/wHcntt2uQWW6gfi3chU1/jVF5erQy3zXjwb1TKi
+7Pxb0RYWFhYWXxVjl1MEVm17uaiFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWF
+xTNg7IsgTLtv9nqXhYWFxdtjlG2ho3c+7mVwCwsLC4ubUfj8+qjLzwXVFa6J
+XodZ0GwWGzXUReoxljTvsv48YR6Wp4Hl9lnwyUfqMNTDi0CZWB9+1g9tDJ8c
+f/o5iKyj6ReNQfWS3T7EM+ZheRZYbp8Fn32knl8Oq7oo+kW/uqpohtHEdvbW
+PWvZJmi/uSREjr+Vw6rKd9ax3tRwR1NsypvzVzxbyhvL7bPg6UfqmeWwKBOf
+IOyGuen52BYJw4i6USunQJp4GhvZ6vD7CwVY54lYyOFVk4VQDw/STs7lOcGE
+h1V/4+icztIi+q7tZuE+qp2ASFLI3c/j5ms5iIv7qC+Xh2Vzg6vIXE0ZcDYH
+o5qy2awT3cyHy2VV83/d9vSbcTvKTTIgPe+UWAdkUOLyPIRGB5xz18u/xd7/
+s48UnCyfzVE6yr6IfUpokE6mhmrymBHihtkiRsVYBHMwToSJc1YOT+XbMuGE
+cD9pzVMr2sJnlPKgbG9Qjo9laZExQw6mnMKakUFVpYcXi5+KsDPlAdHhnmi6
+EgU3kdIbkwLncHBePA/LAleQOUSw9GKCEfKzbm6Vg7jLMFxQDlJHwMac6Qw4
+mc6kMJYhg/IEIR4f0QDfmltZgrpCQZYyyvxMjdqK1Jpen4C5fUVwPJDWQ3os
+qc1FtFl81E1YRMmp+77YSDWxy6PivuA/3wplpB2+YTkP0VDqKMc0Ko90Ypwi
+e+3ZC9L4JY4sP6rLtcOdxfNoytbX3mRe7RJ0U5aWFsSpWyyLVD5ZzlUTxdoT
+q547SBssovBMChwHH4819wZ5WNa4TOY6GUUXT5FjpYnpPZ8h8f+qddj5IYMG
+6pCHYmpkw5B/+My+M7dwU4LDZXlR+g7xXIzC+qiKOxYhx7AIYgRL3/R4Lea2
+ihnLh7lxzM30v0UIKyb85cunVdWel02HdQKcAmDRNBmNmnhaXg/xYiNlcjPh
+7OleI1Z9FsIEIaASm6arKg2Mj2KjEosiyVowT9WQumgTYV7bsLLzYO6B+bS1
+Z8dOK8OYutHkGZZaGYZjL2/3ZeGtWVpKnxiZ32dxnOZ6xPbksL4EugKdmeKd
+yophk6Qwum4H/AXzsGxxkUyowiMmYZDxWmgFmIRVXfjamGgX0bx7d5HD1BS7
+Iq74O3Fr8rjp6NFwNpqVFhXrdJvZid4XYMlBudJF7to7u5zbYN9N5MNJKGAi
+JxO9EzMOVbWVrkMRxmbstI2PDJ9DitZpRy5GIF/39olHamXeW3tgNOmPxqhd
+xBjxteNwbIsYDNZEL6Z9uMkRgty11aNTBC5hvBNg6mK2dg6vtI3A4fiUc/jW
+LC2lh82rgSKP+KSSHcpho62RaUWBxwHDytiUzCFXuIxeMg/L4haXyNSt6Lsy
+dpFJCmkcERS0o7TQmSG3cnisicNma1CAAMH55cf7vbjV+jDy+nGxfSFLah6f
+9igHOv0QzdsmwNtN8N25DXYoa8feRbzVlXlHU2JtWm5yPzk62jrBmxDlVZJe
+4xJ56pE6dfJloHOEfIVI2jdlaTGSwTNzqcJoI4d3JawCk3CdQksUrlGMtQ3u
+FfvV3YxnzMNyEvtkyq5qTOeMmG1NboXlw745bFPu0MT4/UG2oKR9yKx4KW6N
+X2InKV5uFN02htPH3qZQtUt4FMd5veVApyRazO025oQSZnJYqCZcj91qGYS8
+CrytHMbRrIysu32dHL6Izz5Sry2HvwZuT00y7xjq/LrGfqm1pj5lD+LVOm/s
+JlGslsPBZEqDOnGN2nYBT5iH5VxFO2SK2gXVluif67iJyUOqc9ws5LB2uyG9
+jUc888Mdk7kJtBRKwJqMv/i3PC/FrarmeWnSWok+RZMLXeu9x0wzbbjpfT3G
+KPeTSbAKrQRCHeuJPTbAdzq/V6o3SafhwG62oUyUUTyr0zLziE5ABOpwMGkg
+Q+BGD5FPn3mkVlYO3447U5ModWS9/Cg8Wx6Wi5XtkKmOqSIfhlfj9gT6Mg2j
+KDZ/oigDySpKn4ZmyVMNCOR8+3r+djhEHZlMnQuMh/mIusBN5LECm6x8D8Gn
+HanV9FKxTTxkYWFxHqOWj2tMqbdLhjFlnBLiJdWheCkDhq771fBQ5UdNk+bC
+rzNeBp1HTjjhLSwsLCy+MlSbEgeHxSO84BYWFhYWFhYWFhYWj8P/AT9fGjk=
+
+    "], {{0, 38}, {472, 0}}, {0, 255},
+    ColorFunction->RGBColor],
+   BoxForm`ImageTag["Byte", ColorSpace -> "RGB", Interleaving -> True],
+   Selectable->False],
+  DefaultBaseStyle->"ImageGraphics",
+  ImageSize->Automatic,
+  ImageSizeRaw->{472, 38},
+  PlotRange->{{0, 472}, {0, 38}}]], "Output",
+ ImageSize->{476, 38},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellTags->"RasterizedOutput",
+ CellLabel->"Out[4]//Short=",
+ CellID->1210370337],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -2273,16 +2239,16 @@ Cell[BoxData[
          StyleBox["Biomass_Ecoli_core_N(w/GAM)_Nmet2", 
           RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False,
            AutoSpacing -> False, ZeroWidthTimes -> True]], 
-        Toolbox`v["Biomass_Ecoli_core_N(w/GAM)_Nmet2"]], "0.`", 
-       "0.`"}, "Row", DisplayFunction -> (RowBox[{#, "  ", #2, "  ", #3}]& ), 
+        Toolbox`v["Biomass_Ecoli_core_N(w/GAM)_Nmet2"]], "0.`", "0.`"}, "Row",
+       DisplayFunction -> (RowBox[{#, "  ", #2, "  ", #3}]& ), 
       InterpretationFunction -> (RowBox[{"Row", "[", 
          RowBox[{
            RowBox[{"{", 
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["Biomass_Ecoli_core_N(w/GAM)_Nmet2"], 0., 0.}, 
-      "  "], "Tooltip"]& ], 
+       Toolbox`v["Biomass_Ecoli_core_N(w/GAM)_Nmet2"], 0., 0.}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[PointBox[{87, 0.}],
      TemplateBox[{
@@ -3023,9 +2989,10 @@ Cell[BoxData[
          FontFamily -> "Helvetica", FontSize -> Scaled[0.005], StripOnInput -> 
          False], TraditionalForm]}}, None}},
   PlotRange->{All, {0., 0.}}]], "Output",
- CellChangeTimes->{{3.557518808453948*^9, 3.5575188562018623`*^9}, 
-   3.5575188890465317`*^9},
- CellLabel->"Out[44]=",
+ ImageSize->{244, 169},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
  CellID->37555584]
 }, Open  ]],
 
@@ -3033,9 +3000,6 @@ Cell["\<\
 Change the model's constraints to simulate glucose mininmal media condtions \
 and require a certain ATP maintainance flux\
 \>", "ExampleText",
- CellChangeTimes->{{3.557508372254775*^9, 3.557508392989348*^9}, {
-  3.557508431358294*^9, 3.557508494887479*^9}, {3.55750854671274*^9, 
-  3.557508667547371*^9}},
  CellID->371877695],
 
 Cell[CellGroupData[{
@@ -3054,11 +3018,11 @@ Cell[BoxData[{
           ShowSyntaxStyles->False,
           AutoSpacing->False,
           ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
+          FontColor->RGBColor[0, 0, 0],
+          $CellContext`LineColor -> RGBColor[0, 0, 0],
+          $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
          StyleBox[
           RowBox[{"EX_glc", 
            RowBox[{"(", "e", ")"}]}],
@@ -3066,11 +3030,11 @@ Cell[BoxData[{
           ShowSyntaxStyles->False,
           AutoSpacing->False,
           ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
+          FontColor->RGBColor[0, 0, 0],
+          $CellContext`LineColor -> RGBColor[0, 0, 0],
+          $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
         Toolbox`v["EX_glc(e)"]], "\[Rule]", 
        RowBox[{"{", 
         RowBox[{
@@ -3083,11 +3047,11 @@ Cell[BoxData[{
           ShowSyntaxStyles->False,
           AutoSpacing->False,
           ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
+          FontColor->RGBColor[0, 0, 0],
+          $CellContext`LineColor -> RGBColor[0, 0, 0],
+          $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
          StyleBox[
           RowBox[{"EX_o2", 
            RowBox[{"(", "e", ")"}]}],
@@ -3095,11 +3059,11 @@ Cell[BoxData[{
           ShowSyntaxStyles->False,
           AutoSpacing->False,
           ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
+          FontColor->RGBColor[0, 0, 0],
+          $CellContext`LineColor -> RGBColor[0, 0, 0],
+          $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
         Toolbox`v["EX_o2(e)"]], "\[Rule]", 
        RowBox[{"{", 
         RowBox[{
@@ -3112,11 +3076,11 @@ Cell[BoxData[{
           ShowSyntaxStyles->False,
           AutoSpacing->False,
           ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
+          FontColor->RGBColor[0, 0, 0],
+          $CellContext`LineColor -> RGBColor[0, 0, 0],
+          $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
          StyleBox[
           RowBox[{"EX_nh4", 
            RowBox[{"(", "e", ")"}]}],
@@ -3124,11 +3088,11 @@ Cell[BoxData[{
           ShowSyntaxStyles->False,
           AutoSpacing->False,
           ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
+          FontColor->RGBColor[0, 0, 0],
+          $CellContext`LineColor -> RGBColor[0, 0, 0],
+          $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
         Toolbox`v["EX_nh4(e)"]], "\[Rule]", 
        RowBox[{"{", 
         RowBox[{
@@ -3141,11 +3105,11 @@ Cell[BoxData[{
           ShowSyntaxStyles->False,
           AutoSpacing->False,
           ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
+          FontColor->RGBColor[0, 0, 0],
+          $CellContext`LineColor -> RGBColor[0, 0, 0],
+          $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
          StyleBox[
           RowBox[{"EX_pi", 
            RowBox[{"(", "e", ")"}]}],
@@ -3153,11 +3117,11 @@ Cell[BoxData[{
           ShowSyntaxStyles->False,
           AutoSpacing->False,
           ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
+          FontColor->RGBColor[0, 0, 0],
+          $CellContext`LineColor -> RGBColor[0, 0, 0],
+          $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
         Toolbox`v["EX_pi(e)"]], "\[Rule]", 
        RowBox[{"{", 
         RowBox[{
@@ -3170,21 +3134,21 @@ Cell[BoxData[{
           ShowSyntaxStyles->False,
           AutoSpacing->False,
           ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
+          FontColor->RGBColor[0, 0, 0],
+          $CellContext`LineColor -> RGBColor[0, 0, 0],
+          $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
          StyleBox["ATPM",
           StripOnInput->False,
           ShowSyntaxStyles->False,
           AutoSpacing->False,
           ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
+          FontColor->RGBColor[0, 0, 0],
+          $CellContext`LineColor -> RGBColor[0, 0, 0],
+          $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+          $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
         Toolbox`v["ATPM"]], "\[Rule]", 
        RowBox[{"{", 
         RowBox[{"7.6", ",", "7.6"}], "}"}]}]}], "}"}]}], "]"}], 
@@ -3192,9 +3156,7 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"fva", "[", "ecoli", "]"}], "//", "Short"}], "\n", 
  RowBox[{"plotFVA", "[", "%", "]"}]}], "Input",
- CellChangeTimes->{{3.557518744747343*^9, 3.557518750209384*^9}, {
-  3.557518861777749*^9, 3.5575188927482862`*^9}},
- CellLabel->"In[37]:=",
+ CellLabel->"In[5]:=",
  CellID->48595368],
 
 Cell[BoxData[
@@ -3209,21 +3171,21 @@ Cell[BoxData[
         ShowSyntaxStyles->False,
         AutoSpacing->False,
         ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]], 
+        FontColor->RGBColor[0, 0, 0],
+        $CellContext`LineColor -> RGBColor[0, 0, 0],
+        $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
        StyleBox["ACALD",
         StripOnInput->False,
         ShowSyntaxStyles->False,
         AutoSpacing->False,
         ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]]],
+        FontColor->RGBColor[0, 0, 0],
+        $CellContext`LineColor -> RGBColor[0, 0, 0],
+        $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
       Toolbox`v["ACALD"]], "\[Rule]", 
      RowBox[{"{", 
       RowBox[{
@@ -3237,21 +3199,21 @@ Cell[BoxData[
         ShowSyntaxStyles->False,
         AutoSpacing->False,
         ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]], 
+        FontColor->RGBColor[0, 0, 0],
+        $CellContext`LineColor -> RGBColor[0, 0, 0],
+        $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
        StyleBox["ACALDt",
         StripOnInput->False,
         ShowSyntaxStyles->False,
         AutoSpacing->False,
         ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]]],
+        FontColor->RGBColor[0, 0, 0],
+        $CellContext`LineColor -> RGBColor[0, 0, 0],
+        $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
       Toolbox`v["ACALDt"]], "\[Rule]", 
      RowBox[{"{", 
       RowBox[{
@@ -3265,21 +3227,21 @@ Cell[BoxData[
         ShowSyntaxStyles->False,
         AutoSpacing->False,
         ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]], 
+        FontColor->RGBColor[0, 0, 0],
+        $CellContext`LineColor -> RGBColor[0, 0, 0],
+        $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
        StyleBox["G3PD2",
         StripOnInput->False,
         ShowSyntaxStyles->False,
         AutoSpacing->False,
         ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]]],
+        FontColor->RGBColor[0, 0, 0],
+        $CellContext`LineColor -> RGBColor[0, 0, 0],
+        $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
       Toolbox`v["G3PD2"]], "\[Rule]", 
      RowBox[{"{", 
       RowBox[{"0.`", ",", "0.`"}], "}"}]}], ",", 
@@ -3291,11 +3253,11 @@ Cell[BoxData[
         ShowSyntaxStyles->False,
         AutoSpacing->False,
         ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]], 
+        FontColor->RGBColor[0, 0, 0],
+        $CellContext`LineColor -> RGBColor[0, 0, 0],
+        $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
        StyleBox[
         RowBox[{"EX_glyc", 
          RowBox[{"(", "e", ")"}]}],
@@ -3303,17 +3265,19 @@ Cell[BoxData[
         ShowSyntaxStyles->False,
         AutoSpacing->False,
         ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]]],
+        FontColor->RGBColor[0, 0, 0],
+        $CellContext`LineColor -> RGBColor[0, 0, 0],
+        $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
       Toolbox`v["EX_glyc(e)"]], "\[Rule]", 
      RowBox[{"{", 
       RowBox[{"0.`", ",", "0.`"}], "}"}]}]}], "}"}],
   Short]], "Output",
- CellChangeTimes->{3.5575187553197947`*^9, 3.557518864287348*^9},
- CellLabel->"Out[38]//Short=",
+ ImageSize->{362, 38},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[5]//Short=",
  CellID->488324750],
 
 Cell[BoxData[
@@ -3381,8 +3345,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["FORti"], 0., 329.60000000000593`}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["FORti"], 0., 329.60000000000593`}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{4, 0.}, {4, 309.60000000000355`}}],
      TemplateBox[{
@@ -3402,8 +3365,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["FORt2"], 0., 309.60000000000355`}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["FORt2"], 0., 309.60000000000355`}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{5, 0.}, {5, 154.8000000000017}}],
      TemplateBox[{
@@ -3423,8 +3385,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["THD2"], 0., 154.8000000000017}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["THD2"], 0., 154.8000000000017}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{6, 0.}, {6, 154.80000000000345`}}],
      TemplateBox[{
@@ -3444,8 +3405,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["NADTRHD"], 0., 154.80000000000345`}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["NADTRHD"], 0., 154.80000000000345`}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{7, 0.}, {7, 103.19999999999959`}}],
      TemplateBox[{
@@ -3465,8 +3425,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["SUCCt3"], 0., 103.19999999999959`}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["SUCCt3"], 0., 103.19999999999959`}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{8, 0.}, {8, 103.20000000000005`}}],
      TemplateBox[{
@@ -3478,16 +3437,16 @@ Cell[BoxData[
          StyleBox["SUCCt2_2", 
           RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False,
            AutoSpacing -> False, ZeroWidthTimes -> True]], 
-        Toolbox`v["SUCCt2_2"]], "0.`", "103.20000000000005`"}, "Row",
-       DisplayFunction -> (RowBox[{#, "  ", #2, "  ", #3}]& ), 
+        Toolbox`v["SUCCt2_2"]], "0.`", "103.20000000000005`"}, "Row", 
+      DisplayFunction -> (RowBox[{#, "  ", #2, "  ", #3}]& ), 
       InterpretationFunction -> (RowBox[{"Row", "[", 
          RowBox[{
            RowBox[{"{", 
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["SUCCt2_2"], 0., 103.20000000000005`}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["SUCCt2_2"], 0., 103.20000000000005`}, "  "], "Tooltip"]& ], 
+   
    TagBox[
     TooltipBox[LineBox[{{9, 0.}, {9, 97.40000000000069}}],
      TemplateBox[{
@@ -3507,8 +3466,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["PYK"], 0., 97.40000000000069}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["PYK"], 0., 97.40000000000069}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{10, 0.}, {10, 97.40000000000123}}],
      TemplateBox[{
@@ -3528,8 +3486,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["PFK"], 0., 97.40000000000123}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["PFK"], 0., 97.40000000000123}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{11, -15.539967475421435`}, {11, 77.40000000000411}}],
      
@@ -3551,8 +3508,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["GLUDy"], -15.539967475421435`, 77.40000000000411}, 
-      "  "], "Tooltip"]& ], 
+       Toolbox`v["GLUDy"], -15.539967475421435`, 77.40000000000411}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{12, -52.400000000000006`}, {12, 34.16666666666784}}],
      
@@ -3574,8 +3531,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["ATPS4r"], -52.400000000000006`, 34.16666666666784},
-       "  "], "Tooltip"]& ], 
+       Toolbox`v["ATPS4r"], -52.400000000000006`, 34.16666666666784}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{13, 0.}, {13, 79.06666666666729}}],
      TemplateBox[{
@@ -3595,8 +3552,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["PPC"], 0., 79.06666666666729}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["PPC"], 0., 79.06666666666729}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{14, 0.}, {14, 77.40000000000377}}],
      TemplateBox[{
@@ -3616,8 +3572,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["GLUSy"], 0., 77.40000000000377}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["GLUSy"], 0., 77.40000000000377}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{15, 0.}, {15, 77.40000000000181}}],
      TemplateBox[{
@@ -3637,8 +3592,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["PPCK"], 0., 77.40000000000181}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["PPCK"], 0., 77.40000000000181}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{16, 0.}, {16, 77.40000000000207}}],
      TemplateBox[{
@@ -3658,8 +3612,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["GLUN"], 0., 77.40000000000207}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["GLUN"], 0., 77.40000000000207}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{17, 0.}, {17, 77.40000000000207}}],
      TemplateBox[{
@@ -3679,8 +3632,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["GLNS"], 0., 77.40000000000207}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["GLNS"], 0., 77.40000000000207}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{18, 0.}, {18, 77.4000000000006}}],
      TemplateBox[{
@@ -3720,8 +3672,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["FBP"], 0., 77.40000000000123}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["FBP"], 0., 77.40000000000123}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{20, 0.}, {20, 77.4000000000006}}],
      TemplateBox[{
@@ -3741,8 +3692,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["ADK1"], 0., 77.4000000000006}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["ADK1"], 0., 77.4000000000006}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{21, -69.95754059126382}, {21, -8.507812510050312*^-14}}],
@@ -3765,9 +3715,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v[
-       "EX_h(e)"], -69.95754059126382, -8.507812510050312*^-14}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["EX_h(e)"], -69.95754059126382, -8.507812510050312*^-14}, 
+      "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{22, -49.53333333333347}, {22, 16.007008222135404`}}],
      
@@ -3789,8 +3738,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["MDH"], -49.53333333333347, 16.007008222135404`}, 
-      "  "], "Tooltip"]& ], 
+       Toolbox`v["MDH"], -49.53333333333347, 16.007008222135404`}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{23, 0.}, {23, 48.70000000000024}}],
      TemplateBox[{
@@ -3810,8 +3759,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["ME2"], 0., 48.70000000000024}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["ME2"], 0., 48.70000000000024}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{24, 0.}, {24, 48.70000000000021}}],
      TemplateBox[{
@@ -3831,8 +3779,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["ME1"], 0., 48.70000000000021}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["ME1"], 0., 48.70000000000021}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{25, 0.}, {25, 48.000000000000135`}}],
      TemplateBox[{
@@ -3852,8 +3799,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["NADH16"], 0., 48.000000000000135`}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["NADH16"], 0., 48.000000000000135`}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{26, -46.6666666666676}, {26, 0.}}],
      TemplateBox[{
@@ -3874,8 +3820,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["EX_for(e)"], -46.6666666666676, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["EX_for(e)"], -46.6666666666676, 0.}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{27, -46.66666666666708}, {27, 0.}}],
      TemplateBox[{
@@ -3896,8 +3841,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["EX_co2(e)"], -46.66666666666708, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["EX_co2(e)"], -46.66666666666708, 0.}, "  "], "Tooltip"]& ], 
+   
    TagBox[
     TooltipBox[LineBox[{{28, 0.}, {28, 46.6666666666676}}],
      TemplateBox[{
@@ -3938,8 +3883,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["CO2t"], -46.66666666666708, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["CO2t"], -46.66666666666708, 0.}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{30, 0.}, {30, 43.333333333334096`}}],
      TemplateBox[{
@@ -3959,8 +3903,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["PDH"], 0., 43.333333333334096`}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["PDH"], 0., 43.333333333334096`}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{31, -40.000000000000114`}, {31, 3.264055692398106*^-14}}],
@@ -3982,8 +3925,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["PGM"], -40.000000000000114`, 
-       3.264055692398106*^-14}, "  "], "Tooltip"]& ], 
+       Toolbox`v["PGM"], -40.000000000000114`, 3.264055692398106*^-14}, "  "],
+      "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{32, -40.00000000000018}, {32, 3.508304757815652*^-14}}],
@@ -4005,8 +3948,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["PGK"], -40.00000000000018, 3.508304757815652*^-14},
-       "  "], "Tooltip"]& ], 
+       Toolbox`v["PGK"], -40.00000000000018, 3.508304757815652*^-14}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{33, -3.50830475781565*^-14}, {33, 40.00000000000018}}],
@@ -4028,8 +3971,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["GAPD"], -3.50830475781565*^-14, 40.00000000000018},
-       "  "], "Tooltip"]& ], 
+       Toolbox`v["GAPD"], -3.50830475781565*^-14, 40.00000000000018}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{34, -39.99999999999943}, {34, 0.}}],
      TemplateBox[{
@@ -4072,8 +4015,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["EX_etoh(e)"], -39.99999999999968, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["EX_etoh(e)"], -39.99999999999968, 0.}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{36, -39.99999999999957}, {36, 0.}}],
      TemplateBox[{
@@ -4116,8 +4058,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["LDH_D"], -39.99999999999943, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["LDH_D"], -39.99999999999943, 0.}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{38, -39.99999999999968}, {38, 0.}}],
      TemplateBox[{
@@ -4138,8 +4079,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["ETOHt2r"], -39.99999999999968, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["ETOHt2r"], -39.99999999999968, 0.}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{39, -3.264055692398105*^-14}, {39, 40.000000000000114`}}],
@@ -4161,8 +4101,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["ENO"], -3.264055692398105*^-14, 
-       40.000000000000114`}, "  "], "Tooltip"]& ], 
+       Toolbox`v["ENO"], -3.264055692398105*^-14, 40.000000000000114`}, "  "],
+      "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{40, -39.99999999999943}, {40, 0.}}],
      TemplateBox[{
@@ -4183,8 +4123,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["D_LACt2"], -39.99999999999943, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["D_LACt2"], -39.99999999999943, 0.}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{41, -39.99999999999968}, {41, 0.}}],
      TemplateBox[{
@@ -4205,8 +4144,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["ALCD2x"], -39.99999999999968, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["ALCD2x"], -39.99999999999968, 0.}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{42, -40.00000000000017}, {42, -1.6439896039481346`*^-14}}],
@@ -4229,9 +4167,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v[
-       "ACALD"], -40.00000000000017, -1.6439896039481346`*^-14}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["ACALD"], -40.00000000000017, -1.6439896039481346`*^-14}, 
+      "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{43, -39.99999999999957}, {43, 0.}}],
      TemplateBox[{
@@ -4252,8 +4189,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["ACALDt"], -39.99999999999957, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["ACALDt"], -39.99999999999957, 0.}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{44, -28.000000000000014`}, {44, 8.250541289643335}}],
      
@@ -4275,8 +4211,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["FUM"], -28.000000000000014`, 8.250541289643335}, 
-      "  "], "Tooltip"]& ], 
+       Toolbox`v["FUM"], -28.000000000000014`, 8.250541289643335}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{45, -35.20859245009624}, {45, 0.}}],
      TemplateBox[{
@@ -4297,8 +4233,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["EX_h2o(e)"], -35.20859245009624, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["EX_h2o(e)"], -35.20859245009624, 0.}, "  "], "Tooltip"]& ], 
+   
    TagBox[
     TooltipBox[LineBox[{{46, -35.20859245009624}, {46, 0.}}],
      TemplateBox[{
@@ -4319,8 +4255,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["H2Ot"], -35.20859245009624, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["H2Ot"], -35.20859245009624, 0.}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{47, -30.00000000000006}, {47, 0.}}],
      TemplateBox[{
@@ -4341,8 +4276,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["EX_pyr(e)"], -30.00000000000006, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["EX_pyr(e)"], -30.00000000000006, 0.}, "  "], "Tooltip"]& ], 
+   
    TagBox[
     TooltipBox[LineBox[{{48, -30.00000000000006}, {48, 0.}}],
      TemplateBox[{
@@ -4363,8 +4298,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["PYRt2r"], -30.00000000000006, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["PYRt2r"], -30.00000000000006, 0.}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{49, -8.333333333333265}, {49, 20.000000000000007`}}],
      
@@ -4386,8 +4320,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["PGI"], -8.333333333333265, 20.000000000000007`}, 
-      "  "], "Tooltip"]& ], 
+       Toolbox`v["PGI"], -8.333333333333265, 20.000000000000007`}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{50, -28.000000000000043`}, {50, 0.}}],
      TemplateBox[{
@@ -4430,8 +4364,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["EX_ac(e)"], -26.6666666666678, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["EX_ac(e)"], -26.6666666666678, 0.}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{52, 0.}, {52, 26.6666666666678}}],
      TemplateBox[{
@@ -4451,8 +4384,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["PTAr"], 0., 26.6666666666678}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["PTAr"], 0., 26.6666666666678}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{53, -26.6666666666678}, {53, 0.}}],
      TemplateBox[{
@@ -4473,8 +4405,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["ACt2r"], -26.6666666666678, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["ACt2r"], -26.6666666666678, 0.}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{54, -26.6666666666678}, {54, 0.}}],
      TemplateBox[{
@@ -4495,8 +4426,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["ACKr"], -26.6666666666678, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["ACKr"], -26.6666666666678, 0.}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{55, 3.798482288981837*^-31}, {55, 25.714285714285587`}}],
@@ -4509,17 +4439,16 @@ Cell[BoxData[
          StyleBox["PGL", 
           RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False,
            AutoSpacing -> False, ZeroWidthTimes -> True]], 
-        Toolbox`v["PGL"]], "3.798482288981837`*^-31", 
-       "25.714285714285587`"}, "Row", 
-      DisplayFunction -> (RowBox[{#, "  ", #2, "  ", #3}]& ), 
+        Toolbox`v["PGL"]], "3.798482288981837`*^-31", "25.714285714285587`"}, 
+      "Row", DisplayFunction -> (RowBox[{#, "  ", #2, "  ", #3}]& ), 
       InterpretationFunction -> (RowBox[{"Row", "[", 
          RowBox[{
            RowBox[{"{", 
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["PGL"], 3.798482288981837*^-31, 
-       25.714285714285587`}, "  "], "Tooltip"]& ], 
+       Toolbox`v["PGL"], 3.798482288981837*^-31, 25.714285714285587`}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{56, 0.}, {56, 25.714285714285587`}}],
      TemplateBox[{
@@ -4539,8 +4468,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["GND"], 0., 25.714285714285587`}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["GND"], 0., 25.714285714285587`}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{57, 3.798482288981837*^-31}, {57, 25.714285714285587`}}],
@@ -4562,8 +4490,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["G6PDH2r"], 3.798482288981837*^-31, 
-       25.714285714285587`}, "  "], "Tooltip"]& ], 
+       Toolbox`v["G6PDH2r"], 3.798482288981837*^-31, 25.714285714285587`}, 
+      "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{58, -1.6666666666666778`}, {58, 20.000000000000032`}}],
@@ -4585,8 +4513,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["TPI"], -1.6666666666666778`, 20.000000000000032`}, 
-      "  "], "Tooltip"]& ], 
+       Toolbox`v["TPI"], -1.6666666666666778`, 20.000000000000032`}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{59, -1.6666666666666776`}, {59, 20.000000000000032`}}],
@@ -4608,8 +4536,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["FBA"], -1.6666666666666776`, 20.000000000000032`}, 
-      "  "], "Tooltip"]& ], 
+       Toolbox`v["FBA"], -1.6666666666666776`, 20.000000000000032`}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{60, 0.}, {60, 20.}}],
      TemplateBox[{
@@ -4641,8 +4569,8 @@ Cell[BoxData[
          StyleBox["EX_glc(e)", 
           RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False,
            AutoSpacing -> False, ZeroWidthTimes -> True]], 
-        Toolbox`v["EX_glc(e)"]], "0.43428571428570706`", "20.`"}, 
-      "Row", DisplayFunction -> (RowBox[{#, "  ", #2, "  ", #3}]& ), 
+        Toolbox`v["EX_glc(e)"]], "0.43428571428570706`", "20.`"}, "Row", 
+      DisplayFunction -> (RowBox[{#, "  ", #2, "  ", #3}]& ), 
       InterpretationFunction -> (RowBox[{"Row", "[", 
          RowBox[{
            RowBox[{"{", 
@@ -4663,17 +4591,16 @@ Cell[BoxData[
          StyleBox["GLCpts", 
           RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False,
            AutoSpacing -> False, ZeroWidthTimes -> True]], 
-        Toolbox`v["GLCpts"]], "0.4342857142857109`", 
-       "20.000000000000007`"}, "Row", 
-      DisplayFunction -> (RowBox[{#, "  ", #2, "  ", #3}]& ), 
+        Toolbox`v["GLCpts"]], "0.4342857142857109`", "20.000000000000007`"}, 
+      "Row", DisplayFunction -> (RowBox[{#, "  ", #2, "  ", #3}]& ), 
       InterpretationFunction -> (RowBox[{"Row", "[", 
          RowBox[{
            RowBox[{"{", 
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["GLCpts"], 0.4342857142857109, 20.000000000000007`},
-       "  "], "Tooltip"]& ], 
+       Toolbox`v["GLCpts"], 0.4342857142857109, 20.000000000000007`}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{63, -0.6345502509366757}, {63, 17.14285714285711}}],
      TemplateBox[{
@@ -4694,8 +4621,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["RPE"], -0.6345502509366757, 17.14285714285711}, 
-      "  "], "Tooltip"]& ], 
+       Toolbox`v["RPE"], -0.6345502509366757, 17.14285714285711}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{64, 1.639308044148803*^-16}, {64, 15.653555993522927`}}],
@@ -4717,8 +4644,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["EX_nh4(e)"], 1.639308044148803*^-16, 
-       15.653555993522927`}, "  "], "Tooltip"]& ], 
+       Toolbox`v["EX_nh4(e)"], 1.639308044148803*^-16, 15.653555993522927`}, 
+      "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{65, 1.639308044148803*^-16}, {65, 15.653555993522927`}}],
@@ -4731,17 +4658,16 @@ Cell[BoxData[
          StyleBox["NH4t", 
           RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False,
            AutoSpacing -> False, ZeroWidthTimes -> True]], 
-        Toolbox`v["NH4t"]], "1.639308044148803`*^-16", 
-       "15.653555993522927`"}, "Row", 
-      DisplayFunction -> (RowBox[{#, "  ", #2, "  ", #3}]& ), 
+        Toolbox`v["NH4t"]], "1.639308044148803`*^-16", "15.653555993522927`"},
+       "Row", DisplayFunction -> (RowBox[{#, "  ", #2, "  ", #3}]& ), 
       InterpretationFunction -> (RowBox[{"Row", "[", 
          RowBox[{
            RowBox[{"{", 
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["NH4t"], 1.639308044148803*^-16, 
-       15.653555993522927`}, "  "], "Tooltip"]& ], 
+       Toolbox`v["NH4t"], 1.639308044148803*^-16, 15.653555993522927`}, "  "],
+      "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{66, 3.885780586188109*^-15}, {66, 15.000000000000252`}}],
@@ -4754,17 +4680,16 @@ Cell[BoxData[
          StyleBox["CS", 
           RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False,
            AutoSpacing -> False, ZeroWidthTimes -> True]], 
-        Toolbox`v["CS"]], "3.885780586188109`*^-15", 
-       "15.000000000000252`"}, "Row", 
-      DisplayFunction -> (RowBox[{#, "  ", #2, "  ", #3}]& ), 
+        Toolbox`v["CS"]], "3.885780586188109`*^-15", "15.000000000000252`"}, 
+      "Row", DisplayFunction -> (RowBox[{#, "  ", #2, "  ", #3}]& ), 
       InterpretationFunction -> (RowBox[{"Row", "[", 
          RowBox[{
            RowBox[{"{", 
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["CS"], 3.885780586188109*^-15, 15.000000000000252`},
-       "  "], "Tooltip"]& ], 
+       Toolbox`v["CS"], 3.885780586188109*^-15, 15.000000000000252`}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{67, 3.885780586188109*^-15}, {67, 15.000000000000252`}}],
@@ -4786,8 +4711,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["ACONTb"], 3.885780586188109*^-15, 
-       15.000000000000252`}, "  "], "Tooltip"]& ], 
+       Toolbox`v["ACONTb"], 3.885780586188109*^-15, 15.000000000000252`}, 
+      "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{68, 3.885780586188109*^-15}, {68, 15.000000000000252`}}],
@@ -4809,8 +4734,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["ACONTa"], 3.885780586188109*^-15, 
-       15.000000000000252`}, "  "], "Tooltip"]& ], 
+       Toolbox`v["ACONTa"], 3.885780586188109*^-15, 15.000000000000252`}, 
+      "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{69, -14.999999999999998`}, {69, 0.}}],
      TemplateBox[{
@@ -4854,8 +4779,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["ICDHyr"], 1.068648019540144*^-15, 
-       14.999999999999998`}, "  "], "Tooltip"]& ], 
+       Toolbox`v["ICDHyr"], 1.068648019540144*^-15, 14.999999999999998`}, 
+      "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{71, -14.999999999999998`}, {71, 0.}}],
      TemplateBox[{
@@ -4876,8 +4801,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["GLUt2r"], -14.999999999999998`, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["GLUt2r"], -14.999999999999998`, 0.}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{72, -11.999999999999813`}, {72, 0.}}],
      TemplateBox[{
@@ -4920,8 +4844,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["AKGt2r"], -11.999999999999813`, 0.}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["AKGt2r"], -11.999999999999813`, 0.}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{74, 0.}, {74, 11.42857142857181}}],
      TemplateBox[{
@@ -4941,8 +4864,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["MALS"], 0., 11.42857142857181}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["MALS"], 0., 11.42857142857181}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{75, 0.}, {75, 11.42857142857181}}],
      TemplateBox[{
@@ -4962,8 +4884,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["ICL"], 0., 11.42857142857181}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["ICL"], 0., 11.42857142857181}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{76, 0.}, {76, 10.}}],
      TemplateBox[{
@@ -5005,8 +4926,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["SUCOAS"], -10.000000000000023`, 
-       1.633102255577624*^-16}, "  "], "Tooltip"]& ], 
+       Toolbox`v["SUCOAS"], -10.000000000000023`, 1.633102255577624*^-16}, 
+      "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{78, 0.}, {78, 10.}}],
      TemplateBox[{
@@ -5046,8 +4967,7 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["AKGDH"], 0., 10.000000000000034`}, "  "], 
-     "Tooltip"]& ], 
+       Toolbox`v["AKGDH"], 0., 10.000000000000034`}, "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{80, -0.4766189210917011}, {80, 8.57142857142852}}],
      TemplateBox[{
@@ -5068,8 +4988,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["TKT2"], -0.4766189210917011, 8.57142857142852}, 
-      "  "], "Tooltip"]& ], 
+       Toolbox`v["TKT2"], -0.4766189210917011, 8.57142857142852}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{81, -0.157931329844963}, {81, 8.571428571428553}}],
      TemplateBox[{
@@ -5090,8 +5010,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["TKT1"], -0.157931329844963, 8.571428571428553}, 
-      "  "], "Tooltip"]& ], 
+       Toolbox`v["TKT1"], -0.157931329844963, 8.571428571428553}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{82, -0.15793132984496394`}, {82, 8.571428571428553}}],
      TemplateBox[{
@@ -5112,8 +5032,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["TALA"], -0.15793132984496394`, 8.571428571428553}, 
-      "  "], "Tooltip"]& ], 
+       Toolbox`v["TALA"], -0.15793132984496394`, 8.571428571428553}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{83, -8.571428571428486}, {83, 1.179614709377226*^-15}}],
@@ -5135,8 +5055,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["RPI"], -8.571428571428486, 1.179614709377226*^-15},
-       "  "], "Tooltip"]& ], 
+       Toolbox`v["RPI"], -8.571428571428486, 1.179614709377226*^-15}, "  "], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{84, -1.763814788668938*^-13}, {84, 3.2475236618265884`}}],
@@ -5158,8 +5078,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["EX_pi(e)"], -1.763814788668938*^-13, 
-       3.2475236618265884`}, "  "], "Tooltip"]& ], 
+       Toolbox`v["EX_pi(e)"], -1.763814788668938*^-13, 3.2475236618265884`}, 
+      "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      LineBox[{{85, -1.763814788668938*^-13}, {85, 3.2475236618265884`}}],
@@ -5181,8 +5101,8 @@ Cell[BoxData[
              RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"  \""}], "]"}]& )]],
     Annotation[#, 
      Row[{
-       Toolbox`v["PIt2r"], -1.763814788668938*^-13, 
-       3.2475236618265884`}, "  "], "Tooltip"]& ], 
+       Toolbox`v["PIt2r"], -1.763814788668938*^-13, 3.2475236618265884`}, 
+      "  "], "Tooltip"]& ], 
    TagBox[
     TooltipBox[LineBox[{{86, 0.}, {86, 0.8827911114867675}}],
      TemplateBox[{
@@ -5945,91 +5865,145 @@ Cell[BoxData[
          FontFamily -> "Helvetica", FontSize -> Scaled[0.005], StripOnInput -> 
          False], TraditionalForm]}}, None}},
   PlotRange->{All, {-149.86904870951776`, 409.5115081182599}}]], "Output",
- CellChangeTimes->{3.5575187553197947`*^9, 3.557518864574192*^9},
- CellLabel->"Out[39]=",
+ ImageSize->{244, 165},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[5]=",
  CellID->1739058063]
 }, Open  ]]
 }, Open  ]],
 
+Cell["", "SectionFooterSpacer"],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Open  ]],
+
 Cell[CellGroupData[{
 
-Cell["More Examples", "ExtendedExamplesSection",
- CellTags->"ExtendedExamples",
- CellID->1854448968],
+Cell["", "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[{
+        Cell[
+         BoxData[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, BaselinePosition -> Baseline, 
+             ImageSize -> {6, 0}], CacheGraphics -> False], 
+           Spacer[6]]]], "See Also"}], "SeeAlsoSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[{
+       Cell[
+        BoxData[
+         InterpretationBox[
+          StyleBox[
+           GraphicsBox[{}, BaselinePosition -> Baseline, ImageSize -> {6, 0}],
+            CacheGraphics -> False], 
+          Spacer[6]]]], "See Also"}]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->1255426704],
 
-Cell[BoxData[
- InterpretationBox[Cell["Scope", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1293636265],
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["fba"]],"paclet:Toolbox/ref/fba"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["reduceModel"]],"paclet:Toolbox/ref/reduceModel"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["plotFVA"]],"paclet:Toolbox/ref/plotFVA"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
 
-Cell[BoxData[
- InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1020263627],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[Cell["Options", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection"],
-
-Cell[BoxData[
- InterpretationBox[Cell["OptFlag", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
-
-Cell[BoxData[
- InterpretationBox[Cell["Solver", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
-
-Cell[BoxData[
- InterpretationBox[Cell["Loopless", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
-
-Cell[BoxData[
- InterpretationBox[Cell["Method", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
-
-Cell[BoxData[
- InterpretationBox[Cell["Tolerance", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
-
-Cell[BoxData[
- InterpretationBox[Cell["ProgressBar", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"]
-}, Closed]],
-
-Cell[BoxData[
- InterpretationBox[Cell["Applications", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->258228157],
-
-Cell[BoxData[
- InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->2123667759],
-
-Cell[BoxData[
- InterpretationBox[Cell["Possible Issues", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1305812373],
-
-Cell[BoxData[
- InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1653164318],
-
-Cell[BoxData[
- InterpretationBox[Cell["Neat Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->589267740]
-}, Open  ]]
+Cell[" ", "FooterCell"]
 },
-WindowSize->{1287, 1055},
-WindowMargins->{{4, Automatic}, {Automatic, 0}},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"fva",
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Wolfram Language", ButtonData -> "paclet:guide/WolframRoot", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2017, 6, 1, 13, 37, 11.780055}", 
+    "history" -> {"XX", "", "", ""}, "context" -> "Toolbox`COBRA`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Toolbox Package Symbol", "language" -> "en", "paclet" -> 
+    "Toolbox Package", "status" -> "None", "summary" -> 
+    "fva[model] performs flux-variability analysis (FVA) on the given \
+system.", "synonyms" -> {}, "tabletags" -> {}, "title" -> "fva", 
+    "titlemodifier" -> "", "windowtitle" -> "fva", "type" -> "Symbol", "uri" -> 
+    "Toolbox/ref/fva"}, "SearchTextTranslated" -> ""},
 CellContext->"Global`",
-FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
-2011)",
-StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
-  CharacterEncoding -> "UTF-8"]
+FrontEndVersion -> "6.0",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "6.0", 
+  StyleDefinitions -> "Default.nb"]
 ]
 

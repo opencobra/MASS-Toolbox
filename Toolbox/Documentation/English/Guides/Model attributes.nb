@@ -1,106 +1,84 @@
 Notebook[{
-Cell[TextData[{
- Cell[BoxData["XXXX"], "InlineGuideFunction"],
- " \[LongDash] XXXX"
-}], "GuideText",
- CellID->1404563194],
-
-Cell[TextData[{
- "New in: ",
- Cell["0.1", "HistoryData",
-  CellTags->"New"],
- " | Modified in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Modified"],
- " | Obsolete in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Obsolete"],
- " | Excised in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Excised"]
-}], "History",
- CellID->1247902091],
-
-Cell[CellGroupData[{
-
-Cell["Categorization", "CategorizationSection",
- CellID->1122911449],
-
-Cell["Guide", "Categorization",
- CellLabel->"Entity Type",
- CellID->686433507],
-
-Cell["Toolbox", "Categorization",
- CellLabel->"Paclet Name",
- CellID->605800465],
-
-Cell["Toolbox`", "Categorization",
- CellLabel->"Context",
- CellID->468444828],
-
-Cell["Toolbox/guide/Model attributes", "Categorization",
- CellChangeTimes->{
-  3.563023911510612*^9, {3.566330206521159*^9, 3.566330209831594*^9}},
- CellLabel->"URI",
- CellID->1861924994]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Keywords", "KeywordsSection",
- CellID->1427428552],
-
-Cell["XXXX", "Keywords",
- CellID->1251852827]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Details", "DetailsSection",
- CellID->307771771],
-
-Cell["XXXX", "Details",
- CellLabel->"Lead",
- CellID->795394057],
-
-Cell["XXXX", "Details",
- CellLabel->"Developers",
- CellID->350963985],
-
-Cell["XXXX", "Details",
- CellLabel->"Authors",
- CellID->802101],
-
-Cell["XXXX", "Details",
- CellLabel->"Feature Name",
- CellID->509823116],
-
-Cell["XXXX", "Details",
- CellLabel->"QA",
- CellID->199884516],
-
-Cell["XXXX", "Details",
- CellLabel->"DA",
- CellID->463951815],
-
-Cell["XXXX", "Details",
- CellLabel->"Docs",
- CellID->8237523],
-
-Cell["XXXX", "Details",
- CellLabel->"Features Page Notes",
- CellID->813936640],
-
-Cell["XXXX", "Details",
- CellLabel->"Comments",
- CellID->240026365]
-}, Closed]],
+Cell[BoxData[GridBox[{
+   {Cell["TOOLBOX GUIDE", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Functions",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Functions", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Constant\"\>":>Documentation`HelpLookup[
+       "paclet:ref/Constant"], "\<\"Variables\"\>":>Documentation`HelpLookup[
+       "paclet:ref/Variables"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"GuideFunction"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Toolbox/guide/Model attributes\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["Toolbox/guide/Model attributes"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/Toolbox/guide/Model \
+attributes.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$1731], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "Toolbox/guide/Model attributes", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
 
 Cell[CellGroupData[{
 
 Cell["Model attributes", "GuideTitle",
- CellChangeTimes->{
-  3.56235987420993*^9, {3.562422832959812*^9, 3.562422833063962*^9}},
  CellID->942062912],
 
 Cell[TextData[{
@@ -121,8 +99,8 @@ attributes with associated ",
     RowBox[{"Model", " ", "construction", " ", "and", " ", "manipulation"}],
     BaseStyle->"Link",
     ButtonData->
-     "paclet:Toolbox/tutorial/Model construction and \
-manipulation#115847815"], TextForm]]],
+     "paclet:Toolbox/tutorial/Model construction and manipulation#115847815"],
+    TextForm]]],
  "). In general, when working with model attributes it is very helpful to use \
 ",
  StyleBox["Mathematica",
@@ -138,58 +116,70 @@ manipulation#115847815"], TextForm]]],
  ") to complete either the various getter, setter, updater functions or the \
 attribute names directly."
 }], "GuideAbstract",
- CellChangeTimes->{{3.562361061681017*^9, 3.562361077063511*^9}, {
-  3.56311464716291*^9, 3.5631147195390663`*^9}, {3.5631147592130947`*^9, 
-  3.5631148802465353`*^9}, {3.563114928532971*^9, 3.563115005032895*^9}, {
-  3.574538922890656*^9, 3.5745389296334543`*^9}},
+ CellFrame->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {{0, 0}, {1, 0}}, 
+   Inherited],
  CellID->2001916300]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["", "GuideFunctionsSection",
- CellID->1866139230],
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Reference"
+}], "GuideReferenceSection",
+ WholeCellGroupOpener->True],
+
+Cell["", "SectionHeaderSpacer"],
 
 Cell[CellGroupData[{
 
 Cell["Mutable attributes", "GuideFunctionsSubsection",
- CellChangeTimes->{{3.562357405444008*^9, 3.562357408474516*^9}, {
-  3.562357701828176*^9, 3.562357707728829*^9}, {3.562358764296854*^9, 
-  3.5623587721913233`*^9}, {3.562359940009178*^9, 3.56235994296797*^9}},
  CellID->1080204154],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["ID",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/ID"]], "InlineGuideFunction"],
- " \[LongDash] Model identifier (String)"
+  TemplateBox[{Cell[
+     TextData["ID"]],"paclet:Toolbox/ref/ID"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Model identifier (String)"
 }], "GuideText",
- CellChangeTimes->{{3.562359977544283*^9, 3.562359988264803*^9}, {
-   3.562360182340837*^9, 3.562360184061225*^9}, {3.562423575213698*^9, 
-   3.562423575322298*^9}, {3.563121679086972*^9, 3.5631216813792963`*^9}, 
-   3.574534844489551*^9},
  CellID->203374175],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Name",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/Name"]], "InlineGuideFunction"],
- " \[LongDash] Model full name (String)"
+  TemplateBox[{Cell[
+     TextData["Name"]],"paclet:Toolbox/ref/Name"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Model full name (String)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-   3.562360185660919*^9, 3.562360188293239*^9}, {3.562423577171139*^9, 
-   3.562423577262041*^9}, 3.563121685807414*^9, 3.574534844541398*^9},
  CellID->1463276848],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Constraints",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/Constraints"]], 
-  "InlineGuideFunction"],
- " \[LongDash] Constraints on model fluxes ({",
+  TemplateBox[{Cell[
+     TextData["Constraints"]],"paclet:Toolbox/ref/Constraints"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Constraints on model fluxes ({",
  Cell[BoxData[
   InterpretationBox[
    SubscriptBox[
@@ -198,25 +188,24 @@ Cell[TextData[{
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]], 
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
     StyleBox["ID",
      StripOnInput->False,
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]]],
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
    Toolbox`v["ID"],
    Editable->False,
-   Selectable->False]],
-  CellChangeTimes->{3.562360253389739*^9}],
+   Selectable->False]]],
  " \[Rule] {",
  StyleBox["lb",
   FontSlant->"Italic"],
@@ -225,19 +214,17 @@ Cell[TextData[{
   FontSlant->"Italic"],
  "}, ...})"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.562360064570298*^9}, {
-   3.5623601899730253`*^9, 3.562360228164852*^9}, 3.562360263155624*^9, 
-   3.5623604560634003`*^9, {3.562423578781364*^9, 3.5624235788807507`*^9}, {
-   3.5631257390210667`*^9, 3.563125740403857*^9}, 3.57453484462572*^9},
  CellID->1568162591],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["InitialConditions",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/InitialConditions"]], 
-  "InlineGuideFunction"],
- " \[LongDash] Model initial conditions ({",
+  TemplateBox[{Cell[
+     TextData["InitialConditions"]],"paclet:Toolbox/ref/InitialConditions"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Model initial conditions ({",
  Cell[BoxData[
   InterpretationBox[
    SuperscriptBox[
@@ -246,43 +233,40 @@ Cell[TextData[{
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]], 
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
     StyleBox["c",
      StripOnInput->False,
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]]],
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
    Toolbox`metabolite["x1", "c"],
    Editable->False,
-   Selectable->False]],
-  CellChangeTimes->{3.5623602977781343`*^9}],
+   Selectable->False]]],
  " \[Rule] ",
  StyleBox["val",
   FontSlant->"Italic"],
  ", ...})"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.562360042553904*^9}, {
-   3.562360215669383*^9, 3.562360217469802*^9}, {3.562360303044917*^9, 
-   3.562360308743917*^9}, {3.5623604593473787`*^9, 3.562360459988551*^9}, {
-   3.562423580648385*^9, 3.562423580712656*^9}, 3.563121688975196*^9, 
-   3.574534844708932*^9},
  CellID->1759487399],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Parameters",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/Parameters"]], "InlineGuideFunction"],
- " \[LongDash] Model parameters ({",
+  TemplateBox[{Cell[
+     TextData["Parameters"]],"paclet:Toolbox/ref/Parameters"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Model parameters ({",
  Cell[BoxData[
   InterpretationBox[
    SubsuperscriptBox["k", 
@@ -291,17 +275,14 @@ Cell[TextData[{
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
    Toolbox`rateconst["ID", True],
    Editable->False,
-   Selectable->False]],
-  CellChangeTimes->{
-   3.5623602977781343`*^9, {3.5623603329416428`*^9, 
-    3.5623603397806597`*^9}}],
+   Selectable->False]]],
  " \[Rule] ",
  StyleBox["val",
   FontSlant->"Italic"],
@@ -314,33 +295,30 @@ Cell[TextData[{
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]]],
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
    Toolbox`Keq["ID"],
    Editable->False,
-   Selectable->False]],
-  CellChangeTimes->{3.56236035604503*^9}],
+   Selectable->False]]],
  " \[Rule] ",
  StyleBox["val",
   FontSlant->"Italic"],
  ", ...})"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.562360042553904*^9}, {
-   3.562360083844795*^9, 3.562360089635167*^9}, {3.562360316007823*^9, 
-   3.562360364953535*^9}, {3.5623604637235518`*^9, 3.562360466828906*^9}, {
-   3.5624235823447113`*^9, 3.562423582419661*^9}, 3.56312169069508*^9, 
-   3.5745348447934227`*^9},
  CellID->854895803],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["GPR",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/GPR"]], "InlineGuideFunction"],
- " \[LongDash] Gene-protein-reaction associations ({\"",
+  TemplateBox[{Cell[
+     TextData["GPR"]],"paclet:Toolbox/ref/GPR"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Gene-protein-reaction associations ({\"",
  StyleBox["RxnID",
   FontSlant->"Italic"],
  "\" -> p[\"",
@@ -354,79 +332,69 @@ Cell[TextData[{
   FontSlant->"Italic"],
  "\"], ...})"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.562360042553904*^9}, {
-   3.562360083844795*^9, 3.56236012965975*^9}, {3.562360389105255*^9, 
-   3.562360433442333*^9}, {3.562360469203177*^9, 3.56236049398772*^9}, {
-   3.56242358441238*^9, 3.562423584482732*^9}, {3.5631373639417477`*^9, 
-   3.563137369771018*^9}, 3.57453484487606*^9},
  CellID->1436659373],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Ignore",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/Ignore"]], "InlineGuideFunction"],
- " \[LongDash] Species that should be ignored under mass-action \
-considerations (List of species)"
+  TemplateBox[{Cell[
+     TextData["Ignore"]],"paclet:Toolbox/ref/Ignore"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Species that should be ignored under mass-action considerations (List of \
+species)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.562360042553904*^9}, {
-   3.562360083844795*^9, 3.562360172892655*^9}, {3.562360519467812*^9, 
-   3.5623605225562162`*^9}, {3.56236124981616*^9, 3.5623612754681*^9}, {
-   3.562361403346798*^9, 3.5623614647441072`*^9}, {3.5624235859773493`*^9, 
-   3.562423586073422*^9}, {3.563130587798561*^9, 3.563130589539845*^9}, 
-   3.57453484495918*^9},
  CellID->155580158],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["BoundaryConditions",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/BoundaryConditions"]], 
-  "InlineGuideFunction"],
- " \[LongDash] Boundary conditions for species (list of species)"
+  TemplateBox[{Cell[
+     TextData["BoundaryConditions"]],"paclet:Toolbox/ref/BoundaryConditions"},
+   
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Boundary conditions for species (list of species)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.562360042553904*^9}, {
-   3.562360083844795*^9, 3.562360155804164*^9}, {3.562360501069419*^9, 
-   3.562360516700057*^9}, {3.562423587920102*^9, 3.562423587985442*^9}, {
-   3.563138530115646*^9, 3.563138531713848*^9}, 3.5745348450444736`*^9},
  CellID->1775438790],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Constant",
-   BaseStyle->"Link",
-   ButtonData->"paclet:ref/Constant"]], "InlineGuideFunction"],
- " \[LongDash] Constant species (list of species)"
+  TemplateBox[{Cell[
+     TextData["Constant"]],"paclet:ref/Constant"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Constant species (list of species)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.562360042553904*^9}, {
-   3.562360083844795*^9, 3.562360172892655*^9}, {3.562360519467812*^9, 
-   3.5623605225562162`*^9}, {3.562423589529386*^9, 3.5624235895871487`*^9}, 
-   3.563138848497018*^9, 3.563138945307667*^9, {3.563140759393878*^9, 
-   3.563140762006383*^9}, 3.5745348451261053`*^9},
  CellID->514468465],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["ReversibleColumnIndices",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/ReversibleColumnIndices"]], 
-  "InlineGuideFunction"],
- " \[LongDash] Columns in stoichiometry matrix that correspond to reversible \
-reactions (list of integer indices)"
+  TemplateBox[{Cell[
+     TextData["ReversibleColumnIndices"]],
+    "paclet:Toolbox/ref/ReversibleColumnIndices"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Columns in stoichiometry matrix that correspond to reversible reactions \
+(list of integer indices)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.562360042553904*^9}, {
-   3.562360083844795*^9, 3.562360172892655*^9}, {3.562360639506887*^9, 
-   3.5623606755912323`*^9}, {3.562423591714325*^9, 3.562423591772591*^9}, {
-   3.5631418208545637`*^9, 3.563141822420101*^9}, 3.5745348452102013`*^9},
  CellID->902328433],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["CustomRateLaws",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/CustomRateLaws"]], 
-  "InlineGuideFunction"],
- " \[LongDash] Custom rate laws  ({",
+  TemplateBox[{Cell[
+     TextData["CustomRateLaws"]],"paclet:Toolbox/ref/CustomRateLaws"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Custom rate laws  ({",
  Cell[BoxData[
   InterpretationBox[
    SubscriptBox[
@@ -435,56 +403,50 @@ Cell[TextData[{
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]], 
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
     StyleBox["ID",
      StripOnInput->False,
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]]],
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
    Toolbox`v["ID"],
    Editable->False,
-   Selectable->False]],
-  CellChangeTimes->{3.562360253389739*^9}],
+   Selectable->False]]],
  " -> equation, ...})"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.562360042553904*^9}, {
-   3.562360083844795*^9, 3.562360172892655*^9}, {3.562360519467812*^9, 
-   3.5623605225562162`*^9}, {3.5623611558118763`*^9, 
-   3.5623612378272057`*^9}, {3.5624235935296373`*^9, 3.5624235936265306`*^9}, 
-   3.574518085520081*^9, 3.574519049939981*^9, 3.574534845293749*^9},
  CellID->1059384381],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["CustomODE",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/CustomODE"]], "InlineGuideFunction"],
- " \[LongDash] Additional algebraic or differential equations (list of \
-equations)"
+  TemplateBox[{Cell[
+     TextData["CustomODE"]],"paclet:Toolbox/ref/CustomODE"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Additional algebraic or differential equations (list of equations)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.562360042553904*^9}, {
-   3.562360083844795*^9, 3.562360172892655*^9}, {3.562360519467812*^9, 
-   3.5623605225562162`*^9}, {3.56236124981616*^9, 3.5623612754681*^9}, {
-   3.562423595520424*^9, 3.562423595575459*^9}, {3.574525627735889*^9, 
-   3.574525629398551*^9}, 3.574534845377082*^9},
  CellID->286374190],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["ElementalComposition",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/ElementalComposition"]], 
-  "InlineGuideFunction"],
- " \[LongDash] Elemental composition of species ({",
+  TemplateBox[{Cell[
+     TextData["ElementalComposition"]],
+    "paclet:Toolbox/ref/ElementalComposition"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Elemental composition of species ({",
  Cell[BoxData[
   InterpretationBox[
    SuperscriptBox[
@@ -493,73 +455,65 @@ Cell[TextData[{
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]], 
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
     StyleBox["c",
      StripOnInput->False,
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]]],
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
    Toolbox`metabolite["H2O", "c"],
    Editable->False,
-   Selectable->False]],
-  CellChangeTimes->{3.562361375420554*^9}],
+   Selectable->False]]],
  " \[Rule] 2 ",
  StyleBox["\"H\" + \"O\"",
   FontSlant->"Italic"],
  ", ...})"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.562360042553904*^9}, {
-  3.562360083844795*^9, 3.562360172892655*^9}, {3.562360519467812*^9, 
-  3.5623605225562162`*^9}, {3.5623612867497463`*^9, 3.562361385942255*^9}, {
-  3.5624235983641148`*^9, 3.562423598428145*^9}},
  CellID->580158403],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Notes",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/Notes"]], "InlineGuideFunction"],
- " \[LongDash] Notes (String)"
+  TemplateBox[{Cell[
+     TextData["Notes"]],"paclet:Toolbox/ref/Notes"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Notes (String)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.562360042553904*^9}, {
-   3.562360083844795*^9, 3.562360172892655*^9}, {3.562360519467812*^9, 
-   3.5623605225562162`*^9}, {3.56236124981616*^9, 3.5623612754681*^9}, {
-   3.562361403346798*^9, 3.5623614204470997`*^9}, {3.562423600799205*^9, 
-   3.562423600863677*^9}, {3.5631305967557983`*^9, 3.5631306025081387`*^9}, 
-   3.5745348454595203`*^9},
  CellID->49329700],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["UnitChecking",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/UnitChecking"]], "InlineGuideFunction"],
- " \[LongDash] If units should be checked (Boolean)"
+  TemplateBox[{Cell[
+     TextData["UnitChecking"]],"paclet:Toolbox/ref/UnitChecking"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " If units should be checked (Boolean)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.562360042553904*^9}, {
-  3.562360083844795*^9, 3.562360172892655*^9}, {3.562360519467812*^9, 
-  3.5623605225562162`*^9}, {3.56236124981616*^9, 3.5623612754681*^9}, {
-  3.562361403346798*^9, 3.562361535185486*^9}, {3.562423603336111*^9, 
-  3.562423603399337*^9}},
  CellID->1348117107],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Objective",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/Objective"]], "InlineFormula",
+  TemplateBox[{Cell[
+     TextData["Objective"]],"paclet:Toolbox/ref/Objective"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",
   FontWeight->"Bold"],
- " \[LongDash] Objective that should be optimized in COBRA related methods \
-(",
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Objective that should be optimized in COBRA related methods (",
  Cell[BoxData[
   InterpretationBox[
    SubscriptBox[
@@ -568,25 +522,24 @@ Cell[TextData[{
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]], 
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
     StyleBox["ID",
      StripOnInput->False,
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]]],
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
    Toolbox`v["ID"],
    Editable->False,
-   Selectable->False]],
-  CellChangeTimes->{3.562360253389739*^9}],
+   Selectable->False]]],
  " or ",
  Cell[BoxData[
   InterpretationBox[
@@ -596,162 +549,134 @@ Cell[TextData[{
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]], 
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
     StyleBox["ID",
      StripOnInput->False,
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]]],
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
    Toolbox`v["ID"],
    Editable->False,
-   Selectable->False]],
-  CellChangeTimes->{3.562360253389739*^9}],
+   Selectable->False]]],
  " + ...)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.562360042553904*^9}, {
-   3.562360083844795*^9, 3.562360172892655*^9}, {3.562360519467812*^9, 
-   3.5623605225562162`*^9}, {3.56236124981616*^9, 3.5623612754681*^9}, {
-   3.562361403346798*^9, 3.562361535185486*^9}, {3.562423603336111*^9, 
-   3.562423603399337*^9}, {3.574517481033346*^9, 3.574517492497727*^9}, {
-   3.574518001750464*^9, 3.5745180633488073`*^9}, {3.574525643416333*^9, 
-   3.574525645303297*^9}, 3.574534845542734*^9},
- CellID->95893632]
-}, Open  ]],
+ CellID->95893632],
 
-Cell["\t", "GuideDelimiter",
- CellID->311258892],
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->311258892]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell["Immutable attributes", "GuideFunctionsSubsection",
- CellChangeTimes->{{3.562357405444008*^9, 3.562357408474516*^9}, {
-  3.562357701828176*^9, 3.562357707728829*^9}, {3.562358764296854*^9, 
-  3.5623587721913233`*^9}, {3.562359940009178*^9, 3.56235994296797*^9}, {
-  3.562361107184305*^9, 3.562361116514288*^9}},
  CellID->1649878722],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Stoichiometry",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/Stoichiometry"]], 
-  "InlineGuideFunction"],
- " \[LongDash] Stoichiometry matrix"
+  TemplateBox[{Cell[
+     TextData["Stoichiometry"]],"paclet:Toolbox/ref/Stoichiometry"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Stoichiometry matrix"
 }], "GuideText",
- CellChangeTimes->{{3.562359977544283*^9, 3.562359988264803*^9}, {
-   3.562360182340837*^9, 3.562360184061225*^9}, {3.562361120778364*^9, 
-   3.562361124222369*^9}, {3.562361775014617*^9, 3.562361793974778*^9}, {
-   3.562423612010303*^9, 3.5624236121201897`*^9}, {3.563130825313308*^9, 
-   3.563130826800478*^9}, 3.574534845626965*^9},
  CellID->1202830590],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["SparseStoichiometry",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/SparseStoichiometry"]], 
-  "InlineGuideFunction"],
- " \[LongDash] Sparse stoichiometry matrix (SparseArray)"
+  TemplateBox[{Cell[
+     TextData["SparseStoichiometry"]],
+    "paclet:Toolbox/ref/SparseStoichiometry"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Sparse stoichiometry matrix (SparseArray)"
 }], "GuideText",
- CellChangeTimes->{{3.562359977544283*^9, 3.562359988264803*^9}, {
-   3.562360182340837*^9, 3.562360184061225*^9}, {3.562361120778364*^9, 
-   3.562361124222369*^9}, {3.562361759134892*^9, 3.562361801383049*^9}, {
-   3.562423614100968*^9, 3.562423614193844*^9}, 3.563130829955819*^9, 
-   3.574534845710025*^9},
  CellID->1657245641],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Reactions",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/Reactions"]], "InlineGuideFunction"],
- " \[LongDash] Model reactions (List of reactions; same order as rows in \
-stoichiometry matrix)"
+  TemplateBox[{Cell[
+     TextData["Reactions"]],"paclet:Toolbox/ref/Reactions"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Model reactions (List of reactions; same order as rows in stoichiometry \
+matrix)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-   3.562360185660919*^9, 3.562360188293239*^9}, {3.562361552486361*^9, 
-   3.562361600562619*^9}, {3.56236168092453*^9, 3.562361727550561*^9}, {
-   3.5623618083528748`*^9, 3.562361838355633*^9}, {3.562423616168787*^9, 
-   3.5624236162625017`*^9}, {3.563130913114387*^9, 3.563130914362232*^9}, 
-   3.574534845793571*^9},
  CellID->464586697],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Exchanges",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/Exchanges"]], "InlineGuideFunction"],
- " \[LongDash] Exchanges reactions in model (List of reactions)"
+  TemplateBox[{Cell[
+     TextData["Exchanges"]],"paclet:Toolbox/ref/Exchanges"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Exchanges reactions in model (List of reactions)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-   3.562360185660919*^9, 3.562360188293239*^9}, {3.562361552486361*^9, 
-   3.562361600562619*^9}, {3.56236168092453*^9, 3.562361727550561*^9}, {
-   3.5623618083528748`*^9, 3.562361866328538*^9}, {3.5624236183503933`*^9, 
-   3.562423618464261*^9}, {3.563130991501107*^9, 3.563130992844036*^9}, 
-   3.574534843751996*^9},
  CellID->58075987],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Variables",
-   BaseStyle->"Link",
-   ButtonData->"paclet:ref/Variables"]], "InlineGuideFunction"],
- " \[LongDash] Time dependent variables in model ({v[t], ...})"
+  TemplateBox[{Cell[
+     TextData["Variables"]],"paclet:ref/Variables"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Time dependent variables in model ({v[t], ...})"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-   3.562360185660919*^9, 3.562360188293239*^9}, {3.562361552486361*^9, 
-   3.562361600562619*^9}, {3.56236168092453*^9, 3.562361727550561*^9}, {
-   3.5623618749990063`*^9, 3.562361920873431*^9}, {3.562423621946764*^9, 
-   3.5624236220206547`*^9}, {3.563131187432925*^9, 3.563131188983832*^9}, 
-   3.574534843810968*^9},
  CellID->1125537771],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Species",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/Species"]], "InlineGuideFunction"],
- " \[LongDash] Model species (List of species; same order as rows in \
-stoichiometry matrix)"
+  TemplateBox[{Cell[
+     TextData["Species"]],"paclet:Toolbox/ref/Species"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Model species (List of species; same order as rows in stoichiometry matrix)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-  3.562360185660919*^9, 3.562360188293239*^9}, {3.562361552486361*^9, 
-  3.562361600562619*^9}, {3.56236168092453*^9, 3.562361727550561*^9}, {
-  3.562423624040804*^9, 3.5624236241225863`*^9}},
  CellID->1710156919],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Fluxes",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/Fluxes"]], "InlineGuideFunction"],
- " \[LongDash] Model fluxes (List of species; same order as columns in \
-stoichiometry matrixrows)"
+  TemplateBox[{Cell[
+     TextData["Fluxes"]],"paclet:Toolbox/ref/Fluxes"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Model fluxes (List of species; same order as columns in stoichiometry \
+matrixrows)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-   3.562360185660919*^9, 3.562360188293239*^9}, {3.562361552486361*^9, 
-   3.562361600562619*^9}, {3.562361667907589*^9, 3.562361674420465*^9}, {
-   3.5623617185423727`*^9, 3.562361733221899*^9}, {3.562423626346673*^9, 
-   3.562423626405376*^9}, {3.563131415405712*^9, 3.563131417180204*^9}, 
-   3.574534843846237*^9},
  CellID->1346827803],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["ForwardRateConstants",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/ForwardRateConstants"]], 
-  "InlineGuideFunction"],
- " \[LongDash] All forward rate constants in model ({",
+  TemplateBox[{Cell[
+     TextData["ForwardRateConstants"]],
+    "paclet:Toolbox/ref/ForwardRateConstants"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " All forward rate constants in model ({",
  Cell[BoxData[
   InterpretationBox[
    SubsuperscriptBox["k", 
@@ -760,35 +685,28 @@ Cell[TextData[{
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
    Toolbox`rateconst["ID", True],
    Editable->False,
-   Selectable->False]],
-  CellChangeTimes->{
-   3.5623602977781343`*^9, {3.5623603329416428`*^9, 
-    3.5623603397806597`*^9}}],
+   Selectable->False]]],
  ", ...})"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-   3.562360185660919*^9, 3.562360188293239*^9}, {3.562361552486361*^9, 
-   3.562361600562619*^9}, {3.562361667907589*^9, 3.562361674420465*^9}, {
-   3.5623617185423727`*^9, 3.562361733221899*^9}, {3.5623619333338223`*^9, 
-   3.562361958546348*^9}, {3.5623620003948812`*^9, 3.562362012979538*^9}, {
-   3.56242362878229*^9, 3.5624236288378277`*^9}, {3.5631319527204*^9, 
-   3.5631319545748796`*^9}, 3.574534843905552*^9},
  CellID->1877354421],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["ReverseRateConstants",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/ReverseRateConstants"]], 
-  "InlineGuideFunction"],
- " \[LongDash] All reverse rate constants in model ({",
+  TemplateBox[{Cell[
+     TextData["ReverseRateConstants"]],
+    "paclet:Toolbox/ref/ReverseRateConstants"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " All reverse rate constants in model ({",
  Cell[BoxData[
   InterpretationBox[
    SubsuperscriptBox["k", 
@@ -797,32 +715,28 @@ Cell[TextData[{
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
    Toolbox`rateconst["ID", False],
    Editable->False,
-   Selectable->False]],
-  CellChangeTimes->{3.563131987410063*^9}],
+   Selectable->False]]],
  ", ...})"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-   3.562360185660919*^9, 3.562360188293239*^9}, {3.562361552486361*^9, 
-   3.562361600562619*^9}, {3.562361667907589*^9, 3.562361674420465*^9}, {
-   3.5623617185423727`*^9, 3.562361733221899*^9}, {3.5623619333338223`*^9, 
-   3.5623619753625193`*^9}, {3.56242363098131*^9, 3.562423631075542*^9}, {
-   3.5631319634967422`*^9, 3.5631320079039907`*^9}, 3.574534843952198*^9},
  CellID->1866012023],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["EquilibriumConstants",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/EquilibriumConstants"]], 
-  "InlineGuideFunction"],
- " \[LongDash] All equilibrium constants in model ({",
+  TemplateBox[{Cell[
+     TextData["EquilibriumConstants"]],
+    "paclet:Toolbox/ref/EquilibriumConstants"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " All equilibrium constants in model ({",
  Cell[BoxData[
   InterpretationBox[
    UnderscriptBox["K", 
@@ -831,218 +745,168 @@ Cell[TextData[{
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]]],
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
    Toolbox`Keq["ID"],
    Editable->False,
-   Selectable->False]],
-  CellChangeTimes->{
-   3.5623602977781343`*^9, {3.5623603329416428`*^9, 
-    3.5623603397806597`*^9}}],
+   Selectable->False]]],
  ", ...})"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-   3.562360185660919*^9, 3.562360188293239*^9}, {3.562361552486361*^9, 
-   3.562361600562619*^9}, {3.562361667907589*^9, 3.562361674420465*^9}, {
-   3.5623617185423727`*^9, 3.562361733221899*^9}, {3.5623619333338223`*^9, 
-   3.5623620259891453`*^9}, {3.562423633102352*^9, 3.562423633205881*^9}, {
-   3.56313213272418*^9, 3.563132133922611*^9}, 3.5745348440107307`*^9},
  CellID->212889773],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["IrreversibleColumnIndices",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/IrreversibleColumnIndices"]], 
-  "InlineGuideFunction"],
- " \[LongDash] Columns in stoichiometry matrix that correspond to \
-irreversible reactions (list of integer indices)"
+  TemplateBox[{Cell[
+     TextData["IrreversibleColumnIndices"]],
+    "paclet:Toolbox/ref/IrreversibleColumnIndices"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " Columns in stoichiometry matrix that correspond to irreversible reactions \
+(list of integer indices)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-   3.562360185660919*^9, 3.562360188293239*^9}, {3.562361552486361*^9, 
-   3.562361600562619*^9}, {3.562361667907589*^9, 3.562361674420465*^9}, {
-   3.5623617185423727`*^9, 3.562361733221899*^9}, {3.5623619333338223`*^9, 
-   3.5623620259891453`*^9}, {3.562422377510619*^9, 3.562422400071815*^9}, {
-   3.56242363630236*^9, 3.562423636360674*^9}, {3.563132868771386*^9, 
-   3.563132869833221*^9}, 3.57453484404655*^9},
  CellID->1844088774],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Rates",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/Rates"]], "InlineGuideFunction"],
- " \[LongDash] overall rate laws of model (list of equations; same order as \
-columns in stoichiometry matrix)"
+  TemplateBox[{Cell[
+     TextData["Rates"]],"paclet:Toolbox/ref/Rates"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " overall rate laws of model (list of equations; same order as columns in \
+stoichiometry matrix)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-   3.562360185660919*^9, 3.562360188293239*^9}, {3.562361552486361*^9, 
-   3.562361600562619*^9}, {3.562361667907589*^9, 3.562361674420465*^9}, {
-   3.5623617185423727`*^9, 3.562361733221899*^9}, {3.5623619333338223`*^9, 
-   3.5623620259891453`*^9}, {3.562422377510619*^9, 3.562422400071815*^9}, {
-   3.562423035552916*^9, 3.56242309402113*^9}, {3.5624236391220493`*^9, 
-   3.562423639218103*^9}, {3.5631323677550097`*^9, 3.563132370783475*^9}, 
-   3.574534844095323*^9},
  CellID->1164001394],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["ODE",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/ODE"]], "InlineGuideFunction"],
- " \[LongDash] overall ordinary differential equations of model  (list of \
-equations)"
+  TemplateBox[{Cell[
+     TextData["ODE"]],"paclet:Toolbox/ref/ODE"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " overall ordinary differential equations of model  (list of equations)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-   3.562360185660919*^9, 3.562360188293239*^9}, {3.562361552486361*^9, 
-   3.562361600562619*^9}, {3.562361667907589*^9, 3.562361674420465*^9}, {
-   3.5623617185423727`*^9, 3.562361733221899*^9}, {3.5623619333338223`*^9, 
-   3.5623620259891453`*^9}, {3.562422377510619*^9, 3.562422400071815*^9}, {
-   3.562423035552916*^9, 3.562423195351243*^9}, {3.562423641698324*^9, 
-   3.562423641764835*^9}, {3.5631328730856752`*^9, 3.563132873609558*^9}, {
-   3.563133033575029*^9, 3.5631330349161167`*^9}, 3.5745348441538153`*^9},
  CellID->1637074410],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Compartments",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/Compartments"]], "InlineGuideFunction"],
- " \[LongDash] compartmens in model (list of compartments)"
+  TemplateBox[{Cell[
+     TextData["Compartments"]],"paclet:Toolbox/ref/Compartments"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " compartmens in model (list of compartments)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-   3.562360185660919*^9, 3.562360188293239*^9}, {3.562361552486361*^9, 
-   3.562361600562619*^9}, {3.562361667907589*^9, 3.562361674420465*^9}, {
-   3.5623617185423727`*^9, 3.562361733221899*^9}, {3.5623619333338223`*^9, 
-   3.5623620259891453`*^9}, {3.562422377510619*^9, 3.562422400071815*^9}, {
-   3.562423035552916*^9, 3.562423145062354*^9}, {3.562423643888122*^9, 
-   3.562423643951067*^9}, {3.563133246785788*^9, 3.563133248184325*^9}, 
-   3.5745348442106543`*^9},
  CellID->1942888435],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Genes",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/Genes"]], "InlineGuideFunction"],
- " \[LongDash] genes in model (list of genes)"
+  TemplateBox[{Cell[
+     TextData["Genes"]],"paclet:Toolbox/ref/Genes"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " genes in model (list of genes)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-   3.562360185660919*^9, 3.562360188293239*^9}, {3.562361552486361*^9, 
-   3.562361600562619*^9}, {3.562361667907589*^9, 3.562361674420465*^9}, {
-   3.5623617185423727`*^9, 3.562361733221899*^9}, {3.5623619333338223`*^9, 
-   3.5623620259891453`*^9}, {3.562422377510619*^9, 3.562422400071815*^9}, {
-   3.562423035552916*^9, 3.562423145062354*^9}, {3.562423212331642*^9, 
-   3.562423244344492*^9}, {3.5624236459197483`*^9, 3.562423645983416*^9}, {
-   3.563133335835849*^9, 3.563133336946527*^9}, 3.574534844245572*^9},
  CellID->749123506],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["GeneAssociations",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/GeneAssociations"]], 
-  "InlineGuideFunction"],
- " \[LongDash] reaction-gene associations ({\"RxnID\" -> g[\"ID\"], ...})"
+  TemplateBox[{Cell[
+     TextData["GeneAssociations"]],"paclet:Toolbox/ref/GeneAssociations"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " reaction-gene associations ({\"RxnID\" -> g[\"ID\"], ...})"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-   3.562360185660919*^9, 3.562360188293239*^9}, {3.562361552486361*^9, 
-   3.562361600562619*^9}, {3.562361667907589*^9, 3.562361674420465*^9}, {
-   3.5623617185423727`*^9, 3.562361733221899*^9}, {3.5623619333338223`*^9, 
-   3.5623620259891453`*^9}, {3.562422377510619*^9, 3.562422400071815*^9}, {
-   3.562423035552916*^9, 3.562423145062354*^9}, {3.562423212331642*^9, 
-   3.562423311505515*^9}, {3.5624236479590273`*^9, 3.562423648073482*^9}, {
-   3.563134014721346*^9, 3.563134017007608*^9}, 3.574534844296442*^9},
  CellID->246966862],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Proteins",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/Proteins"]], "InlineGuideFunction"],
- " \[LongDash] proteins in model (list of proteins)"
+  TemplateBox[{Cell[
+     TextData["Proteins"]],"paclet:Toolbox/ref/Proteins"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " proteins in model (list of proteins)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-   3.562360185660919*^9, 3.562360188293239*^9}, {3.562361552486361*^9, 
-   3.562361600562619*^9}, {3.562361667907589*^9, 3.562361674420465*^9}, {
-   3.5623617185423727`*^9, 3.562361733221899*^9}, {3.5623619333338223`*^9, 
-   3.5623620259891453`*^9}, {3.562422377510619*^9, 3.562422400071815*^9}, {
-   3.562423035552916*^9, 3.562423145062354*^9}, {3.562423212331642*^9, 
-   3.562423266624866*^9}, {3.5624236501850986`*^9, 3.5624236502948513`*^9}, {
-   3.563133910030994*^9, 3.563133911933712*^9}, 3.574534844346731*^9},
  CellID->54318291],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["ProteinAssociations",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/ProteinAssociations"]], 
-  "InlineGuideFunction"],
- " \[LongDash] reaction-gene associations ({\"RxnID\" -> p[\"ID\"], ...})"
+  TemplateBox[{Cell[
+     TextData["ProteinAssociations"]],
+    "paclet:Toolbox/ref/ProteinAssociations"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " reaction-gene associations ({\"RxnID\" -> p[\"ID\"], ...})"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-   3.562360185660919*^9, 3.562360188293239*^9}, {3.562361552486361*^9, 
-   3.562361600562619*^9}, {3.562361667907589*^9, 3.562361674420465*^9}, {
-   3.5623617185423727`*^9, 3.562361733221899*^9}, {3.5623619333338223`*^9, 
-   3.5623620259891453`*^9}, {3.562422377510619*^9, 3.562422400071815*^9}, {
-   3.562423035552916*^9, 3.562423145062354*^9}, {3.562423212331642*^9, 
-   3.562423327201847*^9}, {3.562423652649479*^9, 3.562423652711336*^9}, {
-   3.563137098096011*^9, 3.563137100357368*^9}, 3.57453484440422*^9},
  CellID->1833643630],
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["Enzymes",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/Enzymes"]], "InlineGuideFunction"],
- " \[LongDash] enzymes in model (list of enzymes)"
+  TemplateBox[{Cell[
+     TextData["Enzymes"]],"paclet:Toolbox/ref/Enzymes"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " enzymes in model (list of enzymes)"
 }], "GuideText",
- CellChangeTimes->{{3.5623599984112253`*^9, 3.5623600040571203`*^9}, {
-  3.562360185660919*^9, 3.562360188293239*^9}, {3.562361552486361*^9, 
-  3.562361600562619*^9}, {3.562361667907589*^9, 3.562361674420465*^9}, {
-  3.5623617185423727`*^9, 3.562361733221899*^9}, {3.5623619333338223`*^9, 
-  3.5623620259891453`*^9}, {3.562422377510619*^9, 3.562422400071815*^9}, {
-  3.562423035552916*^9, 3.562423145062354*^9}, {3.562423212331642*^9, 
-  3.5624233654747553`*^9}, {3.562423655890147*^9, 3.56242365599314*^9}},
  CellID->1658154960]
 }, Open  ]]
 }, Open  ]],
 
-Cell[CellGroupData[{
-
-Cell["Tutorials", "GuideTutorialsSection",
- CellID->415694126],
-
-Cell["XXXX", "GuideTutorial",
- CellID->806871991],
-
-Cell["XXXX", "GuideTutorial",
- CellID->1885805579]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["More About", "GuideMoreAboutSection",
- CellID->23220180],
-
-Cell["XXXX", "GuideMoreAbout",
- CellID->1567025153],
-
-Cell["XXXX", "GuideMoreAbout",
- CellID->252299663]
-}, Open  ]],
-
-Cell["Related Links", "GuideRelatedLinksSection",
- CellID->415694148]
+Cell[" ", "FooterCell"]
 },
-WindowSize->{1175, 1081},
-WindowMargins->{{216, Automatic}, {Automatic, 0}},
-FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 20, \
-2012)",
-StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStyles.nb", 
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"Model attributes",
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "GuideColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Wolfram Language", ButtonData -> "paclet:guide/WolframRoot", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2017, 6, 1, 13, 36, 20.479002}", 
+    "history" -> {"0.1", "", "", ""}, "context" -> "Toolbox`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Toolbox Guide", "language" -> "en", "paclet" -> "Toolbox", "status" -> 
+    "None", "summary" -> 
+    "For each model, the MASS toolbox provides a series of mutable and \
+immutable attributes with associated getter, setter, updater Functions (see \
+Model construction and manipulation). In general, when working with model \
+attributes it is very helpful to use Mathematica's command completion \
+capabilities (see Edit > Complete Selection) to complete either the various \
+getter, setter, updater functions or the attribute names directly.", 
+    "synonyms" -> {}, "tabletags" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$1636, "title" -> 
+    "Model attributes", "titlemodifier" -> "", "windowtitle" -> 
+    "Model attributes", "type" -> "Guide", "uri" -> 
+    "Toolbox/guide/Model attributes"}, "SearchTextTranslated" -> ""},
+FrontEndVersion -> "6.0",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
   CharacterEncoding -> "UTF-8"]
 ]
 

@@ -1,166 +1,227 @@
 Notebook[{
-Cell[TextData[{
- "New in: ",
- Cell["XX", "HistoryData",
-  CellTags->"New"],
- " | Modified in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Modified"],
- " | Obsolete in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Obsolete"],
- " | Excised in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Excised"]
-}], "History",
- CellID->1247902091],
-
-Cell[CellGroupData[{
-
-Cell["Categorization", "CategorizationSection",
- CellID->1122911449],
-
-Cell["Symbol", "Categorization",
- CellLabel->"Entity Type",
- CellID->686433507],
-
-Cell["Toolbox Package", "Categorization",
- CellLabel->"Paclet Name",
- CellID->1480440022],
-
-Cell["Toolbox`Networks`", "Categorization",
- CellLabel->"Context",
- CellID->1009915612],
-
-Cell["Toolbox/ref/findSteadyState", "Categorization",
- CellLabel->"URI",
- CellID->2088428643]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Keywords", "KeywordsSection",
- CellID->477174294],
-
-Cell["XXXX", "Keywords",
- CellID->1164421360]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Syntax Templates", "TemplatesSection",
- CellID->1872225408],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Additional Function Template",
- CellID->1562036412],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Arguments Pattern",
- CellID->158391909],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Local Variables",
- CellID->1360575930],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Color Equal Signs",
- CellID->793782254]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Details", "DetailsSection",
- CellID->307771771],
-
-Cell["XXXX", "Details",
- CellLabel->"Lead",
- CellID->670882175],
-
-Cell["XXXX", "Details",
- CellLabel->"Developers",
- CellID->350963985],
-
-Cell["XXXX", "Details",
- CellLabel->"Authors",
- CellID->8391405],
-
-Cell["XXXX", "Details",
- CellLabel->"Feature Name",
- CellID->3610269],
-
-Cell["XXXX", "Details",
- CellLabel->"QA",
- CellID->401364205],
-
-Cell["XXXX", "Details",
- CellLabel->"DA",
- CellID->350204745],
-
-Cell["XXXX", "Details",
- CellLabel->"Docs",
- CellID->732958810],
-
-Cell["XXXX", "Details",
- CellLabel->"Features Page Notes",
- CellID->222905350],
-
-Cell["XXXX", "Details",
- CellLabel->"Comments",
- CellID->240026365]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["findSteadyState", "ObjectName",
- CellID->1224892054],
+Cell[BoxData[GridBox[{
+   {Cell["TOOLBOX PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[Cell[
+    BoxData[
+     ActionMenuBox[
+      FrameBox[
+       InterpretationBox[Cell[TextData[{
+         "URL",
+         StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+          StripOnInput->False]
+        }]],
+        TextCell[
+         Row[{"URL", 
+           Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+       StripOnInput->False], {"\<\"Toolbox/ref/findSteadyState\"\>":>
+      None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell["Toolbox/ref/findSteadyState"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+      Delimiter, "\<\"Copy web URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell[
+             BoxData[
+              MakeBoxes[
+               Hyperlink[
+               "http://reference.wolfram.com/language/Toolbox/ref/\
+findSteadyState.html"], StandardForm]], "Input", TextClipboardType -> 
+             "PlainText"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; 
+       Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+        NotebookLocate[{
+          URL[
+           StringJoin[
+            If[
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$20151], 
+             "http://reference.wolfram.com/system-modeler/", 
+             "http://reference.wolfram.com/language/"], 
+            "Toolbox/ref/findSteadyState", ".html"]], None}]}]},
+      Appearance->None,
+      MenuAppearance->Automatic,
+      MenuStyle->"URLMenu"]],
+     LineSpacing->{1.4, 0}]], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
 
 Cell[TextData[{
- Cell["   ", "ModInfo"],
- "findSteadyState[model, opts]",
- "\[LineSeparator]tries to find a steady-state for model, either by using \
-Newton's method (Strategy->FindRoot) or forward integration \
-(Strategy->simulate)."
-}], "Usage"],
+ Cell["findSteadyState", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {"", Cell["\<\
+findSteadyState[model, opts]\[LineSeparator]tries to find a steady-state for \
+model, either by using Newton's method (Strategy->FindRoot) or forward \
+integration (Strategy->simulate).\
+\>"]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}}],
+
+Cell[CellGroupData[{
+
+Cell["", "NotesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[
+       Cell[
+        BoxData[
+         ButtonBox[
+          Cell[
+           TextData[{
+             Cell[
+              BoxData[
+               InterpretationBox[
+                StyleBox[
+                 
+                 GraphicsBox[{}, BaselinePosition -> Baseline, 
+                  ImageSize -> {6, 0}], CacheGraphics -> False], 
+                Spacer[6]]]], "Details"}], "NotesFrameText"], 
+          Appearance -> {Automatic, None}, BaseStyle -> None, 
+          ButtonFunction :> (FrontEndExecute[{
+             FrontEnd`SelectionMove[
+              FrontEnd`SelectedNotebook[], All, ButtonCell], 
+             FrontEndToken["OpenCloseGroup"], 
+             FrontEnd`SelectionMove[
+              FrontEnd`SelectedNotebook[], After, CellContents]}]& ), 
+          Evaluator -> None, Method -> "Preemptive"]]]], "NotesSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[
+      ButtonBox[
+       Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            InterpretationBox[
+             StyleBox[
+              
+              GraphicsBox[{}, BaselinePosition -> Baseline, 
+               ImageSize -> {6, 0}], CacheGraphics -> False], 
+             Spacer[6]]]], "Details"}], "NotesFrameText"], 
+       Appearance -> {Automatic, None}, BaseStyle -> None, 
+       ButtonFunction :> (FrontEndExecute[{
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], All, ButtonCell], 
+          FrontEndToken["OpenCloseGroup"], 
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], After, CellContents]}]& ), Evaluator -> 
+       None, Method -> "Preemptive"]]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->619105030],
+
+Cell["", "SectionHeaderSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]],
+
+Cell["", "SectionHeaderSpacer"],
 
 Cell["The following options can be given: ", "Notes"],
 
 Cell[BoxData[GridBox[{
-   {Cell["   ", "ModInfo"], 
+   {Cell["      ", "TableRowIcon"], 
     ButtonBox["Strategy",
-     BaseStyle->"Link"], 
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/Strategy"], 
     ButtonBox["FindRoot",
-     BaseStyle->"Link"], Cell[
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/FindRoot"], Cell[
     "Which approach (FindRoot or simulate) to use", "TableText"]},
-   {Cell["   ", "ModInfo"], 
+   {Cell["      ", "TableRowIcon"], 
     ButtonBox["CheckSteadyState",
-     BaseStyle->"Link"], 
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/CheckSteadyState"], 
     ButtonBox["True",
-     BaseStyle->"Link"], Cell["Check the computed steady state", "TableText"]},
-   {Cell["   ", "ModInfo"], 
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/True"], Cell[
+    "Check the computed steady state", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
     ButtonBox["CheckStability",
-     BaseStyle->"Link"], 
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/CheckStability"], 
     ButtonBox["False",
-     BaseStyle->"Link"], Cell[
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/False"], Cell[
     "Check the stability of the computed steady state", "TableText"]},
-   {Cell["   ", "ModInfo"], 
+   {Cell["      ", "TableRowIcon"], 
     ButtonBox["InitialConditions",
-     BaseStyle->"Link"], 
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/InitialConditions"], 
     RowBox[{"{", "}"}], Cell["Additional initial conditions", "TableText"]},
-   {Cell["   ", "ModInfo"], 
+   {Cell["      ", "TableRowIcon"], 
     ButtonBox["Parameters",
-     BaseStyle->"Link"], 
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/Parameters"], 
     RowBox[{"{", "}"}], Cell["Additional parameters", "TableText"]},
-   {Cell["   ", "ModInfo"], 
+   {Cell["      ", "TableRowIcon"], 
     ButtonBox["SpeciesProfiles",
-     BaseStyle->"Link"], "Concentrations", Cell["\<\
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/SpeciesProfiles"], "Concentrations", Cell["\<\
 Which type of species profile to return (\"Concentrations\" or \"Particles\")\
 \
 \>", "TableText"]}
   }]], "3ColumnTableMod",
- CellChangeTimes->{{3.562015743975196*^9, 3.5620158346052303`*^9}, {
-  3.562015876474885*^9, 3.5620159767668133`*^9}, {3.5620160068976097`*^9, 
-  3.5620160248631887`*^9}}],
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, 
+   "Rows" -> {None, None, None, None, None, {None}}, "RowsIndexed" -> {}},
+ GridBoxDividers->{"Rows" -> {{True, True, True, True, True, True, True}}}}],
 
 Cell[TextData[{
  "Additional options are passed down to either ",
@@ -169,78 +230,94 @@ Cell[TextData[{
   ButtonData->"paclet:ref/FindRoot"],
  " or ",
  Cell[BoxData[
-  ButtonBox["simulate",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/simulate"]], "InlineFormula"]
+  TemplateBox[{Cell[
+     TextData["simulate"]],"paclet:Toolbox/ref/simulate"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"]
 }], "Notes",
- CellChangeTimes->{{3.5620160498457727`*^9, 3.56201607652048*^9}},
- CellID->988958120]
+ CellID->988958120],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Closed]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Tutorials", "TutorialsSection",
- CellID->250839057],
-
-Cell["XXXX", "RelatedDemonstrations",
- CellID->1600817919]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Demonstrations", "RelatedDemonstrationsSection",
- CellID->1268215905],
-
-Cell["XXXX", "RelatedDemonstrations",
- CellID->1129518860]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Links", "RelatedLinksSection",
- CellID->1584193535],
-
-Cell["XXXX", "RelatedLinks",
- CellID->1038487239]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["See Also", "SeeAlsoSection",
- CellID->1255426704],
-
-Cell["XXXX", "SeeAlso",
- CellID->929782353]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["More About", "MoreAboutSection",
- CellID->38303248],
-
-Cell["XXXX", "MoreAbout",
- CellID->1665078683]
-}, Open  ]],
+Cell["", "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[{
+        Cell[
+         BoxData[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, BaselinePosition -> Baseline, 
+             ImageSize -> {6, 0}], CacheGraphics -> False], 
+           Spacer[6]]]], "Examples", "\[NonBreakingSpace]\[NonBreakingSpace]", 
+        Cell["(2)", "ExampleCount"]}], "PrimaryExamplesSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[{
+       Cell[
+        BoxData[
+         InterpretationBox[
+          StyleBox[
+           GraphicsBox[{}, BaselinePosition -> Baseline, ImageSize -> {6, 0}],
+            CacheGraphics -> False], 
+          Spacer[6]]]], "Examples", "\[NonBreakingSpace]\[NonBreakingSpace]", 
+       
+       Cell["(2)", "ExampleCount"]}]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellTags->"PrimaryExamplesSection",
+ CellID->739969495],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- InterpretationBox[GridBox[{
-    {
-     StyleBox["Examples", "PrimaryExamplesSection"], 
-     ButtonBox[
-      RowBox[{
-       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
-      BaseStyle->"ExtendedExamplesLink",
-      ButtonData:>"ExtendedExamples"]}
-   }],
-  $Line = 0; Null]], "PrimaryExamplesSection",
- CellID->880084151],
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->589502688],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.562016084026702*^9, 3.5620160898159523`*^9}},
- CellLabel->"In[100]:=",
+ CellLabel->"In[1]:=",
  CellID->2043178707],
 
 Cell[BoxData[
@@ -248,10 +325,9 @@ Cell[BoxData[
   RowBox[{"model", "=", 
    RowBox[{"ExampleData", "[", 
     RowBox[{"{", 
-     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<Glycolysis\>\""}], "}"}], 
-    "]"}]}], ";"}]], "Input",
- CellChangeTimes->{{3.5620160923691196`*^9, 3.562016106327992*^9}},
- CellLabel->"In[1]:=",
+     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<Glycolysis\>\""}], "}"}], "]"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[2]:=",
  CellID->1441013019],
 
 Cell[BoxData[
@@ -260,28 +336,21 @@ Cell[BoxData[
    RowBox[{"{", 
     RowBox[{"ssConc", ",", "ssFluxes"}], "}"}], "=", 
    RowBox[{"findSteadyState", "[", "model", "]"}]}], ";"}]], "Input",
- CellChangeTimes->{{3.5620758374402514`*^9, 3.56207583765298*^9}, {
-   3.562076302710017*^9, 3.562076310998459*^9}, 3.562077966886167*^9, {
-   3.562078386022624*^9, 3.56207839976715*^9}},
- CellLabel->"In[19]:=",
+ CellLabel->"In[3]:=",
  CellID->967518540]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["More Examples", "ExtendedExamplesSection",
- CellTags->"ExtendedExamples",
- CellID->1854448968],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[Cell["Scope", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
+Cell[TextData[{
+ "Scope",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
  CellID->1293636265],
 
 Cell["Perturb the original model", "ExampleText",
- CellChangeTimes->{{3.5620787061804743`*^9, 3.562078715898761*^9}},
  CellID->329599292],
 
 Cell[BoxData[{
@@ -298,22 +367,18 @@ Cell[BoxData[{
         ShowSyntaxStyles->False,
         AutoSpacing->False,
         ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        FontColor->RGBColor[0, 0, 0],
+        $CellContext`LineColor -> RGBColor[0, 0, 0],
+        $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
       Toolbox`rateconst["vatp", True],
       Editable->False,
       Selectable->False], "\[Rule]", 
      RowBox[{"1.6", 
       SuperscriptBox["Hour", 
        RowBox[{"-", "1"}]]}]}], "}"}]}], "]"}]}], "Input",
- CellChangeTimes->{{3.562078431512595*^9, 3.562078479256863*^9}, {
-   3.5620786778122807`*^9, 3.562078684340761*^9}, {3.562078739869947*^9, 
-   3.5620787405574923`*^9}, {3.562078771086788*^9, 3.562078771574666*^9}, 
-   3.562080496933901*^9},
- CellLabel->"In[90]:=",
+ CellLabel->"In[1]:=",
  CellID->7874485],
 
 Cell[BoxData[
@@ -326,8 +391,7 @@ Cell[BoxData[
      RowBox[{"{", 
       RowBox[{"t", ",", "0", ",", "100000"}], "}"}]}], "]"}]}], 
   ";"}]], "Input",
- CellChangeTimes->{{3.5620799944262543`*^9, 3.5620800015909653`*^9}},
- CellLabel->"In[92]:=",
+ CellLabel->"In[2]:=",
  CellID->441963151],
 
 Cell[CellGroupData[{
@@ -340,8 +404,7 @@ Cell[BoxData[
      RowBox[{"{", 
       RowBox[{"t", ",", "0", ",", "100000"}], "}"}]}], "]"}], "[", 
    RowBox[{"[", "1", "]"}], "]"}], "]"}]], "Input",
- CellChangeTimes->{{3.562080412946426*^9, 3.562080430908621*^9}},
- CellLabel->"In[98]:=",
+ CellLabel->"In[3]:=",
  CellID->2023801175],
 
 Cell[BoxData[
@@ -594,10 +657,10 @@ oAJs//PSczVff3arALn/rCOs/ihyjypY8Z8tb14IFu9RBR7/edfuMBtpNzWQ
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["adp", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["adp", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["adp", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["adp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.9060679774997897, 0.6, 0.6], LineBox[CompressedData["
@@ -866,10 +929,10 @@ mujhfy6/3lK64LAWyvvPOocdZVP5tP/f/wcnso50
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["amp", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["amp", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["amp", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["amp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.1421359549995791, 0.6, 0.6], LineBox[CompressedData["
@@ -1155,10 +1218,10 @@ Ik7yMOE/uwlekJbulIdx//lMb3dyl6vC/84/nwHY7vxWgDf+88xZcxdXNcX/
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["atp", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["atp", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["atp", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["atp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.37820393249936934`, 0.6, 0.6], LineBox[CompressedData["
@@ -1426,10 +1489,10 @@ E0qAu/6fVU7sEb/JpQxMsv/5fwm2FbM=
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["dhap", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["dhap", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["dhap", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["dhap", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.6142719099991583, 0.6, 0.6], LineBox[CompressedData["
@@ -1673,10 +1736,10 @@ aS7oLA06//NhvlPi4m3SoOM/+/3quNbuLgN+/efQPILlxp//b391xxJlH1nQ
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["f6p", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["f6p", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["f6p", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["f6p", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.8503398874989481, 0.6, 0.6], LineBox[CompressedData["
@@ -1943,10 +2006,10 @@ LtYKVkUW/x+vHrxO5qaAGuKV+ef/AUx3Zlc=
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["fdp", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["fdp", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["fdp", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["fdp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.08640786499873876, 0.6, 0.6], LineBox[CompressedData["
@@ -2193,10 +2256,10 @@ RW0=
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["g6p", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["g6p", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["g6p", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["g6p", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.3224758424985268, 0.6, 0.6], LineBox[CompressedData["
@@ -2456,10 +2519,10 @@ Br/l//N5so+4eK80oP5v/suD/fF9NjKg93/r93qOs9z78/921jAvUXbcAvj/
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["gap", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["gap", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["gap", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["gap", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.5585438199983166, 0.6, 0.6], LineBox[CompressedData["
@@ -2853,10 +2916,10 @@ Zq0muw==
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["glu", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["glu", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["glu", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["glu", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.7946117974981064, 0.6, 0.6], LineBox[CompressedData["
@@ -3117,8 +3180,8 @@ YVeZuq/Cf1by3SeWwqL4n/8fXk4HuA==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["h", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["h", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["h", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.030679774997896203`, 0.6, 0.6], LineBox[CompressedData["
@@ -3449,10 +3512,10 @@ s9Xlkgb60X9WGYnYcu7rPzNT7G99H//nupWV012z/3zzUNfArsV/9q/J3VW1
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["h2o", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["h2o", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["h2o", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["h2o", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.266747752497686, 0.6, 0.6], LineBox[CompressedData["
@@ -3705,10 +3768,10 @@ L3U7/3l043+ufNZdouy16T8reB0ViWeR/8//D4ZsJMc=
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["lac", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["lac", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["lac", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["lac", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.5028157299974758, 0.6, 0.6], LineBox[CompressedData["
@@ -3964,10 +4027,10 @@ ihe3/u98Z6vcz77/9f+ufdpXqeyz7X+W9TESSGSQ+Z//D4Qp4ik=
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["nad", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["nad", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["nad", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["nad", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.7388837074972656, 0.6, 0.6], LineBox[CompressedData["
@@ -4231,10 +4294,10 @@ QLBe+y33P/tsc6hU8dzwv+O51QS61f76f7+91VutGrrxf99XCDUVzmKW/9/n
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["nadh", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["nadh", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["nadh", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["nadh", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.9749516849970554, 0.6, 0.6], LineBox[CompressedData["
@@ -4481,10 +4544,10 @@ aN3poy9/y/3/89fpfbXq5+T///uK50yE7rEq/L//D0a/ai4=
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["pep", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["pep", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["pep", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["pep", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.21101966249684523`, 0.6, 0.6], LineBox[CompressedData["
@@ -4756,10 +4819,10 @@ HTX+1377o4VrLTYzUPt/Fouo/jLRxkA//7O2qOr9qJ1M1P2fra6cDJH6ykSt
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["pg13", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["pg13", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["pg13", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["pg13", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.44708763999663503`, 0.6, 0.6], LineBox[CompressedData["
@@ -5016,10 +5079,10 @@ F2KncE1E9//8/wDisoiD
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["pg2", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["pg2", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["pg2", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["pg2", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.6831556174964248, 0.6, 0.6], LineBox[CompressedData["
@@ -5281,10 +5344,10 @@ uE0Jn/2rher/824T18cG3jNQ8X/2LN7n+fLPDPTtP7++2FhkdFD7/3+ve3CF
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["pg3", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["pg3", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["pg3", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["pg3", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.9192235949962146, 0.6, 0.6], LineBox[CompressedData["
@@ -5551,10 +5614,10 @@ SF3QkTfjSlDixX9+e2ugdlO4MmT/9J9Vwy3F7rCoQNWb//l/ICBBSQ==
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["phos", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["phos", "c"], "Tooltip"]& ], 
+         Toolbox`metabolite["phos", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["phos", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.15529157249600445`, 0.6, 0.6], LineBox[CompressedData["
@@ -5768,10 +5831,10 @@ GPbV//n/Abg39t0=
           StyleBox["c", 
            RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> 
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
-         Toolbox`metabolite["pyr", "c"], Editable -> False, 
-         Selectable -> False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["pyr", "c"], "Tooltip"]& ]},
+         Toolbox`metabolite["pyr", "c"], Editable -> False, Selectable -> 
+         False]}], "\"Liter\""]],
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["pyr", "c"], 
+     "Tooltip"]& ]},
   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
   Axes->True,
   AxesOrigin->{-13.815510557964274`, -9.323862463131722},
@@ -6281,14 +6344,14 @@ GPbV//n/Abg39t0=
        Thickness[0.001]}}, {-0.10536051565782616`, 
       FormBox["\"\"", TraditionalForm], {0.00375, 0.}, {
        Thickness[0.001]}}}}]], "Output",
- CellChangeTimes->{3.562080432520771*^9},
- CellLabel->"Out[98]=",
+ ImageSize->{244, 152},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
  CellID->32863392]
 }, Open  ]],
 
 Cell["Find new steady-state", "ExampleText",
- CellChangeTimes->{{3.5620787061804743`*^9, 3.562078715898761*^9}, {
-  3.5620804406207438`*^9, 3.562080444396689*^9}},
  CellID->431732065],
 
 Cell[BoxData[
@@ -6299,684 +6362,311 @@ Cell[BoxData[
    RowBox[{"findSteadyState", "[", 
     RowBox[{"perturbedModel", ",", 
      RowBox[{"Strategy", "\[Rule]", "simulate"}]}], "]"}]}], ";"}]], "Input",
- CellChangeTimes->{{3.562079391714293*^9, 3.562079423858678*^9}, {
-  3.5620803473328114`*^9, 3.5620803513970957`*^9}},
- CellLabel->"In[99]:=",
+ CellLabel->"In[4]:=",
  CellID->57610692],
 
 Cell[CellGroupData[{
 
 Cell[BoxData["ssConc"], "Input",
- CellChangeTimes->{{3.562080452848394*^9, 3.562080473623313*^9}},
- CellLabel->"In[100]:=",
+ CellLabel->"In[5]:=",
  CellID->1921056889],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["adp",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["adp", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"0.2712701605411151`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[0.2712701605411151, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["amp",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["amp", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"0.08672812500000274`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[0.08672812500000274, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["atp",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["atp", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"1.4000000000000006`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[1.4000000000000006`, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["dhap",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["dhap", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"0.1410853958586302`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[0.1410853958586302, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["f6p",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["f6p", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"0.022625729381073694`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[0.022625729381073694`, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["fdp",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["fdp", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"0.01106111848055404`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[0.01106111848055404, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["g6p",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["g6p", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"0.05549202288066754`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[0.05549202288066754, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["gap",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["gap", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"0.006199165477636013`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[0.006199165477636013, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["glu",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["glu", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"1.1428579490167692`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[1.1428579490167692`, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["h",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["h", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"0.00008997573444801929`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[0.00008997573444801929, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["h2o",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["h2o", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"1.`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[1., "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["lac",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["lac", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"1.3600000000000003`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[1.3600000000000003`, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["nad",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["nad", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"0.05890000000000026`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[0.05890000000000026, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["nadh",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["nadh", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"0.0301`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[0.0301, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["pep",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["pep", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"0.01817364197549228`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[0.01817364197549228, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["pg13",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["pg13", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"0.0002416166804434383`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[0.0002416166804434383, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["pg2",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["pg2", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"0.011992448765540445`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[0.011992448765540445`, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["pg3",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["pg3", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"0.08200865160567504`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[0.08200865160567504, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["phos",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["phos", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"2.9295083369633264`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[2.9295083369633264`, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}], ",", 
-   RowBox[{
-    InterpretationBox[
-     SuperscriptBox[
-      StyleBox["pyr",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["c",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`metabolite["pyr", "c"],
-     Editable->False,
-     Selectable->False], "\[Rule]", 
-    InterpretationBox[
-     RowBox[{"0.060301`", " ", 
-      RowBox[{"Millimole", 
-       SuperscriptBox["Liter", 
-        RowBox[{"-", "1"}]]}]}],
-     AutomaticUnits`Unit[0.060301, "Liter"^(-1) "Millimole"],
-     AutoDelete->True]}]}], "}"}]], "Output",
- CellChangeTimes->{3.5620804542542133`*^9},
- CellLabel->"Out[100]=",
- CellID->1933984425]
+ GraphicsBox[
+  TagBox[RasterBox[CompressedData["
+1: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
+    "], {{0, 174}, {
+    503, 0}}, {0, 255},
+    ColorFunction->RGBColor],
+   BoxForm`ImageTag["Byte", ColorSpace -> "RGB", Interleaving -> True],
+   Selectable->False],
+  DefaultBaseStyle->"ImageGraphics",
+  ImageSize->Automatic,
+  ImageSizeRaw->{503, 174},
+  PlotRange->{{0, 503}, {0, 174}}]], "Output",
+ ImageSize->{507, 174},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellTags->"RasterizedOutput",
+ CellLabel->"Out[5]=",
+ CellID->1429613605]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -7023,11 +6713,12 @@ Cell[BoxData[
              ShowSyntaxStyles->False,
              AutoSpacing->False,
              ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+             FontColor->RGBColor[0, 0, 0],
+             $CellContext`LineColor -> RGBColor[0, 0, 0],
+             $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+             $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+             $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
+            "\[LongRightArrow]"],
            Toolbox`rateconst["vatp", True],
            Editable->False,
            Selectable->False], "\[Rule]", 
@@ -7037,10 +6728,7 @@ Cell[BoxData[
      RowBox[{"[", "1", "]"}], "]"}]}], ",", 
    RowBox[{"{", 
     RowBox[{"p", ",", "1.3", ",", "1.6"}], "}"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.562080476017511*^9, 3.562080626324357*^9}, {
-  3.562080677791479*^9, 3.562080745742697*^9}, {3.562080802992116*^9, 
-  3.562080804120468*^9}},
- CellLabel->"In[114]:=",
+ CellLabel->"In[6]:=",
  CellID->163749983],
 
 Cell[BoxData[
@@ -7050,9 +6738,9 @@ Cell[BoxData[
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
-      Hold[Toolbox`p$$], 1.3, 1.6}}, Typeset`size$$ = {
-    350., {112., 117.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, Toolbox`p$29041$$ = 0}, 
+      Hold[Toolbox`p$$], 1.3, 1.6}}, Typeset`size$$ = {350., {112., 117.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Toolbox`p$29041$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {Toolbox`p$$ = 1.3}, 
       "ControllerVariables" :> {
@@ -7071,9 +6759,9 @@ Cell[BoxData[
           Toolbox`Parameters -> {
            Toolbox`rateconst["vatp", True] -> 
             Toolbox`p$$/AutomaticUnits`Unit[1, "Hour"]}], 1]], 
-      "Specifications" :> {{Toolbox`p$$, 1.3, 1.6}}, "Options" :> {},
-       "DefaultOptions" :> {}],
-     ImageSizeCache->{393., {154., 160.}},
+      "Specifications" :> {{Toolbox`p$$, 1.3, 1.6}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{393., {156., 162.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -7083,86 +6771,98 @@ Cell[BoxData[
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{{3.562080523202635*^9, 3.562080529303499*^9}, {
-   3.562080573771165*^9, 3.562080586664587*^9}, 3.5620806282834873`*^9, {
-   3.562080684004178*^9, 3.562080750419992*^9}, 3.562080805708455*^9},
- CellLabel->"Out[114]=",
- CellID->1097677532]
+ ImageSize->{397, 320},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[6]=",
+ CellID->1097677532],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Symbol","argx",
+   "\"\\!\\(\\*RowBox[{\\\"Symbol\\\"}]\\) called with \\!\\(\\*RowBox[{\\\"0\
+\\\"}]\\) arguments; 1 argument is expected.\"",2,1,1,28608503253557772739,
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellLabel->"",
+ CellID->1468816599],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Symbol","argx",
+   "\"\\!\\(\\*RowBox[{\\\"Symbol\\\"}]\\) called with \\!\\(\\*RowBox[{\\\"0\
+\\\"}]\\) arguments; 1 argument is expected.\"",2,1,2,28608503253557772739,
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellLabel->"",
+ CellID->1076057128]
 }, Open  ]]
 }, Open  ]],
 
-Cell[BoxData[
- InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1020263627],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[Cell["Options", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection"],
-
-Cell[BoxData[
- InterpretationBox[Cell["Strategy", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
-
-Cell[BoxData[
- InterpretationBox[Cell["CheckSteadyState", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
-
-Cell[BoxData[
- InterpretationBox[Cell["CheckStability", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
-
-Cell[BoxData[
- InterpretationBox[Cell["InitialConditions", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
-
-Cell[BoxData[
- InterpretationBox[Cell["Parameters", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
-
-Cell[BoxData[
- InterpretationBox[Cell["SpeciesProfiles", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
-
-Cell[BoxData[
- InterpretationBox[Cell["AccuracyGoal", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"]
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
 }, Open  ]],
 
-Cell[BoxData[
- InterpretationBox[Cell["Applications", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->258228157],
-
-Cell[BoxData[
- InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->2123667759],
-
-Cell[BoxData[
- InterpretationBox[Cell["Possible Issues", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1305812373],
-
-Cell[BoxData[
- InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1653164318],
-
-Cell[BoxData[
- InterpretationBox[Cell["Neat Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->589267740]
-}, Open  ]]
+Cell[" ", "FooterCell"]
 },
-WindowSize->{1038, 1071},
-WindowMargins->{{259, Automatic}, {Automatic, 0}},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"findSteadyState",
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Wolfram Language", ButtonData -> "paclet:guide/WolframRoot", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2017, 6, 1, 13, 37, 8.129206}", 
+    "history" -> {"XX", "", "", ""}, "context" -> "Toolbox`Networks`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Toolbox Package Symbol", "language" -> "en", "paclet" -> 
+    "Toolbox Package", "status" -> "None", "summary" -> 
+    "findSteadyState[model, opts] tries to find a steady-state for model, \
+either by using Newton's method (Strategy->FindRoot) or forward integration \
+(Strategy->simulate).", "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "findSteadyState", "titlemodifier" -> "", "windowtitle" -> 
+    "findSteadyState", "type" -> "Symbol", "uri" -> 
+    "Toolbox/ref/findSteadyState"}, "SearchTextTranslated" -> ""},
 CellContext->"Global`",
-FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
-2011)",
-StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
-  CharacterEncoding -> "UTF-8"]
+FrontEndVersion -> "6.0",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "6.0", 
+  StyleDefinitions -> "Default.nb"]
 ]
 

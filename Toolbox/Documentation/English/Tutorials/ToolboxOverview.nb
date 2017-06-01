@@ -1,214 +1,240 @@
 Notebook[{
-Cell[TextData[{
- "New in: ",
- Cell["XX", "HistoryData",
-  CellTags->"New"],
- " | Modified in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Modified"],
- " | Obsolete in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Obsolete"],
- " | Excised in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Excised"]
-}], "History",
- CellID->1247902091],
+Cell[BoxData[GridBox[{
+   {Cell["TOOLBOX PACKAGE OVERVIEW", "PacletNameCell"], Cell[TextData[Cell[
+    BoxData[
+     ActionMenuBox[
+      FrameBox[
+       InterpretationBox[Cell[TextData[{
+         "URL",
+         StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+          StripOnInput->False]
+        }]],
+        TextCell[
+         Row[{"URL", 
+           Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+       StripOnInput->False], {"\<\"Toolbox/tutorial/ToolboxOverview\"\>":>
+      None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell["Toolbox/tutorial/ToolboxOverview"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+      Delimiter, "\<\"Copy web URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell[
+             BoxData[
+              MakeBoxes[
+               Hyperlink[
+               "http://reference.wolfram.com/language/Toolbox/tutorial/\
+ToolboxOverview.html"], StandardForm]], "Input", TextClipboardType -> 
+             "PlainText"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; 
+       Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+        NotebookLocate[{
+          URL[
+           StringJoin[
+            If[
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$57486], 
+             "http://reference.wolfram.com/system-modeler/", 
+             "http://reference.wolfram.com/language/"], 
+            "Toolbox/tutorial/ToolboxOverview", ".html"]], None}]}]},
+      Appearance->None,
+      MenuAppearance->Automatic,
+      MenuStyle->"URLMenu"]],
+     LineSpacing->{1.4, 0}]], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
 
 Cell[CellGroupData[{
 
-Cell["Categorization", "CategorizationSection",
- CellID->1122911449],
+Cell["MASS Toolbox Overview", "TOCDocumentTitle"],
 
-Cell["Overview", "Categorization",
- CellLabel->"Entity Type",
- CellID->686433507],
+Cell[CellGroupData[{
 
-Cell["Toolbox Package", "Categorization",
- CellLabel->"Paclet Name",
- CellID->605800465],
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Constraint-based modeling"]],
+   "paclet:Toolbox/tutorial/Constraint-based modeling#509267359"},
+  "RefLink",
+  BaseStyle->"TOCChapter"]], "TOCChapter"],
 
-Cell["Toolbox`", "Categorization",
- CellLabel->"Context",
- CellID->468444828],
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Flux-balance and flux-variability analysis"]],
+   "paclet:Toolbox/tutorial/Constraint-based modeling#260261454"},
+  "RefLink",
+  BaseStyle->"TOCSubsection"]], "TOCSubsection"],
 
-Cell["Toolbox/tutorial/ToolboxOverview", "Categorization",
- CellLabel->"URI"]
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["High-throughput data integration"]],
+   "paclet:Toolbox/tutorial/Constraint-based modeling#1727903609"},
+  "RefLink",
+  BaseStyle->"TOCSubsection"]], "TOCSubsection"],
+
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Changing linear programming solver backends"]],
+   "paclet:Toolbox/tutorial/Constraint-based modeling#454598082"},
+  "RefLink",
+  BaseStyle->"TOCSubsection"]], "TOCSubsection"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Synonyms", "SynonymsSection",
- CellID->1427418553],
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Model construction and manipulation"]],
+   "paclet:Toolbox/tutorial/Model construction and manipulation#509267359"},
+  "RefLink",
+  BaseStyle->"TOCChapter"]], "TOCChapter"],
 
-Cell["XXXX", "Synonyms",
- CellID->1251652828]
-}, Closed]],
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Model construction"]],
+   "paclet:Toolbox/tutorial/Model construction and manipulation#1094605484"},
+  "RefLink",
+  BaseStyle->"TOCSubsection"]], "TOCSubsection"],
 
-Cell[CellGroupData[{
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Model attributes"]],
+   "paclet:Toolbox/tutorial/Model construction and manipulation#115847815"},
+  "RefLink",
+  BaseStyle->"TOCSubsection"]], "TOCSubsection"],
 
-Cell["Keywords", "KeywordsSection",
- CellID->1427428552],
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Add and delete reactions"]],
+   "paclet:Toolbox/tutorial/Model construction and manipulation#1242674920"},
+  "RefLink",
+  BaseStyle->"TOCSubsection"]], "TOCSubsection"],
 
-Cell["XXXX", "Keywords",
- CellID->1251852827]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Details", "DetailsSection",
- CellID->307771771],
-
-Cell["XXXX", "Details",
- CellLabel->"Lead",
- CellID->218895918],
-
-Cell["XXXX", "Details",
- CellLabel->"Developers",
- CellID->350963985],
-
-Cell["XXXX", "Details",
- CellLabel->"Authors",
- CellID->795871300],
-
-Cell["XXXX", "Details",
- CellLabel->"Feature Name",
- CellID->199739161],
-
-Cell["XXXX", "Details",
- CellLabel->"QA",
- CellID->40625308],
-
-Cell["XXXX", "Details",
- CellLabel->"DA",
- CellID->357121918],
-
-Cell["XXXX", "Details",
- CellLabel->"Docs",
- CellID->35949532],
-
-Cell["XXXX", "Details",
- CellLabel->"Features Page Notes",
- CellID->929432370],
-
-Cell["XXXX", "Details",
- CellLabel->"Comments",
- CellID->240026365]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["MASS Toolbox Overview", "TOCDocumentTitle",
- CellChangeTimes->{3.563025369619864*^9}],
-
-Cell[CellGroupData[{
-
-Cell[TextData[ButtonBox["Constraint-based modeling",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:Toolbox/tutorial/Constraint-based modeling#509267359"]], \
-"TOCChapter"],
-
-Cell[TextData[ButtonBox["Flux-balance and flux-variability analysis",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:Toolbox/tutorial/Constraint-based modeling#260261454"]], \
-"TOCSubsection"],
-
-Cell[TextData[ButtonBox["High-throughput data integration",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:Toolbox/tutorial/Constraint-based modeling#1727903609"]], \
-"TOCSubsection"],
-
-Cell[TextData[ButtonBox["Changing linear programming solver backends",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:Toolbox/tutorial/Constraint-based modeling#454598082"]], \
-"TOCSubsection"]
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Set operations"]],
+   "paclet:Toolbox/tutorial/Model construction and manipulation#743713780"},
+  "RefLink",
+  BaseStyle->"TOCSubsection"]], "TOCSubsection"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell[TextData[ButtonBox["Model construction and manipulation",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:Toolbox/tutorial/Model construction and \
-manipulation#509267359"]], "TOCChapter"],
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Types"]],"paclet:Toolbox/tutorial/Types#509267359"},
+  "RefLink",
+  BaseStyle->"TOCChapter"]], "TOCChapter"],
 
-Cell[TextData[ButtonBox["Model construction",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:Toolbox/tutorial/Model construction and \
-manipulation#1094605484"]], "TOCSubsection"],
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Species"]],"paclet:Toolbox/tutorial/Types#1556616953"},
+  "RefLink",
+  BaseStyle->"TOCSubsection"]], "TOCSubsection"],
 
-Cell[TextData[ButtonBox["Model attributes",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:Toolbox/tutorial/Model construction and \
-manipulation#115847815"]], "TOCSubsection"],
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Reactions"]],"paclet:Toolbox/tutorial/Types#1415341317"},
+  "RefLink",
+  BaseStyle->"TOCSubsection"]], "TOCSubsection"],
 
-Cell[TextData[ButtonBox["Add and delete reactions",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:Toolbox/tutorial/Model construction and \
-manipulation#1242674920"]], "TOCSubsection"],
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Query data types"]],"paclet:Toolbox/tutorial/Types#2112640647"},
+  
+  "RefLink",
+  BaseStyle->"TOCSubsection"]], "TOCSubsection"],
 
-Cell[TextData[ButtonBox["Set operations",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:Toolbox/tutorial/Model construction and \
-manipulation#743713780"]], "TOCSubsection"]
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Textual input"]],"paclet:Toolbox/tutorial/Types#314943517"},
+  "RefLink",
+  BaseStyle->"TOCSubsection"]], "TOCSubsection"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell[TextData[ButtonBox["Types",
- BaseStyle->"Link",
- ButtonData->"paclet:Toolbox/tutorial/Types#509267359"]], "TOCChapter"],
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["ReferencePages/Symbols"]],"paclet:Toolbox/ref/constructModel"},
+  "RefLink",
+  BaseStyle->"TOCChapter"]], "TOCChapter"],
 
-Cell[TextData[ButtonBox["Species",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:Toolbox/tutorial/Types#1556616953"]], "TOCSubsection"],
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["constructModel"]],"paclet:Toolbox/ref/constructModel"},
+  "RefLink",
+  BaseStyle->"TOCSection"]], "TOCSection"],
 
-Cell[TextData[ButtonBox["Reactions",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:Toolbox/tutorial/Types#1415341317"]], "TOCSubsection"],
-
-Cell[TextData[ButtonBox["Query data types",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:Toolbox/tutorial/Types#2112640647"]], "TOCSubsection"],
-
-Cell[TextData[ButtonBox["Textual input",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:Toolbox/tutorial/Types#314943517"]], "TOCSubsection"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[TextData[ButtonBox["ReferencePages/Symbols",
- BaseStyle->"Link",
- ButtonData->"paclet:Toolbox/ref/constructModel"]], "TOCChapter"],
-
-Cell[TextData[ButtonBox["constructModel",
- BaseStyle->"Link",
- ButtonData->"paclet:Toolbox/ref/constructModel"]], "TOCSection"],
-
-Cell[TextData[ButtonBox["simulate",
- BaseStyle->"Link",
- ButtonData->"paclet:Toolbox/ref/simulate"]], "TOCSection"]
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["simulate"]],"paclet:Toolbox/ref/simulate"},
+  "RefLink",
+  BaseStyle->"TOCSection"]], "TOCSection"]
 }, Open  ]]
-}, Open  ]]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
 },
-WindowSize->{700, 770},
-WindowMargins->{{542, Automatic}, {Automatic, 0}},
-FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
-2011)",
-StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "TutorialPageStyles.nb", 
-  CharacterEncoding -> "UTF-8"]
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"MASS Toolbox Overview",
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "TutorialColor", 
+  "LinkTrails" -> GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Wolfram Language", ButtonData -> "paclet:guide/WolframRoot", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2017, 6, 1, 13, 38, 32.385864}", 
+    "history" -> {"XX", "", "", ""}, "context" -> "Toolbox`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Toolbox Package Overview", "language" -> "en", "paclet" -> 
+    "Toolbox Package", "status" -> "None", "summary" -> 
+    "Constraint-based modeling Model construction and manipulation Types", 
+    "synonyms" -> {}, "tabletags" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$57436, "title" -> 
+    "MASS Toolbox Overview", "titlemodifier" -> "", "windowtitle" -> 
+    "MASS Toolbox Overview", "type" -> "Overview", "uri" -> 
+    "Toolbox/tutorial/ToolboxOverview"}, "SearchTextTranslated" -> ""},
+FrontEndVersion -> "6.0",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> Notebook], 
+   Cell[
+    StyleData["Output"], CellContext -> Notebook], 
+   Cell[
+    StyleData["TOCSubsubsection"], 
+    CellGroupingRules -> {"SectionGrouping", 69}], 
+   Cell[
+    StyleData["TutorialMoreAboutSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["RelatedTutorialsSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["TutorialRelatedLinksSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}]}, Visible -> False, 
+  FrontEndVersion -> "6.0", 
+  StyleDefinitions -> "Default.nb"]
 ]
 

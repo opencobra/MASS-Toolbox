@@ -1,156 +1,185 @@
-(* Content-type: application/vnd.wolfram.mathematica *)
-
-(*** Wolfram Notebook File ***)
-(* http://www.wolfram.com/nb *)
-
-(* CreatedBy='Mathematica 9.0' *)
-
-(*CacheID: 234*)
-(* Internal cache information:
-NotebookFileLineBreakTest
-NotebookFileLineBreakTest
-NotebookDataPosition[       157,          7]
-NotebookDataLength[    277820,       6467]
-NotebookOptionsPosition[    272791,       6289]
-NotebookOutlinePosition[    273430,       6314]
-CellTagsIndexPosition[    273349,       6309]
-WindowFrame->Normal*)
-
-(* Beginning of Notebook Content *)
 Notebook[{
-Cell[TextData[{
- "New in: ",
- Cell["XX", "HistoryData",
-  CellTags->"New"],
- " | Modified in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Modified"],
- " | Obsolete in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Obsolete"],
- " | Excised in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Excised"]
-}], "History",
- CellID->1247902091],
-
-Cell[CellGroupData[{
-
-Cell["Categorization", "CategorizationSection",
- CellID->1122911449],
-
-Cell["Symbol", "Categorization",
- CellLabel->"Entity Type",
- CellID->686433507],
-
-Cell["Toolbox Package", "Categorization",
- CellLabel->"Paclet Name",
- CellID->605800465],
-
-Cell["Toolbox`", "Categorization",
- CellLabel->"Context",
- CellID->468444828],
-
-Cell["Toolbox/ref/DrawPathway", "Categorization",
- CellLabel->"URI"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Keywords", "KeywordsSection",
- CellID->477174294],
-
-Cell["XXXX", "Keywords",
- CellID->1164421360]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Syntax Templates", "TemplatesSection",
- CellID->1872225408],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Additional Function Template",
- CellID->1562036412],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Arguments Pattern",
- CellID->158391909],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Local Variables",
- CellID->1360575930],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Color Equal Signs",
- CellID->793782254]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Details", "DetailsSection",
- CellID->307771771],
-
-Cell["XXXX", "Details",
- CellLabel->"Lead",
- CellID->670882175],
-
-Cell["XXXX", "Details",
- CellLabel->"Developers",
- CellID->350963985],
-
-Cell["XXXX", "Details",
- CellLabel->"Authors",
- CellID->8391405],
-
-Cell["XXXX", "Details",
- CellLabel->"Feature Name",
- CellID->3610269],
-
-Cell["XXXX", "Details",
- CellLabel->"QA",
- CellID->401364205],
-
-Cell["XXXX", "Details",
- CellLabel->"DA",
- CellID->350204745],
-
-Cell["XXXX", "Details",
- CellLabel->"Docs",
- CellID->732958810],
-
-Cell["XXXX", "Details",
- CellLabel->"Features Page Notes",
- CellID->222905350],
-
-Cell["XXXX", "Details",
- CellLabel->"Comments",
- CellID->240026365]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["drawPathway", "ObjectName",
- CellID->1224892054],
+Cell[BoxData[GridBox[{
+   {Cell["TOOLBOX PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[Cell[
+    BoxData[
+     ActionMenuBox[
+      FrameBox[
+       InterpretationBox[Cell[TextData[{
+         "URL",
+         StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+          StripOnInput->False]
+        }]],
+        TextCell[
+         Row[{"URL", 
+           Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+       StripOnInput->False], {"\<\"Toolbox/ref/DrawPathway\"\>":>
+      None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell["Toolbox/ref/DrawPathway"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+      Delimiter, "\<\"Copy web URL\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell[
+             BoxData[
+              MakeBoxes[
+               Hyperlink[
+               "http://reference.wolfram.com/language/Toolbox/ref/DrawPathway.\
+html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]}, Visible -> 
+           False]]; SelectionMove[
+        DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; 
+       Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+        NotebookLocate[{
+          URL[
+           StringJoin[
+            If[
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$16607], 
+             "http://reference.wolfram.com/system-modeler/", 
+             "http://reference.wolfram.com/language/"], 
+            "Toolbox/ref/DrawPathway", ".html"]], None}]}]},
+      Appearance->None,
+      MenuAppearance->Automatic,
+      MenuStyle->"URLMenu"]],
+     LineSpacing->{1.4, 0}]], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
 
 Cell[TextData[{
- Cell["   ", "ModInfo"],
+ Cell["drawPathway", "ObjectName"],
  Cell[BoxData[
-  RowBox[{"drawPathway", "[", 
-   RowBox[{
-    StyleBox["metPos",
-     FontSlant->"Italic"], ",", 
-    StyleBox["rxnPos",
-     FontSlant->"Italic"], ",", 
-    StyleBox["labels",
-     FontSlant->"Italic"]}], "]"}]], "InlineFormula"],
- " \[LineSeparator]will draw a pathway map from the provided species, \
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"drawPathway", "[", 
+       RowBox[{
+        StyleBox["metPos",
+         FontSlant->"Italic"], ",", 
+        StyleBox["rxnPos",
+         FontSlant->"Italic"], ",", 
+        StyleBox["labels",
+         FontSlant->"Italic"]}], "]"}]], "InlineFormula"],
+     " \[LineSeparator]will draw a pathway map from the provided species, \
 reactions, and text labels."
-}], "Usage",
- CellChangeTimes->{{3.580656820117839*^9, 3.5806568696521063`*^9}, {
-  3.580657310544634*^9, 3.580657384769353*^9}, {3.580661707123592*^9, 
-  3.580661736763163*^9}, {3.580661779165572*^9, 3.5806617868065577`*^9}},
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
  CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell["", "NotesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[
+       Cell[
+        BoxData[
+         ButtonBox[
+          Cell[
+           TextData[{
+             Cell[
+              BoxData[
+               InterpretationBox[
+                StyleBox[
+                 
+                 GraphicsBox[{}, BaselinePosition -> Baseline, 
+                  ImageSize -> {6, 0}], CacheGraphics -> False], 
+                Spacer[6]]]], "Details"}], "NotesFrameText"], 
+          Appearance -> {Automatic, None}, BaseStyle -> None, 
+          ButtonFunction :> (FrontEndExecute[{
+             FrontEnd`SelectionMove[
+              FrontEnd`SelectedNotebook[], All, ButtonCell], 
+             FrontEndToken["OpenCloseGroup"], 
+             FrontEnd`SelectionMove[
+              FrontEnd`SelectedNotebook[], After, CellContents]}]& ), 
+          Evaluator -> None, Method -> "Preemptive"]]]], "NotesSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[
+      ButtonBox[
+       Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            InterpretationBox[
+             StyleBox[
+              
+              GraphicsBox[{}, BaselinePosition -> Baseline, 
+               ImageSize -> {6, 0}], CacheGraphics -> False], 
+             Spacer[6]]]], "Details"}], "NotesFrameText"], 
+       Appearance -> {Automatic, None}, BaseStyle -> None, 
+       ButtonFunction :> (FrontEndExecute[{
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], All, ButtonCell], 
+          FrontEndToken["OpenCloseGroup"], 
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], After, CellContents]}]& ), Evaluator -> 
+       None, Method -> "Preemptive"]]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->1055224998],
+
+Cell["", "SectionHeaderSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]],
+
+Cell["", "SectionHeaderSpacer"],
 
 Cell[TextData[{
  "The expression ",
@@ -167,10 +196,6 @@ Cell[TextData[{
   FontSlant->"Italic"],
  "}, ...}."
 }], "Notes",
- CellChangeTimes->{
-  3.32655006735938*^9, {3.580656896856208*^9, 3.580656938368437*^9}, {
-   3.580657177156988*^9, 3.580657178557411*^9}, {3.580657391233678*^9, 
-   3.580657401113698*^9}, {3.5806617237118*^9, 3.580661801841011*^9}},
  ShowAutoStyles->False,
  ParagraphSpacing->{0.7, 0},
  ScriptMinSize->9,
@@ -199,110 +224,117 @@ Cell[TextData[{
 direction is either 0 (no arrow heads), 1 (arrowheads in the forward \
 direction), or -1 (for arrowheads in the reverse direction)."
 }], "Notes",
- CellChangeTimes->{{3.5806571900395403`*^9, 3.5806571939038553`*^9}, {
-  3.580657394145525*^9, 3.580657396881366*^9}, {3.580661803344852*^9, 
-  3.580661853529866*^9}, {3.580661891530836*^9, 3.580661953028056*^9}},
  CellID->1932473084],
 
 Cell["labels", "Notes",
- CellChangeTimes->{{3.5806571900395403`*^9, 3.5806571976297207`*^9}, {
-  3.580657313551778*^9, 3.580657314184017*^9}},
  CellID->532445560],
 
 Cell["The following options can be given: ", "Notes",
  CellID->13178],
 
 Cell[BoxData[GridBox[{
-   {Cell["      ", "ModInfo"], "ReactionData", 
-    RowBox[{"{", "}"}], Cell["reaction centric data", "TableText",
-     CellChangeTimes->{3.327659391375*^9}]},
-   {Cell["      ", "ModInfo"], "MetaboliteData", 
-    RowBox[{"{", "}"}], Cell["metbolite centric data", "TableText",
-     CellChangeTimes:>{3.32765943476563*^9, 3.32787906595725*^9, 
-      3.34660524546012*^9}]},
-   {Cell["      ", "ModInfo"], "\[Placeholder]", "\[Placeholder]", 
+   {Cell["      ", "TableRowIcon"], "ReactionData", 
+    RowBox[{"{", "}"}], Cell["reaction centric data", "TableText"]},
+   {Cell["      ", "TableRowIcon"], "MetaboliteData", 
+    RowBox[{"{", "}"}], Cell["metbolite centric data", "TableText"]},
+   {Cell["      ", "TableRowIcon"], "\[Placeholder]", "\[Placeholder]", 
     "\[Placeholder]"},
-   {Cell["", "ModInfo"], "\[Placeholder]", "\[Placeholder]", 
+   {Cell["      ", "TableRowIcon"], "\[Placeholder]", "\[Placeholder]", 
     "\[Placeholder]"}
   }]], "3ColumnTableMod",
- CellChangeTimes->{
-  3.32765943476563*^9, 3.32766053485938*^9, 3.32787901726975*^9, 
-   3.32787909470725*^9, 3.34660524546012*^9, {3.3751958270231285`*^9, 
-   3.3751958270543785`*^9}, 3.3839149012241626`*^9, {3.5806616190918283`*^9, 
-   3.5806616957788877`*^9}, {3.580938075110973*^9, 3.5809381022907963`*^9}},
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, 
+   "Rows" -> {None, None, None, {None}}, "RowsIndexed" -> {}},
+ GridBoxDividers->{"Rows" -> {{True, True, True, True, True}}}},
  CellID->11156],
 
 Cell["\<\
 The options ReactionData and MetaboliteData can be used visualize\
 \>", "Notes",
- CellChangeTimes->{{3.5806619929857397`*^9, 3.580662061558112*^9}},
- CellID->577779423]
+ CellID->577779423],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Closed]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Tutorials", "TutorialsSection",
- CellID->250839057],
-
-Cell["XXXX", "Tutorials",
- CellID->341631938]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Demonstrations", "RelatedDemonstrationsSection",
- CellID->1268215905],
-
-Cell["XXXX", "RelatedDemonstrations",
- CellID->1129518860]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Links", "RelatedLinksSection",
- CellID->1584193535],
-
-Cell["XXXX", "RelatedLinks",
- CellID->1038487239]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["See Also", "SeeAlsoSection",
- CellID->1255426704],
-
-Cell["XXXX", "SeeAlso",
- CellID->929782353]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["More About", "MoreAboutSection",
- CellID->38303248],
-
-Cell["XXXX", "MoreAbout",
- CellID->1665078683]
-}, Open  ]],
+Cell["", "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[{
+        Cell[
+         BoxData[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, BaselinePosition -> Baseline, 
+             ImageSize -> {6, 0}], CacheGraphics -> False], 
+           Spacer[6]]]], "Examples", "\[NonBreakingSpace]\[NonBreakingSpace]", 
+        Cell["(2)", "ExampleCount"]}], "PrimaryExamplesSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[{
+       Cell[
+        BoxData[
+         InterpretationBox[
+          StyleBox[
+           GraphicsBox[{}, BaselinePosition -> Baseline, ImageSize -> {6, 0}],
+            CacheGraphics -> False], 
+          Spacer[6]]]], "Examples", "\[NonBreakingSpace]\[NonBreakingSpace]", 
+       
+       Cell["(2)", "ExampleCount"]}]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellTags->"PrimaryExamplesSection",
+ CellID->1246584460],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- InterpretationBox[GridBox[{
-    {
-     StyleBox["Examples", "PrimaryExamplesSection"], 
-     ButtonBox[
-      RowBox[{
-       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
-      BaseStyle->"ExtendedExamplesLink",
-      ButtonData:>"ExtendedExamples"]}
-   }],
-  $Line = 0; Null]], "PrimaryExamplesSection",
- CellID->880084151],
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->494559088],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.580655367128129*^9, 3.580655373242526*^9}},
- CellLabel->"In[24]:=",
+ CellLabel->"In[1]:=",
  CellID->1058912120],
 
 Cell[BoxData[
@@ -314,9 +346,7 @@ Cell[BoxData[
    "importBIGGmap", "[", 
     "\"\</Users/niko/work/Data/models/data/SB2/RBC_complete.svg\>\"", "]"}]}],
    ";"}]], "Input",
- CellChangeTimes->{{3.58066297041901*^9, 3.580662973859147*^9}, 
-   3.580663015481032*^9},
- CellLabel->"In[53]:=",
+ CellLabel->"In[2]:=",
  CellID->721672258],
 
 Cell[BoxData[{
@@ -349,9 +379,7 @@ Cell[BoxData[{
    RowBox[{"Union", "[", 
     RowBox[{"iABglycolysis", ",", "iABppp", ",", "iABsalvage"}], "]"}]}], 
   ";"}]}], "Input",
- CellChangeTimes->{{3.5806630421959476`*^9, 3.580663072691771*^9}, {
-  3.580663153950025*^9, 3.580663250057865*^9}},
- CellLabel->"In[54]:=",
+ CellLabel->"In[3]:=",
  CellID->724117592],
 
 Cell[CellGroupData[{
@@ -366,10 +394,7 @@ Cell[BoxData[
       RowBox[{"getID", "/@", 
        RowBox[{"combi", "[", "\"\<Fluxes\>\"", "]"}]}], "\[Rule]", "1"}], 
      "]"}]}]}], "]"}]], "Input",
- CellChangeTimes->{{3.5806556670569143`*^9, 3.580655674735366*^9}, {
-   3.580655783276621*^9, 3.5806558024106073`*^9}, 3.580661974457062*^9, {
-   3.580663289602899*^9, 3.580663291137745*^9}},
- CellLabel->"In[58]:=",
+ CellLabel->"In[4]:=",
  CellID->623345522],
 
 Cell[BoxData[
@@ -2423,10 +2448,10 @@ Cell[BoxData[
     FontFamily->"Arial",
     FontSize->Scaled[0.0076332635243655635`]]},
   ImageSize->{478.703125, Automatic}]], "Output",
- CellChangeTimes->{
-  3.5806619760634537`*^9, {3.580663019857538*^9, 3.580663041233981*^9}, {
-   3.580663259811762*^9, 3.580663291682744*^9}},
- CellLabel->"Out[58]=",
+ ImageSize->{483, 450},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
  CellID->1887540280]
 }, Open  ]],
 
@@ -2439,10 +2464,7 @@ Cell[BoxData[
     RowBox[{"{", 
      RowBox[{"\"\<Toolbox\>\"", ",", "\"\<EcoliCoreMap\>\""}], "}"}], "]"}]}],
    ";"}]], "Input",
- CellChangeTimes->{{3.580655386655838*^9, 3.5806554301564903`*^9}, {
-  3.580655664074482*^9, 3.58065566543267*^9}, {3.580661966685836*^9, 
-  3.580661971311801*^9}},
- CellLabel->"In[51]:=",
+ CellLabel->"In[5]:=",
  CellID->220742054],
 
 Cell[CellGroupData[{
@@ -2457,9 +2479,7 @@ Cell[BoxData[
       RowBox[{"getID", "/@", 
        RowBox[{"combi", "[", "\"\<Fluxes\>\"", "]"}]}], "\[Rule]", "1"}], 
      "]"}]}]}], "]"}]], "Input",
- CellChangeTimes->{{3.580663077876994*^9, 3.580663126863865*^9}, 
-   3.580663193160741*^9},
- CellLabel->"In[52]:=",
+ CellLabel->"In[6]:=",
  CellID->1248985958],
 
 Cell[BoxData[
@@ -6210,40 +6230,32 @@ Cell[BoxData[
     FontFamily->"Arial",
     FontSize->Scaled[0.007343436331430821]]},
   ImageSize->350]], "Output",
- CellChangeTimes->{{3.580663095315338*^9, 3.580663127739758*^9}, 
-   3.580663193954172*^9, {3.58066325286576*^9, 3.58066327458022*^9}},
- CellLabel->"Out[52]=",
+ ImageSize->{354, 322},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[6]=",
  CellID->1392991797]
 }, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["More Examples", "ExtendedExamplesSection",
- CellTags->"ExtendedExamples",
- CellID->1854448968],
-
-Cell[BoxData[
- InterpretationBox[Cell["Scope", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1293636265],
-
-Cell[BoxData[
- InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1020263627],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[Cell["Options", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
+Cell[TextData[{
+ "Options",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
  CellID->2061341341],
 
 Cell[CellGroupData[{
 
-Cell[BoxData["ReactionData"], "ExampleSubsection",
- CellChangeTimes->{{3.5806620855659122`*^9, 3.580662088712122*^9}},
+Cell[TextData[{
+ "ReactionData",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
  CellID->1757724783],
 
 Cell[BoxData[
@@ -6251,227 +6263,74 @@ Cell[BoxData[
   RowBox[{"drawPathway", "[", 
    RowBox[{"metPos", ",", "rxnPos", ",", 
     RowBox[{"Flatten", "@", "text"}]}], "]"}], "v"}]], "Input",
- CellChangeTimes->{3.580662098369711*^9},
+ CellLabel->"In[1]:=",
  CellID->1965194274]
+}, Closed]]
+}, Closed]],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
 }, Open  ]],
 
-Cell[BoxData[
- InterpretationBox[Cell["XXXX", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1295379749]
-}, Open  ]],
-
-Cell[BoxData[
- InterpretationBox[Cell["Applications", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->258228157],
-
-Cell[BoxData[
- InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->2123667759],
-
-Cell[BoxData[
- InterpretationBox[Cell["Possible Issues", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1305812373],
-
-Cell[BoxData[
- InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1653164318],
-
-Cell[BoxData[
- InterpretationBox[Cell["Neat Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->589267740]
-}, Open  ]]
+Cell[" ", "FooterCell"]
 },
-WindowSize->{1065, 1022},
-WindowMargins->{{Automatic, 143}, {Automatic, 0}},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"drawPathway",
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Wolfram Language", ButtonData -> "paclet:guide/WolframRoot", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2017, 6, 1, 13, 37, 0.033437}", 
+    "history" -> {"XX", "", "", ""}, "context" -> "Toolbox`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Toolbox Package Symbol", "language" -> "en", "paclet" -> 
+    "Toolbox Package", "status" -> "None", "summary" -> 
+    "drawPathway[metPos, rxnPos, labels] will draw a pathway map from the \
+provided species, reactions, and text labels.", "synonyms" -> {}, 
+    "tabletags" -> {}, "title" -> "drawPathway", "titlemodifier" -> "", 
+    "windowtitle" -> "drawPathway", "type" -> "Symbol", "uri" -> 
+    "Toolbox/ref/DrawPathway"}, "SearchTextTranslated" -> ""},
 CellContext->"Global`",
-FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 20, \
-2012)",
-StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
-  CharacterEncoding -> "UTF-8"]
+FrontEndVersion -> "6.0",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "6.0", 
+  StyleDefinitions -> "Default.nb"]
 ]
-(* End of Notebook Content *)
-
-(* Internal cache information *)
-(*CellTagsOutline
-CellTagsIndex->{
- "ExtendedExamples"->{
-  Cell[271002, 6221, 100, 2, 55, "ExtendedExamplesSection",
-   CellTags->"ExtendedExamples",
-   CellID->1854448968]}
- }
-*)
-(*CellTagsIndex
-CellTagsIndex->{
- {"ExtendedExamples", 273208, 6302}
- }
-*)
-(*NotebookFileOutline
-Notebook[{
-Cell[557, 20, 324, 14, 24, "History",
- CellID->1247902091],
-Cell[CellGroupData[{
-Cell[906, 38, 68, 1, 29, "CategorizationSection",
- CellID->1122911449],
-Cell[977, 41, 79, 2, 30, "Categorization",
- CellID->686433507],
-Cell[1059, 45, 88, 2, 30, "Categorization",
- CellID->605800465],
-Cell[1150, 49, 77, 2, 30, "Categorization",
- CellID->468444828],
-Cell[1230, 53, 68, 1, 30, "Categorization"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[1335, 59, 55, 1, 29, "KeywordsSection",
- CellID->477174294],
-Cell[1393, 62, 45, 1, 70, "Keywords",
- CellID->1164421360]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[1475, 68, 65, 1, 19, "TemplatesSection",
- CellID->1872225408],
-Cell[1543, 71, 94, 2, 70, "Template",
- CellID->1562036412],
-Cell[1640, 75, 82, 2, 70, "Template",
- CellID->158391909],
-Cell[1725, 79, 81, 2, 70, "Template",
- CellID->1360575930],
-Cell[1809, 83, 82, 2, 70, "Template",
- CellID->793782254]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[1928, 90, 53, 1, 19, "DetailsSection",
- CellID->307771771],
-Cell[1984, 93, 63, 2, 70, "Details",
- CellID->670882175],
-Cell[2050, 97, 69, 2, 70, "Details",
- CellID->350963985],
-Cell[2122, 101, 64, 2, 70, "Details",
- CellID->8391405],
-Cell[2189, 105, 69, 2, 70, "Details",
- CellID->3610269],
-Cell[2261, 109, 61, 2, 70, "Details",
- CellID->401364205],
-Cell[2325, 113, 61, 2, 70, "Details",
- CellID->350204745],
-Cell[2389, 117, 63, 2, 70, "Details",
- CellID->732958810],
-Cell[2455, 121, 78, 2, 70, "Details",
- CellID->222905350],
-Cell[2536, 125, 67, 2, 70, "Details",
- CellID->240026365]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[2640, 132, 54, 1, 63, "ObjectName",
- CellID->1224892054],
-Cell[2697, 135, 636, 17, 75, "Usage",
- CellID->982511436],
-Cell[3336, 154, 598, 22, 25, "Notes",
- CellID->26053],
-Cell[3937, 178, 902, 26, 60, "Notes",
- CellID->1932473084],
-Cell[4842, 206, 162, 3, 25, "Notes",
- CellID->532445560],
-Cell[5007, 211, 69, 1, 25, "Notes",
- CellID->13178],
-Cell[5079, 214, 925, 18, 73, "3ColumnTableMod",
- CellID->11156],
-Cell[6007, 234, 178, 4, 25, "Notes",
- CellID->577779423]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[6222, 243, 57, 1, 43, "TutorialsSection",
- CellID->250839057],
-Cell[6282, 246, 45, 1, 16, "Tutorials",
- CellID->341631938]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[6364, 252, 83, 1, 30, "RelatedDemonstrationsSection",
- CellID->1268215905],
-Cell[6450, 255, 58, 1, 16, "RelatedDemonstrations",
- CellID->1129518860]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[6545, 261, 65, 1, 30, "RelatedLinksSection",
- CellID->1584193535],
-Cell[6613, 264, 49, 1, 16, "RelatedLinks",
- CellID->1038487239]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[6699, 270, 55, 1, 30, "SeeAlsoSection",
- CellID->1255426704],
-Cell[6757, 273, 43, 1, 16, "SeeAlso",
- CellID->929782353]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[6837, 279, 57, 1, 30, "MoreAboutSection",
- CellID->38303248],
-Cell[6897, 282, 46, 1, 16, "MoreAbout",
- CellID->1665078683]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[6980, 288, 356, 11, 69, "PrimaryExamplesSection",
- CellID->880084151],
-Cell[7339, 301, 184, 4, 24, "Input",
- CellID->1058912120],
-Cell[7526, 307, 388, 12, 57, "Input",
- CellID->721672258],
-Cell[7917, 321, 1145, 33, 105, "Input",
- CellID->724117592],
-Cell[CellGroupData[{
-Cell[9087, 358, 577, 14, 41, "Input",
- CellID->623345522],
-Cell[9667, 374, 91300, 2055, 460, "Output",
- CellID->1887540280]
-}, Open  ]],
-Cell[100982, 2432, 474, 13, 25, "Input",
- CellID->220742054],
-Cell[CellGroupData[{
-Cell[101481, 2449, 478, 13, 41, "Input",
- CellID->1248985958],
-Cell[101962, 2464, 168991, 3751, 331, "Output",
- CellID->1392991797]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[271002, 6221, 100, 2, 55, "ExtendedExamplesSection",
- CellTags->"ExtendedExamples",
- CellID->1854448968],
-Cell[271105, 6225, 125, 3, 33, "ExampleSection",
- CellID->1293636265],
-Cell[271233, 6230, 148, 3, 21, "ExampleSection",
- CellID->1020263627],
-Cell[CellGroupData[{
-Cell[271406, 6237, 127, 3, 21, "ExampleSection",
- CellID->2061341341],
-Cell[CellGroupData[{
-Cell[271558, 6244, 139, 2, 20, "ExampleSubsection",
- CellID->1757724783],
-Cell[271700, 6248, 223, 6, 25, "Input",
- CellID->1965194274]
-}, Open  ]],
-Cell[271938, 6257, 130, 3, 24, "ExampleSubsection",
- CellID->1295379749]
-}, Open  ]],
-Cell[272083, 6263, 131, 3, 33, "ExampleSection",
- CellID->258228157],
-Cell[272217, 6268, 142, 3, 21, "ExampleSection",
- CellID->2123667759],
-Cell[272362, 6273, 135, 3, 21, "ExampleSection",
- CellID->1305812373],
-Cell[272500, 6278, 140, 3, 21, "ExampleSection",
- CellID->1653164318],
-Cell[272643, 6283, 132, 3, 21, "ExampleSection",
- CellID->589267740]
-}, Open  ]]
-}
-]
-*)
-
-(* End of internal cache information *)
 

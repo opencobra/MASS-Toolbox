@@ -1,238 +1,198 @@
 Notebook[{
-Cell[TextData[{
- "New in: ",
- Cell["0.1", "HistoryData",
-  CellTags->"New"],
- " | Modified in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Modified"],
- " | Obsolete in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Obsolete"],
- " | Excised in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Excised"]
-}], "History",
- CellID->1247902091],
-
-Cell[CellGroupData[{
-
-Cell["Categorization", "CategorizationSection",
- CellID->1122911449],
-
-Cell["Symbol", "Categorization",
- CellLabel->"Entity Type",
- CellID->686433507],
-
-Cell["Toolbox", "Categorization",
- CellLabel->"Paclet Name",
- CellID->605800465],
-
-Cell["Toolbox`", "Categorization",
- CellLabel->"Context",
- CellID->468444828],
-
-Cell["Toolbox/ref/Parameters", "Categorization",
- CellLabel->"URI"]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Keywords", "KeywordsSection",
- CellID->477174294],
-
-Cell["XXXX", "Keywords",
- CellID->1164421360]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Syntax Templates", "TemplatesSection",
- CellID->1872225408],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Additional Function Template",
- CellID->1562036412],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Arguments Pattern",
- CellID->158391909],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Local Variables",
- CellID->1360575930],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Color Equal Signs",
- CellID->793782254]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Details", "DetailsSection",
- CellID->307771771],
-
-Cell["XXXX", "Details",
- CellLabel->"Lead",
- CellID->670882175],
-
-Cell["XXXX", "Details",
- CellLabel->"Developers",
- CellID->350963985],
-
-Cell["XXXX", "Details",
- CellLabel->"Authors",
- CellID->8391405],
-
-Cell["XXXX", "Details",
- CellLabel->"Feature Name",
- CellID->3610269],
-
-Cell["XXXX", "Details",
- CellLabel->"QA",
- CellID->401364205],
-
-Cell["XXXX", "Details",
- CellLabel->"DA",
- CellID->350204745],
-
-Cell["XXXX", "Details",
- CellLabel->"Docs",
- CellID->732958810],
-
-Cell["XXXX", "Details",
- CellLabel->"Features Page Notes",
- CellID->222905350],
-
-Cell["XXXX", "Details",
- CellLabel->"Comments",
- CellID->240026365]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Parameters", "ObjectName",
- CellID->1224892054],
+Cell[BoxData[GridBox[{
+   {Cell["TOOLBOX SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Related Guides",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Related Guides", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Model attributes\"\>":>
+       Documentation`HelpLookup["paclet:Toolbox/guide/ModelAttributes"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"MoreAbout"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Toolbox/ref/Parameters\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["Toolbox/ref/Parameters"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/Toolbox/ref/Parameters.\
+html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]}, Visible -> 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$40419], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "Toolbox/ref/Parameters", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
 
 Cell[TextData[{
- Cell["   ", "ModInfo"],
- Cell[BoxData["Parameters"], "InlineFormula"],
- " \[LineSeparator]is a list of rules ({",
+ Cell["Parameters", "ObjectName"],
  Cell[BoxData[
   InterpretationBox[
-   SubsuperscriptBox["k", 
-    StyleBox["ID",
-     StripOnInput->False,
-     ShowSyntaxStyles->False,
-     AutoSpacing->False,
-     ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-   Toolbox`rateconst["ID", True],
-   Editable->False,
-   Selectable->False]],
-  CellChangeTimes->{
-   3.5623602977781343`*^9, {3.5623603329416428`*^9, 
-    3.5623603397806597`*^9}}],
- " \[Rule] ",
- StyleBox["val",
-  FontSlant->"Italic"],
- ", ",
- Cell[BoxData[
-  InterpretationBox[
-   UnderscriptBox["K", 
-    StyleBox["ID",
-     StripOnInput->False,
-     ShowSyntaxStyles->False,
-     AutoSpacing->False,
-     ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]]],
-   Toolbox`Keq["ID"],
-   Editable->False,
-   Selectable->False]],
-  CellChangeTimes->{3.56236035604503*^9}],
- " \[Rule] ",
- StyleBox["val",
-  FontSlant->"Italic"],
- ", ...}) attribute containing the parameters of a model."
-}], "Usage",
- CellChangeTimes->{{3.563120847499659*^9, 3.563120887604533*^9}},
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData["Parameters"], "InlineFormula"],
+     " \[LineSeparator]is a list of rules ({",
+     Cell[BoxData[
+      InterpretationBox[
+       SubsuperscriptBox["k", 
+        StyleBox["ID",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         FontColor->RGBColor[0, 0, 0],
+         $CellContext`LineColor -> RGBColor[0, 0, 0],
+         $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+         $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+         $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
+        "\[LongRightArrow]"],
+       Toolbox`rateconst["ID", True],
+       Editable->False,
+       Selectable->False]]],
+     " \[Rule] ",
+     StyleBox["val",
+      FontSlant->"Italic"],
+     ", ",
+     Cell[BoxData[
+      InterpretationBox[
+       UnderscriptBox["K", 
+        StyleBox["ID",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         FontColor->RGBColor[0, 0, 0],
+         $CellContext`LineColor -> RGBColor[0, 0, 0],
+         $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+         $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+         $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
+       Toolbox`Keq["ID"],
+       Editable->False,
+       Selectable->False]]],
+     " \[Rule] ",
+     StyleBox["val",
+      FontSlant->"Italic"],
+     ", ...}) attribute containing the parameters of a model."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
  CellID->982511436],
 
-Cell["XXXX", "Notes",
- CellID->1067943069]
-}, Open  ]],
+Cell[CellGroupData[{
+
+Cell["", "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[{
+        Cell[
+         BoxData[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, BaselinePosition -> Baseline, 
+             ImageSize -> {6, 0}], CacheGraphics -> False], 
+           Spacer[6]]]], "Examples", "\[NonBreakingSpace]\[NonBreakingSpace]", 
+        Cell["(2)", "ExampleCount"]}], "PrimaryExamplesSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[{
+       Cell[
+        BoxData[
+         InterpretationBox[
+          StyleBox[
+           GraphicsBox[{}, BaselinePosition -> Baseline, ImageSize -> {6, 0}],
+            CacheGraphics -> False], 
+          Spacer[6]]]], "Examples", "\[NonBreakingSpace]\[NonBreakingSpace]", 
+       
+       Cell["(2)", "ExampleCount"]}]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellTags->"PrimaryExamplesSection",
+ CellID->1068482400],
 
 Cell[CellGroupData[{
 
-Cell["Tutorials", "TutorialsSection",
- CellID->250839057],
-
-Cell["XXXX", "Tutorials",
- CellID->341631938]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Demonstrations", "RelatedDemonstrationsSection",
- CellID->1268215905],
-
-Cell["XXXX", "RelatedDemonstrations",
- CellID->1129518860]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Links", "RelatedLinksSection",
- CellID->1584193535],
-
-Cell["XXXX", "RelatedLinks",
- CellID->1038487239]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["See Also", "SeeAlsoSection",
- CellID->1255426704],
-
-Cell["XXXX", "SeeAlso",
- CellID->929782353]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["More About", "MoreAboutSection",
- CellID->38303248],
-
-Cell[TextData[ButtonBox["Model attributes",
- BaseStyle->"Link",
- ButtonData->"paclet:Toolbox/guide/ModelAttributes"]], "MoreAbout",
- CellChangeTimes->{{3.563111538829206*^9, 3.5631115411330214`*^9}, {
-  3.563111617849613*^9, 3.5631116180145407`*^9}},
- CellID->1665078683]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[GridBox[{
-    {
-     StyleBox["Examples", "PrimaryExamplesSection"], 
-     ButtonBox[
-      RowBox[{
-       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
-      BaseStyle->"ExtendedExamplesLink",
-      ButtonData:>"ExtendedExamples"]}
-   }],
-  $Line = 0; Null]], "PrimaryExamplesSection",
- CellID->880084151],
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->725440586],
 
 Cell[BoxData[{
  RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}], "\n", 
@@ -240,19 +200,12 @@ Cell[BoxData[{
   RowBox[{"model", "=", 
    RowBox[{"ExampleData", "[", 
     RowBox[{"{", 
-     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<Glycolysis\>\""}], "}"}], 
-    "]"}]}], ";"}]}], "Input",
- CellChangeTimes->{{3.563111406583416*^9, 3.5631114115157557`*^9}, 
-   3.5631144715283127`*^9},
- CellLabel->"In[107]:=",
+     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<Glycolysis\>\""}], "}"}], "]"}]}], 
+  ";"}]}], "Input",
+ CellLabel->"In[1]:=",
  CellID->334522496],
 
-Cell["\<\
-Access the parameters of a model\
-\>", "ExampleText",
- CellChangeTimes->{{3.563113788834546*^9, 3.563113797400529*^9}, {
-  3.5631144862079*^9, 3.563114488878525*^9}, {3.5631209410450983`*^9, 
-  3.563120942236916*^9}},
+Cell["Access the parameters of a model", "ExampleText",
  CellID->1993685104],
 
 Cell[CellGroupData[{
@@ -263,10 +216,7 @@ Cell[BoxData[{
    RowBox[{"model", "[", "\"\<Parameters\>\"", "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{"param", "//", "Short"}]}], "Input",
- CellChangeTimes->{{3.5631144904479303`*^9, 3.56311451841612*^9}, {
-  3.563115052955351*^9, 3.563115055626918*^9}, {3.56312093602561*^9, 
-  3.563120948038238*^9}},
- CellLabel->"In[109]:=",
+ CellLabel->"In[2]:=",
  CellID->58802377],
 
 Cell[BoxData[
@@ -281,21 +231,21 @@ Cell[BoxData[
         ShowSyntaxStyles->False,
         AutoSpacing->False,
         ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]], 
+        FontColor->RGBColor[0, 0, 0],
+        $CellContext`LineColor -> RGBColor[0, 0, 0],
+        $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
        StyleBox["c",
         StripOnInput->False,
         ShowSyntaxStyles->False,
         AutoSpacing->False,
         ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]]],
+        FontColor->RGBColor[0, 0, 0],
+        $CellContext`LineColor -> RGBColor[0, 0, 0],
+        $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
       Toolbox`parameter["Volume", "c"],
       Editable->False,
       Selectable->False], "\[Rule]", 
@@ -310,11 +260,11 @@ Cell[BoxData[
         ShowSyntaxStyles->False,
         AutoSpacing->False,
         ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]]],
+        FontColor->RGBColor[0, 0, 0],
+        $CellContext`LineColor -> RGBColor[0, 0, 0],
+        $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
       Toolbox`Keq["vhk"],
       Editable->False,
       Selectable->False], "\[Rule]", "850"}], ",", 
@@ -327,11 +277,11 @@ Cell[BoxData[
         ShowSyntaxStyles->False,
         AutoSpacing->False,
         ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        FontColor->RGBColor[0, 0, 0],
+        $CellContext`LineColor -> RGBColor[0, 0, 0],
+        $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
       Toolbox`rateconst["vh2o", True],
       Editable->False,
       Selectable->False], "\[Rule]", 
@@ -342,18 +292,14 @@ Cell[BoxData[
       AutomaticUnits`Unit[100000, "Hour"^(-1)],
       AutoDelete->True]}]}], "}"}],
   Short]], "Output",
- CellChangeTimes->{{3.563114500273942*^9, 3.563114519234591*^9}, {
-   3.563115055901085*^9, 3.56311505893957*^9}, 3.563120948580222*^9, 
-   3.563121478286964*^9},
- CellLabel->"Out[110]//Short=",
+ ImageSize->{379, 27},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]//Short=",
  CellID->1597687636]
 }, Open  ]],
 
-Cell["\<\
-Set new parameters for model (discard old ones)\
-\>", "ExampleText",
- CellChangeTimes->{{3.563114534241188*^9, 3.56311456364009*^9}, {
-  3.5631209575410423`*^9, 3.563120961629431*^9}},
+Cell["Set new parameters for model (discard old ones)", "ExampleText",
  CellID->2034867197],
 
 Cell[BoxData[
@@ -368,26 +314,22 @@ Cell[BoxData[
         ShowSyntaxStyles->False,
         AutoSpacing->False,
         ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]]],
+        FontColor->RGBColor[0, 0, 0],
+        $CellContext`LineColor -> RGBColor[0, 0, 0],
+        $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
       Toolbox`Keq["vhk"],
       Editable->False,
       Selectable->False], "\[Rule]", "850"}], "}"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.563114565613172*^9, 3.563114577598798*^9}, {
-  3.563120967050139*^9, 3.5631209834632683`*^9}},
- CellLabel->"In[111]:=",
+ CellLabel->"In[3]:=",
  CellID->1335901504],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"getParameters", "[", "model", "]"}]], "Input",
- CellChangeTimes->{{3.563114589149685*^9, 3.563114594209483*^9}, {
-  3.563120987919647*^9, 3.563120988593863*^9}},
- CellLabel->"In[112]:=",
+ CellLabel->"In[4]:=",
  CellID->555048343],
 
 Cell[BoxData[
@@ -400,45 +342,36 @@ Cell[BoxData[
       ShowSyntaxStyles->False,
       AutoSpacing->False,
       ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
+      FontColor->RGBColor[0, 0, 0],
+      $CellContext`LineColor -> RGBColor[0, 0, 0],
+      $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+      $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+      $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
     Toolbox`Keq["vhk"],
     Editable->False,
     Selectable->False], "\[Rule]", "850"}], "}"}]], "Output",
- CellChangeTimes->{3.563114596456334*^9, 3.5631150623117113`*^9, 
-  3.563120989180745*^9, 3.5631211137726097`*^9, 3.5631214787553263`*^9},
- CellLabel->"Out[112]=",
+ ImageSize->{73, 27},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
  CellID->200576164]
 }, Open  ]],
 
-Cell["\<\
-Set parameters to previous values\
-\>", "ExampleText",
- CellChangeTimes->{{3.563114623880989*^9, 3.5631146351294003`*^9}, {
-  3.563120996438305*^9, 3.563120997557829*^9}},
+Cell["Set parameters to previous values", "ExampleText",
  CellID->753228750],
 
 Cell[BoxData[
  RowBox[{
   RowBox[{"setParameters", "[", 
    RowBox[{"model", ",", "param"}], "]"}], ";"}]], "Input",
- CellChangeTimes->{{3.563114636239447*^9, 3.563114640714767*^9}, {
-  3.56311504847447*^9, 3.563115049747038*^9}, {3.5631209997355757`*^9, 
-  3.563121005847999*^9}},
- CellLabel->"In[113]:=",
+ CellLabel->"In[5]:=",
  CellID->99502185],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"getParameters", "[", "model", "]"}]], "Input",
- CellChangeTimes->{{3.563115068611294*^9, 3.563115076411353*^9}, {
-  3.5631210088715477`*^9, 3.563121010291321*^9}, {3.5631211225777493`*^9, 
-  3.5631211240980864`*^9}},
- CellLabel->"In[114]:=",
+ CellLabel->"In[6]:=",
  CellID->2059000070],
 
 Cell[BoxData[
@@ -452,21 +385,21 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
       StyleBox["c",
        StripOnInput->False,
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`parameter["Volume", "c"],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -481,11 +414,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vhk"],
      Editable->False,
      Selectable->False], "\[Rule]", "850"}], ",", 
@@ -497,11 +430,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vpgi"],
      Editable->False,
      Selectable->False], "\[Rule]", "0.41`"}], ",", 
@@ -513,11 +446,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vpfk"],
      Editable->False,
      Selectable->False], "\[Rule]", "310"}], ",", 
@@ -529,11 +462,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vtpi"],
      Editable->False,
      Selectable->False], "\[Rule]", "0.05714285714285714`"}], ",", 
@@ -545,11 +478,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vald"],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -568,11 +501,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vgapdh"],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -591,11 +524,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vpgk"],
      Editable->False,
      Selectable->False], "\[Rule]", "1800"}], ",", 
@@ -607,11 +540,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vpglm"],
      Editable->False,
      Selectable->False], "\[Rule]", "0.14705882352941177`"}], ",", 
@@ -623,11 +556,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["veno"],
      Editable->False,
      Selectable->False], "\[Rule]", "1.6949152542372883`"}], ",", 
@@ -639,11 +572,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vpk"],
      Editable->False,
      Selectable->False], "\[Rule]", "363000"}], ",", 
@@ -655,11 +588,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vldh"],
      Editable->False,
      Selectable->False], "\[Rule]", "26300"}], ",", 
@@ -671,11 +604,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vamp"],
      Editable->False,
      Selectable->False], "\[Rule]", "\[Infinity]"}], ",", 
@@ -687,11 +620,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vapk"],
      Editable->False,
      Selectable->False], "\[Rule]", "1.65`"}], ",", 
@@ -703,11 +636,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vpyr"],
      Editable->False,
      Selectable->False], "\[Rule]", "1.`"}], ",", 
@@ -719,11 +652,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vlac"],
      Editable->False,
      Selectable->False], "\[Rule]", "1.`"}], ",", 
@@ -735,11 +668,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vatp"],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -759,11 +692,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vnadh"],
      Editable->False,
      Selectable->False], "\[Rule]", "\[Infinity]"}], ",", 
@@ -775,11 +708,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vgluin"],
      Editable->False,
      Selectable->False], "\[Rule]", "\[Infinity]"}], ",", 
@@ -791,11 +724,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vampin"],
      Editable->False,
      Selectable->False], "\[Rule]", "\[Infinity]"}], ",", 
@@ -807,11 +740,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vh"],
      Editable->False,
      Selectable->False], "\[Rule]", "1.`"}], ",", 
@@ -823,11 +756,11 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`Keq["vh2o"],
      Editable->False,
      Selectable->False], "\[Rule]", "1.`"}], ",", 
@@ -839,21 +772,21 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
       StyleBox["Xt",
        StripOnInput->False,
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`metabolite["pyr", "Xt"],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -872,21 +805,21 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
       StyleBox["Xt",
        StripOnInput->False,
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`metabolite["amp", "Xt"],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -904,21 +837,21 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
       StyleBox["Xt",
        StripOnInput->False,
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]]],
      Toolbox`metabolite["h", "Xt"],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -937,11 +870,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vhk", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -963,11 +897,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vpgi", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -985,11 +920,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vpfk", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1010,11 +946,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vtpi", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1032,11 +969,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vald", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1054,11 +992,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vgapdh", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1081,11 +1020,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vpgk", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1107,11 +1047,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vpglm", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1129,11 +1070,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["veno", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1151,11 +1093,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vpk", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1176,11 +1119,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vldh", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1201,11 +1145,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vamp", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1223,11 +1168,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vapk", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1248,11 +1194,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vpyr", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1270,11 +1217,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vlac", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1292,11 +1240,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vatp", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1314,11 +1263,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vnadh", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1336,11 +1286,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vgluin", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1358,11 +1309,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vampin", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1380,11 +1332,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vh", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1402,11 +1355,12 @@ Cell[BoxData[
        ShowSyntaxStyles->False,
        AutoSpacing->False,
        ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+       FontColor->RGBColor[0, 0, 0],
+       $CellContext`LineColor -> RGBColor[0, 0, 0],
+       $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+       $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     
      Toolbox`rateconst["vh2o", True],
      Editable->False,
      Selectable->False], "\[Rule]", 
@@ -1425,10 +1379,10 @@ Cell[BoxData[
        RowBox[{"-", "1"}]]}],
      AutomaticUnits`Unit[1, "Liter"^(-1) "Millimole"],
      AutoDelete->True]}]}], "}"}]], "Output",
- CellChangeTimes->{
-  3.563115076879128*^9, 3.563121010949897*^9, {3.563121114549181*^9, 
-   3.563121129593767*^9}, 3.563121227678039*^9, 3.563121479359664*^9},
- CellLabel->"Out[114]=",
+ ImageSize->{579, 316},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[6]=",
  CellID->1681746205]
 }, Open  ]],
 
@@ -1436,11 +1390,6 @@ Cell["\<\
 Updating the parameters will add to the already existing parameters. Newly \
 defined parameters take precedence over already existing ones.\
 \>", "ExampleText",
- CellChangeTimes->{{3.563115089851934*^9, 3.563115129995118*^9}, {
-  3.563115240063923*^9, 3.563115243061207*^9}, {3.563115278437785*^9, 
-  3.563115286678009*^9}, {3.563120444909093*^9, 3.5631204822042007`*^9}, {
-  3.563120514908382*^9, 3.563120616278243*^9}, {3.56312101520652*^9, 
-  3.563121029046928*^9}},
  CellID->2135510272],
 
 Cell[CellGroupData[{
@@ -1454,16 +1403,15 @@ Cell[BoxData[
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
    Toolbox`rateconst["vatp", True],
    Editable->False,
    Selectable->False], "/.", "model"}]], "Input",
- CellChangeTimes->{{3.563121222598337*^9, 3.563121233675767*^9}},
- CellLabel->"In[115]:=",
+ CellLabel->"In[7]:=",
  CellID->2007764627],
 
 Cell[BoxData[
@@ -1473,8 +1421,10 @@ Cell[BoxData[
     RowBox[{"-", "1"}]]}],
   AutomaticUnits`Unit[1.4000000000000001`, "Hour"^(-1)],
   AutoDelete->True]], "Output",
- CellChangeTimes->{3.5631212344187813`*^9, 3.5631214795267687`*^9},
- CellLabel->"Out[115]=",
+ ImageSize->{69, 17},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[7]=",
  CellID->2076189268]
 }, Open  ]],
 
@@ -1490,21 +1440,18 @@ Cell[BoxData[
         ShowSyntaxStyles->False,
         AutoSpacing->False,
         ZeroWidthTimes->True,
-        LineColor->RGBColor[0, 0, 0],
-        FrontFaceColor->RGBColor[0, 0, 0],
-        BackFaceColor->RGBColor[0, 0, 0],
-        GraphicsColor->RGBColor[0, 0, 0],
-        FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        FontColor->RGBColor[0, 0, 0],
+        $CellContext`LineColor -> RGBColor[0, 0, 0],
+        $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+        $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
       Toolbox`rateconst["vatp", True],
       Editable->False,
       Selectable->False], "\[Rule]", 
      RowBox[{"2.", 
       SuperscriptBox["Hour", 
        RowBox[{"-", "1"}]]}]}], "}"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.563115138604742*^9, 3.5631151668595*^9}, {
-   3.56312103451265*^9, 3.563121036888846*^9}, {3.563121090753153*^9, 
-   3.563121105922331*^9}, 3.563121212470064*^9},
- CellLabel->"In[116]:=",
+ CellLabel->"In[8]:=",
  CellID->626949193],
 
 Cell[CellGroupData[{
@@ -1518,16 +1465,15 @@ Cell[BoxData[
      ShowSyntaxStyles->False,
      AutoSpacing->False,
      ZeroWidthTimes->True,
-     LineColor->RGBColor[0, 0, 0],
-     FrontFaceColor->RGBColor[0, 0, 0],
-     BackFaceColor->RGBColor[0, 0, 0],
-     GraphicsColor->RGBColor[0, 0, 0],
-     FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+     FontColor->RGBColor[0, 0, 0],
+     $CellContext`LineColor -> RGBColor[0, 0, 0],
+     $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+     $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], "\[LongRightArrow]"],
    Toolbox`rateconst["vatp", True],
    Editable->False,
    Selectable->False], "/.", "model"}]], "Input",
- CellChangeTimes->{{3.563121222598337*^9, 3.563121233675767*^9}},
- CellLabel->"In[117]:=",
+ CellLabel->"In[9]:=",
  CellID->1881465632],
 
 Cell[BoxData[
@@ -1537,51 +1483,45 @@ Cell[BoxData[
     RowBox[{"-", "1"}]]}],
   AutomaticUnits`Unit[2., "Hour"^(-1)],
   AutoDelete->True]], "Output",
- CellChangeTimes->{{3.5631212344187813`*^9, 3.5631212475028477`*^9}, 
-   3.563121480075672*^9},
- CellLabel->"Out[117]=",
+ ImageSize->{61, 17},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[9]=",
  CellID->51247173]
 }, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["More Examples", "ExtendedExamplesSection",
- CellTags->"ExtendedExamples",
- CellID->1854448968],
-
-Cell[BoxData[
- InterpretationBox[Cell["Scope", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1293636265],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
+Cell[TextData[{
+ "Generalizations & Extensions",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
  CellID->1020263627],
 
 Cell[TextData[{
  "Some functions like ",
  Cell[BoxData[
-  ButtonBox["simulate",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/simulate"]], "InlineFormula"],
+  TemplateBox[{Cell[
+     TextData["simulate"]],"paclet:Toolbox/ref/simulate"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
  " and ",
  Cell[BoxData[
-  ButtonBox["findSteadyState",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/findSteadyState"]], "InlineFormula"],
+  TemplateBox[{Cell[
+     TextData["findSteadyState"]],"paclet:Toolbox/ref/findSteadyState"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
  " provde ",
  Cell[BoxData[
-  ButtonBox["Parameters",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/Parameters"]], "InlineFormula"],
+  TemplateBox[{Cell[
+     TextData["Parameters"]],"paclet:Toolbox/ref/Parameters"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
  " as an option. "
 }], "ExampleText",
- CellChangeTimes->{{3.5631212896037283`*^9, 3.563121318116713*^9}, {
-  3.563121369997777*^9, 3.5631214564820347`*^9}},
  CellID->1213656345],
 
 Cell[CellGroupData[{
@@ -1591,8 +1531,8 @@ Cell[BoxData[{
   RowBox[{"model", "=", 
    RowBox[{"ExampleData", "[", 
     RowBox[{"{", 
-     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<Glycolysis\>\""}], "}"}], 
-    "]"}]}], ";"}], "\[IndentingNewLine]", 
+     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<Glycolysis\>\""}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{"plotSimulation", "[", 
   RowBox[{
    RowBox[{"simulate", "[", 
@@ -1600,9 +1540,7 @@ Cell[BoxData[{
      RowBox[{"{", 
       RowBox[{"t", ",", "0", ",", "1000"}], "}"}]}], "]"}], "[", 
    RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "Input",
- CellChangeTimes->{{3.56312149506574*^9, 3.563121499266082*^9}, {
-  3.5631216425244417`*^9, 3.56312164337442*^9}},
- CellLabel->"In[6]:=",
+ CellLabel->"In[1]:=",
  CellID->1685796544],
 
 Cell[BoxData[
@@ -1644,8 +1582,8 @@ pMT+DwG6b64=
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["adp", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["adp", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["adp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.9060679774997897, 0.6, 0.6], LineBox[CompressedData["
@@ -1685,8 +1623,8 @@ nsBgi++ezrvyyhNAW71C+aH8nhf4FdllZPyTYz0M8A0yKzq0Qt3MBHrkfwHm
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["amp", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["amp", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["amp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.1421359549995791, 0.6, 0.6], LineBox[CompressedData["
@@ -1725,8 +1663,8 @@ gu9D4Q==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["atp", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["atp", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["atp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.37820393249936934`, 0.6, 0.6], LineBox[CompressedData["
@@ -1760,8 +1698,8 @@ zsejWKZgACrM/wNjhoM5
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["dhap", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" 
-     Toolbox`metabolite["dhap", "c"], "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["dhap", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.6142719099991583, 0.6, 0.6], LineBox[CompressedData["
@@ -1796,8 +1734,8 @@ AoLohwY=
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["f6p", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["f6p", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["f6p", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.8503398874989481, 0.6, 0.6], LineBox[CompressedData["
@@ -1832,8 +1770,8 @@ srGTbY641hB4Iv8B77goYA==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["fdp", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["fdp", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["fdp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.08640786499873876, 0.6, 0.6], LineBox[CompressedData["
@@ -1866,8 +1804,8 @@ WigNtx8ACHDkjg==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["g6p", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["g6p", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["g6p", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.3224758424985268, 0.6, 0.6], LineBox[CompressedData["
@@ -1904,8 +1842,8 @@ Vb87C7ST60HjqRd/scBDcn+memdGFxub9rQ/N+82B7Qg83w9CrTVXNCJ/Bsp
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["gap", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["gap", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["gap", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.5585438199983166, 0.6, 0.6], LineBox[CompressedData["
@@ -1956,8 +1894,8 @@ nOIurdjEPPDfIfrJ1Q==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["glu", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["glu", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["glu", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.7946117974981064, 0.6, 0.6], LineBox[CompressedData["
@@ -2032,8 +1970,8 @@ sbzzC7B3WFCxTAn+F/PQuek=
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["h2o", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["h2o", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["h2o", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.266747752497686, 0.6, 0.6], LineBox[CompressedData["
@@ -2063,8 +2001,8 @@ iZ4=
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["lac", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["lac", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["lac", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.5028157299974758, 0.6, 0.6], LineBox[CompressedData["
@@ -2097,8 +2035,8 @@ WoFNzE7y5zxstPV00aW0cRLYbHIu91oPGWzv65kvbrYF/wXkDi+p
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["nad", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["nad", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["nad", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.7388837074972656, 0.6, 0.6], LineBox[CompressedData["
@@ -2133,8 +2071,8 @@ GnxmRmzAOd3VGuYNW0M+s6xekmEHvlQzu+ogpoItrPbIJrztDflp8mOpQzSw
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["nadh", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" 
-     Toolbox`metabolite["nadh", "c"], "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["nadh", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.9749516849970554, 0.6, 0.6], LineBox[CompressedData["
@@ -2169,8 +2107,8 @@ JWdAvH+LTPEJUa8L0CHb9WlPn2+h4npsCArIk9S6AuJ/+AufRmln
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pep", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pep", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pep", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.21101966249684523`, 0.6, 0.6], LineBox[CompressedData["
@@ -2208,8 +2146,8 @@ vzDNukMyOPg9a9nbtbZYLmr3nG+ZKmhY5qJOz3yx/gPdbR6yUGbfsX10sIuP
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pg13", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" 
-     Toolbox`metabolite["pg13", "c"], "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pg13", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.44708763999663503`, 0.6, 0.6], LineBox[CompressedData["
@@ -2246,8 +2184,8 @@ Jgf6yw0PyteVe6NHxH8BIEVeEw==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pg2", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pg2", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pg2", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.6831556174964248, 0.6, 0.6], LineBox[CompressedData["
@@ -2285,8 +2223,8 @@ anNbCCrG/g/7jkRl
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pg3", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pg3", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pg3", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.9192235949962146, 0.6, 0.6], LineBox[CompressedData["
@@ -2321,8 +2259,8 @@ OqAJeT2M77Ak1AURyFk9NRJagx4YmkH1tPL6yBR9YIhcwlvZMw4yAILPMmto
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["phos", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" 
-     Toolbox`metabolite["phos", "c"], "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["phos", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.15529157249600445`, 0.6, 0.6], LineBox[CompressedData["
@@ -2354,8 +2292,8 @@ w/kAHNfMJA==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pyr", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pyr", "c"],
-      "Tooltip"]& ]},
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pyr", "c"], 
+     "Tooltip"]& ]},
   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
   Axes->True,
   AxesOrigin->{-13.815510557964274`, -9.315970542609172},
@@ -2810,8 +2748,10 @@ w/kAHNfMJA==
        Thickness[0.001]}}, {-0.10536051565782616`, 
       FormBox["\"\"", TraditionalForm], {0.00375, 0.}, {
        Thickness[0.001]}}}}]], "Output",
- CellChangeTimes->{3.563121498378923*^9, 3.563121644494013*^9},
- CellLabel->"Out[7]=",
+ ImageSize->{244, 152},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
  CellID->1417316972]
 }, Open  ]],
 
@@ -2834,11 +2774,12 @@ Cell[BoxData[
            ShowSyntaxStyles->False,
            AutoSpacing->False,
            ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+           FontColor->RGBColor[0, 0, 0],
+           $CellContext`LineColor -> RGBColor[0, 0, 0],
+           $CellContext`FrontFaceColor -> RGBColor[0, 0, 0],
+           $CellContext`BackFaceColor -> RGBColor[0, 0, 0],
+           $CellContext`GraphicsColor -> RGBColor[0, 0, 0]], 
+          "\[LongRightArrow]"],
          Toolbox`rateconst["vatp", True],
          Editable->False,
          Selectable->False], "\[Rule]", 
@@ -2846,9 +2787,7 @@ Cell[BoxData[
          SuperscriptBox["Hour", 
           RowBox[{"-", "1"}]]}]}], "}"}]}]}], "]"}], "[", 
    RowBox[{"[", "1", "]"}], "]"}], "\[IndentingNewLine]", "]"}]], "Input",
- CellChangeTimes->{{3.563121326036887*^9, 3.563121357783369*^9}, {
-  3.563121458674749*^9, 3.563121467603351*^9}},
- CellLabel->"In[1]:=",
+ CellLabel->"In[2]:=",
  CellID->1122511209],
 
 Cell[BoxData[
@@ -3141,8 +3080,8 @@ zJcETy7/v/8PJ7ytvQ==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["adp", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["adp", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["adp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.9060679774997897, 0.6, 0.6], LineBox[CompressedData["
@@ -3438,8 +3377,8 @@ LZ1+aomBJLT2P8dtG3TLWxEDno6y/5njVLSXZ6M4eLcs9Z8Fm36eO/9CAmi7
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["amp", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["amp", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["amp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.1421359549995791, 0.6, 0.6], LineBox[CompressedData["
@@ -3755,8 +3694,8 @@ SwElorAz+X+W2KV+40GaGORJ+Z//D4cTuZo=
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["atp", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["atp", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["atp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.37820393249936934`, 0.6, 0.6], LineBox[CompressedData["
@@ -4070,8 +4009,8 @@ ZGsOEo2i/LPAovO39vhzkOehlCDSCdf652UsJZAjx/Xgv3xhmLt8Wy6JThQR
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["dhap", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" 
-     Toolbox`metabolite["dhap", "c"], "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["dhap", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.6142719099991583, 0.6, 0.6], LineBox[CompressedData["
@@ -4355,8 +4294,8 @@ eDvtyGlBMFGlue7o+3/XRM2FwOfEnevm4jU59nOrMDDM+Z+j9w65P1oVBm9y
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["f6p", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["f6p", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["f6p", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.8503398874989481, 0.6, 0.6], LineBox[CompressedData["
@@ -4665,8 +4604,8 @@ IWjnO2k0dFT4nxkfvkXuL5dBFbf/Z/nl2gdP5Mkivf/3/wHmEPNk
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["fdp", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["fdp", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["fdp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.08640786499873876, 0.6, 0.6], LineBox[CompressedData["
@@ -4960,8 +4899,8 @@ fr4Na0D4/5vx5XtQaIkYcPp/S+5QPhOTKQ5c/t//B1N/MZ0=
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["g6p", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["g6p", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["g6p", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.3224758424985268, 0.6, 0.6], LineBox[CompressedData["
@@ -5267,8 +5206,8 @@ wxe9vd6KI7eL//tetKnl+KnHEigy43+WXqt15nK6JNL+f/8fki8EQg==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["gap", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["gap", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["gap", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.5585438199983166, 0.6, 0.6], LineBox[CompressedData["
@@ -5669,8 +5608,8 @@ ODEqr0QfBJ3/+z8NUmPD
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["glu", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["glu", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["glu", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.7946117974981064, 0.6, 0.6], LineBox[CompressedData["
@@ -6352,8 +6291,8 @@ uILImg==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["h2o", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["h2o", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["h2o", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.266747752497686, 0.6, 0.6], LineBox[CompressedData["
@@ -6662,8 +6601,8 @@ khQU/p//DyX6zzU=
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["lac", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["lac", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["lac", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.5028157299974758, 0.6, 0.6], LineBox[CompressedData["
@@ -6970,8 +6909,8 @@ AxGbDqyKH5Z+wgfqRVQ230dkkr6fcsqTHxgXam06ImFyQ8RYALA7Epvm5DF0
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["nad", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["nad", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["nad", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.7388837074972656, 0.6, 0.6], LineBox[CompressedData["
@@ -7288,8 +7227,8 @@ JQ==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["nadh", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" 
-     Toolbox`metabolite["nadh", "c"], "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["nadh", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.9749516849970554, 0.6, 0.6], LineBox[CompressedData["
@@ -7576,8 +7515,8 @@ HuNriw==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pep", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pep", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pep", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.21101966249684523`, 0.6, 0.6], LineBox[CompressedData["
@@ -7871,8 +7810,8 @@ rf/3/wGkQtlt
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pg13", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" 
-     Toolbox`metabolite["pg13", "c"], "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pg13", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.44708763999663503`, 0.6, 0.6], LineBox[CompressedData["
@@ -8169,8 +8108,8 @@ e6vmos19/zdV23TgSJEsCqFKZq2wQufo2Qw5NMb4v/8HSBTVUw==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pg2", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pg2", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pg2", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.6831556174964248, 0.6, 0.6], LineBox[CompressedData["
@@ -8479,8 +8418,8 @@ pyqgZwP/9/8A7PbTSg==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pg3", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pg3", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pg3", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.9192235949962146, 0.6, 0.6], LineBox[CompressedData["
@@ -8773,8 +8712,8 @@ Wd8MT/r8zxxBScHHOkXhKY//WaDn06mztWLw/b7/WXK7ZsyVInG48v/9/wAF
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["phos", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" 
-     Toolbox`metabolite["phos", "c"], "Tooltip"]& ], 
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["phos", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.15529157249600445`, 0.6, 0.6], LineBox[CompressedData["
@@ -9046,8 +8985,8 @@ gihZ/3ted8AzdVkEzTz7P7MdvXnMp14Ucf7veb7G7/4BRWKI53+W3Kp+KSRF
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pyr", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pyr", "c"],
-      "Tooltip"]& ]},
+    Annotation[#, "Liter"^(-1) "Millimole" Toolbox`metabolite["pyr", "c"], 
+     "Tooltip"]& ]},
   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
   Axes->True,
   AxesOrigin->{-13.815510557964274`, -9.940277883449907},
@@ -9553,63 +9492,174 @@ gihZ/3ted8AzdVkEzTz7P7MdvXnMp14Ucf7veb7G7/4BRWKI53+W3Kp+KSRF
        Thickness[0.001]}}, {2.1972245773362196`, 
       FormBox["\"\"", TraditionalForm], {0.00375, 0.}, {
        Thickness[0.001]}}}}]], "Output",
- CellChangeTimes->{
-  3.563121360838171*^9, {3.563121470462356*^9, 3.563121483087256*^9}},
- CellLabel->"Out[1]=",
+ ImageSize->{244, 156},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
  CellID->170294164]
 }, Open  ]]
+}, Closed]],
+
+Cell["", "SectionFooterSpacer"],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- InterpretationBox[Cell["Options", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->2061341341],
+Cell["", "MoreAboutSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[{
+        Cell[
+         BoxData[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, BaselinePosition -> Baseline, 
+             ImageSize -> {6, 0}], CacheGraphics -> False], 
+           Spacer[6]]]], "Related Guides"}], "MoreAboutSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[{
+       Cell[
+        BoxData[
+         InterpretationBox[
+          StyleBox[
+           GraphicsBox[{}, BaselinePosition -> Baseline, ImageSize -> {6, 0}],
+            CacheGraphics -> False], 
+          Spacer[6]]]], "Related Guides"}]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->38303248],
+
+Cell["", "SectionHeaderSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]],
+
+Cell["", "SectionHeaderSpacer"],
 
 Cell[BoxData[
- InterpretationBox[Cell["XXXX", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1757724783],
+ TemplateBox[{Cell[
+    TextData["Model attributes"]],"paclet:Toolbox/guide/ModelAttributes"},
+  "RefLink",
+  BaseStyle->"MoreAbout"]], "MoreAbout",
+ CellID->1215264883],
 
-Cell[BoxData[
- InterpretationBox[Cell["XXXX", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1295379749]
-}, Closed]],
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Open  ]],
 
-Cell[BoxData[
- InterpretationBox[Cell["Applications", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->258228157],
-
-Cell[BoxData[
- InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->2123667759],
-
-Cell[BoxData[
- InterpretationBox[Cell["Possible Issues", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1305812373],
-
-Cell[BoxData[
- InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1653164318],
-
-Cell[BoxData[
- InterpretationBox[Cell["Neat Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->589267740]
-}, Open  ]]
+Cell[" ", "FooterCell"]
 },
-WindowSize->{700, 770},
-WindowMargins->{{607, Automatic}, {Automatic, 53}},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"Parameters",
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Wolfram Language", ButtonData -> "paclet:guide/WolframRoot", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2017, 6, 1, 13, 37, 52.608545}", 
+    "history" -> {"0.1", "", "", ""}, "context" -> "Toolbox`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Toolbox Symbol", "language" -> "en", "paclet" -> "Toolbox", "status" -> 
+    "None", "summary" -> 
+    "Parameters is a list of rules ({Toolbox`rateconst[\"ID\", True] -> val, \
+Toolbox`Keq[\"ID\"] -> val, ...}) attribute containing the parameters of a \
+model.", "synonyms" -> {}, "tabletags" -> {}, "title" -> "Parameters", 
+    "titlemodifier" -> "", "windowtitle" -> "Parameters", "type" -> "Symbol", 
+    "uri" -> "Toolbox/ref/Parameters"}, "SearchTextTranslated" -> ""},
 CellContext->"Global`",
-FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
-2011)",
-StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
-  CharacterEncoding -> "UTF-8"]
+FrontEndVersion -> "6.0",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "6.0", 
+  StyleDefinitions -> "Default.nb"]
 ]
 

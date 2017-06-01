@@ -1,203 +1,162 @@
 Notebook[{
-Cell[TextData[{
- "New in: ",
- Cell["0.1", "HistoryData",
-  CellTags->"New"],
- " | Modified in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Modified"],
- " | Obsolete in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Obsolete"],
- " | Excised in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Excised"]
-}], "History",
- CellID->1247902091],
-
-Cell[CellGroupData[{
-
-Cell["Categorization", "CategorizationSection",
- CellID->1122911449],
-
-Cell["Symbol", "Categorization",
- CellLabel->"Entity Type",
- CellID->686433507],
-
-Cell["Toolbox", "Categorization",
- CellLabel->"Paclet Name",
- CellID->605800465],
-
-Cell["Toolbox`", "Categorization",
- CellLabel->"Context",
- CellID->468444828],
-
-Cell["Toolbox/ref/Reactions", "Categorization",
- CellLabel->"URI"]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Keywords", "KeywordsSection",
- CellID->477174294],
-
-Cell["XXXX", "Keywords",
- CellID->1164421360]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Syntax Templates", "TemplatesSection",
- CellID->1872225408],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Additional Function Template",
- CellID->1562036412],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Arguments Pattern",
- CellID->158391909],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Local Variables",
- CellID->1360575930],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Color Equal Signs",
- CellID->793782254]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Details", "DetailsSection",
- CellID->307771771],
-
-Cell["XXXX", "Details",
- CellLabel->"Lead",
- CellID->670882175],
-
-Cell["XXXX", "Details",
- CellLabel->"Developers",
- CellID->350963985],
-
-Cell["XXXX", "Details",
- CellLabel->"Authors",
- CellID->8391405],
-
-Cell["XXXX", "Details",
- CellLabel->"Feature Name",
- CellID->3610269],
-
-Cell["XXXX", "Details",
- CellLabel->"QA",
- CellID->401364205],
-
-Cell["XXXX", "Details",
- CellLabel->"DA",
- CellID->350204745],
-
-Cell["XXXX", "Details",
- CellLabel->"Docs",
- CellID->732958810],
-
-Cell["XXXX", "Details",
- CellLabel->"Features Page Notes",
- CellID->222905350],
-
-Cell["XXXX", "Details",
- CellLabel->"Comments",
- CellID->240026365]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Reactions", "ObjectName",
- CellID->1224892054],
+Cell[BoxData[GridBox[{
+   {Cell["TOOLBOX SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Related Guides",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Related Guides", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Model attributes\"\>":>
+       Documentation`HelpLookup["paclet:Toolbox/guide/ModelAttributes"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"MoreAbout"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Toolbox/ref/Reactions\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["Toolbox/ref/Reactions"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/Toolbox/ref/Reactions.\
+html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]}, Visible -> 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$45552], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "Toolbox/ref/Reactions", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
 
 Cell[TextData[{
- Cell["   ", "ModInfo"],
- Cell[BoxData["Reactions"], "InlineFormula"],
- "\[LineSeparator]is an immutable attribute containing the reactions of a \
+ Cell["Reactions", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData["Reactions"], "InlineFormula"],
+     "\[LineSeparator]is an immutable attribute containing the reactions of a \
 model."
-}], "Usage",
- CellChangeTimes->{{3.563130860216411*^9, 3.563130870121121*^9}, {
-  3.56313102699199*^9, 3.563131027771237*^9}},
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
  CellID->982511436],
 
-Cell["XXXX", "Notes",
- CellID->1067943069]
-}, Open  ]],
+Cell[CellGroupData[{
+
+Cell["", "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[{
+        Cell[
+         BoxData[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, BaselinePosition -> Baseline, 
+             ImageSize -> {6, 0}], CacheGraphics -> False], 
+           Spacer[6]]]], "Examples", "\[NonBreakingSpace]\[NonBreakingSpace]", 
+        Cell["(1)", "ExampleCount"]}], "PrimaryExamplesSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[{
+       Cell[
+        BoxData[
+         InterpretationBox[
+          StyleBox[
+           GraphicsBox[{}, BaselinePosition -> Baseline, ImageSize -> {6, 0}],
+            CacheGraphics -> False], 
+          Spacer[6]]]], "Examples", "\[NonBreakingSpace]\[NonBreakingSpace]", 
+       
+       Cell["(1)", "ExampleCount"]}]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellTags->"PrimaryExamplesSection",
+ CellID->520957606],
 
 Cell[CellGroupData[{
 
-Cell["Tutorials", "TutorialsSection",
- CellID->250839057],
-
-Cell["XXXX", "Tutorials",
- CellID->341631938]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Demonstrations", "RelatedDemonstrationsSection",
- CellID->1268215905],
-
-Cell["XXXX", "RelatedDemonstrations",
- CellID->1129518860]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Links", "RelatedLinksSection",
- CellID->1584193535],
-
-Cell["XXXX", "RelatedLinks",
- CellID->1038487239]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["See Also", "SeeAlsoSection",
- CellID->1255426704],
-
-Cell["XXXX", "SeeAlso",
- CellID->929782353]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["More About", "MoreAboutSection",
- CellID->38303248],
-
-Cell[TextData[ButtonBox["Model attributes",
- BaseStyle->"Link",
- ButtonData->"paclet:Toolbox/guide/ModelAttributes"]], "MoreAbout",
- CellChangeTimes->{{3.563111538829206*^9, 3.5631115411330214`*^9}, {
-  3.563111617849613*^9, 3.5631116180145407`*^9}},
- CellID->1665078683]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[GridBox[{
-    {
-     StyleBox["Examples", "PrimaryExamplesSection"], 
-     ButtonBox[
-      RowBox[{
-       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
-      BaseStyle->"ExtendedExamplesLink",
-      ButtonData:>"ExtendedExamples"]}
-   }],
-  $Line = 0; Null]], "PrimaryExamplesSection",
- CellID->880084151],
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->443655223],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.557508341598042*^9, 3.55750834854175*^9}, {
-  3.557521768779581*^9, 3.557521771548505*^9}, {3.563130796834032*^9, 
-  3.563130797169799*^9}},
- CellLabel->"In[85]:=",
+ CellLabel->"In[1]:=",
  CellID->1442699638],
 
 Cell[BoxData[
@@ -205,2065 +164,512 @@ Cell[BoxData[
   RowBox[{"model", "=", 
    RowBox[{"ExampleData", "[", 
     RowBox[{"{", 
-     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<Glycolysis\>\""}], "}"}], 
-    "]"}]}], ";"}]], "Input",
- CellChangeTimes->{{3.5575081007577553`*^9, 3.557508163699807*^9}, {
-  3.5575082106925793`*^9, 3.557508241631016*^9}, {3.557508279855599*^9, 
-  3.5575083005925293`*^9}, {3.557508330906055*^9, 3.55750835712017*^9}, {
-  3.563121956946724*^9, 3.563121957346571*^9}, {3.563130739112488*^9, 
-  3.56313074038479*^9}},
- CellLabel->"In[86]:=",
+     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<Glycolysis\>\""}], "}"}], "]"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[2]:=",
  CellID->442561503],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"getReactions", "[", "model", "]"}]], "Input",
- CellChangeTimes->{{3.563130714850008*^9, 3.5631307304974947`*^9}, {
-  3.563130799929596*^9, 3.563130806322247*^9}, {3.563130882933291*^9, 
-  3.56313088542694*^9}},
- CellLabel->"In[88]:=",
+ CellLabel->"In[3]:=",
  CellID->1402105902],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["atp",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["atp", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["glu",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["glu", "c"],
-        Editable->False,
-        Selectable->False]}], "\[Equilibrium]", 
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["adp",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["adp", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["g6p",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["g6p", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["h",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["h", "c"],
-        Editable->False,
-        Selectable->False]}]}], 
-     StyleBox["vhk",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vhk", {
-      Toolbox`metabolite["atp", "c"], 
-      Toolbox`metabolite["glu", "c"]}, {
-      Toolbox`metabolite["adp", "c"], 
-      Toolbox`metabolite["g6p", "c"], 
-      Toolbox`metabolite["h", "c"]}, {1, 1, 1, 1, 1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["g6p",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["g6p", "c"],
-       Editable->False,
-       Selectable->False], "\[Equilibrium]", 
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["f6p",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["f6p", "c"],
-       Editable->False,
-       Selectable->False]}], 
-     StyleBox["vpgi",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vpgi", {
-      Toolbox`metabolite["g6p", "c"]}, {
-      Toolbox`metabolite["f6p", "c"]}, {1, 1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["atp",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["atp", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["f6p",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["f6p", "c"],
-        Editable->False,
-        Selectable->False]}], "\[Equilibrium]", 
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["adp",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["adp", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["fdp",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["fdp", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["h",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["h", "c"],
-        Editable->False,
-        Selectable->False]}]}], 
-     StyleBox["vpfk",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vpfk", {
-      Toolbox`metabolite["atp", "c"], 
-      Toolbox`metabolite["f6p", "c"]}, {
-      Toolbox`metabolite["adp", "c"], 
-      Toolbox`metabolite["fdp", "c"], 
-      Toolbox`metabolite["h", "c"]}, {1, 1, 1, 1, 1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["dhap",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["dhap", "c"],
-       Editable->False,
-       Selectable->False], "\[Equilibrium]", 
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["gap",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["gap", "c"],
-       Editable->False,
-       Selectable->False]}], 
-     StyleBox["vtpi",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vtpi", {
-      Toolbox`metabolite["dhap", "c"]}, {
-      Toolbox`metabolite["gap", "c"]}, {1, 1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["fdp",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["fdp", "c"],
-       Editable->False,
-       Selectable->False], "\[Equilibrium]", 
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["dhap",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["dhap", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["gap",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["gap", "c"],
-        Editable->False,
-        Selectable->False]}]}], 
-     StyleBox["vald",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vald", {
-      Toolbox`metabolite["fdp", "c"]}, {
-      Toolbox`metabolite["dhap", "c"], 
-      Toolbox`metabolite["gap", "c"]}, {1, 1, 1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["gap",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["gap", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["nad",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["nad", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["phos",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["phos", "c"],
-        Editable->False,
-        Selectable->False]}], "\[Equilibrium]", 
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["h",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["h", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["nadh",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["nadh", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["pg13",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["pg13", "c"],
-        Editable->False,
-        Selectable->False]}]}], 
-     StyleBox["vgapdh",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vgapdh", {
-      Toolbox`metabolite["gap", "c"], 
-      Toolbox`metabolite["nad", "c"], 
-      Toolbox`metabolite["phos", "c"]}, {
-      Toolbox`metabolite["h", "c"], 
-      Toolbox`metabolite["pg13", "c"], 
-      Toolbox`metabolite["nadh", "c"]}, {1, 1, 1, 1, 1, 1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["adp",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["adp", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["pg13",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["pg13", "c"],
-        Editable->False,
-        Selectable->False]}], "\[Equilibrium]", 
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["atp",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["atp", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["pg3",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["pg3", "c"],
-        Editable->False,
-        Selectable->False]}]}], 
-     StyleBox["vpgk",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vpgk", {
-      Toolbox`metabolite["adp", "c"], 
-      Toolbox`metabolite["pg13", "c"]}, {
-      Toolbox`metabolite["atp", "c"], 
-      Toolbox`metabolite["pg3", "c"]}, {1, 1, 1, 1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["pg3",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["pg3", "c"],
-       Editable->False,
-       Selectable->False], "\[Equilibrium]", 
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["pg2",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["pg2", "c"],
-       Editable->False,
-       Selectable->False]}], 
-     StyleBox["vpglm",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vpglm", {
-      Toolbox`metabolite["pg3", "c"]}, {
-      Toolbox`metabolite["pg2", "c"]}, {1, 1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["pg2",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["pg2", "c"],
-       Editable->False,
-       Selectable->False], "\[Equilibrium]", 
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["h2o",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["h2o", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["pep",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["pep", "c"],
-        Editable->False,
-        Selectable->False]}]}], 
-     StyleBox["veno",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["veno", {
-      Toolbox`metabolite["pg2", "c"]}, {
-      Toolbox`metabolite["h2o", "c"], 
-      Toolbox`metabolite["pep", "c"]}, {1, 1, 1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["adp",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["adp", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["h",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["h", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["pep",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["pep", "c"],
-        Editable->False,
-        Selectable->False]}], "\[Equilibrium]", 
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["atp",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["atp", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["pyr",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["pyr", "c"],
-        Editable->False,
-        Selectable->False]}]}], 
-     StyleBox["vpk",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vpk", {
-      Toolbox`metabolite["adp", "c"], 
-      Toolbox`metabolite["h", "c"], 
-      Toolbox`metabolite["pep", "c"]}, {
-      Toolbox`metabolite["atp", "c"], 
-      Toolbox`metabolite["pyr", "c"]}, {1, 1, 1, 1, 1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["h",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["h", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["nadh",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["nadh", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["pyr",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["pyr", "c"],
-        Editable->False,
-        Selectable->False]}], "\[Equilibrium]", 
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["lac",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["lac", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["nad",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["nad", "c"],
-        Editable->False,
-        Selectable->False]}]}], 
-     StyleBox["vldh",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vldh", {
-      Toolbox`metabolite["h", "c"], 
-      Toolbox`metabolite["pyr", "c"], 
-      Toolbox`metabolite["nadh", "c"]}, {
-      Toolbox`metabolite["lac", "c"], 
-      Toolbox`metabolite["nad", "c"]}, {1, 1, 1, 1, 1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["amp",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["amp", "c"],
-       Editable->False,
-       Selectable->False], "\[Equilibrium]", 
-      StyleBox["\[EmptySet]",
-       StripOnInput->False,
-       LineColor->GrayLevel[0],
-       FrontFaceColor->GrayLevel[0],
-       BackFaceColor->GrayLevel[0],
-       GraphicsColor->GrayLevel[0],
-       FontColor->GrayLevel[0]]}], 
-     StyleBox["vamp",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vamp", {
-      Toolbox`metabolite["amp", "c"]}, {}, {1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      RowBox[{"2", " ", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["adp",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["adp", "c"],
-        Editable->False,
-        Selectable->False]}], "\[Equilibrium]", 
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["amp",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["amp", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["atp",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["atp", "c"],
-        Editable->False,
-        Selectable->False]}]}], 
-     StyleBox["vapk",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vapk", {
-      Toolbox`metabolite["adp", "c"]}, {
-      Toolbox`metabolite["amp", "c"], 
-      Toolbox`metabolite["atp", "c"]}, {2, 1, 1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["pyr",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["pyr", "c"],
-       Editable->False,
-       Selectable->False], "\[Equilibrium]", 
-      StyleBox["\[EmptySet]",
-       StripOnInput->False,
-       LineColor->GrayLevel[0],
-       FrontFaceColor->GrayLevel[0],
-       BackFaceColor->GrayLevel[0],
-       GraphicsColor->GrayLevel[0],
-       FontColor->GrayLevel[0]]}], 
-     StyleBox["vpyr",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vpyr", {
-      Toolbox`metabolite["pyr", "c"]}, {}, {1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["lac",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["lac", "c"],
-       Editable->False,
-       Selectable->False], "\[Equilibrium]", 
-      StyleBox["\[EmptySet]",
-       StripOnInput->False,
-       LineColor->GrayLevel[0],
-       FrontFaceColor->GrayLevel[0],
-       BackFaceColor->GrayLevel[0],
-       GraphicsColor->GrayLevel[0],
-       FontColor->GrayLevel[0]]}], 
-     StyleBox["vlac",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vlac", {
-      Toolbox`metabolite["lac", "c"]}, {}, {1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["atp",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["atp", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["h2o",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["h2o", "c"],
-        Editable->False,
-        Selectable->False]}], "\[Equilibrium]", 
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["adp",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["adp", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["h",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["h", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["phos",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["phos", "c"],
-        Editable->False,
-        Selectable->False]}]}], 
-     StyleBox["vatp",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vatp", {
-      Toolbox`metabolite["atp", "c"], 
-      Toolbox`metabolite["h2o", "c"]}, {
-      Toolbox`metabolite["adp", "c"], 
-      Toolbox`metabolite["h", "c"], 
-      Toolbox`metabolite["phos", "c"]}, {1, 1, 1, 1, 1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["nadh",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["nadh", "c"],
-       Editable->False,
-       Selectable->False], "\[Equilibrium]", 
-      RowBox[{
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["h",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["h", "c"],
-        Editable->False,
-        Selectable->False], "+", 
-       InterpretationBox[
-        SuperscriptBox[
-         StyleBox["nad",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]], 
-         StyleBox["c",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`metabolite["nad", "c"],
-        Editable->False,
-        Selectable->False]}]}], 
-     StyleBox["vnadh",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vnadh", {
-      Toolbox`metabolite["nadh", "c"]}, {
-      Toolbox`metabolite["h", "c"], 
-      Toolbox`metabolite["nad", "c"]}, {1, 1, 1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      StyleBox["\[EmptySet]",
-       StripOnInput->False,
-       LineColor->GrayLevel[0],
-       FrontFaceColor->GrayLevel[0],
-       BackFaceColor->GrayLevel[0],
-       GraphicsColor->GrayLevel[0],
-       FontColor->GrayLevel[0]], "\[Equilibrium]", 
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["glu",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["glu", "c"],
-       Editable->False,
-       Selectable->False]}], 
-     StyleBox["vgluin",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vgluin", {}, {
-      Toolbox`metabolite["glu", "c"]}, {1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      StyleBox["\[EmptySet]",
-       StripOnInput->False,
-       LineColor->GrayLevel[0],
-       FrontFaceColor->GrayLevel[0],
-       BackFaceColor->GrayLevel[0],
-       GraphicsColor->GrayLevel[0],
-       FontColor->GrayLevel[0]], "\[Equilibrium]", 
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["amp",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["amp", "c"],
-       Editable->False,
-       Selectable->False]}], 
-     StyleBox["vampin",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vampin", {}, {
-      Toolbox`metabolite["amp", "c"]}, {1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["h",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["h", "c"],
-       Editable->False,
-       Selectable->False], "\[Equilibrium]", 
-      StyleBox["\[EmptySet]",
-       StripOnInput->False,
-       LineColor->GrayLevel[0],
-       FrontFaceColor->GrayLevel[0],
-       BackFaceColor->GrayLevel[0],
-       GraphicsColor->GrayLevel[0],
-       FontColor->GrayLevel[0]]}], 
-     StyleBox["vh",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vh", {
-      Toolbox`metabolite["h", "c"]}, {}, {1}, True],
-    Editable->False,
-    Selectable->False], ",", 
-   InterpretationBox[
-    OverscriptBox[
-     RowBox[{
-      InterpretationBox[
-       SuperscriptBox[
-        StyleBox["h2o",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]], 
-        StyleBox["c",
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`metabolite["h2o", "c"],
-       Editable->False,
-       Selectable->False], "\[Equilibrium]", 
-      StyleBox["\[EmptySet]",
-       StripOnInput->False,
-       LineColor->GrayLevel[0],
-       FrontFaceColor->GrayLevel[0],
-       BackFaceColor->GrayLevel[0],
-       GraphicsColor->GrayLevel[0],
-       FontColor->GrayLevel[0]]}], 
-     StyleBox["vh2o",
-      StripOnInput->False,
-      ShowSyntaxStyles->False,
-      AutoSpacing->False,
-      ZeroWidthTimes->True,
-      LineColor->RGBColor[0, 0, 0],
-      FrontFaceColor->RGBColor[0, 0, 0],
-      BackFaceColor->RGBColor[0, 0, 0],
-      GraphicsColor->RGBColor[0, 0, 0],
-      FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["vh2o", {
-      Toolbox`metabolite["h2o", "c"]}, {}, {1}, True],
-    Editable->False,
-    Selectable->False]}], "}"}]], "Output",
- CellChangeTimes->{3.563130806778434*^9, 3.563130885991843*^9},
- CellLabel->"Out[88]=",
- CellID->2078415571]
+ GraphicsBox[
+  TagBox[RasterBox[CompressedData["
+1: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
+hg4Re3KrUAfDwzviu3yq4dT1wTLVd49iI2hq6P2eHSxAGjnNMcd55j/6ybSp
+Vjnwwa3ynit+plaFr/chARZ+AnvHtL6JkXwoSMXtvwNWBkTlwP92OLvY7eLy
++y+k9UwxVJumoZt2+DmPn6+CapVbc9ViFnC9i45CoVAoFF8CSz1LzOW8vV5w
+UCgUCoXiVSqC7XZvJebQpB6WryYSP3vzisWOordT40MKdeRz9NlOE+XDz6GU
+X/E6u7C18pljrbIT96bwJtI0HbKW8TbP6z8iejs1PqRQH6jPdpooH34OpfyK
+19mFNyifudbnv7ZCM3t4r3ApvPYs55W3S58XvQheu+SenutaYOVCfYuRJVXk
+OHF9+FBtoskbbD6DY0lfFc3rMCoenzYfVjqmSQSWVz1ym49TfgnPKP8e55lv
+lg9s3VfK7zuKNWkYZo9vzLHS0zS7P69tljwDRTOkoevnTpssgLRBIkQg3v0H
+PJ8XvYgbeq6gxtSVVy7UI+Uf8iYjS3J45TIbf1hfkzfYfAbHAj4tmnd1UVR5
+ZFvRqnfPeZOEYRTYmoYfus3HKb+EZ5Tf2HkWm+WTutBbyu87ihXQ0OYM0zzz
+TE1DOkbYihfEBZDqBOfyD/jBfGIkF8Z34qJpCs8Q1RDcveAC0fzpV2J4oT9o
+0Wta4PmrLRCxiFX1uUvpYSQjw9zFyJUR3ZnSa1T3G2w+g2NJnxMNqaqxFUby
+DR8Sre/5vMAzRrEPVX4uy5V/2XnuFGeRWe7os0sXekf594xidQaJojWJHRZc
+voWBEeoPISz+RV4BDl34lu0HBMsfdOdslOeM3TQBb6p64kdZBUESGPJ62Ar6
+R1m6ISel+F0EhIfX7XkT2v2JmumebyhwT/SomBHBVjJZC9cWAOl1SlBvAdCu
+36HlPRZ49mqlpZueb/clMfsNpG6JmLQn5Gjqy6Zh0y26kbXmGXmkCYmSQD8X
+OmnnH94GljwRGUI4hsS8P4WLhVqu2VeAmTYj2S9W9/o2f6mkiwo1nFuHQ2Jb
+XlhWmHiGEVyuvo654/m8zQeNsK7rCA1JqwYrjUYxGhjYL4bvpW+a8Fbszspf
+G5mWgWESKJBuezb82+e/fbbZXvGk8zwuzlKz3NfnzV3ofeXfMorxxLWDDDJv
+Nhmkc4HnSTht2yYW3aGYHLZtXTe9VQpPOIYhBvmuLcVETSPxvDCpcw134mFL
+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
+Xkr+
+    "], {{0, 153}, {578, 0}}, {0, 255},
+    ColorFunction->RGBColor],
+   BoxForm`ImageTag["Byte", ColorSpace -> "RGB", Interleaving -> True],
+   Selectable->False],
+  DefaultBaseStyle->"ImageGraphics",
+  ImageSize->Automatic,
+  ImageSizeRaw->{578, 153},
+  PlotRange->{{0, 578}, {0, 153}}]], "Output",
+ ImageSize->{582, 153},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellTags->"RasterizedOutput",
+ CellLabel->"Out[3]=",
+ CellID->1571062905]
 }, Open  ]]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer"],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["More Examples", "ExtendedExamplesSection",
- CellTags->"ExtendedExamples",
- CellID->1854448968],
+Cell["", "MoreAboutSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[{
+        Cell[
+         BoxData[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, BaselinePosition -> Baseline, 
+             ImageSize -> {6, 0}], CacheGraphics -> False], 
+           Spacer[6]]]], "Related Guides"}], "MoreAboutSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[{
+       Cell[
+        BoxData[
+         InterpretationBox[
+          StyleBox[
+           GraphicsBox[{}, BaselinePosition -> Baseline, ImageSize -> {6, 0}],
+            CacheGraphics -> False], 
+          Spacer[6]]]], "Related Guides"}]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->38303248],
+
+Cell["", "SectionHeaderSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]],
+
+Cell["", "SectionHeaderSpacer"],
 
 Cell[BoxData[
- InterpretationBox[Cell["Scope", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1293636265],
+ TemplateBox[{Cell[
+    TextData["Model attributes"]],"paclet:Toolbox/guide/ModelAttributes"},
+  "RefLink",
+  BaseStyle->"MoreAbout"]], "MoreAbout",
+ CellID->450110577],
 
-Cell[BoxData[
- InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1020263627],
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Open  ]],
 
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[Cell["Options", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->2061341341],
-
-Cell[BoxData[
- InterpretationBox[Cell["XXXX", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1757724783],
-
-Cell[BoxData[
- InterpretationBox[Cell["XXXX", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1295379749]
-}, Closed]],
-
-Cell[BoxData[
- InterpretationBox[Cell["Applications", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->258228157],
-
-Cell[BoxData[
- InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->2123667759],
-
-Cell[BoxData[
- InterpretationBox[Cell["Possible Issues", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1305812373],
-
-Cell[BoxData[
- InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1653164318],
-
-Cell[BoxData[
- InterpretationBox[Cell["Neat Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->589267740]
-}, Open  ]]
+Cell[" ", "FooterCell"]
 },
-WindowSize->{700, 770},
-WindowMargins->{{Automatic, 479}, {Automatic, 99}},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"Reactions",
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Wolfram Language", ButtonData -> "paclet:guide/WolframRoot", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2017, 6, 1, 13, 38, 3.537236}", 
+    "history" -> {"0.1", "", "", ""}, "context" -> "Toolbox`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Toolbox Symbol", "language" -> "en", "paclet" -> "Toolbox", "status" -> 
+    "None", "summary" -> 
+    "Reactions is an immutable attribute containing the reactions of a \
+model.", "synonyms" -> {}, "tabletags" -> {}, "title" -> "Reactions", 
+    "titlemodifier" -> "", "windowtitle" -> "Reactions", "type" -> "Symbol", 
+    "uri" -> "Toolbox/ref/Reactions"}, "SearchTextTranslated" -> ""},
 CellContext->"Global`",
-FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
-2011)",
-StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
-  CharacterEncoding -> "UTF-8"]
+FrontEndVersion -> "6.0",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "6.0", 
+  StyleDefinitions -> "Default.nb"]
 ]
 

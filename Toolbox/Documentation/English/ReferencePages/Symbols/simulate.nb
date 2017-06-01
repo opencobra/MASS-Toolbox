@@ -1,163 +1,242 @@
 Notebook[{
-Cell[TextData[{
- "New in: ",
- Cell["XX", "HistoryData",
-  CellTags->"New"],
- " | Modified in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Modified"],
- " | Obsolete in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Obsolete"],
- " | Excised in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Excised"]
-}], "History",
- CellID->1247902091],
-
-Cell[CellGroupData[{
-
-Cell["Categorization", "CategorizationSection",
- CellID->1122911449],
-
-Cell["Symbol", "Categorization",
- CellLabel->"Entity Type",
- CellID->686433507],
-
-Cell["Toolbox Package", "Categorization",
- CellLabel->"Paclet Name",
- CellID->1616216592],
-
-Cell["Toolbox`Networks`", "Categorization",
- CellLabel->"Context",
- CellID->231610841],
-
-Cell["Toolbox/ref/simulate", "Categorization",
- CellLabel->"URI",
- CellID->1443036323]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Keywords", "KeywordsSection",
- CellID->477174294],
-
-Cell["XXXX", "Keywords",
- CellID->1164421360]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Syntax Templates", "TemplatesSection",
- CellID->1872225408],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Additional Function Template",
- CellID->1562036412],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Arguments Pattern",
- CellID->158391909],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Local Variables",
- CellID->1360575930],
-
-Cell[BoxData[""], "Template",
- CellLabel->"Color Equal Signs",
- CellID->793782254]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Details", "DetailsSection",
- CellID->307771771],
-
-Cell["XXXX", "Details",
- CellLabel->"Lead",
- CellID->670882175],
-
-Cell["XXXX", "Details",
- CellLabel->"Developers",
- CellID->350963985],
-
-Cell["XXXX", "Details",
- CellLabel->"Authors",
- CellID->8391405],
-
-Cell["XXXX", "Details",
- CellLabel->"Feature Name",
- CellID->3610269],
-
-Cell["XXXX", "Details",
- CellLabel->"QA",
- CellID->401364205],
-
-Cell["XXXX", "Details",
- CellLabel->"DA",
- CellID->350204745],
-
-Cell["XXXX", "Details",
- CellLabel->"Docs",
- CellID->732958810],
-
-Cell["XXXX", "Details",
- CellLabel->"Features Page Notes",
- CellID->222905350],
-
-Cell["XXXX", "Details",
- CellLabel->"Comments",
- CellID->240026365]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["simulate", "ObjectName",
- CellID->1224892054],
+Cell[BoxData[GridBox[{
+   {Cell["TOOLBOX PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "See Also",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"See Also", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"plotSimulation\"\>":>
+       Documentation`HelpLookup[
+       "paclet:Toolbox/ref/plotSimulation"], "\<\"NDSolve\"\>":>
+       Documentation`HelpLookup["paclet:ref/NDSolve"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"SeeAlso"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Toolbox/ref/simulate\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["Toolbox/ref/simulate"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/Toolbox/ref/simulate.\
+html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]}, Visible -> 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$48830], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "Toolbox/ref/simulate", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
 
 Cell[TextData[{
- Cell["   ", "ModInfo"],
- "simulate[model]\[LineSeparator]simulates model.\n",
- Cell["   ", "ModInfo"],
- "simulate[model, {t, tstart, tfinal}]\[LineSeparator]simulates model in the \
-time interval [tstart, tfinal]."
-}], "Usage",
- CellChangeTimes->{{3.557067939397313*^9, 3.557067985227756*^9}}],
+ Cell["simulate", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {"", Cell["simulate[model]\[LineSeparator]simulates model."]},
+   {"", Cell["\<\
+simulate[model, {t, tstart, tfinal}]\[LineSeparator]simulates model in the \
+time interval [tstart, tfinal].\
+\>"]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {None, {None}}, 
+   "RowsIndexed" -> {}}}],
+
+Cell[CellGroupData[{
+
+Cell["", "NotesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[
+       Cell[
+        BoxData[
+         ButtonBox[
+          Cell[
+           TextData[{
+             Cell[
+              BoxData[
+               InterpretationBox[
+                StyleBox[
+                 
+                 GraphicsBox[{}, BaselinePosition -> Baseline, 
+                  ImageSize -> {6, 0}], CacheGraphics -> False], 
+                Spacer[6]]]], "Details"}], "NotesFrameText"], 
+          Appearance -> {Automatic, None}, BaseStyle -> None, 
+          ButtonFunction :> (FrontEndExecute[{
+             FrontEnd`SelectionMove[
+              FrontEnd`SelectedNotebook[], All, ButtonCell], 
+             FrontEndToken["OpenCloseGroup"], 
+             FrontEnd`SelectionMove[
+              FrontEnd`SelectedNotebook[], After, CellContents]}]& ), 
+          Evaluator -> None, Method -> "Preemptive"]]]], "NotesSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[
+      ButtonBox[
+       Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            InterpretationBox[
+             StyleBox[
+              
+              GraphicsBox[{}, BaselinePosition -> Baseline, 
+               ImageSize -> {6, 0}], CacheGraphics -> False], 
+             Spacer[6]]]], "Details"}], "NotesFrameText"], 
+       Appearance -> {Automatic, None}, BaseStyle -> None, 
+       ButtonFunction :> (FrontEndExecute[{
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], All, ButtonCell], 
+          FrontEndToken["OpenCloseGroup"], 
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], After, CellContents]}]& ), Evaluator -> 
+       None, Method -> "Preemptive"]]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->91540733],
+
+Cell["", "SectionHeaderSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]],
+
+Cell["", "SectionHeaderSpacer"],
 
 Cell["The following options can be given: ", "Notes"],
 
 Cell[BoxData[GridBox[{
-   {Cell["   ", "ModInfo"], 
+   {Cell["      ", "TableRowIcon"], 
     ButtonBox["InitialConditions",
-     BaseStyle->"Link"], 
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/InitialConditions"], 
     RowBox[{"{", "}"}], Cell["\<\
 Provide additional initial conditions (taking precedence over the model's \
 initial conditions).\
 \>", "TableText"]},
-   {Cell["   ", "ModInfo"], 
+   {Cell["      ", "TableRowIcon"], 
     ButtonBox["Parameters",
-     BaseStyle->"Link"], 
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/Parameters"], 
     RowBox[{"{", "}"}], Cell["\<\
 Provide additonal parameters (taking precedence over the model's parameters).\
 \
 \>", "TableText"]},
-   {Cell["   ", "ModInfo"], 
+   {Cell["      ", "TableRowIcon"], 
     ButtonBox["tFinal",
-     BaseStyle->"Link"], 
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/tFinal"], 
     ButtonBox["Infinity",
-     BaseStyle->"Link"], Cell[
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/Infinity"], Cell[
     "Explicitly defining the end of the time interval.", "TableText"]},
-   {Cell["   ", "ModInfo"], 
+   {Cell["      ", "TableRowIcon"], 
     ButtonBox["tStart",
-     BaseStyle->"Link"], "0", Cell[
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/tStart"], "0", Cell[
     "Explicitly defines the start of the time interval.", "TableText"]},
-   {Cell["   ", "ModInfo"], 
+   {Cell["      ", "TableRowIcon"], 
     ButtonBox["SpeciesProfiles",
-     BaseStyle->"Link"], "Concentrations", Cell[
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/SpeciesProfiles"], "Concentrations", Cell[
     "If \"Concentrations\" or \"Particles\" should be returned.", "TableText"]}
   }]], "3ColumnTableMod",
- CellChangeTimes->{{3.557068027332004*^9, 3.557068132518906*^9}, {
-  3.557075001046897*^9, 3.557075133351186*^9}}],
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, 
+   "Rows" -> {None, None, None, None, {None}}, "RowsIndexed" -> {}},
+ GridBoxDividers->{"Rows" -> {{True, True, True, True, True, True}}}}],
 
 Cell[TextData[{
  "Furthre options (e.g., PrecisionGoal, Method etc.) are passed down to ",
@@ -166,95 +245,93 @@ Cell[TextData[{
   ButtonData->"paclet:ref/NDSolve"],
  "."
 }], "Notes",
- CellChangeTimes->{{3.557074944348988*^9, 3.557074990212057*^9}},
- CellID->1392736818]
+ CellID->1392736818],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Closed]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Tutorials", "TutorialsSection",
- CellID->250839057],
-
-Cell["XXXX", "Tutorials",
- CellID->341631938]
-}, Open  ]],
+Cell["", "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[{
+        Cell[
+         BoxData[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, BaselinePosition -> Baseline, 
+             ImageSize -> {6, 0}], CacheGraphics -> False], 
+           Spacer[6]]]], "Examples", "\[NonBreakingSpace]\[NonBreakingSpace]", 
+        Cell["(4)", "ExampleCount"]}], "PrimaryExamplesSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[{
+       Cell[
+        BoxData[
+         InterpretationBox[
+          StyleBox[
+           GraphicsBox[{}, BaselinePosition -> Baseline, ImageSize -> {6, 0}],
+            CacheGraphics -> False], 
+          Spacer[6]]]], "Examples", "\[NonBreakingSpace]\[NonBreakingSpace]", 
+       
+       Cell["(4)", "ExampleCount"]}]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellTags->"PrimaryExamplesSection",
+ CellID->926808279],
 
 Cell[CellGroupData[{
-
-Cell["Related Demonstrations", "RelatedDemonstrationsSection",
- CellID->1268215905],
-
-Cell["XXXX", "RelatedDemonstrations",
- CellID->1129518860]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Links", "RelatedLinksSection",
- CellID->1584193535],
-
-Cell["XXXX", "RelatedLinks",
- CellID->1038487239]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["See Also", "SeeAlsoSection",
- CellID->1255426704],
 
 Cell[TextData[{
- Cell[BoxData[
-  ButtonBox["plotSimulation",
-   BaseStyle->"Link",
-   ButtonData->"paclet:Toolbox/ref/plotSimulation"]], "InlineFormula"],
- " ",
- ButtonBox["NDSolve",
-  BaseStyle->"Link",
-  ButtonData->"paclet:ref/NDSolve"]
-}], "SeeAlso",
- CellChangeTimes->{{3.557068180201445*^9, 3.5570681848848743`*^9}, {
-  3.557074978773687*^9, 3.557074986174851*^9}},
- CellID->929782353]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["More About", "MoreAboutSection",
- CellID->38303248],
-
-Cell["XXXX", "MoreAbout",
- CellID->1665078683]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[GridBox[{
-    {
-     StyleBox["Examples", "PrimaryExamplesSection"], 
-     ButtonBox[
-      RowBox[{
-       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
-      BaseStyle->"ExtendedExamplesLink",
-      ButtonData:>"ExtendedExamples"]}
-   }],
-  $Line = 0; Null]], "PrimaryExamplesSection",
- CellID->880084151],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->1167853462],
 
 Cell[BoxData[{
- RowBox[{"Needs", "[", "\"\<Toolbox`Style`\>\"", 
-  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Needs", "[", "\"\<Toolbox`Style`\>\"", "]"}], "\[IndentingNewLine]", 
  RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]}], "Input",
- CellChangeTimes->{{3.557062249929556*^9, 3.5570622550780993`*^9}, {
-  3.557062380976729*^9, 3.557062387305225*^9}},
- CellLabel->"In[7]:=",
+ CellLabel->"In[1]:=",
  CellID->973505499],
 
 Cell[TextData[StyleBox["Import example model.", "ExampleText"]], "Notes",
- CellChangeTimes->{{3.557062326077598*^9, 3.5570623741829147`*^9}, {
-  3.557062498409049*^9, 3.557062514145677*^9}, {3.557062612451343*^9, 
-  3.557062623643755*^9}, {3.5570677938431053`*^9, 3.5570677938989487`*^9}, {
-  3.557068194103963*^9, 3.557068195184237*^9}},
  CellID->1028180317],
 
 Cell[BoxData[
@@ -262,22 +339,12 @@ Cell[BoxData[
   RowBox[{"model", "=", 
    RowBox[{"ExampleData", "[", 
     RowBox[{"{", 
-     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<Glycolysis\>\""}], "}"}], 
-    "]"}]}], ";"}]], "Input",
- CellChangeTimes->{{3.557062245308798*^9, 3.557062271751186*^9}, {
-   3.557062626077331*^9, 3.557062716258545*^9}, {3.557062861181234*^9, 
-   3.5570629015822287`*^9}, 3.557062933694668*^9, {3.557063067282324*^9, 
-   3.557063171771813*^9}, {3.557065679638533*^9, 3.5570657332324333`*^9}, {
-   3.557067568697899*^9, 3.557067569265142*^9}, 3.557068200226385*^9, 
-   3.558458275264388*^9},
- CellLabel->"In[129]:=",
+     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<Glycolysis\>\""}], "}"}], "]"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[2]:=",
  CellID->1513275560],
 
 Cell[TextData[StyleBox["Simulate model.", "ExampleText"]], "Notes",
- CellChangeTimes->{{3.557062326077598*^9, 3.5570623741829147`*^9}, {
-  3.557062498409049*^9, 3.557062514145677*^9}, {3.557062612451343*^9, 
-  3.557062623643755*^9}, {3.5570677938431053`*^9, 3.5570677938989487`*^9}, {
-  3.557068194103963*^9, 3.557068213712413*^9}},
  CellID->612562150],
 
 Cell[CellGroupData[{
@@ -297,12 +364,7 @@ Cell[BoxData[{
     RowBox[{"{", 
      RowBox[{"\"\<t\>\"", ",", "\"\<Concentration [mM]\>\""}], "}"}]}], ",", 
    RowBox[{"Tooltipped", "\[Rule]", "True"}]}], "]"}]}], "Input",
- CellChangeTimes->{{3.557068215888101*^9, 3.557068231730468*^9}, {
-   3.557068460761252*^9, 3.557068503263712*^9}, 3.557068542921645*^9, {
-   3.558458332322558*^9, 3.558458341977968*^9}, {3.558458987558919*^9, 
-   3.558458993719215*^9}, {3.558459081272752*^9, 3.55845908168898*^9}, 
-   3.558460315811336*^9},
- CellLabel->"In[132]:=",
+ CellLabel->"In[3]:=",
  CellID->995900524],
 
 Cell[BoxData[
@@ -716,8 +778,8 @@ NreTjszw4eUrVPbIfwFfAClZ
          StyleBox["c", 
           RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False,
            AutoSpacing -> False, ZeroWidthTimes -> True]], 
-        Toolbox`metabolite["h", "c"], Editable -> False, Selectable -> 
-        False], " ", 
+        Toolbox`metabolite["h", "c"], Editable -> False, Selectable -> False],
+        " ", 
        TagBox[
         FormBox[
          FractionBox["\"Millimole\"", "\"Liter\""], TraditionalForm], 
@@ -1576,45 +1638,31 @@ w/kAHNfMJA==
        Thickness[0.001]}}, {-0.10536051565782616`, 
       FormBox["\"\"", TraditionalForm], {0.00375, 0.}, {
        Thickness[0.001]}}}}]], "Output",
- CellChangeTimes->{
-  3.557068472492717*^9, {3.5570685051199217`*^9, 3.557068543841489*^9}, 
-   3.5584587062915916`*^9, 3.558458994531867*^9, {3.5584590779654617`*^9, 
-   3.5584590825366983`*^9}, 3.558459201626978*^9, 3.558459276484088*^9, {
-   3.558459751284768*^9, 3.558459781817584*^9}, {3.5584599293668537`*^9, 
-   3.558459957168325*^9}, 3.558460014848587*^9, {3.558460063558103*^9, 
-   3.558460070412458*^9}, {3.558460310239614*^9, 3.55846031681063*^9}},
- CellLabel->"Out[133]=",
+ ImageSize->{354, 238},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
  CellID->1593993203]
 }, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["More Examples", "ExtendedExamplesSection",
- CellTags->"ExtendedExamples",
- CellID->1854448968],
-
-Cell[BoxData[
- InterpretationBox[Cell["Scope", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1293636265],
-
-Cell[BoxData[
- InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1020263627],
+Cell[TextData[{
+ "Options",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(3)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- InterpretationBox[Cell["Options", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[Cell["InitialConditions", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
+Cell[TextData[{
+ "InitialConditions",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True],
 
 Cell[CellGroupData[{
 
@@ -1624,8 +1672,7 @@ Cell[BoxData[
    SuperscriptBox[Cell["atp", "Input"], Cell["c", "Input"]],
    Toolbox`metabolite["atp", "c"]], "/.", 
   RowBox[{"model", "[", "\"\<InitialConditions\>\"", "]"}]}]], "Input",
- CellChangeTimes->{{3.557068685652561*^9, 3.557068691132926*^9}},
- CellLabel->"In[98]:=",
+ CellLabel->"In[1]:=",
  CellID->1922118222],
 
 Cell[BoxData[
@@ -1636,8 +1683,10 @@ Cell[BoxData[
      RowBox[{"-", "1"}]]}]}],
   AutomaticUnits`Unit[1.6, "Liter"^(-1) "Millimole"],
   AutoDelete->True]], "Output",
- CellChangeTimes->{3.5570686914537086`*^9, 3.5584601255292053`*^9},
- CellLabel->"Out[98]=",
+ ImageSize->{144, 17},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
  CellID->132841315]
 }, Open  ]],
 
@@ -1667,9 +1716,7 @@ Cell[BoxData[{
     RowBox[{"{", 
      RowBox[{"\"\<t\>\"", ",", "\"\<Concentration [mM]\>\""}], "}"}]}]}], 
   "]"}]}], "Input",
- CellChangeTimes->{{3.5570685660738707`*^9, 3.557068598259532*^9}, 
-   3.557068680395411*^9, 3.5584601375839453`*^9},
- CellLabel->"In[101]:=",
+ CellLabel->"In[2]:=",
  CellID->1066442151],
 
 Cell[BoxData[
@@ -1939,8 +1986,8 @@ w+ATVg4b5uQxde/ZJQBNXtT/z3E6k16P1wQgKOP9n9l8b/idbtkBFS9q/M88
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["adp", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["adp", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["adp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.9060679774997897, 0.6, 0.6], LineBox[CompressedData["
@@ -2211,8 +2258,8 @@ wwA=
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["amp", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["amp", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["amp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.1421359549995791, 0.6, 0.6], LineBox[CompressedData["
@@ -2480,8 +2527,8 @@ pb4R6mpHSvzv/50j/nfXNsIHceL/M/eRi0eDvohDMw/K/0xs7ToeXSUBX1P+
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["atp", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["atp", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["atp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.37820393249936934`, 0.6, 0.6], LineBox[CompressedData["
@@ -2845,8 +2892,8 @@ ab2MB1fo2vOfWdiNnboUePEXLd8//Pf7Q2OuGVu8uFqS8H//J1247eHewIdT
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["dhap", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["dhap", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["dhap", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.6142719099991583, 0.6, 0.6], LineBox[CompressedData["
@@ -3159,8 +3206,8 @@ eT5HAln8v/8PCaMZFQ==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["f6p", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["f6p", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["f6p", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.8503398874989481, 0.6, 0.6], LineBox[CompressedData["
@@ -3467,8 +3514,8 @@ kwwe7vp//x8GGS7k
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["fdp", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["fdp", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["fdp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.08640786499873876, 0.6, 0.6], LineBox[CompressedData["
@@ -3759,8 +3806,8 @@ cVjs/56vHw2+viyOXJPI//f97hN7wlolkDdB/Z+p7T0HYysl0dZ7/2dpE534
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["g6p", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["g6p", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["g6p", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.3224758424985268, 0.6, 0.6], LineBox[CompressedData["
@@ -4073,8 +4120,8 @@ CfzPDL31V8PSJJD1w//3/wGcTW9A
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["gap", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["gap", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["gap", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.5585438199983166, 0.6, 0.6], LineBox[CompressedData["
@@ -4424,8 +4471,8 @@ IhrTV49ts+ge1Wt3s4RRSWO62f/5f3ONCNI=
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["glu", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["glu", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["glu", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.7946117974981064, 0.6, 0.6], LineBox[CompressedData["
@@ -4711,8 +4758,8 @@ W7nC4Oz/+/8A/gw2Rg==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["h", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["h", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["h", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.030679774997896203`, 0.6, 0.6], LineBox[CompressedData["
@@ -5062,8 +5109,8 @@ nv1ip80P/fPNRdeluGP/XJOYero96J8Na+XO+Fz455OHvP88u/bPBYy5ZxZu
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["h2o", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["h2o", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["h2o", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.266747752497686, 0.6, 0.6], LineBox[CompressedData["
@@ -5400,8 +5447,8 @@ HCz/+11CW+3y7XQxjPj//j/sqvF7
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["lac", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["lac", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["lac", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.5028157299974758, 0.6, 0.6], LineBox[CompressedData["
@@ -5746,8 +5793,8 @@ P/1/3rxdLTw2RxTv+P/+fwTlEhk=
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["nad", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["nad", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["nad", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.7388837074972656, 0.6, 0.6], LineBox[CompressedData["
@@ -6090,8 +6137,8 @@ ERBcIoKLG/6fxbepX7mVKYqL/H//P64E6ow=
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["nadh", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["nadh", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["nadh", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.9749516849970554, 0.6, 0.6], LineBox[CompressedData["
@@ -6349,8 +6396,8 @@ VL4kzgX/7/8D/zCrag==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pep", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["pep", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["pep", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.21101966249684523`, 0.6, 0.6], LineBox[CompressedData["
@@ -6643,8 +6690,8 @@ rQwe8673PxO+tAUffy6LSwz9+M9yBpoRFzIpeFPH//0/ZEpWUQ==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pg13", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["pg13", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["pg13", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.44708763999663503`, 0.6, 0.6], LineBox[CompressedData["
@@ -6914,8 +6961,8 @@ bO2YqrZYKkS4/DL+33MBzMqtVZlJyNp+/d/zKMNBz/RlJnHNFf/fc55j4ceP
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pg2", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["pg2", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["pg2", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.6831556174964248, 0.6, 0.6], LineBox[CompressedData["
@@ -7202,8 +7249,8 @@ vdbNeNe5SQwXwDedV/Jcd3TK1NpmEwH8uUHD2XWbWKWp/CkXwCulL/6vnZvH
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pg3", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["pg3", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["pg3", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.9192235949962146, 0.6, 0.6], LineBox[CompressedData["
@@ -7444,8 +7491,8 @@ kRgV
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["phos", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["phos", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["phos", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.15529157249600445`, 0.6, 0.6], LineBox[CompressedData["
@@ -7771,8 +7818,8 @@ k0vMOugnArYM8Kw4Lv3HsriZKGCpWvyCLcgwOdSlvgq0S7D+7/MdIx55S6tA
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pyr", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["pyr", "c"], "Tooltip"]& ]},
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["pyr", "c"], 
+     "Tooltip"]& ]},
   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
   AxesOrigin->{-13.815510557964274`, -11.69723737499186},
   BaseStyle->{"FontFamily" -> "Helvetica", FontSize -> 12},
@@ -8341,18 +8388,22 @@ k0vMOugnArYM8Kw4Lv3HsriZKGCpWvyCLcgwOdSlvgq0S7D+7/MdIx55S6tA
        Thickness[0.001]}}, {2.1972245773362196`, 
       FormBox["\"\"", TraditionalForm], {0.00375, 0.}, {
        Thickness[0.001]}}}}]], "Output",
- CellChangeTimes->{{3.5570685830961657`*^9, 3.557068600171537*^9}, {
-  3.558460130437159*^9, 3.558460141691268*^9}},
- CellLabel->"Out[102]=",
+ ImageSize->{354, 238},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
  CellID->1608743591]
 }, Open  ]]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- InterpretationBox[Cell["Parameters", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
+Cell[TextData[{
+ "Parameters",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True],
 
 Cell[CellGroupData[{
 
@@ -8362,8 +8413,7 @@ Cell[BoxData[
    SubsuperscriptBox["k", Cell["vatp", "Input"], "\[LongRightArrow]"],
    Toolbox`rateconst["vatp", True]], "/.", 
   RowBox[{"model", "[", "\"\<Parameters\>\"", "]"}]}]], "Input",
- CellChangeTimes->{{3.5570686485080013`*^9, 3.557068653811764*^9}},
- CellLabel->"In[103]:=",
+ CellLabel->"In[1]:=",
  CellID->1391916044],
 
 Cell[BoxData[
@@ -8373,8 +8423,10 @@ Cell[BoxData[
     RowBox[{"-", "1"}]]}],
   AutomaticUnits`Unit[1.4000000000000001`, "Hour"^(-1)],
   AutoDelete->True]], "Output",
- CellChangeTimes->{3.5570686599758797`*^9, 3.558460146813751*^9},
- CellLabel->"Out[103]=",
+ ImageSize->{69, 17},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
  CellID->1334418207]
 }, Open  ]],
 
@@ -8402,9 +8454,7 @@ Cell[BoxData[{
     RowBox[{"{", 
      RowBox[{"\"\<t\>\"", ",", "\"\<Concentration [mM]\>\""}], "}"}]}]}], 
   "]"}]}], "Input",
- CellChangeTimes->{{3.5570686189251423`*^9, 3.557068672021084*^9}, {
-  3.558460145327664*^9, 3.558460172487681*^9}},
- CellLabel->"In[108]:=",
+ CellLabel->"In[2]:=",
  CellID->525869407],
 
 Cell[BoxData[
@@ -8697,8 +8747,8 @@ zJcETy7/v/8PJ7ytvQ==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["adp", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["adp", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["adp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.9060679774997897, 0.6, 0.6], LineBox[CompressedData["
@@ -8994,8 +9044,8 @@ LZ1+aomBJLT2P8dtG3TLWxEDno6y/5njVLSXZ6M4eLcs9Z8Fm36eO/9CAmi7
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["amp", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["amp", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["amp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.1421359549995791, 0.6, 0.6], LineBox[CompressedData["
@@ -9311,8 +9361,8 @@ SwElorAz+X+W2KV+40GaGORJ+Z//D4cTuZo=
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["atp", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["atp", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["atp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.37820393249936934`, 0.6, 0.6], LineBox[CompressedData["
@@ -9626,8 +9676,8 @@ ZGsOEo2i/LPAovO39vhzkOehlCDSCdf652UsJZAjx/Xgv3xhmLt8Wy6JThQR
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["dhap", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["dhap", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["dhap", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.6142719099991583, 0.6, 0.6], LineBox[CompressedData["
@@ -9911,8 +9961,8 @@ eDvtyGlBMFGlue7o+3/XRM2FwOfEnevm4jU59nOrMDDM+Z+j9w65P1oVBm9y
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["f6p", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["f6p", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["f6p", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.8503398874989481, 0.6, 0.6], LineBox[CompressedData["
@@ -10221,8 +10271,8 @@ IWjnO2k0dFT4nxkfvkXuL5dBFbf/Z/nl2gdP5Mkivf/3/wHmEPNk
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["fdp", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["fdp", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["fdp", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.08640786499873876, 0.6, 0.6], LineBox[CompressedData["
@@ -10516,8 +10566,8 @@ fr4Na0D4/5vx5XtQaIkYcPp/S+5QPhOTKQ5c/t//B1N/MZ0=
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["g6p", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["g6p", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["g6p", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.3224758424985268, 0.6, 0.6], LineBox[CompressedData["
@@ -10823,8 +10873,8 @@ wxe9vd6KI7eL//tetKnl+KnHEigy43+WXqt15nK6JNL+f/8fki8EQg==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["gap", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["gap", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["gap", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.5585438199983166, 0.6, 0.6], LineBox[CompressedData["
@@ -11225,8 +11275,8 @@ ODEqr0QfBJ3/+z8NUmPD
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["glu", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["glu", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["glu", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.7946117974981064, 0.6, 0.6], LineBox[CompressedData["
@@ -11533,8 +11583,8 @@ a+w=
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["h", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["h", "c"],
-      "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["h", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.030679774997896203`, 0.6, 0.6], LineBox[CompressedData["
@@ -11908,8 +11958,8 @@ uILImg==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["h2o", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["h2o", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["h2o", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.266747752497686, 0.6, 0.6], LineBox[CompressedData["
@@ -12218,8 +12268,8 @@ khQU/p//DyX6zzU=
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["lac", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["lac", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["lac", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.5028157299974758, 0.6, 0.6], LineBox[CompressedData["
@@ -12526,8 +12576,8 @@ AxGbDqyKH5Z+wgfqRVQ230dkkr6fcsqTHxgXam06ImFyQ8RYALA7Epvm5DF0
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["nad", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["nad", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["nad", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.7388837074972656, 0.6, 0.6], LineBox[CompressedData["
@@ -12844,8 +12894,8 @@ JQ==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["nadh", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["nadh", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["nadh", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.9749516849970554, 0.6, 0.6], LineBox[CompressedData["
@@ -13132,8 +13182,8 @@ HuNriw==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pep", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["pep", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["pep", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.21101966249684523`, 0.6, 0.6], LineBox[CompressedData["
@@ -13427,8 +13477,8 @@ rf/3/wGkQtlt
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pg13", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["pg13", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["pg13", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.44708763999663503`, 0.6, 0.6], LineBox[CompressedData["
@@ -13725,8 +13775,8 @@ e6vmos19/zdV23TgSJEsCqFKZq2wQufo2Qw5NMb4v/8HSBTVUw==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pg2", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["pg2", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["pg2", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.6831556174964248, 0.6, 0.6], LineBox[CompressedData["
@@ -14035,8 +14085,8 @@ pyqgZwP/9/8A7PbTSg==
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pg3", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["pg3", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["pg3", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.9192235949962146, 0.6, 0.6], LineBox[CompressedData["
@@ -14329,8 +14379,8 @@ Wd8MT/r8zxxBScHHOkXhKY//WaDn06mztWLw/b7/WXK7ZsyVInG48v/9/wAF
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["phos", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["phos", "c"], "Tooltip"]& ], 
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["phos", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.15529157249600445`, 0.6, 0.6], LineBox[CompressedData["
@@ -14602,8 +14652,8 @@ gihZ/3ted8AzdVkEzTz7P7MdvXnMp14Ucf7veb7G7/4BRWKI53+W3Kp+KSRF
            False, AutoSpacing -> False, ZeroWidthTimes -> True]], 
          Toolbox`metabolite["pyr", "c"], Editable -> False, Selectable -> 
          False]}], "\"Liter\""]],
-    Annotation[#, ("Liter"^(-1) "Millimole") 
-     Toolbox`metabolite["pyr", "c"], "Tooltip"]& ]},
+    Annotation[#, ("Liter"^(-1) "Millimole") Toolbox`metabolite["pyr", "c"], 
+     "Tooltip"]& ]},
   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
   AxesOrigin->{-13.815510557964274`, -9.940277883449907},
   BaseStyle->{"FontFamily" -> "Helvetica", FontSize -> 12},
@@ -15115,27 +15165,22 @@ gihZ/3ted8AzdVkEzTz7P7MdvXnMp14Ucf7veb7G7/4BRWKI53+W3Kp+KSRF
        Thickness[0.001]}}, {2.1972245773362196`, 
       FormBox["\"\"", TraditionalForm], {0.00375, 0.}, {
        Thickness[0.001]}}}}]], "Output",
- CellChangeTimes->{
-  3.557068674588491*^9, 3.557069018297441*^9, {3.558460153632152*^9, 
-   3.558460175061637*^9}},
- CellLabel->"Out[109]=",
+ ImageSize->{354, 238},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
  CellID->522168258]
 }, Open  ]]
-}, Open  ]],
-
-Cell[BoxData[
- InterpretationBox[Cell["tFinal", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
-
-Cell[BoxData[
- InterpretationBox[Cell["tStart", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
+}, Closed]],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- InterpretationBox[Cell["SpeciesProfiles", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection"],
+Cell[TextData[{
+ "SpeciesProfiles",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True],
 
 Cell[CellGroupData[{
 
@@ -15168,9 +15213,7 @@ Cell[BoxData[{
     RowBox[{"{", 
      RowBox[{"\"\<t\>\"", ",", "\"\<Concentration [mM]\>\""}], "}"}]}]}], 
   "]"}]}], "Input",
- CellChangeTimes->{{3.557074802736717*^9, 3.557074872201106*^9}, 
-   3.55707490842726*^9, {3.558460191729545*^9, 3.558460192617346*^9}},
- CellLabel->"In[125]:=",
+ CellLabel->"In[1]:=",
  CellID->1494338592],
 
 Cell[BoxData[
@@ -18187,8 +18230,8 @@ P8sv1QmJvS77//x/AOpeldI=
          StyleBox["c", 
           RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False,
            AutoSpacing -> False, ZeroWidthTimes -> True]], 
-        Toolbox`metabolite["h", "c"], Editable -> False, Selectable -> 
-        False], " ", 
+        Toolbox`metabolite["h", "c"], Editable -> False, Selectable -> False],
+        " ", 
        TagBox[
         FormBox[
          FractionBox["\"Millimole\"", "\"Liter\""], TraditionalForm], 
@@ -21693,10 +21736,10 @@ f14mYLXnp7oYWp7z/88b9Xmnzouh1Ef/M+f+Kwf8qsTR9qz/WaD659HTRRKI
        Thickness[0.001]}}, {2.1972245773362196`, 
       FormBox["\"\"", TraditionalForm], {0.00375, 0.}, {
        Thickness[0.001]}}}}]], "Output",
- CellChangeTimes->{{3.557074814137506*^9, 3.557074874088379*^9}, 
-   3.557074910554472*^9, {3.5584601836918583`*^9, 3.55846019522736*^9}, {
-   3.5584602371763983`*^9, 3.5584602632659893`*^9}},
- CellLabel->"Out[126]=",
+ ImageSize->{354, 238},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
  CellID->1341733442]
 }, Open  ]],
 
@@ -21731,11 +21774,7 @@ Cell[BoxData[{
     RowBox[{"{", 
      RowBox[{"\"\<t\>\"", ",", "\"\<Concentration [mmol]\>\""}], "}"}]}]}], 
   "]"}]}], "Input",
- CellChangeTimes->{{3.557068965283453*^9, 3.557068993476115*^9}, {
-  3.557074707293085*^9, 3.557074724741728*^9}, {3.557074884259721*^9, 
-  3.5570748843768167`*^9}, {3.5570749148271847`*^9, 3.5570749165537167`*^9}, {
-  3.558460213802829*^9, 3.558460214497746*^9}},
- CellLabel->"In[127]:=",
+ CellLabel->"In[2]:=",
  CellID->1758668974],
 
 Cell[BoxData[
@@ -22018,8 +22057,8 @@ tp5Tp2tEwOG7/7fYbqXIy0Vbwczn//t/jP9T/g==
        TagBox[
         FormBox["\"Millimole\"", TraditionalForm], TraditionalForm, Editable -> 
         True]}]],
-    Annotation[#, Toolbox`metabolite["adp", "c"] 
-     TraditionalForm["Millimole"], "Tooltip"]& ], 
+    Annotation[#, Toolbox`metabolite["adp", "c"] TraditionalForm["Millimole"],
+      "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.9060679774997897, 0.6, 0.6], LineBox[CompressedData["
@@ -22307,8 +22346,8 @@ h8tk0Sj1/1ZYqRt1KkcOjXn93/8Duqknxg==
        TagBox[
         FormBox["\"Millimole\"", TraditionalForm], TraditionalForm, Editable -> 
         True]}]],
-    Annotation[#, Toolbox`metabolite["amp", "c"] 
-     TraditionalForm["Millimole"], "Tooltip"]& ], 
+    Annotation[#, Toolbox`metabolite["amp", "c"] TraditionalForm["Millimole"],
+      "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.1421359549995791, 0.6, 0.6], LineBox[CompressedData["
@@ -22601,8 +22640,8 @@ mZPH3GNARQhwf///3/dO+BRsCoHiqP+Z6XiCv997YTD7/H/m6RoIDq8hgaH8
        TagBox[
         FormBox["\"Millimole\"", TraditionalForm], TraditionalForm, Editable -> 
         True]}]],
-    Annotation[#, Toolbox`metabolite["atp", "c"] 
-     TraditionalForm["Millimole"], "Tooltip"]& ], 
+    Annotation[#, Toolbox`metabolite["atp", "c"] TraditionalForm["Millimole"],
+      "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.37820393249936934`, 0.6, 0.6], LineBox[CompressedData["
@@ -23180,8 +23219,8 @@ zHYy6pR3kygIk/ufKa1dgecrxMAVlf9Zcpdq2I0scUD+f/8f3h65dQ==
        TagBox[
         FormBox["\"Millimole\"", TraditionalForm], TraditionalForm, Editable -> 
         True]}]],
-    Annotation[#, Toolbox`metabolite["f6p", "c"] 
-     TraditionalForm["Millimole"], "Tooltip"]& ], 
+    Annotation[#, Toolbox`metabolite["f6p", "c"] TraditionalForm["Millimole"],
+      "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.8503398874989481, 0.6, 0.6], LineBox[CompressedData["
@@ -23485,8 +23524,8 @@ cGsSBbq7vmxaoKXD91KFGFg7+X9L7la5HP1AHHRv/7//B9Vul5U=
        TagBox[
         FormBox["\"Millimole\"", TraditionalForm], TraditionalForm, Editable -> 
         True]}]],
-    Annotation[#, Toolbox`metabolite["fdp", "c"] 
-     TraditionalForm["Millimole"], "Tooltip"]& ], 
+    Annotation[#, Toolbox`metabolite["fdp", "c"] TraditionalForm["Millimole"],
+      "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.08640786499873876, 0.6, 0.6], LineBox[CompressedData["
@@ -23767,8 +23806,8 @@ K95eDWJgnfl/pjR3nQkqFgdCR/7zuh1KodfTJECS3X/+H+CvIZU=
        TagBox[
         FormBox["\"Millimole\"", TraditionalForm], TraditionalForm, Editable -> 
         True]}]],
-    Annotation[#, Toolbox`metabolite["g6p", "c"] 
-     TraditionalForm["Millimole"], "Tooltip"]& ], 
+    Annotation[#, Toolbox`metabolite["g6p", "c"] TraditionalForm["Millimole"],
+      "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.3224758424985268, 0.6, 0.6], LineBox[CompressedData["
@@ -24067,8 +24106,8 @@ WbtuyzwdvRcDa4XA0cP/t+ge5ZBbecKgZPf//T/Re4Hy
        TagBox[
         FormBox["\"Millimole\"", TraditionalForm], TraditionalForm, Editable -> 
         True]}]],
-    Annotation[#, Toolbox`metabolite["gap", "c"] 
-     TraditionalForm["Millimole"], "Tooltip"]& ], 
+    Annotation[#, Toolbox`metabolite["gap", "c"] TraditionalForm["Millimole"],
+      "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.5585438199983166, 0.6, 0.6], LineBox[CompressedData["
@@ -24345,8 +24384,8 @@ BOH/vG6HMv4/A/BI6D//DzMtLZs=
        TagBox[
         FormBox["\"Millimole\"", TraditionalForm], TraditionalForm, Editable -> 
         True]}]],
-    Annotation[#, Toolbox`metabolite["glu", "c"] 
-     TraditionalForm["Millimole"], "Tooltip"]& ], 
+    Annotation[#, Toolbox`metabolite["glu", "c"] TraditionalForm["Millimole"],
+      "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.7946117974981064, 0.6, 0.6], LineBox[CompressedData["
@@ -24506,13 +24545,13 @@ CiY=
          StyleBox["c", 
           RGBColor[0, 0, 0], StripOnInput -> False, ShowSyntaxStyles -> False,
            AutoSpacing -> False, ZeroWidthTimes -> True]], 
-        Toolbox`metabolite["h", "c"], Editable -> False, Selectable -> 
-        False], " ", 
+        Toolbox`metabolite["h", "c"], Editable -> False, Selectable -> False],
+        " ", 
        TagBox[
         FormBox["\"Millimole\"", TraditionalForm], TraditionalForm, Editable -> 
         True]}]],
-    Annotation[#, Toolbox`metabolite["h", "c"] 
-     TraditionalForm["Millimole"], "Tooltip"]& ], 
+    Annotation[#, Toolbox`metabolite["h", "c"] TraditionalForm["Millimole"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.030679774997896203`, 0.6, 0.6], LineBox[CompressedData["
@@ -24558,8 +24597,8 @@ HjO5yNmz+QWsdcoub6f/8ylZqcl3OLNmtXZ9sf+686y5K30y3tRZ/wu/uAOV
        TagBox[
         FormBox["\"Millimole\"", TraditionalForm], TraditionalForm, Editable -> 
         True]}]],
-    Annotation[#, Toolbox`metabolite["h2o", "c"] 
-     TraditionalForm["Millimole"], "Tooltip"]& ], 
+    Annotation[#, Toolbox`metabolite["h2o", "c"] TraditionalForm["Millimole"],
+      "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.266747752497686, 0.6, 0.6], LineBox[CompressedData["
@@ -24843,8 +24882,8 @@ l9x+4A==
        TagBox[
         FormBox["\"Millimole\"", TraditionalForm], TraditionalForm, Editable -> 
         True]}]],
-    Annotation[#, Toolbox`metabolite["lac", "c"] 
-     TraditionalForm["Millimole"], "Tooltip"]& ], 
+    Annotation[#, Toolbox`metabolite["lac", "c"] TraditionalForm["Millimole"],
+      "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.5028157299974758, 0.6, 0.6], LineBox[CompressedData["
@@ -25142,8 +25181,8 @@ QdDS9z8znrnl490sBGa7/2fu1h8XgkuFgXzv/yymrRR657EIsP5//x9TJUtW
        TagBox[
         FormBox["\"Millimole\"", TraditionalForm], TraditionalForm, Editable -> 
         True]}]],
-    Annotation[#, Toolbox`metabolite["nad", "c"] 
-     TraditionalForm["Millimole"], "Tooltip"]& ], 
+    Annotation[#, Toolbox`metabolite["nad", "c"] TraditionalForm["Millimole"],
+      "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.7388837074972656, 0.6, 0.6], LineBox[CompressedData["
@@ -25730,8 +25769,8 @@ Z9k=
        TagBox[
         FormBox["\"Millimole\"", TraditionalForm], TraditionalForm, Editable -> 
         True]}]],
-    Annotation[#, Toolbox`metabolite["pep", "c"] 
-     TraditionalForm["Millimole"], "Tooltip"]& ], 
+    Annotation[#, Toolbox`metabolite["pep", "c"] TraditionalForm["Millimole"],
+      "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.21101966249684523`, 0.6, 0.6], LineBox[CompressedData["
@@ -26311,8 +26350,8 @@ l+biLwqW/UxWfT35z4qUtRiQ2We8amGypXvHBnFQrqz+/98Nf3tnLIuDT1vl
        TagBox[
         FormBox["\"Millimole\"", TraditionalForm], TraditionalForm, Editable -> 
         True]}]],
-    Annotation[#, Toolbox`metabolite["pg2", "c"] 
-     TraditionalForm["Millimole"], "Tooltip"]& ], 
+    Annotation[#, Toolbox`metabolite["pg2", "c"] TraditionalForm["Millimole"],
+      "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.6831556174964248, 0.6, 0.6], LineBox[CompressedData["
@@ -26607,8 +26646,8 @@ eSsmN307GVIpAXiJ/1t6s2pYbLYkaJb6v/8H6kK7Vw==
        TagBox[
         FormBox["\"Millimole\"", TraditionalForm], TraditionalForm, Editable -> 
         True]}]],
-    Annotation[#, Toolbox`metabolite["pg3", "c"] 
-     TraditionalForm["Millimole"], "Tooltip"]& ], 
+    Annotation[#, Toolbox`metabolite["pg3", "c"] TraditionalForm["Millimole"],
+      "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.9192235949962146, 0.6, 0.6], LineBox[CompressedData["
@@ -27151,8 +27190,8 @@ Z/MMPunxVRRlDP3P/I1tfgHFYij6/yy5c8vl0FRxFPV//n84fnb8
        TagBox[
         FormBox["\"Millimole\"", TraditionalForm], TraditionalForm, Editable -> 
         True]}]],
-    Annotation[#, Toolbox`metabolite["pyr", "c"] 
-     TraditionalForm["Millimole"], "Tooltip"]& ]},
+    Annotation[#, Toolbox`metabolite["pyr", "c"] TraditionalForm["Millimole"],
+      "Tooltip"]& ]},
   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
   AxesOrigin->{-13.815510557964274`, -16.8480334342106},
   BaseStyle->{"FontFamily" -> "Helvetica", FontSize -> 12},
@@ -27682,47 +27721,128 @@ Z/MMPunxVRRlDP3P/I1tfgHFYij6/yy5c8vl0FRxFPV//n84fnb8
        Thickness[0.001]}}, {-4.710530701645918, 
       FormBox["\"\"", TraditionalForm], {0.00375, 0.}, {
        Thickness[0.001]}}}}]], "Output",
- CellChangeTimes->{{3.5570689752739477`*^9, 3.557068995586755*^9}, 
-   3.557074726639535*^9, 3.557074885969678*^9, 3.557074918305998*^9, {
-   3.5584602072291517`*^9, 3.558460216967745*^9}, 3.5584602685389757`*^9},
- CellLabel->"Out[128]=",
+ ImageSize->{354, 238},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
  CellID->1935666194]
 }, Open  ]]
-}, Open  ]]
+}, Closed]]
+}, Closed]],
+
+Cell["", "SectionFooterSpacer"],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
 }, Open  ]],
 
-Cell[BoxData[
- InterpretationBox[Cell["Applications", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->258228157],
+Cell[CellGroupData[{
 
-Cell[BoxData[
- InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->2123667759],
+Cell["", "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[{
+        Cell[
+         BoxData[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, BaselinePosition -> Baseline, 
+             ImageSize -> {6, 0}], CacheGraphics -> False], 
+           Spacer[6]]]], "See Also"}], "SeeAlsoSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[{
+       Cell[
+        BoxData[
+         InterpretationBox[
+          StyleBox[
+           GraphicsBox[{}, BaselinePosition -> Baseline, ImageSize -> {6, 0}],
+            CacheGraphics -> False], 
+          Spacer[6]]]], "See Also"}]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->1255426704],
 
-Cell[BoxData[
- InterpretationBox[Cell["Possible Issues", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1305812373],
+Cell[TextData[Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["plotSimulation"]],"paclet:Toolbox/ref/plotSimulation"},
+  "RefLink",
+  BaseStyle->{
+   "InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"]], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
 
-Cell[BoxData[
- InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->1653164318],
-
-Cell[BoxData[
- InterpretationBox[Cell["Neat Examples", "ExampleSection"],
-  $Line = 0; Null]], "ExampleSection",
- CellID->589267740]
-}, Open  ]]
+Cell[" ", "FooterCell"]
 },
-WindowSize->{1359, 1118},
-WindowMargins->{{Automatic, 164}, {Automatic, 0}},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"simulate",
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Wolfram Language", ButtonData -> "paclet:guide/WolframRoot", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2017, 6, 1, 13, 38, 12.889894}", 
+    "history" -> {"XX", "", "", ""}, "context" -> "Toolbox`Networks`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Toolbox Package Symbol", "language" -> "en", "paclet" -> 
+    "Toolbox Package", "status" -> "None", "summary" -> 
+    "simulate[model] simulates model. simulate[model, {t, tstart, tfinal}] \
+simulates model in the time interval [tstart, tfinal].", "synonyms" -> {}, 
+    "tabletags" -> {}, "title" -> "simulate", "titlemodifier" -> "", 
+    "windowtitle" -> "simulate", "type" -> "Symbol", "uri" -> 
+    "Toolbox/ref/simulate"}, "SearchTextTranslated" -> ""},
 CellContext->"Global`",
-FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 20, \
-2012)",
-StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
-  CharacterEncoding -> "UTF-8"]
+FrontEndVersion -> "6.0",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "6.0", 
+  StyleDefinitions -> "Default.nb"]
 ]
 

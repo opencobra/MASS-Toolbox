@@ -1,91 +1,79 @@
 Notebook[{
-Cell[TextData[{
- "New in: ",
- Cell["0.1", "HistoryData",
-  CellTags->"New"],
- " | Modified in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Modified"],
- " | Obsolete in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Obsolete"],
- " | Excised in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Excised"]
-}], "History",
- CellID->1247902091],
-
-Cell[CellGroupData[{
-
-Cell["Categorization", "CategorizationSection",
- CellID->1122911449],
-
-Cell["Tutorial", "Categorization",
- CellLabel->"Entity Type",
- CellID->686433507],
-
-Cell["Toolbox", "Categorization",
- CellLabel->"Paclet Name",
- CellID->605800465],
-
-Cell["Toolbox`", "Categorization",
- CellLabel->"Context",
- CellID->468444828],
-
-Cell["Toolbox/tutorial/Visualization", "Categorization",
- CellLabel->"URI"]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Keywords", "KeywordsSection",
- CellID->1427428552],
-
-Cell["XXXX", "Keywords",
- CellID->1251852827]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["Details", "DetailsSection",
- CellID->307771771],
-
-Cell["XXXX", "Details",
- CellLabel->"Lead",
- CellID->218895918],
-
-Cell["XXXX", "Details",
- CellLabel->"Developers",
- CellID->350963985],
-
-Cell["XXXX", "Details",
- CellLabel->"Authors",
- CellID->795871300],
-
-Cell["XXXX", "Details",
- CellLabel->"Feature Name",
- CellID->199739161],
-
-Cell["XXXX", "Details",
- CellLabel->"QA",
- CellID->40625308],
-
-Cell["XXXX", "Details",
- CellLabel->"DA",
- CellID->357121918],
-
-Cell["XXXX", "Details",
- CellLabel->"Docs",
- CellID->35949532],
-
-Cell["XXXX", "Details",
- CellLabel->"Features Page Notes",
- CellID->929432370],
-
-Cell["XXXX", "Details",
- CellLabel->"Comments",
- CellID->240026365]
-}, Closed]],
+Cell[BoxData[GridBox[{
+   {Cell["TOOLBOX TUTORIAL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Functions",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Functions", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Plot\"\>":>Documentation`HelpLookup[
+       "paclet:ref/Plot"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"TutorialFunction"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Toolbox/tutorial/Visualization\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["Toolbox/tutorial/Visualization"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/Toolbox/tutorial/\
+Visualization.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$58548], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "Toolbox/tutorial/Visualization", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
 
 Cell[CellGroupData[{
 
@@ -95,7 +83,6 @@ Cell["Visualization", "Title",
 Cell[CellGroupData[{
 
 Cell["Simulation results", "Subsection",
- CellChangeTimes->{{3.5635602678427773`*^9, 3.563560282977694*^9}},
  CellID->2058470521],
 
 Cell[TextData[{
@@ -105,15 +92,14 @@ that extend ",
   FontSlant->"Italic"],
  "s own ... of plotting functions. "
 }], "Text",
- CellChangeTimes->{{3.557076320723343*^9, 3.557076423946176*^9}, {
-  3.557076462707179*^9, 3.557076477171221*^9}},
  CellID->1534169418],
 
 Cell[BoxData[GridBox[{
    {
     RowBox[{
      ButtonBox["Plot",
-      BaseStyle->"Link"], "[", 
+      BaseStyle->"Link",
+      ButtonData->"paclet:ref/Plot"], "[", 
      StyleBox["stuff", "TI"], "]"}], Cell[
     "plot time-profile of simulation", "TableText"]},
    {
@@ -124,31 +110,16 @@ Cell[BoxData[GridBox[{
        BaseStyle->"Link",
        ButtonData->"paclet:Toolbox/ref/"], "TR"], "[", 
      StyleBox["simulation", "TI"], "]"}], Cell[
-    "plot a phase-portrait of simulation ", "TableText"]},
-   {"XXXX", Cell["XXXX", "TableText"]}
+    "plot a phase-portrait of simulation ", "TableText"]}
   }]], "DefinitionBox",
- CellChangeTimes->{{3.55707536615206*^9, 3.5570754769523573`*^9}, {
-  3.557075510473371*^9, 3.557075539251882*^9}, {3.557075578534102*^9, 
-  3.5570755913328943`*^9}, {3.557075769923918*^9, 3.5570758121871033`*^9}, {
-  3.5570765157579823`*^9, 3.5570765190252438`*^9}, {3.557076761859269*^9, 
-  3.557076779917644*^9}},
  CellID->2096742444],
 
 Cell["Toolbox plotting functions", "Caption",
- CellChangeTimes->{{3.55707648775595*^9, 3.557076493523533*^9}},
  CellID->1891092685],
 
-Cell[CellGroupData[{
-
-Cell["XXXX", "MathCaption",
- CellID->836781195],
-
 Cell[BoxData[{
- RowBox[{"Needs", "[", "\"\<Toolbox`Style`\>\"", 
-  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Needs", "[", "\"\<Toolbox`Style`\>\"", "]"}], "\[IndentingNewLine]", 
  RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}]}], "Input",
- CellChangeTimes->{{3.557075239726869*^9, 3.557075245612236*^9}, 
-   3.557075634407363*^9},
  CellLabel->"In[55]:=",
  CellID->2058623809],
 
@@ -157,8 +128,8 @@ Cell[BoxData[{
   RowBox[{"model", "=", 
    RowBox[{"ExampleData", "[", 
     RowBox[{"{", 
-     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<Glycolysis\>\""}], "}"}], 
-    "]"}]}], ";"}], "\[IndentingNewLine]", 
+     RowBox[{"\"\<Toolbox\>\"", ",", "\"\<Glycolysis\>\""}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{"updateInitialConditions", "[", 
   RowBox[{"model", ",", 
    RowBox[{"{", 
@@ -3332,8 +3303,8 @@ v6oI0Nnu/7/nOyf9itdFgDbvf//7/nDSkUOdG0Gu0P9M6uoPi6wRBdf+nyX0
           Cell["h", "Input"], 
           Cell["c", "Input"]], 
          Toolbox`metabolite["h", "c"]]}], "Liter"]],
-    Annotation[#, (Units`Liter^(-1) Units`Mole) 
-     Toolbox`metabolite["h", "c"], "Tooltip"]& ], 
+    Annotation[#, (Units`Liter^(-1) Units`Mole) Toolbox`metabolite["h", "c"], 
+     "Tooltip"]& ], 
    TagBox[
     TooltipBox[
      {Hue[0.030679774997896203`, 0.6, 0.6], LineBox[CompressedData["
@@ -6575,53 +6546,67 @@ n793wa1JEI/6P5ObO6/cKBLCY/7Poru337r/XPj/+/8BJe8dPA==
        Thickness[0.001]}}, {-7.013115794639964, 
       FormBox["\"\"", TraditionalForm], {0.00375, 0.}, {
        Thickness[0.001]}}}}]], "Output",
- CellChangeTimes->{3.557075669063774*^9},
+ ImageSize->{354, 238},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[59]=",
  CellID->2078925478]
 }, Open  ]]
-}, Open  ]]
 }, Open  ]],
 
-Cell["\<\
-Pathway and network visualization\
-\>", "Subsection",
- CellChangeTimes->{{3.563560286338519*^9, 3.563560292617373*^9}},
- CellID->1655755],
-
-Cell[CellGroupData[{
-
-Cell["More About", "TutorialMoreAboutSection",
- CellID->23220180],
-
-Cell["XXXX", "TutorialMoreAbout",
- CellID->1567025153]
+Cell["Pathway and network visualization", "Subsection",
+ CellID->1655755]
 }, Open  ]],
 
-Cell[CellGroupData[{
-
-Cell["Related Tutorials", "RelatedTutorialsSection",
- CellID->415694126],
-
-Cell["XXXX", "RelatedTutorials",
- CellID->806871991]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Wolfram Education Group Courses", "TutorialRelatedLinksSection",
- 
- CellID->415694148],
-
-Cell["XXXX", "TutorialRelatedLinks",
- CellID->415694149]
-}, Open  ]]
-}, Open  ]]
+Cell[" ", "FooterCell"]
 },
-WindowSize->{1108, 905},
-WindowMargins->{{376, Automatic}, {Automatic, 0}},
-FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
-2011)",
-StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "TutorialPageStyles.nb", 
-  CharacterEncoding -> "UTF-8"]
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"Visualization",
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "TutorialColor", 
+  "LinkTrails" -> GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Wolfram Language", ButtonData -> "paclet:guide/WolframRoot", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2017, 6, 1, 13, 38, 37.643138}", 
+    "history" -> {"0.1", "", "", ""}, "context" -> "Toolbox`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Toolbox Tutorial", "language" -> "en", "paclet" -> "Toolbox", "status" -> 
+    "None", "summary" -> 
+    "The Toolbox provides a series of specialized visualization capabilities \
+that extend Mathematica's own ... of plotting functions. Toolbox plotting \
+functions", "synonyms" -> {}, "tabletags" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$58407, "title" -> 
+    "Visualization", "titlemodifier" -> "", "windowtitle" -> "Visualization", 
+    "type" -> "Tutorial", "uri" -> "Toolbox/tutorial/Visualization"}, 
+  "SearchTextTranslated" -> ""},
+FrontEndVersion -> "6.0",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> Notebook], 
+   Cell[
+    StyleData["Output"], CellContext -> Notebook], 
+   Cell[
+    StyleData["TutorialMoreAboutSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["RelatedTutorialsSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["TutorialRelatedLinksSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}]}, Visible -> False, 
+  FrontEndVersion -> "6.0", 
+  StyleDefinitions -> "Default.nb"]
 ]
 
