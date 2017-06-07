@@ -10,7 +10,7 @@ $SystemCommandPrefix::usage = "Put this in front of your system command call, e.
 
 $ToolboxPath=FileNameJoin[FileNameSplit[DirectoryName[FindFile["Toolbox`"]]][[;;-2]]];
 
-$ToolboxVersion="1.1.8";
+$ToolboxVersion="1.2.0";
 
 Begin["`Private`"]
 

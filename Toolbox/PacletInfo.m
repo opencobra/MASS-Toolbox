@@ -4,7 +4,7 @@
 
 Paclet[
     Name -> "Toolbox",
-    Version -> "0.1.0",
+    Version -> "1.2.0",
     MathematicaVersion -> "6+",
     Creator -> "Nikolaus Sonnenschein (Systems Biology Research Group - UCSD)",
     Extensions -> 
