@@ -786,7 +786,7 @@ drawPathway::usage="drawPathway[metPos, rxnPos, textPos] draws a pathway map."
 importBIGGmap::usage="importBIGGmap[path] will import a SVG map from BIGG and return three data structures: (1) the metabolite coordinates, (2) the reaction Bezier curve coordinates, and (3) text labels and their positions."
 
 
-drawNodeMaps::usage="drawNodeMaps[model,Fluxes->listOfFluxes, Metabolites->listOfMetabolites] will draw node maps for the corresponding metabolites.";
+drawNodeMaps::usage="drawNodeMaps[model,Fluxes->listOfFluxes, Species->listOfMetabolites] will draw node maps for the corresponding metabolites.";
 
 
 pathwayGUI::usage="pathwayGUI[model,\"CurrencyMets\"->{_metabolites..} will open an interface that allows users to organize pathway maps for the model. CurrencyMets may either be a list of metabolites or the output from annotateCurrencyMetabolites"
