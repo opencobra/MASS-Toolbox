@@ -350,6 +350,7 @@ complex/:bind[c_complex,species__]:=complex[Sequence@@c,species]
 complex/:getCompartment[complex[elem__]]:=If[MatchQ[#,{_}],#[[1]],#]&[Union[getCompartment/@List[elem]]]
 complex/:getID[complex[elem__]]:=ToString[complex[elem]]
 complex/:ToString[complex[elem__]]:=StringJoin[Sequence@@Riffle[ToString/@(Times@@@Tally[ToString/@List[elem]])," & "]]
+complex/:ToString[C_complex,"SBML"]:=makeIdXmlConform[ToString[C]]
 
 
 (* ::Subsection:: *)
